@@ -1,0 +1,114 @@
+﻿<Window x:Class="MusicMediaPlayer.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MusicMediaPlayer"
+        xmlns:uc="clr-namespace:MusicMediaPlayer.UserControlMusic"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Login" Height="450" Width="300"
+        AllowsTransparency="True" Background="Transparent"
+        ResizeMode="NoResize" WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Border CornerRadius="20" Grid.RowSpan="2">
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <!--<GradientStop Color="#BFF098" Offset="0"></GradientStop>
+                        <GradientStop Color="#6FD6FF" Offset="1"></GradientStop>-->
+                        <GradientStop Color="#2af598" Offset="0.2"/>
+                        <GradientStop Color="#009efd" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+
+            <StackPanel>
+                <Button x:Name="Close"
+                        Style="{StaticResource NormalButton}"
+                        Margin="260,5,0,0"
+                        Height="30"
+                        Width="30"
+                        Click="Button_Click"
+                        >
+                    <Image Source="/Image/poweroff2.png">
+                    </Image>
+                </Button>
+                <Button Height="75"
+                        Width="75"
+                        HorizontalAlignment="Center"
+                        Margin="0,50,0,0"
+                        Foreground="White"
+                        Style="{StaticResource NormalButton}">
+                    <Image Source="/Image/logomusicapp.png"></Image>
+                </Button>
+                <TextBlock Text="Music Universe"
+                           FontSize="20"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           Foreground="White"
+                           FontFamily="Candara"
+                           Margin="0,10,0,0"></TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Row="1">
+                <StackPanel>
+                    <TextBox x:Name="Account"
+                        materialDesign:HintAssist.Hint="User Name"
+                        FontSize="15"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Height="auto"
+                        Width="250"
+                        HorizontalAlignment="Center"
+                        />
+                    <Border BorderBrush="White"
+                        Height="1"
+                        Width="240"
+                        BorderThickness="10">
+                    </Border>
+                </StackPanel>
+                <StackPanel Margin="0,10,0,0">
+                    <PasswordBox x:Name="Password"
+                        materialDesign:HintAssist.Hint="Password"
+                        FontSize="15"
+                        Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Height="auto"
+                        Width="250"
+                        HorizontalAlignment="Center"/>
+                    <Border BorderBrush="White"
+                        Height="1"
+                        Width="240"
+                        BorderThickness="10">
+                    </Border>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <Button Width="100" Height="40"  
+                            Margin="40,0,0,0" Content="Login"
+                            Style="{StaticResource ContactButton}"/>
+                    <Button Width="100" Height="40" Content="Register"
+                            Margin="20,0,0,0"
+                            Style="{StaticResource ContactButton}"/>
+                </StackPanel>
+
+
+            </StackPanel>
+
+
+        </Grid>
+    </Grid>
+</Window>
