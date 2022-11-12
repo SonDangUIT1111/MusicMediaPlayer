@@ -29,10 +29,15 @@
                     <LinearGradientBrush>
                         <!--<GradientStop Color="#BFF098" Offset="0"></GradientStop>
                         <GradientStop Color="#6FD6FF" Offset="1"></GradientStop>-->
-                        <GradientStop Color="#2af598" Offset="0.2"/>
-                        <GradientStop Color="#009efd" Offset="1"/>
+                        <GradientStop Color="#2af598" Offset="1"/>
+                        <GradientStop Color="#009efd" Offset="0.6"/>
+                        <GradientStop Color="#ba55d3" Offset="0.05"/>
+                        <!--<GradientStop Color="#2af598" Offset="0.2"/>
+                        <GradientStop Color="#009efd" Offset="1"/>-->
                     </LinearGradientBrush>
                 </Border.Background>
+                <Image Source="/image/universe2.jpg" Opacity="0.1"
+                       Stretch="UniformToFill"></Image>
             </Border>
 
             <StackPanel>
@@ -51,8 +56,24 @@
                         HorizontalAlignment="Center"
                         Margin="0,50,0,0"
                         Foreground="White"
-                        Style="{StaticResource NormalButton}">
+                        Style="{StaticResource NormalButton}"
+                        RenderTransformOrigin="0.5,0.5">
                     <Image Source="/Image/logomusicapp.png"></Image>
+                    <Button.RenderTransform>
+                        <RotateTransform x:Name="MyAnimatedTransform" Angle="0" />
+                    </Button.RenderTransform>
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation
+                Storyboard.TargetName="MyAnimatedTransform"
+                Storyboard.TargetProperty="(RotateTransform.Angle)"
+                From="0.0" To="360" Duration="0:0:3" RepeatBehavior="Forever" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
                 </Button>
                 <TextBlock Text="Music Universe"
                            FontSize="20"

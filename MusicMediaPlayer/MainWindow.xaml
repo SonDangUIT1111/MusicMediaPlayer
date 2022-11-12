@@ -30,8 +30,11 @@
                     Grid.ColumnSpan="4" >
                 <Border.Background>
                     <LinearGradientBrush>
-                        <GradientStop Color="#2af598" Offset="0.2"/>
-                        <GradientStop Color="#009efd" Offset="1"/>
+                        <!--<GradientStop Color="#2af598" Offset="0.2"/>
+                        <GradientStop Color="#009efd" Offset="1"/>-->
+                        <GradientStop Color="#2af598" Offset="0.05"/>
+                        <GradientStop Color="#009efd" Offset="0.6"/>
+                        <GradientStop Color="#ba55d3" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>
             </Border>
