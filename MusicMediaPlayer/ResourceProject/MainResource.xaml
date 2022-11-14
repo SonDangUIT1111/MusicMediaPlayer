@@ -1,7 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:MusicMediaPlayer.ResourceProject"
                     xmlns:viewmodel="clr-namespace:MusicMediaPlayer.ViewModel"
                     >
-    <viewmodel:MainViewModel x:Key="MainViewModelApp"></viewmodel:MainViewModel>
+    <viewmodel:MainViewModel x:Key="MVApp"></viewmodel:MainViewModel>
 </ResourceDictionary>

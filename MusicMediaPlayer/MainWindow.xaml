@@ -16,7 +16,8 @@
         Background="Transparent"
         Title="MainWindow" Height="700" Width="1050"
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
-        DataContext="{StaticResource MainViewModelApp}">
+        DataContext="{StaticResource MVApp}"
+        ResizeMode="CanResize">
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -24,10 +25,11 @@
                 <ColumnDefinition Width="300"></ColumnDefinition>
                 <ColumnDefinition Width="5"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="5"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Border CornerRadius="20" BorderBrush="Transparent"
                     BorderThickness="0"
-                    Grid.ColumnSpan="4" >
+                    Grid.ColumnSpan="5" >
                 <Border.Background>
                     <LinearGradientBrush>
                         <!--<GradientStop Color="#2af598" Offset="0.2"/>
@@ -66,3 +68,4 @@
         </Grid>
     </Grid>
 </Window>
+

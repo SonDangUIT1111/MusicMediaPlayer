@@ -29,3 +29,5 @@ C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\
 C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\NormalButton.baml
 C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\UserControlMusic\UserControl1.g.cs
 C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\UserControlMusic\UserControl1.baml
+C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\Register.g.cs
+C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\Register.baml
