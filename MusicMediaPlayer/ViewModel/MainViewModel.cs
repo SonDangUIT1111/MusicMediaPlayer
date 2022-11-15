@@ -14,16 +14,17 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand LogintoRegister;
         public MainViewModel()
         {
-           //
-                IsLoaded = true;
-                Login login = new Login();
-                login.ShowDialog();
-           //
-           LogintoRegister = new RelayCommand<object>((p) => { return true;  }, (p) => {
-                Register register =  new Register();
+
+            IsLoaded = true;
+            Login login = new Login();
+            login.ShowDialog();
+            //
+            LogintoRegister = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                Register register = new Register();
                 register.ShowDialog();
-           });
-           
+            });
+
         }
     }
 }

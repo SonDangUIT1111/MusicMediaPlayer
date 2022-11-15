@@ -41,20 +41,11 @@
             </Border>
 
             <StackPanel>
-                <Button x:Name="Close"
-                        Style="{StaticResource NormalButton}"
-                        Margin="260,5,0,0"
-                        Height="30"
-                        Width="30"
-                        Click="Close_Click"
-                        >
-                    <Image Source="/Image/poweroff2.png">
-                    </Image>
-                </Button>
+                <uc:UserControlLoginRegister/>
                 <Button Height="75"
                         Width="75"
                         HorizontalAlignment="Center"
-                        Margin="0,20,0,0"
+                        Margin="0,0,0,0"
                         Foreground="White"
                         Style="{StaticResource NormalButton}"
                         RenderTransformOrigin="0.5,0.5">
@@ -133,6 +124,23 @@
                         BorderThickness="10">
                     </Border>
                 </StackPanel>
+                <StackPanel>
+                    <TextBox x:Name="Email"
+                        materialDesign:HintAssist.Hint="Email"
+                        FontSize="15"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Height="auto"
+                        Width="250"
+                        HorizontalAlignment="Center"
+                        />
+                    <Border BorderBrush="White"
+                        Height="1"
+                        Width="240"
+                        BorderThickness="10">
+                    </Border>
+                </StackPanel>
                 <StackPanel Margin="0,20,0,0">
                     <Button Width="100" Height="40"  
                             Content="Sign up"
@@ -146,33 +154,21 @@
                                    Margin="65,0,0,0"
                                    FontWeight="Light"
                                    FontFamily="Candara"></TextBlock>
-                        <Button>
-                            <Button.Style>
-                                <Style TargetType="{x:Type Button}" x:Name="login">
-                                    <Setter Property="Background" Value="Transparent"></Setter>
-                                    <Setter Property="BorderBrush" Value="Transparent"></Setter>
-                                    <Setter Property="Content" Value="Log in"/>
-                                    <Setter Property="Foreground" Value="Black"/>
-                                    <Setter Property="FontSize" Value="12"/>
-                                    <Setter Property="Margin" Value="5,0,0,0"></Setter>
-                                    <Setter Property="BorderThickness" Value="0"/>
-                                    <Style.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Foreground" Value="Blue" />
-                                            <Setter Property="Background" Value="Transparent"></Setter>
-                                            <Setter Property="Template">
-                                                <Setter.Value>
-                                                    <ControlTemplate TargetType="{x:Type Button}">
-                                                        <Border Background="{TemplateBinding Background}">
-                                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
-                                                        </Border>
-                                                    </ControlTemplate>
-                                                </Setter.Value>
-                                            </Setter>
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Button.Style>
+                        <Button 
+                                Content="Log in" 
+                                VerticalAlignment="Top" 
+                                Padding="0" 
+                                HorizontalContentAlignment="Right" 
+                                VerticalContentAlignment="Top" 
+                                FontSize="12" 
+                                FontWeight="Medium" 
+                                Cursor="Hand" 
+                                FocusVisualStyle="{x:Null}"
+                                Background="{x:Null}" 
+                                Foreground="{DynamicResource Secondary}" 
+                                BorderBrush="{x:Null}" 
+                                Margin="5,0,30,0"
+                                IsTabStop="False" >
                         </Button>
                     </StackPanel>
                 </StackPanel>

@@ -9,17 +9,17 @@ using System.Windows.Input;
 
 namespace MusicMediaPlayer.ViewModel
 {
-    public class UserControlViewModel:BaseViewModel
+    public class UCLoginRegister:BaseViewModel
     {
-        public ICommand MinimalWindowCommand { get; set; }
-        public ICommand CloseWindowCommand { get; set; }
-        public UserControlViewModel()
+        public ICommand MinimalWindowCommandLG { get; set; }
+        public ICommand CloseWindowCommandLG { get; set; }
+        public UCLoginRegister()
         {
-            MinimalWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; },(p)=>
+            MinimalWindowCommandLG = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) =>
             {
                 FrameworkElement window = GetWindowParent(p);
                 var w = window as Window;
-                if (w!=null)
+                if (w != null)
                 {
                     if (w.WindowState != WindowState.Minimized)
                         w.WindowState = WindowState.Minimized;
@@ -28,7 +28,7 @@ namespace MusicMediaPlayer.ViewModel
                 }
             }
             );
-            CloseWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) =>
+            CloseWindowCommandLG = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) =>
             {
                 FrameworkElement window = GetWindowParent(p);
                 var w = window as Window;
