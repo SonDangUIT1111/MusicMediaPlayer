@@ -26,7 +26,7 @@
                           Width="50"
                           Margin="200,0,0,0"
                           BorderThickness="0"
-                          ToolTip="Minimal"
+                          ToolTip="Minimized"
                           ToolBar.OverflowMode="AsNeeded"
                           Command="{Binding MinimalWindowCommandLG}"
                           CommandParameter="{Binding ElementName=UCLogin}">

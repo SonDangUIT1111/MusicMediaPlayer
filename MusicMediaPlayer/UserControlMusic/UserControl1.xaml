@@ -60,7 +60,7 @@
                           Width="60"
                           Margin="600,-5,0,0"
                           BorderThickness="0"
-                          ToolTip="Minimal"
+                          ToolTip="Minimized"
                           ToolBar.OverflowMode="AsNeeded"
                           Command="{Binding MinimalWindowCommand}"
                           CommandParameter="{Binding ElementName=UCMain}">

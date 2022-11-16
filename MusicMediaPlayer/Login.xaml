@@ -17,7 +17,9 @@
         AllowsTransparency="True" Background="Transparent"
         ResizeMode="NoResize" WindowStyle="None"
         WindowStartupLocation="CenterScreen"
+        DataContext="{StaticResource LoginVM}"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        Name="LoginWindow"
         >
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
@@ -157,7 +159,8 @@
                             Content="Login"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            Style="{StaticResource ContactButton}"/>
+                            Style="{StaticResource ContactButton}"
+                            Margin="0,10,0,0"/>
                     <StackPanel Orientation="Horizontal"
                                 Margin="0,10,0,0">
                         <TextBlock Text="Don't have an accout ?"
@@ -179,7 +182,9 @@
                                     Foreground="{DynamicResource Secondary}" 
                                     BorderBrush="{x:Null}" 
                                     Margin="5,0,30,0"
-                                    IsTabStop="False" >
+                                    IsTabStop="False"
+                                    Command="{Binding LogintoRegister}"
+                                   >
                         </Button>
                     </StackPanel>
                 </StackPanel>

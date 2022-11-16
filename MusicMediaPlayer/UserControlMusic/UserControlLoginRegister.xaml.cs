@@ -21,11 +21,11 @@ namespace MusicMediaPlayer.UserControlMusic
     /// </summary>
     public partial class UserControlLoginRegister : UserControl
     {
-        public UCLoginRegister ViewmodelLG { get; set; }
+        public UCLoginRegisterViewModel ViewmodelLG { get; set; }
         public UserControlLoginRegister()
         {
             InitializeComponent();
-            this.DataContext = ViewmodelLG = new UCLoginRegister();
+            this.DataContext = ViewmodelLG = new UCLoginRegisterViewModel();
         }
     }
 }

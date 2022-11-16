@@ -11,7 +11,6 @@ namespace MusicMediaPlayer.ViewModel
     public class MainViewModel:BaseViewModel
     {
         public bool IsLoaded = false;
-        public ICommand LogintoRegister;
         public MainViewModel()
         {
 
@@ -19,12 +18,7 @@ namespace MusicMediaPlayer.ViewModel
             Login login = new Login();
             login.ShowDialog();
             //
-            LogintoRegister = new RelayCommand<object>((p) => { return true; }, (p) =>
-            {
-                Register register = new Register();
-                register.ShowDialog();
-            });
-
+           
         }
     }
 }
