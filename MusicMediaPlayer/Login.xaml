@@ -20,6 +20,7 @@
         DataContext="{StaticResource LoginVM}"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         Name="LoginWindow"
+        Icon="IconApp.ico"
         >
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
@@ -29,7 +30,7 @@
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition/>
+                <RowDefinition Height="200"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
@@ -54,7 +55,7 @@
                 <Button Height="75"
                         Width="75"
                         HorizontalAlignment="Center"
-                        Margin="0,50,0,0"
+                        Margin="0,20,0,0"
                         Foreground="White"
                         Style="{StaticResource NormalButton}"
                         RenderTransformOrigin="0.5,0.5">

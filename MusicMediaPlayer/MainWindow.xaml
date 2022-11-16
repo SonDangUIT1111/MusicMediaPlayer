@@ -14,10 +14,11 @@
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Background="Transparent"
-        Title="MainWindow" Height="700" Width="1050"
+        Title="Music Player" Height="700" Width="1050"
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
         DataContext="{StaticResource MVApp}"
         ResizeMode="CanResize"
+        Icon="IconApp.ico"
         >
     <Grid>
         <Grid>

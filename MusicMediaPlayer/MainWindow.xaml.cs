@@ -23,6 +23,7 @@ namespace MusicMediaPlayer
         public MainWindow()
         {
             InitializeComponent();
+
         }
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {

@@ -16,7 +16,8 @@
         Title="Register" Height="450" Width="300"
         AllowsTransparency="True" Background="Transparent"
         ResizeMode="NoResize" WindowStyle="None"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        Icon="IconApp.ico">
     <Grid>
         <Grid>
             <Grid.RowDefinitions>

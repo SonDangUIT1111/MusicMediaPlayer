@@ -219,6 +219,7 @@
     <Resource Include="Image\universe2.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="IconApp.ico" />
     <Content Include="Model\Database.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Database.Context.cs</LastGenOutput>
