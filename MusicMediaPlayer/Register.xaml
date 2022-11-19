@@ -17,7 +17,10 @@
         AllowsTransparency="True" Background="Transparent"
         ResizeMode="NoResize" WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        Icon="IconApp.ico">
+        Icon="IconApp.ico"
+        DataContext="{StaticResource RegisterVM}"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        Name="RegisterWindow">
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -86,6 +89,7 @@
                         Height="auto"
                         Width="250"
                         HorizontalAlignment="Center"
+                        Text="{Binding Username}"
                         />
                     <Border BorderBrush="White"
                         Height="1"
@@ -102,7 +106,15 @@
                         BorderThickness="0"
                         Height="auto"
                         Width="250"
-                        HorizontalAlignment="Center"/>
+                        HorizontalAlignment="Center"
+                        >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="PasswordChanged">
+                                <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}"
+                                   CommandParameter="{Binding ElementName=Password}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </PasswordBox>
                     <Border BorderBrush="White"
                         Height="1"
                         Width="240"
@@ -118,7 +130,14 @@
                         BorderThickness="0"
                         Height="auto"
                         Width="250"
-                        HorizontalAlignment="Center"/>
+                        HorizontalAlignment="Center">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="PasswordChanged">
+                                <i:InvokeCommandAction Command="{Binding ConfirmPasswordChangedCommand}"
+                                   CommandParameter="{Binding ElementName=ConfirmPassword}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </PasswordBox>
                     <Border BorderBrush="White"
                         Height="1"
                         Width="240"
@@ -135,6 +154,7 @@
                         Height="auto"
                         Width="250"
                         HorizontalAlignment="Center"
+                        Text="{Binding Email}"
                         />
                     <Border BorderBrush="White"
                         Height="1"
@@ -147,7 +167,10 @@
                             Content="Sign up"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            Style="{StaticResource ContactButton}"/>
+                            Style="{StaticResource ContactButton}"
+                            Command="{Binding SignUpCommand}"
+                            IsDefault="True"
+                            CommandParameter="{Binding ElementName=RegisterWindow}"/>
                     <StackPanel Orientation="Horizontal"
                                 Margin="0,10,0,0">
                         <TextBlock Text="Have an accout already ?"
@@ -169,7 +192,9 @@
                                 Foreground="{DynamicResource Secondary}" 
                                 BorderBrush="{x:Null}" 
                                 Margin="5,0,30,0"
-                                IsTabStop="False" >
+                                IsTabStop="False"
+                                Command="{Binding ToLogin}"
+                                CommandParameter="{Binding ElementName=RegisterWindow}">
                         </Button>
                     </StackPanel>
                 </StackPanel>

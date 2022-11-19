@@ -18,8 +18,16 @@
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
         DataContext="{StaticResource MVApp}"
         ResizeMode="CanResize"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         Icon="IconApp.ico"
+        Name="Home"
         >
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedTurnOnLogin}"
+                                   CommandParameter="{Binding ElementName=Home}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
         <Grid>
             <Grid.RowDefinitions>

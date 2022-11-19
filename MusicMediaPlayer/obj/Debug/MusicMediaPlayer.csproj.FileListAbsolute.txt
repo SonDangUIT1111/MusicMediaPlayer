@@ -37,7 +37,6 @@ C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\bin\Debug\
 C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\bin\Debug\System.Windows.Interactivity.dll
 C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\bin\Debug\Microsoft.Expression.Interactions.xml
 C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\bin\Debug\System.Windows.Interactivity.xml
-C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\LoginResource.baml
 C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\bin\Debug\EntityFramework.dll
 C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\bin\Debug\EntityFramework.xml
