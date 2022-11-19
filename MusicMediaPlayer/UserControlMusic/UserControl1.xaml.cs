@@ -25,13 +25,9 @@ namespace MusicMediaPlayer.UserControlMusic
         public UserControl1()
         {
             InitializeComponent();
-            ViewModel = new UserControlViewModel();
-            this.DataContext = ViewModel;
+            this.DataContext = ViewModel = new UserControlViewModel();
         }
 
-        private void Close_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
+
     }
 }

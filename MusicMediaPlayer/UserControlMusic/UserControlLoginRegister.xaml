@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="MusicMediaPlayer.UserControlMusic.UserControlLoginRegister"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MusicMediaPlayer.UserControlMusic"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="300"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+            TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+            TextElement.FontWeight="Regular"
+            TextElement.FontSize="13"
+            TextOptions.TextFormattingMode="Ideal"
+            TextOptions.TextRenderingMode="Auto"
+            FontFamily="{DynamicResource MaterialDesignFont}"
+            Name="UCLogin"
+             >
+    <Grid>
+        <Grid>
+            <Border CornerRadius="20" Grid.RowSpan="2" Opacity="1">
+            </Border>
+            <StackPanel Orientation="Horizontal">
+                <Button   Background="Transparent"
+                          Foreground="White"
+                          Height="50"
+                          Width="50"
+                          Margin="200,0,0,0"
+                          BorderThickness="0"
+                          ToolTip="Minimized"
+                          ToolBar.OverflowMode="AsNeeded"
+                          Command="{Binding MinimalWindowCommandLG}"
+                          CommandParameter="{Binding ElementName=UCLogin}">
+                    <materialDesign:PackIcon Kind="WindowMinimize"
+                                             Height="20"
+                                             Width="20"
+                                         />
+                </Button>
+                <Button   Background="Transparent"
+                          Foreground="White"
+                          Height="50"
+                          Width="50"
+                          Margin="0,0,0,0"
+                          BorderThickness="0"
+                          ToolTip="Close"
+                          ToolBar.OverflowMode="AsNeeded"
+                          Command="{Binding CloseWindowCommandLG}"
+                          CommandParameter="{Binding ElementName=UCLogin}">
+                    <materialDesign:PackIcon Kind="WindowClose"
+                                             Height="20"
+                                             Width="20"
+                     />
+                </Button>
+
+
+
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

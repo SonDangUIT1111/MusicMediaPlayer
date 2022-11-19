@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MusicPlayerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="PlayList">
+    <Key>
+      <PropertyRef Name="PlayListId" />
+    </Key>
+    <Property Name="PlayListId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PlayListName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SongCount" Type="Int32" />
+    <Property Name="OwnerId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="UserAccount" Relationship="Self.FK__PlayList__OwnerI__267ABA7A" FromRole="PlayList" ToRole="UserAccount" />
+    <NavigationProperty Name="Songs" Relationship="Self.FK__Song__ListId__29572725" FromRole="PlayList" ToRole="Song" />
+  </EntityType>
+  <EntityType Name="Song">
+    <Key>
+      <PropertyRef Name="SongId" />
+    </Key>
+    <Property Name="SongId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SongTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Times" Type="Int32" />
+    <Property Name="Artist" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsFavourite" Type="Boolean" />
+    <Property Name="ListId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PlayList" Relationship="Self.FK__Song__ListId__29572725" FromRole="Song" ToRole="PlayList" />
+  </EntityType>
+  <EntityType Name="UserAccount">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UserPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PlayLists" Relationship="Self.FK__PlayList__OwnerI__267ABA7A" FromRole="UserAccount" ToRole="PlayList" />
+  </EntityType>
+  <Association Name="FK__PlayList__OwnerI__267ABA7A">
+    <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />
+    <End Role="PlayList" Type="Self.PlayList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccount">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="PlayList">
+        <PropertyRef Name="OwnerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Song__ListId__29572725">
+    <End Role="PlayList" Type="Self.PlayList" Multiplicity="1" />
+    <End Role="Song" Type="Self.Song" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PlayList">
+        <PropertyRef Name="PlayListId" />
+      </Principal>
+      <Dependent Role="Song">
+        <PropertyRef Name="ListId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MusicPlayerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="PlayLists" EntityType="Self.PlayList" />
+    <EntitySet Name="Songs" EntityType="Self.Song" />
+    <EntitySet Name="UserAccounts" EntityType="Self.UserAccount" />
+    <AssociationSet Name="FK__PlayList__OwnerI__267ABA7A" Association="Self.FK__PlayList__OwnerI__267ABA7A">
+      <End Role="UserAccount" EntitySet="UserAccounts" />
+      <End Role="PlayList" EntitySet="PlayLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Song__ListId__29572725" Association="Self.FK__Song__ListId__29572725">
+      <End Role="PlayList" EntitySet="PlayLists" />
+      <End Role="Song" EntitySet="Songs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
