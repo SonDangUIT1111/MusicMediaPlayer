@@ -3,6 +3,8 @@ using MusicMediaPlayer.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +16,10 @@ namespace MusicMediaPlayer.ViewModel
 {
     public class RegisterViewModel:BaseViewModel
     {
+        public bool IsSend { get; set; }
+        public bool IsVerified { get; set; }
         public bool IsSignedUp { get; set; }
+        public int RandomCode { get; set; }
         private string _Username;
         public string Username { get => _Username; set { _Username = value; OnPropertyChanged(); } }
         private string _Password;
@@ -22,14 +27,34 @@ namespace MusicMediaPlayer.ViewModel
         private string _ConfirmPassword;
         public string ConfirmPassword { get => _ConfirmPassword; set { _ConfirmPassword = value; OnPropertyChanged(); } }
         private string _Email;
-        public string Email { get => _ConfirmPassword; set { _Email = value; OnPropertyChanged(); } }
+        public string Email { get => _Email; set { _Email = value; OnPropertyChanged(); } }
+        private string _EmailProtected;
+        public string EmailProtected { get => _EmailProtected; set { _EmailProtected = value; OnPropertyChanged(); } }
+        private string _NewPassword;
+        public string NewPassword { get => _NewPassword; set { _NewPassword = value; OnPropertyChanged(); } }
+        private string _ConfirmNewPassword;
+
+        private string _Code;
+        public string Code { get => _Code; set { _Code = value; OnPropertyChanged(); } }
+        public string ConfirmNewPassword { get => _ConfirmNewPassword; set { _ConfirmNewPassword = value; OnPropertyChanged(); } }
         public ICommand ToLogin { get; set; }
         public ICommand PasswordChangedCommand { get; set; }
         public ICommand ConfirmPasswordChangedCommand { get; set; }
         public ICommand SignUpCommand { get; set; }
+        public ICommand SendCodeCommand { get; set; }
+        public ICommand NewPasswordChangedCommand { get; set; }
+        public ICommand ConfirmNewPasswordChangedCommand { get; set; }
+        public ICommand VerifiedCommand { get; set; }
+        public ICommand ChangePasswordCommand { get; set; }
         public RegisterViewModel()
         {
+            //khởi tạo
+            RandomCode = 0;
+            //cờ đánh dấu trạng thái
+            IsSend = false;
+            IsVerified = false;
             IsSignedUp = false;
+            //lệnh nhấn nút login
             ToLogin = new RelayCommand<Window>((p) => { return true; }, (p) =>
              {
                  if (p == null)
@@ -41,15 +66,47 @@ namespace MusicMediaPlayer.ViewModel
              });
             PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { Password = p.Password; });
             ConfirmPasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { ConfirmPassword = p.Password; });
+            //lệnh nhấn nút sign up
             SignUpCommand = new RelayCommand<Window>((p) => { return true; },(p) =>
             {
                 Sign(p);
             } );
+            NewPasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { NewPassword = p.Password; });
+            ConfirmNewPasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { ConfirmNewPassword = p.Password; });
+            SendCodeCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                Send(p);
+            });
+            VerifiedCommand = new RelayCommand<Window>((p) =>
+            { 
+                if (IsSend == true) 
+                    return true;
+                else
+                { 
+                    return false;
+                }
+            }, 
+            (p) =>
+            {
+                Verified(p);
+            });
+            ChangePasswordCommand = new RelayCommand<Window>((p) => 
+            { 
+                if (IsVerified == true)
+                {
+                    return true;
+                }
+                else return false; 
+            }, (p) =>
+             {
+                 Change(p);
+             });
         }
         void Sign(Window p)
         {
             if (p == null)
                 return;
+            //Kiểm tra đã nhập đủ thông tin
             if (String.IsNullOrEmpty(Username))
             {
                 MessageBox.Show("Please enter the user name");
@@ -72,8 +129,9 @@ namespace MusicMediaPlayer.ViewModel
             }
             else
             {
+                //Kiểm tra user và email đăng ký có tồn tại không 
                 var UserCountm = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == Username).Count();
-                var EmailCountm = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserEmail == Username).Count();
+                var EmailCountm = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserEmail == Email).Count();
                 if (UserCountm > 0 )
                 {
                     IsSignedUp = false;
@@ -86,12 +144,12 @@ namespace MusicMediaPlayer.ViewModel
                 }
                 if (Password != ConfirmPassword)
                 {
-                    MessageBox.Show("Password confirms wrong");
+                    MessageBox.Show("Password confirmes wrong");
                 }
                 else
                 {
                     string passEncode = CreateMD5(Base64Encode(Password));
-                    //them du lieu vao database
+                    //Thêm user mới vào database
 
                     var newuser = new UserAccount() { UserName = Username,UserEmail = Email, UserPassword = passEncode };
                     DataProvider.Ins.DB.UserAccounts.Add(newuser);
@@ -101,6 +159,100 @@ namespace MusicMediaPlayer.ViewModel
                     Login login = new Login();  
                     login.ShowDialog();
                 }
+            }
+            
+        }
+        void Send(Window p)
+        {
+            if (p == null)
+                return;
+            //Kiểm tra đã nhập đủ thông tin
+            if (String.IsNullOrEmpty(EmailProtected))
+            {
+                MessageBox.Show("Please enter the email has assigned");
+                return;
+            }
+            else
+            {
+                //Kiểm tra email bảo vệ có tồn tại không 
+                var EmailCountm = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserEmail == EmailProtected).Count();
+                //email đúng
+                if (EmailCountm > 0)
+                {
+                    IsSend = true;
+                    Random rd = new Random();
+                    RandomCode = rd.Next(100000,999999);
+                    string RandomCodeString = RandomCode.ToString();
+                    MessageBox.Show(RandomCodeString);
+                    SendCodeByEmail(RandomCodeString, "thienthanvsacquy1234@gmail.com");
+                    return;
+                }
+                else
+                {
+                    IsSend = false;
+                    MessageBox.Show("This email has not been assigned");
+                    return;
+                }
+            }
+        }
+        void Verified(Window p)
+        {
+            if (p == null)
+                return;
+            if(String.IsNullOrEmpty(Code))
+            {
+                MessageBox.Show("Enter the code verified");
+            }
+            else if (Code.Length!=6)
+            {
+                MessageBox.Show("Enter right format");
+            }
+            try
+            {
+                if (Int32.Parse(Code) == RandomCode)
+                {
+                    IsVerified = true;
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("The code is not right");
+                    IsVerified = false;
+                }
+            }
+            catch (Exception)
+            {
+                IsVerified = false;
+                MessageBox.Show("Code format is not correct");
+            }
+        }
+        void Change(Window p)
+        {
+            if (p == null)
+                return;
+            if (String.IsNullOrEmpty(NewPassword))
+            {
+                MessageBox.Show("Please enter new password");
+                return;
+            }
+            if (String.IsNullOrEmpty(ConfirmNewPassword))
+            {
+
+                MessageBox.Show("Please confirm new password");
+                return;
+            }
+            if (ConfirmNewPassword != NewPassword)
+            {
+                MessageBox.Show("Confirm wrong");
+                return;
+            }
+            else
+            {
+                string encodenewPass = CreateMD5(Base64Encode(NewPassword));
+                var acc = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserEmail == EmailProtected).SingleOrDefault();
+                acc.UserPassword = encodenewPass;
+                DataProvider.Ins.DB.SaveChanges();
+                MessageBox.Show("Successfully changes password");
             }
         }
         public static string Base64Encode(string plainText)
@@ -125,6 +277,28 @@ namespace MusicMediaPlayer.ViewModel
                     sb.Append(hashBytes[i].ToString("X2"));
                 }
                 return sb.ToString();
+            }
+        }
+        public static void SendCodeByEmail(string codesend,string to)
+        {
+            string from, subject,messageBody;
+            messageBody = "Your verified code is " + codesend;
+            from = "spksk1111@gmail.com";
+            subject = "Music Media Player - Changing Password";
+            MailMessage message = new MailMessage(from,to,subject,messageBody);
+            SmtpClient client = new SmtpClient("smtp.gmail.com");
+            client.EnableSsl = true;
+            client.Port = 587;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.Credentials = new NetworkCredential(from, "aonfbkjdjndadyso");
+            try
+            {
+                client.Send(message);
+                MessageBox.Show("The code verified has been sent to your email protect");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Failed to sent, please wait a minute and try again");
             }
         }
 

@@ -20,6 +20,7 @@ namespace MusicMediaPlayer.ViewModel
         private string _Password;
         public string Password { get => _Password; set { _Password = value; OnPropertyChanged(); } }
         public ICommand LogintoRegister { get; set; }
+        public ICommand ToForgotPassword { get; set; }
         public ICommand LoginSuccess { get; set; }
         public ICommand PasswordChangedCommand { get; set; }
         public LoginViewModel()
@@ -39,7 +40,14 @@ namespace MusicMediaPlayer.ViewModel
                 Log(p);
             });
             PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; },(p)=> { Password = p.Password; });
-           
+            ToForgotPassword = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                p.Close();
+                ForgotPassword forgotPassword = new ForgotPassword();
+                forgotPassword.ShowDialog();
+
+            });
+
 
         }
         void Log(Window p)
@@ -57,11 +65,21 @@ namespace MusicMediaPlayer.ViewModel
             else
             {
                 string passEncode = CreateMD5(Base64Encode(Password));
-                var AccCount = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == Username && x.UserPassword == passEncode).Count();
+                var AccCount = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == Username).Count();
                 if (AccCount > 0)
                 {
-                    IsLoggedIn = true;
-                    p.Close();
+                    var CheckPass = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == Username && x.UserPassword == passEncode).Count();
+                    if (CheckPass > 0)
+                    {
+                        IsLoggedIn = true;
+                        p.Close();
+                    }
+                    else
+                    {
+                        IsLoggedIn = false;
+                        MessageBox.Show("Wrong password");
+                        return;
+                    }
                 }
                 else
                 {

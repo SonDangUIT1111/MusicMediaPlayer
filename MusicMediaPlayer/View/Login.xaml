@@ -158,7 +158,9 @@
                         Margin="150,0,30,0"
                         IsTabStop="False"
                         Height="auto"
-                        Width="100">
+                        Width="100"
+                        Command="{Binding ToForgotPassword}"
+                        CommandParameter="{Binding ElementName=LoginWindow}">
                     </Button>
                     <Button Width="100" Height="40"  
                             Content="Login"

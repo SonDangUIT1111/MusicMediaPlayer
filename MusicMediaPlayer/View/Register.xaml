@@ -80,7 +80,8 @@
             </StackPanel>
             <StackPanel Grid.Row="1">
                 <StackPanel>
-                    <TextBox x:Name="Account"
+                    <TextBox
+                        x:Name="Account"
                         materialDesign:HintAssist.Hint="User Name"
                         FontSize="15"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
