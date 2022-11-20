@@ -97,6 +97,9 @@
     <Compile Include="Model\PlayList.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="View\ForgotPassword.xaml.cs">
+      <DependentUpon>ForgotPassword.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
@@ -118,6 +121,10 @@
     <Compile Include="ViewModel\RegisterViewModel.cs" />
     <Compile Include="ViewModel\UCLoginRegisterViewModel.cs" />
     <Compile Include="ViewModel\UserControlViewModel.cs" />
+    <Page Include="View\ForgotPassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -216,7 +223,6 @@
     <Resource Include="Image\universe2.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="IconApp.ico" />
     <Content Include="Model\Database.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Database.Context.cs</LastGenOutput>
@@ -227,6 +233,7 @@
       <DependentUpon>Database.edmx</DependentUpon>
       <LastGenOutput>Database.cs</LastGenOutput>
     </Content>
+    <Resource Include="View\IconApp.ico" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

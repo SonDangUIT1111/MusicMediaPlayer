@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace MusicMediaPlayer
+namespace MusicMediaPlayer.View
+
 {
     /// <summary>
     /// Interaction logic for Login.xaml
