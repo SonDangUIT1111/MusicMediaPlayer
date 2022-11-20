@@ -29,10 +29,6 @@ namespace MusicMediaPlayer.ViewModel
         public RegisterViewModel()
         {
             IsSignedUp = false;
-            Username = "";
-            Password = "";
-            ConfirmPassword = "";
-            Email = "";
             ToLogin = new RelayCommand<Window>((p) => { return true; }, (p) =>
              {
                  if (p == null)
@@ -40,6 +36,7 @@ namespace MusicMediaPlayer.ViewModel
                  p.Close();
                  Login login = new Login();
                  login.ShowDialog();
+                 
              });
             PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { Password = p.Password; });
             ConfirmPasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { ConfirmPassword = p.Password; });
@@ -52,21 +49,25 @@ namespace MusicMediaPlayer.ViewModel
         {
             if (p == null)
                 return;
-            if (Username == "")
+            if (String.IsNullOrEmpty(Username))
             {
                 MessageBox.Show("Please enter the user name");
+                return;
             }
-            else if (Password == "")
+            else if (String.IsNullOrEmpty(Password))
             {
                 MessageBox.Show("Please enter the password");
+                return;
             }
-            else if (ConfirmPassword == "")
+            else if (String.IsNullOrEmpty(ConfirmPassword))
             {
                 MessageBox.Show("Please confirm the password");
+                return;
             }
-            else if (Email == "")
+            else if (String.IsNullOrEmpty(Email))
             {
                 MessageBox.Show("Please enter the email to protect the account");
+                return;
             }
             else
             {
@@ -90,6 +91,10 @@ namespace MusicMediaPlayer.ViewModel
                 {
                     string passEncode = CreateMD5(Base64Encode(Password));
                     //them du lieu vao database
+
+                    var newuser = new UserAccount() { UserName = Username,UserEmail = Email, UserPassword = passEncode };
+                    DataProvider.Ins.DB.UserAccounts.Add(newuser);
+                    DataProvider.Ins.DB.SaveChanges();
                     IsSignedUp = true;
                     p.Close();
                     Login login = new Login();  

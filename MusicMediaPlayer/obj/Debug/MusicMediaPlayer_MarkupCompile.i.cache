@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\App.xaml
-8197744254
+8402479731
 2-1797966213
-23843056242
+231664215713
 22-181596382
-Login.xaml;MainWindow.xaml;Register.xaml;ResourceProject\ButtonStyle.xaml;ResourceProject\MainResource.xaml;ResourceProject\NormalButton.xaml;UserControlMusic\UserControl1.xaml;UserControlMusic\UserControlLoginRegister.xaml;
+View\Login.xaml;View\MainWindow.xaml;View\Register.xaml;ResourceProject\ButtonStyle.xaml;ResourceProject\MainResource.xaml;ResourceProject\NormalButton.xaml;UserControlMusic\UserControl1.xaml;UserControlMusic\UserControlLoginRegister.xaml;
 
 True
 
