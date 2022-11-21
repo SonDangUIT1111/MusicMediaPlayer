@@ -11,7 +11,7 @@ namespace MusicMediaPlayer.Model
 {
     using System;
     using System.Collections.Generic;
-
+    
     public partial class UserAccount
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,7 +21,6 @@ namespace MusicMediaPlayer.Model
         }
     
         public int UserId { get; set; }
-       
         public string UserName { get; set; }
         public string UserPassword { get; set; }
         public string UserEmail { get; set; }

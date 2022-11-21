@@ -14,6 +14,12 @@ namespace MusicMediaPlayer.Model
     
     public partial class Song
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Song()
+        {
+            this.PlayLists = new HashSet<PlayList>();
+        }
+    
         public int SongId { get; set; }
         public string SongTitle { get; set; }
         public Nullable<int> Times { get; set; }
@@ -23,5 +29,7 @@ namespace MusicMediaPlayer.Model
         public int ListId { get; set; }
     
         public virtual PlayList PlayList { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PlayList> PlayLists { get; set; }
     }
 }
