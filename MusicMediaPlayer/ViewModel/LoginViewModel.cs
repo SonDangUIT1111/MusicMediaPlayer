@@ -31,6 +31,7 @@ namespace MusicMediaPlayer.ViewModel
             LogintoRegister = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
                 p.Close();
+                p.Resources.Clear();
                 Register register = new Register();
                 register.ShowDialog();
             

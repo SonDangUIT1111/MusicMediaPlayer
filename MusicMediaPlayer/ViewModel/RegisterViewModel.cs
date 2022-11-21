@@ -106,6 +106,17 @@ namespace MusicMediaPlayer.ViewModel
         {
             if (p == null)
                 return;
+            //Kiểm tra validation của password và email
+            int countUpcase = 0, countNum = 0;
+            foreach (char c in Password)
+            {
+                if (c >= 'A' && c <= 'Z')
+                    countUpcase++;
+                if (c >= '0' && c <= '9')
+                    countNum++;
+            }
+            bool indexofa = Email.Contains("@");
+            bool indexofcom = Email.Contains(".com");
             //Kiểm tra đã nhập đủ thông tin
             if (String.IsNullOrEmpty(Username))
             {
@@ -127,6 +138,36 @@ namespace MusicMediaPlayer.ViewModel
                 MessageBox.Show("Please enter the email to protect the account");
                 return;
             }
+            else if (Username.Length < 8)
+            {
+                MessageBox.Show("Username requires length greater or equal to 8");
+                return;
+            }
+            else if (Password.Length < 8)
+            {
+                MessageBox.Show("Password requires length greater or equal to 8");
+                return;
+            }
+            else if (countNum == 0 || countUpcase == 0)
+            {
+                
+                    MessageBox.Show("Password must contain at least 1 Upcase and 1 number");
+                    return;
+
+                
+
+            }
+            else if (Password != ConfirmPassword)
+            {
+                MessageBox.Show("Password confirmes wrong");
+                return;
+            }
+            else if (indexofa == false || indexofcom == false)
+            {
+                    MessageBox.Show("Email format is invalid");
+                    return;
+
+            }
             else
             {
                 //Kiểm tra user và email đăng ký có tồn tại không 
@@ -142,22 +183,25 @@ namespace MusicMediaPlayer.ViewModel
                     IsSignedUp = false;
                     MessageBox.Show("Email has been used, please try another email");
                 }
-                if (Password != ConfirmPassword)
-                {
-                    MessageBox.Show("Password confirmes wrong");
-                }
                 else
                 {
                     string passEncode = CreateMD5(Base64Encode(Password));
                     //Thêm user mới vào database
-
-                    var newuser = new UserAccount() { UserName = Username,UserEmail = Email, UserPassword = passEncode };
-                    DataProvider.Ins.DB.UserAccounts.Add(newuser);
-                    DataProvider.Ins.DB.SaveChanges();
-                    IsSignedUp = true;
-                    p.Close();
-                    Login login = new Login();  
-                    login.ShowDialog();
+                    try
+                    {
+                        var newuser = new UserAccount() { UserName = Username, UserEmail = Email, UserPassword = passEncode };
+                        DataProvider.Ins.DB.UserAccounts.Add(newuser);
+                        DataProvider.Ins.DB.SaveChanges();
+                        IsSignedUp = true;
+                        p.Close();
+                        Login login = new Login();
+                        login.ShowDialog();
+                    }
+                    catch (Exception)
+                    {
+                       
+                    }
+                
                 }
             }
             
