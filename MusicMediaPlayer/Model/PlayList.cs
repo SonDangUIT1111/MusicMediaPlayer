@@ -18,6 +18,7 @@ namespace MusicMediaPlayer.Model
         public PlayList()
         {
             this.Songs = new HashSet<Song>();
+            this.Songs1 = new HashSet<Song>();
         }
     
         public int PlayListId { get; set; }
@@ -28,5 +29,7 @@ namespace MusicMediaPlayer.Model
         public virtual UserAccount UserAccount { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Song> Songs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Song> Songs1 { get; set; }
     }
 }
