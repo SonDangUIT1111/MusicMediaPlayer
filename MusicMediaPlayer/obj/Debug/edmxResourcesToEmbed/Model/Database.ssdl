@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="MusicPlayerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Has">
+    <Key>
+      <PropertyRef Name="PlayListId" />
+      <PropertyRef Name="SongId" />
+    </Key>
+    <Property Name="PlayListId" Type="int" Nullable="false" />
+    <Property Name="SongId" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="PlayList">
     <Key>
       <PropertyRef Name="PlayListId" />
@@ -19,7 +27,16 @@
     <Property Name="Artist" Type="nvarchar" MaxLength="100" />
     <Property Name="FilePath" Type="varchar(max)" />
     <Property Name="IsFavourite" Type="bit" />
-    <Property Name="ListId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="UserAccount">
     <Key>
@@ -42,29 +59,63 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Song__ListId__29572725">
+  <Association Name="FK__PlayList__OwnerI__5DCAEF64">
+    <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />
+    <End Role="PlayList" Type="Self.PlayList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccount">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="PlayList">
+        <PropertyRef Name="OwnerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Has_FK1">
     <End Role="PlayList" Type="Self.PlayList" Multiplicity="1" />
-    <End Role="Song" Type="Self.Song" Multiplicity="*" />
+    <End Role="Has" Type="Self.Has" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PlayList">
         <PropertyRef Name="PlayListId" />
       </Principal>
-      <Dependent Role="Song">
-        <PropertyRef Name="ListId" />
+      <Dependent Role="Has">
+        <PropertyRef Name="PlayListId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Has_FK2">
+    <End Role="Song" Type="Self.Song" Multiplicity="1" />
+    <End Role="Has" Type="Self.Has" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Song">
+        <PropertyRef Name="SongId" />
+      </Principal>
+      <Dependent Role="Has">
+        <PropertyRef Name="SongId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="MusicPlayerModelStoreContainer">
+    <EntitySet Name="Has" EntityType="Self.Has" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PlayList" EntityType="Self.PlayList" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Song" EntityType="Self.Song" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserAccount" EntityType="Self.UserAccount" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__PlayList__OwnerI__267ABA7A" Association="Self.FK__PlayList__OwnerI__267ABA7A">
       <End Role="UserAccount" EntitySet="UserAccount" />
       <End Role="PlayList" EntitySet="PlayList" />
     </AssociationSet>
-    <AssociationSet Name="FK__Song__ListId__29572725" Association="Self.FK__Song__ListId__29572725">
+    <AssociationSet Name="FK__PlayList__OwnerI__5DCAEF64" Association="Self.FK__PlayList__OwnerI__5DCAEF64">
+      <End Role="UserAccount" EntitySet="UserAccount" />
       <End Role="PlayList" EntitySet="PlayList" />
+    </AssociationSet>
+    <AssociationSet Name="Has_FK1" Association="Self.Has_FK1">
+      <End Role="PlayList" EntitySet="PlayList" />
+      <End Role="Has" EntitySet="Has" />
+    </AssociationSet>
+    <AssociationSet Name="Has_FK2" Association="Self.Has_FK2">
       <End Role="Song" EntitySet="Song" />
+      <End Role="Has" EntitySet="Has" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

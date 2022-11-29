@@ -1,0 +1,144 @@
+﻿<Window x:Class="MusicMediaPlayer.View.SongWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MusicMediaPlayer.View"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Background="Transparent"
+        Title="Music Player" Height="640" Width="734"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
+        DataContext="{StaticResource SongVM}"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        x:Name="SongWD"
+        
+       >
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadData}"
+                                   CommandParameter="{Binding ElementName=SongWD}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Grid Background="Transparent"
+          Margin="5">
+        <Border CornerRadius="20" 
+                        BorderBrush="White"
+                        BorderThickness="5"
+                        Background="White"
+                        Grid.Column="1"/>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="SongFilter"
+                          Width="400"
+                          Margin="100,20,0,0"
+                          >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding FilterChangeValue}"
+                                   CommandParameter="{Binding ElementName=SongWD}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+                <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                        Width="50"
+                        Margin="5,15,0,0"
+                        ToolTip="Resource name: MaterialDesignRaisedButton">
+                    <materialDesign:PackIcon Kind="Magnify" />
+                </Button>
+                <Button
+                          Command="{Binding AddSong}"
+                          CommandParameter="{Binding ElementName=SongWD}"
+                          Margin="5,15,0,0"
+                          Content="{materialDesign:PackIcon Plus}"
+                          ToolTip="Add" />
+                <Button
+                          Margin="5,15,0,0"
+                          Content="{materialDesign:PackIcon Refresh}"
+                          ToolTip="Refresh" 
+                          Command="{Binding Refresh}"
+                          CommandTarget="{Binding ElementName=SongWD}">
+                    
+                </Button>
+
+            </StackPanel>
+            
+                <ScrollViewer VerticalScrollBarVisibility="Auto"
+                              CanContentScroll="True">
+
+                <ListView Margin="10" Name="ListSong"
+                              Height="500"
+                              ItemsSource="{Binding List}" 
+                              SelectedItem="{Binding SelectedItem}"
+                              SelectionMode="Single"
+                              >
+                    <ListView.View>
+                        <GridView>
+
+                            <GridViewColumn Header="No." Width="80" DisplayMemberBinding="{Binding SongId}" />
+                            <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding SongTitle}" />
+                            <GridViewColumn Header="Aritist" Width="150" DisplayMemberBinding="{Binding Artist}"/>
+                            <GridViewColumn Width="300">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Sửa">
+                                            </Button>
+                                            <Button x:Name="Del"
+                                                    Content="Xóa"
+                                                    >
+
+                                            </Button>
+                                            
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </ScrollViewer>
+            
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Slider x:Name="SliderTime"
+                      Minimum="0"
+                      Maximum="100"
+                      Style="{StaticResource MaterialDesignDiscreteSlider}"
+                      ToolTip="MaterialDesignDiscreteSlider"
+                      Value="0"
+                      Width="280" 
+                      Margin="200,0,0,0"/>
+                    <Label Width="100" Background="Transparent" x:Name="InTime"></Label>
+                    
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            Margin="280,5,0,0">
+                    <Button
+                          Command="{Binding Play}"  
+                          Margin="5,0,0,0"
+                          Content="{materialDesign:PackIcon Play}"
+                          ToolTip="Play" />
+                    <Button
+                          Command="{Binding Pause}"
+                          Margin="10,0,0,0"
+                          Content="{materialDesign:PackIcon Pause}"
+                          ToolTip="Pause" />
+                    <Button
+                          Command="{Binding Stop}"           
+                          Margin="10,0,0,0"
+                          Content="{materialDesign:PackIcon Stop}"
+                          ToolTip="Stop" />
+                    
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

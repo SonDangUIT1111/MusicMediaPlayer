@@ -44,3 +44,12 @@ C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\
 C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\View\Login.baml
 C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\View\MainWindow.baml
 C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\View\Register.baml
+C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\bin\Debug\Microsoft.Xaml.Behaviors.xml
+C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\View\SongWindow.g.cs
+C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\View\SongWindow.baml
+C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\View\AddSongToApp.g.cs
+C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\View\AddSongToApp.baml
+C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\View\MySong.g.cs
+C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\View\MySong.baml

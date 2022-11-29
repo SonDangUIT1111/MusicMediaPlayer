@@ -9,7 +9,6 @@
         <EntityTypeShape EntityType="MusicPlayerModel.Song" Width="1.5" PointX="6.625" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="MusicPlayerModel.UserAccount" Width="1.5" PointX="1.125" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="MusicPlayerModel.FK__PlayList__OwnerI__267ABA7A" ManuallyRouted="false" />
-        <AssociationConnector Association="MusicPlayerModel.FK__Song__ListId__29572725" ManuallyRouted="false" />
         <AssociationConnector Association="MusicPlayerModel.Has" />
         <EntityTypeShape EntityType="MusicPlayerModel.sysdiagram" Width="1.5" PointX="0.75" PointY="3.75" />
       </Diagram>
