@@ -45,9 +45,9 @@
                     <LinearGradientBrush>
                         <!--<GradientStop Color="#2af598" Offset="0.2"/>
                         <GradientStop Color="#009efd" Offset="1"/>-->
-                        <GradientStop Color="#2af598" Offset="1"/>
-                        <GradientStop Color="#009efd" Offset="0.6"/>
-                        <GradientStop Color="#ba55d3" Offset="0.05"/>
+                        <!--<GradientStop Color="#2af598" Offset="1"/>-->
+                        <GradientStop Color="#009efd" Offset="0.3"/>
+                        <!--<GradientStop Color="#ba55d3" Offset="0.05"/>-->
                     </LinearGradientBrush>
                 </Border.Background>
             </Border>
@@ -71,7 +71,9 @@
                         BorderBrush="White"
                         BorderThickness="5"
                         Background="White"
-                        Grid.Column="1"/>
+                        Grid.Column="1"
+                        />
+                    
                 </Grid>
                 <Grid Grid.Column="2"
                         Background="Transparent"

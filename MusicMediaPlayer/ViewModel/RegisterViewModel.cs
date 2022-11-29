@@ -46,6 +46,7 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand ConfirmNewPasswordChangedCommand { get; set; }
         public ICommand VerifiedCommand { get; set; }
         public ICommand ChangePasswordCommand { get; set; }
+        public ICommand CheckCode { get; set; }
         public RegisterViewModel()
         {
             //khởi tạo
@@ -77,14 +78,36 @@ namespace MusicMediaPlayer.ViewModel
             {
                 Send(p);
             });
-            VerifiedCommand = new RelayCommand<Window>((p) =>
-            { 
-                if (IsSend == true) 
-                    return true;
-                else
-                { 
-                    return false;
+            CheckCode = new RelayCommand<Window>((p) =>
+            {
+                var window = p as ForgotPassword;
+                var code = window.CodeVerified.Text;
+                if (!String.IsNullOrEmpty(code))
+                {
+                    if (code.Length == 6)
+                        return true;
+                    else
+                    {
+                        window.VerifiedButton.IsEnabled = false;
+                        return false;
+                    }
                 }
+                else
+                {
+                    return false;
+                }    
+            }
+            , (p) =>
+             {
+                 var window = p as ForgotPassword;
+                 window.VerifiedButton.IsEnabled = true;
+             });
+            VerifiedCommand = new RelayCommand<Window>((p) =>
+            {
+                if (IsSend == true)
+
+                    return true;
+                else return false;
             }, 
             (p) =>
             {
@@ -243,17 +266,10 @@ namespace MusicMediaPlayer.ViewModel
         {
             if (p == null)
                 return;
-            if(String.IsNullOrEmpty(Code))
-            {
-                MessageBox.Show("Enter the code verified");
-            }
-            else if (Code.Length!=6)
-            {
-                MessageBox.Show("Enter right format");
-            }
+            var window = p as ForgotPassword;
             try
             {
-                if (Int32.Parse(Code) == RandomCode)
+                if (Int32.Parse(window.CodeVerified.Text) == RandomCode)
                 {
                     IsVerified = true;
                     return;

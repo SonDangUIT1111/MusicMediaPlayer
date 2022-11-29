@@ -18,6 +18,7 @@ namespace MusicMediaPlayer.ViewModel
 
             LoadedTurnOnLogin = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
+
                 IsLoaded = true;
                 if (p == null)
                     return;
