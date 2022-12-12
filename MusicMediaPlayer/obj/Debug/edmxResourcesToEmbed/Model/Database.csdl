@@ -22,6 +22,9 @@
     <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="IsFavourite" Type="Boolean" />
     <NavigationProperty Name="PlayLists" Relationship="MusicPlayerModel.Has" FromRole="Song" ToRole="PlayList" />
+    <Property Name="HowLong" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="TimeAdd" Type="DateTime" Precision="3" />
+    <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="UserAccount">
     <Key>

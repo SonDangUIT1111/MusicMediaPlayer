@@ -26,6 +26,9 @@ namespace MusicMediaPlayer.Model
         public string Artist { get; set; }
         public string FilePath { get; set; }
         public Nullable<bool> IsFavourite { get; set; }
+        public string HowLong { get; set; }
+        public Nullable<System.DateTime> TimeAdd { get; set; }
+        public string ImagePath { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PlayList> PlayLists { get; set; }
