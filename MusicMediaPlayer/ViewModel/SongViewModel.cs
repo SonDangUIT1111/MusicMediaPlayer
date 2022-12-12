@@ -13,6 +13,9 @@ using System.Windows.Threading;
 using Microsoft.Win32;
 using System.Collections.ObjectModel;
 using System.Windows.Controls;
+using System.ComponentModel;
+using System.Windows.Media.Imaging;
+using System.IO;
 
 namespace MusicMediaPlayer.ViewModel
 {
@@ -74,6 +77,16 @@ namespace MusicMediaPlayer.ViewModel
                 }
             }
         }
+        // menu
+        private bool _IsPickTop= false;
+        public bool IsPickTop { get =>  _IsPickTop; set => _IsPickTop = value; }
+        private bool _IsPickRecent = false;
+        public bool IsPickRecent { get => _IsPickRecent; set => _IsPickRecent = value; }
+        private bool _IsPickMySong = true;
+        public bool IsPickMySong { get => _IsPickMySong; set => _IsPickMySong = value; }
+        private bool _IsPickArtist = false;
+        public bool IsPickArtist { get => _IsPickArtist; set => _IsPickArtist = value; }
+        //
         private bool _mediaPlayerIsPlaying = false;
         private bool _userIsDraggingSlider = false;
         public bool UserIsDraggingSlider { get => _userIsDraggingSlider; set => _userIsDraggingSlider = value; }
@@ -83,7 +96,9 @@ namespace MusicMediaPlayer.ViewModel
         private string _ArtistToAdd;
         public string ArtistToAdd { get { return _ArtistToAdd; } set { _ArtistToAdd = value; } }
         private string _FilePathToAdd;
-        public string FilePathToAdd { get { return _FilePathToAdd; } set { _FilePathToAdd = value; } }
+        public string FilePathToAdd { get { return _FilePathToAdd; } set { _FilePathToAdd = value; OnPropertyChanged(); } }
+        private string _ImagePathToAdd;
+        public string ImagePathToAdd { get { return _ImagePathToAdd; } set { _ImagePathToAdd = value;OnPropertyChanged(); } }
         private double _VolumePrevious;
         public double VolumePrevious { get => _VolumePrevious; set => _VolumePrevious = value; }
         //sleep timer
@@ -96,6 +111,7 @@ namespace MusicMediaPlayer.ViewModel
         public Canvas TemplateCanvas { get => _templateCanvas; set => _templateCanvas = value; }
         //
         public ICommand AddFile { get; set; }
+        public ICommand AddImage { get; set; }
         public ICommand Complete { get; set; }
         public ICommand Cancel { get; set; }
         public ICommand LoadData { get; set; }
@@ -104,6 +120,8 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand Pause { get; set; }
         public ICommand FilterChangeValue { get; set; }
         public ICommand AddSong { get; set; }
+        public ICommand OverOption { get; set; }
+        public ICommand LeaveOption { get; set; }
         public ICommand ChangeInfoSong { get; set; }
         public ICommand DeleteSong { get; set; }
         public ICommand Refresh { get; set; }
@@ -125,6 +143,10 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand CloseSleepTimer { get; set; }
         public ICommand OpenSleepTimer { get; set; }
 
+        //menu song
+        public ICommand RecentSong { get; set; }
+        public ICommand AllSong { get; set; }
+        public ICommand GroupArtist { get; set; }
 
         //
         public SongViewModel()
@@ -218,13 +240,25 @@ namespace MusicMediaPlayer.ViewModel
                     FilePathToAdd = openFileDialog.FileName;
                 }
             });
+            AddImage = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "JPG files (*.jpg)|*.jpg|PNG files (*.png)|*.png|All files (*.*)|*.*";
+                if (openFileDialog.ShowDialog() == true)
+                {
+                    ImagePathToAdd = openFileDialog.FileName;
+                }
+            });
             Complete = new RelayCommand<Window>((p) =>
             {
                 return true;
             }, (p) =>
             {
+                var projectPath = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
+                var filePath = Path.Combine(projectPath, "Image","logomusicapp.png");
                 string titleNewSong = "Unknown";
                 string artistNewSong = "Unknown";
+                string uriIamge = filePath;
                 var MySongWindow = p as AddSongToApp;
                 if (String.IsNullOrEmpty(FilePathToAdd))
                 {
@@ -239,9 +273,37 @@ namespace MusicMediaPlayer.ViewModel
                 {
                     artistNewSong = MySongWindow.ArtistSong.Text;
                 }
+                if (!String.IsNullOrEmpty(MySongWindow.FileImage.Text))
+                {
+                    uriIamge = MySongWindow.FileImage.Text;
+                }
                 try
                 {
-                    DataProvider.Ins.DB.Songs.Add(new Song() { Artist = artistNewSong, SongTitle = titleNewSong, FilePath = FilePathToAdd,Times = 0 });
+                    string stradd = FilePathToAdd;
+                    Uri uriadd = new Uri(stradd);
+                    MediaPlayer med = new MediaPlayer();
+                    med.Open(uriadd);
+                    string timetoadd ="";
+                    // this is a trick to waiting hastimespan change to true
+                    MessageBox.Show("Processing");
+                    //
+                    if (med.HasAudio == false)
+                    {
+                        MessageBox.Show("Audio file invalid");
+                        return;
+                    }
+                    if (med.NaturalDuration.HasTimeSpan)
+                    {
+                        timetoadd = String.Format("{0}", med.NaturalDuration.TimeSpan.ToString(@"mm\:ss"));
+                    }
+                    DataProvider.Ins.DB.Songs.Add(new Song() { Artist = artistNewSong, 
+                                                               SongTitle = titleNewSong, 
+                                                               FilePath = FilePathToAdd,
+                                                               ImagePath = uriIamge,
+                                                               Times = 0,
+                                                               TimeAdd = DateTime.Now,
+                                                               HowLong = timetoadd,
+                                                               IsFavourite = false});
                     DataProvider.Ins.DB.SaveChanges();
                     Load();
                     MessageBox.Show("Add successfully");
@@ -251,7 +313,7 @@ namespace MusicMediaPlayer.ViewModel
                 {
                     MessageBox.Show("Add process failed due to some invalid infomation");
                 }
-                
+
             });
             Cancel = new RelayCommand<Window>((p) => { return true; }, (p) => {
                 var MySongWindow = p as AddSongToApp;
@@ -370,6 +432,7 @@ namespace MusicMediaPlayer.ViewModel
             // sleep timer
             Sleeper = new RelayCommand<object>((p) => { return true; }, (p) =>
              {
+                 Window sleepwd = p as Window;
                  CountTimer = 0;
                  SleepTimerView wd = p as SleepTimerView;
                  Slider slider = wd.knob as Slider;
@@ -387,6 +450,10 @@ namespace MusicMediaPlayer.ViewModel
                          mediaPlayer.Stop();
                          SleepTimer.Stop();
                      }
+                     else if (CountTimer == 1)
+                     {
+                         sleepwd.Close();
+                     }
                  }
              });
             CloseSleepTimer = new RelayCommand<Window>((p) => { return true; }, (p) =>
@@ -399,7 +466,47 @@ namespace MusicMediaPlayer.ViewModel
                  SleepTimerView sleeptimerView = new SleepTimerView();
                  sleeptimerView.ShowDialog();
              });
-           
+
+            // recent song
+            RecentSong = new RelayCommand<object>((p) => { return true; }, (p) =>
+             {
+                 IsPickArtist = false;
+                 IsPickMySong = false;
+                 IsPickRecent = true;
+                 IsPickTop = false;
+                 List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.OrderByDescending(x=>x.TimeAdd).ToList());
+                 LoadRecent();
+             });
+            AllSong = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                IsPickArtist = false;
+                IsPickMySong = true;
+                IsPickRecent = false;
+                IsPickTop = false;
+                List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs);
+                Load();
+            });
+            GroupArtist = new RelayCommand<object>((p) => { return true; }, (p) =>
+             {
+                 IsPickArtist = true;
+                 IsPickMySong = false;
+                 IsPickRecent = false;
+                 IsPickTop = false;
+                 List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs);
+                 LoadGroupArtist();
+             });
+            OverOption = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                Expander expander = p as Expander;
+                expander.IsExpanded = true;
+            });
+            LeaveOption = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                Expander expander = p as Expander;
+                expander.IsExpanded = false;
+            });
+
+
 
         }
         public void Load()
@@ -418,7 +525,41 @@ namespace MusicMediaPlayer.ViewModel
                     || (item as Song).Artist.IndexOf(MySongWindow.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
             }
         }
+        public void LoadRecent()
+        {
+            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.OrderByDescending(x => x.TimeAdd).ToList());
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(MySongWindow.ListSong.ItemsSource);
+            view.Filter = FiltersSong;
 
-       
+            bool FiltersSong(object item)
+            {
+                if (String.IsNullOrEmpty(MySongWindow.SongFilter.Text))
+                    return true;
+                else
+                    return ((item as Song).SongTitle.IndexOf(MySongWindow.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0
+
+                    || (item as Song).Artist.IndexOf(MySongWindow.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+            }
+        }
+        public void LoadGroupArtist()
+        {
+            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs);
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(MySongWindow.ListSong.ItemsSource);
+            PropertyGroupDescription groupDescription = new PropertyGroupDescription("Artist");
+            view.GroupDescriptions.Add(groupDescription);
+            view.Filter = FiltersSong;
+
+            bool FiltersSong(object item)
+            {
+                if (String.IsNullOrEmpty(MySongWindow.SongFilter.Text))
+                    return true;
+                else
+                    return ((item as Song).SongTitle.IndexOf(MySongWindow.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0
+
+                    || (item as Song).Artist.IndexOf(MySongWindow.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+            }
+        }
+
+
     }
 }

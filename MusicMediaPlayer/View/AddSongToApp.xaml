@@ -13,7 +13,7 @@
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Background="Transparent"
-        Title="Add Song" Height="250" Width="400"
+        Title="Add Song" Height="400" Width="400"
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
         DataContext="{StaticResource SongVM}"
         Name="AddSongApp">
@@ -37,12 +37,33 @@
                   Margin="0,20,0,0"
                   Text="{Binding ArtistToAdd}"
                   Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-            <Button
-                  Margin="0,20,0,0"
-                  Width="50"
-                  Command="{Binding AddFile}"
-                  Content="{materialDesign:PackIcon Plus}"
-                  ToolTip="Add" />
+            <StackPanel Orientation="Horizontal"
+                        Margin="0,20,0,0">
+                <TextBox x:Name="FileImage"
+                  Margin="45,0,0,0"
+                  materialDesign:HintAssist.Hint="Add Image"
+                  Width="262"
+                  IsEnabled="False"
+                  Text="{Binding ImagePathToAdd,UpdateSourceTrigger=PropertyChanged,Mode=OneWay}"
+                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <Button Command="{Binding AddImage}"
+                        ToolTip="Add"
+                        >...</Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Margin="0,20,0,0">
+                <TextBox x:Name="FileMusic"
+                  Margin="45,0,0,0"
+                  materialDesign:HintAssist.Hint="Add Music"
+                  Width="262"
+                  IsEnabled="False"
+                  Text="{Binding FilePathToAdd,UpdateSourceTrigger=PropertyChanged,Mode=OneWay}"
+                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <Button Command="{Binding AddFile}"
+                        ToolTip="Add"
+                        >...</Button>
+            </StackPanel>
+            
             <StackPanel Margin="260,20,0,0"
                         Orientation="Horizontal">
                 <Button

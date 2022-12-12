@@ -32,6 +32,9 @@
           <Property Name="Artist" Type="nvarchar" MaxLength="100" />
           <Property Name="FilePath" Type="varchar(max)" />
           <Property Name="IsFavourite" Type="bit" />
+          <Property Name="HowLong" Type="nvarchar" MaxLength="10" />
+          <Property Name="TimeAdd" Type="datetime" />
+          <Property Name="ImagePath" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -149,6 +152,9 @@
           <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="IsFavourite" Type="Boolean" />
           <NavigationProperty Name="PlayLists" Relationship="MusicPlayerModel.Has" FromRole="Song" ToRole="PlayList" />
+          <Property Name="HowLong" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TimeAdd" Type="DateTime" Precision="3" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="UserAccount">
           <Key>
@@ -219,6 +225,9 @@
           <EntitySetMapping Name="Songs">
             <EntityTypeMapping TypeName="MusicPlayerModel.Song">
               <MappingFragment StoreEntitySet="Song">
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="TimeAdd" ColumnName="TimeAdd" />
+                <ScalarProperty Name="HowLong" ColumnName="HowLong" />
                 <ScalarProperty Name="SongId" ColumnName="SongId" />
                 <ScalarProperty Name="SongTitle" ColumnName="SongTitle" />
                 <ScalarProperty Name="Times" ColumnName="Times" />

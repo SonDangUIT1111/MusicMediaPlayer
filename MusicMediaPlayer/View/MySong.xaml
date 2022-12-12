@@ -53,14 +53,18 @@
                        materialDesign:ShadowAssist.ShadowEdges="Bottom"></Separator>
             <StackPanel Orientation="Horizontal">
                 <Button>Top listen</Button>
-                <Button>My song</Button>
-                <Button>Artist</Button>
+                <Button Command="{Binding RecentSong}" 
+                        CommandParameter="{Binding ElementName=SongWD}">Recent</Button>
+                <Button Command="{Binding AllSong}" 
+                        CommandParameter="{Binding ElementName=SongWD}">My song</Button>
+                <Button Command="{Binding GroupArtist}"
+                        CommandParameter="{Binding ElementName=SongWD}">Artist</Button>
                 <Label Content="Filter:"
                        FontSize="12"
                        VerticalAlignment="Bottom"
                        Foreground="DimGray"
                        FontWeight="Regular"
-                       Margin="300,0,0,0"></Label>
+                       Margin="200,0,0,0"></Label>
                 <TextBox x:Name="SongFilter"
                           Width="150"
                           Margin="5,20,0,0"
@@ -81,73 +85,152 @@
                           Margin="0,0,0,0">
                 <ListView Margin="0" Name="ListSong"
                               Height="450"
-                              Width="700"
+                              Width="600"
                               ItemsSource="{Binding List}" 
                               SelectedItem="{Binding SelectedItem}"
                               SelectionMode="Single"
-                              HorizontalContentAlignment="Right"
+                              HorizontalAlignment="Left"
                               >
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Name" 
-                                            Width="150"
-                                            DisplayMemberBinding="{Binding SongTitle}" />
-                            <GridViewColumn Header="Aritist" 
-                                            Width="150" 
-                                            DisplayMemberBinding="{Binding Artist}"/>
-                            <GridViewColumn Header="Times" 
-                                            Width="100" 
-                                            DisplayMemberBinding="{Binding Times}"/>
-                            <GridViewColumn Header="Favourite" 
-                                            Width="120">
+                            <GridViewColumn  
+                                            Width="600"
+                                            >
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <ToggleButton
-                                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                            ToolTip="MaterialDesignFlatPrimaryToggleButton"
-                                            IsChecked="{Binding IsFavourite}"
-                                            Command="{Binding Source={StaticResource SongVM},Path=ChangeFavourite}"
-                                            CommandParameter="{Binding}"
-                                                >
-                                            <materialDesign:PackIcon
-                                                Kind="Heart"
-                                                Height="21"
-                                                Width="21" />
-                                        </ToggleButton>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-
-                            <GridViewColumn Width="150" x:Name="Tool">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate x:Name="Box">
                                         <StackPanel Orientation="Horizontal">
-                                            <materialDesign:PopupBox Background="Transparent"
-                                                      >        
-                                                <StackPanel Background="Transparent">
-                                                    <Button Content="Sửa">
-                                                    </Button>
-                                                    <Button x:Name="Del"
-                                                    Content="Xóa"
-                                                    Command="{Binding Source={StaticResource SongVM}, Path=DeleteSong}"
-                                                    CommandParameter="{Binding}">
-                                                    </Button>
-                                                    <Button x:Name="IsPlaying"
-                                                    Background="Transparent"
-                                                    >
-                                                        <materialDesign:PackIcon Kind="Fingerprint" />
-                                                    </Button>
-                                                </StackPanel>
-                                            </materialDesign:PopupBox>
+                                            <Border CornerRadius="5"
+                                                    BorderThickness="1"
+                                                    BorderBrush="Wheat"
+                                                    Height="45"
+                                                    HorizontalAlignment="Center">
+                                                <Grid>
+                                                    <Border Background="White"
+                                                            CornerRadius="4.5"
+                                                            x:Name="mask"></Border>
+                                                    <Image Width ="40"
+                                                            Height ="40"
+                                                            Margin="1"
+                                                            Stretch="Fill"
+                                                            Source="{Binding ImagePath}"
+                                                            >
+                                                        <Image.OpacityMask>
+                                                            <VisualBrush Visual="{Binding ElementName=mask}"></VisualBrush>
+                                                        </Image.OpacityMask>
+                                                    </Image>
+                                                </Grid>
+                                            </Border>
                                            
-
+                                            <TextBlock Text="{Binding SongTitle}"
+                                                        Width="150"
+                                                        FontSize="16"
+                                                        FontWeight="Bold"
+                                                        FontFamily="Segoe UI Semibold"
+                                                        Margin="20,0,0,0"
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"
+                                                        ></TextBlock>
+                                            <TextBlock Text="{Binding Artist}"
+                                                        Width="100"
+                                                        FontSize="12"
+                                                        Margin="0,0,0,10"
+                                                        FontWeight="Medium"
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"
+                                                        ></TextBlock>
+                                            <TextBlock Text="{Binding HowLong}"
+                                                           Width="50"
+                                                           FontSize="12"
+                                                           HorizontalAlignment="Center"
+                                                           VerticalAlignment="Center"
+                                                           FontWeight="Medium"
+                                                           ></TextBlock>
+                                            <StackPanel Orientation="Vertical">
+                                                <Expander Background="Transparent"
+                                                          Margin="0,0,0,0"
+                                                          ExpandDirection="Right"
+                                                          x:Name="Option"
+                                                          >
+                                                    <i:Interaction.Triggers>
+                                                        <i:EventTrigger EventName="MouseEnter">
+                                                            <i:InvokeCommandAction Command="{Binding Source={StaticResource SongVM},Path=OverOption}"
+                                                                                   CommandParameter="{Binding ElementName=Option}"/>
+                                                        </i:EventTrigger>
+                                                        <i:EventTrigger EventName="MouseLeave">
+                                                            <i:InvokeCommandAction Command="{Binding Source={StaticResource SongVM},Path=LeaveOption}"
+                                                                                   CommandParameter="{Binding ElementName=Option}"/>
+                                                        </i:EventTrigger>
+                                                    </i:Interaction.Triggers>
+                                                    <StackPanel Background="Transparent"
+                                                                Orientation="Horizontal">
+                                                        <ToggleButton   VerticalAlignment="Center"
+                                                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                                            ToolTip="MaterialDesignFlatPrimaryToggleButton"
+                                                            IsChecked="{Binding IsFavourite}"
+                                                            Foreground="HotPink"
+                                                            Background="LightPink"
+                                                            Margin="0,0,0,0"
+                                                            Width="30"
+                                                            Height="30"
+                                                            Command="{Binding Source={StaticResource SongVM},Path=ChangeFavourite}"
+                                                            CommandParameter="{Binding}"
+                                                                >
+                                                            <materialDesign:PackIcon
+                                                                Kind="Heart"
+                                                                Height="20"
+                                                                Width="20" />
+                                                        </ToggleButton>
+                                                        <Button     Content="{materialDesign:PackIcon Pencil}"
+                                                                    Background="Transparent"
+                                                                    Width="30"
+                                                                    Padding="0"
+                                                                    BorderBrush="Transparent">
+                                                        </Button>
+                                                        <Button x:Name="Del"
+                                                                    Background="Transparent"
+                                                                    Content="{materialDesign:PackIcon DeleteCircle}"
+                                                                    Command="{Binding Source={StaticResource SongVM}, Path=DeleteSong}"
+                                                                    CommandParameter="{Binding}"
+                                                                    Width="30"
+                                                                    Padding="0"
+                                                                    BorderBrush="Transparent">
+                                                        </Button>
+                                                    </StackPanel>
+                                                </Expander>
+                                            </StackPanel>
                                         </StackPanel>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                        
                         </GridView>
                     </ListView.View>
+                    <ListView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.ContainerStyle>
+                        <Style TargetType="{x:Type GroupItem}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <Expander IsExpanded="False" 
+                                                  ExpandDirection="Right">
+                                            <Expander.Header>
+                                                <StackPanel Orientation="Horizontal">
+                                                            <TextBlock Text="{Binding Name}" 
+                                                                       FontWeight="Bold" 
+                                                                       Foreground="Gray" 
+                                                                       FontSize="22" 
+                                                                       VerticalAlignment="Bottom" />
+                                                        </StackPanel>
+                                            </Expander.Header>
+                                            <ItemsPresenter />
+                                        </Expander>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </GroupStyle.ContainerStyle>
+                </GroupStyle>
+            </ListView.GroupStyle>
                 </ListView>
 
             </ScrollViewer>
