@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\App.xaml
-12595643197
+13-105241610
 2-1797966213
-28708858285
-23-698162109
-View\AddSongToApp.xaml;View\ForgotPassword.xaml;View\Login.xaml;View\MainWindow.xaml;View\MySong.xaml;View\Register.xaml;ResourceProject\ButtonStyle.xaml;ResourceProject\MainResource.xaml;ResourceProject\NormalButton.xaml;UserControlMusic\UserControl1.xaml;UserControlMusic\UserControlLoginRegister.xaml;View\SongWindow.xaml;
+29266225085
+1311639065592
+ResourceProject\ErrorTemplate.xaml;View\AddSongToApp.xaml;View\ForgotPassword.xaml;View\Login.xaml;View\MainWindow.xaml;View\MySong.xaml;View\Register.xaml;ResourceProject\ButtonStyle.xaml;ResourceProject\MainResource.xaml;ResourceProject\NormalButton.xaml;UserControlMusic\UserControl1.xaml;UserControlMusic\UserControlLoginRegister.xaml;View\SleepTimerView.xaml;
 
 False
 
