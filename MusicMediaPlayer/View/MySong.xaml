@@ -31,23 +31,20 @@
           Width="734"
           Height="640">
         <Border CornerRadius="20" 
-                        BorderBrush="White"
-                        BorderThickness="5"
+                        BorderBrush="#1ED760"
+                        BorderThickness="10"
                         Background="#eff2f7"
                         Grid.Column="1" MaxHeight="640" MaxWidth="734"/>
         <StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Label Content="My Song"
-                   FontWeight="SemiBold"
-                   Margin="20,10,0,0"
-                   Foreground="#121518"
-                   FontSize="24"></Label>
-                <Button Style="{StaticResource MaterialDesignRaisedButton}"
-                        Width="50"
-                        Margin="5,15,0,0"
-                        ToolTip="Resource name: MaterialDesignRaisedButton">
-                    <materialDesign:PackIcon Kind="Magnify" />
-                </Button>
+                <Button
+                          Command="{Binding AddSong}"
+                          CommandParameter="{Binding ElementName=SongWD}"
+                          Margin="20,15,0,0"
+                          Content="IMPORT MUSIC"
+                          Background="AliceBlue"
+                          BorderThickness="0"
+                          ToolTip="Add" />
             </StackPanel>
             
             <Separator Background="Gray"
@@ -55,17 +52,20 @@
                        Width="700"
                        materialDesign:ShadowAssist.ShadowEdges="Bottom"></Separator>
             <StackPanel Orientation="Horizontal">
-                <Label Content="Number songs"
-                       FontSize="14"
+                <Button>Top listen</Button>
+                <Button>My song</Button>
+                <Button>Artist</Button>
+                <Label Content="Filter:"
+                       FontSize="12"
                        VerticalAlignment="Bottom"
-                       Foreground="#121518"
-                       FontWeight="SemiBold"
-                       Margin="20,0,0,0"></Label>
+                       Foreground="DimGray"
+                       FontWeight="Regular"
+                       Margin="300,0,0,0"></Label>
                 <TextBox x:Name="SongFilter"
-                          Width="400"
-                          Margin="10,20,0,0"
-                          Background="White"
-                          materialDesign:HintAssist.Hint="Search"
+                          Width="150"
+                          Margin="5,20,0,0"
+                          Background="Transparent"
+                          materialDesign:HintAssist.Hint="Search here ..."
                           >
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="TextChanged">
@@ -74,22 +74,6 @@
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </TextBox>
-                
-                <Button
-                          Command="{Binding AddSong}"
-                          CommandParameter="{Binding ElementName=SongWD}"
-                          Margin="5,15,0,0"
-                          Content="{materialDesign:PackIcon Plus}"
-                          ToolTip="Add" />
-                <Button
-                          Margin="5,15,0,0"
-                          Content="{materialDesign:PackIcon Refresh}"
-                          ToolTip="Refresh" 
-                          Command="{Binding Refresh}"
-                          CommandTarget="{Binding ElementName=SongWD}">
-
-                </Button>
-
             </StackPanel>
 
             <ScrollViewer VerticalScrollBarVisibility="Auto"
@@ -101,6 +85,7 @@
                               ItemsSource="{Binding List}" 
                               SelectedItem="{Binding SelectedItem}"
                               SelectionMode="Single"
+                              HorizontalContentAlignment="Right"
                               >
                     <ListView.View>
                         <GridView>
@@ -133,17 +118,28 @@
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
 
-                            <GridViewColumn Width="150">
+                            <GridViewColumn Width="150" x:Name="Tool">
                                 <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
+                                    <DataTemplate x:Name="Box">
                                         <StackPanel Orientation="Horizontal">
-                                            <Button Content="Sửa">
-                                            </Button>
-                                            <Button x:Name="Del"
+                                            <materialDesign:PopupBox Background="Transparent"
+                                                      >        
+                                                <StackPanel Background="Transparent">
+                                                    <Button Content="Sửa">
+                                                    </Button>
+                                                    <Button x:Name="Del"
                                                     Content="Xóa"
                                                     Command="{Binding Source={StaticResource SongVM}, Path=DeleteSong}"
                                                     CommandParameter="{Binding}">
-                                            </Button>
+                                                    </Button>
+                                                    <Button x:Name="IsPlaying"
+                                                    Background="Transparent"
+                                                    >
+                                                        <materialDesign:PackIcon Kind="Fingerprint" />
+                                                    </Button>
+                                                </StackPanel>
+                                            </materialDesign:PopupBox>
+                                           
 
                                         </StackPanel>
                                     </DataTemplate>
@@ -156,13 +152,14 @@
 
             </ScrollViewer>
 
-            <StackPanel >
+            <StackPanel Background="#1ED760"
+                        Height="84" Width="722">
                 <StackPanel>
                     <StatusBarItem HorizontalContentAlignment="Stretch">
                         <Slider Name="sliProgress" 
-                            Width="350"
-                            Style="{StaticResource MaterialDesignDiscreteSlider}"
-                            ToolTip="MaterialDesignDiscreteSlider"
+                                Foreground="White"
+                                Width="400"
+                                Margin="-60,0,0,0"
                              >
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="ValueChanged">
@@ -178,11 +175,11 @@
                         <Label
                             Height="25"
                             x:Name="InTime"
-                            Margin="160,0,0,0"></Label>
+                            Margin="110,0,0,0"></Label>
                         <Label
                             Height="25"
                             x:Name="TotalTime"
-                            Margin="340,0,0,0"></Label>
+                            Margin="390,0,0,0"></Label>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal"
                                 Margin="550,-40,0,0">
@@ -250,6 +247,7 @@
                                  Height="30" 
                                  Maximum="1"
                                  Value="1"
+                                 Foreground="White"
                                  Visibility="Visible"
                                  VerticalAlignment="Bottom">
                                 <i:Interaction.Triggers>
@@ -270,48 +268,75 @@
 
                 </StackPanel>
                 <StackPanel Orientation="Horizontal"
-                            Margin="180,-10,0,0">
+                            Margin="140,-10,0,0" Width="652">
+                    <Button
+                      Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                      ToolTip="MaterialDesignFloatingActionAccentButton"
+                      Height="35"
+                      Width="35"
+                      Margin="50,0,0,0"
+                      Foreground="AliceBlue"
+                      Background="Transparent"
+                      BorderBrush="Transparent"
+                      Command="{Binding OpenSleepTimer}"
+                      CommandParameter="{Binding ElementName=SongWD}">
+                                    <materialDesign:PackIcon
+                        Kind="Alarm"
+                        Height="24"
+                        Width="24" />   
+                    </Button>
                     <ToggleButton
                             x:Name="RandomLoop"
                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                             ToolTip="MaterialDesignFlatPrimaryToggleButton"
                             IsChecked="False"
-                            Margin="0,0,5,0"
+                            Margin="10,0,5,0"
                             Command="{Binding ShuffleVariant}"
                             CommandParameter="{Binding ElementName=SongWD}"
                                                 >
                         <materialDesign:PackIcon
                                                 Kind="ShuffleVariant"
                                                 Height="21"
-                                                Width="21" />
+                                                Width="21"
+                                                Foreground="White"/>
                     </ToggleButton>
                     <Button
                           Command="{Binding SkipPrevious}"
                           Margin="0,0,5,0"
                           Content="{materialDesign:PackIcon SkipPrevious}"
-                          ToolTip="Next" />
+                          ToolTip="Next"
+                          Background="Transparent"
+                          Foreground="White"
+                          BorderBrush="Transparent"/>
                     <Button
                           x:Name="Play"
                           Command="{Binding Play}"  
                           Margin="5,0,0,0"
                           Content="{materialDesign:PackIcon Play}"
-                          ToolTip="Play" />
+                          ToolTip="Play"
+                          Background="Transparent"
+                          Foreground="White"
+                          BorderBrush="Transparent"
+                          IsEnabled="False"/>
                     <Button
                           x:Name="Pause"
                           Command="{Binding Pause}"
-                          Margin="10,0,0,0"
+                          Margin="-50,0,0,0"
                           Content="{materialDesign:PackIcon Pause}"
-                          ToolTip="Pause" />
-                    <Button
-                          Command="{Binding Stop}"           
-                          Margin="10,0,0,0"
-                          Content="{materialDesign:PackIcon Stop}"
-                          ToolTip="Stop" />
+                          ToolTip="Pause"
+                          Visibility="Hidden"
+                          Background="Transparent"
+                          Foreground="White"
+                          BorderBrush="Transparent"
+                          IsEnabled="False"/>
                     <Button
                           Command="{Binding SkipNext}"
                           Margin="10,0,0,0"
                           Content="{materialDesign:PackIcon SkipNext}"
-                          ToolTip="Next" />
+                          ToolTip="Next"
+                          Background="Transparent"
+                          Foreground="White"
+                          BorderBrush="Transparent"/>
                     <ToggleButton
                             x:Name="SequencecyLoop"
                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
@@ -320,6 +345,7 @@
                             Margin="0,0,5,0"
                             Command="{Binding ShuffleDisabled}"
                             CommandParameter="{Binding ElementName=SongWD}"
+                            Foreground="White"
                                                 >
                         <materialDesign:PackIcon
                                                 Kind="ShuffleDisabled"
@@ -334,7 +360,7 @@
                             Margin="0,0,5,0"
                             Command="{Binding Loop}"
                             CommandParameter="{Binding ElementName=SongWD}"
-                                                >
+                            Foreground="White"                >
                         <materialDesign:PackIcon
                                                 Kind="Loop"
                                                 Height="21"

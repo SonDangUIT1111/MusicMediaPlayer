@@ -22,7 +22,8 @@ namespace MusicMediaPlayer.ViewModel
         private MediaPlayer mediaPlayer = new MediaPlayer();
         private ObservableCollection<Song> _List;
         public ObservableCollection<Song> List { get => _List; set { _List = value; OnPropertyChanged(); } }
-        public MySong Window { get; set; }
+        public MySong MySongWindow { get; set; }
+        public DispatcherTimer SleepTimer { get; set; }
         private Song _SelectedItem;
         public Song SelectedItem
         {
@@ -35,12 +36,16 @@ namespace MusicMediaPlayer.ViewModel
                 {
                     try
                     {
+                        MySongWindow.Play.IsEnabled = true;
+                        MySongWindow.Pause.IsEnabled = true;
                         var stringUri = SelectedItem.FilePath;
                         Uri uri = new Uri(stringUri);
+                        SelectedItem.Times++;
+                        DataProvider.Ins.DB.SaveChanges();
                         mediaPlayer.Open(uri);
                         MediaPlayerIsPlaying = true;
-                        Window.Play.Visibility = Visibility.Hidden;
-                        Window.Pause.Visibility = Visibility.Visible;
+                        MySongWindow.Play.Visibility = Visibility.Hidden;
+                        MySongWindow.Pause.Visibility = Visibility.Visible;
                         mediaPlayer.Play();
                         DispatcherTimer timer = new DispatcherTimer();
                         timer.Interval = TimeSpan.FromSeconds(1);
@@ -52,11 +57,11 @@ namespace MusicMediaPlayer.ViewModel
                             {
                                 if (mediaPlayer.NaturalDuration.HasTimeSpan == true)
                                 {
-                                    Window.InTime.Content = String.Format("{0}", mediaPlayer.Position.ToString(@"mm\:ss"));
-                                    Window.TotalTime.Content = String.Format("{0}",  mediaPlayer.NaturalDuration.TimeSpan.ToString(@"mm\:ss"));
-                                    Window.sliProgress.Minimum = 0;
-                                    Window.sliProgress.Maximum = mediaPlayer.NaturalDuration.TimeSpan.TotalSeconds;
-                                    Window.sliProgress.Value = mediaPlayer.Position.TotalSeconds;
+                                    MySongWindow.InTime.Content = String.Format("{0}", mediaPlayer.Position.ToString(@"mm\:ss"));
+                                    MySongWindow.TotalTime.Content = String.Format("{0}",  mediaPlayer.NaturalDuration.TimeSpan.ToString(@"mm\:ss"));
+                                    MySongWindow.sliProgress.Minimum = 0;
+                                    MySongWindow.sliProgress.Maximum = mediaPlayer.NaturalDuration.TimeSpan.TotalSeconds;
+                                    MySongWindow.sliProgress.Value = mediaPlayer.Position.TotalSeconds;
                                 }
                             }
                             
@@ -81,6 +86,15 @@ namespace MusicMediaPlayer.ViewModel
         public string FilePathToAdd { get { return _FilePathToAdd; } set { _FilePathToAdd = value; } }
         private double _VolumePrevious;
         public double VolumePrevious { get => _VolumePrevious; set => _VolumePrevious = value; }
+        //sleep timer
+        private int _countTimer;
+        public int CountTimer { get => _countTimer; set => _countTimer = value; }
+
+        private bool _isPressed = false;
+        public bool IsPressed { get => _isPressed; set => _isPressed = value; }
+        private Canvas _templateCanvas = null;
+        public Canvas TemplateCanvas { get => _templateCanvas; set => _templateCanvas = value; }
+        //
         public ICommand AddFile { get; set; }
         public ICommand Complete { get; set; }
         public ICommand Cancel { get; set; }
@@ -105,6 +119,14 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand Loop { get; set; }
         public ICommand NonMute { get; set; }
         public ICommand Mute { get; set; }
+
+        //sleep timer
+        public ICommand Sleeper { get; set; }
+        public ICommand CloseSleepTimer { get; set; }
+        public ICommand OpenSleepTimer { get; set; }
+
+
+        //
         public SongViewModel()
         {
             List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs);
@@ -112,15 +134,15 @@ namespace MusicMediaPlayer.ViewModel
             {
                 mediaPlayer.Play();
                 MediaPlayerIsPlaying = true;
-                Window.Play.Visibility = Visibility.Hidden;
-                Window.Pause.Visibility = Visibility.Visible;
+                MySongWindow.Play.Visibility = Visibility.Hidden;
+                MySongWindow.Pause.Visibility = Visibility.Visible;
             });
             Pause = new RelayCommand<Page>((p) => { return true; }, (p) =>
             {
                 mediaPlayer?.Pause();
                 MediaPlayerIsPlaying = false;
-                Window.Play.Visibility = Visibility.Visible;
-                Window.Pause.Visibility = Visibility.Hidden;
+                MySongWindow.Play.Visibility = Visibility.Visible;
+                MySongWindow.Pause.Visibility = Visibility.Hidden;
             });
             Stop = new RelayCommand<Page>((p) => { return true; }, (p) =>
             {
@@ -128,26 +150,25 @@ namespace MusicMediaPlayer.ViewModel
             });
             LoadData = new RelayCommand<Page>((p) => { return true; }, (p) =>
              {
-                 Window = p as MySong;
-
+                 MySongWindow = p as MySong;
                  var data = DataProvider.Ins.DB.Songs;
-                 CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(Window.ListSong.ItemsSource);
+                 CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(MySongWindow.ListSong.ItemsSource);
                  view.Filter = FiltersSong;
 
                  bool FiltersSong(object item)
                  {
-                     if (String.IsNullOrEmpty(Window.SongFilter.Text))
+                     if (String.IsNullOrEmpty(MySongWindow.SongFilter.Text))
                          return true;
                      else
-                         return ((item as Song).SongTitle.IndexOf(Window.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0
+                         return ((item as Song).SongTitle.IndexOf(MySongWindow.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0
 
-                         || (item as Song).Artist.IndexOf(Window.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+                         || (item as Song).Artist.IndexOf(MySongWindow.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
                  }
              });
             FilterChangeValue = new RelayCommand<Page>((p) => { return true; }, (p) =>
             {
-                Window = p as MySong;
-                CollectionViewSource.GetDefaultView(Window.ListSong.ItemsSource).Refresh();
+                MySongWindow = p as MySong;
+                CollectionViewSource.GetDefaultView(MySongWindow.ListSong.ItemsSource).Refresh();
             });
             AddSong = new RelayCommand<object>((p) => { return true; }, (p) =>
              {
@@ -171,7 +192,7 @@ namespace MusicMediaPlayer.ViewModel
                      {
                          DataProvider.Ins.DB.Songs.Remove(item);
                          DataProvider.Ins.DB.SaveChanges();
-                         Window.ListSong.Items.Refresh();
+                         MySongWindow.ListSong.Items.Refresh();
                          Load();
                      }
                  }
@@ -180,7 +201,7 @@ namespace MusicMediaPlayer.ViewModel
              });
             Refresh = new RelayCommand<Page>((p) => { return true; }, (p) =>
             {
-                Window.ListSong.Items.Refresh();
+                MySongWindow.ListSong.Items.Refresh();
                 Load();
             });
             ChangeFavourite = new RelayCommand<object>((p) => { return true; }, (p) =>
@@ -202,152 +223,200 @@ namespace MusicMediaPlayer.ViewModel
                 return true;
             }, (p) =>
             {
-                var Window = p as AddSongToApp;
+                string titleNewSong = "Unknown";
+                string artistNewSong = "Unknown";
+                var MySongWindow = p as AddSongToApp;
                 if (String.IsNullOrEmpty(FilePathToAdd))
                 {
                     MessageBox.Show("Please add song file");
                     return;
                 }
-                else if (String.IsNullOrEmpty(Window.TitleSong.Text))
+                if (!String.IsNullOrEmpty(MySongWindow.TitleSong.Text))
                 {
-                    MessageBox.Show("Please enter song name");
-                    return;
+                    titleNewSong = MySongWindow.TitleSong.Text;
                 }
-                else if (String.IsNullOrEmpty(Window.ArtistSong.Text))
+                if (!String.IsNullOrEmpty(MySongWindow.ArtistSong.Text))
                 {
-                    MessageBox.Show("Please enter song artist");
-                    return;
+                    artistNewSong = MySongWindow.ArtistSong.Text;
                 }
                 try
                 {
-                    DataProvider.Ins.DB.Songs.Add(new Song() { Artist = ArtistToAdd, SongTitle = TitleToAdd, FilePath = FilePathToAdd });
+                    DataProvider.Ins.DB.Songs.Add(new Song() { Artist = artistNewSong, SongTitle = titleNewSong, FilePath = FilePathToAdd,Times = 0 });
                     DataProvider.Ins.DB.SaveChanges();
                     Load();
                     MessageBox.Show("Add successfully");
-                    Window.Close();
+                    MySongWindow.Close();
                 }
                 catch (Exception)
                 {
                     MessageBox.Show("Add process failed due to some invalid infomation");
                 }
-
+                
             });
             Cancel = new RelayCommand<Window>((p) => { return true; }, (p) => {
-                var Window = p as AddSongToApp;
-                Window.Close();
+                var MySongWindow = p as AddSongToApp;
+                MySongWindow.Close();
             });
             ChangeTime = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-               if (Window.sliProgress.IsFocused == true)
+               if (MySongWindow.sliProgress.IsFocused == true)
                 {
                     mediaPlayer.Stop();
-                    mediaPlayer.Position = TimeSpan.FromSeconds(Window.sliProgress.Value);
+                    mediaPlayer.Position = TimeSpan.FromSeconds(MySongWindow.sliProgress.Value);
                     mediaPlayer.Play();
-                    Window.Focus();
+                    MySongWindow.Focus();
                 }
-               if (Window.sliProgress.Value == Window.sliProgress.Maximum)
+               if (MySongWindow.sliProgress.Value == MySongWindow.sliProgress.Maximum)
                 
                 {
-                    Window.sliProgress.Value = 0;
-                     if (Window.RandomLoop.IsChecked == true)
+                    MySongWindow.sliProgress.Value = 0;
+                     if (MySongWindow.RandomLoop.IsChecked == true)
                     {
                         Random random = new Random();
                         int nextIndex = -1;
-                        while (nextIndex < 0 || nextIndex == Window.ListSong.SelectedIndex)
+                        while (nextIndex < 0 || nextIndex == MySongWindow.ListSong.SelectedIndex)
                         {
-                            nextIndex = random.Next(0, Window.ListSong.Items.Count + 1);
+                            nextIndex = random.Next(0, MySongWindow.ListSong.Items.Count + 1);
                         }
-                        Window.ListSong.SelectedIndex = nextIndex;
+                        MySongWindow.ListSong.SelectedIndex = nextIndex;
                     }
-                    else if (Window.OneLoop.IsChecked == true)
+                    else if (MySongWindow.OneLoop.IsChecked == true)
                     {
-                        int nextIndex = Window.ListSong.SelectedIndex;
-                        Window.ListSong.SelectedIndex = -1;
-                        Window.ListSong.SelectedIndex = nextIndex;
+                        int nextIndex = MySongWindow.ListSong.SelectedIndex;
+                        MySongWindow.ListSong.SelectedIndex = -1;
+                        MySongWindow.ListSong.SelectedIndex = nextIndex;
                     }
-                    else if (Window.SequencecyLoop.IsChecked == true)
+                    else if (MySongWindow.SequencecyLoop.IsChecked == true)
                     {
-                        int nextIndex = (Window.ListSong.SelectedIndex + 1) % (Window.ListSong.Items.Count);
-                        Window.ListSong.SelectedIndex = nextIndex;
+                        int nextIndex = (MySongWindow.ListSong.SelectedIndex + 1) % (MySongWindow.ListSong.Items.Count);
+                        MySongWindow.ListSong.SelectedIndex = nextIndex;
                     }
                     else
                     {
-                        int nextIndex = (Window.ListSong.SelectedIndex + 1) % (Window.ListSong.Items.Count);
-                        Window.ListSong.SelectedIndex = nextIndex;
+                        int nextIndex = (MySongWindow.ListSong.SelectedIndex + 1) % (MySongWindow.ListSong.Items.Count);
+                        MySongWindow.ListSong.SelectedIndex = nextIndex;
                     }
 
                 }
             });
             ChangeVolumn = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                mediaPlayer.Volume = Window.Volume.Value;
-                if (Window.Volume.Value >= 0.8)
+                mediaPlayer.Volume = MySongWindow.Volume.Value;
+                if (MySongWindow.Volume.Value >= 0.8)
                 {
-                    Window.SpeakerHigh.Visibility = Visibility.Visible;
-                    Window.SpeakerLow.Visibility = Visibility.Hidden;
-                    Window.SpeakerMedium.Visibility = Visibility.Hidden;
-                    Window.SpeakerOff.Visibility = Visibility.Hidden;
+                    MySongWindow.SpeakerHigh.Visibility = Visibility.Visible;
+                    MySongWindow.SpeakerLow.Visibility = Visibility.Hidden;
+                    MySongWindow.SpeakerMedium.Visibility = Visibility.Hidden;
+                    MySongWindow.SpeakerOff.Visibility = Visibility.Hidden;
                 }
-                else if (Window.Volume.Value >= 0.4)
+                else if (MySongWindow.Volume.Value >= 0.4)
                 {
-                    Window.SpeakerHigh.Visibility = Visibility.Hidden;
-                    Window.SpeakerLow.Visibility = Visibility.Hidden;
-                    Window.SpeakerMedium.Visibility = Visibility.Visible;
-                    Window.SpeakerOff.Visibility = Visibility.Hidden;
+                    MySongWindow.SpeakerHigh.Visibility = Visibility.Hidden;
+                    MySongWindow.SpeakerLow.Visibility = Visibility.Hidden;
+                    MySongWindow.SpeakerMedium.Visibility = Visibility.Visible;
+                    MySongWindow.SpeakerOff.Visibility = Visibility.Hidden;
                 }
-                else if (Window.Volume.Value > 0)
+                else if (MySongWindow.Volume.Value > 0)
                 {
-                    Window.SpeakerHigh.Visibility = Visibility.Hidden;
-                    Window.SpeakerLow.Visibility = Visibility.Visible;
-                    Window.SpeakerMedium.Visibility = Visibility.Hidden;
-                    Window.SpeakerOff.Visibility = Visibility.Hidden;
+                    MySongWindow.SpeakerHigh.Visibility = Visibility.Hidden;
+                    MySongWindow.SpeakerLow.Visibility = Visibility.Visible;
+                    MySongWindow.SpeakerMedium.Visibility = Visibility.Hidden;
+                    MySongWindow.SpeakerOff.Visibility = Visibility.Hidden;
                 }
                 else
                 {
-                    Window.SpeakerHigh.Visibility = Visibility.Hidden;
-                    Window.SpeakerLow.Visibility = Visibility.Hidden;
-                    Window.SpeakerMedium.Visibility = Visibility.Hidden;
-                    Window.SpeakerOff.Visibility = Visibility.Visible;
+                    MySongWindow.SpeakerHigh.Visibility = Visibility.Hidden;
+                    MySongWindow.SpeakerLow.Visibility = Visibility.Hidden;
+                    MySongWindow.SpeakerMedium.Visibility = Visibility.Hidden;
+                    MySongWindow.SpeakerOff.Visibility = Visibility.Visible;
                 }
             });
             SkipNext = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                int nextIndex = (Window.ListSong.SelectedIndex + 1) % (Window.ListSong.Items.Count);
-                Window.ListSong.SelectedIndex = nextIndex;
+                int nextIndex = (MySongWindow.ListSong.SelectedIndex + 1) % (MySongWindow.ListSong.Items.Count);
+                MySongWindow.ListSong.SelectedIndex = nextIndex;
             });
             SkipPrevious = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                int nextIndex = (Window.ListSong.SelectedIndex - 1) % (Window.ListSong.Items.Count);
-                Window.ListSong.SelectedIndex = nextIndex;
+                int nextIndex = (MySongWindow.ListSong.SelectedIndex - 1) % (MySongWindow.ListSong.Items.Count);
+                if (nextIndex < 0) nextIndex = MySongWindow.ListSong.Items.Count - 1;
+                MySongWindow.ListSong.SelectedIndex = nextIndex;
             });
             ShuffleVariant = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                Window.SequencecyLoop.IsChecked = false;
-                Window.OneLoop.IsChecked = false;
+                MySongWindow.SequencecyLoop.IsChecked = false;
+                MySongWindow.OneLoop.IsChecked = false;
             });
             ShuffleDisabled = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                Window.RandomLoop.IsChecked = false;
-                Window.OneLoop.IsChecked = false;
+                MySongWindow.RandomLoop.IsChecked = false;
+                MySongWindow.OneLoop.IsChecked = false;
             });
             Loop = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                Window.SequencecyLoop.IsChecked = false;
-                Window.RandomLoop.IsChecked = false;
+                MySongWindow.SequencecyLoop.IsChecked = false;
+                MySongWindow.RandomLoop.IsChecked = false;
             });
             NonMute = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                Window.Volume.Value = VolumePrevious;
+                MySongWindow.Volume.Value = VolumePrevious;
             });
             Mute = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                VolumePrevious = Window.Volume.Value;
-                Window.Volume.Value = 0;
+                VolumePrevious = MySongWindow.Volume.Value;
+                MySongWindow.Volume.Value = 0;
             });
+
+            // sleep timer
+            Sleeper = new RelayCommand<object>((p) => { return true; }, (p) =>
+             {
+                 CountTimer = 0;
+                 SleepTimerView wd = p as SleepTimerView;
+                 Slider slider = wd.knob as Slider;
+                 double convertsleep = slider.Value*60;
+                 int sleepsecond = (int)convertsleep;
+                 SleepTimer = new DispatcherTimer();
+                 SleepTimer.Interval = TimeSpan.FromSeconds(1);
+                 SleepTimer.Tick += timer_Tick;
+                 SleepTimer.Start();
+                 void timer_Tick(object sender, EventArgs e)
+                 {
+                     CountTimer++;
+                     if (CountTimer == sleepsecond)
+                     {
+                         mediaPlayer.Stop();
+                         SleepTimer.Stop();
+                     }
+                 }
+             });
+            CloseSleepTimer = new RelayCommand<Window>((p) => { return true; }, (p) =>
+             {
+                 Window sleepwd = p as Window;
+                 sleepwd.Close();
+             });
+            OpenSleepTimer = new RelayCommand<object>((p) => { return true; }, (p) =>
+             {
+                 SleepTimerView sleeptimerView = new SleepTimerView();
+                 sleeptimerView.ShowDialog();
+             });
+           
+
         }
-        void Load()
+        public void Load()
         {
             List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs);
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(MySongWindow.ListSong.ItemsSource);
+            view.Filter = FiltersSong;
+
+            bool FiltersSong(object item)
+            {
+                if (String.IsNullOrEmpty(MySongWindow.SongFilter.Text))
+                    return true;
+                else
+                    return ((item as Song).SongTitle.IndexOf(MySongWindow.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0
+
+                    || (item as Song).Artist.IndexOf(MySongWindow.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+            }
         }
 
        
