@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\
+C:\Code_VSCode2022\MusicPlayer\MusicMediaPlayer\obj\Debug\
 MusicMediaPlayer
 none
 false
 DEBUG;TRACE
-C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\App.xaml
-9-223758160
+C:\Code_VSCode2022\MusicPlayer\MusicMediaPlayer\App.xaml
+15709378155
 2-1797966213
-21474289233
-22-181596382
-Login.xaml;MainWindow.xaml;Register.xaml;ResourceProject\ButtonStyle.xaml;ResourceProject\LoginResource.xaml;ResourceProject\MainResource.xaml;ResourceProject\NormalButton.xaml;UserControlMusic\UserControl1.xaml;UserControlMusic\UserControlLoginRegister.xaml;
+271746057149
+25-607076197
+AddPlayList.xaml;Login.xaml;MainWindow.xaml;PlayList.xaml;Register.xaml;RenamePlayList.xaml;ResourceProject\AddPlayListResource.xaml;ResourceProject\ButtonStyle.xaml;ResourceProject\LoginResource.xaml;ResourceProject\MainResource.xaml;ResourceProject\NormalButton.xaml;ResourceProject\PlayListResource.xaml;ResourceProject\RenamePlayListResource.xaml;UserControlMusic\UserControl1.xaml;UserControlMusic\UserControlLoginRegister.xaml;
 
 False
 

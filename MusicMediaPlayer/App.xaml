@@ -2,7 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:MusicMediaPlayer"
-             StartupUri="MainWindow.xaml">
+             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+             StartupUri="/PlayList.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -14,8 +15,13 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Flipper.xaml" />
                 <ResourceDictionary Source="/ResourceProject/MainResource.xaml"/>
                 <ResourceDictionary Source="/ResourceProject/LoginResource.xaml"/>
+                <ResourceDictionary Source="/ResourceProject/PlayListResource.xaml"/>
+                <ResourceDictionary Source="/ResourceProject/AddPlayListResource.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/ButtonStyle.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/NormalButton.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/ResourceProject/RenamePlayListResource.xaml"></ResourceDictionary>
+                <!--<ui:ThemesDictionary Theme="Dark" />
+                <ui:ControlsDictionary />-->
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

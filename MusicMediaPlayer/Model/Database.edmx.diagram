@@ -4,12 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="454147709a2942ccadeefa4bd2af44dc" Name="Diagram1">
-        <EntityTypeShape EntityType="MusicPlayerModel.PlayList" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+      <Diagram DiagramId="c1e7a696f88f46cb93721fcded37ded4" Name="Diagram1">
+        <EntityTypeShape EntityType="MusicPlayerModel.PlayList" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="MusicPlayerModel.Song" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicPlayerModel.UserAccount" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <AssociationConnector Association="MusicPlayerModel.FK__PlayList__OwnerI__267ABA7A" ManuallyRouted="false" />
-        <AssociationConnector Association="MusicPlayerModel.FK__Song__ListId__29572725" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MusicPlayerModel.UserAccount" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="MusicPlayerModel.FK__PlayList__OwnerI__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicPlayerModel.FK__PlayList__OwnerI__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicPlayerModel.Has" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
