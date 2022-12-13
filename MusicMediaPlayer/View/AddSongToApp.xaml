@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MusicMediaPlayer.View"
+        xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -13,7 +14,7 @@
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Background="Transparent"
-        Title="Add Song" Height="400" Width="400"
+        Title="Add Song" Height="350" Width="450"
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
         DataContext="{StaticResource SongVM}"
         Name="AddSongApp">
@@ -21,68 +22,157 @@
           Margin="5">
         <Border CornerRadius="20" 
                         BorderBrush="White"
-                        BorderThickness="5"
-                        Background="White"
+                        BorderThickness="1"
+                        Background="Black"
                         Grid.Column="1"/>
         <StackPanel>
+            <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Margin="0,20,0,0">
+                <Image gif:AnimationBehavior.SourceUri="\Image\MusicNoteBackground.gif" 
+                       IsEnabled="True"
+                       Width="60"
+                       Height="60"
+                       Margin="0,-10,0,-10"
+                       ></Image>
+                <TextBlock Text="New song - new world"
+                       HorizontalAlignment="Center"
+                       FontSize="26"
+                       FontFamily="Bahnschrift SemiBold" 
+                       FontWeight="Light" 
+                       FlowDirection="LeftToRight" 
+                       Effect="{DynamicResource MaterialDesignElevationShadow4}"
+                       Margin="0,10,0,-10">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#2af598" Offset="1"/>
+                            <GradientStop Color="#009efd" Offset="0.3"/>
+                            <GradientStop Color="#ba55d3" Offset="0.05"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <Image gif:AnimationBehavior.SourceUri="\Image\MusicNoteBackground.gif" 
+                       IsEnabled="True"
+                       Width="60"
+                       Height="60"
+                       Margin="0,-10,0,-10"
+                       ></Image>
+            </StackPanel>
             <TextBox x:Name="TitleSong"
                   materialDesign:HintAssist.Hint="Song Title"
                   Width="300"
-                  Margin="0,20,0,0"
+                  Margin="0,0,0,0"
                   Text="{Binding TitleToAdd}"
+                  Foreground="White"
+                  BorderBrush="White"
                   Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <TextBox x:Name="ArtistSong"
                   materialDesign:HintAssist.Hint="Artist"
                   Width="300"
                   Margin="0,20,0,0"
+                  Foreground="White"
+                  BorderBrush="White"
                   Text="{Binding ArtistToAdd}"
                   Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             <StackPanel Orientation="Horizontal"
                         Margin="0,20,0,0">
-                <TextBox x:Name="FileImage"
-                  Margin="45,0,0,0"
+                <StackPanel>
+                    <TextBox x:Name="FileImage"
+                  Margin="70,0,0,0"
                   materialDesign:HintAssist.Hint="Add Image"
-                  Width="262"
+                  Width="270"
                   IsEnabled="False"
+                  Foreground="White"
+                  BorderBrush="Transparent"
+                  BorderThickness="0"
                   Text="{Binding ImagePathToAdd,UpdateSourceTrigger=PropertyChanged,Mode=OneWay}"
                   Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <Border BorderBrush="White"
+                            BorderThickness="0.5"
+                            Width="270"
+                            Margin="70,0,0,0"
+                            ></Border>
+                </StackPanel>
                 <Button Command="{Binding AddImage}"
+                        Background="#E8E9EB"
+                        Opacity="0.9"
+                        Width="30"
+                        Height="20"
+                        Padding="0"
+                        VerticalAlignment="Bottom"
+                        BorderThickness="0"
                         ToolTip="Add"
                         >...</Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal"
                         Margin="0,20,0,0">
-                <TextBox x:Name="FileMusic"
-                  Margin="45,0,0,0"
-                  materialDesign:HintAssist.Hint="Add Music"
-                  Width="262"
-                  IsEnabled="False"
-                  Text="{Binding FilePathToAdd,UpdateSourceTrigger=PropertyChanged,Mode=OneWay}"
-                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <StackPanel>
+                    <TextBox x:Name="FileMusic"
+                          Margin="70,0,0,0"
+                          materialDesign:HintAssist.Hint="Add Music"
+                          Width="270"
+                          IsEnabled="False"
+                          Foreground="White"
+                          BorderBrush="Transparent"
+                          BorderThickness="0"
+                          Text="{Binding FilePathToAdd,UpdateSourceTrigger=PropertyChanged,Mode=OneWay}"
+                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <Border BorderBrush="White"
+                            BorderThickness="0.5"
+                            Width="270"
+                            Margin="70,0,0,0"></Border>
+                </StackPanel>
                 <Button Command="{Binding AddFile}"
                         ToolTip="Add"
+                        Background="#E8E9EB"
+                        Width="30"
+                        Height="20"
+                        Padding="0"
+                        VerticalAlignment="Bottom"
+                        Opacity="0.9"
+                        BorderThickness="0"
                         >...</Button>
             </StackPanel>
-            
-            <StackPanel Margin="260,20,0,0"
+
+            <StackPanel Margin="280,20,0,0"
                         Orientation="Horizontal">
                 <Button
-                  Width="50"
-                  Background="SpringGreen"
+                  Width="40"
+                  Padding="0"
+                  BorderThickness="0"
+                  Foreground="White"
                   Command="{Binding Complete}"
                   CommandParameter="{Binding ElementName=AddSongApp}"
                   Content="{materialDesign:PackIcon Check}"
-                  ToolTip="Add" />
+                  ToolTip="Add">
+                    <Button.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#2af598" Offset="1"/>
+                            <GradientStop Color="#009efd" Offset="0.2"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
                 <Button
                   Margin="10,0,0,0"
-                  Width="50"
-                  Background="Coral"
+                  Width="40"
+                  Padding="0"
+                  BorderThickness="0"
+                  Foreground="White"
                   Command="{Binding Cancel}"
                   CommandParameter="{Binding ElementName=AddSongApp}"
                   Content="{materialDesign:PackIcon Close}"
-                  ToolTip="Cancel" />
+                  ToolTip="Cancel">
+                    <Button.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#ff00d4" 
+                                          Offset="1" />
+                            <GradientStop Color="#00ddff" Offset="0.1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
             </StackPanel>
-            
+
         </StackPanel>
     </Grid>
 </Window>
