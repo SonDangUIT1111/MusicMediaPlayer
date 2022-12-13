@@ -16,6 +16,8 @@
                 <ResourceDictionary Source="/ResourceProject/ButtonStyle.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/NormalButton.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/ErrorTemplate.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/ResourceProject/DataGridTemplate.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/ResourceProject/ScrollBarTemplate.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

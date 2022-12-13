@@ -153,7 +153,15 @@
     <Compile Include="View\SleepTimerView.xaml.cs">
       <DependentUpon>SleepTimerView.xaml</DependentUpon>
     </Compile>
+    <Page Include="ResourceProject\DataGridTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ResourceProject\ErrorTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourceProject\ScrollBarTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
