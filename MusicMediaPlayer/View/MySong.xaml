@@ -12,7 +12,7 @@
       TextOptions.TextFormattingMode="Ideal"
       TextOptions.TextRenderingMode="Auto"
       FontFamily="{DynamicResource MaterialDesignFont}"
-      d:DesignHeight="640" d:DesignWidth="734"
+      d:DesignHeight="640" d:DesignWidth="800"
       Title="My Song"
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       x:Name="SongWD"
@@ -28,13 +28,13 @@
 
     <Grid Background="Transparent"
           Margin="5"
-          Width="734"
+          Width="800"
           Height="640">
         <Border CornerRadius="20" 
                         BorderBrush="#1ED760"
                         BorderThickness="10"
-                        Background="#eff2f7"
-                        Grid.Column="1" MaxHeight="640" MaxWidth="734"/>
+                        Background="Black"
+                        Grid.Column="1" MaxHeight="640" MaxWidth="800"/>
         <StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Button
@@ -49,7 +49,7 @@
             
             <Separator Background="Gray"
                        Opacity="0.4"
-                       Width="700"
+                       Width="800"
                        materialDesign:ShadowAssist.ShadowEdges="Bottom"></Separator>
             <StackPanel Orientation="Horizontal">
                 <Button>Top listen</Button>
@@ -62,13 +62,15 @@
                 <Label Content="Filter:"
                        FontSize="12"
                        VerticalAlignment="Bottom"
-                       Foreground="DimGray"
+                       Foreground="#ffffff"
                        FontWeight="Regular"
                        Margin="200,0,0,0"></Label>
                 <TextBox x:Name="SongFilter"
                           Width="150"
                           Margin="5,20,0,0"
                           Background="Transparent"
+                          BorderBrush="#ffffff"
+                          Foreground="DimGray"
                           materialDesign:HintAssist.Hint="Search here ..."
                           >
                     <i:Interaction.Triggers>
@@ -79,164 +81,170 @@
                     </i:Interaction.Triggers>
                 </TextBox>
             </StackPanel>
-
-            <ScrollViewer VerticalScrollBarVisibility="Auto"
-                              CanContentScroll="True"
-                          Margin="0,0,0,0">
-                <ListView Margin="0" Name="ListSong"
-                              Height="450"
-                              Width="600"
-                              ItemsSource="{Binding List}" 
-                              SelectedItem="{Binding SelectedItem}"
-                              SelectionMode="Single"
-                              HorizontalAlignment="Left"
-                              >
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn  
-                                            Width="600"
-                                            >
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <Border CornerRadius="5"
+            <Separator Background="Gray"
+                       Opacity="0.4"
+                       Width="800"
+                       Margin="0,10,0,0"
+                       materialDesign:ShadowAssist.ShadowEdges="Bottom"></Separator>
+            <DataGrid 
+                  x:Name="ListSong"
+                  Height="420"
+                  Width="520"
+                  Margin="10,30,0,0"
+                  ItemsSource="{Binding List}"
+                  SelectedItem="{Binding SelectedItem}"
+                  HorizontalAlignment="Left"
+                  Style="{StaticResource DataGridStyle1}"  
+                  CellStyle="{StaticResource DataGridCellStyle1}" 
+                  RowStyle="{StaticResource DataGridRowStyle1}">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Width="500">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Border CornerRadius="5"
                                                     BorderThickness="1"
                                                     BorderBrush="Wheat"
                                                     Height="45"
                                                     HorizontalAlignment="Center">
-                                                <Grid>
-                                                    <Border Background="White"
+                                        <Grid>
+                                            <Border Background="White"
                                                             CornerRadius="4.5"
                                                             x:Name="mask"></Border>
-                                                    <Image Width ="40"
+                                            <Image Width ="40"
                                                             Height ="40"
                                                             Margin="1"
                                                             Stretch="Fill"
                                                             Source="{Binding ImagePath}"
                                                             >
-                                                        <Image.OpacityMask>
-                                                            <VisualBrush Visual="{Binding ElementName=mask}"></VisualBrush>
-                                                        </Image.OpacityMask>
-                                                    </Image>
-                                                </Grid>
-                                            </Border>
-                                           
-                                            <TextBlock Text="{Binding SongTitle}"
+                                                <Image.OpacityMask>
+                                                    <VisualBrush Visual="{Binding ElementName=mask}"></VisualBrush>
+                                                </Image.OpacityMask>
+                                            </Image>
+                                        </Grid>
+                                    </Border>
+
+                                    <TextBlock Text="{Binding SongTitle}"
                                                         Width="150"
-                                                        FontSize="16"
+                                                        FontSize="14"
                                                         FontWeight="Bold"
                                                         FontFamily="Segoe UI Semibold"
                                                         Margin="20,0,0,0"
                                                         VerticalAlignment="Center"
                                                         HorizontalAlignment="Center"
+                                                        TextTrimming="WordEllipsis"
                                                         ></TextBlock>
-                                            <TextBlock Text="{Binding Artist}"
+                                    <TextBlock Text="{Binding Artist}"
                                                         Width="100"
                                                         FontSize="12"
-                                                        Margin="0,0,0,10"
+                                                        Margin="0,5,0,0"
                                                         FontWeight="Medium"
                                                         VerticalAlignment="Center"
                                                         HorizontalAlignment="Center"
+                                                        TextTrimming="WordEllipsis"
                                                         ></TextBlock>
-                                            <TextBlock Text="{Binding HowLong}"
-                                                           Width="50"
+                                    <TextBlock Text="{Binding HowLong}"
+                                                           Width="30"
                                                            FontSize="12"
+                                                           Margin="0,8,0,0"
                                                            HorizontalAlignment="Center"
                                                            VerticalAlignment="Center"
                                                            FontWeight="Medium"
                                                            ></TextBlock>
-                                            <StackPanel Orientation="Vertical">
-                                                <Expander Background="Transparent"
+                                    <StackPanel>
+                                        <Expander     Background="Transparent"
+                                                          Foreground="Red"
                                                           Margin="0,0,0,0"
+                                                          HorizontalAlignment="Center"
+                                                          VerticalAlignment="Center"
                                                           ExpandDirection="Right"
                                                           x:Name="Option"
                                                           >
-                                                    <i:Interaction.Triggers>
-                                                        <i:EventTrigger EventName="MouseEnter">
-                                                            <i:InvokeCommandAction Command="{Binding Source={StaticResource SongVM},Path=OverOption}"
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="MouseEnter">
+                                                    <i:InvokeCommandAction Command="{Binding Source={StaticResource SongVM},Path=OverOption}"
                                                                                    CommandParameter="{Binding ElementName=Option}"/>
-                                                        </i:EventTrigger>
-                                                        <i:EventTrigger EventName="MouseLeave">
-                                                            <i:InvokeCommandAction Command="{Binding Source={StaticResource SongVM},Path=LeaveOption}"
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="MouseLeave">
+                                                    <i:InvokeCommandAction Command="{Binding Source={StaticResource SongVM},Path=LeaveOption}"
                                                                                    CommandParameter="{Binding ElementName=Option}"/>
-                                                        </i:EventTrigger>
-                                                    </i:Interaction.Triggers>
-                                                    <StackPanel Background="Transparent"
+                                                </i:EventTrigger>
+                                            </i:Interaction.Triggers>
+                                            <StackPanel Background="Transparent"
                                                                 Orientation="Horizontal">
-                                                        <ToggleButton   VerticalAlignment="Center"
+                                                <ToggleButton   VerticalAlignment="Center"
                                                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                                             ToolTip="MaterialDesignFlatPrimaryToggleButton"
                                                             IsChecked="{Binding IsFavourite}"
                                                             Foreground="HotPink"
                                                             Background="LightPink"
-                                                            Margin="0,0,0,0"
-                                                            Width="30"
-                                                            Height="30"
+                                                            Margin="0,0,0,30"
+                                                            Width="20"
+                                                            Height="20"
                                                             Command="{Binding Source={StaticResource SongVM},Path=ChangeFavourite}"
                                                             CommandParameter="{Binding}"
                                                                 >
-                                                            <materialDesign:PackIcon
+                                                    <materialDesign:PackIcon
                                                                 Kind="Heart"
-                                                                Height="20"
-                                                                Width="20" />
-                                                        </ToggleButton>
-                                                        <Button     Content="{materialDesign:PackIcon Pencil}"
+                                                                Height="15"
+                                                                Width="15" />
+                                                </ToggleButton>
+                                                <Button     Content="{materialDesign:PackIcon Pencil}"
                                                                     Background="Transparent"
-                                                                    Width="30"
+                                                                    Width="20"
                                                                     Padding="0"
+                                                                    Margin="10,0,0,30"
                                                                     BorderBrush="Transparent">
-                                                        </Button>
-                                                        <Button x:Name="Del"
+                                                </Button>
+                                                <Button x:Name="Del"
                                                                     Background="Transparent"
                                                                     Content="{materialDesign:PackIcon DeleteCircle}"
                                                                     Command="{Binding Source={StaticResource SongVM}, Path=DeleteSong}"
                                                                     CommandParameter="{Binding}"
-                                                                    Width="30"
+                                                                    Width="20"
                                                                     Padding="0"
+                                                                    Margin="10,0,0,30"
                                                                     BorderBrush="Transparent">
-                                                        </Button>
-                                                    </StackPanel>
-                                                </Expander>
+                                                </Button>
                                             </StackPanel>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                        </GridView>
-                    </ListView.View>
-                    <ListView.GroupStyle>
-                <GroupStyle>
-                    <GroupStyle.ContainerStyle>
-                        <Style TargetType="{x:Type GroupItem}">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate>
-                                        <Expander IsExpanded="False" 
+                                        </Expander>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+                <DataGrid.GroupStyle>
+                    <GroupStyle>
+                        <GroupStyle.ContainerStyle>
+                            <Style TargetType="{x:Type GroupItem}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate>
+                                            <Expander IsExpanded="False" 
                                                   ExpandDirection="Right">
-                                            <Expander.Header>
-                                                <StackPanel Orientation="Horizontal">
-                                                            <TextBlock Text="{Binding Name}" 
+                                                <Expander.Header>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="{Binding Name}" 
                                                                        FontWeight="Bold" 
                                                                        Foreground="Gray" 
                                                                        FontSize="22" 
                                                                        VerticalAlignment="Bottom" />
-                                                        </StackPanel>
-                                            </Expander.Header>
-                                            <ItemsPresenter />
-                                        </Expander>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </GroupStyle.ContainerStyle>
-                </GroupStyle>
-            </ListView.GroupStyle>
-                </ListView>
-
-            </ScrollViewer>
+                                                    </StackPanel>
+                                                </Expander.Header>
+                                                <ItemsPresenter />
+                                            </Expander>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </GroupStyle.ContainerStyle>
+                    </GroupStyle>
+                </DataGrid.GroupStyle>
+            </DataGrid>
 
             <StackPanel Background="#1ED760"
-                        Height="84" Width="722">
+                        Height="84" Width="800">
                 <StackPanel>
                     <StatusBarItem HorizontalContentAlignment="Stretch">
                         <Slider Name="sliProgress" 

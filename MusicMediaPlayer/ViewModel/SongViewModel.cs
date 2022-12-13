@@ -240,13 +240,27 @@ namespace MusicMediaPlayer.ViewModel
                     FilePathToAdd = openFileDialog.FileName;
                 }
             });
-            AddImage = new RelayCommand<object>((p) => { return true; }, (p) =>
+            AddImage = new RelayCommand<Grid>((p) => { return true; }, (p) =>
             {
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.Filter = "JPG files (*.jpg)|*.jpg|PNG files (*.png)|*.png|All files (*.*)|*.*";
-                if (openFileDialog.ShowDialog() == true)
+                OpenFileDialog op = new OpenFileDialog();
+                op.Title = "Insert Image";
+                op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" + "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" + "Portable Network Graphic (*.png)|*.png";
+                if (op.ShowDialog() == true)
                 {
-                    ImagePathToAdd = openFileDialog.FileName;
+                    ImagePathToAdd = op.FileName;
+                    ImageBrush imageBrush = new ImageBrush();
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmap.UriSource = new Uri(ImagePathToAdd);
+                    bitmap.EndInit();
+                    imageBrush.ImageSource = bitmap;
+                    p.Background = imageBrush;
+                    if (p.Children.Count > 1)
+                    {
+                        p.Children.Remove(p.Children[0]);
+                        p.Children.Remove(p.Children[1]);
+                    }
                 }
             });
             Complete = new RelayCommand<Window>((p) =>
@@ -273,9 +287,9 @@ namespace MusicMediaPlayer.ViewModel
                 {
                     artistNewSong = MySongWindow.ArtistSong.Text;
                 }
-                if (!String.IsNullOrEmpty(MySongWindow.FileImage.Text))
+                if (ImagePathToAdd!=null)
                 {
-                    uriIamge = MySongWindow.FileImage.Text;
+                    uriIamge = ImagePathToAdd;
                 }
                 try
                 {
