@@ -67,3 +67,6 @@ C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\bin\Debug\
 C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\bin\Debug\XamlAnimatedGif.pdb
 C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\DataGridTemplate.baml
 C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\ScrollBarTemplate.baml
+C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\SliderTemplate.baml
+C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\View\EditSongInApp.g.cs
+C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\View\EditSongInApp.baml

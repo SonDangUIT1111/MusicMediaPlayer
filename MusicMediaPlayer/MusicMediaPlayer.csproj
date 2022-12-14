@@ -123,6 +123,9 @@
     <Compile Include="View\AddSongToApp.xaml.cs">
       <DependentUpon>AddSongToApp.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\EditSongInApp.xaml.cs">
+      <DependentUpon>EditSongInApp.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ForgotPassword.xaml.cs">
       <DependentUpon>ForgotPassword.xaml</DependentUpon>
     </Compile>
@@ -165,7 +168,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ResourceProject\SliderTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AddSongToApp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditSongInApp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

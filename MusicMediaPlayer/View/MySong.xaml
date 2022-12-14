@@ -12,7 +12,7 @@
       TextOptions.TextFormattingMode="Ideal"
       TextOptions.TextRenderingMode="Auto"
       FontFamily="{DynamicResource MaterialDesignFont}"
-      d:DesignHeight="640" d:DesignWidth="800"
+      d:DesignHeight="640" d:DesignWidth="1000"
       Title="My Song"
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       x:Name="SongWD"
@@ -28,62 +28,93 @@
 
     <Grid Background="Transparent"
           Margin="5"
-          Width="800"
+          Width="1000"
           Height="640">
         <Border CornerRadius="20" 
                         BorderBrush="#1ED760"
-                        BorderThickness="10"
+                        BorderThickness="0"
                         Background="Black"
-                        Grid.Column="1" MaxHeight="640" MaxWidth="800"/>
+                        Grid.Column="1" MaxHeight="640" MaxWidth="1000"/>
         <StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Button
+                <Border BorderBrush="#FFFFFF"
+                        BorderThickness="2"
+                        Width="200"
+                        Height="40"
+                        Margin="20,5,0,0"
+                        CornerRadius="15">
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10"
+                                 Height="10"
+                                 Fill="#FFFFFF"
+                                 Margin="10,0,0,0"></Ellipse>
+                        <TextBox x:Name="SongFilter"
+                                  Width="150"
+                                  Margin="10,0,0,0"
+                                  Background="Transparent"
+                                  BorderBrush="Transparent"
+                                  BorderThickness="0"
+                                  Foreground="#ffffff"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  materialDesign:HintAssist.Hint="Search here ..."
+                          >
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="TextChanged">
+                                    <i:InvokeCommandAction Command="{Binding FilterChangeValue}"
+                                   CommandParameter="{Binding ElementName=SongWD}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </TextBox>
+                    </StackPanel>
+                </Border>
+                <StackPanel Orientation="Vertical"
+                            Margin="700,5,0,0">
+                    <Border Background="Transparent"
+                        Height="40"
+                        Width="40"
+                        BorderBrush="#ffffff"
+                        BorderThickness="3"
+                        CornerRadius="40">
+                        <Button
                           Command="{Binding AddSong}"
                           CommandParameter="{Binding ElementName=SongWD}"
-                          Margin="20,15,0,0"
-                          Content="IMPORT MUSIC"
-                          Background="AliceBlue"
+                          Margin="0,0,0,0"
+                          Content="{materialDesign:PackIcon Plus}"
+                          Background="Transparent"
+                          Foreground="#1ED760"
+                          Height="50"
+                          Width="50"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
                           BorderThickness="0"
-                          ToolTip="Add" />
+                          ToolTip="Add" >
+                        </Button>
+                    </Border>
+                    <Label Content="New"
+                           Foreground="#ffffff"
+                           FontSize="14"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"></Label>
+                </StackPanel>
+                   
             </StackPanel>
             
             <Separator Background="Gray"
                        Opacity="0.4"
-                       Width="800"
+                       Width="1000"
                        materialDesign:ShadowAssist.ShadowEdges="Bottom"></Separator>
             <StackPanel Orientation="Horizontal">
-                <Button>Top listen</Button>
                 <Button Command="{Binding RecentSong}" 
                         CommandParameter="{Binding ElementName=SongWD}">Recent</Button>
                 <Button Command="{Binding AllSong}" 
                         CommandParameter="{Binding ElementName=SongWD}">My song</Button>
                 <Button Command="{Binding GroupArtist}"
                         CommandParameter="{Binding ElementName=SongWD}">Artist</Button>
-                <Label Content="Filter:"
-                       FontSize="12"
-                       VerticalAlignment="Bottom"
-                       Foreground="#ffffff"
-                       FontWeight="Regular"
-                       Margin="200,0,0,0"></Label>
-                <TextBox x:Name="SongFilter"
-                          Width="150"
-                          Margin="5,20,0,0"
-                          Background="Transparent"
-                          BorderBrush="#ffffff"
-                          Foreground="DimGray"
-                          materialDesign:HintAssist.Hint="Search here ..."
-                          >
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="TextChanged">
-                            <i:InvokeCommandAction Command="{Binding FilterChangeValue}"
-                                   CommandParameter="{Binding ElementName=SongWD}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </TextBox>
             </StackPanel>
             <Separator Background="Gray"
                        Opacity="0.4"
-                       Width="800"
+                       Width="1000"
                        Margin="0,10,0,0"
                        materialDesign:ShadowAssist.ShadowEdges="Bottom"></Separator>
             <DataGrid 
@@ -191,6 +222,8 @@
                                                 </ToggleButton>
                                                 <Button     Content="{materialDesign:PackIcon Pencil}"
                                                                     Background="Transparent"
+                                                                    Command="{Binding Source={StaticResource SongVM}, Path=ChangeInfoSong}"
+                                                                    CommandParameter="{Binding}"
                                                                     Width="20"
                                                                     Padding="0"
                                                                     Margin="10,0,0,30"
@@ -243,13 +276,14 @@
                 </DataGrid.GroupStyle>
             </DataGrid>
 
-            <StackPanel Background="#1ED760"
-                        Height="84" Width="800">
+            <StackPanel Background="#222530"
+                        Height="84" Width="1000">
                 <StackPanel>
                     <StatusBarItem HorizontalContentAlignment="Stretch">
                         <Slider Name="sliProgress" 
-                                Foreground="White"
+                                Foreground="#1ED760"
                                 Width="400"
+                                IsEnabled="False"
                                 Margin="-60,0,0,0"
                              >
                             <i:Interaction.Triggers>
@@ -266,18 +300,21 @@
                         <Label
                             Height="25"
                             x:Name="InTime"
-                            Margin="110,0,0,0"></Label>
+                            Foreground="#ffffff"
+                            Margin="220,-20,0,0"></Label>
                         <Label
                             Height="25"
                             x:Name="TotalTime"
-                            Margin="390,0,0,0"></Label>
+                            Foreground="#ffffff"
+                            Margin="420,-20,0,0"></Label>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal"
-                                Margin="550,-40,0,0">
+                                Margin="750,-10,0,0">
                         <Button
                           x:Name="SpeakerHigh"
                           Width="50"
                           Background="Transparent"
+                          Foreground="#ffffff"
                           BorderThickness="0"
                           Command="{Binding Mute}"
                           Content="{materialDesign:PackIcon VolumeHigh}">
@@ -294,6 +331,7 @@
                           Margin="-50,0,0,0"
                           Visibility="Hidden"
                           Background="Transparent"
+                          Foreground="#ffffff"
                           BorderThickness="0"
                           Command="{Binding Mute}"
                           Content="{materialDesign:PackIcon VolumeMedium}">
@@ -310,6 +348,7 @@
                           Margin="-50,0,0,0"
                           Visibility="Hidden"
                           Background="Transparent"
+                          Foreground="#ffffff"
                           BorderThickness="0"
                           Command="{Binding Mute}"
                           Content="{materialDesign:PackIcon VolumeLow}">
@@ -326,6 +365,7 @@
                           Margin="-50,0,0,0"
                           Visibility="Hidden"
                           Background="Transparent"
+                          Foreground="#ffffff"
                           BorderThickness="0"
                           Command="{Binding NonMute}"
                           Content="{materialDesign:PackIcon VolumeOff}">
@@ -338,9 +378,10 @@
                                  Height="30" 
                                  Maximum="1"
                                  Value="1"
-                                 Foreground="White"
+                                 Foreground="#FFFFFF"
                                  Visibility="Visible"
-                                 VerticalAlignment="Bottom">
+                                 VerticalAlignment="Bottom"
+                                 HorizontalAlignment="Center">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="ValueChanged">
                                         <i:InvokeCommandAction Command="{Binding ChangeVolumn}"
@@ -359,7 +400,7 @@
 
                 </StackPanel>
                 <StackPanel Orientation="Horizontal"
-                            Margin="140,-10,0,0" Width="652">
+                            Margin="160,-30,0,0" Width="652">
                     <Button
                       Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
                       ToolTip="MaterialDesignFloatingActionAccentButton"
@@ -382,6 +423,7 @@
                             ToolTip="MaterialDesignFlatPrimaryToggleButton"
                             IsChecked="False"
                             Margin="10,0,5,0"
+                            Background="#1ED760"
                             Command="{Binding ShuffleVariant}"
                             CommandParameter="{Binding ElementName=SongWD}"
                                                 >
@@ -437,6 +479,7 @@
                             Command="{Binding ShuffleDisabled}"
                             CommandParameter="{Binding ElementName=SongWD}"
                             Foreground="White"
+                            Background="#1ED760"
                                                 >
                         <materialDesign:PackIcon
                                                 Kind="ShuffleDisabled"
@@ -451,7 +494,8 @@
                             Margin="0,0,5,0"
                             Command="{Binding Loop}"
                             CommandParameter="{Binding ElementName=SongWD}"
-                            Foreground="White"                >
+                            Foreground="White"
+                            Background="#1ED760">
                         <materialDesign:PackIcon
                                                 Kind="Loop"
                                                 Height="21"

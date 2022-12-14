@@ -18,6 +18,7 @@
                 <ResourceDictionary Source="/ResourceProject/ErrorTemplate.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/DataGridTemplate.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/ScrollBarTemplate.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/ResourceProject/SliderTemplate.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
