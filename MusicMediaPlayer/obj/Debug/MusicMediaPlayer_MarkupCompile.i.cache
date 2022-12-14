@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\App.xaml
-15547597032
+17-2073162528
 2-1797966213
-30-1815863533
+311010471041
 132-2023585081
-ResourceProject\DataGridTemplate.xaml;ResourceProject\ErrorTemplate.xaml;ResourceProject\ScrollBarTemplate.xaml;View\AddSongToApp.xaml;View\ForgotPassword.xaml;View\Login.xaml;View\MainWindow.xaml;View\MySong.xaml;View\Register.xaml;ResourceProject\ButtonStyle.xaml;ResourceProject\MainResource.xaml;ResourceProject\NormalButton.xaml;UserControlMusic\UserControl1.xaml;UserControlMusic\UserControlLoginRegister.xaml;View\SleepTimerView.xaml;
+ResourceProject\DataGridTemplate.xaml;ResourceProject\ErrorTemplate.xaml;ResourceProject\ScrollBarTemplate.xaml;ResourceProject\SliderTemplate.xaml;View\AddSongToApp.xaml;View\EditSongInApp.xaml;View\ForgotPassword.xaml;View\Login.xaml;View\MainWindow.xaml;View\MySong.xaml;View\Register.xaml;ResourceProject\ButtonStyle.xaml;ResourceProject\MainResource.xaml;ResourceProject\NormalButton.xaml;UserControlMusic\UserControl1.xaml;UserControlMusic\UserControlLoginRegister.xaml;View\SleepTimerView.xaml;
 
 True
 
