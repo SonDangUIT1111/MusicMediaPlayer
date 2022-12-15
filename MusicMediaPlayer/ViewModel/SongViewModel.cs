@@ -79,14 +79,10 @@ namespace MusicMediaPlayer.ViewModel
             }
         }
         // menu
-        private bool _IsPickTop= false;
-        public bool IsPickTop { get =>  _IsPickTop; set => _IsPickTop = value; }
         private bool _IsPickRecent = false;
         public bool IsPickRecent { get => _IsPickRecent; set => _IsPickRecent = value; }
         private bool _IsPickMySong = true;
         public bool IsPickMySong { get => _IsPickMySong; set => _IsPickMySong = value; }
-        private bool _IsPickArtist = false;
-        public bool IsPickArtist { get => _IsPickArtist; set => _IsPickArtist = value; }
         //
         private bool _mediaPlayerIsPlaying = false;
         private bool _userIsDraggingSlider = false;
@@ -159,7 +155,6 @@ namespace MusicMediaPlayer.ViewModel
         //menu song
         public ICommand RecentSong { get; set; }
         public ICommand AllSong { get; set; }
-        public ICommand GroupArtist { get; set; }
 
         //
         public SongViewModel()
@@ -583,31 +578,18 @@ namespace MusicMediaPlayer.ViewModel
             // recent song
             RecentSong = new RelayCommand<object>((p) => { return true; }, (p) =>
              {
-                 IsPickArtist = false;
                  IsPickMySong = false;
                  IsPickRecent = true;
-                 IsPickTop = false;
                  List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.OrderByDescending(x=>x.TimeAdd).ToList());
                  LoadRecent();
              });
             AllSong = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                IsPickArtist = false;
                 IsPickMySong = true;
                 IsPickRecent = false;
-                IsPickTop = false;
                 List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs);
                 Load();
             });
-            GroupArtist = new RelayCommand<object>((p) => { return true; }, (p) =>
-             {
-                 IsPickArtist = true;
-                 IsPickMySong = false;
-                 IsPickRecent = false;
-                 IsPickTop = false;
-                 List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs);
-                 LoadGroupArtist();
-             });
             OverOption = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 Expander expander = p as Expander;
@@ -656,24 +638,6 @@ namespace MusicMediaPlayer.ViewModel
                     || (item as Song).Artist.IndexOf(MySongWindow.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
             }
         }
-        public void LoadGroupArtist()
-        {
-            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs);
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(MySongWindow.ListSong.ItemsSource);
-            PropertyGroupDescription groupDescription = new PropertyGroupDescription("Artist");
-            view.GroupDescriptions.Add(groupDescription);
-            view.Filter = FiltersSong;
-
-            bool FiltersSong(object item)
-            {
-                if (String.IsNullOrEmpty(MySongWindow.SongFilter.Text))
-                    return true;
-                else
-                    return ((item as Song).SongTitle.IndexOf(MySongWindow.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0
-
-                    || (item as Song).Artist.IndexOf(MySongWindow.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
-            }
-        }
         public void LoadCommon()
         {
             if (IsPickMySong)
@@ -683,10 +647,6 @@ namespace MusicMediaPlayer.ViewModel
             else if (IsPickRecent)
             {
                 LoadRecent();
-            }
-            else if (IsPickArtist)
-            {
-                LoadGroupArtist();
             }
         }
 
