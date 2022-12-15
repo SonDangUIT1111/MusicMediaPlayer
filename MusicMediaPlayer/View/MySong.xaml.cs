@@ -27,5 +27,9 @@ namespace MusicMediaPlayer.View
 
         }
 
+        private void ListSong_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

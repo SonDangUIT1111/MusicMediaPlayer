@@ -16,6 +16,7 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Windows.Media.Imaging;
 using System.IO;
+using System.Data.SqlClient;
 
 namespace MusicMediaPlayer.ViewModel
 {
@@ -25,6 +26,8 @@ namespace MusicMediaPlayer.ViewModel
         private MediaPlayer mediaPlayer = new MediaPlayer();
         private ObservableCollection<Song> _List;
         public ObservableCollection<Song> List { get => _List; set { _List = value; OnPropertyChanged(); } }
+        private ObservableCollection<Song> _TopTrending;
+        public ObservableCollection<Song> TopTrending { get => _TopTrending; set { _TopTrending = value; OnPropertyChanged(); } }
         public MySong MySongWindow { get; set; }
         public DispatcherTimer SleepTimer { get; set; }
         private Song _SelectedItem;
@@ -42,6 +45,8 @@ namespace MusicMediaPlayer.ViewModel
                         MySongWindow.sliProgress.IsEnabled = true;
                         MySongWindow.Play.IsEnabled = true;
                         MySongWindow.Pause.IsEnabled = true;
+                        MySongWindow.TopTrendExpander.IsExpanded = false;
+                        MySongWindow.CDCircle.IsExpanded = true;
                         var stringUri = SelectedItem.FilePath;
                         Uri uri = new Uri(stringUri);
                         SelectedItem.Times++;
@@ -157,9 +162,11 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand AllSong { get; set; }
 
         //
+        public ICommand ShowTopOrCD { get; set; }
         public SongViewModel()
         {
             List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs);
+            TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.OrderByDescending(x => x.Times).ToList());
             Play = new RelayCommand<Page>((p) => { return true; }, (p) =>
             {
                 mediaPlayer.Play();
@@ -601,6 +608,28 @@ namespace MusicMediaPlayer.ViewModel
                 expander.IsExpanded = false;
             });
 
+            //
+            ShowTopOrCD = new RelayCommand<object>((p) => 
+            { 
+                if (SelectedItem != null)
+                {
+                    return true;
+                }
+                return false;
+            }, (p) =>
+            {
+                if (MySongWindow.TopTrendExpander.IsExpanded == true)
+                {
+                    MySongWindow.TopTrendExpander.IsExpanded = false;
+                    MySongWindow.CDCircle.IsExpanded = true;
+                }
+                else
+                {
+                    MySongWindow.TopTrendExpander.IsExpanded = true;
+                    MySongWindow.CDCircle.IsExpanded = false;
+                }
+            });
+
 
 
 
@@ -609,6 +638,7 @@ namespace MusicMediaPlayer.ViewModel
         public void Load()
         {
             List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs);
+            TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.OrderByDescending(x => x.Times).ToList());
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(MySongWindow.ListSong.ItemsSource);
             view.Filter = FiltersSong;
 
@@ -625,6 +655,7 @@ namespace MusicMediaPlayer.ViewModel
         public void LoadRecent()
         {
             List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.OrderByDescending(x => x.TimeAdd).ToList());
+            TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.OrderByDescending(x => x.Times).ToList());
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(MySongWindow.ListSong.ItemsSource);
             view.Filter = FiltersSong;
 
