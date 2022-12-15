@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MusicMediaPlayer.View"
+      xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
       mc:Ignorable="d" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -122,7 +123,10 @@
                        Width="1000"
                        Margin="0,0,0,0"
                        materialDesign:ShadowAssist.ShadowEdges="Bottom"></Separator>
-            <DataGrid 
+            <StackPanel Orientation="Horizontal"
+                        Height="420"
+                        Width="980">
+                <DataGrid 
                   x:Name="ListSong"
                   Height="420"
                   Width="520"
@@ -133,34 +137,34 @@
                   Style="{StaticResource DataGridStyle1}"  
                   CellStyle="{StaticResource DataGridCellStyle1}" 
                   RowStyle="{StaticResource DataGridRowStyle1}">
-                <DataGrid.Columns>
-                    <DataGridTemplateColumn Width="500">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Border CornerRadius="5"
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Width="500">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Border CornerRadius="5"
                                                     BorderThickness="1"
                                                     BorderBrush="Wheat"
                                                     Height="45"
                                                     HorizontalAlignment="Center">
-                                        <Grid>
-                                            <Border Background="White"
+                                            <Grid>
+                                                <Border Background="White"
                                                             CornerRadius="4.5"
                                                             x:Name="mask"></Border>
-                                            <Image Width ="40"
+                                                <Image Width ="40"
                                                             Height ="40"
                                                             Margin="1"
                                                             Stretch="Fill"
                                                             Source="{Binding ImagePath}"
                                                             >
-                                                <Image.OpacityMask>
-                                                    <VisualBrush Visual="{Binding ElementName=mask}"></VisualBrush>
-                                                </Image.OpacityMask>
-                                            </Image>
-                                        </Grid>
-                                    </Border>
+                                                    <Image.OpacityMask>
+                                                        <VisualBrush Visual="{Binding ElementName=mask}"></VisualBrush>
+                                                    </Image.OpacityMask>
+                                                </Image>
+                                            </Grid>
+                                        </Border>
 
-                                    <TextBlock Text="{Binding SongTitle}"
+                                        <TextBlock Text="{Binding SongTitle}"
                                                         Width="150"
                                                         FontSize="14"
                                                         FontWeight="Bold"
@@ -170,7 +174,7 @@
                                                         HorizontalAlignment="Center"
                                                         TextTrimming="WordEllipsis"
                                                         ></TextBlock>
-                                    <TextBlock Text="{Binding Artist}"
+                                        <TextBlock Text="{Binding Artist}"
                                                         Width="100"
                                                         FontSize="12"
                                                         Margin="0,5,0,0"
@@ -179,7 +183,7 @@
                                                         HorizontalAlignment="Center"
                                                         TextTrimming="WordEllipsis"
                                                         ></TextBlock>
-                                    <TextBlock Text="{Binding HowLong}"
+                                        <TextBlock Text="{Binding HowLong}"
                                                            Width="30"
                                                            FontSize="12"
                                                            Margin="0,8,0,0"
@@ -187,8 +191,8 @@
                                                            VerticalAlignment="Center"
                                                            FontWeight="Medium"
                                                            ></TextBlock>
-                                    <StackPanel>
-                                        <Expander     Background="Transparent"
+                                        <StackPanel>
+                                            <Expander     Background="Transparent"
                                                           Foreground="Red"
                                                           Margin="0,0,0,0"
                                                           HorizontalAlignment="Center"
@@ -196,19 +200,19 @@
                                                           ExpandDirection="Right"
                                                           x:Name="Option"
                                                           >
-                                            <i:Interaction.Triggers>
-                                                <i:EventTrigger EventName="MouseEnter">
-                                                    <i:InvokeCommandAction Command="{Binding Source={StaticResource SongVM},Path=OverOption}"
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="MouseEnter">
+                                                        <i:InvokeCommandAction Command="{Binding Source={StaticResource SongVM},Path=OverOption}"
                                                                                    CommandParameter="{Binding ElementName=Option}"/>
-                                                </i:EventTrigger>
-                                                <i:EventTrigger EventName="MouseLeave">
-                                                    <i:InvokeCommandAction Command="{Binding Source={StaticResource SongVM},Path=LeaveOption}"
+                                                    </i:EventTrigger>
+                                                    <i:EventTrigger EventName="MouseLeave">
+                                                        <i:InvokeCommandAction Command="{Binding Source={StaticResource SongVM},Path=LeaveOption}"
                                                                                    CommandParameter="{Binding ElementName=Option}"/>
-                                                </i:EventTrigger>
-                                            </i:Interaction.Triggers>
-                                            <StackPanel Background="Transparent"
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                                <StackPanel Background="Transparent"
                                                                 Orientation="Horizontal">
-                                                <ToggleButton   VerticalAlignment="Center"
+                                                    <ToggleButton   VerticalAlignment="Center"
                                                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                                             ToolTip="MaterialDesignFlatPrimaryToggleButton"
                                                             IsChecked="{Binding IsFavourite}"
@@ -220,12 +224,12 @@
                                                             Command="{Binding Source={StaticResource SongVM},Path=ChangeFavourite}"
                                                             CommandParameter="{Binding}"
                                                                 >
-                                                    <materialDesign:PackIcon
+                                                        <materialDesign:PackIcon
                                                                 Kind="Heart"
                                                                 Height="15"
                                                                 Width="15" />
-                                                </ToggleButton>
-                                                <Button     Content="{materialDesign:PackIcon Pencil}"
+                                                    </ToggleButton>
+                                                    <Button     Content="{materialDesign:PackIcon Pencil}"
                                                                     Background="Transparent"
                                                                     Command="{Binding Source={StaticResource SongVM}, Path=ChangeInfoSong}"
                                                                     CommandParameter="{Binding}"
@@ -233,8 +237,8 @@
                                                                     Padding="0"
                                                                     Margin="10,0,0,30"
                                                                     BorderBrush="Transparent">
-                                                </Button>
-                                                <Button x:Name="Del"
+                                                    </Button>
+                                                    <Button x:Name="Del"
                                                                     Background="Transparent"
                                                                     Content="{materialDesign:PackIcon DeleteCircle}"
                                                                     Command="{Binding Source={StaticResource SongVM}, Path=DeleteSong}"
@@ -243,65 +247,305 @@
                                                                     Padding="0"
                                                                     Margin="10,0,0,30"
                                                                     BorderBrush="Transparent">
-                                                </Button>
-                                            </StackPanel>
-                                        </Expander>
+                                                    </Button>
+                                                </StackPanel>
+                                            </Expander>
+                                        </StackPanel>
                                     </StackPanel>
-                                </StackPanel>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-                <DataGrid.GroupStyle>
-                    <GroupStyle>
-                        <GroupStyle.Panel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel />
-                            </ItemsPanelTemplate>
-                        </GroupStyle.Panel>
-                        <GroupStyle.ContainerStyle>
-                            <Style TargetType="{x:Type GroupItem}">
-                                <Setter Property="Background" Value="Transparent"/>
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate>
-                                            <Expander IsExpanded="False" 
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                    <DataGrid.GroupStyle>
+                        <GroupStyle>
+                            <GroupStyle.Panel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel />
+                                </ItemsPanelTemplate>
+                            </GroupStyle.Panel>
+                            <GroupStyle.ContainerStyle>
+                                <Style TargetType="{x:Type GroupItem}">
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate>
+                                                <Expander IsExpanded="False" 
                                                   ExpandDirection="Right">
-                                                <Expander.Header>
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <Border BorderBrush="#ffffff"
+                                                    <Expander.Header>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <Border BorderBrush="#ffffff"
                                                                 BorderThickness="3"
                                                                 Background="Transparent"
                                                                 Height="100"
                                                                 Width="100">
-                                                            <StackPanel Margin="5">
-                                                                <Image Source="\Image\logomusicapp.png"
+                                                                <StackPanel Margin="5">
+                                                                    <Image Source="\Image\logomusicapp.png"
                                                                        Height="80"
                                                                        Width="80"></Image>
-                                                                <TextBlock Text="{Binding Name}" 
+                                                                    <TextBlock Text="{Binding Name}" 
                                                                        FontWeight="Bold" 
                                                                        Foreground="#1ED760" 
                                                                        FontSize="14"
                                                                        Height="60"
                                                                        Width="80"
                                                                        VerticalAlignment="Bottom" />
-                                                            </StackPanel>
-                                                        </Border>
-                                                    </StackPanel>
-                                                </Expander.Header>
-                                                <ItemsPresenter />
-                                            </Expander>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
-                        </GroupStyle.ContainerStyle>
-                    </GroupStyle>
-                </DataGrid.GroupStyle>
-            </DataGrid>
+                                                                </StackPanel>
+                                                            </Border>
+                                                        </StackPanel>
+                                                    </Expander.Header>
+                                                    <ItemsPresenter />
+                                                </Expander>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </GroupStyle.ContainerStyle>
+                        </GroupStyle>
+                    </DataGrid.GroupStyle>
+                </DataGrid>
+                <StackPanel Height="auto"
+                            Width="420"
+                            Margin="20,10,0,0">
+                    <Expander Background="Transparent"
+                              Foreground="Transparent"
+                              Margin="0,-50,0,0"
+                              IsEnabled="False"
+                              IsExpanded="True"
+                              x:Name="TopTrendExpander">
+                        <StackPanel>
+                            <TextBlock HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Height="50"
+                                       Width="420"
+                                       Text="TOP TRENDING"
+                                       FontWeight="UltraBold"
+                                       FontSize="36"
+                                       FontFamily="Roboto"
+                                       TextAlignment="Center">
+                                <TextBlock.Foreground>
+                                    <LinearGradientBrush>
+                                        <GradientStop Color="#2af598" Offset="1"/>
+                                        <GradientStop Color="#009efd" Offset="0.3"/>
+                                        <GradientStop Color="#ba55d3" Offset="0.05"/>
+                                    </LinearGradientBrush>
+                                </TextBlock.Foreground>
+                            </TextBlock>
+                            <StackPanel Orientation="Horizontal">
+                                <Grid Height="60"
+                                      Width="60">
+                                    <Image Source="\Image\neon1.png"
+                                           Height="60"
+                                           Panel.ZIndex="1"
+                                           ></Image>
+                                    <Image gif:AnimationBehavior.SourceUri="\Image\thunderno1.gif"
+                                           IsEnabled="True"
+                                           Height="80"
+                                           Width="80"
+                                           Margin="-10,0,0,0"
+                                           Panel.ZIndex="0">
+                                    </Image>
+                                </Grid>
+                                <TextBlock Width="150" 
+                                           Height="50"
+                                           Margin="0,25,0,0"
+                                           TextAlignment="Left"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Foreground="#77CCFF"
+                                           FontSize="18"
+                                           FontWeight="Heavy"
+                                           TextTrimming="WordEllipsis"
+                                           Text="{Binding TopTrending[0].SongTitle}"></TextBlock>
+                                <TextBlock Width="150" 
+                                           Height="50"
+                                           Margin="0,25,0,0"
+                                           TextAlignment="Left"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Foreground="#77CCFF"
+                                           FontSize="18"
+                                           FontWeight="Heavy"
+                                           TextTrimming="WordEllipsis"
+                                           Text="{Binding TopTrending[0].Artist}"></TextBlock>
+                                <TextBlock Width="50" 
+                                           Height="50"
+                                           Margin="0,25,0,0"
+                                           TextAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Foreground="#77CCFF"
+                                           FontSize="18"
+                                           FontWeight="Heavy"
+                                           Text="{Binding TopTrending[0].Times}"/>
+                            </StackPanel>
+                            <Separator Background="#77CCFF"
+                                       Width="400"></Separator>
+                            <StackPanel Orientation="Horizontal">
+                                <Grid Width="60"
+                                      Height="60">
+                                    <Image Source="\Image\neon2.png"
+                                           Height="60"
+                                           Panel.ZIndex="1"
+                                           ></Image>
+                                    <Image gif:AnimationBehavior.SourceUri="\Image\thunderno2.gif"
+                                           IsEnabled="True"
+                                           Height="10"
+                                           Width="10"
+                                           Margin="-10,0,0,0"
+                                           Panel.ZIndex="0">
+                                    </Image>
+                                </Grid>
+                                <TextBlock Width="150" 
+                                           Height="50"
+                                           Margin="0,25,0,0"
+                                           TextAlignment="Left"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Foreground="#83F28F"
+                                           FontSize="18"
+                                           FontWeight="Heavy" 
+                                           TextTrimming="WordEllipsis"
+                                           Text="{Binding TopTrending[1].SongTitle}"></TextBlock>
+                                <TextBlock Width="150" 
+                                           Height="50"
+                                           Margin="0,25,0,0"
+                                           TextAlignment="Left"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Foreground="#83F28F"
+                                           FontSize="18"
+                                           FontWeight="Heavy"
+                                           TextTrimming="WordEllipsis"
+                                           Text="{Binding TopTrending[1].Artist}"></TextBlock>
+                                <TextBlock Width="50" 
+                                           Height="50"
+                                           Margin="0,25,0,0"
+                                           TextAlignment="Left"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Foreground="#83F28F"
+                                           FontSize="18"
+                                           FontWeight="Heavy"
+                                           Text="{Binding TopTrending[1].Times}"></TextBlock>
+                            </StackPanel>
+                            <Separator Background="#83F28F"
+                                       Width="400"></Separator>
+                            <StackPanel Orientation="Horizontal">
+                                <Grid>
+                                    <Image Source="\Image\neon3.png"
+                                           Height="60"
+                                           Width="60"
+                                           Margin="-10,0,0,0"
+                                           Panel.ZIndex="1"
+                                           ></Image>
+                                    <Image gif:AnimationBehavior.SourceUri="\Image\thunderno3.gif"
+                                           IsEnabled="True"
+                                           Height="80"
+                                           Width="80"
+                                           Margin="-10,0,0,0"
+                                           Panel.ZIndex="0">
+                                    </Image>
+                                </Grid>
+                                <TextBlock Width="150" 
+                                           Height="50"
+                                           Margin="-10,25,0,0"
+                                           TextAlignment="Left"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Foreground="#FE70C6"
+                                           FontSize="18"
+                                           FontWeight="Heavy"
+                                           TextTrimming="WordEllipsis"
+                                           Text="{Binding TopTrending[2].SongTitle}"></TextBlock>
+                                <TextBlock Width="150" 
+                                           Height="50"
+                                           Margin="0,25,0,0"
+                                           TextAlignment="Left"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Foreground="#FE70C6"
+                                           FontSize="18"
+                                           FontWeight="Heavy"
+                                           TextTrimming="WordEllipsis"
+                                           Text="{Binding TopTrending[2].Artist}"></TextBlock>
+                                <TextBlock Width="50" 
+                                           Height="50"
+                                           Margin="0,25,0,0"
+                                           TextAlignment="Left"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Foreground="#FE70C6"
+                                           FontSize="18"
+                                           FontWeight="Heavy"
+                                           Text="{Binding TopTrending[2].Times}"></TextBlock>
+                            </StackPanel>
+                            <Separator Background="#FE70C6"
+                                       Width="400"></Separator>
+                        </StackPanel>
+                    </Expander>
+                    <Expander Background="Transparent"
+                              Foreground="Transparent"
+                              Margin="0,-5,0,0"
+                              Height="420"
+                              IsEnabled="False"
+                              ExpandDirection="Up"
+                              IsExpanded="False"
+                              x:Name="CDCircle">
+                        <StackPanel>
+                            <Border BorderBrush="Transparent"
+                                    BorderThickness="5"
+                                    Background="Transparent">
+                                <Image Source="{Binding SelectedItem.ImagePath}"
+                                       Height="240"
+                                       Width="240"></Image>
+                            </Border>
+                            <StackPanel Margin="0,20,0,0">
+                                <TextBlock Width="400"
+                                           Height="40"
+                                           FontSize="34"
+                                           FontWeight="Bold"
+                                           TextAlignment="Center"
+                                           Text="{Binding SelectedItem.SongTitle}"></TextBlock>
+                                <TextBlock Width="400"
+                                           Height="30"
+                                           FontSize="20"
+                                           FontWeight="Medium"
+                                           Foreground="#767676"
+                                           TextAlignment="Center"
+                                           Text="{Binding SelectedItem.Artist}"></TextBlock>
+                                <StackPanel Orientation="Horizontal" 
+                                            Width="auto"
+                                            HorizontalAlignment="Center">
+                                    <TextBlock 
+                                           Height="20"
+                                           Width="auto"
+                                           FontSize="15"
+                                           FontWeight="Medium"
+                                           Foreground="#767676"
+                                           TextAlignment="Center"
+                                           Text="{Binding SelectedItem.Times}"></TextBlock>
+                                    <TextBlock Height="20"
+                                           Width="auto"
+                                           FontSize="15"
+                                           FontWeight="Medium"
+                                           Foreground="#767676"
+                                           TextAlignment="Center"
+                                           Text=" stream"></TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Expander>
+                </StackPanel>
+            </StackPanel>
+
 
             <StackPanel Background="#222530"
                         Height="84" Width="1000">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
+                        <i:InvokeCommandAction Command="{Binding ShowTopOrCD}"
+                                   CommandParameter="{Binding ElementName=SongWD}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
                 <StackPanel>
                     <StatusBarItem HorizontalContentAlignment="Stretch">
                         <Slider Name="sliProgress" 
