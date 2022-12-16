@@ -46,10 +46,13 @@ namespace MusicMediaPlayer.ViewModel
                         MySongWindow.Play.IsEnabled = true;
                         MySongWindow.Play.IsChecked = true;
                         MySongWindow.Pause.IsChecked = false;
+                        if (CanChangeTOP_CD == true)
+                        {
+                            MySongWindow.TopTrendExpander.IsExpanded = false;
+                            MySongWindow.CDCircle.IsExpanded = false;
+                            MySongWindow.CDCircle.IsExpanded = true;
+                        }
                         MySongWindow.Pause.IsEnabled = true;
-                        MySongWindow.TopTrendExpander.IsExpanded = false;
-                        MySongWindow.CDCircle.IsExpanded = false;
-                        MySongWindow.CDCircle.IsExpanded = true;
                         var stringUri = SelectedItem.FilePath;
                         Uri uri = new Uri(stringUri);
                         SelectedItem.Times++;
@@ -91,6 +94,8 @@ namespace MusicMediaPlayer.ViewModel
         public bool IsPickRecent { get => _IsPickRecent; set => _IsPickRecent = value; }
         private bool _IsPickMySong = true;
         public bool IsPickMySong { get => _IsPickMySong; set => _IsPickMySong = value; }
+        private bool _CanChangeTOP_CD = true;
+        public bool CanChangeTOP_CD { get => _CanChangeTOP_CD; set => _CanChangeTOP_CD = value;}
         //
         private bool _mediaPlayerIsPlaying = false;
         private bool _userIsDraggingSlider = false;
@@ -627,6 +632,7 @@ namespace MusicMediaPlayer.ViewModel
                 return false;
             }, (p) =>
             {
+                CanChangeTOP_CD = !CanChangeTOP_CD;
                 if (MySongWindow.TopTrendExpander.IsExpanded == true)
                 {
                     MySongWindow.TopTrendExpander.IsExpanded = false;

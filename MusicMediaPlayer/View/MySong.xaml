@@ -625,8 +625,8 @@
                                            ></Image>
                                     <Image gif:AnimationBehavior.SourceUri="\Image\thunderno2.gif"
                                            IsEnabled="True"
-                                           Height="10"
-                                           Width="10"
+                                           Height="25"
+                                           Width="25"
                                            Margin="-10,0,0,0"
                                            Panel.ZIndex="0">
                                     </Image>
@@ -733,7 +733,7 @@
                                      Height="200"
                                      BorderThickness="0"
                                      BorderBrush="White"
-                                     CornerRadius="360"
+                                     CornerRadius="20"
                                      x:Name="CD"
                                      RenderTransformOrigin="0.5,0.5">
                                 <Border.Background>
@@ -743,14 +743,44 @@
                                     <RotateTransform x:Name="MyAnimatedTransform" Angle="0" />
                                 </Border.RenderTransform>
                                 <Border.Style>
-                                    <Style>
+                                    <Style TargetType="Border">
                                         <Style.Triggers>
                                             <MultiDataTrigger>
                                                 <MultiDataTrigger.EnterActions>
                                                     <BeginStoryboard x:Name="StartAction">
                                                         <Storyboard>
+                                                            <ObjectAnimationUsingKeyFrames 
+                                                                                           Storyboard.TargetProperty="CornerRadius"
+                                                                                           >    
+                                                                <ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.0">
+                                                                        <DiscreteObjectKeyFrame.Value>
+                                                                            <CornerRadius BottomLeft="60" BottomRight="60" TopLeft="60" TopRight="60" />
+                                                                        </DiscreteObjectKeyFrame.Value>
+                                                                    </DiscreteObjectKeyFrame>
+
+                                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.025">
+                                                                        <DiscreteObjectKeyFrame.Value>
+                                                                            <CornerRadius BottomLeft="90" BottomRight="90" TopLeft="90" TopRight="90" />
+                                                                        </DiscreteObjectKeyFrame.Value>
+                                                                    </DiscreteObjectKeyFrame>
+
+                                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.05">
+                                                                        <DiscreteObjectKeyFrame.Value>
+                                                                            <CornerRadius BottomLeft="180" BottomRight="180" TopLeft="180" TopRight="180" />
+                                                                        </DiscreteObjectKeyFrame.Value>
+                                                                    </DiscreteObjectKeyFrame>
+
+                                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.1">
+                                                                        <DiscreteObjectKeyFrame.Value>
+                                                                            <CornerRadius BottomLeft="360" BottomRight="360" TopLeft="360" TopRight="360" />
+                                                                        </DiscreteObjectKeyFrame.Value>
+                                                                    </DiscreteObjectKeyFrame>
+                                                                </ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                            </ObjectAnimationUsingKeyFrames>
                                                             <DoubleAnimation
                                                                     Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)"
+                                                                    BeginTime="0:0:0.1"
                                                                     From="0.0" To="360" Duration="0:0:3" RepeatBehavior="Forever" />
                                                         </Storyboard>
                                                     </BeginStoryboard>
@@ -761,7 +791,36 @@
                                                         <Storyboard x:Name="ExitAction">
                                                             <DoubleAnimation
                                                                     Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)"
-                                                                    To="0.0" Duration="0:0:0.250" />
+                                                                    From="0.0" To="360" Duration="0:0:0.250" />
+                                                            <ObjectAnimationUsingKeyFrames 
+                                                                           Storyboard.TargetProperty="CornerRadius"
+                                                                           >
+                                                                <ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                                                                        <DiscreteObjectKeyFrame.Value>
+                                                                            <CornerRadius BottomLeft="270" BottomRight="270" TopLeft="270" TopRight="270" />
+                                                                        </DiscreteObjectKeyFrame.Value>
+                                                                    </DiscreteObjectKeyFrame>
+
+                                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.325">
+                                                                        <DiscreteObjectKeyFrame.Value>
+                                                                            <CornerRadius BottomLeft="180" BottomRight="180" TopLeft="180" TopRight="180" />
+                                                                        </DiscreteObjectKeyFrame.Value>
+                                                                    </DiscreteObjectKeyFrame>
+
+                                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.35">
+                                                                        <DiscreteObjectKeyFrame.Value>
+                                                                            <CornerRadius BottomLeft="90" BottomRight="90" TopLeft="90" TopRight="90" />
+                                                                        </DiscreteObjectKeyFrame.Value>
+                                                                    </DiscreteObjectKeyFrame>
+
+                                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.4">
+                                                                        <DiscreteObjectKeyFrame.Value>
+                                                                            <CornerRadius BottomLeft="20" BottomRight="20" TopLeft="20" TopRight="20" />
+                                                                        </DiscreteObjectKeyFrame.Value>
+                                                                    </DiscreteObjectKeyFrame>
+                                                                </ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                            </ObjectAnimationUsingKeyFrames>
                                                         </Storyboard>
                                                     </BeginStoryboard>
                                                 </MultiDataTrigger.ExitActions>
@@ -813,11 +872,11 @@
                                     BorderThickness="1"
                                     CornerRadius="20"
                                     Background="#1ED760"
-                                    Height="50"
+                                    Height="40"
                                     Width="120">
-                                <Button Height="40"
+                                <Button Height="30"
                                         Width="120"
-                                        Content="Play"
+                                        Content="PLAY"
                                         IsEnabled="True"
                                         FontSize="16"
                                         FontWeight="Medium"
