@@ -88,6 +88,9 @@
     <Compile Include="AddPlayList.xaml.cs">
       <DependentUpon>AddPlayList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddSongPlayList.xaml.cs">
+      <DependentUpon>AddSongPlayList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\Database.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -132,6 +135,7 @@
       <DependentUpon>UserControlLoginRegister.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\AddPlayListViewModel.cs" />
+    <Compile Include="ViewModel\AddSongPlayListViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
@@ -141,6 +145,10 @@
     <Compile Include="ViewModel\UCLoginRegisterViewModel.cs" />
     <Compile Include="ViewModel\UserControlViewModel.cs" />
     <Page Include="AddPlayList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddSongPlayList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

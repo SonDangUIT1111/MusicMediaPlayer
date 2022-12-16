@@ -75,8 +75,8 @@ namespace MusicMediaPlayer.ViewModel
 
                 DataProvider.Ints.DB.SaveChanges();
 
-               
-
+                Title = null;
+                    
                 p.Close();
             }
             );

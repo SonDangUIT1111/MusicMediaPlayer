@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace MusicMediaPlayer.ViewModel
 {
@@ -20,10 +21,17 @@ namespace MusicMediaPlayer.ViewModel
 
         public ICommand DeletePlayList { get; set; }
 
+        public ICommand Delete_One_Song { get; set; }
+
+        public ICommand AddSongs { get; set; }
+
         #endregion
 
         private string _PLName;
         public string PLName { get => _PLName; set { _PLName = value; OnPropertyChanged(); } }
+
+        private string _SongCount;
+        public string SongCount { get => _SongCount; set { _SongCount = value; OnPropertyChanged(); } }
 
         public PlayList page_PlayList;
 
@@ -33,13 +41,18 @@ namespace MusicMediaPlayer.ViewModel
 
         public bool IsGoBack = false;
 
+        private ObservableCollection<MusicMediaPlayer.Model.Song> _List;
+        public ObservableCollection<MusicMediaPlayer.Model.Song> List { get => _List; set { _List = value; OnPropertyChanged(); } }
+
         public PlayList_InsideViewModel()
         {
-            Loaded = new RelayCommand<Page>((p) => { return true; }, (p) =>
+            Loaded = new RelayCommand<System.Windows.Controls.Page>((p) => { return true; }, (p) =>
             {
                 thispage = p as PlayList_Inside;
                 pl = page_PlayList.listview.SelectedItem as MusicMediaPlayer.Model.PlayList;
                 PLName = pl.PlayListName;
+                SongCount = pl.SongCount.ToString() + " Bài hát";
+                LoadDanhSach();
             }
             );
 
@@ -65,7 +78,7 @@ namespace MusicMediaPlayer.ViewModel
             }
             );
 
-            DeletePlayList = new RelayCommand<Page>((p) => { return true; }, (p) =>
+            DeletePlayList = new RelayCommand<System.Windows.Controls.Page>((p) => { return true; }, (p) =>
             {
                 MessageBoxResult dr = System.Windows.MessageBox.Show("Do you want to delete it?", "Delete!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
@@ -92,6 +105,43 @@ namespace MusicMediaPlayer.ViewModel
             }
             );
 
+            Delete_One_Song = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+
+                MessageBoxResult dr = System.Windows.MessageBox.Show("Do you want to delete it?", "Delete!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                if (dr == MessageBoxResult.Yes)
+                {
+                    pl.Song.Remove(p as Song);
+                    pl.SongCount = pl.SongCount - 1;
+                    DataProvider.Ints.DB.SaveChanges();
+                    SongCount = pl.SongCount.ToString() + " Bài hát";
+                    LoadDanhSach();
+                }
+               
+            }
+            );
+
+            AddSongs = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                AddSongPlayList wd = new AddSongPlayList();
+
+                var trang = wd.DataContext as AddSongPlayListViewModel;
+
+                trang.pl = pl;
+
+                wd.ShowDialog();
+
+                SongCount = pl.SongCount.ToString() + " Bài hát";
+                LoadDanhSach();
+            }
+            );
+
+        }
+
+        void LoadDanhSach()
+        {
+            List = new ObservableCollection<Song>(pl.Song);
         }
     }
 }

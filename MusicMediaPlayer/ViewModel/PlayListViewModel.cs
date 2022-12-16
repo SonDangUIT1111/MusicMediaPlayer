@@ -3,6 +3,7 @@ using MusicMediaPlayer.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -30,11 +31,11 @@ namespace MusicMediaPlayer.ViewModel
 
         public ICommand Load { get; set; }
 
-        //public ICommand GotFocus { get; set; }
-
         public ICommand MouseDoubleClick { get; set; }
 
-        public ICommand SelectedItems { get; set; }
+        public ICommand AZ { get; set; }
+
+        public ICommand ZA { get; set; }
 
         #endregion
 
@@ -47,8 +48,9 @@ namespace MusicMediaPlayer.ViewModel
         private MusicMediaPlayer.Model.PlayList _ItemDoubleClick;
         public MusicMediaPlayer.Model.PlayList ItemDoubleClick { get => _ItemDoubleClick; set { _ItemDoubleClick = value; OnPropertyChanged(); } }
 
-
         public PlayList page;
+
+        public bool IsSort = false;
 
         public PlayListViewModel()
         {
@@ -67,12 +69,6 @@ namespace MusicMediaPlayer.ViewModel
                 page = p as PlayList;
             }
             );
-
-           // GotFocus = new RelayCommand<Page>((p) => { return true; }, (p) =>
-           // {
-           //     LoadDanhSach();
-           // }
-           //);
 
             AddPL = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
@@ -138,7 +134,6 @@ namespace MusicMediaPlayer.ViewModel
                 Search = p.Text;
                 CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(page.listview.ItemsSource);
                 view.Filter = PlaylistFilter;
-                //CollectionViewSource.GetDefaultView(page.listview.ItemsSource).Refresh();
             }
             );
 
@@ -154,7 +149,35 @@ namespace MusicMediaPlayer.ViewModel
             }
             );
 
-            
+            AZ = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(page.listview.ItemsSource);
+
+                if (IsSort)
+                {
+                    view.SortDescriptions.Clear();
+                }
+
+                view.SortDescriptions.Add(new SortDescription("PlayListName", ListSortDirection.Ascending));
+                IsSort = true;
+            }
+            );
+
+            ZA = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(page.listview.ItemsSource);
+
+                if (IsSort)
+                {
+                    view.SortDescriptions.Clear();
+                }
+
+                view.SortDescriptions.Add(new SortDescription("PlayListName", ListSortDirection.Descending));
+                IsSort = true;
+            }
+            );
+
+
         }
         void LoadDanhSach()
         {

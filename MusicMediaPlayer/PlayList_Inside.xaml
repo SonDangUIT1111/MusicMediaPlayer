@@ -71,9 +71,20 @@
 
                         </Button>
                         <Button Content="Add Songs"
-                                 Margin="10 0 0 0 ">
+                                 Margin="10 0 0 0 "
+                                Command="{Binding AddSongs}">
 
                         </Button>
+                        <TextBlock  Text="{Binding SongCount}"
+                                    Margin="10 0 0 0 "
+                                    FontSize="15"
+                                    FontWeight="Bold"
+                                    TextWrapping="Wrap" 
+                                    FontStyle="Italic"
+                                    Width="150" 
+                                    HorizontalAlignment="Center" 
+                                    VerticalAlignment="Center"
+                                    />
                     </StackPanel>
                 </Grid>
             </StackPanel>
@@ -110,8 +121,8 @@
 
                                 <StackPanel Margin="15 0 0 0" Width="440"
                                        >
-                                    <TextBlock Opacity="1" Text="{Binding SongTilte}" Foreground="Black" FontWeight="Bold" FontSize="20"/>
-                                    <TextBlock Opacity="1" Text="{Binding SongArtist}" Foreground="Black" FontWeight="Bold" FontSize="17"></TextBlock>
+                                    <TextBlock Opacity="1" Text="{Binding SongTitle}" Foreground="Black" FontWeight="Bold" FontSize="20"/>
+                                    <TextBlock Opacity="1" Text="{Binding Artist}" Foreground="Black" FontWeight="Bold" FontSize="17"></TextBlock>
                                 </StackPanel>
 
                                 <materialDesign:PopupBox

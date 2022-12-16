@@ -4,4 +4,5 @@
                    >
     <viewmodel:PlayListViewModel x:Key="PlayListVM"></viewmodel:PlayListViewModel>
     <viewmodel:PlayList_InsideViewModel x:Key="PlayList_InsideVM"></viewmodel:PlayList_InsideViewModel>
+    <viewmodel:AddSongPlayListViewModel x:Key="AddSongPlayListVM"></viewmodel:AddSongPlayListViewModel>
 </ResourceDictionary>
