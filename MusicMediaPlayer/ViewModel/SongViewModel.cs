@@ -44,8 +44,11 @@ namespace MusicMediaPlayer.ViewModel
                     {
                         MySongWindow.sliProgress.IsEnabled = true;
                         MySongWindow.Play.IsEnabled = true;
+                        MySongWindow.Play.IsChecked = true;
+                        MySongWindow.Pause.IsChecked = false;
                         MySongWindow.Pause.IsEnabled = true;
                         MySongWindow.TopTrendExpander.IsExpanded = false;
+                        MySongWindow.CDCircle.IsExpanded = false;
                         MySongWindow.CDCircle.IsExpanded = true;
                         var stringUri = SelectedItem.FilePath;
                         Uri uri = new Uri(stringUri);
@@ -163,6 +166,8 @@ namespace MusicMediaPlayer.ViewModel
 
         //
         public ICommand ShowTopOrCD { get; set; }
+        public ICommand PlayShortcut { get; set; }
+
         public SongViewModel()
         {
             List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs);
@@ -171,6 +176,8 @@ namespace MusicMediaPlayer.ViewModel
             {
                 mediaPlayer.Play();
                 MediaPlayerIsPlaying = true;
+                MySongWindow.Play.IsChecked = true;
+                MySongWindow.Pause.IsChecked = false;
                 MySongWindow.Play.Visibility = Visibility.Hidden;
                 MySongWindow.Pause.Visibility = Visibility.Visible;
             });
@@ -178,6 +185,8 @@ namespace MusicMediaPlayer.ViewModel
             {
                 mediaPlayer?.Pause();
                 MediaPlayerIsPlaying = false;
+                MySongWindow.Play.IsChecked = false;
+                MySongWindow.Pause.IsChecked = true;
                 MySongWindow.Play.Visibility = Visibility.Visible;
                 MySongWindow.Pause.Visibility = Visibility.Hidden;
             });
@@ -630,7 +639,10 @@ namespace MusicMediaPlayer.ViewModel
                 }
             });
 
-
+            PlayShortcut = new RelayCommand<object>((p) => { return true; }, (p) =>
+             {
+                 MessageBox.Show("SS");
+             });
 
 
 
