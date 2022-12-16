@@ -164,6 +164,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ResourceProject\ExpanderMySongTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ResourceProject\ScrollBarTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -300,8 +304,8 @@
     <Resource Include="Image\neon3.png" />
     <Resource Include="Image\thunderno1.gif" />
     <Resource Include="Image\thunderno3.gif" />
-    <Resource Include="Image\1yssaj.gif" />
     <Resource Include="Image\thunderno2.gif" />
+    <Resource Include="Image\classicdisc.png" />
     <Content Include="Model\Database.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Database.Context.cs</LastGenOutput>
