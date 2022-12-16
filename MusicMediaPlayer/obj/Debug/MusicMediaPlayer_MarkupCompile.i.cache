@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Code_VSCode2022\MusicPlayer\MusicMediaPlayer\App.xaml
-15709378155
+16-10459874
 2-1797966213
-28-336031469
+30-990503329
 25-607076197
-AddPlayList.xaml;Login.xaml;MainWindow.xaml;PlayList.xaml;Register.xaml;RenamePlayList.xaml;ResourceProject\AddPlayListResource.xaml;ResourceProject\ButtonStyle.xaml;ResourceProject\LoginResource.xaml;ResourceProject\MainResource.xaml;ResourceProject\NormalButton.xaml;ResourceProject\PlayListResource.xaml;ResourceProject\RenamePlayListResource.xaml;UserControlMusic\UserControl1.xaml;UserControlMusic\UserControlLoginRegister.xaml;
+AddPlayList.xaml;Login.xaml;MainWindow.xaml;PlayList.xaml;PlayList_Inside.xaml;Register.xaml;RenamePlayList.xaml;ResourceProject\AddPlayListResource.xaml;ResourceProject\ButtonStyle.xaml;ResourceProject\LoginResource.xaml;ResourceProject\MainResource.xaml;ResourceProject\NormalButton.xaml;ResourceProject\PlayListResource.xaml;ResourceProject\RenamePlayListResource.xaml;UserControlMusic\UserControl1.xaml;UserControlMusic\UserControlLoginRegister.xaml;
 
-False
+True
 

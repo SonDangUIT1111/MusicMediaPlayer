@@ -136,6 +136,7 @@
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\PlayListViewModel.cs" />
+    <Compile Include="ViewModel\PlayList_InsideViewModel.cs" />
     <Compile Include="ViewModel\RenamePlayListViewModel.cs" />
     <Compile Include="ViewModel\UCLoginRegisterViewModel.cs" />
     <Compile Include="ViewModel\UserControlViewModel.cs" />

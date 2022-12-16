@@ -3,4 +3,5 @@
                     xmlns:viewmodel="clr-namespace:MusicMediaPlayer.ViewModel"
                    >
     <viewmodel:PlayListViewModel x:Key="PlayListVM"></viewmodel:PlayListViewModel>
+    <viewmodel:PlayList_InsideViewModel x:Key="PlayList_InsideVM"></viewmodel:PlayList_InsideViewModel>
 </ResourceDictionary>

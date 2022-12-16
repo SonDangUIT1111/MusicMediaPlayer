@@ -18,6 +18,10 @@
             <i:InvokeCommandAction Command="{Binding Load}"
                                    CommandParameter="{Binding ElementName=PL}"/>
         </i:EventTrigger>
+        <!--<i:EventTrigger EventName="GotFocus">
+            <i:InvokeCommandAction Command="{Binding GotFocus}"
+                                   CommandParameter="{Binding ElementName=PL}"/>
+        </i:EventTrigger>-->
     </i:Interaction.Triggers>
     
     
@@ -89,8 +93,14 @@
                 <ListView Margin="10 0 200 10"
                           ItemsSource="{Binding List, Mode=TwoWay}"
                           Name="listview"
+                          SelectionMode="Single"
                           >
-                   
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDoubleClick">
+                            <i:InvokeCommandAction Command="{Binding MouseDoubleClick}"
+                                   CommandParameter="{Binding ElementName=listview}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                     <!--<ItemsControl.Template>
                         <ControlTemplate TargetType="ListView">
                             <Border BorderBrush="Black" BorderThickness="1" CornerRadius="15">

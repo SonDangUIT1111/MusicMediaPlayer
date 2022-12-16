@@ -101,3 +101,5 @@ C:\Code_VSCode2022\MusicPlayer\MusicMediaPlayer\bin\Debug\Wpf.Ui.xml
 C:\Code_VSCode2022\MusicPlayer\MusicMediaPlayer\obj\Debug\RenamePlayList.g.cs
 C:\Code_VSCode2022\MusicPlayer\MusicMediaPlayer\obj\Debug\RenamePlayList.baml
 C:\Code_VSCode2022\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\RenamePlayListResource.baml
+C:\Code_VSCode2022\MusicPlayer\MusicMediaPlayer\obj\Debug\PlayList_Inside.g.cs
+C:\Code_VSCode2022\MusicPlayer\MusicMediaPlayer\obj\Debug\PlayList_Inside.baml

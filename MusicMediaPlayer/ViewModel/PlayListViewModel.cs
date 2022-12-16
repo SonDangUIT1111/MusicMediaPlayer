@@ -1,4 +1,5 @@
-﻿using MusicMediaPlayer.Model;
+﻿using MaterialDesignThemes.Wpf;
+using MusicMediaPlayer.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -29,6 +30,12 @@ namespace MusicMediaPlayer.ViewModel
 
         public ICommand Load { get; set; }
 
+        //public ICommand GotFocus { get; set; }
+
+        public ICommand MouseDoubleClick { get; set; }
+
+        public ICommand SelectedItems { get; set; }
+
         #endregion
 
         private ObservableCollection<MusicMediaPlayer.Model.PlayList> _List;
@@ -37,7 +44,11 @@ namespace MusicMediaPlayer.ViewModel
         private string _Search;
         public string Search { get => _Search; set { _Search = value; OnPropertyChanged(); } }
 
-        PlayList page;
+        private MusicMediaPlayer.Model.PlayList _ItemDoubleClick;
+        public MusicMediaPlayer.Model.PlayList ItemDoubleClick { get => _ItemDoubleClick; set { _ItemDoubleClick = value; OnPropertyChanged(); } }
+
+
+        public PlayList page;
 
         public PlayListViewModel()
         {
@@ -56,6 +67,12 @@ namespace MusicMediaPlayer.ViewModel
                 page = p as PlayList;
             }
             );
+
+           // GotFocus = new RelayCommand<Page>((p) => { return true; }, (p) =>
+           // {
+           //     LoadDanhSach();
+           // }
+           //);
 
             AddPL = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
@@ -125,10 +142,23 @@ namespace MusicMediaPlayer.ViewModel
             }
             );
 
-            void LoadDanhSach()
+            MouseDoubleClick = new RelayCommand<ListView>((p) => { return true; }, (p) =>
             {
-                List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ints.DB.PlayList);
+                PlayList_Inside wd = new PlayList_Inside();
+
+                var trang = wd.DataContext as PlayList_InsideViewModel;
+
+                trang.page_PlayList = page;
+
+                page.NavigationService.Navigate(wd);
             }
+            );
+
+            
+        }
+        void LoadDanhSach()
+        {
+            List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ints.DB.PlayList);
         }
     }
 }
