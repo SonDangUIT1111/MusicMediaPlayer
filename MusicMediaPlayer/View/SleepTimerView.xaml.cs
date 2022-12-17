@@ -55,6 +55,7 @@ namespace MusicMediaPlayer.View
                 knob.Value = (knob.Maximum - knob.Minimum) * angle / (2 * Math.PI);
             }
         }
+
     }
 
     //The converter used to convert the value to the rotation angle.
