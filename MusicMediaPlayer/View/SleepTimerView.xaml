@@ -28,8 +28,8 @@
           Margin="5">
             <Border CornerRadius="20" 
                         BorderBrush="White"
-                        BorderThickness="5"
-                        Background="White"
+                        BorderThickness="2"
+                        Background="Black"
                         Grid.Column="1"/>
 
         </Grid>
@@ -41,7 +41,8 @@
               VerticalAlignment="Top"
               Margin="10"
               Style="{StaticResource ContactButton}"
-              Foreground="Blue"
+              BorderThickness="0"
+              Foreground="#1ED761"
               Command="{Binding CloseSleepTimer}"
               CommandParameter="{Binding ElementName=SleepTimerWD}"
               >
@@ -50,6 +51,7 @@
         <Slider Name="knob"
                 Maximum="60"
                 Minimum="0"
+                TickFrequency="1"
                 Value="0.5">
             <Slider.Template>
                 <ControlTemplate>
@@ -62,27 +64,37 @@
                                      Height="300" 
                                      Canvas.Left="0" 
                                      Canvas.Top="0" 
-                                     Stroke="#7BD5F5" 
                                      StrokeThickness="10"
                                      MouseMove="Ellipse_MouseMove"
                                      MouseLeftButtonUp="Ellipse_MouseLeftButtonUp">
+                                <Ellipse.Stroke>
+                                    <LinearGradientBrush>
+                                        <GradientStop Color="#2af598" Offset="0.9"/>
+                                        <GradientStop Color="#009efd" Offset="0.6"/>
+                                        <GradientStop Color="#ba55d3" Offset="0.3"/>
+                                    </LinearGradientBrush>
+                                </Ellipse.Stroke>
                             </Ellipse>
                             <TextBlock Canvas.Left="105" 
                                        Canvas.Top="90"
                                        Width="100" 
                                        Height="100"
                                        FontSize="72"
-                                       Text="{Binding ElementName=knob,Path=Value}"></TextBlock>
+                                       Foreground="#FFFFFF"
+                                       Text="{Binding ElementName=knob,Path=Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBlock>
                             <TextBlock Canvas.Left="90" 
                                        Canvas.Top="170"
                                        Width="160" 
                                        Height="50"
                                        FontSize="36"
+                                       Foreground="#FFFFFF"
+                                       FontWeight="Medium"
                                        Text="Minutes"></TextBlock>
                             <Canvas>
-                                <Ellipse Fill="#1CA7EC" 
-                                         Width="30" 
-                                         Height="30" 
+                                <Ellipse Fill="#FFFFFF"
+                                         StrokeThickness="0"
+                                         Width="15" 
+                                         Height="15" 
                                          Canvas.Left="140"
                                          Canvas.Top="0"
                                          MouseLeftButtonDown="Ellipse_MouseLeftButtonDown"
@@ -109,14 +121,15 @@
               x:Name="startClock"
               Margin="0,300,0,0"
               Content="Start"
-              Foreground="White"
+              Foreground="#FFFFFF"
+              Background="#1ED760"
+              FontWeight="Medium"
               Height="80"
               Width="80"
               Style="{StaticResource MaterialDesignActionLightToggleButton}"
               IsChecked="False"
-              ToolTip="MaterialDesignActionLightToggleButton"
               Command="{Binding Sleeper}"
               CommandParameter="{Binding ElementName=SleepTimerWD}"
-             />        
+             />
     </Grid>
 </Window>

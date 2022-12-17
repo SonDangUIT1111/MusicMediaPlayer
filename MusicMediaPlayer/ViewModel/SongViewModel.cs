@@ -61,6 +61,8 @@ namespace MusicMediaPlayer.ViewModel
                         MediaPlayerIsPlaying = true;
                         MySongWindow.Play.Visibility = Visibility.Hidden;
                         MySongWindow.Pause.Visibility = Visibility.Visible;
+                        MySongWindow.PlayCD.Visibility = Visibility.Hidden;
+                        MySongWindow.PauseCD.Visibility = Visibility.Visible;
                         mediaPlayer.Play();
                         DispatcherTimer timer = new DispatcherTimer();
                         timer.Interval = TimeSpan.FromSeconds(1);
@@ -139,6 +141,8 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand LoadData { get; set; }
         public ICommand Play { get; set; }
         public ICommand Stop { get; set; }
+        public ICommand PlayShortcut { get; set; }
+        public ICommand PauseShortcut { get; set; }
         public ICommand Pause { get; set; }
         public ICommand FilterChangeValue { get; set; }
         public ICommand AddSong { get; set; }
@@ -171,7 +175,6 @@ namespace MusicMediaPlayer.ViewModel
 
         //
         public ICommand ShowTopOrCD { get; set; }
-        public ICommand PlayShortcut { get; set; }
 
         public SongViewModel()
         {
@@ -185,6 +188,8 @@ namespace MusicMediaPlayer.ViewModel
                 MySongWindow.Pause.IsChecked = false;
                 MySongWindow.Play.Visibility = Visibility.Hidden;
                 MySongWindow.Pause.Visibility = Visibility.Visible;
+                MySongWindow.PlayCD.Visibility = Visibility.Hidden;
+                MySongWindow.PauseCD.Visibility = Visibility.Visible;
             });
             Pause = new RelayCommand<Page>((p) => { return true; }, (p) =>
             {
@@ -194,6 +199,30 @@ namespace MusicMediaPlayer.ViewModel
                 MySongWindow.Pause.IsChecked = true;
                 MySongWindow.Play.Visibility = Visibility.Visible;
                 MySongWindow.Pause.Visibility = Visibility.Hidden;
+                MySongWindow.PlayCD.Visibility = Visibility.Visible;
+                MySongWindow.PauseCD.Visibility = Visibility.Hidden;
+            });
+            PlayShortcut = new RelayCommand<Page>((p) => { return true; }, (p) =>
+            {
+                mediaPlayer.Play();
+                MediaPlayerIsPlaying = true;
+                MySongWindow.Play.IsChecked = true;
+                MySongWindow.Pause.IsChecked = false;
+                MySongWindow.Play.Visibility = Visibility.Hidden;
+                MySongWindow.Pause.Visibility = Visibility.Visible;
+                MySongWindow.PlayCD.Visibility = Visibility.Hidden;
+                MySongWindow.PauseCD.Visibility = Visibility.Visible;
+            });
+            PauseShortcut = new RelayCommand<Page>((p) => { return true; }, (p) =>
+            {
+                mediaPlayer?.Pause();
+                MediaPlayerIsPlaying = false;
+                MySongWindow.Play.IsChecked = false;
+                MySongWindow.Pause.IsChecked = true;
+                MySongWindow.Play.Visibility = Visibility.Visible;
+                MySongWindow.Pause.Visibility = Visibility.Hidden;
+                MySongWindow.PlayCD.Visibility = Visibility.Visible;
+                MySongWindow.PauseCD.Visibility = Visibility.Hidden;
             });
             Stop = new RelayCommand<Page>((p) => { return true; }, (p) =>
             {
@@ -305,7 +334,6 @@ namespace MusicMediaPlayer.ViewModel
             });
             ChangeFavourite = new RelayCommand<object>((p) => { return true; }, (p) =>
              {
-                 var item = p as Song;
                  DataProvider.Ins.DB.SaveChanges();
              });
             AddFile = new RelayCommand<object>((p) => { return true; }, (p) =>
@@ -578,6 +606,12 @@ namespace MusicMediaPlayer.ViewModel
                      {
                          mediaPlayer.Stop();
                          SleepTimer.Stop();
+                         MySongWindow.Play.IsChecked = false;
+                         MySongWindow.Pause.IsChecked = true;
+                         MySongWindow.Play.Visibility = Visibility.Visible;
+                         MySongWindow.Pause.Visibility = Visibility.Hidden;
+                         MySongWindow.PlayCD.Visibility = Visibility.Visible;
+                         MySongWindow.PauseCD.Visibility = Visibility.Hidden;
                      }
                      else if (CountTimer == 1)
                      {
@@ -645,10 +679,6 @@ namespace MusicMediaPlayer.ViewModel
                 }
             });
 
-            PlayShortcut = new RelayCommand<object>((p) => { return true; }, (p) =>
-             {
-                 MessageBox.Show("SS");
-             });
 
 
 
