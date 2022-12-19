@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\
 MusicMediaPlayer
 none
 false
 DEBUG;TRACE
-C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\App.xaml
-9-1204847194
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\App.xaml
+22419273215
 2-1797966213
-23371294992
-22-181596382
-View\ForgotPassword.xaml;View\Login.xaml;View\MainWindow.xaml;View\Register.xaml;ResourceProject\ButtonStyle.xaml;ResourceProject\MainResource.xaml;ResourceProject\NormalButton.xaml;UserControlMusic\UserControl1.xaml;UserControlMusic\UserControlLoginRegister.xaml;
+32-1264244346
+55-390989187
+ResourceProject\ChangePassbt.xaml;ResourceProject\Bth.xaml;ResourceProject\CPButton.xaml;ResourceProject\DataTemplate.xaml;ResourceProject\Page.xaml;ResourceProject\ProfileText.xaml;ResourceProject\profileIcon.xaml;ResourceProject\PlayerButton.xaml;ResourceProject\ButtonIcon.xaml;UserControlMusic\UserControlHome.xaml;UserControlMusic\UserControlProFile.xaml;ResourceProject\RenameButton.xaml;View\ChangePassword.xaml;View\ForgotPassword.xaml;View\Login.xaml;View\MainWindow.xaml;View\Register.xaml;ResourceProject\ButtonStyle.xaml;ResourceProject\MainResource.xaml;ResourceProject\NormalButton.xaml;UserControlMusic\UserControl1.xaml;UserControlMusic\UserControlLoginRegister.xaml;
 
 False
 

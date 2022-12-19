@@ -10,6 +10,7 @@
     <Property Name="OwnerId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="UserAccount" Relationship="Self.FK__PlayList__OwnerI__267ABA7A" FromRole="PlayList" ToRole="UserAccount" />
     <NavigationProperty Name="Songs" Relationship="Self.FK__Song__ListId__29572725" FromRole="PlayList" ToRole="Song" />
+    <NavigationProperty Name="Songs1" Relationship="MusicPlayerModel.Has" FromRole="PlayList" ToRole="Song" />
   </EntityType>
   <EntityType Name="Song">
     <Key>
@@ -23,6 +24,7 @@
     <Property Name="IsFavourite" Type="Boolean" />
     <Property Name="ListId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="PlayList" Relationship="Self.FK__Song__ListId__29572725" FromRole="Song" ToRole="PlayList" />
+    <NavigationProperty Name="PlayLists" Relationship="MusicPlayerModel.Has" FromRole="Song" ToRole="PlayList" />
   </EntityType>
   <EntityType Name="UserAccount">
     <Key>
@@ -70,5 +72,24 @@
       <End Role="PlayList" EntitySet="PlayLists" />
       <End Role="Song" EntitySet="Songs" />
     </AssociationSet>
+    <AssociationSet Name="Has" Association="MusicPlayerModel.Has">
+      <End Role="PlayList" EntitySet="PlayLists" />
+      <End Role="Song" EntitySet="Songs" />
+    </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="MusicPlayerModel.sysdiagram" />
   </EntityContainer>
+  <Association Name="Has">
+    <End Type="MusicPlayerModel.PlayList" Role="PlayList" Multiplicity="*" />
+    <End Type="MusicPlayerModel.Song" Role="Song" Multiplicity="*" />
+  </Association>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
 </Schema>
