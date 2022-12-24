@@ -61,6 +61,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__PlayList__OwnerI__5DCAEF64">
+    <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />
+    <End Role="PlayList" Type="Self.PlayList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccount">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="PlayList">
+        <PropertyRef Name="OwnerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Has_FK1">
   <Association Name="Has_FK1">
     <End Role="PlayList" Type="Self.PlayList" Multiplicity="1" />
     <End Role="Has" Type="Self.Has" Multiplicity="*" />
@@ -81,6 +94,20 @@
         <PropertyRef Name="SongId" />
       </Principal>
       <Dependent Role="Has">
+        <PropertyRef Name="PlayListId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Has_FK2">
+    <End Role="Song" Type="Self.Song" Multiplicity="1" />
+    <End Role="Has" Type="Self.Has" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Song">
+        <PropertyRef Name="SongId" />
+      </Principal>
+      <Dependent Role="Has">
+        <PropertyRef Name="SongId" />
+      <Dependent Role="Has">
         <PropertyRef Name="SongId" />
       </Dependent>
     </ReferentialConstraint>
@@ -89,6 +116,7 @@
     <EntitySet Name="Has" EntityType="Self.Has" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PlayList" EntityType="Self.PlayList" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Song" EntityType="Self.Song" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserAccount" EntityType="Self.UserAccount" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__PlayList__OwnerI__3F466844" Association="Self.FK__PlayList__OwnerI__3F466844">
       <End Role="UserAccount" EntitySet="UserAccount" />
@@ -98,6 +126,11 @@
       <End Role="UserAccount" EntitySet="UserAccount" />
       <End Role="PlayList" EntitySet="PlayList" />
     </AssociationSet>
+    <AssociationSet Name="FK__PlayList__OwnerI__5DCAEF64" Association="Self.FK__PlayList__OwnerI__5DCAEF64">
+      <End Role="UserAccount" EntitySet="UserAccount" />
+      <End Role="PlayList" EntitySet="PlayList" />
+    </AssociationSet>
+    <AssociationSet Name="Has_FK1" Association="Self.Has_FK1">
     <AssociationSet Name="Has_FK1" Association="Self.Has_FK1">
       <End Role="PlayList" EntitySet="PlayList" />
       <End Role="Has" EntitySet="Has" />

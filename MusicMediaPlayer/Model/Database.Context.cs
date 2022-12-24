@@ -25,6 +25,10 @@ namespace MusicMediaPlayer.Model
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<PlayList> PlayLists { get; set; }
+        public virtual DbSet<Song> Songs { get; set; }
+        public virtual DbSet<UserAccount> UserAccounts { get; set; }
+        
         public virtual DbSet<PlayList> PlayList { get; set; }
         public virtual DbSet<Song> Song { get; set; }
         public virtual DbSet<UserAccount> UserAccount { get; set; }

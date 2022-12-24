@@ -2,10 +2,13 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:MusicMediaPlayer"
+             xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             StartupUri="View/MySong.xaml">
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
              StartupUri="/PlayList.xaml">
     <Application.Resources>
-        <ResourceDictionary>
+        <ResourceDictionary >
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
@@ -22,6 +25,22 @@
                 <ResourceDictionary Source="/ResourceProject/RenamePlayListResource.xaml"></ResourceDictionary>
                 <!--<ui:ThemesDictionary Theme="Dark" />
                 <ui:ControlsDictionary />-->
+                <ResourceDictionary Source="/ResourceProject/ButtonIcon.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/ResourceProject/PlayerButton.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/ResourceProject/profileIcon.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/ResourceProject/RenameButton.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="ResourceProject/ProfileText.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="ResourceProject/CPButton.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="ResourceProject/Bth.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="ResourceProject/DataTemplate.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="ResourceProject/Page.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="ResourceProject/ChangePassbt.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/ResourceProject/ErrorTemplate.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/ResourceProject/DataGridTemplate.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/ResourceProject/ScrollBarTemplate.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/ResourceProject/SliderTemplate.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/ResourceProject/TabButtonStyle.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/ResourceProject/ExpanderMySongTemplate.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

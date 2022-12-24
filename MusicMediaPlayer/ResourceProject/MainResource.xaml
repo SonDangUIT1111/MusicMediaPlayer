@@ -3,4 +3,7 @@
                     xmlns:viewmodel="clr-namespace:MusicMediaPlayer.ViewModel"
                     >
     <viewmodel:MainViewModel x:Key="MVApp"></viewmodel:MainViewModel>
+    <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
+    <viewmodel:RegisterViewModel x:Key="RegisterVM"></viewmodel:RegisterViewModel>
+    <viewmodel:SongViewModel x:Key="SongVM"></viewmodel:SongViewModel>
 </ResourceDictionary>

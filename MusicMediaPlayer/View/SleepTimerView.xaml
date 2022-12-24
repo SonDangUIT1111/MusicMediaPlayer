@@ -1,0 +1,135 @@
+﻿<Window x:Class="MusicMediaPlayer.View.SleepTimerView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MusicMediaPlayer.View"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Background="Transparent"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        Title="Add Song" Height="500" Width="500"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
+        DataContext="{StaticResource SongVM}"
+        Name="SleepTimerWD"
+        xmlns:my="clr-namespace:MusicMediaPlayer.View">
+    <Window.Resources>
+        <my:ValueAngleConverter x:Key="valueAngleConverter"/>
+        <my:ValueTextConverter x:Key="valueTextConverter"/>
+    </Window.Resources>
+    <Grid>
+        <Grid Background="Transparent"
+          Margin="5">
+            <Border CornerRadius="20" 
+                        BorderBrush="White"
+                        BorderThickness="2"
+                        Background="Black"
+                        Grid.Column="1"/>
+
+        </Grid>
+        <Button
+              Height="50"
+              Width="50"
+              x:Name="knobclock"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Top"
+              Margin="10"
+              Style="{StaticResource ContactButton}"
+              BorderThickness="0"
+              Foreground="#1ED761"
+              Command="{Binding CloseSleepTimer}"
+              CommandParameter="{Binding ElementName=SleepTimerWD}"
+              >
+            <materialDesign:PackIcon Kind="KeyboardReturn" />
+        </Button>
+        <Slider Name="knob"
+                Maximum="60"
+                Minimum="0"
+                TickFrequency="1"
+                Value="0.5">
+            <Slider.Template>
+                <ControlTemplate>
+                    <Viewbox>
+                        <Canvas Width="300"
+                                Height="300"
+                                Margin="100,100,100,200">
+                            <Ellipse Fill="Transparent" 
+                                     Width="300" 
+                                     Height="300" 
+                                     Canvas.Left="0" 
+                                     Canvas.Top="0" 
+                                     StrokeThickness="10"
+                                     MouseMove="Ellipse_MouseMove"
+                                     MouseLeftButtonUp="Ellipse_MouseLeftButtonUp">
+                                <Ellipse.Stroke>
+                                    <LinearGradientBrush>
+                                        <GradientStop Color="#2af598" Offset="0.9"/>
+                                        <GradientStop Color="#009efd" Offset="0.6"/>
+                                        <GradientStop Color="#ba55d3" Offset="0.3"/>
+                                    </LinearGradientBrush>
+                                </Ellipse.Stroke>
+                            </Ellipse>
+                            <TextBlock Canvas.Left="105" 
+                                       Canvas.Top="90"
+                                       Width="100" 
+                                       Height="100"
+                                       FontSize="72"
+                                       Foreground="#FFFFFF"
+                                       Text="{Binding ElementName=knob,Path=Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                            <TextBlock Canvas.Left="90" 
+                                       Canvas.Top="170"
+                                       Width="160" 
+                                       Height="50"
+                                       FontSize="36"
+                                       Foreground="#FFFFFF"
+                                       FontWeight="Medium"
+                                       Text="Minutes"></TextBlock>
+                            <Canvas>
+                                <Ellipse Fill="#FFFFFF"
+                                         StrokeThickness="0"
+                                         Width="15" 
+                                         Height="15" 
+                                         Canvas.Left="140"
+                                         Canvas.Top="0"
+                                         MouseLeftButtonDown="Ellipse_MouseLeftButtonDown"
+                                         MouseLeftButtonUp="Ellipse_MouseLeftButtonUp">
+                                </Ellipse>
+                                <Canvas.RenderTransform>
+                                    <RotateTransform CenterX="150" CenterY="150">
+                                        <RotateTransform.Angle>
+                                            <MultiBinding Converter="{StaticResource valueAngleConverter}">
+                                                <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="Value"/>
+                                                <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="Minimum"/>
+                                                <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="Maximum"/>
+                                            </MultiBinding>
+                                        </RotateTransform.Angle>
+                                    </RotateTransform>
+                                </Canvas.RenderTransform>
+                            </Canvas>
+                        </Canvas>
+                    </Viewbox>
+                </ControlTemplate>
+            </Slider.Template>
+        </Slider>
+        <ToggleButton
+              x:Name="startClock"
+              Margin="0,300,0,0"
+              Content="Start"
+              Foreground="#FFFFFF"
+              Background="#1ED760"
+              FontWeight="Medium"
+              Height="80"
+              Width="80"
+              Style="{StaticResource MaterialDesignActionLightToggleButton}"
+              IsChecked="False"
+              Command="{Binding Sleeper}"
+              CommandParameter="{Binding ElementName=SleepTimerWD}"
+             />
+    </Grid>
+</Window>
