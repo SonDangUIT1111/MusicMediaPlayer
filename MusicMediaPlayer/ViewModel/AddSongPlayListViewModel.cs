@@ -1,4 +1,5 @@
 ﻿using MusicMediaPlayer.Model;
+using MusicMediaPlayer.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -44,12 +45,12 @@ namespace MusicMediaPlayer.ViewModel
             {
                 foreach (Song item in thiswindow.listview.SelectedItems)
                 {
-                    item.PlayList.Add(pl);
-                    pl.Song.Add(item);
+                    item.PlayLists.Add(pl);
+                    pl.Songs1.Add(item);
                     pl.SongCount = pl.SongCount + 1;
                 }
 
-                DataProvider.Ints.DB.SaveChanges();
+                DataProvider.Ins.DB.SaveChanges();
                 thiswindow.Close();
             });
 
@@ -61,9 +62,9 @@ namespace MusicMediaPlayer.ViewModel
 
         void LoadDanhSach()
         {
-            ObservableCollection<MusicMediaPlayer.Model.Song> list = new ObservableCollection<MusicMediaPlayer.Model.Song>(DataProvider.Ints.DB.Song);
+            ObservableCollection<MusicMediaPlayer.Model.Song> list = new ObservableCollection<MusicMediaPlayer.Model.Song>(DataProvider.Ins.DB.Songs);
 
-            foreach (Song item in pl.Song)
+            foreach (Song item in pl.Songs1)
             {
                 list.Remove(item);
             }

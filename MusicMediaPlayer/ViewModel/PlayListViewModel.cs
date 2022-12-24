@@ -1,5 +1,6 @@
 ﻿using MaterialDesignThemes.Wpf;
 using MusicMediaPlayer.Model;
+using MusicMediaPlayer.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,7 +14,6 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using Wpf.Ui.Controls;
 using MessageBox = System.Windows.MessageBox;
 
 namespace MusicMediaPlayer.ViewModel
@@ -48,7 +48,7 @@ namespace MusicMediaPlayer.ViewModel
         private MusicMediaPlayer.Model.PlayList _ItemDoubleClick;
         public MusicMediaPlayer.Model.PlayList ItemDoubleClick { get => _ItemDoubleClick; set { _ItemDoubleClick = value; OnPropertyChanged(); } }
 
-        public PlayList page;
+        public View.PlayList page;
 
         public bool IsSort = false;
 
@@ -66,7 +66,7 @@ namespace MusicMediaPlayer.ViewModel
 
             Load = new RelayCommand<Page>((p) => { return true; }, (p) =>
             {
-                page = p as PlayList;
+                page = p as View.PlayList;
             }
             );
 
@@ -92,7 +92,7 @@ namespace MusicMediaPlayer.ViewModel
 
                     pl.PlayListName = RenameWD.Title;
 
-                    DataProvider.Ints.DB.SaveChanges();
+                    DataProvider.Ins.DB.SaveChanges();
 
                     LoadDanhSach();
 
@@ -110,17 +110,17 @@ namespace MusicMediaPlayer.ViewModel
                 {
                     var pl = p as MusicMediaPlayer.Model.PlayList;
 
-                    var song_in_pl = pl.Song;
+                    var song_in_pl = pl.Songs1;
 
                     foreach (Song item in song_in_pl.ToList())
                     {
-                        item.PlayList.Remove(pl);
+                        item.PlayLists.Remove(pl);
 
-                        pl.Song.Remove(item);
+                        pl.Songs1.Remove(item);
                     }
 
-                    DataProvider.Ints.DB.PlayList.Remove(pl);
-                    DataProvider.Ints.DB.SaveChanges();
+                    DataProvider.Ins.DB.PlayLists.Remove(pl);
+                    DataProvider.Ins.DB.SaveChanges();
 
                     LoadDanhSach();
                 }
@@ -181,7 +181,7 @@ namespace MusicMediaPlayer.ViewModel
         }
         void LoadDanhSach()
         {
-            List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ints.DB.PlayList);
+            List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ins.DB.PlayLists);
         }
     }
 }

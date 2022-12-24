@@ -41,7 +41,7 @@ namespace MusicMediaPlayer.ViewModel
 
         public AddPlayListViewModel()
         {
-            List = new ObservableCollection<Song>(DataProvider.Ints.DB.Song);
+            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs);
 
             Add = new RelayCommand<Window>((p) =>
             {
@@ -60,20 +60,20 @@ namespace MusicMediaPlayer.ViewModel
                 else
                     pl.SongCount = 0;
 
-                DataProvider.Ints.DB.PlayList.Add(pl);
+                DataProvider.Ins.DB.PlayLists.Add(pl);
 
                 if (SelectedItemss != null && SelectedItemss.SelectedItems.Count > 0)
                 {
                     foreach (Song item in SelectedItemss.SelectedItems)
                     {
-                        item.PlayList.Add(pl);
-                        pl.Song.Add(item);
+                        item.PlayLists.Add(pl);
+                        pl.Songs1.Add(item);
                     }
 
                     SelectedItemss.SelectedItems.Clear();
                 }
 
-                DataProvider.Ints.DB.SaveChanges();
+                DataProvider.Ins.DB.SaveChanges();
 
                 Title = null;
 

@@ -1,4 +1,5 @@
 ﻿using MusicMediaPlayer.Model;
+using MusicMediaPlayer.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+//using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace MusicMediaPlayer.ViewModel
 {
@@ -33,7 +34,7 @@ namespace MusicMediaPlayer.ViewModel
         private string _SongCount;
         public string SongCount { get => _SongCount; set { _SongCount = value; OnPropertyChanged(); } }
 
-        public PlayList page_PlayList;
+        public View.PlayList page_PlayList;
 
         MusicMediaPlayer.Model.PlayList pl;
 
@@ -68,7 +69,7 @@ namespace MusicMediaPlayer.ViewModel
                 {
                     pl.PlayListName = rename.Title;
 
-                    DataProvider.Ints.DB.SaveChanges();
+                    DataProvider.Ins.DB.SaveChanges();
 
                     PLName = rename.Title;
 
@@ -84,21 +85,21 @@ namespace MusicMediaPlayer.ViewModel
 
                 if (dr == MessageBoxResult.Yes)
                 {
-                    var song_in_pl = pl.Song;
+                    var song_in_pl = pl.Songs1;
 
                     foreach (Song item in song_in_pl.ToList())
                     {
-                        item.PlayList.Remove(pl);
+                        item.PlayLists.Remove(pl);
 
-                        pl.Song.Remove(item);
+                        pl.Songs1.Remove(item);
                     }
 
-                    DataProvider.Ints.DB.PlayList.Remove(pl);
-                    DataProvider.Ints.DB.SaveChanges();
+                    DataProvider.Ins.DB.PlayLists.Remove(pl);
+                    DataProvider.Ins.DB.SaveChanges();
 
                     var trang = page_PlayList.DataContext as PlayListViewModel;
 
-                    trang.List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ints.DB.PlayList);
+                    trang.List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ins.DB.PlayLists);
 
                     p.NavigationService.GoBack();
                 }
@@ -112,9 +113,9 @@ namespace MusicMediaPlayer.ViewModel
 
                 if (dr == MessageBoxResult.Yes)
                 {
-                    pl.Song.Remove(p as Song);
+                    pl.Songs1.Remove(p as Song);
                     pl.SongCount = pl.SongCount - 1;
-                    DataProvider.Ints.DB.SaveChanges();
+                    DataProvider.Ins.DB.SaveChanges();
                     SongCount = pl.SongCount.ToString() + " Bài hát";
                     LoadDanhSach();
                 }
@@ -141,7 +142,7 @@ namespace MusicMediaPlayer.ViewModel
 
         void LoadDanhSach()
         {
-            List = new ObservableCollection<Song>(pl.Song);
+            List = new ObservableCollection<Song>(pl.Songs1);
         }
     }
 }
