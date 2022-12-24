@@ -34,9 +34,10 @@
     <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="UserPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="UserEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="PlayLists" Relationship="Self.FK__PlayList__OwnerI__267ABA7A" FromRole="UserAccount" ToRole="PlayList" />
+    <NavigationProperty Name="PlayList" Relationship="Self.FK__PlayList__OwnerI__3F466844" FromRole="UserAccount" ToRole="PlayList" />
+    <NavigationProperty Name="PlayList1" Relationship="Self.FK__PlayList__OwnerI__403A8C7D" FromRole="UserAccount" ToRole="PlayList" />
   </EntityType>
-  <Association Name="FK__PlayList__OwnerI__267ABA7A">
+  <Association Name="FK__PlayList__OwnerI__3F466844">
     <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />
     <End Role="PlayList" Type="Self.PlayList" Multiplicity="*" />
     <ReferentialConstraint>
@@ -48,13 +49,29 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__Song__ListId__29572725">
+    <End Role="PlayList" Type="Self.PlayList" Multiplicity="1" />
+    <End Role="Song" Type="Self.Song" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PlayList">
+        <PropertyRef Name="PlayListId" />
+      </Principal>
+      <Dependent Role="Song">
+        <PropertyRef Name="ListId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="MusicPlayerEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="PlayLists" EntityType="Self.PlayList" />
-    <EntitySet Name="Songs" EntityType="Self.Song" />
-    <EntitySet Name="UserAccounts" EntityType="Self.UserAccount" />
-    <AssociationSet Name="FK__PlayList__OwnerI__267ABA7A" Association="Self.FK__PlayList__OwnerI__267ABA7A">
-      <End Role="UserAccount" EntitySet="UserAccounts" />
-      <End Role="PlayList" EntitySet="PlayLists" />
+    <EntitySet Name="PlayList" EntityType="Self.PlayList" />
+    <EntitySet Name="Song" EntityType="Self.Song" />
+    <EntitySet Name="UserAccount" EntityType="Self.UserAccount" />
+    <AssociationSet Name="FK__PlayList__OwnerI__3F466844" Association="Self.FK__PlayList__OwnerI__3F466844">
+      <End Role="UserAccount" EntitySet="UserAccount" />
+      <End Role="PlayList" EntitySet="PlayList" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PlayList__OwnerI__403A8C7D" Association="Self.FK__PlayList__OwnerI__403A8C7D">
+      <End Role="UserAccount" EntitySet="UserAccount" />
+      <End Role="PlayList" EntitySet="PlayList" />
     </AssociationSet>
     <AssociationSet Name="Has" Association="MusicPlayerModel.Has">
       <End Role="PlayList" EntitySet="PlayLists" />

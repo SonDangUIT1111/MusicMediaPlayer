@@ -8,9 +8,11 @@ namespace MusicMediaPlayer.Model
 {
     public class DataProvider
     {
+       
         private static DataProvider _ins;
         public static DataProvider Ins 
-        { get 
+        { 
+            get 
             { 
                 if (_ins == null) 
                     _ins = new DataProvider(); 

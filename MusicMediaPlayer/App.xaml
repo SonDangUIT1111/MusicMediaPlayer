@@ -4,7 +4,9 @@
              xmlns:local="clr-namespace:MusicMediaPlayer"
              xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-             StartupUri="View/MySong.xaml">
+             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+             StartupUri="/PlayList.xaml">
+             
     <Application.Resources>
         <ResourceDictionary >
             <ResourceDictionary.MergedDictionaries>
@@ -15,8 +17,14 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Flipper.xaml" />
                 <ResourceDictionary Source="/ResourceProject/MainResource.xaml"/>
+                <ResourceDictionary Source="/ResourceProject/LoginResource.xaml"/>
+                <ResourceDictionary Source="/ResourceProject/PlayListResource.xaml"/>
+                <ResourceDictionary Source="/ResourceProject/AddPlayListResource.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/ButtonStyle.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/NormalButton.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/ResourceProject/RenamePlayListResource.xaml"></ResourceDictionary>
+                <!--<ui:ThemesDictionary Theme="Dark" />
+                <ui:ControlsDictionary />-->
                 <ResourceDictionary Source="/ResourceProject/ButtonIcon.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/PlayerButton.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/profileIcon.xaml"></ResourceDictionary>
