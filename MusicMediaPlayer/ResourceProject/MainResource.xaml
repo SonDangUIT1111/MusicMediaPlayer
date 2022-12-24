@@ -6,4 +6,10 @@
     <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
     <viewmodel:RegisterViewModel x:Key="RegisterVM"></viewmodel:RegisterViewModel>
     <viewmodel:SongViewModel x:Key="SongVM"></viewmodel:SongViewModel>
+    <!-- Dưới này là của tao - Kiet -->
+    <viewmodel:PlayListViewModel x:Key="PlayListVM"></viewmodel:PlayListViewModel>
+    <viewmodel:AddPlayListViewModel x:Key="AddPlayListVM"></viewmodel:AddPlayListViewModel>
+    <viewmodel:RenamePlayListViewModel x:Key="RenamePlayListVM"></viewmodel:RenamePlayListViewModel>
+    <viewmodel:PlayList_InsideViewModel x:Key="PlayList_InsideVM"></viewmodel:PlayList_InsideViewModel>
+    <viewmodel:AddSongPlayListViewModel x:Key="AddSongPlayListVM"></viewmodel:AddSongPlayListViewModel>
 </ResourceDictionary>

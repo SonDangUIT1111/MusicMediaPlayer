@@ -1,0 +1,66 @@
+﻿<Window x:Class="MusicMediaPlayer.RenamePlayList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MusicMediaPlayer"
+        mc:Ignorable="d"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        Title="RenamePlayList" Height="150" Width="300"
+        DataContext="{StaticResource RenamePlayListVM}"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Name="RenamePL"
+        >
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding Load}"
+                                   CommandParameter="{Binding ElementName=RenamePL}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid Background="AntiqueWhite">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65">
+
+            </RowDefinition>
+            <RowDefinition Height="65">
+
+            </RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBox Grid.Row="0"
+                 FontSize="15"
+                 Margin="20 30 20 0"
+                 Name="NamePL">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="TextChanged">
+                    <i:InvokeCommandAction Command="{Binding TextChanged}"
+                                           CommandParameter="{Binding ElementName=NamePL}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
+        </TextBox>
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="1"
+                    Margin="10 30 10 0">
+            <Button Margin="10 0 10 0"
+                    Width="120"
+                    Content="Lưu"
+                    Command="{Binding Luu}"
+                    CommandParameter="{Binding ElementName=RenamePL}">
+
+            </Button>
+            <Button Margin="10 0 10 0"
+                    Width="120"
+                    Content="Cancel"
+                    Command="{Binding Cancel}"
+                    CommandParameter="{Binding ElementName=RenamePL}">
+
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
