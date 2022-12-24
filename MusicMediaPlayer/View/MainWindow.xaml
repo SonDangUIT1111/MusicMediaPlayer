@@ -1,11 +1,14 @@
 ﻿<Window x:Class="MusicMediaPlayer.View.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:MusicMediaPlayer.ViewModel"
         xmlns:local="clr-namespace:MusicMediaPlayer"
         mc:Ignorable="d"
-        xmlns:uc="clr-namespace:MusicMediaPlayer.UserControlMusic"
+        xmlns:view="clr-namespace:MusicMediaPlayer.UserControlMusic"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -16,12 +19,16 @@
         Background="Transparent"
         Title="Music Player" Height="700" Width="1050"
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
-        DataContext="{StaticResource MVApp}"
         ResizeMode="CanResize"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         Icon="IconApp.ico"
         Name="Home"
         >
+
+    <Window.DataContext>
+        <vm:MainViewModel></vm:MainViewModel>
+    </Window.DataContext>
+
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadedTurnOnLogin}"
@@ -35,7 +42,7 @@
                 <RowDefinition Height="650"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Panel.ZIndex="1">
-                <uc:UserControl1/>
+                <view:UserControl1/>
             </Grid>
             <Border CornerRadius="20" BorderBrush="Transparent"
                     BorderThickness="0"
@@ -45,9 +52,9 @@
                     <LinearGradientBrush>
                         <!--<GradientStop Color="#2af598" Offset="0.2"/>
                         <GradientStop Color="#009efd" Offset="1"/>-->
-                        <GradientStop Color="#2af598" Offset="1"/>
-                        <GradientStop Color="#009efd" Offset="0.6"/>
-                        <GradientStop Color="#ba55d3" Offset="0.05"/>
+                        <!--<GradientStop Color="#2af598" Offset="1"/>-->
+                        <GradientStop Color="#009efd" Offset="0.3"/>
+                        <!--<GradientStop Color="#ba55d3" Offset="0.05"/>-->
                     </LinearGradientBrush>
                 </Border.Background>
             </Border>
@@ -58,7 +65,7 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition Width="5"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                
+
 
                 <GridSplitter Grid.Column="1" Background="Transparent" Panel.ZIndex="2"
                           ResizeDirection="Auto" HorizontalAlignment="Stretch"
@@ -67,23 +74,102 @@
                 <Grid Grid.Column="0"
                         Background="Transparent"
                         Margin="5">
-                    <Border CornerRadius="20" 
-                        BorderBrush="White"
-                        BorderThickness="5"
-                        Background="White"
-                        Grid.Column="1"/>
+                    <Border CornerRadius="20"  
+                        Background="Transparent"
+                        Grid.Column="1">
+                        <Grid>
+                            <Border CornerRadius="20" >
+                                <Border.Background>
+                                    <LinearGradientBrush>
+                                        <GradientStop Color="#ba55d3" Offset="0.056"/>
+                                        <GradientStop Color="#BFB8DA" Offset="0.4"/>
+                                        <GradientStop Color="#E8B7D4" Offset="0.45"/>
+                                        <GradientStop Color="#A5678E" Offset="1.2"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                            </Border>
+                            <StackPanel>
+                                <Button Style="{StaticResource ContactButton}" Width="180" Margin="30 60 0 0" Command="{Binding UpdateViewCommand}" CommandParameter="Profile">
+                                    <Grid>
+                                        <TextBlock Text= "Profile" Margin="35,0,24,0"/>
+                                        <iconPacks:PackIconMaterial  Kind="Account" Foreground="AliceBlue" Height="Auto" Width="20" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </Button>
+                                <Button Style="{StaticResource ContactButton}" Width="180" Command="{Binding UpdateViewCommand}" CommandParameter="Home">
+                                    <Grid>
+                                        <TextBlock Text= "Home" Margin="35,0,24,0"/>
+                                        <iconPacks:PackIconMaterial Kind="HomeVariant" Foreground="AliceBlue" Height="Auto" Width="21" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </Button>
+                                <Button Style="{StaticResource ContactButton}"  Width="180">
+                                    <Grid>
+                                        <TextBlock Text= "My Song" Margin="20,0,24,0"/>
+                                        <iconPacks:PackIconMaterial Kind="Music" Foreground="AliceBlue" Margin="-10,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.763,1.3" Height="Auto" Width="25"/>
+                                    </Grid>
+                                </Button>
+                                <Button Style="{StaticResource ContactButton}"  Width="180">
+                                    <Grid>
+                                        <TextBlock Text= "My Playlist" Margin="10,0,31,0"/>
+                                        <iconPacks:PackIconMaterial Kind="Heart" Foreground="AliceBlue" Margin="-20,0,0,0" Height="Auto" Width="28" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </Button>
+                                <Button Style="{StaticResource ContactButton}" Width="148"  Height="49" Margin="30 100 0 0">
+                                    <Grid>
+                                        <TextBlock Text= "Log out" Margin="10,0,24,0"/>
+                                        <iconPacks:PackIconMaterial Kind="Logout" Foreground="AliceBlue" Margin="-20,0,0,0" Height="27" Width="28" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
                 </Grid>
                 <Grid Grid.Column="2"
                         Background="Transparent"
                         Margin="5">
-                    <Border CornerRadius="20" 
-                        BorderBrush="White"
-                        BorderThickness="5"
-                        Background="White"
-                        Grid.Column="1"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="490"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Border CornerRadius="20 20 0 0" 
+                        Background="White"            
+                    />
+                    <Grid Grid.Row="0">
+                        <ContentControl Content="{Binding SelectedViewmodel}"/>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Border CornerRadius="0 0 20 20" Height="150" >
+                            <Border.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#2af598" Offset="1"/>
+                                    <GradientStop Color="Aquamarine" Offset="0.3"/>
+                                    <GradientStop Color="#009efd" Offset="0.6"/>
+                                    <GradientStop Color="#ba55d3" Offset="0.003"/>
+                                    <GradientStop Color="#BFB8DA" Offset="0.05"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Grid>
+                                <Button Margin="342,50,342,50" Style="{StaticResource playerButton}" RenderTransformOrigin="-1.885,0.604" >
+                                    <Icon:PackIconMaterial  Kind="Play" Flip="Horizontal" Height="30" Width="30" Margin=" -38 0 0 0" />
+                                </Button>
+                                <Button Style="{StaticResource playerButton}" Margin = "278,50,406,50">
+                                    <Icon:PackIconMaterial  Kind="SkipBackward" Height="25" Width="25" Margin="-30 0 0 0"/>
+                                </Button>
+                                <Button Style="{StaticResource playerButton}" Margin = "406,50,278,50">
+                                    <Icon:PackIconMaterial  Kind="SkipForward" Height="25" Width="25" Margin="-30 0 0 0"/>
+                                </Button>
+                                <Button Style="{StaticResource playerButton}" Margin = "471,50,213,50">
+                                    <Icon:PackIconMaterial  Kind="Repeat" Height="25" Width="25" Margin="-30 0 0 0"/>
+                                </Button>
+                                <Button Style="{StaticResource playerButton}" Margin = "213,50,471,50">
+                                    <Icon:PackIconMaterial  Kind="ShuffleVariant" Height="25" Width="25" Margin="-30 0 0 0" />
+                                </Button>
+                                <Slider Margin="46,64,548,64" Background="Transparent" Foreground="White"        
+                            />
+                            </Grid>
+                        </Border>
+                    </Grid>
                 </Grid>
             </Grid>
-            
         </Grid>
     </Grid>
 </Window>

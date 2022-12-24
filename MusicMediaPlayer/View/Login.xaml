@@ -134,7 +134,7 @@
                                                  Foreground="White"
                                                  Margin="0,10,0,0"
                                                  Opacity="0.8"/>
-                </StackPanel>
+                    </StackPanel>
                     <Border BorderBrush="White"
                         Height="1"
                         Width="240"
@@ -199,11 +199,7 @@
                         </Button>
                     </StackPanel>
                 </StackPanel>
-
-
             </StackPanel>
-
-
         </Grid>
     </Grid>
 </Window>

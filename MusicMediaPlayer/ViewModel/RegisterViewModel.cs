@@ -2,11 +2,13 @@
 using MusicMediaPlayer.View;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,7 +16,7 @@ using System.Windows.Input;
 
 namespace MusicMediaPlayer.ViewModel
 {
-    public class RegisterViewModel:BaseViewModel
+    public class RegisterViewModel:BaseViewModel,IDataErrorInfo
     {
         public bool IsSend { get; set; }
         public bool IsVerified { get; set; }
@@ -46,6 +48,33 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand ConfirmNewPasswordChangedCommand { get; set; }
         public ICommand VerifiedCommand { get; set; }
         public ICommand ChangePasswordCommand { get; set; }
+        public ICommand CheckCode { get; set; }
+
+        public string Error { get { return null; } }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                string ErrorMess = null;
+                switch (columnName)
+                {
+                    case "Username":
+                        if (String.IsNullOrEmpty(Username))
+                            ErrorMess = "Username can not be empty";
+                        else if (Username.Length < 8)
+                            ErrorMess = "Username requires length greater or equal to 8";
+                        break;
+                    case "Email":
+                        if (String.IsNullOrEmpty(Email))
+                            ErrorMess = "Email can not be empty";
+                        break;
+
+                }
+                return ErrorMess;
+            }
+        }
+
         public RegisterViewModel()
         {
             //khởi tạo
@@ -77,14 +106,36 @@ namespace MusicMediaPlayer.ViewModel
             {
                 Send(p);
             });
-            VerifiedCommand = new RelayCommand<Window>((p) =>
-            { 
-                if (IsSend == true) 
-                    return true;
-                else
-                { 
-                    return false;
+            CheckCode = new RelayCommand<Window>((p) =>
+            {
+                var window = p as ForgotPassword;
+                var code = window.CodeVerified.Text;
+                if (!String.IsNullOrEmpty(code))
+                {
+                    if (code.Length == 6)
+                        return true;
+                    else
+                    {
+                        window.VerifiedButton.IsEnabled = false;
+                        return false;
+                    }
                 }
+                else
+                {
+                    return false;
+                }    
+            }
+            , (p) =>
+             {
+                 var window = p as ForgotPassword;
+                 window.VerifiedButton.IsEnabled = true;
+             });
+            VerifiedCommand = new RelayCommand<Window>((p) =>
+            {
+                if (IsSend == true)
+
+                    return true;
+                else return false;
             }, 
             (p) =>
             {
@@ -106,17 +157,6 @@ namespace MusicMediaPlayer.ViewModel
         {
             if (p == null)
                 return;
-            //Kiểm tra validation của password và email
-            int countUpcase = 0, countNum = 0;
-            foreach (char c in Password)
-            {
-                if (c >= 'A' && c <= 'Z')
-                    countUpcase++;
-                if (c >= '0' && c <= '9')
-                    countNum++;
-            }
-            bool indexofa = Email.Contains("@");
-            bool indexofcom = Email.Contains(".com");
             //Kiểm tra đã nhập đủ thông tin
             if (String.IsNullOrEmpty(Username))
             {
@@ -148,7 +188,16 @@ namespace MusicMediaPlayer.ViewModel
                 MessageBox.Show("Password requires length greater or equal to 8");
                 return;
             }
-            else if (countNum == 0 || countUpcase == 0)
+            //Kiểm tra validation của password và email
+            int countUpcase = 0, countNum = 0;
+            foreach (char c in Password)
+            {
+                if (c >= 'A' && c <= 'Z')
+                    countUpcase++;
+                if (c >= '0' && c <= '9')
+                    countNum++;
+            }
+            if (countNum == 0 || countUpcase == 0)
             {
                 
                     MessageBox.Show("Password must contain at least 1 Upcase and 1 number");
@@ -162,7 +211,7 @@ namespace MusicMediaPlayer.ViewModel
                 MessageBox.Show("Password confirmes wrong");
                 return;
             }
-            else if (indexofa == false || indexofcom == false)
+            else if (!Regex.IsMatch(Email, @"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$"))
             {
                     MessageBox.Show("Email format is invalid");
                     return;
@@ -243,17 +292,10 @@ namespace MusicMediaPlayer.ViewModel
         {
             if (p == null)
                 return;
-            if(String.IsNullOrEmpty(Code))
-            {
-                MessageBox.Show("Enter the code verified");
-            }
-            else if (Code.Length!=6)
-            {
-                MessageBox.Show("Enter right format");
-            }
+            var window = p as ForgotPassword;
             try
             {
-                if (Int32.Parse(Code) == RandomCode)
+                if (Int32.Parse(window.CodeVerified.Text) == RandomCode)
                 {
                     IsVerified = true;
                     return;
@@ -283,6 +325,26 @@ namespace MusicMediaPlayer.ViewModel
             {
 
                 MessageBox.Show("Please confirm new password");
+                return;
+            }
+            else if (NewPassword.Length < 8)
+            {
+                MessageBox.Show("Password requires length greater or equal to 8");
+                return;
+            }
+            //Kiểm tra validation của password 
+            int countUpcase = 0, countNum = 0;
+            foreach (char c in NewPassword)
+            {
+                if (c >= 'A' && c <= 'Z')
+                    countUpcase++;
+                if (c >= '0' && c <= '9')
+                    countNum++;
+            }
+            if (countNum == 0 || countUpcase == 0)
+            {
+
+                MessageBox.Show("Password must contain at least 1 Upcase and 1 number");
                 return;
             }
             if (ConfirmNewPassword != NewPassword)
