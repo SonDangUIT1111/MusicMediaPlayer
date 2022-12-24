@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\
+C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\
 MusicMediaPlayer
 none
 false
 DEBUG;TRACE
-C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\App.xaml
-9-1204847194
+C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\App.xaml
+19-1123628584
 2-1797966213
-24-1710793626
-22-1951108154
-View\ForgotPassword.xaml;View\Login.xaml;View\MainWindow.xaml;View\Register.xaml;ResourceProject\ButtonStyle.xaml;ResourceProject\MainResource.xaml;ResourceProject\NormalButton.xaml;UserControlMusic\UserControl1.xaml;UserControlMusic\UserControlLoginRegister.xaml;
+311010471041
+132-2023585081
+ResourceProject\DataGridTemplate.xaml;ResourceProject\ErrorTemplate.xaml;ResourceProject\ExpanderMySongTemplate.xaml;ResourceProject\ScrollBarTemplate.xaml;ResourceProject\SliderTemplate.xaml;ResourceProject\TabButtonStyle.xaml;View\AddSongToApp.xaml;View\EditSongInApp.xaml;View\ForgotPassword.xaml;View\Login.xaml;View\MainWindow.xaml;View\MySong.xaml;View\Register.xaml;ResourceProject\ButtonStyle.xaml;ResourceProject\MainResource.xaml;ResourceProject\NormalButton.xaml;UserControlMusic\UserControl1.xaml;UserControlMusic\UserControlLoginRegister.xaml;View\SleepTimerView.xaml;
 
-True
+False
 

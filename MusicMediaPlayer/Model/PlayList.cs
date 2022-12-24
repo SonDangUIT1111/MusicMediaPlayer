@@ -17,7 +17,6 @@ namespace MusicMediaPlayer.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PlayList()
         {
-            this.Songs = new HashSet<Song>();
             this.Songs1 = new HashSet<Song>();
         }
     
@@ -27,8 +26,6 @@ namespace MusicMediaPlayer.Model
         public int OwnerId { get; set; }
     
         public virtual UserAccount UserAccount { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Song> Songs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Song> Songs1 { get; set; }
     }
