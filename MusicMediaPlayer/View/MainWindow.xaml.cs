@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MusicMediaPlayer.ViewModel;
 
 namespace MusicMediaPlayer.View
 
@@ -24,7 +25,7 @@ namespace MusicMediaPlayer.View
         public MainWindow()
         {
             InitializeComponent();
-
+            DataContext = new MainViewModel();
         }
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
@@ -33,7 +34,5 @@ namespace MusicMediaPlayer.View
             // Begin dragging the window
             this.DragMove();
         }
-
-
     }
 }
