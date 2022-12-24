@@ -23,5 +23,7 @@ namespace MusicMediaPlayer.View
         {
             InitializeComponent();
         }
+
+     
     }
 }

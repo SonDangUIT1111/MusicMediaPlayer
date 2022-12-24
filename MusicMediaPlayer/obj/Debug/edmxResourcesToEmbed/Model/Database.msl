@@ -14,13 +14,15 @@
     <EntitySetMapping Name="Songs">
       <EntityTypeMapping TypeName="MusicPlayerModel.Song">
         <MappingFragment StoreEntitySet="Song">
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="TimeAdd" ColumnName="TimeAdd" />
+          <ScalarProperty Name="HowLong" ColumnName="HowLong" />
           <ScalarProperty Name="SongId" ColumnName="SongId" />
           <ScalarProperty Name="SongTitle" ColumnName="SongTitle" />
           <ScalarProperty Name="Times" ColumnName="Times" />
           <ScalarProperty Name="Artist" ColumnName="Artist" />
           <ScalarProperty Name="FilePath" ColumnName="FilePath" />
           <ScalarProperty Name="IsFavourite" ColumnName="IsFavourite" />
-          <ScalarProperty Name="ListId" ColumnName="ListId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
