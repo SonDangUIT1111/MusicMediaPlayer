@@ -43,6 +43,466 @@ C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\
 C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\View\Login.baml
 C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\View\MainWindow.baml
 C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\obj\Debug\View\Register.baml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.csproj.AssemblyReference.cache
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.csproj.SuggestedBindingRedirects.cache
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\ResourceProject\ButtonStyle.baml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\ResourceProject\NormalButton.baml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\View\ForgotPassword.g.cs
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\View\Login.g.cs
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\View\MainWindow.g.cs
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\View\Register.g.cs
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\UserControlMusic\UserControl1.g.cs
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\UserControlMusic\UserControlLoginRegister.g.cs
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\App.g.cs
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer_Content.g.cs
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer_MarkupCompile.cache
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer_MarkupCompile.lref
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.exe
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\ResourceProject\ButtonIcon.baml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MusicMediaPlayer.exe.config
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MusicMediaPlayer.exe
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MusicMediaPlayer.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\EntityFramework.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.BootstrapIcons.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Codicons.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Coolicons.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Core.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Entypo.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FileIcons.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Fontaudio.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Fontisto.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.ForkAwesome.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Ionicons.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.JamIcons.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Material.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Microns.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Modern.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Octicons.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.PixelartIcons.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RadixIcons.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RemixIcon.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Typicons.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Unicons.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.VaadinIcons.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Zondicons.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MaterialDesignColors.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\EntityFramework.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.BootstrapIcons.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.BootstrapIcons.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Codicons.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Codicons.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Coolicons.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Coolicons.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Core.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Core.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Entypo.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Entypo.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FileIcons.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FileIcons.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Fontaudio.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Fontaudio.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Fontisto.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Fontisto.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.ForkAwesome.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.ForkAwesome.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Ionicons.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Ionicons.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.JamIcons.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.JamIcons.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Material.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Material.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Microns.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Microns.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Modern.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Modern.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Octicons.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Octicons.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.PixelartIcons.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.PixelartIcons.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RadixIcons.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RadixIcons.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RemixIcon.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RemixIcon.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Typicons.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Typicons.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Unicons.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Unicons.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.VaadinIcons.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.VaadinIcons.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Zondicons.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Zondicons.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MaterialDesignColors.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\Microsoft.Expression.Interactions.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\bin\Debug\System.Windows.Interactivity.xml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\App.baml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\View\ForgotPassword.baml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\View\Login.baml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\View\MainWindow.baml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\View\Register.baml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\ResourceProject\MainResource.baml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\UserControlMusic\UserControl1.baml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\UserControlMusic\UserControlLoginRegister.baml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.g.resources
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.Properties.Resources.resources
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.csproj.GenerateResource.cache
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.csproj.CopyComplete
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\ResourceProject\profileIcon.baml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\ResourceProject\PlayerButton.baml
+C:\Users\ASUS\source\repos\New MP\MusicMediaPlayer\obj\Debug\UserControlMusic\UserControlHome.g.cs
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.csproj.AssemblyReference.cache
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.csproj.SuggestedBindingRedirects.cache
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\ResourceProject\profileIcon.baml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\ResourceProject\PlayerButton.baml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\ResourceProject\ButtonIcon.baml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\UserControlMusic\UserControlHome.baml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\ResourceProject\ButtonStyle.baml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\ResourceProject\NormalButton.baml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\UserControlMusic\UserControlHome.g.cs
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\View\ForgotPassword.g.cs
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\View\Login.g.cs
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\View\MainWindow.g.cs
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\View\Register.g.cs
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\UserControlMusic\UserControl1.g.cs
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\UserControlMusic\UserControlLoginRegister.g.cs
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\App.g.cs
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer_Content.g.cs
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer_MarkupCompile.cache
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer_MarkupCompile.lref
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.exe
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MusicMediaPlayer.exe.config
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MusicMediaPlayer.exe
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MusicMediaPlayer.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.BootstrapIcons.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Codicons.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Coolicons.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Core.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Entypo.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FileIcons.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Fontaudio.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Fontisto.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.ForkAwesome.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Ionicons.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.JamIcons.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Material.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Microns.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Modern.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Octicons.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.PixelartIcons.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RadixIcons.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RemixIcon.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Typicons.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Unicons.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.VaadinIcons.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Zondicons.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MaterialDesignColors.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.BootstrapIcons.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.BootstrapIcons.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Codicons.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Codicons.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Coolicons.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Coolicons.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Core.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Core.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Entypo.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Entypo.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FileIcons.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FileIcons.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Fontaudio.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Fontaudio.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Fontisto.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Fontisto.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.ForkAwesome.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.ForkAwesome.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Ionicons.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Ionicons.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.JamIcons.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.JamIcons.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Material.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Material.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Microns.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Microns.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Modern.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Modern.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Octicons.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Octicons.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.PixelartIcons.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.PixelartIcons.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RadixIcons.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RadixIcons.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RemixIcon.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RemixIcon.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Typicons.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Typicons.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Unicons.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Unicons.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.VaadinIcons.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.VaadinIcons.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Zondicons.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Zondicons.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MaterialDesignColors.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\Microsoft.Expression.Interactions.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\bin\Debug\System.Windows.Interactivity.xml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\App.baml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\View\ForgotPassword.baml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\View\Login.baml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\View\MainWindow.baml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\View\Register.baml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\ResourceProject\MainResource.baml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\UserControlMusic\UserControl1.baml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\UserControlMusic\UserControlLoginRegister.baml
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.g.resources
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.Properties.Resources.resources
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.csproj.GenerateResource.cache
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Downloads\New MP\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.csproj.CopyComplete
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MusicMediaPlayer.exe.config
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MusicMediaPlayer.exe
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MusicMediaPlayer.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\EntityFramework.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.BootstrapIcons.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Codicons.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Coolicons.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Core.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Entypo.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FileIcons.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Fontaudio.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Fontisto.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.ForkAwesome.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Ionicons.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.JamIcons.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Material.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Microns.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Modern.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Octicons.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.PixelartIcons.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RadixIcons.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RemixIcon.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Typicons.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Unicons.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.VaadinIcons.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Zondicons.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MaterialDesignColors.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\EntityFramework.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.BootstrapIcons.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.BootstrapIcons.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Codicons.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Codicons.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Coolicons.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Coolicons.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Core.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Core.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Entypo.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Entypo.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FileIcons.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FileIcons.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Fontaudio.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Fontaudio.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Fontisto.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Fontisto.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.ForkAwesome.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.ForkAwesome.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Ionicons.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Ionicons.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.JamIcons.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.JamIcons.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Material.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Material.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Microns.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Microns.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Modern.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Modern.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Octicons.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Octicons.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.PixelartIcons.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.PixelartIcons.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RadixIcons.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RadixIcons.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RemixIcon.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RemixIcon.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Typicons.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Typicons.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Unicons.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Unicons.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.VaadinIcons.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.VaadinIcons.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Zondicons.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Zondicons.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MaterialDesignColors.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\Microsoft.Expression.Interactions.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\bin\Debug\System.Windows.Interactivity.xml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.csproj.AssemblyReference.cache
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.csproj.SuggestedBindingRedirects.cache
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\ResourceProject\profileIcon.baml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\ResourceProject\PlayerButton.baml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\ResourceProject\ButtonIcon.baml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\ResourceProject\ButtonStyle.baml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\ResourceProject\NormalButton.baml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\UserControlMusic\UserControlHome.g.cs
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\View\ForgotPassword.g.cs
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\View\Login.g.cs
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\View\MainWindow.g.cs
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\View\Register.g.cs
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\UserControlMusic\UserControl1.g.cs
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\UserControlMusic\UserControlLoginRegister.g.cs
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\App.g.cs
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer_Content.g.cs
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer_MarkupCompile.cache
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer_MarkupCompile.lref
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\App.baml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\UserControlMusic\UserControlHome.baml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\View\ForgotPassword.baml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\View\Login.baml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\View\MainWindow.baml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\View\Register.baml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\ResourceProject\MainResource.baml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\UserControlMusic\UserControl1.baml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\UserControlMusic\UserControlLoginRegister.baml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.g.resources
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.Properties.Resources.resources
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.csproj.GenerateResource.cache
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.csproj.CopyComplete
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.exe
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.pdb
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\ResourceProject\RenameButton.baml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\UserControlMusic\UserControlProFile.g.cs
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\UserControlMusic\UserControlProFile.baml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\ResourceProject\ProfileText.baml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\ResourceProject\Bth.baml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\ResourceProject\CPButton.baml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\ResourceProject\DataTemplate.baml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\ResourceProject\Page.baml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\View\ChangePassword.g.cs
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\View\ChangePassword.baml
+C:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\obj\Debug\ResourceProject\ChangePassbt.baml
 C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\bin\Debug\Microsoft.Xaml.Behaviors.dll
 C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\bin\Debug\Microsoft.Xaml.Behaviors.pdb
 C:\Users\Administrator\source\repos\MusicMediaPlayer\MusicMediaPlayer\bin\Debug\Microsoft.Xaml.Behaviors.xml
