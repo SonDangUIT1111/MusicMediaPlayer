@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="MusicPlayerModelStoreContainer" CdmEntityContainer="MusicPlayerEntities">
-    <EntitySetMapping Name="PlayLists">
+    <EntitySetMapping Name="PlayList">
       <EntityTypeMapping TypeName="MusicPlayerModel.PlayList">
         <MappingFragment StoreEntitySet="PlayList">
           <ScalarProperty Name="PlayListId" ColumnName="PlayListId" />
@@ -11,7 +11,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Songs">
+    <EntitySetMapping Name="Song">
       <EntityTypeMapping TypeName="MusicPlayerModel.Song">
         <MappingFragment StoreEntitySet="Song">
           <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
@@ -26,7 +26,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="UserAccounts">
+    <EntitySetMapping Name="UserAccount">
       <EntityTypeMapping TypeName="MusicPlayerModel.UserAccount">
         <MappingFragment StoreEntitySet="UserAccount">
           <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -55,5 +55,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <AssociationSetMapping Name="Has" TypeName="MusicPlayerModel.Has" StoreEntitySet="Has">
+      <EndProperty Name="PlayList">
+        <ScalarProperty Name="PlayListId" ColumnName="PlayListId" />
+      </EndProperty>
+      <EndProperty Name="Song">
+        <ScalarProperty Name="SongId" ColumnName="SongId" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

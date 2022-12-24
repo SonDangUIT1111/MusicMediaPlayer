@@ -1,18 +1,9 @@
-﻿
-FC:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\App.xaml;;
-FC:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\View\ChangePassword.xaml;;
-FC:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\ResourceProject\DataTemplate.xaml;;
-FC:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\UserControlMusic\UserControlHome.xaml;;
-FC:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\UserControlMusic\UserControlProFile.xaml;;
-FC:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\View\ForgotPassword.xaml;;
-FC:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\View\Login.xaml;;
-FC:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\View\MainWindow.xaml;;
-FC:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\View\Register.xaml;;
-FC:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\ResourceProject\MainResource.xaml;;
-FC:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\UserControlMusic\UserControl1.xaml;;
-FC:\Users\ASUS\Downloads\New MP\New MP\New MP\MusicMediaPlayer\UserControlMusic\UserControlLoginRegister.xaml;;
-C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\GeneratedInternalTypeHelper.g.cs
+﻿C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\GeneratedInternalTypeHelper.g.cs
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\App.xaml;;
+FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\ResourceProject\DataTemplate.xaml;;
+FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\UserControlMusic\UserControlHome.xaml;;
+FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\UserControlMusic\UserControlProFile.xaml;;
+FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\ChangePassword.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\ResourceProject\ExpanderMySongTemplate.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\AddSongToApp.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\EditSongInApp.xaml;;
@@ -25,4 +16,21 @@ FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\ResourceProjec
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\UserControlMusic\UserControl1.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\UserControlMusic\UserControlLoginRegister.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\SleepTimerView.xaml;;
+
+FC:\Code_VSCode2022\MusicPlayer\MusicMediaPlayer\App.xaml;;
+FC:\Code_VSCode2022\MusicPlayer\MusicMediaPlayer\AddPlayList.xaml;;
+FC:\Code_VSCode2022\MusicPlayer\MusicMediaPlayer\Login.xaml;;
+FC:\Code_VSCode2022\MusicPlayer\MusicMediaPlayer\MainWindow.xaml;;
+FC:\Code_VSCode2022\MusicPlayer\MusicMediaPlayer\PlayList.xaml;;
+FC:\Code_VSCode2022\MusicPlayer\MusicMediaPlayer\PlayList_Inside.xaml;;
+FC:\Code_VSCode2022\MusicPlayer\MusicMediaPlayer\Register.xaml;;
+FC:\Code_VSCode2022\MusicPlayer\MusicMediaPlayer\RenamePlayList.xaml;;
+FC:\Code_VSCode2022\MusicPlayer\MusicMediaPlayer\ResourceProject\AddPlayListResource.xaml;;
+FC:\Code_VSCode2022\MusicPlayer\MusicMediaPlayer\ResourceProject\LoginResource.xaml;;
+FC:\Code_VSCode2022\MusicPlayer\MusicMediaPlayer\ResourceProject\MainResource.xaml;;
+FC:\Code_VSCode2022\MusicPlayer\MusicMediaPlayer\ResourceProject\PlayListResource.xaml;;
+FC:\Code_VSCode2022\MusicPlayer\MusicMediaPlayer\ResourceProject\RenamePlayListResource.xaml;;
+FC:\Code_VSCode2022\MusicPlayer\MusicMediaPlayer\UserControlMusic\UserControl1.xaml;;
+FC:\Code_VSCode2022\MusicPlayer\MusicMediaPlayer\UserControlMusic\UserControlLoginRegister.xaml;;
+FC:\Code_VSCode2022\MusicPlayer\MusicMediaPlayer\AddSongPlayList.xaml;;
 

@@ -21,10 +21,10 @@ namespace MusicMediaPlayer.ViewModel
                 var w = window as Window;
                 if (w != null)
                 {
-                    if (w.WindowState != WindowState.Minimized)
-                        w.WindowState = WindowState.Minimized;
-                    else
+                    if (w.WindowState != WindowState.Maximized)
                         w.WindowState = WindowState.Maximized;
+                    else
+                        w.WindowState = WindowState.Normal;
                 }
             }
             );

@@ -11,10 +11,17 @@ namespace MusicMediaPlayer.Model
         private static DataProvider _ins;
         public static DataProvider Ins 
         { get 
+        private static DataProvider _ints;
+        public static DataProvider Ints 
+        { 
+            get 
             { 
                 if (_ins == null) 
                     _ins = new DataProvider(); 
                 return _ins; 
+                if (_ints == null) 
+                    _ints = new DataProvider(); 
+                return _ints; 
             } 
             set 
             { 

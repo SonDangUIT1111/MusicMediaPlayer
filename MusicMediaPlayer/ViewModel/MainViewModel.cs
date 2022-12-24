@@ -30,7 +30,6 @@ namespace MusicMediaPlayer.ViewModel
         }
 
         private CurrentUserAccountModel _currentUser;
-        public MainViewModel()
         //public bool IsLoaded = false;
         //public ICommand LoadedTurnOnLogin { get; set; }
         private BaseViewModel _selectedViewmodel = new UCHomeViewModel();
