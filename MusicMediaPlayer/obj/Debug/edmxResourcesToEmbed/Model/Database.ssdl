@@ -27,7 +27,9 @@
     <Property Name="Artist" Type="nvarchar" MaxLength="100" />
     <Property Name="FilePath" Type="varchar(max)" />
     <Property Name="IsFavourite" Type="bit" />
-    <Property Name="ListId" Type="int" Nullable="false" />
+    <Property Name="HowLong" Type="nvarchar" MaxLength="10" />
+    <Property Name="TimeAdd" Type="datetime" />
+    <Property Name="ImagePath" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -48,7 +50,19 @@
     <Property Name="UserPassword" Type="nvarchar(max)" />
     <Property Name="UserEmail" Type="nvarchar" MaxLength="200" />
   </EntityType>
-  <Association Name="FK__PlayList__OwnerI__3F466844">
+  <Association Name="FK__PlayList__OwnerI__267ABA7A">
+    <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />
+    <End Role="PlayList" Type="Self.PlayList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccount">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="PlayList">
+        <PropertyRef Name="OwnerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PlayList__OwnerI__5DCAEF64">
     <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />
     <End Role="PlayList" Type="Self.PlayList" Multiplicity="*" />
     <ReferentialConstraint>
@@ -90,7 +104,11 @@
     <EntitySet Name="Song" EntityType="Self.Song" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserAccount" EntityType="Self.UserAccount" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__PlayList__OwnerI__3F466844" Association="Self.FK__PlayList__OwnerI__3F466844">
+    <AssociationSet Name="FK__PlayList__OwnerI__267ABA7A" Association="Self.FK__PlayList__OwnerI__267ABA7A">
+      <End Role="UserAccount" EntitySet="UserAccount" />
+      <End Role="PlayList" EntitySet="PlayList" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PlayList__OwnerI__5DCAEF64" Association="Self.FK__PlayList__OwnerI__5DCAEF64">
       <End Role="UserAccount" EntitySet="UserAccount" />
       <End Role="PlayList" EntitySet="PlayList" />
     </AssociationSet>

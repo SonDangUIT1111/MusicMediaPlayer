@@ -5,7 +5,7 @@
              xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-             StartupUri="/PlayList.xaml">
+             StartupUri="View/MySong.xaml">
              
     <Application.Resources>
         <ResourceDictionary >

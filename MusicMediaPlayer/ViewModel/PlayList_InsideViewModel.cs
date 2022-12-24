@@ -88,7 +88,7 @@ namespace MusicMediaPlayer.ViewModel
 
                     foreach (Song item in song_in_pl.ToList())
                     {
-                        item.PlayList.Remove(pl);
+                        item.PlayLists.Remove(pl);
 
                         pl.Song.Remove(item);
                     }
@@ -113,7 +113,7 @@ namespace MusicMediaPlayer.ViewModel
                 if (dr == MessageBoxResult.Yes)
                 {
                     pl.Song.Remove(p as Song);
-                    pl.SongCount = pl.SongCount - 1;
+                    pl.SongCount--;
                     DataProvider.Ins.DB.SaveChanges();
                     SongCount = pl.SongCount.ToString() + " Bài hát";
                     LoadDanhSach();

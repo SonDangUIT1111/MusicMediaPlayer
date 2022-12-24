@@ -114,7 +114,7 @@ namespace MusicMediaPlayer.ViewModel
 
                     foreach (Song item in song_in_pl.ToList())
                     {
-                        item.PlayList.Remove(pl);
+                        item.PlayLists.Remove(pl);
 
                         pl.Song.Remove(item);
                     }

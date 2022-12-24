@@ -800,3 +800,7 @@ C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\AddPlayListResource.baml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\PlayListResource.baml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\RenamePlayListResource.baml
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\bin\Debug\System.Drawing.Common.dll
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\bin\Debug\Wpf.Ui.dll
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\bin\Debug\System.Drawing.Common.xml
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\bin\Debug\Wpf.Ui.xml

@@ -16,5 +16,5 @@ C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\App.xaml
 1681554041510
 View\AddPlayList.xaml;View\AddSongPlayList.xaml;ResourceProject\ChangePassbt.xaml;ResourceProject\Bth.xaml;ResourceProject\CPButton.xaml;ResourceProject\DataTemplate.xaml;ResourceProject\Page.xaml;ResourceProject\ProfileText.xaml;ResourceProject\profileIcon.xaml;ResourceProject\PlayerButton.xaml;ResourceProject\ButtonIcon.xaml;UserControlMusic\UserControlHome.xaml;UserControlMusic\UserControlProFile.xaml;ResourceProject\RenameButton.xaml;View\ChangePassword.xaml;ResourceProject\DataGridTemplate.xaml;ResourceProject\ErrorTemplate.xaml;ResourceProject\ExpanderMySongTemplate.xaml;ResourceProject\ScrollBarTemplate.xaml;ResourceProject\SliderTemplate.xaml;ResourceProject\TabButtonStyle.xaml;View\AddSongToApp.xaml;View\EditSongInApp.xaml;View\ForgotPassword.xaml;View\Login.xaml;View\MainWindow.xaml;View\PlayList.xaml;View\PlayList_Inside.xaml;View\MySong.xaml;View\RenamePlayList.xaml;ResourceProject\AddPlayListResource.xaml;ResourceProject\ButtonStyle.xaml;View\Register.xaml;ResourceProject\ButtonStyle.xaml;ResourceProject\MainResource.xaml;ResourceProject\NormalButton.xaml;ResourceProject\PlayListResource.xaml;ResourceProject\RenamePlayListResource.xaml;UserControlMusic\UserControl1.xaml;UserControlMusic\UserControlLoginRegister.xaml;View\SleepTimerView.xaml;
 
-True
+False
 

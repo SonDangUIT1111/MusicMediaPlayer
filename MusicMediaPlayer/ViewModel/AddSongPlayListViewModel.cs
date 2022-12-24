@@ -44,9 +44,9 @@ namespace MusicMediaPlayer.ViewModel
             {
                 foreach (Song item in thiswindow.listview.SelectedItems)
                 {
-                    item.PlayList.Add(pl);
+                    item.PlayLists.Add(pl);
                     pl.Song.Add(item);
-                    pl.SongCount = pl.SongCount + 1;
+                    pl.SongCount++;
                 }
 
                 DataProvider.Ins.DB.SaveChanges();
