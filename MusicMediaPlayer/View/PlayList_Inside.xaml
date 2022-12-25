@@ -1,0 +1,152 @@
+﻿<Page x:Class="MusicMediaPlayer.View.PlayList_Inside"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MusicMediaPlayer"
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PlayList_Inside"
+      Name="PlayList_Inside_Page"
+      DataContext="{StaticResource PlayList_InsideVM}"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      >
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding Loaded}"
+                                   CommandParameter="{Binding ElementName=PlayList_Inside_Page}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Grid Height="450" Width="800">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"
+                           >
+
+            </RowDefinition>
+            <RowDefinition>
+
+            </RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0"
+              Background="Beige">
+            <StackPanel Orientation="Horizontal">
+                <Ellipse Height="100" Width="100"
+                     Margin="40 0 0 0">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="/Image/anh3.jpg"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Grid Width="500"
+                      Margin="30 20 0 20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0"
+                               Text="{Binding PLName}"
+                               FontSize="35"
+                               FontWeight="Bold"
+                               FontStyle="Italic"
+                               TextAlignment="Left">
+
+                    </TextBlock>
+
+                    <StackPanel Grid.Row="1"
+                                Orientation="Horizontal">
+                        <Button Content="Rename"
+                                Command="{Binding Rename}"
+                                
+                                >
+
+                        </Button>
+                        <Button Content="Delete PlayList"
+                                 Margin="10 0 0 0 "
+                                 Command="{Binding DeletePlayList}"
+                                CommandParameter="{Binding ElementName=PlayList_Inside_Page}">
+
+                        </Button>
+                        <Button Content="Add Songs"
+                                 Margin="10 0 0 0 "
+                                Command="{Binding AddSongs}">
+
+                        </Button>
+                        <TextBlock  Text="{Binding SongCount}"
+                                    Margin="10 0 0 0 "
+                                    FontSize="15"
+                                    FontWeight="Bold"
+                                    TextWrapping="Wrap" 
+                                    FontStyle="Italic"
+                                    Width="150" 
+                                    HorizontalAlignment="Center" 
+                                    VerticalAlignment="Center"
+                                    />
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1"
+              Background="White">
+            <ListView 
+                    ItemsSource="{Binding List, Mode=TwoWay}"
+                    Name="listview"
+                          >
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Style.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5">
+                                </Setter>
+                            </Style>
+                        </Style.Resources>
+                    </Style>
+                </ListView.ItemContainerStyle>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid  Height="70"
+                                   Width="580">
+                            <StackPanel Margin="15 10 0 10"
+                                            Orientation="Horizontal">
+
+                                <Ellipse Height="48" Width="48" VerticalAlignment="Center">
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="/Image/anh3.jpg"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+
+                                <StackPanel Margin="15 0 0 0" Width="440"
+                                       >
+                                    <TextBlock Opacity="1" Text="{Binding SongTitle}" Foreground="Black" FontWeight="Bold" FontSize="20"/>
+                                    <TextBlock Opacity="1" Text="{Binding Artist}" Foreground="Black" FontWeight="Bold" FontSize="17"></TextBlock>
+                                </StackPanel>
+
+                                <materialDesign:PopupBox
+                                                            Margin="20 10 10 10"
+                                                            Padding="2 0 2 0">
+                                    <StackPanel>
+                                        <Button Content="Delete" 
+                                                    Command="{Binding Source={StaticResource PlayList_InsideVM}, Path=Delete_One_Song}"
+                                                    CommandParameter="{Binding}"
+                                                    >
+                                        </Button>
+                                    </StackPanel>
+
+                                </materialDesign:PopupBox>
+
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+
+
+
+    </Grid>
+</Page>
