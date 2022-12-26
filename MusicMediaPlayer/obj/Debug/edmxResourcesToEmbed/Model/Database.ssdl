@@ -51,6 +51,7 @@
     <Property Name="UserName" Type="nvarchar" MaxLength="100" />
     <Property Name="UserPassword" Type="nvarchar(max)" />
     <Property Name="UserEmail" Type="nvarchar" MaxLength="200" />
+    <Property Name="UserImage" Type="varbinary(max)" />
   </EntityType>
   <Association Name="FK__PlayList__OwnerI__5DCAEF64">
     <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />

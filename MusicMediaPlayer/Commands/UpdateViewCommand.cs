@@ -31,7 +31,11 @@ namespace MusicMediaPlayer.Commands
             else if (parameter.ToString() == "Profile")
             {
                 viewModel.SelectedViewmodel = new UCProfileViewModel();
-            }    
+            }
+            else if (parameter.ToString() == "Playlist")
+            {
+                viewModel.SelectedViewmodel = new PlayListViewModel();
+            }
         }
     }
 }

@@ -64,6 +64,7 @@ namespace MusicMediaPlayer.ViewModel
                     //
                     CurrentUser.UserName = LoginVM.Username;
                     p.Show();
+                    MessageBox.Show(CurrentUser.UserName);
                 }
                 else
                 {

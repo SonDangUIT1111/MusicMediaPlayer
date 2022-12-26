@@ -56,6 +56,7 @@
           <Property Name="UserName" Type="nvarchar" MaxLength="100" />
           <Property Name="UserPassword" Type="nvarchar(max)" />
           <Property Name="UserEmail" Type="nvarchar" MaxLength="200" />
+          <Property Name="UserImage" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK__PlayList__OwnerI__5DCAEF64">
           <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />
@@ -171,6 +172,7 @@
           <Property Name="UserEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="PlayLists" Relationship="Self.FK__PlayList__OwnerI__267ABA7A" FromRole="UserAccount" ToRole="PlayList" />
           <NavigationProperty Name="Songs" Relationship="MusicPlayerModel.FK_Song_User" FromRole="UserAccount" ToRole="Song" />
+          <Property Name="UserImage" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK__PlayList__OwnerI__267ABA7A">
           <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />
@@ -264,6 +266,7 @@
           <EntitySetMapping Name="UserAccounts">
             <EntityTypeMapping TypeName="MusicPlayerModel.UserAccount">
               <MappingFragment StoreEntitySet="UserAccount">
+                <ScalarProperty Name="UserImage" ColumnName="UserImage" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />

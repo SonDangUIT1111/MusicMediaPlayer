@@ -39,6 +39,7 @@
     <Property Name="UserEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="PlayLists" Relationship="Self.FK__PlayList__OwnerI__267ABA7A" FromRole="UserAccount" ToRole="PlayList" />
     <NavigationProperty Name="Songs" Relationship="MusicPlayerModel.FK_Song_User" FromRole="UserAccount" ToRole="Song" />
+    <Property Name="UserImage" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <Association Name="FK__PlayList__OwnerI__267ABA7A">
     <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />

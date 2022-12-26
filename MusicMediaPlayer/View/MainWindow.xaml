@@ -107,7 +107,7 @@
                                         <iconPacks:PackIconMaterial Kind="Music" Foreground="AliceBlue" Margin="-10,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.763,1.3" Height="Auto" Width="25"/>
                                     </Grid>
                                 </Button>
-                                <Button Style="{StaticResource ContactButton}"  Width="180">
+                                <Button Style="{StaticResource ContactButton}"  Width="180" >
                                     <Grid>
                                         <TextBlock Text= "My Playlist" Margin="10,0,31,0"/>
                                         <iconPacks:PackIconMaterial Kind="Heart" Foreground="AliceBlue" Margin="-20,0,0,0" Height="Auto" Width="28" VerticalAlignment="Center"/>
