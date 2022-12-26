@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\App.xaml
-32500491825
+39940796248
 2-1797966213
-391457020321
+50-1261322788
 165-952426983
-ResourceProject\ChangePassbt.xaml;ResourceProject\Bth.xaml;ResourceProject\CPButton.xaml;ResourceProject\DataTemplate.xaml;ResourceProject\Page.xaml;ResourceProject\ProfileText.xaml;ResourceProject\profileIcon.xaml;ResourceProject\PlayerButton.xaml;ResourceProject\ButtonIcon.xaml;UserControlMusic\UserControlHome.xaml;UserControlMusic\UserControlProFile.xaml;ResourceProject\RenameButton.xaml;View\ChangePassword.xaml;ResourceProject\DataGridTemplate.xaml;ResourceProject\ErrorTemplate.xaml;ResourceProject\ExpanderMySongTemplate.xaml;ResourceProject\ScrollBarTemplate.xaml;ResourceProject\SliderTemplate.xaml;ResourceProject\TabButtonStyle.xaml;View\AddSongToApp.xaml;View\EditSongInApp.xaml;View\ForgotPassword.xaml;View\Login.xaml;View\MainWindow.xaml;View\MySong.xaml;View\Register.xaml;ResourceProject\ButtonStyle.xaml;ResourceProject\MainResource.xaml;ResourceProject\NormalButton.xaml;UserControlMusic\UserControl1.xaml;UserControlMusic\UserControlLoginRegister.xaml;View\SleepTimerView.xaml;
+ResourceProject\ButtonInMySong.xaml;ResourceProject\ChangePassbt.xaml;ResourceProject\Bth.xaml;ResourceProject\CPButton.xaml;ResourceProject\DataTemplate.xaml;ResourceProject\Page.xaml;ResourceProject\ProfileText.xaml;ResourceProject\profileIcon.xaml;ResourceProject\PlayerButton.xaml;ResourceProject\ButtonIcon.xaml;ResourceProject\Visualizer.xaml;UserControlMusic\UserControlHome.xaml;UserControlMusic\UserControlProFile.xaml;ResourceProject\RenameButton.xaml;View\AddPlayList.xaml;View\AddSongPlayList.xaml;View\ChangePassword.xaml;ResourceProject\DataGridTemplate.xaml;ResourceProject\ErrorTemplate.xaml;ResourceProject\ExpanderMySongTemplate.xaml;ResourceProject\ScrollBarTemplate.xaml;ResourceProject\SliderTemplate.xaml;ResourceProject\TabButtonStyle.xaml;View\AddSongToApp.xaml;View\EditSongInApp.xaml;View\ForgotPassword.xaml;View\Login.xaml;View\MainWindow.xaml;View\MySong.xaml;View\PlayList.xaml;View\PlayList_Inside.xaml;View\Register.xaml;ResourceProject\ButtonStyle.xaml;ResourceProject\MainResource.xaml;ResourceProject\NormalButton.xaml;UserControlMusic\UserControl1.xaml;UserControlMusic\UserControlLoginRegister.xaml;View\RenamePlayList.xaml;View\SleepTimerView.xaml;
 
 False
 

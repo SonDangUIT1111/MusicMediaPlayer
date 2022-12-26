@@ -16,6 +16,7 @@
     <Property Name="PlayListName" Type="nvarchar" MaxLength="100" />
     <Property Name="SongCount" Type="int" />
     <Property Name="OwnerId" Type="int" Nullable="false" />
+    <Property Name="ImagePlaylistBinary" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="Song">
     <Key>
@@ -29,7 +30,8 @@
     <Property Name="IsFavourite" Type="bit" />
     <Property Name="HowLong" Type="nvarchar" MaxLength="10" />
     <Property Name="TimeAdd" Type="datetime" />
-    <Property Name="ImagePath" Type="varchar(max)" />
+    <Property Name="ImageSongBinary" Type="varbinary(max)" />
+    <Property Name="UserId" Type="int" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -50,7 +52,7 @@
     <Property Name="UserPassword" Type="nvarchar(max)" />
     <Property Name="UserEmail" Type="nvarchar" MaxLength="200" />
   </EntityType>
-  <Association Name="FK__PlayList__OwnerI__267ABA7A">
+  <Association Name="FK__PlayList__OwnerI__5DCAEF64">
     <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />
     <End Role="PlayList" Type="Self.PlayList" Multiplicity="*" />
     <ReferentialConstraint>
@@ -62,15 +64,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PlayList__OwnerI__5DCAEF64">
-    <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />
-    <End Role="PlayList" Type="Self.PlayList" Multiplicity="*" />
+  <Association Name="FK_Song_User">
+    <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="0..1" />
+    <End Role="Song" Type="Self.Song" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="UserAccount">
         <PropertyRef Name="UserId" />
       </Principal>
-      <Dependent Role="PlayList">
-        <PropertyRef Name="OwnerId" />
+      <Dependent Role="Song">
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -104,13 +106,13 @@
     <EntitySet Name="Song" EntityType="Self.Song" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserAccount" EntityType="Self.UserAccount" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__PlayList__OwnerI__267ABA7A" Association="Self.FK__PlayList__OwnerI__267ABA7A">
-      <End Role="UserAccount" EntitySet="UserAccount" />
-      <End Role="PlayList" EntitySet="PlayList" />
-    </AssociationSet>
     <AssociationSet Name="FK__PlayList__OwnerI__5DCAEF64" Association="Self.FK__PlayList__OwnerI__5DCAEF64">
       <End Role="UserAccount" EntitySet="UserAccount" />
       <End Role="PlayList" EntitySet="PlayList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Song_User" Association="Self.FK_Song_User">
+      <End Role="UserAccount" EntitySet="UserAccount" />
+      <End Role="Song" EntitySet="Song" />
     </AssociationSet>
     <AssociationSet Name="Has_FK1" Association="Self.Has_FK1">
       <End Role="PlayList" EntitySet="PlayList" />

@@ -15,6 +15,7 @@ namespace MusicMediaPlayer.Commands
         {
             this.viewModel = viewModel;
         }
+
         public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)

@@ -195,6 +195,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converter\ByteArrayToBitmapImageConverter.cs" />
+    <Compile Include="ViewModel\AddPlayListViewModel.cs" />
+    <Compile Include="ViewModel\AddSongPlayListViewModel.cs" />
     <Compile Include="ViewModel\ChangePasswordViewModel.cs" />
     <Compile Include="Commands\UpdateViewCommand.cs" />
     <Compile Include="CurrentUserAccountModel.cs" />
@@ -218,7 +221,10 @@
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\MVApp.cs" />
+    <Compile Include="ViewModel\PlayListViewModel.cs" />
+    <Compile Include="ViewModel\PlayList_InsideViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="ViewModel\RenamePlayListViewModel.cs" />
     <Compile Include="ViewModel\UCProfileViewModel.cs" />
     <Compile Include="ViewModel\UCHomeViewModel.cs" />
     <Compile Include="UserControlMusic\UserControlHome.xaml.cs">
@@ -226,6 +232,12 @@
     </Compile>
     <Compile Include="UserControlMusic\UserControlProFile.xaml.cs">
       <DependentUpon>UserControlProFile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddPlayList.xaml.cs">
+      <DependentUpon>AddPlayList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddSongPlayList.xaml.cs">
+      <DependentUpon>AddSongPlayList.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ChangePassword.xaml.cs">
       <DependentUpon>ChangePassword.xaml</DependentUpon>
@@ -245,6 +257,12 @@
     </Compile>
     <Compile Include="View\MySong.xaml.cs">
       <DependentUpon>MySong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PlayList.xaml.cs">
+      <DependentUpon>PlayList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PlayList_Inside.xaml.cs">
+      <DependentUpon>PlayList_Inside.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
@@ -267,6 +285,10 @@
     <Compile Include="ViewModel\RegisterViewModel.cs" />
     <Compile Include="ViewModel\UCLoginRegisterViewModel.cs" />
     <Compile Include="ViewModel\UserControlViewModel.cs" />
+    <Page Include="ResourceProject\ButtonInMySong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ResourceProject\ChangePassbt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -303,6 +325,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ResourceProject\Visualizer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControlMusic\UserControlHome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -315,10 +341,21 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\AddPlayList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddSongPlayList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ChangePassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Compile Include="View\RenamePlayList.xaml.cs">
+      <DependentUpon>RenamePlayList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\SleepTimerView.xaml.cs">
       <DependentUpon>SleepTimerView.xaml</DependentUpon>
     </Compile>
@@ -381,6 +418,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\PlayList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PlayList_Inside.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Register.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -402,6 +447,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControlMusic\UserControlLoginRegister.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RenamePlayList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -478,6 +527,12 @@
     <Resource Include="Image\Streaming2017.jpg" />
     <Resource Include="Image\streamingimage2.jpg" />
     <Resource Include="Image\78d072b9f34c6c37d32493c50b7d9203.png" />
+    <Resource Include="Image\anh1.jpg" />
+    <Resource Include="Image\anh2.jpg" />
+    <Resource Include="Image\anh3.jpg" />
+    <Resource Include="Image\anh4.jpg" />
+    <Resource Include="Image\anh5.jpg" />
+    <Resource Include="Image\visualizer.gif" />
     <Content Include="Model\Database.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Database.Context.cs</LastGenOutput>

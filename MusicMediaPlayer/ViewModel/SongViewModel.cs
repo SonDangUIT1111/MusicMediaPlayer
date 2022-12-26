@@ -119,6 +119,8 @@ namespace MusicMediaPlayer.ViewModel
         public string ArtistToChange { get { return _ArtistToChange; } set { _ArtistToChange = value; } }
         private string _ImagePathToChange;
         public string ImagePathToChange { get { return _ImagePathToChange; } set { _ImagePathToChange = value; OnPropertyChanged(); } }
+        private byte[] imageBinaryAdd;
+        public byte[] ImageBinaryAdd { get { return imageBinaryAdd; } set { imageBinaryAdd = value; OnPropertyChanged(); } }
         // volumn
         private double _VolumePrevious;
         public double VolumePrevious { get => _VolumePrevious; set => _VolumePrevious = value; }
@@ -146,8 +148,6 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand Pause { get; set; }
         public ICommand FilterChangeValue { get; set; }
         public ICommand AddSong { get; set; }
-        public ICommand OverOption { get; set; }
-        public ICommand LeaveOption { get; set; }
         public ICommand ChangeInfoSong { get; set; }
         public ICommand DeleteSong { get; set; }
         public ICommand Refresh { get; set; }
@@ -180,6 +180,9 @@ namespace MusicMediaPlayer.ViewModel
         {
             List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs);
             TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.OrderByDescending(x => x.Times).ToList());
+            TopTrending.Add(new Song());
+            TopTrending.Add(new Song());
+            TopTrending.Add(new Song());
             Play = new RelayCommand<Page>((p) => { return true; }, (p) =>
             {
                 mediaPlayer.Play();
@@ -232,6 +235,27 @@ namespace MusicMediaPlayer.ViewModel
              {
                  MySongWindow = p as MySong;
                  var data = DataProvider.Ins.DB.Songs;
+                 if (List.Count == 0)
+                 {
+                     MySongWindow.IsThereSong.Visibility = Visibility.Visible;
+                     MySongWindow.CDCircle.IsExpanded = false;
+                     MySongWindow.TopTrendExpander.IsExpanded = true;
+                     MySongWindow.sliProgress.Value = 0;
+                     MySongWindow.sliProgress.IsEnabled = false;
+                     MySongWindow.InTime.Visibility = Visibility.Hidden;
+                     MySongWindow.TotalTime.Visibility = Visibility.Hidden;
+                     MySongWindow.Play.Visibility = Visibility.Visible;
+                     MySongWindow.Play.IsEnabled = false;
+                     MySongWindow.Pause.Visibility = Visibility.Hidden;
+                     mediaPlayer.Stop();
+                 }
+                 else
+                 {
+                     MySongWindow.IsThereSong.Visibility = Visibility.Hidden;
+                     MySongWindow.sliProgress.IsEnabled = true;
+                     MySongWindow.InTime.Visibility = Visibility.Visible;
+                     MySongWindow.TotalTime.Visibility = Visibility.Visible;
+                 }
                  CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(MySongWindow.ListSong.ItemsSource);
                  view.Filter = FiltersSong;
 
@@ -274,6 +298,12 @@ namespace MusicMediaPlayer.ViewModel
                          DataProvider.Ins.DB.SaveChanges();
                          MySongWindow.ListSong.Items.Refresh();
                          LoadCommon();
+                         if (List.Count != 0)
+                         {
+                             int nextindex = (MySongWindow.ListSong.SelectedIndex + 1) % List.Count;
+                             MySongWindow.ListSong.SelectedIndex = -1;
+                             MySongWindow.ListSong.SelectedIndex = nextindex;
+                         }
                      }
                  }
                  else return;
@@ -318,7 +348,9 @@ namespace MusicMediaPlayer.ViewModel
                  {
                      item.SongTitle = TitleToChange;
                      item.Artist = ArtistToChange;
-                     item.ImagePath = ImagePathToChange;
+                     Converter.ByteArrayToBitmapImageConverter converter = new MusicMediaPlayer.Converter.ByteArrayToBitmapImageConverter();
+                     byte[] BinaryImage = converter.ImageToBinary(ImagePathToChange);
+                     item.ImageSongBinary = BinaryImage;
                      DataProvider.Ins.DB.SaveChanges();
                      Load();
                      TitleToChange = null;
@@ -439,10 +471,12 @@ namespace MusicMediaPlayer.ViewModel
                     {
                         timetoadd = String.Format("{0}", med.NaturalDuration.TimeSpan.ToString(@"mm\:ss"));
                     }
+                    Converter.ByteArrayToBitmapImageConverter converter = new MusicMediaPlayer.Converter.ByteArrayToBitmapImageConverter();
+                    ImageBinaryAdd = converter.ImageToBinary(uriIamge);
                     DataProvider.Ins.DB.Songs.Add(new Song() { Artist = artistNewSong, 
                                                                SongTitle = titleNewSong, 
                                                                FilePath = FilePathToAdd,
-                                                               ImagePath = uriIamge,
+                                                               ImageSongBinary = ImageBinaryAdd,
                                                                Times = 0,
                                                                TimeAdd = DateTime.Now,
                                                                HowLong = timetoadd,
@@ -454,6 +488,7 @@ namespace MusicMediaPlayer.ViewModel
                     TitleToAdd = null;
                     ArtistToAdd = null;
                     ImagePathToAdd = null;
+                    ImageBinaryAdd = null;
                 }
                 catch (Exception)
                 {
@@ -467,6 +502,7 @@ namespace MusicMediaPlayer.ViewModel
                 TitleToAdd = null;
                 ArtistToAdd = null;
                 ImagePathToAdd = null;
+                ImageBinaryAdd = null;
             });
             CancelChanging = new RelayCommand<Window>((p) => { return true; }, (p) => {
                 var wd = p as EditSongInApp;
@@ -478,7 +514,11 @@ namespace MusicMediaPlayer.ViewModel
 
             ChangeTime = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-               if (MySongWindow.sliProgress.IsFocused == true)
+                if (MySongWindow.ListSong.Items.Count == 0)
+                {
+                    return;
+                }
+                if (MySongWindow.sliProgress.IsFocused == true)
                 {
                     mediaPlayer.Stop();
                     mediaPlayer.Position = TimeSpan.FromSeconds(MySongWindow.sliProgress.Value);
@@ -497,6 +537,7 @@ namespace MusicMediaPlayer.ViewModel
                         {
                             nextIndex = random.Next(0, MySongWindow.ListSong.Items.Count + 1);
                         }
+                        MySongWindow.ListSong.SelectedIndex = -1;
                         MySongWindow.ListSong.SelectedIndex = nextIndex;
                     }
                     else if (MySongWindow.OneLoop.IsChecked == true)
@@ -508,11 +549,13 @@ namespace MusicMediaPlayer.ViewModel
                     else if (MySongWindow.SequencecyLoop.IsChecked == true)
                     {
                         int nextIndex = (MySongWindow.ListSong.SelectedIndex + 1) % (MySongWindow.ListSong.Items.Count);
+                        MySongWindow.ListSong.SelectedIndex = -1;
                         MySongWindow.ListSong.SelectedIndex = nextIndex;
                     }
                     else
                     {
                         int nextIndex = (MySongWindow.ListSong.SelectedIndex + 1) % (MySongWindow.ListSong.Items.Count);
+                        MySongWindow.ListSong.SelectedIndex = -1;
                         MySongWindow.ListSong.SelectedIndex = nextIndex;
                     }
 
@@ -552,11 +595,19 @@ namespace MusicMediaPlayer.ViewModel
             });
             SkipNext = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
+                if (MySongWindow.ListSong.Items.Count == 0)
+                {
+                    return;
+                }
                 int nextIndex = (MySongWindow.ListSong.SelectedIndex + 1) % (MySongWindow.ListSong.Items.Count);
                 MySongWindow.ListSong.SelectedIndex = nextIndex;
             });
             SkipPrevious = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
+                if (MySongWindow.ListSong.Items.Count == 0)
+                {
+                    return;
+                }
                 int nextIndex = (MySongWindow.ListSong.SelectedIndex - 1) % (MySongWindow.ListSong.Items.Count);
                 if (nextIndex < 0) nextIndex = MySongWindow.ListSong.Items.Count - 1;
                 MySongWindow.ListSong.SelectedIndex = nextIndex;
@@ -645,16 +696,6 @@ namespace MusicMediaPlayer.ViewModel
                 List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs);
                 Load();
             });
-            OverOption = new RelayCommand<object>((p) => { return true; }, (p) =>
-            {
-                Expander expander = p as Expander;
-                expander.IsExpanded = true;
-            });
-            LeaveOption = new RelayCommand<object>((p) => { return true; }, (p) =>
-            {
-                Expander expander = p as Expander;
-                expander.IsExpanded = false;
-            });
 
             //
             ShowTopOrCD = new RelayCommand<object>((p) => 
@@ -667,6 +708,7 @@ namespace MusicMediaPlayer.ViewModel
             }, (p) =>
             {
                 CanChangeTOP_CD = !CanChangeTOP_CD;
+                LoadCommon();
                 if (MySongWindow.TopTrendExpander.IsExpanded == true)
                 {
                     MySongWindow.TopTrendExpander.IsExpanded = false;
@@ -686,7 +728,31 @@ namespace MusicMediaPlayer.ViewModel
         public void Load()
         {
             List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs);
+            if (List.Count == 0)
+            {
+                MySongWindow.IsThereSong.Visibility = Visibility.Visible;
+                MySongWindow.CDCircle.IsExpanded = false;
+                MySongWindow.TopTrendExpander.IsExpanded = true;
+                MySongWindow.sliProgress.Value = 0;
+                MySongWindow.sliProgress.IsEnabled = false;
+                MySongWindow.InTime.Visibility = Visibility.Hidden;
+                MySongWindow.TotalTime.Visibility = Visibility.Hidden;
+                MySongWindow.Play.Visibility = Visibility.Visible;
+                MySongWindow.Play.IsEnabled = false;
+                MySongWindow.Pause.Visibility = Visibility.Hidden;
+                mediaPlayer.Stop();
+            }
+            else
+            {
+                MySongWindow.IsThereSong.Visibility = Visibility.Hidden;
+                MySongWindow.sliProgress.IsEnabled = true;
+                MySongWindow.InTime.Visibility = Visibility.Visible;
+                MySongWindow.TotalTime.Visibility = Visibility.Visible;
+            }
             TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.OrderByDescending(x => x.Times).ToList());
+            TopTrending.Add(new Song());
+            TopTrending.Add(new Song());
+            TopTrending.Add(new Song());
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(MySongWindow.ListSong.ItemsSource);
             view.Filter = FiltersSong;
 
@@ -703,7 +769,31 @@ namespace MusicMediaPlayer.ViewModel
         public void LoadRecent()
         {
             List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.OrderByDescending(x => x.TimeAdd).ToList());
+            if (List.Count == 0)
+            {
+                MySongWindow.IsThereSong.Visibility = Visibility.Visible;
+                MySongWindow.CDCircle.IsExpanded = false;
+                MySongWindow.TopTrendExpander.IsExpanded = true;
+                MySongWindow.sliProgress.Value = 0;
+                MySongWindow.sliProgress.IsEnabled = false;
+                MySongWindow.InTime.Visibility = Visibility.Hidden;
+                MySongWindow.TotalTime.Visibility = Visibility.Hidden;
+                MySongWindow.Play.Visibility = Visibility.Visible;
+                MySongWindow.Play.IsEnabled = false;
+                MySongWindow.Pause.Visibility = Visibility.Hidden;
+                mediaPlayer.Stop();
+            }
+            else
+            {
+                MySongWindow.IsThereSong.Visibility = Visibility.Hidden;
+                MySongWindow.sliProgress.IsEnabled = true;
+                MySongWindow.InTime.Visibility = Visibility.Visible;
+                MySongWindow.TotalTime.Visibility = Visibility.Visible;
+            }
             TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.OrderByDescending(x => x.Times).ToList());
+            TopTrending.Add(new Song());
+            TopTrending.Add(new Song());
+            TopTrending.Add(new Song());
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(MySongWindow.ListSong.ItemsSource);
             view.Filter = FiltersSong;
 

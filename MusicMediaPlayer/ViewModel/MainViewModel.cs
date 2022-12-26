@@ -28,10 +28,8 @@ namespace MusicMediaPlayer.ViewModel
                 OnPropertyChanged(CurrentUser.UserName);
             }
         }
-
         private CurrentUserAccountModel _currentUser;
-        //public bool IsLoaded = false;
-        //public ICommand LoadedTurnOnLogin { get; set; }
+
         private BaseViewModel _selectedViewmodel = new UCHomeViewModel();
         public BaseViewModel SelectedViewmodel
         {
@@ -73,31 +71,6 @@ namespace MusicMediaPlayer.ViewModel
                 }
             }
             );
-           
-            //
-            //LoadedTurnOnLogin = new RelayCommand<Window>((p) => { return true; }, (p) =>
-            //{
-            //    IsLoaded = true;
-            //    if (p == null)
-            //        return;
-            //    p.Hide();
-            //    Login login = new Login();
-            //    login.ShowDialog();
-
-            //    if (login.DataContext == null)
-            //        return;
-            //    var LoginVM = login.DataContext as LoginViewModel;
-            //    if (LoginVM.IsLoggedIn == true)
-            //    {
-            //        p.Show();
-            //    }
-            //    else
-            //    {
-            //        p.Close();
-            //    }
-            //}
-            //);
-            ////
             UpdateViewCommand = new UpdateViewCommand(this);
         }
     }
