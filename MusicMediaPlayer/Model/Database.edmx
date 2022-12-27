@@ -22,6 +22,7 @@
           <Property Name="SongCount" Type="int" />
           <Property Name="OwnerId" Type="int" Nullable="false" />
           <Property Name="ImagePlaylistBinary" Type="varbinary(max)" />
+          <Property Name="TimeCreate" Type="datetime" />
         </EntityType>
         <EntityType Name="Song">
           <Key>
@@ -144,6 +145,7 @@
           <NavigationProperty Name="UserAccount" Relationship="Self.FK__PlayList__OwnerI__267ABA7A" FromRole="PlayList" ToRole="UserAccount" />
           <NavigationProperty Name="Songs1" Relationship="MusicPlayerModel.Has" FromRole="PlayList" ToRole="Song" />
           <Property Name="ImagePlaylistBinary" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="TimeCreate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Song">
           <Key>
@@ -239,6 +241,7 @@
           <EntitySetMapping Name="PlayLists">
             <EntityTypeMapping TypeName="MusicPlayerModel.PlayList">
               <MappingFragment StoreEntitySet="PlayList">
+                <ScalarProperty Name="TimeCreate" ColumnName="TimeCreate" />
                 <ScalarProperty Name="ImagePlaylistBinary" ColumnName="ImagePlaylistBinary" />
                 <ScalarProperty Name="PlayListId" ColumnName="PlayListId" />
                 <ScalarProperty Name="PlayListName" ColumnName="PlayListName" />

@@ -25,6 +25,7 @@ namespace MusicMediaPlayer.Model
         public Nullable<int> SongCount { get; set; }
         public int OwnerId { get; set; }
         public byte[] ImagePlaylistBinary { get; set; }
+        public Nullable<System.DateTime> TimeCreate { get; set; }
     
         public virtual UserAccount UserAccount { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
