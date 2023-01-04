@@ -1,0 +1,46 @@
+﻿<Window x:Class="MusicMediaPlayer.View.MessageBoxSuccessful"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MusicMediaPlayer.View"
+        mc:Ignorable="d"
+        Title="MessageBoxSuccessful" 
+        Height="150" 
+        Width="150"
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="None" 
+        AllowsTransparency="True"
+        Background="Transparent"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        >
+    <Grid>
+        <Grid>
+            <Border CornerRadius="10" 
+                Background="Black"
+               >
+            </Border>
+            <StackPanel>
+                <Grid Height="80">
+                    <TextBlock Text="Successful"
+                           Foreground="#1ED760"
+                           FontFamily="Bahnschrift SemiBold" 
+                           FontWeight="SemiBold" 
+                           FontSize="20"
+                           TextAlignment="Center"
+                           VerticalAlignment="Center"
+                           >
+                    </TextBlock>
+                </Grid>
+                
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</Window>

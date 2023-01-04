@@ -25,7 +25,9 @@
                 BorderBrush="White"
                 BorderThickness="1"
                 Background="Black"
-                Grid.Column="1"/>
+                Grid.Column="1">
+        </Border>
+
         <StackPanel>
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center"

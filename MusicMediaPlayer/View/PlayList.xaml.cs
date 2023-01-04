@@ -18,7 +18,7 @@ namespace MusicMediaPlayer.View
     /// <summary>
     /// Interaction logic for PlayList.xaml
     /// </summary>
-    public partial class PlayList : Page
+    public partial class PlayList : UserControl
     {
         public PlayList()
         {

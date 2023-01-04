@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="454147709a2942ccadeefa4bd2af44dc" Name="Diagram1">
-        <EntityTypeShape EntityType="MusicPlayerModel.PlayList" Width="1.5" PointX="3.875" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicPlayerModel.Song" Width="1.5" PointX="6.625" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicPlayerModel.UserAccount" Width="1.5" PointX="1.125" PointY="0.75" IsExpanded="true" />
-        <AssociationConnector Association="MusicPlayerModel.FK__PlayList__OwnerI__267ABA7A" ManuallyRouted="false" />
-        <AssociationConnector Association="MusicPlayerModel.Has" />
-        <EntityTypeShape EntityType="MusicPlayerModel.sysdiagram" Width="1.5" PointX="0.75" PointY="3.75" />
-        <AssociationConnector Association="MusicPlayerModel.FK_Song_User" />
+      <Diagram DiagramId="eaa0da12f74a4b1fa457b5defa6f8f50" Name="Diagram1">
+        <EntityTypeShape EntityType="MusicPlayerModel.PlayList" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicPlayerModel.Song" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicPlayerModel.UserAccount" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="MusicPlayerModel.FK__PlayList__OwnerI__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicPlayerModel.FK__PlayList__OwnerI__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicPlayerModel.FK_Song_User" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicPlayerModel.Has" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

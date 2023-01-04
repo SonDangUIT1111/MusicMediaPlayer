@@ -47,7 +47,7 @@ namespace MusicMediaPlayer.ViewModel
 
         public PlayList_InsideViewModel()
         {
-            Loaded = new RelayCommand<System.Windows.Controls.Page>((p) => { return true; }, (p) =>
+            Loaded = new RelayCommand<UserControl>((p) => { return true; }, (p) =>
             {
                 thispage = p as PlayList_Inside;
                 pl = page_PlayList.listview.SelectedItem as MusicMediaPlayer.Model.PlayList;
@@ -79,29 +79,29 @@ namespace MusicMediaPlayer.ViewModel
             }
             );
 
-            DeletePlayList = new RelayCommand<System.Windows.Controls.Page>((p) => { return true; }, (p) =>
+            DeletePlayList = new RelayCommand<UserControl>((p) => { return true; }, (p) =>
             {
                 MessageBoxResult dr = System.Windows.MessageBox.Show("Do you want to delete it?", "Delete!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
                 if (dr == MessageBoxResult.Yes)
                 {
-                    var song_in_pl = pl.Songs1;
+                    var song_in_pl = pl.Song;
 
                     foreach (Song item in song_in_pl.ToList())
                     {
-                        item.PlayLists.Remove(pl);
+                        item.PlayList.Remove(pl);
 
-                        pl.Songs1.Remove(item);
+                        pl.Song.Remove(item);
                     }
 
-                    DataProvider.Ins.DB.PlayLists.Remove(pl);
+                    DataProvider.Ins.DB.PlayList.Remove(pl);
                     DataProvider.Ins.DB.SaveChanges();
 
                     var trang = page_PlayList.DataContext as PlayListViewModel;
 
-                    trang.List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ins.DB.PlayLists);
+                    trang.List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ins.DB.PlayList);
 
-                    p.NavigationService.GoBack();
+                    //p.NavigationService.GoBack();
                 }
             }
             );
@@ -113,7 +113,7 @@ namespace MusicMediaPlayer.ViewModel
 
                 if (dr == MessageBoxResult.Yes)
                 {
-                    pl.Songs1.Remove(p as Song);
+                    pl.Song.Remove(p as Song);
                     pl.SongCount = pl.SongCount - 1;
                     DataProvider.Ins.DB.SaveChanges();
                     SongCount = pl.SongCount.ToString() + " Bài hát";
@@ -142,7 +142,7 @@ namespace MusicMediaPlayer.ViewModel
 
         void LoadDanhSach()
         {
-            List = new ObservableCollection<Song>(pl.Songs1);
+            List = new ObservableCollection<Song>(pl.Song);
         }
     }
 }

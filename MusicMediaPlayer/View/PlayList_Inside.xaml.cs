@@ -18,7 +18,7 @@ namespace MusicMediaPlayer.View
     /// <summary>
     /// Interaction logic for PlayList_Inside.xaml
     /// </summary>
-    public partial class PlayList_Inside : Page
+    public partial class PlayList_Inside : UserControl
     {
         public PlayList_Inside()
         {

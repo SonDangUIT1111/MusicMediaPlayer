@@ -64,7 +64,7 @@ namespace MusicMediaPlayer.ViewModel
                     return ((item as MusicMediaPlayer.Model.PlayList).PlayListName.IndexOf(Search, StringComparison.OrdinalIgnoreCase) >= 0);
             }
 
-            Load = new RelayCommand<Page>((p) => { return true; }, (p) =>
+            Load = new RelayCommand<UserControl>((p) => { return true; }, (p) =>
             {
                 page = p as View.PlayList;
             }
@@ -99,6 +99,9 @@ namespace MusicMediaPlayer.ViewModel
                     RenameWD.IsLuu = false;
                     wd.NamePL.Text = null;
                 }
+
+                
+
             }
             );
 
@@ -110,16 +113,16 @@ namespace MusicMediaPlayer.ViewModel
                 {
                     var pl = p as MusicMediaPlayer.Model.PlayList;
 
-                    var song_in_pl = pl.Songs1;
+                    var song_in_pl = pl.Song;
 
                     foreach (Song item in song_in_pl.ToList())
                     {
-                        item.PlayLists.Remove(pl);
+                        item.PlayList.Remove(pl);
 
-                        pl.Songs1.Remove(item);
+                        pl.Song.Remove(item);
                     }
 
-                    DataProvider.Ins.DB.PlayLists.Remove(pl);
+                    DataProvider.Ins.DB.PlayList.Remove(pl);
                     DataProvider.Ins.DB.SaveChanges();
 
                     LoadDanhSach();
@@ -145,7 +148,7 @@ namespace MusicMediaPlayer.ViewModel
 
                 trang.page_PlayList = page;
 
-                page.NavigationService.Navigate(wd);
+                //page.NavigationService.Navigate(wd);
             }
             );
 
@@ -181,7 +184,7 @@ namespace MusicMediaPlayer.ViewModel
         }
         void LoadDanhSach()
         {
-            List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ins.DB.PlayLists);
+            List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ins.DB.PlayList);
         }
     }
 }

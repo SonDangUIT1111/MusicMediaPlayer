@@ -1,62 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="MusicPlayerModelStoreContainer" CdmEntityContainer="MusicPlayerEntities">
-    <EntitySetMapping Name="PlayLists">
+    <EntitySetMapping Name="PlayList">
       <EntityTypeMapping TypeName="MusicPlayerModel.PlayList">
         <MappingFragment StoreEntitySet="PlayList">
-          <ScalarProperty Name="ImagePlaylistBinary" ColumnName="ImagePlaylistBinary" />
           <ScalarProperty Name="PlayListId" ColumnName="PlayListId" />
           <ScalarProperty Name="PlayListName" ColumnName="PlayListName" />
           <ScalarProperty Name="SongCount" ColumnName="SongCount" />
           <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+          <ScalarProperty Name="ImagePlaylistBinary" ColumnName="ImagePlaylistBinary" />
+          <ScalarProperty Name="TimeCreate" ColumnName="TimeCreate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Songs">
+    <EntitySetMapping Name="Song">
       <EntityTypeMapping TypeName="MusicPlayerModel.Song">
         <MappingFragment StoreEntitySet="Song">
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="ImageSongBinary" ColumnName="ImageSongBinary" />
-          <ScalarProperty Name="TimeAdd" ColumnName="TimeAdd" />
-          <ScalarProperty Name="HowLong" ColumnName="HowLong" />
           <ScalarProperty Name="SongId" ColumnName="SongId" />
           <ScalarProperty Name="SongTitle" ColumnName="SongTitle" />
           <ScalarProperty Name="Times" ColumnName="Times" />
           <ScalarProperty Name="Artist" ColumnName="Artist" />
           <ScalarProperty Name="FilePath" ColumnName="FilePath" />
           <ScalarProperty Name="IsFavourite" ColumnName="IsFavourite" />
+          <ScalarProperty Name="HowLong" ColumnName="HowLong" />
+          <ScalarProperty Name="TimeAdd" ColumnName="TimeAdd" />
+          <ScalarProperty Name="ImageSongBinary" ColumnName="ImageSongBinary" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="UserAccounts">
+    <EntitySetMapping Name="UserAccount">
       <EntityTypeMapping TypeName="MusicPlayerModel.UserAccount">
         <MappingFragment StoreEntitySet="UserAccount">
-          <ScalarProperty Name="UserImage" ColumnName="UserImage" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
           <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserImage" ColumnName="UserImage" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <AssociationSetMapping Name="Has" TypeName="MusicPlayerModel.Has" StoreEntitySet="Has">
-      <EndProperty Name="Song">
-        <ScalarProperty Name="SongId" ColumnName="SongId" />
-      </EndProperty>
       <EndProperty Name="PlayList">
         <ScalarProperty Name="PlayListId" ColumnName="PlayListId" />
       </EndProperty>
+      <EndProperty Name="Song">
+        <ScalarProperty Name="SongId" ColumnName="SongId" />
+      </EndProperty>
     </AssociationSetMapping>
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="MusicPlayerModel.sysdiagram">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="definition" ColumnName="definition" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
