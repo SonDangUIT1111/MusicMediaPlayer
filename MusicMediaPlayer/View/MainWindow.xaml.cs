@@ -25,7 +25,7 @@ namespace MusicMediaPlayer.View
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();
         }
+
     }
 }

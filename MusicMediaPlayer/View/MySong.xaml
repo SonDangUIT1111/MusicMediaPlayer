@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MusicMediaPlayer.View"
+      xmlns:vm="clr-namespace:MusicMediaPlayer.ViewModel"
       xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
       mc:Ignorable="d" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -59,7 +60,7 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Rectangle>
-        <StackPanel Panel.ZIndex="2"
+        <!--<StackPanel Panel.ZIndex="2"
                     Margin="0,560,0,0"
                     Width="auto">
             <StatusBarItem HorizontalContentAlignment="Stretch"
@@ -270,7 +271,7 @@
                                                 Height="21"
                                                 Width="21" />
             </ToggleButton>
-        </StackPanel>
+        </StackPanel>-->
         <StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Border BorderBrush="#FFFFFF"

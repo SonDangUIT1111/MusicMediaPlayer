@@ -23,6 +23,7 @@ namespace MusicMediaPlayer.ViewModel
         //view model
         MySong MySongPage { get; set; }
         View.PlayList PlayListPage { get; set; }
+
         //information
         public CurrentUserAccountModel CurrentUser 
         { 
@@ -66,6 +67,8 @@ namespace MusicMediaPlayer.ViewModel
                     CurrentUser.UserName = LoginVM.Username;
                     ObservableCollection<int> IDuser = new ObservableCollection<int>(DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == LoginVM.Username).Select(x=>x.UserId));
                     MySongData.CurrentUser.Id = IDuser[0];
+                    MySongData.MySongPlayerBar = window.PlayMusicBar;
+                    MySongData.MainWindow = window;
                     PlayListData.CurrentUser.Id = IDuser[0];
                     p.Show();
                 }
