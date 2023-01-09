@@ -199,7 +199,6 @@
     <Compile Include="ViewModel\AddPlayListViewModel.cs" />
     <Compile Include="ViewModel\AddSongPlayListViewModel.cs" />
     <Compile Include="ViewModel\ChangePasswordViewModel.cs" />
-    <Compile Include="Commands\UpdateViewCommand.cs" />
     <Compile Include="CurrentUserAccountModel.cs" />
     <Compile Include="Model\Database.Context.cs">
       <AutoGen>True</AutoGen>

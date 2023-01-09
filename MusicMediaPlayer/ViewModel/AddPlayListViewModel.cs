@@ -17,11 +17,12 @@ namespace MusicMediaPlayer.ViewModel
     public class AddPlayListViewModel : BaseViewModel
     {
         #region commands
+        public ICommand Load { get; set; }
         public ICommand Add { get; set; }
         public ICommand TextChanged { get; set; }
         public ICommand SelectedItems { get; set; }
         #endregion
-
+        public CurrentUserAccountModel CurrentUser { get; set; }
         private ObservableCollection<Song> _List;
         public ObservableCollection<Song> List { get => _List; set { _List = value; OnPropertyChanged(); } }
 
@@ -41,8 +42,12 @@ namespace MusicMediaPlayer.ViewModel
 
         public AddPlayListViewModel()
         {
-            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs);
-
+            CurrentUser = new CurrentUserAccountModel();
+            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id));
+            Load = new RelayCommand<object>((p) => { return true; }, (p) =>
+             {
+                 List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id));
+             });
             Add = new RelayCommand<Window>((p) =>
             {
                 if (string.IsNullOrEmpty(Title))
@@ -52,7 +57,7 @@ namespace MusicMediaPlayer.ViewModel
             {
                 var pl = new MusicMediaPlayer.Model.PlayList();
                 pl.PlayListName = Title;
-                pl.OwnerId = 1;
+                pl.OwnerId = CurrentUser.Id;
                 if (SelectedItemss != null)
                 {
                     pl.SongCount = SelectedItemss.SelectedItems.Count;

@@ -17,6 +17,7 @@
     <Property Name="SongCount" Type="int" />
     <Property Name="OwnerId" Type="int" Nullable="false" />
     <Property Name="ImagePlaylistBinary" Type="varbinary(max)" />
+    <Property Name="TimeCreate" Type="datetime" />
   </EntityType>
   <EntityType Name="Song">
     <Key>

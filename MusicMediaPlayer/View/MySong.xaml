@@ -102,12 +102,6 @@
                           BorderThickness="0"
                           Command="{Binding Mute}"
                           Content="{materialDesign:PackIcon VolumeHigh}">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="MouseEnter">
-                            <i:InvokeCommandAction Command="{Binding ShowVolume}"
-                                   CommandParameter="{Binding ElementName=SongWD}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
                 </Button>
                 <Button
                           x:Name="SpeakerMedium"

@@ -9,6 +9,12 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         DataContext="{StaticResource AddPlayListVM}"
         Name="AddPL">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding Load}"
+                                   CommandParameter="{Binding ElementName=PL}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
         <StackPanel>
             <StackPanel Orientation="Horizontal"

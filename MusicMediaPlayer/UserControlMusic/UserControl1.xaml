@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MusicMediaPlayer.UserControlMusic"
              mc:Ignorable="d" 
-             d:DesignHeight="50" d:DesignWidth="1050"
+             d:DesignHeight="50" d:DesignWidth="1220"
             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
             TextElement.FontWeight="Regular"
@@ -16,20 +16,25 @@
             Name="UCMain"
             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              >
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="MouseLeftButtonDown">
+            <i:InvokeCommandAction Command="{Binding MoveWindowCommand}"
+                                   CommandParameter="{Binding ElementName=UCMain}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
         <Grid>
             <Border CornerRadius="20" Grid.RowSpan="2" Opacity="1">
             </Border>
             <StackPanel Orientation="Horizontal">
-                <Button Width="50"
+                <Image Width="50"
                         Height="50"
-                        Style="{StaticResource NormalButton}"
-                        RenderTransformOrigin="0.5,0.5">
-                    <Image Source="/Image/logomusicapp.png"></Image>
-                    <Button.RenderTransform>
+                        RenderTransformOrigin="0.5,0.5"
+                       Source="/Image/logomusicapp.png">
+                    <Image.RenderTransform>
                         <RotateTransform x:Name="MyAnimatedTransform" Angle="0" />
-                    </Button.RenderTransform>
-                    <Button.Triggers>
+                    </Image.RenderTransform>
+                    <Image.Triggers>
                         <EventTrigger RoutedEvent="Loaded">
                             <BeginStoryboard>
                                 <Storyboard>
@@ -40,14 +45,15 @@
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
-                    </Button.Triggers>
-                </Button>
+                    </Image.Triggers>
+                </Image>
                 <TextBlock Text="Music Media Player"
                            FontWeight="ExtraBlack"
                            Opacity="0.8"
                            FontSize="30"
                            FontFamily="Candara"
                            Height="50"
+                           Width="1020"
                            Margin="10,5,0,0"
                            >
                     <TextBlock.Foreground>
@@ -58,7 +64,7 @@
                           Foreground="White"
                           Height="60"
                           Width="60"
-                          Margin="600,-5,0,0"
+                          Margin="0,-5,0,0"
                           BorderThickness="0"
                           ToolTip="Minimized"
                           ToolBar.OverflowMode="AsNeeded"

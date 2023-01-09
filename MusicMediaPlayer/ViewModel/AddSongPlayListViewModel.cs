@@ -20,7 +20,7 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand Cancel { get; set; }
 
         #endregion
-
+        public CurrentUserAccountModel CurrentUser { get; set; }
         private ObservableCollection<MusicMediaPlayer.Model.Song> _List;
         public ObservableCollection<MusicMediaPlayer.Model.Song> List { get => _List; set { _List = value; OnPropertyChanged(); } }
 
@@ -30,10 +30,11 @@ namespace MusicMediaPlayer.ViewModel
 
         public AddSongPlayListViewModel()
         {
+            CurrentUser = new CurrentUserAccountModel();    
             Loaded = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
                 thiswindow = p as AddSongPlayList;
-                LoadDanhSach();
+                LoadDanhSach(CurrentUser.Id);
             });
 
             Add = new RelayCommand<object>((p) =>
@@ -60,15 +61,13 @@ namespace MusicMediaPlayer.ViewModel
             });
         }
 
-        void LoadDanhSach()
+        void LoadDanhSach(int identity)
         {
-            ObservableCollection<MusicMediaPlayer.Model.Song> list = new ObservableCollection<MusicMediaPlayer.Model.Song>(DataProvider.Ins.DB.Songs);
-
+            ObservableCollection<MusicMediaPlayer.Model.Song> list = new ObservableCollection<MusicMediaPlayer.Model.Song>(DataProvider.Ins.DB.Songs.Where(x=>x.UserId == identity));
             foreach (Song item in pl.Songs1)
             {
                 list.Remove(item);
             }
-
             List = list;
         }
     }

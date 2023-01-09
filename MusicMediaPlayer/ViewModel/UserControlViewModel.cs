@@ -13,6 +13,7 @@ namespace MusicMediaPlayer.ViewModel
     {
         public ICommand MinimalWindowCommand { get; set; }
         public ICommand CloseWindowCommand { get; set; }
+        public ICommand MoveWindowCommand { get; set; }
         public UserControlViewModel()
         {
             MinimalWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; },(p)=>
@@ -35,6 +36,16 @@ namespace MusicMediaPlayer.ViewModel
                 if (w != null)
                 {
                     w.Close();
+                }
+            }
+           );
+            MoveWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) =>
+            {
+                FrameworkElement window = GetWindowParent(p);
+                var w = window as Window;
+                if (w != null)
+                {
+                    w.DragMove();
                 }
             }
            );

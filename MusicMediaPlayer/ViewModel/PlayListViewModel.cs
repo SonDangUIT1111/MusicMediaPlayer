@@ -42,6 +42,9 @@ namespace MusicMediaPlayer.ViewModel
         private ObservableCollection<MusicMediaPlayer.Model.PlayList> _List;
         public ObservableCollection<MusicMediaPlayer.Model.PlayList> List { get => _List; set { _List = value; OnPropertyChanged(); } }
 
+        private CurrentUserAccountModel _CurrentUser;
+        public CurrentUserAccountModel CurrentUser { get => _CurrentUser; set { _CurrentUser = value; } }
+
         private string _Search;
         public string Search { get => _Search; set { _Search = value; OnPropertyChanged(); } }
 
@@ -54,8 +57,7 @@ namespace MusicMediaPlayer.ViewModel
 
         public PlayListViewModel()
         {
-            LoadDanhSach();
-
+            CurrentUser = new CurrentUserAccountModel();
             bool PlaylistFilter(object item)
             {
                 if (String.IsNullOrEmpty(Search))
@@ -67,15 +69,17 @@ namespace MusicMediaPlayer.ViewModel
             Load = new RelayCommand<Page>((p) => { return true; }, (p) =>
             {
                 page = p as View.PlayList;
+                LoadDanhSach(CurrentUser.Id);
             }
             );
 
             AddPL = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 AddPlayList wd = new AddPlayList();
+                var data = wd.DataContext as AddPlayListViewModel;
+                data.CurrentUser = CurrentUser;
                 wd.ShowDialog();
-
-                LoadDanhSach();
+                LoadDanhSach(CurrentUser.Id);
             }
             );
 
@@ -89,13 +93,9 @@ namespace MusicMediaPlayer.ViewModel
                 if (RenameWD.IsLuu)
                 {
                     var pl = p as MusicMediaPlayer.Model.PlayList;
-
                     pl.PlayListName = RenameWD.Title;
-
                     DataProvider.Ins.DB.SaveChanges();
-
-                    LoadDanhSach();
-
+                    LoadDanhSach(CurrentUser.Id);
                     RenameWD.IsLuu = false;
                     wd.NamePL.Text = null;
                 }
@@ -121,8 +121,7 @@ namespace MusicMediaPlayer.ViewModel
 
                     DataProvider.Ins.DB.PlayLists.Remove(pl);
                     DataProvider.Ins.DB.SaveChanges();
-
-                    LoadDanhSach();
+                    LoadDanhSach(CurrentUser.Id);
                 }
 
             }
@@ -144,7 +143,7 @@ namespace MusicMediaPlayer.ViewModel
                 var trang = wd.DataContext as PlayList_InsideViewModel;
 
                 trang.page_PlayList = page;
-
+                trang.CurrentUser = CurrentUser;
                 page.NavigationService.Navigate(wd);
             }
             );
@@ -179,9 +178,9 @@ namespace MusicMediaPlayer.ViewModel
 
 
         }
-        void LoadDanhSach()
+        public void LoadDanhSach(int identity)
         {
-            List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ins.DB.PlayLists);
+            List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ins.DB.PlayLists.Where(x => x.OwnerId == identity));
         }
     }
 }

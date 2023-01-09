@@ -4,6 +4,7 @@
     <EntitySetMapping Name="PlayLists">
       <EntityTypeMapping TypeName="MusicPlayerModel.PlayList">
         <MappingFragment StoreEntitySet="PlayList">
+          <ScalarProperty Name="TimeCreate" ColumnName="TimeCreate" />
           <ScalarProperty Name="ImagePlaylistBinary" ColumnName="ImagePlaylistBinary" />
           <ScalarProperty Name="PlayListId" ColumnName="PlayListId" />
           <ScalarProperty Name="PlayListName" ColumnName="PlayListName" />

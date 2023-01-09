@@ -27,7 +27,7 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand AddSongs { get; set; }
 
         #endregion
-
+        public CurrentUserAccountModel CurrentUser { get; set; }
         private string _PLName;
         public string PLName { get => _PLName; set { _PLName = value; OnPropertyChanged(); } }
 
@@ -47,6 +47,7 @@ namespace MusicMediaPlayer.ViewModel
 
         public PlayList_InsideViewModel()
         {
+            CurrentUser = new CurrentUserAccountModel();
             Loaded = new RelayCommand<System.Windows.Controls.Page>((p) => { return true; }, (p) =>
             {
                 thispage = p as PlayList_Inside;
@@ -126,13 +127,10 @@ namespace MusicMediaPlayer.ViewModel
             AddSongs = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 AddSongPlayList wd = new AddSongPlayList();
-
                 var trang = wd.DataContext as AddSongPlayListViewModel;
-
                 trang.pl = pl;
-
+                trang.CurrentUser = CurrentUser;
                 wd.ShowDialog();
-
                 SongCount = pl.SongCount.ToString() + " Bài hát";
                 LoadDanhSach();
             }
