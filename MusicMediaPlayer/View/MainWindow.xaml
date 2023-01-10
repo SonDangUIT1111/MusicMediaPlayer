@@ -23,7 +23,7 @@
         ResizeMode="CanResize"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         Icon="IconApp.ico"
-        Name="Home"
+        Name="Main"
         >
 
     <Window.DataContext>
@@ -33,7 +33,7 @@
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadedTurnOnLogin}"
-                                   CommandParameter="{Binding ElementName=Home}"/>
+                                   CommandParameter="{Binding ElementName=Main}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid>
@@ -61,124 +61,348 @@
                 </Border.Background>
             </Border>
             <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200"></ColumnDefinition>
-                    <ColumnDefinition Width="0"></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <Grid x:Name="MainViewProgram">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
+                            <ColumnDefinition Width="0"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
 
-                <Grid Grid.Column="0"
-                        Background="Transparent"
-                        Margin="5">
-                    <Border CornerRadius="20"  
+                        <Grid Grid.Column="0"
+                              Background="Gray"
+                              Margin="5"
+                              Height="auto">
+                            <Border CornerRadius="20"  
                         Background="Transparent"
                         Grid.Column="1">
-                        <Grid>
-                            <Border CornerRadius="20" >
-                                <Border.Background>
-                                    <SolidColorBrush/>
-                                </Border.Background>
-                            </Border>
-                            <StackPanel>
-                                <Button Style="{StaticResource ContactButton}" 
+                                <Grid>
+                                    <Border CornerRadius="20" >
+                                        <Border.Background>
+                                            <SolidColorBrush/>
+                                        </Border.Background>
+                                    </Border>
+                                    <StackPanel>
+                                        <Button Style="{StaticResource ContactButton}" 
                                         Width="180" Margin="0 10 0 0" 
                                         Command="{Binding SwitchProfile}"
                                         CommandParameter="{Binding ElementName=FrameView}">
-                                    <Grid>
-                                        <TextBlock Text= "Profile" 
+                                            <Grid>
+                                                <TextBlock Text= "Profile" 
                                                    Margin="20,0,24,0"/>
-                                        <iconPacks:PackIconMaterial  Kind="Account" 
+                                                <iconPacks:PackIconMaterial  Kind="Account" 
                                                                      Foreground="AliceBlue" 
                                                                      Height="Auto" 
                                                                      Width="20" 
                                                                      Margin="-20,0,0,0"
                                                                      VerticalAlignment="Center"/>
-                                    </Grid>
-                                </Button>
-                                <Button Style="{StaticResource ContactButton}" 
+                                            </Grid>
+                                        </Button>
+                                        <Button Style="{StaticResource ContactButton}" 
                                         Width="180" 
                                         Command="{Binding SwitchHome}" 
                                         CommandParameter="{Binding ElementName=FrameView}">
-                                    <Grid>
-                                        <TextBlock Text= "Home" 
+                                            <Grid>
+                                                <TextBlock Text= "Home" 
                                                    Margin="20,0,24,0"/>
-                                        <iconPacks:PackIconMaterial Kind="HomeVariant" 
+                                                <iconPacks:PackIconMaterial Kind="HomeVariant" 
                                                                     Foreground="AliceBlue" 
                                                                     Height="Auto" 
                                                                     Width="21" 
                                                                     Margin="-20,0,0,0" 
                                                                     VerticalAlignment="Center"/>
-                                    </Grid>
-                                </Button>
-                                <Button Style="{StaticResource ContactButton}"  
+                                            </Grid>
+                                        </Button>
+                                        <Button Style="{StaticResource ContactButton}"  
                                         Width="180"
                                         Command="{Binding SwitchMySong}"
                                         CommandParameter="{Binding ElementName=FrameView}">
-                                    <Grid>
-                                        <TextBlock Text= "My Song" 
+                                            <Grid>
+                                                <TextBlock Text= "My Song" 
                                                    Margin="20,0,24,0"/>
-                                        <iconPacks:PackIconMaterial Kind="Music" 
+                                                <iconPacks:PackIconMaterial Kind="Music" 
                                                                     Foreground="AliceBlue"
                                                                     Margin="-20,0,0,0" 
                                                                     VerticalAlignment="Center" 
                                                                     RenderTransformOrigin="0.763,1.3" 
                                                                     Height="Auto" 
                                                                     Width="25"/>
-                                    </Grid>
-                                </Button>
-                                <Button Style="{StaticResource ContactButton}"  
+                                            </Grid>
+                                        </Button>
+                                        <Button Style="{StaticResource ContactButton}"  
                                         Width="180"
                                         Command="{Binding SwitchMyPlayList}"
                                         CommandParameter="{Binding ElementName=FrameView}">
-                                    <Grid>
-                                        <TextBlock Text= "My Playlist" 
+                                            <Grid>
+                                                <TextBlock Text= "My Playlist" 
                                                    Margin="20,0,31,0"/>
-                                        <iconPacks:PackIconMaterial Kind="Heart" 
+                                                <iconPacks:PackIconMaterial Kind="Heart" 
                                                                     Foreground="AliceBlue" 
                                                                     Margin="-20,0,0,0" 
                                                                     Height="Auto" Width="28" 
                                                                     VerticalAlignment="Center"/>
-                                    </Grid>
-                                </Button>
-                                <Button Style="{StaticResource ContactButton}" 
+                                            </Grid>
+                                        </Button>
+                                        <Button Style="{StaticResource ContactButton}" 
                                         Width="148"  
                                         Height="49" 
                                         Margin="30 100 0 0">
-                                    <Grid>
-                                        <TextBlock Text= "Log out" 
+                                            <Grid>
+                                                <TextBlock Text= "Log out" 
                                                    Margin="10,0,24,0"/>
-                                        <iconPacks:PackIconMaterial Kind="Logout" 
+                                                <iconPacks:PackIconMaterial Kind="Logout" 
                                                                     Foreground="AliceBlue" 
                                                                     Margin="-20,0,0,0" 
                                                                     Height="27" Width="28" 
                                                                     VerticalAlignment="Center"/>
-                                    </Grid>
-                                </Button>
-                            </StackPanel>
+                                            </Grid>
+                                        </Button>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
                         </Grid>
-                    </Border>
-                </Grid>
-                <Grid Grid.Column="2"
-                        Background="Transparent"
-                        Margin="5">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="600"></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Border CornerRadius="20 20 0 0" 
+                        <Grid Grid.Column="2"
+                              Background="Transparent"
+                              Margin="5"
+                              Height="auto">
+                            <Border CornerRadius="20 20 0 0" 
                         Background="#ffffff"            
                     />
-                    <Grid Grid.Row="0">
-                        <Frame x:Name="FrameView"
-                               Height="600"
+                            <Grid>
+                                <Frame x:Name="FrameView"
+                               Height="auto"
                                Width="1000"
+                               MinHeight="750"
                                NavigationUIVisibility="Hidden"
                                />
+                            </Grid>
+                        </Grid>
                     </Grid>
-                    <Grid Grid.Row="1">
+                    <Grid x:Name="PlayerBar" Margin="0,0,0,0" Visibility="Collapsed">
+                        <Rectangle  Fill="#222530"
+                                    Margin="0,0,0,0"
+                                    Height="100" Width="auto">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
+                                    <i:InvokeCommandAction Command="{Binding  Source={StaticResource SongVM},Path= ShowTopOrCD}"
+                                   CommandParameter="{Binding ElementName=Main}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Rectangle>
+                        <StackPanel 
+                                    Margin="0,0,0,0"
+                                    Width="auto">
+                            <StatusBarItem HorizontalContentAlignment="Stretch"
+                                           Width="600">
+                                <Slider Name="sliProgress" 
+                                        Foreground="#1ED760"
+                                        Width="400"
+                                        IsEnabled="False"
+                                        Margin="-60,0,0,0"
+                                     >
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="ValueChanged">
+                                            <i:InvokeCommandAction Command="{Binding Source={StaticResource SongVM},Path=ChangeTime}"
+                                                                   CommandParameter="{Binding ElementName=Main}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
 
+                                </Slider>
+                            </StatusBarItem>
+                            <StackPanel Orientation="Horizontal"
+                                        Margin="0,-10,0,0">
+                                <Label
+                                        Height="25"
+                                        x:Name="InTime"
+                                        Foreground="#ffffff"
+                                        Margin="220,-20,0,0"></Label>
+                                <Label
+                                        Height="25"
+                                        x:Name="TotalTime"
+                                        Foreground="#ffffff"
+                                        Margin="400,-20,0,0"></Label>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        Margin="720,-10,0,0">
+                                <Button
+                                          x:Name="SpeakerHigh"
+                                          Width="50"
+                                          Background="Transparent"
+                                          Foreground="#ffffff"
+                                          BorderThickness="0"
+                                          Command="{Binding Source={StaticResource SongVM},Path= Mute}"
+                                          CommandParameter="{Binding ElementName=Main}"
+                                          Content="{materialDesign:PackIcon VolumeHigh}">
+                                </Button>
+                                <Button
+                                          x:Name="SpeakerMedium"
+                                          Width="50"
+                                          Margin="-50,0,0,0"
+                                          Visibility="Hidden"
+                                          Background="Transparent"
+                                          Foreground="#ffffff"
+                                          BorderThickness="0"
+                                          Command="{Binding Source={StaticResource SongVM},Path=Mute}"
+                                          CommandParameter="{Binding ElementName=Main}"
+                                          Content="{materialDesign:PackIcon VolumeMedium}">
+                                </Button>
+                                <Button
+                                          x:Name="SpeakerLow"
+                                          Width="50"
+                                          Margin="-50,0,0,0"
+                                          Visibility="Hidden"
+                                          Background="Transparent"
+                                          Foreground="#ffffff"
+                                          BorderThickness="0"
+                                          Command="{Binding Source={StaticResource SongVM},Path= Mute}"
+                                          CommandParameter="{Binding ElementName=Main}"
+                                          Content="{materialDesign:PackIcon VolumeLow}">
+                                </Button>
+                                <Button
+                                          x:Name="SpeakerOff"
+                                          Width="50"
+                                          Margin="-50,0,0,0"
+                                          Visibility="Hidden"
+                                          Background="Transparent"
+                                          Foreground="#ffffff"
+                                          BorderThickness="0"
+                                          Command="{Binding Source={StaticResource SongVM},Path=NonMute}"
+                                          CommandParameter="{Binding ElementName=Main}"
+                                          Content="{materialDesign:PackIcon VolumeOff}">
+                                </Button>
+
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromLeft}">
+                                    <Slider 
+                                             x:Name="Volume" 
+                                             Width="100" 
+                                             Height="30" 
+                                             Maximum="1"
+                                             Value="1"
+                                             Foreground="#FFFFFF"
+                                             Visibility="Visible"
+                                             VerticalAlignment="Bottom"
+                                             HorizontalAlignment="Center">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="ValueChanged">
+                                                <i:InvokeCommandAction Command="{Binding Source={StaticResource SongVM},Path= ChangeVolumn}"
+                                                                       CommandParameter="{Binding ElementName=Main}"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </Slider>
+                                </materialDesign:TransitioningContent>
+                            </StackPanel>
+
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="160,0,0,0" 
+                                    Width="652"
+                                    Panel.ZIndex="2">
+                            <Button
+                                      Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                      Height="35"
+                                      Width="35"
+                                      Margin="50,0,0,0"
+                                      Foreground="AliceBlue"
+                                      Background="Transparent"
+                                      BorderBrush="Transparent"
+                                      Command="{Binding Source={StaticResource SongVM},Path=OpenSleepTimer}"
+                                      CommandParameter="{Binding ElementName=Main}">
+                                <materialDesign:PackIcon
+                                                            Kind="Alarm"
+                                                            Height="24"
+                                                            Width="24" />
+                            </Button>
+                            <ToggleButton
+                                            x:Name="RandomLoop"
+                                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                            IsChecked="False"
+                                            Margin="10,0,5,0"
+                                            Background="#1ED760"
+                                            Command="{Binding Source={StaticResource SongVM},Path=ShuffleVariant}"
+                                            CommandParameter="{Binding ElementName=Main}"
+                                                >
+                                <materialDesign:PackIcon
+                                                Kind="ShuffleVariant"
+                                                Height="21"
+                                                Width="21"
+                                                Foreground="White"/>
+                            </ToggleButton>
+                            <Button
+                                      x:Name="SkipPreviousbtn"
+                                      Command="{Binding Source={StaticResource SongVM}, Path=SkipPrevious}"
+                                      CommandParameter="{Binding ElementName=Main}"
+                                      Margin="0,0,5,0"
+                                      Content="{materialDesign:PackIcon SkipPrevious}"
+                                      Background="Transparent"
+                                      Foreground="White"
+                                      IsEnabled="False"
+                                      BorderBrush="Transparent"/>
+                            <ToggleButton
+                                          x:Name="Play"
+                                          Command="{Binding Source={StaticResource SongVM},Path= Play}"  
+                                          CommandParameter="{Binding ElementName=Main}"
+                                          Margin="0,0,0,0"
+                                          Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                          Content="{materialDesign:PackIcon Play}"
+                                          Background="Transparent"
+                                          Foreground="White"
+                                          BorderBrush="Transparent"
+                                          IsEnabled="False"/>
+                            <ToggleButton
+                                          x:Name="Pause"
+                                          Command="{Binding Source={StaticResource SongVM},Path= Pause}"
+                                          CommandParameter="{Binding ElementName=Main}"
+                                          Margin="-40,0,0,0"
+                                          Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                          Content="{materialDesign:PackIcon Pause}"
+                                          Visibility="Hidden"
+                                          Background="Transparent"
+                                          Foreground="White"
+                                          BorderBrush="Transparent"
+                                          IsEnabled="False"/>
+                            <Button
+                                      x:Name="SkipNextbtn"     
+                                      Command="{Binding Source={StaticResource SongVM},Path= SkipNext}"
+                                      Margin="0,0,5,0"
+                                      Content="{materialDesign:PackIcon SkipNext}"
+                                      Background="Transparent"
+                                      IsEnabled="False"
+                                      Foreground="White"
+                                      BorderBrush="Transparent"/>
+                            <ToggleButton
+                                            x:Name="SequencecyLoop"
+                                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                            IsChecked="True"
+                                            Margin="0,0,5,0"
+                                            Command="{Binding Source={StaticResource SongVM},Path=ShuffleDisabled}"
+                                            CommandParameter="{Binding ElementName=Main}"
+                                            Foreground="White"
+                                            Background="#1ED760"
+                                                >
+                                <materialDesign:PackIcon
+                                                Kind="ShuffleDisabled"
+                                                Height="21"
+                                                Width="21" />
+                            </ToggleButton>
+                            <ToggleButton
+                                            x:Name="OneLoop"
+                                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                            IsChecked="False"
+                                            Margin="0,0,5,0"
+                                            Command="{Binding Source={StaticResource SongVM},Path= Loop}"
+                                            CommandParameter="{Binding ElementName=Main}"
+                                            Foreground="White"
+                                            Background="#1ED760">
+                                <materialDesign:PackIcon
+                                                Kind="Loop"
+                                                Height="21"
+                                                Width="21" />
+                            </ToggleButton>
+                        </StackPanel>
                     </Grid>
-                </Grid>
+                </StackPanel>
+               
             </Grid>
         </Grid>
     </Grid>

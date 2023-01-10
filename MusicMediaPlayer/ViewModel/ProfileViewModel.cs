@@ -18,11 +18,6 @@ namespace MusicMediaPlayer.ViewModel
         public ProfileViewModel()
         {
             CurrentUser = new CurrentUserAccountModel();
-            Click = new RelayCommand<TextBlock>((p) => { return true; }, (p) =>
-            {
-                MessageBox.Show(CurrentUser.Id.ToString());
-                p.Text = CurrentUser.Id.ToString();
-            });
         }
     }
 }

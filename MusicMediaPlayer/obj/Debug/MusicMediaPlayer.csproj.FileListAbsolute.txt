@@ -615,8 +615,6 @@ C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\Resou
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\PlayerButton.baml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\ButtonIcon.baml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\RenameButton.baml
-C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\UserControlMusic\UserControlHome.g.cs
-C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\UserControlMusic\UserControlProFile.g.cs
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\ChangePassword.g.cs
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.BootstrapIcons.dll
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.dll
@@ -717,9 +715,6 @@ C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\bin\Debug\MahAp
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.xml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Zondicons.pdb
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.Zondicons.xml
-C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\DataTemplate.baml
-C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\UserControlMusic\UserControlHome.baml
-C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\UserControlMusic\UserControlProFile.baml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\ChangePassword.baml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\AddPlayList.g.cs
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\AddSongPlayList.g.cs

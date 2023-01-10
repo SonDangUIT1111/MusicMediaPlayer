@@ -220,20 +220,11 @@
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\HomeViewModel.cs" />
-    <Compile Include="ViewModel\MVApp.cs" />
     <Compile Include="ViewModel\PlayListViewModel.cs" />
     <Compile Include="ViewModel\PlayList_InsideViewModel.cs" />
     <Compile Include="ViewModel\ProfileViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\RenamePlayListViewModel.cs" />
-    <Compile Include="ViewModel\UCProfileViewModel.cs" />
-    <Compile Include="ViewModel\UCHomeViewModel.cs" />
-    <Compile Include="UserControlMusic\UserControlHome.xaml.cs">
-      <DependentUpon>UserControlHome.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControlMusic\UserControlProFile.xaml.cs">
-      <DependentUpon>UserControlProFile.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\AddPlayList.xaml.cs">
       <DependentUpon>AddPlayList.xaml</DependentUpon>
     </Compile>
@@ -308,10 +299,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ResourceProject\DataTemplate.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="ResourceProject\Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -333,14 +320,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ResourceProject\Visualizer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControlMusic\UserControlHome.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControlMusic\UserControlProFile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

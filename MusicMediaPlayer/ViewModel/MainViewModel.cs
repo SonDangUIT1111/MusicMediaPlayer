@@ -79,6 +79,17 @@ namespace MusicMediaPlayer.ViewModel
                     HomeData.CurrentUser.Id=IDuser[0];
                     ProfileData.CurrentUser.Id=IDuser[0];
                     ProfileData.UserName = LoginVM.Username;
+
+
+                    MySongData.SkipNextbtn = window.SkipNextbtn;
+                    MySongData.SkipPreviousbtn = window.SkipPreviousbtn;
+                    MySongData.Playbtn = window.Play;
+                    MySongData.Pausebtn = window.Pause;
+                    MySongData.InTime = window.InTime;
+                    MySongData.TotalTime = window.TotalTime;
+                    MySongData.sliProgress = window.sliProgress;
+                    MySongData.MainViewProgram = window.MainViewProgram;
+                    MySongData.PlayerBar = window.PlayerBar;
                     p.Show();
                 }
                 else

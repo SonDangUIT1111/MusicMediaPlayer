@@ -26,7 +26,6 @@
                 <ResourceDictionary Source="ResourceProject/ProfileText.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="ResourceProject/CPButton.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="ResourceProject/Bth.xaml"></ResourceDictionary>
-                <ResourceDictionary Source="ResourceProject/DataTemplate.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="ResourceProject/Page.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="ResourceProject/ChangePassbt.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/ErrorTemplate.xaml"></ResourceDictionary>

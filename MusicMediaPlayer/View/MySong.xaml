@@ -52,12 +52,7 @@
                     Margin="0,550,0,0"
                     Height="84" Width="1000"
                     Panel.ZIndex="1">
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
-                    <i:InvokeCommandAction Command="{Binding ShowTopOrCD}"
-                                   CommandParameter="{Binding}"/>
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
+            
         </Rectangle>
         <StackPanel Panel.ZIndex="2"
                     Margin="0,560,0,0"
@@ -70,12 +65,7 @@
                                 IsEnabled="False"
                                 Margin="-60,0,0,0"
                              >
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="ValueChanged">
-                            <i:InvokeCommandAction Command="{Binding ChangeTime}"
-                                   CommandParameter="{Binding ElementName=SongWD}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
+                    
 
                 </Slider>
             </StatusBarItem>
@@ -100,7 +90,7 @@
                           Background="Transparent"
                           Foreground="#ffffff"
                           BorderThickness="0"
-                          Command="{Binding Mute}"
+                          
                           Content="{materialDesign:PackIcon VolumeHigh}">
                 </Button>
                 <Button
@@ -111,7 +101,7 @@
                           Background="Transparent"
                           Foreground="#ffffff"
                           BorderThickness="0"
-                          Command="{Binding Mute}"
+                          
                           Content="{materialDesign:PackIcon VolumeMedium}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="MouseEnter">
@@ -128,14 +118,9 @@
                           Background="Transparent"
                           Foreground="#ffffff"
                           BorderThickness="0"
-                          Command="{Binding Mute}"
+                          
                           Content="{materialDesign:PackIcon VolumeLow}">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="MouseEnter">
-                            <i:InvokeCommandAction Command="{Binding ShowVolume}"
-                                   CommandParameter="{Binding ElementName=SongWD}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
+                    
                 </Button>
                 <Button
                           x:Name="SpeakerOff"
@@ -145,7 +130,6 @@
                           Background="Transparent"
                           Foreground="#ffffff"
                           BorderThickness="0"
-                          Command="{Binding NonMute}"
                           Content="{materialDesign:PackIcon VolumeOff}">
                 </Button>
 
@@ -160,12 +144,7 @@
                                  Visibility="Visible"
                                  VerticalAlignment="Bottom"
                                  HorizontalAlignment="Center">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="ValueChanged">
-                                <i:InvokeCommandAction Command="{Binding ChangeVolumn}"
-                                   CommandParameter="{Binding ElementName=SongWD}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
+                        
                     </Slider>
                 </materialDesign:TransitioningContent>
             </StackPanel>
@@ -183,9 +162,7 @@
                       Margin="50,0,0,0"
                       Foreground="AliceBlue"
                       Background="Transparent"
-                      BorderBrush="Transparent"
-                      Command="{Binding OpenSleepTimer}"
-                      CommandParameter="{Binding ElementName=SongWD}">
+                      BorderBrush="Transparent">
                 <materialDesign:PackIcon
                         Kind="Alarm"
                         Height="24"
@@ -197,8 +174,7 @@
                             IsChecked="False"
                             Margin="10,0,5,0"
                             Background="#1ED760"
-                            Command="{Binding ShuffleVariant}"
-                            CommandParameter="{Binding ElementName=SongWD}"
+                            
                                                 >
                 <materialDesign:PackIcon
                                                 Kind="ShuffleVariant"
@@ -215,23 +191,22 @@
                           BorderBrush="Transparent"/>
             <ToggleButton
                           x:Name="Play"
-                          Command="{Binding Play}"  
                           Margin="0,0,0,0"
                           Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                           Content="{materialDesign:PackIcon Play}"
                           Background="Transparent"
                           Foreground="White"
                           BorderBrush="Transparent"
+                          Visibility="Hidden"
                           IsEnabled="False"/>
             <ToggleButton
                           x:Name="Pause"
-                          Command="{Binding Pause}"
                           Margin="-40,0,0,0"
                           Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                           Content="{materialDesign:PackIcon Pause}"
-                          Visibility="Hidden"
                           Background="Transparent"
                           Foreground="White"
+                          Visibility="Hidden"
                           BorderBrush="Transparent"
                           IsEnabled="False"/>
             <Button
@@ -246,8 +221,7 @@
                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                             IsChecked="True"
                             Margin="0,0,5,0"
-                            Command="{Binding ShuffleDisabled}"
-                            CommandParameter="{Binding ElementName=SongWD}"
+
                             Foreground="White"
                             Background="#1ED760"
                                                 >
@@ -261,8 +235,6 @@
                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                             IsChecked="False"
                             Margin="0,0,5,0"
-                            Command="{Binding Loop}"
-                            CommandParameter="{Binding ElementName=SongWD}"
                             Foreground="White"
                             Background="#1ED760">
                 <materialDesign:PackIcon
