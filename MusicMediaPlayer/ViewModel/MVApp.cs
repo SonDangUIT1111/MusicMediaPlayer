@@ -18,9 +18,11 @@ namespace MusicMediaPlayer.ViewModel
             }
             public ICommand ProfileCommand { get; set; }
             public ICommand HomeCommand { get; set; }
+
             private void Profile(object obj) => CurrentView = new UCProfileViewModel();
             private void Home(object obj) => CurrentView = new UCHomeViewModel();
-            public MVApp()
+
+        public MVApp()
             {
                 HomeCommand = new RelayCommand(Home);
                 ProfileCommand = new RelayCommand(Profile);

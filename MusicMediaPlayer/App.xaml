@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:MusicMediaPlayer"
              xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-             StartupUri="View/MySong.xaml">
+             StartupUri="View/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary >
             <ResourceDictionary.MergedDictionaries>
@@ -16,6 +16,8 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Flipper.xaml" />
                 <ResourceDictionary Source="/ResourceProject/MainResource.xaml"/>
                 <ResourceDictionary Source="/ResourceProject/ButtonStyle.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/ResourceProject/ButtonInMySong.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/ResourceProject/Visualizer.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/NormalButton.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/ButtonIcon.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/PlayerButton.xaml"></ResourceDictionary>

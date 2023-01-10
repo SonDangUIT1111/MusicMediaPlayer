@@ -11,6 +11,7 @@
         <AssociationConnector Association="MusicPlayerModel.FK__PlayList__OwnerI__267ABA7A" ManuallyRouted="false" />
         <AssociationConnector Association="MusicPlayerModel.Has" />
         <EntityTypeShape EntityType="MusicPlayerModel.sysdiagram" Width="1.5" PointX="0.75" PointY="3.75" />
+        <AssociationConnector Association="MusicPlayerModel.FK_Song_User" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

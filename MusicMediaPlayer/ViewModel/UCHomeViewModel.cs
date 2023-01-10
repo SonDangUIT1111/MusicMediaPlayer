@@ -1,5 +1,4 @@
 ﻿using MaterialDesignThemes.Wpf;
-using MusicMediaPlayer.Commands;
 using MusicMediaPlayer.UserControlMusic;
 using System;
 using System.Collections.Generic;
