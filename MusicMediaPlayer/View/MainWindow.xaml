@@ -9,7 +9,6 @@
         xmlns:local="clr-namespace:MusicMediaPlayer"
         mc:Ignorable="d"
         xmlns:view="clr-namespace:MusicMediaPlayer.UserControlMusic"
-        xmlns:otherview="clr-namespace:MusicMediaPlayer.View"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -19,7 +18,7 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         Background="Transparent"
         Title="Music Player" 
-        Height="750" Width="1220"
+        Height="800" Width="1220"
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
         ResizeMode="CanResize"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
@@ -30,9 +29,7 @@
     <Window.DataContext>
         <vm:MainViewModel></vm:MainViewModel>
     </Window.DataContext>
-    <Window.Resources>
-        <vm:SongViewModel x:Key="SongVM"></vm:SongViewModel>
-    </Window.Resources>
+
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadedTurnOnLogin}"
@@ -42,9 +39,8 @@
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="600"/>
-                <RowDefinition Height="100"/>
+                <RowDefinition/>
+                <RowDefinition Height="750"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" 
                   Panel.ZIndex="1">
@@ -53,7 +49,7 @@
             <Border CornerRadius="20" BorderBrush="Transparent"
                     BorderThickness="0"
                     Grid.ColumnSpan="5" 
-                    Grid.RowSpan="3">
+                    Grid.RowSpan="2">
                 <Border.Background>
                     <LinearGradientBrush>
                         <!--<GradientStop Color="#2af598" Offset="0.2"/>
@@ -85,7 +81,9 @@
                             </Border>
                             <StackPanel>
                                 <Button Style="{StaticResource ContactButton}" 
-                                        Width="180" Margin="0 10 0 0" >
+                                        Width="180" Margin="0 10 0 0" 
+                                        Command="{Binding SwitchProfile}"
+                                        CommandParameter="{Binding ElementName=FrameView}">
                                     <Grid>
                                         <TextBlock Text= "Profile" 
                                                    Margin="20,0,24,0"/>
@@ -99,7 +97,8 @@
                                 </Button>
                                 <Button Style="{StaticResource ContactButton}" 
                                         Width="180" 
-                                        >
+                                        Command="{Binding SwitchHome}" 
+                                        CommandParameter="{Binding ElementName=FrameView}">
                                     <Grid>
                                         <TextBlock Text= "Home" 
                                                    Margin="20,0,24,0"/>
@@ -164,6 +163,7 @@
                         Margin="5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="600"></RowDefinition>
+                        <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
                     <Border CornerRadius="20 20 0 0" 
                         Background="#ffffff"            
@@ -175,209 +175,11 @@
                                NavigationUIVisibility="Hidden"
                                />
                     </Grid>
-                </Grid>
-            </Grid>
-            <Grid Grid.Row="2" Visibility="Visible" x:Name="PlayMusicBar">
-                <Grid>
-                    <StackPanel Panel.ZIndex="2"
-                                    Margin="0,10,0,0"
-                                    Width="auto">
-                        <StatusBarItem HorizontalContentAlignment="Stretch"
-                                            Width="600">
-                            <Slider Name="sliProgress" 
-                                        Foreground="#1ED760"
-                                        Width="400"
-                                        IsEnabled="False"
-                                        Margin="-60,0,0,0"
-                             >
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="ValueChanged">
-                                        <i:InvokeCommandAction Command="{Binding Source={DynamicResource SongVM}, Path=ChangeTime}"
-                                                               />
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
+                    <Grid Grid.Row="1">
 
-                            </Slider>
-                        </StatusBarItem>
-                        <StackPanel Orientation="Horizontal"
-                                        Margin="0,-10,0,0">
-                            <Label
-                                        Height="25"
-                                        x:Name="InTime"
-                                        Foreground="#ffffff"
-                                        Margin="220,-20,0,0"></Label>
-                            <Label
-                                        Height="25"
-                                        x:Name="TotalTime"
-                                        Foreground="#ffffff"
-                                        Margin="420,-20,0,0"></Label>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal"
-                                        Margin="820,-10,0,0">
-                            <Button
-                                          x:Name="SpeakerHigh"
-                                          Width="50"
-                                          Background="Transparent"
-                                          Foreground="#ffffff"
-                                          BorderThickness="0"
-                                          Command="{Binding Source={DynamicResource SongVM},Path=Mute}"
-                                          Content="{materialDesign:PackIcon VolumeHigh}">
-                            </Button>
-                            <Button
-                                          x:Name="SpeakerMedium"
-                                          Width="50"
-                                          Margin="-50,0,0,0"
-                                          Visibility="Hidden"
-                                          Background="Transparent"
-                                          Foreground="#ffffff"
-                                          BorderThickness="0"
-                                          Command="{Binding Source={DynamicResource SongVM},Path=Mute}"
-                                          Content="{materialDesign:PackIcon VolumeMedium}">
-                            </Button>
-                            <Button
-                                          x:Name="SpeakerLow"
-                                          Width="50"
-                                          Margin="-50,0,0,0"
-                                          Visibility="Hidden"
-                                          Background="Transparent"
-                                          Foreground="#ffffff"
-                                          BorderThickness="0"
-                                          Command="{Binding Source={DynamicResource SongVM},Path= Mute}"
-                                          Content="{materialDesign:PackIcon VolumeLow}">
-                            </Button>
-                            <Button
-                                          x:Name="SpeakerOff"
-                                          Width="50"
-                                          Margin="-50,0,0,0"
-                                          Visibility="Hidden"
-                                          Background="Transparent"
-                                          Foreground="#ffffff"
-                                          BorderThickness="0"
-                                          Command="{Binding Source={DynamicResource SongVM},Path=NonMute}"
-                                          Content="{materialDesign:PackIcon VolumeOff}">
-                            </Button>
-
-                            <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect ExpandIn}">
-                                <Slider 
-                                             x:Name="Volume" 
-                                             Width="100" 
-                                             Height="30" 
-                                             Maximum="1"
-                                             Value="1"
-                                             Foreground="#FFFFFF"
-                                             Visibility="Visible"
-                                             VerticalAlignment="Bottom"
-                                             HorizontalAlignment="Center">
-                                    <i:Interaction.Triggers>
-                                        <i:EventTrigger EventName="ValueChanged">
-                                            <i:InvokeCommandAction Command="{Binding Source={DynamicResource SongVM}, Path= ChangeVolumn}"
-                                                                       />
-                                        </i:EventTrigger>
-                                    </i:Interaction.Triggers>
-                                </Slider>
-                            </materialDesign:TransitioningContent>
-                        </StackPanel>
-
-                    </StackPanel>
-
-                    <StackPanel Orientation="Horizontal"
-                                    Margin="200,30,0,0" 
-                                    Width="652"
-                                    Panel.ZIndex="2">
-                        <Button
-                                      Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
-                                      Height="35"
-                                      Width="35"
-                                      Margin="50,0,0,0"
-                                      Foreground="AliceBlue"
-                                      Background="Transparent"
-                                      BorderBrush="Transparent"
-                                      Command="{Binding Source={DynamicResource SongVM}, Path= OpenSleepTimer}">
-                            <materialDesign:PackIcon
-                                                        Kind="Alarm"
-                                                        Height="24"
-                                                        Width="24" />
-                        </Button>
-                        <ToggleButton
-                                            x:Name="RandomLoop"
-                                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                            IsChecked="False"
-                                            Margin="10,0,5,0"
-                                            Background="#1ED760"
-                                            Command="{Binding Source={DynamicResource SongVM},Path= ShuffleVariant}"
-                                                >
-                            <materialDesign:PackIcon
-                                                Kind="ShuffleVariant"
-                                                Height="21"
-                                                Width="21"
-                                                Foreground="White"/>
-                        </ToggleButton>
-                        <Button
-                                      Command="{Binding Source={DynamicResource SongVM},Path=SkipPrevious}"
-                                      Margin="0,0,5,0"
-                                      Content="{materialDesign:PackIcon SkipPrevious}"
-                                      Background="Transparent"
-                                      Foreground="White"
-                                      BorderBrush="Transparent"/>
-                        <ToggleButton
-                                          x:Name="Play"
-                                          Command="{Binding Source={DynamicResource SongVM},Path= Play}"  
-                                          Margin="0,0,0,0"
-                                          Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                          Content="{materialDesign:PackIcon Play}"
-                                          Background="Transparent"
-                                          Foreground="White"
-                                          BorderBrush="Transparent"
-                                          IsEnabled="False"/>
-                        <ToggleButton
-                                          x:Name="Pause"
-                                          Command="{Binding  Source={DynamicResource SongVM},Path=Pause}"
-                                          Margin="-40,0,0,0"
-                                          Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                          Content="{materialDesign:PackIcon Pause}"
-                                          Visibility="Hidden"
-                                          Background="Transparent"
-                                          Foreground="White"
-                                          BorderBrush="Transparent"
-                                          IsEnabled="False"/>
-                        <Button
-                                    Command="{Binding Source={DynamicResource SongVM},Path=SkipNext}"
-                                    Margin="0,0,5,0"
-                                    Content="{materialDesign:PackIcon SkipNext}"
-                                    Background="Transparent"
-                                    Foreground="White"
-                                    BorderBrush="Transparent"/>
-                        <ToggleButton
-                                            x:Name="SequencecyLoop"
-                                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                            IsChecked="True"
-                                            Margin="0,0,5,0"
-                                            Command="{Binding Source={DynamicResource SongVM},Path= ShuffleDisabled}"
-                                            Foreground="White"
-                                            Background="#1ED760"
-                                                >
-                            <materialDesign:PackIcon
-                                                Kind="ShuffleDisabled"
-                                                Height="21"
-                                                Width="21" />
-                        </ToggleButton>
-                        <ToggleButton
-                                            x:Name="OneLoop"
-                                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                            IsChecked="False"
-                                            Margin="0,0,5,0"
-                                            Command="{Binding Source={DynamicResource SongVM}, Path=Loop}"
-                                            Foreground="White"
-                                            Background="#1ED760">
-                            <materialDesign:PackIcon
-                                                Kind="Loop"
-                                                Height="21"
-                                                Width="21" />
-                        </ToggleButton>
-                    </StackPanel>
+                    </Grid>
                 </Grid>
             </Grid>
         </Grid>
     </Grid>
 </Window>
-

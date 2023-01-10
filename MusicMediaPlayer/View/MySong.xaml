@@ -4,7 +4,6 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MusicMediaPlayer.View"
-      xmlns:vm="clr-namespace:MusicMediaPlayer.ViewModel"
       xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
       mc:Ignorable="d" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -60,7 +59,7 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Rectangle>
-        <!--<StackPanel Panel.ZIndex="2"
+        <StackPanel Panel.ZIndex="2"
                     Margin="0,560,0,0"
                     Width="auto">
             <StatusBarItem HorizontalContentAlignment="Stretch"
@@ -271,7 +270,7 @@
                                                 Height="21"
                                                 Width="21" />
             </ToggleButton>
-        </StackPanel>-->
+        </StackPanel>
         <StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Border BorderBrush="#FFFFFF"
@@ -445,7 +444,7 @@
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center"
                                                         Margin="0,12,0,0">
-                                                    <Button     Content="{materialDesign:PackIcon Pencil}"
+                                                <Button     Content="{materialDesign:PackIcon Pencil}"
                                                                     Style="{StaticResource ButtonInMySong}"
                                                                     Background="Transparent"
                                                                     Command="{Binding Source={StaticResource SongVM}, Path=ChangeInfoSong}"
@@ -455,8 +454,8 @@
                                                                     Margin="0,0,0,30"
                                                                     Foreground="#009EFD"
                                                                     BorderBrush="Transparent">
-                              
-                                                    </Button>
+
+                                                </Button>
                                                 <Button x:Name="Del"
                                                                     Style="{StaticResource ButtonInMySong}"
                                                                     Background="Transparent"
@@ -485,8 +484,8 @@
                                                                 Kind="Heart"
                                                                 Height="15"
                                                                 Width="15" />
-                                                    </ToggleButton>
-                                                </StackPanel>
+                                                </ToggleButton>
+                                            </StackPanel>
                                         </StackPanel>
                                         <TextBlock Text="{Binding HowLong}"
                                                            Width="30"
@@ -713,7 +712,7 @@
                                                         <Storyboard>
                                                             <ObjectAnimationUsingKeyFrames 
                                                                                            Storyboard.TargetProperty="CornerRadius"
-                                                                                           >    
+                                                                                           >
                                                                 <ObjectAnimationUsingKeyFrames.KeyFrames>
                                                                     <DiscreteObjectKeyFrame KeyTime="0:0:0.0">
                                                                         <DiscreteObjectKeyFrame.Value>
@@ -794,7 +793,7 @@
                                     </Style>
                                 </Border.Style>
                             </Border>
-              
+
                             <StackPanel Margin="0,20,0,0">
                                 <TextBlock Width="400"
                                            Height="40"

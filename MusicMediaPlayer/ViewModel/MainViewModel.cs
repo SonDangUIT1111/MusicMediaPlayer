@@ -14,19 +14,22 @@ using System.Windows.Input;
 
 namespace MusicMediaPlayer.ViewModel
 {
-    public class MainViewModel:BaseViewModel
+    public class MainViewModel : BaseViewModel
     {
         public bool IsLoaded = false;
-        public ICommand LoadedTurnOnLogin { get; set; }  
+        public ICommand LoadedTurnOnLogin { get; set; }
         public ICommand SwitchMySong { get; set; }
         public ICommand SwitchMyPlayList { get; set; }
+        public ICommand SwitchHome { get; set; }
+        public ICommand SwitchProfile { get; set; }
         //view model
         MySong MySongPage { get; set; }
         View.PlayList PlayListPage { get; set; }
-
+        Home HomePage { get; set; }
+        Profile ProfilePage { get; set; }   
         //information
-        public CurrentUserAccountModel CurrentUser 
-        { 
+        public CurrentUserAccountModel CurrentUser
+        {
             get
             {
                 return _currentUser;
@@ -43,9 +46,14 @@ namespace MusicMediaPlayer.ViewModel
             CurrentUser = new CurrentUserAccountModel();
             MySongPage = new MySong();
             PlayListPage = new View.PlayList();
+            HomePage = new Home();
+            ProfilePage = new Profile();
+
             //
             var MySongData = MySongPage.DataContext as SongViewModel;
             var PlayListData = PlayListPage.DataContext as PlayListViewModel;
+            var HomeData = HomePage.DataContext as HomeViewModel;
+            var ProfileData = ProfilePage.DataContext as ProfileViewModel;  
             //
             LoadedTurnOnLogin = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
@@ -65,11 +73,12 @@ namespace MusicMediaPlayer.ViewModel
                 {
                     //truyen du lieu qua cac view
                     CurrentUser.UserName = LoginVM.Username;
-                    ObservableCollection<int> IDuser = new ObservableCollection<int>(DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == LoginVM.Username).Select(x=>x.UserId));
+                    ObservableCollection<int> IDuser = new ObservableCollection<int>(DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == LoginVM.Username).Select(x => x.UserId));
                     MySongData.CurrentUser.Id = IDuser[0];
-                    MySongData.MySongPlayerBar = window.PlayMusicBar;
-                    MySongData.MainWindow = window;
                     PlayListData.CurrentUser.Id = IDuser[0];
+                    HomeData.CurrentUser.Id=IDuser[0];
+                    ProfileData.CurrentUser.Id=IDuser[0];
+                    ProfileData.UserName = LoginVM.Username;
                     p.Show();
                 }
                 else
@@ -79,12 +88,20 @@ namespace MusicMediaPlayer.ViewModel
             }
             );
             SwitchMySong = new RelayCommand<Frame>((p) => { return true; }, (p) =>
-            {  
+            {
                 p.Content = MySongPage;
             });
             SwitchMyPlayList = new RelayCommand<Frame>((p) => { return true; }, (p) =>
             {
                 p.Content = PlayListPage;
+            });
+            SwitchHome = new RelayCommand<Frame>((p) => { return true; }, (p) =>
+            {
+                p.Content = HomePage;
+            });
+            SwitchProfile = new RelayCommand<Frame>((p) => { return true; }, (p) =>
+            {
+                p.Content = ProfilePage;
             });
 
         }

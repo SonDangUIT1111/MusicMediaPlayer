@@ -733,3 +733,7 @@ C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\RenamePlayList.baml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\ButtonInMySong.baml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\Visualizer.baml
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\Home.g.cs
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\Home.baml
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\Profile.g.cs
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\Profile.baml
