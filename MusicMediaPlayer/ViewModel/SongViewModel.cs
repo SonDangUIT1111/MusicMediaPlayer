@@ -323,10 +323,17 @@ namespace MusicMediaPlayer.ViewModel
                     if (item != null)
                     {
                         var allplaylist = DataProvider.Ins.DB.PlayLists.ToList();
-                        foreach (var playlist in allplaylist)
+                        foreach (Model.PlayList playlist in allplaylist)
                         {
-                            playlist.Songs1.Remove(item);
-                            playlist.SongCount--;
+                            var list = playlist.Songs1.ToList();
+                            foreach (Song song in list)
+                            {
+                                if (song == item)
+                                {
+                                    playlist.Songs1.Remove(item);
+                                    playlist.SongCount--;
+                                }
+                            }
                         }
                         DataProvider.Ins.DB.Songs.Remove(item);
                         DataProvider.Ins.DB.Songs.Remove(item);
