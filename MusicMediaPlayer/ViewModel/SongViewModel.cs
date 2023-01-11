@@ -322,6 +322,13 @@ namespace MusicMediaPlayer.ViewModel
                     var item = p as Song;
                     if (item != null)
                     {
+                        var allplaylist = DataProvider.Ins.DB.PlayLists.ToList();
+                        foreach (var playlist in allplaylist)
+                        {
+                            playlist.Songs1.Remove(item);
+                            playlist.SongCount--;
+                        }
+                        DataProvider.Ins.DB.Songs.Remove(item);
                         DataProvider.Ins.DB.Songs.Remove(item);
                         DataProvider.Ins.DB.SaveChanges();
                         MySongWindow.ListSong.Items.Refresh();

@@ -37,7 +37,11 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid>
-        <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1211*"/>
+            <ColumnDefinition Width="9*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.ColumnSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="750"/>
@@ -74,8 +78,8 @@
                               Margin="5"
                               Height="auto">
                             <Border CornerRadius="20"  
-                        Background="Transparent"
-                        Grid.Column="1">
+                                    Background="Transparent"
+                                    Grid.Column="1">
                                 <Grid>
                                     <Border CornerRadius="20" >
                                         <Border.Background>
@@ -84,12 +88,12 @@
                                     </Border>
                                     <StackPanel>
                                         <Button Style="{StaticResource ContactButton}" 
-                                        Width="180" Margin="0 10 0 0" 
-                                        Command="{Binding SwitchProfile}"
-                                        CommandParameter="{Binding ElementName=FrameView}">
+                                                Width="180" Margin="0 10 0 0" 
+                                                Command="{Binding SwitchProfile}"
+                                                CommandParameter="{Binding ElementName=FrameView}">
                                             <Grid>
                                                 <TextBlock Text= "Profile" 
-                                                   Margin="20,0,24,0"/>
+                                                           Margin="20,0,24,0"/>
                                                 <iconPacks:PackIconMaterial  Kind="Account" 
                                                                      Foreground="AliceBlue" 
                                                                      Height="Auto" 
@@ -106,55 +110,55 @@
                                                 <TextBlock Text= "Home" 
                                                    Margin="20,0,24,0"/>
                                                 <iconPacks:PackIconMaterial Kind="HomeVariant" 
-                                                                    Foreground="AliceBlue" 
-                                                                    Height="Auto" 
-                                                                    Width="21" 
-                                                                    Margin="-20,0,0,0" 
-                                                                    VerticalAlignment="Center"/>
+                                                                            Foreground="AliceBlue" 
+                                                                            Height="Auto" 
+                                                                            Width="21" 
+                                                                            Margin="-20,0,0,0" 
+                                                                            VerticalAlignment="Center"/>
                                             </Grid>
                                         </Button>
                                         <Button Style="{StaticResource ContactButton}"  
-                                        Width="180"
-                                        Command="{Binding SwitchMySong}"
-                                        CommandParameter="{Binding ElementName=FrameView}">
+                                                Width="180"
+                                                Command="{Binding SwitchMySong}"
+                                                CommandParameter="{Binding ElementName=FrameView}">
                                             <Grid>
                                                 <TextBlock Text= "My Song" 
-                                                   Margin="20,0,24,0"/>
+                                                           Margin="20,0,24,0"/>
                                                 <iconPacks:PackIconMaterial Kind="Music" 
-                                                                    Foreground="AliceBlue"
-                                                                    Margin="-20,0,0,0" 
-                                                                    VerticalAlignment="Center" 
-                                                                    RenderTransformOrigin="0.763,1.3" 
-                                                                    Height="Auto" 
-                                                                    Width="25"/>
+                                                                            Foreground="AliceBlue"
+                                                                            Margin="-20,0,0,0" 
+                                                                            VerticalAlignment="Center" 
+                                                                            RenderTransformOrigin="0.763,1.3" 
+                                                                            Height="Auto" 
+                                                                            Width="25"/>
                                             </Grid>
                                         </Button>
                                         <Button Style="{StaticResource ContactButton}"  
-                                        Width="180"
-                                        Command="{Binding SwitchMyPlayList}"
-                                        CommandParameter="{Binding ElementName=FrameView}">
+                                                Width="180"
+                                                Command="{Binding SwitchMyPlayList}"
+                                                CommandParameter="{Binding ElementName=FrameView}">
                                             <Grid>
                                                 <TextBlock Text= "My Playlist" 
-                                                   Margin="20,0,31,0"/>
+                                                           Margin="20,0,31,0"/>
                                                 <iconPacks:PackIconMaterial Kind="Heart" 
-                                                                    Foreground="AliceBlue" 
-                                                                    Margin="-20,0,0,0" 
-                                                                    Height="Auto" Width="28" 
-                                                                    VerticalAlignment="Center"/>
+                                                                            Foreground="AliceBlue" 
+                                                                            Margin="-20,0,0,0" 
+                                                                            Height="Auto" Width="28" 
+                                                                            VerticalAlignment="Center"/>
                                             </Grid>
                                         </Button>
                                         <Button Style="{StaticResource ContactButton}" 
-                                        Width="148"  
-                                        Height="49" 
-                                        Margin="30 100 0 0">
+                                                Width="148"  
+                                                Height="49" 
+                                                Margin="30 100 0 0">
                                             <Grid>
                                                 <TextBlock Text= "Log out" 
-                                                   Margin="10,0,24,0"/>
+                                                           Margin="10,0,24,0"/>
                                                 <iconPacks:PackIconMaterial Kind="Logout" 
-                                                                    Foreground="AliceBlue" 
-                                                                    Margin="-20,0,0,0" 
-                                                                    Height="27" Width="28" 
-                                                                    VerticalAlignment="Center"/>
+                                                                            Foreground="AliceBlue" 
+                                                                            Margin="-20,0,0,0" 
+                                                                            Height="27" Width="28" 
+                                                                            VerticalAlignment="Center"/>
                                             </Grid>
                                         </Button>
                                     </StackPanel>
@@ -166,27 +170,26 @@
                               Margin="5"
                               Height="auto">
                             <Border CornerRadius="20 20 0 0" 
-                        Background="#ffffff"            
-                    />
+                                    Background="#ffffff"/>
                             <Grid>
                                 <Frame x:Name="FrameView"
-                               Height="auto"
-                               Width="1000"
-                               MinHeight="750"
-                               NavigationUIVisibility="Hidden"
+                                       Height="auto"
+                                       Width="1000"
+                                       MinHeight="750"
+                                       NavigationUIVisibility="Hidden"
                                />
                             </Grid>
                         </Grid>
                     </Grid>
                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn}">
-                        <Grid x:Name="PlayerBar" Margin="0,0,0,0" Visibility="Collapsed">
+                        <Grid x:Name="PlayerBar" Margin="0,0,0,0" Visibility="Hidden">
                             <Rectangle  Fill="#222530"
-                                    Margin="0,0,0,0"
-                                    Height="100" Width="auto">
+                                        Margin="0,0,0,0"
+                                        Height="100" Width="auto">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
                                         <i:InvokeCommandAction Command="{Binding  Source={StaticResource SongVM},Path= ShowTopOrCD}"
-                                   CommandParameter="{Binding ElementName=Main}"/>
+                                                               CommandParameter="{Binding ElementName=Main}"/>
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </Rectangle>
@@ -195,17 +198,17 @@
                                     Width="auto">
                                 <StatusBarItem HorizontalContentAlignment="Stretch"
                                            Width="600">
-                                    <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom}">
+                                    <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn}">
                                         <Slider Name="sliProgress" 
-                                        Foreground="#1ED760"
-                                        Width="400"
-                                        IsEnabled="False"
-                                        Margin="-60,0,0,0"
+                                                Foreground="#1ED760"
+                                                Width="400"
+                                                IsEnabled="False"
+                                                Margin="-60,0,0,0"
                                      >
                                             <i:Interaction.Triggers>
                                                 <i:EventTrigger EventName="ValueChanged">
                                                     <i:InvokeCommandAction Command="{Binding Source={StaticResource SongVM},Path=ChangeTime}"
-                                                                   CommandParameter="{Binding ElementName=Main}"/>
+                                                                           CommandParameter="{Binding ElementName=Main}"/>
                                                 </i:EventTrigger>
                                             </i:Interaction.Triggers>
 
@@ -213,20 +216,20 @@
                                     </materialDesign:TransitioningContent>
                                 </StatusBarItem>
                                 <StackPanel Orientation="Horizontal"
-                                        Margin="0,-10,0,0">
+                                            Margin="0,-10,0,0">
                                     <Label
                                         Height="25"
                                         x:Name="InTime"
                                         Foreground="#ffffff"
-                                        Margin="220,-20,0,0"></Label>
+                                        Margin="320,-20,0,0"></Label>
                                     <Label
                                         Height="25"
                                         x:Name="TotalTime"
                                         Foreground="#ffffff"
-                                        Margin="400,-20,0,0"></Label>
+                                        Margin="450,-20,0,0"></Label>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal"
-                                        Margin="720,-10,0,0">
+                                        Margin="850,-10,0,0">
                                     <Button
                                           x:Name="SpeakerHigh"
                                           Width="50"
@@ -281,7 +284,7 @@
                                              Height="30" 
                                              Maximum="1"
                                              Value="1"
-                                             Foreground="#FFFFFF"
+                                             Foreground="#1ED760"
                                              Visibility="Visible"
                                              VerticalAlignment="Bottom"
                                              HorizontalAlignment="Center">
@@ -301,7 +304,9 @@
                                     Margin="160,0,0,0" 
                                     Width="652"
                                     Panel.ZIndex="2">
-                                <Button
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.4}">
+
+                                    <Button
                                       Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
                                       Height="35"
                                       Width="35"
@@ -311,11 +316,13 @@
                                       BorderBrush="Transparent"
                                       Command="{Binding Source={StaticResource SongVM},Path=OpenSleepTimer}"
                                       CommandParameter="{Binding ElementName=Main}">
-                                    <materialDesign:PackIcon
+                                        <materialDesign:PackIcon
                                                             Kind="Alarm"
                                                             Height="24"
                                                             Width="24" />
-                                </Button>
+                                    </Button>
+                                </materialDesign:TransitioningContent>
+
                                 <ToggleButton
                                             x:Name="RandomLoop"
                                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
@@ -331,7 +338,8 @@
                                                 Width="21"
                                                 Foreground="White"/>
                                 </ToggleButton>
-                                <Button
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.5}">
+                                    <Button
                                       x:Name="SkipPreviousbtn"
                                       Command="{Binding Source={StaticResource SongVM}, Path=SkipPrevious}"
                                       CommandParameter="{Binding ElementName=Main}"
@@ -341,7 +349,9 @@
                                       Foreground="White"
                                       IsEnabled="False"
                                       BorderBrush="Transparent"/>
-                                <ToggleButton
+                                </materialDesign:TransitioningContent>
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.6}">
+                                    <ToggleButton
                                           x:Name="Play"
                                           Command="{Binding Source={StaticResource SongVM},Path= Play}"  
                                           CommandParameter="{Binding ElementName=Main}"
@@ -352,7 +362,9 @@
                                           Foreground="White"
                                           BorderBrush="Transparent"
                                           IsEnabled="False"/>
-                                <ToggleButton
+                                </materialDesign:TransitioningContent>
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.7}">
+                                    <ToggleButton
                                           x:Name="Pause"
                                           Command="{Binding Source={StaticResource SongVM},Path= Pause}"
                                           CommandParameter="{Binding ElementName=Main}"
@@ -364,7 +376,9 @@
                                           Foreground="White"
                                           BorderBrush="Transparent"
                                           IsEnabled="False"/>
-                                <Button
+                                </materialDesign:TransitioningContent>
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.8}">
+                                    <Button
                                       x:Name="SkipNextbtn"     
                                       Command="{Binding Source={StaticResource SongVM},Path= SkipNext}"
                                       Margin="0,0,5,0"
@@ -373,7 +387,9 @@
                                       IsEnabled="False"
                                       Foreground="White"
                                       BorderBrush="Transparent"/>
-                                <ToggleButton
+                                </materialDesign:TransitioningContent>
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.9}">
+                                    <ToggleButton
                                             x:Name="SequencecyLoop"
                                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                             IsChecked="True"
@@ -383,12 +399,15 @@
                                             Foreground="White"
                                             Background="#1ED760"
                                                 >
-                                    <materialDesign:PackIcon
+                                        <materialDesign:PackIcon
                                                 Kind="ShuffleDisabled"
                                                 Height="21"
                                                 Width="21" />
-                                </ToggleButton>
-                                <ToggleButton
+                                    </ToggleButton>
+                                </materialDesign:TransitioningContent>
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:1}">
+
+                                    <ToggleButton
                                             x:Name="OneLoop"
                                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                             IsChecked="False"
@@ -397,16 +416,17 @@
                                             CommandParameter="{Binding ElementName=Main}"
                                             Foreground="White"
                                             Background="#1ED760">
-                                    <materialDesign:PackIcon
+                                        <materialDesign:PackIcon
                                                 Kind="Loop"
                                                 Height="21"
                                                 Width="21" />
-                                </ToggleButton>
+                                    </ToggleButton>
+                                </materialDesign:TransitioningContent>
                             </StackPanel>
                         </Grid>
                     </materialDesign:TransitioningContent>
                 </StackPanel>
-               
+
             </Grid>
         </Grid>
     </Grid>
