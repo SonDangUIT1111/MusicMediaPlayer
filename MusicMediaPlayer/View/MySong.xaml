@@ -13,7 +13,7 @@
       TextOptions.TextFormattingMode="Ideal"
       TextOptions.TextRenderingMode="Auto"
       FontFamily="{DynamicResource MaterialDesignFont}"
-      d:DesignHeight="640" d:DesignWidth="1000"
+      d:DesignHeight="1000" d:DesignWidth="1000"
       Title="My Song"
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       x:Name="SongWD"
@@ -29,7 +29,7 @@
     <Grid Background="Transparent"
           Margin="5"
           Width="1000"
-          Height="640">
+          Height="1000">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
@@ -37,7 +37,7 @@
         <Border CornerRadius="20" 
                         BorderBrush="#1ED760"
                         BorderThickness="0"
-                        Background="Black" MaxHeight="640" MaxWidth="1000"/>
+                        Background="Black" MaxHeight="1000" MaxWidth="1000"/>
         <TextBlock x:Name="IsThereSong"
                    Foreground="#FFFFFF"
                    Background="Transparent"
@@ -48,131 +48,17 @@
                    HorizontalAlignment="Left"
                    Height="80"
                    Width="500"></TextBlock>
-        <Rectangle  Fill="#222530"
-                    Margin="0,550,0,0"
-                    Height="84" Width="1000"
-                    Panel.ZIndex="1">
-            
-        </Rectangle>
-        <StackPanel Panel.ZIndex="2"
-                    Margin="0,560,0,0"
-                    Width="auto">
-            <StatusBarItem HorizontalContentAlignment="Stretch"
-                           Width="600">
-                <Slider Name="sliProgress" 
-                                Foreground="#1ED760"
-                                Width="400"
-                                IsEnabled="False"
-                                Margin="-60,0,0,0"
-                             >
-                    
-
-                </Slider>
-            </StatusBarItem>
-            <StackPanel Orientation="Horizontal"
-                                Margin="0,-10,0,0">
-                <Label
-                            Height="25"
-                            x:Name="InTime"
-                            Foreground="#ffffff"
-                            Margin="220,-20,0,0"></Label>
-                <Label
-                            Height="25"
-                            x:Name="TotalTime"
-                            Foreground="#ffffff"
-                            Margin="420,-20,0,0"></Label>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal"
-                                Margin="720,-10,0,0">
-                <Button
-                          x:Name="SpeakerHigh"
-                          Width="50"
-                          Background="Transparent"
-                          Foreground="#ffffff"
-                          BorderThickness="0"
-                          
-                          Content="{materialDesign:PackIcon VolumeHigh}">
-                </Button>
-                <Button
-                          x:Name="SpeakerMedium"
-                          Width="50"
-                          Margin="-50,0,0,0"
-                          Visibility="Hidden"
-                          Background="Transparent"
-                          Foreground="#ffffff"
-                          BorderThickness="0"
-                          
-                          Content="{materialDesign:PackIcon VolumeMedium}">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="MouseEnter">
-                            <i:InvokeCommandAction Command="{Binding ShowVolume}"
-                                   CommandParameter="{Binding ElementName=SongWD}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Button>
-                <Button
-                          x:Name="SpeakerLow"
-                          Width="50"
-                          Margin="-50,0,0,0"
-                          Visibility="Hidden"
-                          Background="Transparent"
-                          Foreground="#ffffff"
-                          BorderThickness="0"
-                          
-                          Content="{materialDesign:PackIcon VolumeLow}">
-                    
-                </Button>
-                <Button
-                          x:Name="SpeakerOff"
-                          Width="50"
-                          Margin="-50,0,0,0"
-                          Visibility="Hidden"
-                          Background="Transparent"
-                          Foreground="#ffffff"
-                          BorderThickness="0"
-                          Content="{materialDesign:PackIcon VolumeOff}">
-                </Button>
-
-                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect ExpandIn}">
-                    <Slider 
-                                 x:Name="Volume" 
-                                 Width="100" 
-                                 Height="30" 
-                                 Maximum="1"
-                                 Value="1"
-                                 Foreground="#FFFFFF"
-                                 Visibility="Visible"
-                                 VerticalAlignment="Bottom"
-                                 HorizontalAlignment="Center">
-                        
-                    </Slider>
-                </materialDesign:TransitioningContent>
-            </StackPanel>
-
-        </StackPanel>
-
         <StackPanel Orientation="Horizontal"
                     Margin="160,570,0,0" 
                     Width="652"
+                    Visibility="Hidden"
                     Panel.ZIndex="2">
-            <Button
-                      Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
-                      Height="35"
-                      Width="35"
-                      Margin="50,0,0,0"
-                      Foreground="AliceBlue"
-                      Background="Transparent"
-                      BorderBrush="Transparent">
-                <materialDesign:PackIcon
-                        Kind="Alarm"
-                        Height="24"
-                        Width="24" />
-            </Button>
             <ToggleButton
                             x:Name="RandomLoop"
                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                             IsChecked="False"
                             Margin="10,0,5,0"
+                            Visibility="Hidden"
                             Background="#1ED760"
                             
                                                 >
@@ -188,6 +74,7 @@
                           Content="{materialDesign:PackIcon SkipPrevious}"
                           Background="Transparent"
                           Foreground="White"
+                          Visibility="Hidden"
                           BorderBrush="Transparent"/>
             <ToggleButton
                           x:Name="Play"
@@ -201,23 +88,25 @@
                           IsEnabled="False"/>
             <ToggleButton
                           x:Name="Pause"
+                          Visibility="Hidden"
                           Margin="-40,0,0,0"
                           Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                           Content="{materialDesign:PackIcon Pause}"
                           Background="Transparent"
                           Foreground="White"
-                          Visibility="Hidden"
                           BorderBrush="Transparent"
                           IsEnabled="False"/>
             <Button
                           Command="{Binding SkipNext}"
                           Margin="0,0,5,0"
+                          Visibility="Hidden"
                           Content="{materialDesign:PackIcon SkipNext}"
                           Background="Transparent"
                           Foreground="White"
                           BorderBrush="Transparent"/>
             <ToggleButton
                             x:Name="SequencecyLoop"
+                            Visibility="Hidden"
                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                             IsChecked="True"
                             Margin="0,0,5,0"
@@ -232,6 +121,7 @@
             </ToggleButton>
             <ToggleButton
                             x:Name="OneLoop"
+                            Visibility="Hidden"
                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                             IsChecked="False"
                             Margin="0,0,5,0"
@@ -324,15 +214,15 @@
             </StackPanel>
             <Separator Background="Gray"
                        Opacity="0.4"
-                       Width="1000"
+                       Width="800"
                        Margin="0,0,0,0"
                        materialDesign:ShadowAssist.ShadowEdges="Bottom"></Separator>
             <StackPanel Orientation="Horizontal"
-                        Height="420"
+                        Height="820"
                         Width="980">
                 <DataGrid 
                   x:Name="ListSong"
-                  Height="400"
+                  Height="1000"
                   Width="520"
                   Margin="10,10,0,0"
                   ItemsSource="{Binding List}"
@@ -473,14 +363,13 @@
                         </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
-                <StackPanel Height="auto"
+                <StackPanel Height="620"
                             Width="420"
                             Margin="20,10,0,0">
                     <Expander Background="Transparent"
                               Foreground="Transparent"
                               Margin="0,-50,0,0"
                               IsEnabled="False"
-                              IsExpanded="True"
                               x:Name="TopTrendExpander">
                         <StackPanel>
                             <TextBlock HorizontalAlignment="Center"
@@ -654,16 +543,17 @@
                     </Expander>
                     <Expander Background="Transparent"
                               Foreground="Transparent"
-                              Margin="0,35,0,0"
-                              Height="420"
+                              Margin="0,-100,0,0"
+                              Height="620"
+                              Width="420"
                               IsEnabled="True"
                               ExpandDirection="Up"
                               IsExpanded="False"
                               x:Name="CDCircle"
                               >
-                        <StackPanel>
-                            <Border  Width="200"
-                                     Height="200"
+                        <StackPanel Height="620">
+                            <Border  Width="300"
+                                     Height="300"
                                      BorderThickness="0"
                                      BorderBrush="White"
                                      CornerRadius="20"
@@ -714,7 +604,7 @@
                                                             <DoubleAnimation
                                                                     Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)"
                                                                     BeginTime="0:0:0.1"
-                                                                    From="0.0" To="360" Duration="0:0:5" RepeatBehavior="Forever" />
+                                                                    From="0.0" To="360" Duration="0:0:8" RepeatBehavior="Forever" />
                                                         </Storyboard>
                                                     </BeginStoryboard>
                                                 </MultiDataTrigger.EnterActions>
@@ -766,7 +656,8 @@
                                 </Border.Style>
                             </Border>
 
-                            <StackPanel Margin="0,20,0,0">
+                            <StackPanel Height="auto"
+                                        Margin="0,20,0,0">
                                 <TextBlock Width="400"
                                            Height="40"
                                            FontSize="34"
@@ -783,6 +674,7 @@
                                            Text="{Binding SelectedItem.Artist}"></TextBlock>
                                 <StackPanel Orientation="Horizontal" 
                                             Width="auto"
+                                            Height="auto"
                                             HorizontalAlignment="Center">
                                     <TextBlock 
                                            Height="20"
