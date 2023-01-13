@@ -16,6 +16,8 @@
     <EntitySetMapping Name="Songs">
       <EntityTypeMapping TypeName="MusicPlayerModel.Song">
         <MappingFragment StoreEntitySet="Song">
+          <ScalarProperty Name="Album" ColumnName="Album" />
+          <ScalarProperty Name="Genre" ColumnName="Genre" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="ImageSongBinary" ColumnName="ImageSongBinary" />
           <ScalarProperty Name="TimeAdd" ColumnName="TimeAdd" />
@@ -32,6 +34,7 @@
     <EntitySetMapping Name="UserAccounts">
       <EntityTypeMapping TypeName="MusicPlayerModel.UserAccount">
         <MappingFragment StoreEntitySet="UserAccount">
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
           <ScalarProperty Name="UserImage" ColumnName="UserImage" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />

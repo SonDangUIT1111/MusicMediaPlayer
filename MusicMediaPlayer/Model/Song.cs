@@ -30,6 +30,8 @@ namespace MusicMediaPlayer.Model
         public Nullable<System.DateTime> TimeAdd { get; set; }
         public byte[] ImageSongBinary { get; set; }
         public Nullable<int> UserId { get; set; }
+        public string Genre { get; set; }
+        public string Album { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PlayList> PlayLists { get; set; }

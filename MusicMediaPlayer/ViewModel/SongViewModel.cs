@@ -113,6 +113,8 @@ namespace MusicMediaPlayer.ViewModel
                 }
             }
         }
+        private Song _SongChanging;
+        public Song SongChanging { get { return _SongChanging; } set { _SongChanging = value; } }
         // menu
         private bool _IsPickRecent = false;
         public bool IsPickRecent { get => _IsPickRecent; set => _IsPickRecent = value; }
@@ -132,6 +134,10 @@ namespace MusicMediaPlayer.ViewModel
         public string TitleToAdd { get { return _TitleToAdd; } set { _TitleToAdd = value; } }
         private string _ArtistToAdd;
         public string ArtistToAdd { get { return _ArtistToAdd; } set { _ArtistToAdd = value; } }
+        private string _AlbumToAdd;
+        public string AlbumToAdd { get { return _AlbumToAdd; } set { _AlbumToAdd = value; } }
+        private string _GenreToAdd;
+        public string GenreToAdd { get { return _GenreToAdd; } set { _GenreToAdd = value; } }
         private string _FilePathToAdd;
         public string FilePathToAdd { get { return _FilePathToAdd; } set { _FilePathToAdd = value; OnPropertyChanged(); } }
         private string _ImagePathToAdd;
@@ -141,6 +147,10 @@ namespace MusicMediaPlayer.ViewModel
         public string TitleToChange { get { return _TitleToChange; } set { _TitleToChange = value; } }
         private string _ArtistToChange;
         public string ArtistToChange { get { return _ArtistToChange; } set { _ArtistToChange = value; } }
+        private string _AlbumToChange;
+        public string AlbumToChange { get { return _AlbumToChange; } set { _AlbumToChange = value; } }
+        private string _GenreToChange;
+        public string GenreToChange { get { return _GenreToChange; } set { _GenreToChange = value; } }
         private string _ImagePathToChange;
         public string ImagePathToChange { get { return _ImagePathToChange; } set { _ImagePathToChange = value; OnPropertyChanged(); } }
         private byte[] imageBinaryAdd;
@@ -171,6 +181,7 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand PauseShortcut { get; set; }
         public ICommand Pause { get; set; }
         public ICommand FilterChangeValue { get; set; }
+        public ICommand EditFilterChangeValue { get; set; }
         public ICommand AddSong { get; set; }
         public ICommand EditSong { get; set; }
         public ICommand BackToMySong { get; set; }
@@ -311,12 +322,15 @@ namespace MusicMediaPlayer.ViewModel
                 MySongWindow = p as MySong;
                 CollectionViewSource.GetDefaultView(MySongWindow.ListSong.ItemsSource).Refresh();
             });
+            EditFilterChangeValue = new RelayCommand<Page>((p) => { return true; }, (p) =>
+            {
+                EditSongWindow = p as EditMySong;
+                CollectionViewSource.GetDefaultView(EditSongWindow.ListSongEdit.ItemsSource).Refresh();
+            });
             AddSong = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 AddSongToApp addsongview = new AddSongToApp();
                 addsongview.ShowDialog();
-
-
             });
             EditSong = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
@@ -330,6 +344,18 @@ namespace MusicMediaPlayer.ViewModel
             LoadDataEditPage = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 ListEdit = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id));
+                CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(EditSongWindow.ListSongEdit.ItemsSource);
+                view.Filter = FiltersSong;
+
+                bool FiltersSong(object item)
+                {
+                    if (String.IsNullOrEmpty(EditSongWindow.SongFilter.Text))
+                        return true;
+                    else
+                        return ((item as Song).SongTitle.IndexOf(EditSongWindow.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0
+
+                        || (item as Song).Artist.IndexOf(EditSongWindow.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+                }
                 if (ListEdit.Count == 0)
                 {
                     EditSongWindow.IsThereSong.Visibility = Visibility.Visible;
@@ -369,7 +395,7 @@ namespace MusicMediaPlayer.ViewModel
                         DataProvider.Ins.DB.SaveChanges();
                         MySongWindow.ListSong.Items.Refresh();
                         LoadCommon();
-                        ListEdit = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id));
+                        LoadEditPage();
                         if (List.Count != 0 && MediaPlayerIsPlaying == true)
                         {
                             int nextindex = (MySongWindow.ListSong.SelectedIndex + 1) % List.Count;
@@ -385,21 +411,6 @@ namespace MusicMediaPlayer.ViewModel
             Changing = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 EditSongInApp wd = p as EditSongInApp;
-                if (String.IsNullOrEmpty(wd.ChangeTitleSong.Text))
-                {
-                    MessageBox.Show("Please enter new title");
-                    return;
-                }
-                if (String.IsNullOrEmpty(wd.ChangeArtistSong.Text))
-                {
-                    MessageBox.Show("Please enter new artist");
-                    return;
-                }
-                if (String.IsNullOrEmpty(ImagePathToChange))
-                {
-                    MessageBox.Show("Please select an image");
-                    return;
-                }
                 if (DataProvider.Ins.DB.Songs.Where(o => o.SongTitle == TitleToChange && o.UserId == CurrentUser.Id).Count() > 0)
                 {
                     MessageBox.Show("This title already exists, please try another title");
@@ -407,29 +418,51 @@ namespace MusicMediaPlayer.ViewModel
                 }
                 else
                 {
+                    TitleToChange = wd.ChangeTitleSong.Text;
+                    ArtistToChange = wd.ChangeArtistSong.Text;
+                    GenreToChange = wd.ChangeGenreSong.Text;
+                    AlbumToChange = wd.ChangeAlbumtSong.Text;
+
+                    SongChanging.SongTitle = TitleToChange;
+                    SongChanging.Artist = ArtistToChange;
+                    SongChanging.Album = AlbumToChange;
+                    SongChanging.Genre = GenreToChange;
+                    if (ImagePathToChange != null)
+                    {
+                        Converter.ByteArrayToBitmapImageConverter converter = new MusicMediaPlayer.Converter.ByteArrayToBitmapImageConverter();
+                        byte[] BinaryImage = converter.ImageToBinary(ImagePathToChange);
+                        SongChanging.ImageSongBinary = BinaryImage;
+                    }
+                    DataProvider.Ins.DB.SaveChanges();
+                    LoadCommon();
+                    LoadEditPage();
+                    TitleToChange = null;
+                    ArtistToChange = null;
+                    AlbumToChange = null;
+                    GenreToChange = null;
+                    ImagePathToChange = null;
                     MessageBox.Show("Succesfully changed");
                     wd.Close();
                 }
             });
             ChangeInfoSong = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                var item = p as Song;
+                SongChanging = p as Song;
                 EditSongInApp editWD = new EditSongInApp();
+                editWD.ChangeTitleSong.Text = SongChanging.SongTitle;
+                editWD.ChangeArtistSong.Text = SongChanging.Artist;
+                editWD.ChangeAlbumtSong.Text = SongChanging.Album;
+                editWD.ChangeGenreSong.Text = SongChanging.Genre;
+                ImageBrush imageBrush = new ImageBrush();
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                var imagestream = new MemoryStream(SongChanging.ImageSongBinary);
+                bitmap.StreamSource = imagestream;
+                bitmap.EndInit();
+                imageBrush.ImageSource = bitmap;
+                editWD.ChangegrdSelectImg.Background = imageBrush;
                 editWD.ShowDialog();
-                if (TitleToChange != null && ArtistToChange != null && ImagePathToChange != null)
-                {
-                    item.SongTitle = TitleToChange;
-                    item.Artist = ArtistToChange;
-                    Converter.ByteArrayToBitmapImageConverter converter = new MusicMediaPlayer.Converter.ByteArrayToBitmapImageConverter();
-                    byte[] BinaryImage = converter.ImageToBinary(ImagePathToChange);
-                    item.ImageSongBinary = BinaryImage;
-                    DataProvider.Ins.DB.SaveChanges();
-                    Load();
-                    ListEdit = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id));
-                    TitleToChange = null;
-                    ArtistToChange = null;
-                    ImagePathToChange = null;
-                }
             });
 
             Refresh = new RelayCommand<Page>((p) => { return true; }, (p) =>
@@ -508,6 +541,8 @@ namespace MusicMediaPlayer.ViewModel
                 var filePath = Path.Combine(projectPath, "Image", "logomusicapp.png");
                 string titleNewSong = "Unknown";
                 string artistNewSong = "Unknown";
+                string albumNewSong = "Unknown";
+                string genreNewSong = "Unknown";
                 string uriIamge = filePath;
                 var MySongWindow = p as AddSongToApp;
                 if (String.IsNullOrEmpty(FilePathToAdd))
@@ -523,9 +558,22 @@ namespace MusicMediaPlayer.ViewModel
                 {
                     artistNewSong = MySongWindow.ArtistSong.Text;
                 }
+                if (!String.IsNullOrEmpty(MySongWindow.GenreSong.Text))
+                {
+                    genreNewSong = MySongWindow.GenreSong.Text;
+                }
+                if (!String.IsNullOrEmpty(MySongWindow.AlbumSong.Text))
+                {
+                    albumNewSong = MySongWindow.AlbumSong.Text;
+                }
                 if (ImagePathToAdd != null)
                 {
                     uriIamge = ImagePathToAdd;
+                }
+                if (DataProvider.Ins.DB.Songs.Where(o => o.SongTitle == TitleToAdd && o.UserId == CurrentUser.Id).Count() > 0)
+                {
+                    MessageBox.Show("This title already exists, please try another title");
+                    return;
                 }
                 try
                 {
@@ -552,6 +600,8 @@ namespace MusicMediaPlayer.ViewModel
                     {
                         Artist = artistNewSong,
                         SongTitle = titleNewSong,
+                        Genre = genreNewSong,
+                        Album = albumNewSong,
                         FilePath = FilePathToAdd,
                         ImageSongBinary = ImageBinaryAdd,
                         Times = 0,
@@ -566,6 +616,9 @@ namespace MusicMediaPlayer.ViewModel
                     MySongWindow.Close();
                     TitleToAdd = null;
                     ArtistToAdd = null;
+                    AlbumToAdd = null;
+                    GenreToAdd = null;
+                    FilePathToAdd = null;
                     ImagePathToAdd = null;
                     ImageBinaryAdd = null;
                 }
@@ -580,6 +633,9 @@ namespace MusicMediaPlayer.ViewModel
                 MySongWindow.Close();
                 TitleToAdd = null;
                 ArtistToAdd = null;
+                AlbumToAdd = null;
+                GenreToAdd = null;
+                FilePathToAdd = null;
                 ImagePathToAdd = null;
                 ImageBinaryAdd = null;
             });
@@ -960,6 +1016,22 @@ namespace MusicMediaPlayer.ViewModel
             else if (IsPickFavourite)
             {
                 LoadFavourite();
+            }
+        }
+        public void LoadEditPage()
+        {
+            ListEdit = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id));
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(EditSongWindow.ListSongEdit.ItemsSource);
+            view.Filter = FiltersSong;
+
+            bool FiltersSong(object item)
+            {
+                if (String.IsNullOrEmpty(EditSongWindow.SongFilter.Text))
+                    return true;
+                else
+                    return ((item as Song).SongTitle.IndexOf(EditSongWindow.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0
+
+                    || (item as Song).Artist.IndexOf(EditSongWindow.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
             }
         }
 

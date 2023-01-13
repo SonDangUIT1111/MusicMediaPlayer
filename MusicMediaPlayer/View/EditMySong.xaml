@@ -43,7 +43,7 @@
                    Background="Transparent"
                    FontSize="24"
                    Text="Nothing to show here"
-                   Margin="20,150,0,0"
+                   Margin="20,180,0,0"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Left"
                    Height="80"
@@ -64,7 +64,6 @@
                         <TextBox x:Name="SongFilter"
                                   Width="150"
                                   Margin="10,0,0,0"
-                                  IsEnabled="False"
                                   Background="Transparent"
                                   BorderBrush="Transparent"
                                   BorderThickness="0"
@@ -73,6 +72,12 @@
                                   VerticalAlignment="Center"
                                   materialDesign:HintAssist.Hint="Search here ..."
                           >
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="TextChanged">
+                                    <i:InvokeCommandAction Command="{Binding EditFilterChangeValue}"
+                                   CommandParameter="{Binding ElementName=EditMySongWD}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
                         </TextBox>
                     </StackPanel>
                 </Border>
@@ -162,6 +167,46 @@
                        Width="auto"
                        Margin="0,0,0,0"
                        materialDesign:ShadowAssist.ShadowEdges="Bottom"></Separator>
+            <StackPanel Orientation="Horizontal" 
+                            Height="20"
+                            Width="880"
+                            Margin="50,10,0,0">
+                <TextBlock Text="Title"
+                           Foreground="#ffffff"
+                           Width="200"
+                           FontSize="14"
+                           FontWeight="Bold"
+                           FontFamily="Segoe UI Semibold"
+                           Margin="20,0,0,0"/>
+                <TextBlock Text="Artist"
+                           Foreground="#ffffff"
+                           Width="180"
+                           FontSize="14"
+                           FontWeight="Bold"
+                           FontFamily="Segoe UI Semibold"
+                           Margin="0,0,0,0"/>
+                <TextBlock Text="Album"
+                           Foreground="#ffffff"
+                           Width="120"
+                           FontSize="14"
+                           FontWeight="Bold"
+                           FontFamily="Segoe UI Semibold"
+                           Margin="0,0,0,0"/>
+                <TextBlock Text="Genre"
+                           Foreground="#ffffff"
+                           Width="120"
+                           FontSize="14"
+                           FontWeight="Bold"
+                           FontFamily="Segoe UI Semibold"
+                           Margin="0,0,0,0"/>
+                <TextBlock Text="Time"
+                           Foreground="#ffffff"
+                           Width="80"
+                           FontSize="14"
+                           FontWeight="Bold"
+                           FontFamily="Segoe UI Semibold"
+                           Margin="0,0,0,0"/>
+            </StackPanel>
             <StackPanel Orientation="Horizontal"
                         Height="820"
                         Width="980">
@@ -169,13 +214,13 @@
                   x:Name="ListSongEdit"
                   Height="800"
                   Width="950"
-                  Margin="15,10,0,0"
+                  Margin="15,0,0,0"
                   ItemsSource="{Binding ListEdit}"
-                  Style="{StaticResource DataGridStyle1}"  
-                  CellStyle="{StaticResource DataGridCellStyle1}" 
-                  RowStyle="{StaticResource DataGridRowStyle1}">
+                  Style="{StaticResource DataGridStyle2}"  
+                  CellStyle="{StaticResource DataGridCellStyle2}" 
+                  RowStyle="{StaticResource DataGridRowStyle2}">
                     <DataGrid.Columns>
-                        <DataGridTemplateColumn Width="500">
+                        <DataGridTemplateColumn Width="900">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
@@ -201,7 +246,7 @@
                                             </Grid>
                                         </Border>
                                         <TextBlock Text="{Binding SongTitle}"
-                                                        Width="120"
+                                                        Width="200"
                                                         FontSize="14"
                                                         FontWeight="Bold"
                                                         FontFamily="Segoe UI Semibold"
@@ -212,6 +257,15 @@
                                                         >
                                         </TextBlock>
                                         <TextBlock Text="{Binding Artist}"
+                                                        Width="180"
+                                                        FontSize="12"
+                                                        Margin="0,5,0,0"
+                                                        FontWeight="Medium"
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"
+                                                        TextTrimming="WordEllipsis"
+                                                        ></TextBlock>
+                                        <TextBlock Text="{Binding Album}"
                                                         Width="120"
                                                         FontSize="12"
                                                         Margin="0,5,0,0"
@@ -220,15 +274,31 @@
                                                         HorizontalAlignment="Center"
                                                         TextTrimming="WordEllipsis"
                                                         ></TextBlock>
+                                        <TextBlock Text="{Binding Genre}"
+                                                        Width="120"
+                                                        FontSize="12"
+                                                        Margin="0,5,0,0"
+                                                        FontWeight="Medium"
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"
+                                                        TextTrimming="WordEllipsis"
+                                                        ></TextBlock>
+                                        <TextBlock Text="{Binding HowLong}"
+                                                           Width="80"
+                                                           FontSize="12"
+                                                           Margin="0,8,0,0"
+                                                           HorizontalAlignment="Center"
+                                                           VerticalAlignment="Center"
+                                                           FontWeight="Medium"
+                                                           ></TextBlock>
                                         <StackPanel>
                                             <StackPanel Background="Transparent"
                                                         Orientation="Horizontal"
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center"
-                                                        Margin="0,12,0,0"
+                                                        Margin="10,12,0,0"
                                                         Panel.ZIndex="2">
                                                 <Button     Content="{materialDesign:PackIcon Pencil}"
-                                                                    Style="{StaticResource ButtonInMySong}"
                                                                     Background="Transparent"
                                                                     Command="{Binding Source={StaticResource SongVM}, Path=ChangeInfoSong}"
                                                                     CommandParameter="{Binding}"
@@ -240,7 +310,6 @@
 
                                                 </Button>
                                                 <Button x:Name="Del"
-                                                                    Style="{StaticResource ButtonInMySong}"
                                                                     Background="Transparent"
                                                                     Content="{materialDesign:PackIcon DeleteCircle}"
                                                                     Command="{Binding Source={StaticResource SongVM}, Path=DeleteSong}"
@@ -270,14 +339,6 @@
                                                 </ToggleButton>
                                             </StackPanel>
                                         </StackPanel>
-                                        <TextBlock Text="{Binding HowLong}"
-                                                           Width="30"
-                                                           FontSize="12"
-                                                           Margin="20,8,0,0"
-                                                           HorizontalAlignment="Center"
-                                                           VerticalAlignment="Center"
-                                                           FontWeight="Medium"
-                                                           ></TextBlock>
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>

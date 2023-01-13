@@ -38,6 +38,8 @@
           <Property Name="TimeAdd" Type="datetime" />
           <Property Name="ImageSongBinary" Type="varbinary(max)" />
           <Property Name="UserId" Type="int" />
+          <Property Name="Genre" Type="nvarchar" MaxLength="100" />
+          <Property Name="Album" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -58,6 +60,7 @@
           <Property Name="UserPassword" Type="nvarchar(max)" />
           <Property Name="UserEmail" Type="nvarchar" MaxLength="200" />
           <Property Name="UserImage" Type="varbinary(max)" />
+          <Property Name="NickName" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <Association Name="FK__PlayList__OwnerI__5DCAEF64">
           <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />
@@ -163,6 +166,8 @@
           <Property Name="ImageSongBinary" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="UserId" Type="Int32" />
           <NavigationProperty Name="UserAccount" Relationship="MusicPlayerModel.FK_Song_User" FromRole="Song" ToRole="UserAccount" />
+          <Property Name="Genre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Album" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="UserAccount">
           <Key>
@@ -175,6 +180,7 @@
           <NavigationProperty Name="PlayLists" Relationship="Self.FK__PlayList__OwnerI__267ABA7A" FromRole="UserAccount" ToRole="PlayList" />
           <NavigationProperty Name="Songs" Relationship="MusicPlayerModel.FK_Song_User" FromRole="UserAccount" ToRole="Song" />
           <Property Name="UserImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="NickName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK__PlayList__OwnerI__267ABA7A">
           <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />
@@ -253,6 +259,8 @@
           <EntitySetMapping Name="Songs">
             <EntityTypeMapping TypeName="MusicPlayerModel.Song">
               <MappingFragment StoreEntitySet="Song">
+                <ScalarProperty Name="Album" ColumnName="Album" />
+                <ScalarProperty Name="Genre" ColumnName="Genre" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="ImageSongBinary" ColumnName="ImageSongBinary" />
                 <ScalarProperty Name="TimeAdd" ColumnName="TimeAdd" />
@@ -269,6 +277,7 @@
           <EntitySetMapping Name="UserAccounts">
             <EntityTypeMapping TypeName="MusicPlayerModel.UserAccount">
               <MappingFragment StoreEntitySet="UserAccount">
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
                 <ScalarProperty Name="UserImage" ColumnName="UserImage" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />

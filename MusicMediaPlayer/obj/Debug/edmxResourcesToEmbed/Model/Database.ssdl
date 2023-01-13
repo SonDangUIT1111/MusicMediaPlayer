@@ -33,6 +33,8 @@
     <Property Name="TimeAdd" Type="datetime" />
     <Property Name="ImageSongBinary" Type="varbinary(max)" />
     <Property Name="UserId" Type="int" />
+    <Property Name="Genre" Type="nvarchar" MaxLength="100" />
+    <Property Name="Album" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -53,6 +55,7 @@
     <Property Name="UserPassword" Type="nvarchar(max)" />
     <Property Name="UserEmail" Type="nvarchar" MaxLength="200" />
     <Property Name="UserImage" Type="varbinary(max)" />
+    <Property Name="NickName" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <Association Name="FK__PlayList__OwnerI__5DCAEF64">
     <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />

@@ -30,6 +30,7 @@
                 <ResourceDictionary Source="ResourceProject/ChangePassbt.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/ErrorTemplate.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/DataGridTemplate.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/ResourceProject/DataGridForEditingTemplate.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/ScrollBarTemplate.xaml"></ResourceDictionary>
                 <!--<ResourceDictionary Source="/ResourceProject/SliderTemplate.xaml"></ResourceDictionary>-->
                 <ResourceDictionary Source="/ResourceProject/TabButtonStyle.xaml"></ResourceDictionary>
