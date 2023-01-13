@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\
+C:\Code_VSCode2022\MusicPlayer Project\MusicMediaPlayer\obj\Debug\
 MusicMediaPlayer
 none
 false
 DEBUG;TRACE
-C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\App.xaml
-41-644985792
+C:\Code_VSCode2022\MusicPlayer Project\MusicMediaPlayer\App.xaml
+42-1807064897
 2-1797966213
-541174553047
-165-952426983
-ResourceProject\ButtonInMySong.xaml;ResourceProject\ChangePassbt.xaml;ResourceProject\Bth.xaml;ResourceProject\CPButton.xaml;ResourceProject\DataTemplate.xaml;ResourceProject\Page.xaml;ResourceProject\ProfileText.xaml;ResourceProject\profileIcon.xaml;ResourceProject\PlayerButton.xaml;ResourceProject\ButtonIcon.xaml;ResourceProject\Visualizer.xaml;UserControlMusic\UserControlHome.xaml;UserControlMusic\UserControlProFile.xaml;ResourceProject\RenameButton.xaml;View\AddPlayList.xaml;View\AddSongPlayList.xaml;View\ChangePassword.xaml;ResourceProject\DataGridTemplate.xaml;ResourceProject\ErrorTemplate.xaml;ResourceProject\ExpanderMySongTemplate.xaml;ResourceProject\ScrollBarTemplate.xaml;ResourceProject\SliderTemplate.xaml;ResourceProject\TabButtonStyle.xaml;View\AddSongToApp.xaml;View\EditSongInApp.xaml;View\ForgotPassword.xaml;View\Home.xaml;View\Login.xaml;View\MainWindow.xaml;View\MySong.xaml;View\PlayList.xaml;View\PlayList_Inside.xaml;View\Profile.xaml;View\Register.xaml;ResourceProject\ButtonStyle.xaml;ResourceProject\MainResource.xaml;ResourceProject\NormalButton.xaml;UserControlMusic\UserControl1.xaml;UserControlMusic\UserControlLoginRegister.xaml;View\RenamePlayList.xaml;View\SleepTimerView.xaml;
+54-1526220189
+1651753822631
+ResourceProject\ButtonInMySong.xaml;ResourceProject\ChangePassbt.xaml;ResourceProject\Bth.xaml;ResourceProject\CPButton.xaml;ResourceProject\DataTemplate.xaml;ResourceProject\Page.xaml;ResourceProject\ProfileText.xaml;ResourceProject\profileIcon.xaml;ResourceProject\PlayerButton.xaml;ResourceProject\ButtonIcon.xaml;ResourceProject\Visualizer.xaml;UserControlMusic\UserControlHome.xaml;UserControlMusic\UserControlProFile.xaml;ResourceProject\RenameButton.xaml;View\AddPlayList.xaml;View\AddSongPlayList.xaml;View\ChangePassword.xaml;ResourceProject\DataGridTemplate.xaml;ResourceProject\ErrorTemplate.xaml;ResourceProject\ExpanderMySongTemplate.xaml;ResourceProject\ScrollBarTemplate.xaml;ResourceProject\SliderTemplate.xaml;ResourceProject\TabButtonStyle.xaml;View\AddSongToApp.xaml;View\EditSongInApp.xaml;View\ForgotPassword.xaml;View\Home.xaml;View\Login.xaml;View\MainWindow.xaml;View\MessageBoxLoading.xaml;View\MySong.xaml;View\PlayList.xaml;View\PlayList_Inside.xaml;View\Profile.xaml;View\Register.xaml;ResourceProject\ButtonStyle.xaml;ResourceProject\MainResource.xaml;ResourceProject\NormalButton.xaml;UserControlMusic\UserControl1.xaml;UserControlMusic\UserControlLoginRegister.xaml;View\RenamePlayList.xaml;View\SleepTimerView.xaml;
 
 True
 

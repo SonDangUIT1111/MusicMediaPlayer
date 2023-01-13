@@ -73,7 +73,7 @@ namespace MusicMediaPlayer.ViewModel
                 {
                     //truyen du lieu qua cac view
                     CurrentUser.UserName = LoginVM.Username;
-                    ObservableCollection<int> IDuser = new ObservableCollection<int>(DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == LoginVM.Username).Select(x => x.UserId));
+                    ObservableCollection<int> IDuser = new ObservableCollection<int>(DataProvider.Ins.DB.UserAccount.Where(x => x.UserName == LoginVM.Username).Select(x => x.UserId));
                     MySongData.CurrentUser.Id = IDuser[0];
                     PlayListData.CurrentUser.Id = IDuser[0];
                     HomeData.CurrentUser.Id=IDuser[0];
