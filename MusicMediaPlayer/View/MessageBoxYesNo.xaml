@@ -5,8 +5,89 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MusicMediaPlayer.View"
         mc:Ignorable="d"
-        Title="MessageBoxYesNo" Height="450" Width="800">
-    <Grid>
+        Title="MessageBoxYesNo"
+        Height="125" 
+        Width="300"
         
+        
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"        
+        AllowsTransparency="True"
+        Background="Transparent"
+        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        
+        DataContext="{StaticResource MessageBoxYesNoVM}"
+        x:Name="MessageBoxYN"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        >
+    <Grid>
+        <Border CornerRadius="10" 
+                Background="Black"
+                BorderThickness="1"
+                BorderBrush="Green"
+                >
+        </Border>
+        <StackPanel>
+            <TextBlock Text="{Binding Title}"
+                       Foreground="#1ED760"
+                       FontFamily="Bahnschrift SemiBold" 
+                       FontWeight="SemiBold" 
+                       FontSize="20"
+                       HorizontalAlignment="Left"
+                       Margin="10 10 0 0"
+                       >
+
+            </TextBlock>
+
+            <TextBlock Text="{Binding Question}"
+                   Foreground="White"
+                   FontFamily="Bahnschrift SemiBold" 
+                   FontWeight="SemiBold" 
+                   FontSize="13"
+                   VerticalAlignment="Top" 
+                   Margin="10 15 0 0"
+                   >
+            </TextBlock>
+
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Bottom"
+                        Margin="0 25 0 0">
+                <Button Content="Yes"
+                        Margin="80 0 0 0"
+                        Background="Black"
+                        Foreground="White"
+                        BorderBrush="White"
+                        Width="100"
+                        Height="25"
+                        FontFamily="Bahnschrift SemiBold" 
+                        FontWeight="SemiBold" 
+                        Command="{Binding Yes}"
+                        CommandParameter="{Binding ElementName=MessageBoxYN}"
+                        >
+
+                </Button>
+                <Button Content="No"
+                        Margin="10 0 0 0"
+                        Background="Black"
+                        Foreground="White"
+                        BorderBrush="White"
+                        Width="100"
+                        Height="25"
+                        FontFamily="Bahnschrift SemiBold" 
+                        FontWeight="SemiBold" 
+                        Command="{Binding No}"
+                        CommandParameter="{Binding ElementName=MessageBoxYN}"
+                        >
+
+                </Button>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

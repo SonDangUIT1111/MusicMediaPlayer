@@ -14,6 +14,7 @@
     <viewmodel:RenamePlayListViewModel x:Key="RenamePlayListVM"></viewmodel:RenamePlayListViewModel>
     <viewmodel:PlayList_InsideViewModel x:Key="PlayList_InsideVM"></viewmodel:PlayList_InsideViewModel>
     <viewmodel:AddSongPlayListViewModel x:Key="AddSongPlayListVM"></viewmodel:AddSongPlayListViewModel>
+    <viewmodel:MessageBoxYesNoViewModel x:Key="MessageBoxYesNoVM"></viewmodel:MessageBoxYesNoViewModel>
 
     <viewmodel:HomeViewModel x:Key="HomeVM"></viewmodel:HomeViewModel>
     <viewmodel:ProfileViewModel x:Key="ProfileVM"></viewmodel:ProfileViewModel>
