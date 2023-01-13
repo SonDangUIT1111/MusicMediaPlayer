@@ -27,9 +27,12 @@ namespace MusicMediaPlayer.ViewModel
         private MediaPlayer mediaPlayer = new MediaPlayer();
         private ObservableCollection<Song> _List;
         public ObservableCollection<Song> List { get => _List; set { _List = value; OnPropertyChanged(); } }
+        private ObservableCollection<Song> _ListEdit;
+        public ObservableCollection<Song> ListEdit { get => _ListEdit; set { _ListEdit = value; OnPropertyChanged(); } }
         private ObservableCollection<Song> _TopTrending;
         public ObservableCollection<Song> TopTrending { get => _TopTrending; set { _TopTrending = value; OnPropertyChanged(); } }
         public MySong MySongWindow { get; set; }
+        public EditMySong EditSongWindow { get; set; }
 
         public Button SkipPreviousbtn { get; set; }
         public Button SkipNextbtn { get; set; }
@@ -115,6 +118,8 @@ namespace MusicMediaPlayer.ViewModel
         public bool IsPickRecent { get => _IsPickRecent; set => _IsPickRecent = value; }
         private bool _IsPickMySong = true;
         public bool IsPickMySong { get => _IsPickMySong; set => _IsPickMySong = value; }
+        private bool _IsPickFavourite;
+        public bool IsPickFavourite { get => _IsPickFavourite; set => _IsPickFavourite = value;}
         private bool _CanChangeTOP_CD = true;
         public bool CanChangeTOP_CD { get => _CanChangeTOP_CD; set => _CanChangeTOP_CD = value; }
         //
@@ -167,6 +172,9 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand Pause { get; set; }
         public ICommand FilterChangeValue { get; set; }
         public ICommand AddSong { get; set; }
+        public ICommand EditSong { get; set; }
+        public ICommand BackToMySong { get; set; }
+        public ICommand LoadDataEditPage { get; set; }
         public ICommand ChangeInfoSong { get; set; }
         public ICommand DeleteSong { get; set; }
         public ICommand Refresh { get; set; }
@@ -191,6 +199,7 @@ namespace MusicMediaPlayer.ViewModel
         //menu song
         public ICommand RecentSong { get; set; }
         public ICommand AllSong { get; set; }
+        public ICommand FavouriteSong { get; set; }
 
         //
         public ICommand ShowTopOrCD { get; set; }
@@ -309,13 +318,33 @@ namespace MusicMediaPlayer.ViewModel
 
 
             });
+            EditSong = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                EditSongWindow = new EditMySong();
+                MySongWindow.NavigationService.Navigate(EditSongWindow);
+            });
+            BackToMySong = new RelayCommand<object>((p) => { return true; }, (p) =>
+             {
+                 EditSongWindow.NavigationService.Navigate(MySongWindow);
+             });
+            LoadDataEditPage = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                ListEdit = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id));
+                if (ListEdit.Count == 0)
+                {
+                    EditSongWindow.IsThereSong.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    EditSongWindow.IsThereSong.Visibility = Visibility.Hidden;
+                }
+            });
             DeleteSong = new RelayCommand<object>((p) =>
             {
                 return true;
             }, (p)
                  =>
             {
-
                 MessageBoxResult result = MessageBox.Show("Do you want to delete it", "Delete song", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
@@ -340,7 +369,8 @@ namespace MusicMediaPlayer.ViewModel
                         DataProvider.Ins.DB.SaveChanges();
                         MySongWindow.ListSong.Items.Refresh();
                         LoadCommon();
-                        if (List.Count != 0)
+                        ListEdit = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id));
+                        if (List.Count != 0 && MediaPlayerIsPlaying == true)
                         {
                             int nextindex = (MySongWindow.ListSong.SelectedIndex + 1) % List.Count;
                             MySongWindow.ListSong.SelectedIndex = -1;
@@ -395,6 +425,7 @@ namespace MusicMediaPlayer.ViewModel
                     item.ImageSongBinary = BinaryImage;
                     DataProvider.Ins.DB.SaveChanges();
                     Load();
+                    ListEdit = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id));
                     TitleToChange = null;
                     ArtistToChange = null;
                     ImagePathToChange = null;
@@ -408,6 +439,8 @@ namespace MusicMediaPlayer.ViewModel
             });
             ChangeFavourite = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
+                Song item = p as Song;
+                item.IsFavourite = !item.IsFavourite;
                 DataProvider.Ins.DB.SaveChanges();
             });
             AddFile = new RelayCommand<object>((p) => { return true; }, (p) =>
@@ -745,18 +778,24 @@ namespace MusicMediaPlayer.ViewModel
             RecentSong = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 IsPickMySong = false;
+                IsPickFavourite = false;
                 IsPickRecent = true;
-                List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.TimeAdd).ToList());
                 LoadRecent();
             });
             AllSong = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 IsPickMySong = true;
                 IsPickRecent = false;
-                List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id));
+                IsPickFavourite = false;
                 Load();
             });
-
+            FavouriteSong = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                IsPickMySong = false;
+                IsPickRecent = false;
+                IsPickFavourite = true;
+                LoadFavourite();
+            });
             //
             ShowTopOrCD = new RelayCommand<MainWindow>((p) =>
             {
@@ -867,6 +906,47 @@ namespace MusicMediaPlayer.ViewModel
                     || (item as Song).Artist.IndexOf(MySongWindow.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
             }
         }
+        void LoadFavourite()
+        {
+            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.IsFavourite == true).ToList());
+            if (List.Count == 0)
+            {
+                MySongWindow.IsThereSong.Visibility = Visibility.Visible;
+                MySongWindow.CDCircle.IsExpanded = false;
+                MySongWindow.TopTrendExpander.IsExpanded = true;
+                sliProgress.Value = 0;
+                sliProgress.IsEnabled = false;
+                InTime.Visibility = Visibility.Hidden;
+                TotalTime.Visibility = Visibility.Hidden;
+                Playbtn.Visibility = Visibility.Visible;
+                Playbtn.IsEnabled = false;
+                Pausebtn.Visibility = Visibility.Hidden;
+                mediaPlayer.Stop();
+            }
+            else
+            {
+                MySongWindow.IsThereSong.Visibility = Visibility.Hidden;
+                sliProgress.IsEnabled = true;
+                InTime.Visibility = Visibility.Visible;
+                TotalTime.Visibility = Visibility.Visible;
+            }
+            TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.Times).ToList());
+            TopTrending.Add(new Song());
+            TopTrending.Add(new Song());
+            TopTrending.Add(new Song());
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(MySongWindow.ListSong.ItemsSource);
+            view.Filter = FiltersSong;
+
+            bool FiltersSong(object item)
+            {
+                if (String.IsNullOrEmpty(MySongWindow.SongFilter.Text))
+                    return true;
+                else
+                    return ((item as Song).SongTitle.IndexOf(MySongWindow.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0
+
+                    || (item as Song).Artist.IndexOf(MySongWindow.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+            }
+        }
         public void LoadCommon()
         {
             if (IsPickMySong)
@@ -876,6 +956,10 @@ namespace MusicMediaPlayer.ViewModel
             else if (IsPickRecent)
             {
                 LoadRecent();
+            }
+            else if (IsPickFavourite)
+            {
+                LoadFavourite();
             }
         }
 

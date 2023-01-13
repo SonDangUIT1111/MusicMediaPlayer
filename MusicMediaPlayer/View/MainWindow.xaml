@@ -74,7 +74,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Grid Grid.Column="0"
-                              Background="Gray"
+                              Background="Transparent"
                               Margin="5"
                               Height="auto">
                             <Border CornerRadius="20"  
@@ -89,8 +89,7 @@
                                     <StackPanel>
                                         <Button Style="{StaticResource ContactButton}" 
                                                 Width="180" Margin="0 10 0 0" 
-                                                Command="{Binding SwitchProfile}"
-                                                CommandParameter="{Binding ElementName=FrameView}">
+                                                BorderBrush="Transparent"                                                CommandParameter="{Binding ElementName=FrameView}">
                                             <Grid>
                                                 <TextBlock Text= "Profile" 
                                                            Margin="20,0,24,0"/>
@@ -193,8 +192,32 @@
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </Rectangle>
+                            <Border Height="75"
+                                    Width="75"
+                                    CornerRadius="10"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    Margin="10,05,0,0">
+                                <Border.Background>
+                                    <ImageBrush Stretch="UniformToFill"
+                                                ImageSource="{Binding Source={StaticResource SongVM},Path=SelectedItem.ImageSongBinary,Converter={StaticResource ByteToImageConverter}}"></ImageBrush>
+                                </Border.Background>
+                            </Border>
+                            <StackPanel Orientation="Vertical"
+                                        VerticalAlignment="Top"
+                                        HorizontalAlignment="Left"
+                                        Margin="95,15,0,0">
+                                <TextBlock Text="{Binding Source={StaticResource SongVM}, Path=SelectedItem.SongTitle}"
+                                           Foreground="#FFFFFF"
+                                           FontSize="28"
+                                           FontWeight="Medium"/>
+                                <TextBlock Text="{Binding Source={StaticResource SongVM}, Path=SelectedItem.Artist}"
+                                           Foreground="#FFFFFF"
+                                           FontWeight="DemiBold"
+                                           FontSize="16"/>
+                            </StackPanel>
                             <StackPanel 
-                                    Margin="0,0,0,0"
+                                    Margin="200,10,0,0"
                                     Width="auto">
                                 <StatusBarItem HorizontalContentAlignment="Stretch"
                                            Width="600">
@@ -216,7 +239,7 @@
                                     </materialDesign:TransitioningContent>
                                 </StatusBarItem>
                                 <StackPanel Orientation="Horizontal"
-                                            Margin="0,-10,0,0">
+                                            Margin="-100,0,0,0">
                                     <Label
                                         Height="25"
                                         x:Name="InTime"
@@ -229,7 +252,7 @@
                                         Margin="450,-20,0,0"></Label>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal"
-                                        Margin="850,-10,0,0">
+                                        Margin="800,0,0,0">
                                     <Button
                                           x:Name="SpeakerHigh"
                                           Width="50"
@@ -301,7 +324,7 @@
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal"
-                                    Margin="160,0,0,0" 
+                                    Margin="380,0,0,0" 
                                     Width="652"
                                     Panel.ZIndex="2">
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.4}">

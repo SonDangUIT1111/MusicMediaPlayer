@@ -732,3 +732,5 @@ C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\Home.baml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\Profile.g.cs
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\Profile.baml
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\EditMySong.g.cs
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\EditMySong.baml

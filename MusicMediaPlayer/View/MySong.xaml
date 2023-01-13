@@ -167,7 +167,7 @@
                     </StackPanel>
                 </Border>
                 <StackPanel Orientation="Vertical"
-                            Margin="700,5,0,0">
+                            Margin="650,5,0,0">
                     <Border Background="Transparent"
                         Height="40"
                         Width="40"
@@ -194,6 +194,36 @@
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"></Label>
                 </StackPanel>
+                <StackPanel Orientation="Vertical"
+                            Margin="20,5,0,0"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Right">
+                    <Border Background="Transparent"
+                        Height="40"
+                        Width="40"
+                        BorderBrush="#ffffff"
+                        BorderThickness="3"
+                        CornerRadius="40">
+                        <Button
+                          Command="{Binding EditSong}"
+                          CommandParameter="{Binding ElementName=SongWD}"
+                          Margin="0,0,0,0"
+                          Content="{materialDesign:PackIcon Pencil}"
+                          Background="Transparent"
+                          Foreground="#1ED760"
+                          Height="50"
+                          Width="50"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                          BorderThickness="0">
+                        </Button>
+                    </Border>
+                    <Label Content="Edit"
+                           Foreground="#ffffff"
+                           FontSize="14"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"></Label>
+                </StackPanel>
 
             </StackPanel>
 
@@ -211,10 +241,14 @@
                                 Opacity="0.5"
                                 Command="{Binding RecentSong}" 
                                 CommandParameter="{Binding ElementName=SongWD}">New Play</RadioButton>
+                <RadioButton    Style="{StaticResource TabButtonMySong}" 
+                                Opacity="0.5"
+                                Command="{Binding FavouriteSong}" 
+                                CommandParameter="{Binding ElementName=SongWD}">Favourite</RadioButton>
             </StackPanel>
             <Separator Background="Gray"
                        Opacity="0.4"
-                       Width="800"
+                       Width="auto"
                        Margin="0,0,0,0"
                        materialDesign:ShadowAssist.ShadowEdges="Bottom"></Separator>
             <StackPanel Orientation="Horizontal"
@@ -265,23 +299,20 @@
                                                     Height="45"
                                                     HorizontalAlignment="Center">
                                             <Grid>
-                                                <Border Background="White"
-                                                            CornerRadius="4.5"
-                                                            x:Name="mask"></Border>
-                                                <Image Width ="40"
-                                                            Height ="40"
-                                                            Margin="1"
-                                                            Stretch="Fill"
-                                                            Source="{Binding ImageSongBinary, Converter={StaticResource ByteToImageConverter}}"
-                                                            >
-                                                    <Image.OpacityMask>
-                                                        <VisualBrush Visual="{Binding ElementName=mask}"></VisualBrush>
-                                                    </Image.OpacityMask>
-                                                </Image>
+                                                <Border CornerRadius="5"
+                                                        Width="40"
+                                                        Height="50"
+                                                        x:Name="mask">
+                                                    <Border.Background>
+                                                        <ImageBrush Stretch="UniformToFill"
+                                                                    ImageSource="{Binding ImageSongBinary, Converter={StaticResource ByteToImageConverter}}">
+                                                        </ImageBrush>
+                                                    </Border.Background>
+                                                </Border>
                                             </Grid>
                                         </Border>
                                         <TextBlock Text="{Binding SongTitle}"
-                                                        Width="120"
+                                                        Width="150"
                                                         FontSize="14"
                                                         FontWeight="Bold"
                                                         FontFamily="Segoe UI Semibold"
@@ -292,7 +323,7 @@
                                                         >
                                         </TextBlock>
                                         <TextBlock Text="{Binding Artist}"
-                                                        Width="120"
+                                                        Width="150"
                                                         FontSize="12"
                                                         Margin="0,5,0,0"
                                                         FontWeight="Medium"
@@ -300,57 +331,8 @@
                                                         HorizontalAlignment="Center"
                                                         TextTrimming="WordEllipsis"
                                                         ></TextBlock>
-                                        <StackPanel>
-                                            <StackPanel Background="Transparent"
-                                                        Orientation="Horizontal"
-                                                        HorizontalAlignment="Center"
-                                                        VerticalAlignment="Center"
-                                                        Margin="0,12,0,0">
-                                                <Button     Content="{materialDesign:PackIcon Pencil}"
-                                                                    Style="{StaticResource ButtonInMySong}"
-                                                                    Background="Transparent"
-                                                                    Command="{Binding Source={StaticResource SongVM}, Path=ChangeInfoSong}"
-                                                                    CommandParameter="{Binding}"
-                                                                    Width="20"
-                                                                    Padding="0"
-                                                                    Margin="0,0,0,30"
-                                                                    Foreground="#009EFD"
-                                                                    BorderBrush="Transparent">
-
-                                                </Button>
-                                                <Button x:Name="Del"
-                                                                    Style="{StaticResource ButtonInMySong}"
-                                                                    Background="Transparent"
-                                                                    Content="{materialDesign:PackIcon DeleteCircle}"
-                                                                    Command="{Binding Source={StaticResource SongVM}, Path=DeleteSong}"
-                                                                    CommandParameter="{Binding}"
-                                                                    Width="20"
-                                                                    Padding="0"
-                                                                    Margin="10,0,0,30"
-                                                                    Foreground="#FF2C2C"
-                                                                    BorderBrush="Transparent">
-                                                </Button>
-                                                <ToggleButton   VerticalAlignment="Center"
-                                                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                                            IsChecked="{Binding IsFavourite}"
-                                                            Foreground="HotPink"
-                                                            Background="LightPink"
-                                                            Margin="10,0,0,30"
-                                                            Width="20"
-                                                            Height="20"
-                                                            Command="{Binding Source={StaticResource SongVM},Path=ChangeFavourite}"
-                                                            CommandParameter="{Binding}"
-                                                                
-                                                                >
-                                                    <materialDesign:PackIcon
-                                                                Kind="Heart"
-                                                                Height="15"
-                                                                Width="15" />
-                                                </ToggleButton>
-                                            </StackPanel>
-                                        </StackPanel>
                                         <TextBlock Text="{Binding HowLong}"
-                                                           Width="30"
+                                                           Width="50"
                                                            FontSize="12"
                                                            Margin="20,8,0,0"
                                                            HorizontalAlignment="Center"
@@ -365,11 +347,11 @@
                 </DataGrid>
                 <StackPanel Height="620"
                             Width="420"
-                            Margin="20,10,0,0">
+                            Margin="20,-100,0,0">
                     <Expander Background="Transparent"
                               Foreground="Transparent"
                               Margin="0,-50,0,0"
-                              IsEnabled="False"
+                              IsExpanded="True"
                               x:Name="TopTrendExpander">
                         <StackPanel>
                             <TextBlock HorizontalAlignment="Center"
@@ -560,7 +542,7 @@
                                      x:Name="CD"
                                      RenderTransformOrigin="0.5,0.5">
                                 <Border.Background>
-                                    <ImageBrush ImageSource="{Binding SelectedItem.ImageSongBinary, Converter={StaticResource ByteToImageConverter}}"></ImageBrush>
+                                    <ImageBrush ImageSource="{Binding SelectedItem.ImageSongBinary, Converter={StaticResource ByteToImageConverter}}" Stretch="UniformToFill"></ImageBrush>
                                 </Border.Background>
                                 <Border.RenderTransform>
                                     <RotateTransform x:Name="MyAnimatedTransform" Angle="0" />
