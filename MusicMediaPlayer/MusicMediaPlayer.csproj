@@ -262,6 +262,9 @@
     <Compile Include="View\MessageBoxLoading.xaml.cs">
       <DependentUpon>MessageBoxLoading.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\MessageBoxSuccessful.xaml.cs">
+      <DependentUpon>MessageBoxSuccessful.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MySong.xaml.cs">
       <DependentUpon>MySong.xaml</DependentUpon>
     </Compile>
@@ -432,6 +435,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\MessageBoxSuccessful.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MySong.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -555,6 +562,7 @@
     <Resource Include="Image\anh4.jpg" />
     <Resource Include="Image\anh5.jpg" />
     <Resource Include="Image\visualizer.gif" />
+    <Resource Include="Image\successful.gif" />
     <Content Include="Model\Database.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Database.Context.cs</LastGenOutput>
