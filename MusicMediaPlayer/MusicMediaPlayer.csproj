@@ -580,6 +580,7 @@
     <Resource Include="Image\successful.gif" />
     <Resource Include="Image\warningicon.jpg" />
     <Resource Include="Image\Japan.jpg" />
+    <Resource Include="Image\earth.jpeg" />
     <Content Include="Model\Database.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Database.Context.cs</LastGenOutput>

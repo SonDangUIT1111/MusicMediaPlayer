@@ -38,6 +38,7 @@
                 BorderThickness="0.1"
                 BorderBrush="Transparent"
                 HorizontalAlignment="Center">
+            
             <Grid>
                 <Border Background="White"
                         CornerRadius="20 0 0 20"
@@ -97,12 +98,12 @@
 
                 <Border Grid.RowSpan="4" CornerRadius="0 20 20 0" Panel.ZIndex="0">
                     <Border.Background>
-                        <!--<LinearGradientBrush>
-                            <GradientStop Color="#2af598" Offset="1"/>
-                            <GradientStop Color="#009efd" Offset="0.6"/>
-                            <GradientStop Color="#ba55d3" Offset="0.05"/>
-                        </LinearGradientBrush>-->
-                        <SolidColorBrush Color="#07BF96"/>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#F5F7F6" Offset="1"/>
+                            <GradientStop Color="#5CA0F2" Offset="0.6"/>
+                            <!--<GradientStop Color="#ba55d3" Offset="0.05"/>-->
+                        </LinearGradientBrush>
+                        <!--<SolidColorBrush Color="#07BF96"/>-->
                     </Border.Background>
                     <!--<Image Source="/image/universe2.jpg" Opacity="0.1"
                        Stretch="UniformToFill"></Image>-->
@@ -145,7 +146,7 @@
                     <Button Height="75"
                         Width="75"
                         HorizontalAlignment="Center"
-                        Margin="0,20,0,0"
+                        Margin="0,5,0,0"
                         Foreground="White"
                         Style="{StaticResource NormalButton}"
                         RenderTransformOrigin="0.5,0.5">
@@ -167,11 +168,11 @@
                         </Button.Triggers>
                     </Button>
                     <TextBlock Text="Music Universe"
-                           FontSize="20"
+                           FontSize="25"
                            FontWeight="Bold"
                            HorizontalAlignment="Center"
                            Foreground="White"
-                           FontFamily="Candara"
+                           FontFamily="Roboto"
                            Margin="0,10,0,0"></TextBlock>
                 </StackPanel>
                 <StackPanel Grid.Row="1" Grid.RowSpan="3">
@@ -179,23 +180,26 @@
                         <StackPanel Orientation="Horizontal">
                             <TextBox x:Name="Account"
                         materialDesign:HintAssist.Hint="User Name"
+                         materialDesign:HintAssist.Foreground="AliceBlue"
+                         
                         FontSize="15"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        Foreground="White"
                         Background="Transparent"
                         BorderThickness="0"
                         Height="auto"
                         Width="210"
                         HorizontalAlignment="Center"
                         Margin="30,0,0,0"
-                        Text="{Binding Username}"
+                        Text="{Binding Username}" FontWeight="SemiBold"
                          
                         />
-                            <materialDesign:PackIcon Kind="AccountOutline"
+                            <materialDesign:PackIcon Kind="Account"
                                                  Height="25"
                                                  Width="25"
                                                  Foreground="White"
                                                  Margin="0,10,0,0"
-                                                 Opacity="0.8"/>
+                                                 Opacity="0.5"/>
                         </StackPanel>
                         <Border BorderBrush="White"
                         Height="1"
@@ -207,8 +211,12 @@
                         <StackPanel Orientation="Horizontal">
                             <PasswordBox x:Name="Password"
                         materialDesign:HintAssist.Hint="Password"
+                        materialDesign:HintAssist.Foreground="AliceBlue"
                         FontSize="15"
                         Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                        
+                          FontWeight="SemiBold"
+                                         Foreground="White"
                         Background="Transparent"
                         BorderThickness="0"
                         Height="auto"
@@ -227,7 +235,7 @@
                                                  Width="25"
                                                  Foreground="White"
                                                  Margin="0,10,0,0"
-                                                 Opacity="0.8"/>
+                                                 Opacity="0.5"/>
                         </StackPanel>
                         <Border BorderBrush="White"
                         Height="1"
@@ -242,12 +250,12 @@
                         Padding="0" 
                         HorizontalContentAlignment="Right" 
                         VerticalContentAlignment="Center" 
-                        FontSize="12" 
-                        FontWeight="Medium" 
+                        FontSize="11" 
+                        FontWeight="SemiBold" 
                         Cursor="Hand" 
                         FocusVisualStyle="{x:Null}"
                         Background="{x:Null}" 
-                        Foreground="{DynamicResource Secondary}" 
+                        Foreground="#444444" 
                         BorderBrush="{x:Null}" 
                         Margin="150,0,30,0"
                         IsTabStop="False"
@@ -256,15 +264,15 @@
                         Command="{Binding ToForgotPassword}"
                         CommandParameter="{Binding ElementName=LoginWindow}">
                         </Button>
-                        <Button Width="100" Height="40"  
+                        <Button Width="118" Height="40"  
                             Content="Login"
                             IsDefault="True"
                             HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
                             Style="{StaticResource ContactButton}"
                             Margin="0,10,0,0"
                             Command="{Binding LoginSuccess}"
-                            CommandParameter="{Binding ElementName=LoginWindow}"/>
+                            CommandParameter="{Binding ElementName=LoginWindow}"
+                                />
                         <StackPanel Orientation="Horizontal"
                                 Margin="0,10,0,0">
                             <TextBlock Text="Don't have an accout ?"
@@ -283,7 +291,7 @@
                                     Cursor="Hand" 
                                     FocusVisualStyle="{x:Null}"
                                     Background="{x:Null}" 
-                                    Foreground="{DynamicResource Secondary}" 
+                                    Foreground="#444444" 
                                     BorderBrush="{x:Null}" 
                                     Margin="5,0,30,0"
                                     IsTabStop="False"
