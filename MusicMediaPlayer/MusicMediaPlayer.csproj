@@ -581,6 +581,11 @@
     <Resource Include="Image\warningicon.jpg" />
     <Resource Include="Image\Japan.jpg" />
     <Resource Include="Image\earth.jpeg" />
+    <Resource Include="Image\logo.png" />
+    <Resource Include="Image\logo4.png" />
+    <Resource Include="Image\logo5.png" />
+    <Resource Include="Image\logo6.jpg" />
+    <Resource Include="Image\dang_nghe_nhac.jpg" />
     <Content Include="Model\Database.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Database.Context.cs</LastGenOutput>
