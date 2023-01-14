@@ -317,6 +317,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ResourceProject\CloseWindowButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ResourceProject\CPButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

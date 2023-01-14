@@ -22,13 +22,6 @@
         Name="LoginWindow"
         Icon="IconApp.ico"
         >
-    <Window.Resources>
-        <ResourceDictionary>
-            <BitmapImage x:Key="ImageTransition1" UriSource="/Image/Streaming2017.jpg"></BitmapImage>
-            <BitmapImage x:Key="ImageTransition2" UriSource="/Image/streamingimage2.jpg"></BitmapImage>
-            <BitmapImage x:Key="ImageTransition3" UriSource="/Image/talk-about-faverte-music-1024x682.jpg"></BitmapImage>
-        </ResourceDictionary>
-    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="500"></ColumnDefinition>
@@ -44,27 +37,8 @@
             <Border.Background>
                 <ImageBrush ImageSource="/Image/dang_nghe_nhac.jpg"
                             Stretch="UniformToFill">
-
                 </ImageBrush>
             </Border.Background>
-            <!--<Border.Background>
-                <LinearGradientBrush>
-                    <GradientStop Color="#F5F7F6" Offset="1"/>
-                    <GradientStop Color="#5CA0F2" Offset="0.6"/>
-                </LinearGradientBrush>
-            </Border.Background>-->
-
-            <!--<Border 
-                        CornerRadius="20 0 0 20"
-                        x:Name="mask">
-                    <Border.Background>
-                        <ImageBrush ImageSource="/Image/dang_nghe_nhac.jpg"
-                                    Stretch="UniformToFill">
-                            
-                        </ImageBrush>
-                    </Border.Background>
-                </Border>-->
-
             <!--<Image Source="/Image/dang_nghe_nhac.jpg"
                        Stretch="UniformToFill"
                    >
@@ -130,17 +104,13 @@
                     <Border.Background>
                         <LinearGradientBrush>
                             <GradientStop Color="#F5F7F6" Offset="1"/>
-                            <GradientStop Color="#5CA0F2" Offset="0.6"/>
-                            <!--<GradientStop Color="#ba55d3" Offset="0.05"/>-->
+                            <!--<GradientStop Color="#5CA0F2" Offset="0.6"/>-->
                         </LinearGradientBrush>
-                        <!--<SolidColorBrush Color="#07BF96"/>-->
                     </Border.Background>
-                    <!--<Image Source="/image/universe2.jpg" Opacity="0.1"
-                       Stretch="UniformToFill"></Image>-->
                 </Border>
                 <Ellipse Width="200"
                          Height="200"
-                         Fill="#FFFFFF"
+                         Fill="#5CA0F2"
                          Opacity="0.1"
                          Stroke="Transparent" 
                          Margin="219,140,-119,-90" 
@@ -148,7 +118,7 @@
                          Panel.ZIndex="0" Grid.RowSpan="3"/>
                 <Ellipse Width="200"
                          Height="200"
-                         Fill="#FFFFFF"
+                         Fill="#5CA0F2"
                          Opacity="0.2"
                          Stroke="Transparent" 
                          Margin="-50,127,150,-77" 
@@ -156,7 +126,7 @@
                          Panel.ZIndex="0" Grid.RowSpan="3"/>
                 <Ellipse Width="100"
                          Height="100"
-                         Fill="#FFFFFF"
+                         Fill="#5CA0F2"
                          Opacity="0.2"
                          Stroke="Transparent" 
                          Margin="-34,190,234,0" 
@@ -164,7 +134,7 @@
                          Panel.ZIndex="0" VerticalAlignment="Top" Grid.RowSpan="3"/>
                 <Ellipse Width="300"
                          Height="300"
-                         Fill="#FFFFFF"
+                         Fill="#5CA0F2"
                          Opacity="0.2"
                          Stroke="Transparent" 
                          Margin="100,54,-100,-104" 
@@ -172,7 +142,7 @@
                          Panel.ZIndex="0" Grid.RowSpan="3"/>
 
                 <StackPanel>
-                    <uc:UserControlLoginRegister/>
+                    <uc:UserControlLoginRegister></uc:UserControlLoginRegister>
                     <Button Height="75"
                         Width="75"
                         HorizontalAlignment="Center"
@@ -181,27 +151,12 @@
                         Style="{StaticResource NormalButton}"
                         RenderTransformOrigin="0.5,0.5">
                         <Image Source="/Image/logo5.png"></Image>
-                        <!--<Button.RenderTransform>
-                            <RotateTransform x:Name="MyAnimatedTransform" Angle="0" />
-                        </Button.RenderTransform>
-                        <Button.Triggers>
-                            <EventTrigger RoutedEvent="Loaded">
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation
-                Storyboard.TargetName="MyAnimatedTransform"
-                Storyboard.TargetProperty="(RotateTransform.Angle)"
-                From="0.0" To="360" Duration="0:0:3" RepeatBehavior="Forever" />
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </Button.Triggers>-->
                     </Button>
                     <TextBlock Text="Music Universe"
                            FontSize="25"
                            FontWeight="Bold"
                            HorizontalAlignment="Center"
-                           Foreground="White"
+                           Foreground="Black"
                            FontFamily="Roboto"
                            Margin="0,10,0,0"></TextBlock>
                 </StackPanel>
@@ -210,11 +165,11 @@
                         <StackPanel Orientation="Horizontal">
                             <TextBox x:Name="Account"
                         materialDesign:HintAssist.Hint="User Name"
-                         materialDesign:HintAssist.Foreground="AliceBlue"
+                         materialDesign:HintAssist.Foreground="Black"
                          
                         FontSize="15"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                        Foreground="White"
+                        Foreground="Black"
                         Background="Transparent"
                         BorderThickness="0"
                         Height="auto"
@@ -227,11 +182,11 @@
                             <materialDesign:PackIcon Kind="Account"
                                                  Height="25"
                                                  Width="25"
-                                                 Foreground="White"
+                                                 Foreground="Black"
                                                  Margin="0,10,0,0"
                                                  Opacity="0.5"/>
                         </StackPanel>
-                        <Border BorderBrush="White"
+                        <Border BorderBrush="Black"
                         Height="1"
                         Width="240"
                         BorderThickness="10">
@@ -241,12 +196,12 @@
                         <StackPanel Orientation="Horizontal">
                             <PasswordBox x:Name="Password"
                         materialDesign:HintAssist.Hint="Password"
-                        materialDesign:HintAssist.Foreground="AliceBlue"
+                        materialDesign:HintAssist.Foreground="Black"
                         FontSize="15"
                         Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
                         
                           FontWeight="SemiBold"
-                                         Foreground="White"
+                                         Foreground="Black"
                         Background="Transparent"
                         BorderThickness="0"
                         Height="auto"
@@ -263,11 +218,11 @@
                             <materialDesign:PackIcon Kind="KeyVariant"
                                                  Height="25"
                                                  Width="25"
-                                                 Foreground="White"
+                                                 Foreground="Black"
                                                  Margin="0,10,0,0"
                                                  Opacity="0.5"/>
                         </StackPanel>
-                        <Border BorderBrush="White"
+                        <Border BorderBrush="Black"
                         Height="1"
                         Width="240"
                         BorderThickness="10">
@@ -308,10 +263,10 @@
                         <StackPanel Orientation="Horizontal"
                                 Margin="0,30,0,0">
                             <TextBlock Text="Don't have an accout ?"
-                                   Foreground="White"
+                                   Foreground="#5CA0F2"
                                    Margin="70,0,0,0"
-                                   FontWeight="Light"
-                                   FontFamily="Candara"></TextBlock>
+                                   FontWeight="SemiBold"
+                                   FontFamily="Roboto"></TextBlock>
                             <Button 
                                     Content="Sign up" 
                                     VerticalAlignment="Top" 

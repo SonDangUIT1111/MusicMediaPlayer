@@ -27,5 +27,7 @@ namespace MusicMediaPlayer.UserControlMusic
             InitializeComponent();
             this.DataContext = ViewmodelLG = new UCLoginRegisterViewModel();
         }
+
+       
     }
 }

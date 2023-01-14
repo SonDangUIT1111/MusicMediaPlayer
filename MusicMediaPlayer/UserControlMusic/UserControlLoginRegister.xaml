@@ -30,25 +30,41 @@
                           ToolBar.OverflowMode="AsNeeded"
                           Command="{Binding MinimalWindowCommandLG}"
                           CommandParameter="{Binding ElementName=UCLogin}">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver"
+                                         Value="True">
+                                    <Setter Property="Background"
+                                            Value="Red">
+                                        
+                                    </Setter>
+                                    
+                                </Trigger>
+                            </Style.Triggers>
+                            
+                        </Style>
+                    </Button.Style>
                     <materialDesign:PackIcon Kind="WindowMinimize"
                                              Height="20"
                                              Width="20"
+                                             Foreground="#5CA0F2"
                                          />
                 </Button>
-                <Button   Background="Transparent"
-                          Foreground="White"
-                          Height="50"
-                          Width="50"
-                          Margin="0,0,0,0"
-                          BorderThickness="0"
-                          ToolTip="Close"
-                          ToolBar.OverflowMode="AsNeeded"
+                <Button
+                          Style="{StaticResource CloseWindowButton}"
+                           Height="50"
+                            Width="50"
+                            
+                          
                           Command="{Binding CloseWindowCommandLG}"
-                          CommandParameter="{Binding ElementName=UCLogin}">
+                          CommandParameter="{Binding ElementName=UCLogin}" >
                     <materialDesign:PackIcon Kind="WindowClose"
                                              Height="20"
                                              Width="20"
-                     />
+                                             Foreground="#5CA0F2"
+                                             />
+
                 </Button>
 
 

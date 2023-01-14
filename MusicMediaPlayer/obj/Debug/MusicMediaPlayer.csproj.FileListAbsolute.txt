@@ -950,3 +950,4 @@ C:\Code_VSCode2022\MusicPlayer Project\MusicMediaPlayer\obj\Debug\MusicMediaPlay
 C:\Code_VSCode2022\MusicPlayer Project\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.csproj.CopyComplete
 C:\Code_VSCode2022\MusicPlayer Project\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.exe
 C:\Code_VSCode2022\MusicPlayer Project\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.pdb
+C:\Code_VSCode2022\MusicPlayer Project\MusicMediaPlayer\obj\Debug\ResourceProject\CloseWindowButton.baml
