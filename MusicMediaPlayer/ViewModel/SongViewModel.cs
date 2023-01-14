@@ -630,6 +630,33 @@ namespace MusicMediaPlayer.ViewModel
                     artistlist = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.ArtistName == artistNewSong && x.UserId == CurrentUser.Id));
                     newSongItem.ArtistId = artistlist[0].ArtistId;
                     //
+                    //filter song to album filter
+                    ObservableCollection<Album> albumlist = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.AlbumName == albumNewSong && x.UserId == CurrentUser.Id));
+                    if (albumlist.Count == 0)
+                    {
+                        Album newAlbum = new Album();
+                        newAlbum.AlbumName = albumNewSong;
+                        newAlbum.UserId = CurrentUser.Id;
+                        newAlbum.ImageAlbumBinary = ImageBinaryAdd;
+                        DataProvider.Ins.DB.Albums.Add(newAlbum);
+                        DataProvider.Ins.DB.SaveChanges();
+                    }
+                    albumlist = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.AlbumName == albumNewSong && x.UserId == CurrentUser.Id));
+                    newSongItem.AlbumId = albumlist[0].AlbumId;
+                    //filter song to genre filter
+                    ObservableCollection<Genre> genrelist = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genres.Where(x => x.GenreName == genreNewSong && x.UserId == CurrentUser.Id));
+                    if (genrelist.Count == 0)
+                    {
+                        Genre newGenre = new Genre();
+                        newGenre.GenreName = genreNewSong;
+                        newGenre.UserId = CurrentUser.Id;
+                        newGenre.ImageGenreBinary = ImageBinaryAdd;
+                        DataProvider.Ins.DB.Genres.Add(newGenre);
+                        DataProvider.Ins.DB.SaveChanges();
+                    }
+                    genrelist = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genres.Where(x => x.GenreName == genreNewSong && x.UserId == CurrentUser.Id));
+                    newSongItem.GenreId = genrelist[0].GenreId;
+                    //
                     DataProvider.Ins.DB.Songs.Add(newSongItem);
                     DataProvider.Ins.DB.SaveChanges();
                     LoadCommon();
