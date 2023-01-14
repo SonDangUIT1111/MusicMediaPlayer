@@ -29,5 +29,8 @@ namespace MusicMediaPlayer.Model
         public virtual DbSet<Song> Songs { get; set; }
         public virtual DbSet<UserAccount> UserAccounts { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Album> Albums { get; set; }
+        public virtual DbSet<Artist> Artists { get; set; }
+        public virtual DbSet<Genre> Genres { get; set; }
     }
 }

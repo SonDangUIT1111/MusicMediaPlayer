@@ -577,6 +577,10 @@ namespace MusicMediaPlayer.ViewModel
                 }
                 try
                 {
+                    
+                    
+                    
+                    //
                     string stradd = FilePathToAdd;
                     Uri uriadd = new Uri(stradd);
                     MediaPlayer med = new MediaPlayer();
@@ -596,20 +600,37 @@ namespace MusicMediaPlayer.ViewModel
                     }
                     Converter.ByteArrayToBitmapImageConverter converter = new MusicMediaPlayer.Converter.ByteArrayToBitmapImageConverter();
                     ImageBinaryAdd = converter.ImageToBinary(uriIamge);
-                    DataProvider.Ins.DB.Songs.Add(new Song()
+
+                    //add song into database
+                    Song newSongItem = new Song();
+                    newSongItem.Artist = artistNewSong;
+                    newSongItem.SongTitle = titleNewSong;
+                    newSongItem.Genre = genreNewSong;
+                    newSongItem.Album = albumNewSong;
+                    newSongItem.FilePath = FilePathToAdd;
+                    newSongItem.ImageSongBinary = ImageBinaryAdd;
+                    newSongItem.Times = 0;
+                    newSongItem.TimeAdd = DateTime.Now;
+                    newSongItem.HowLong = timetoadd;
+                    newSongItem.IsFavourite = false;
+                    newSongItem.UserId = CurrentUser.Id;
+
+                    //
+                    //filter song to artist filter
+                    ObservableCollection<Artist> artistlist = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.ArtistName == artistNewSong && x.UserId == CurrentUser.Id));
+                    if (artistlist.Count == 0)
                     {
-                        Artist = artistNewSong,
-                        SongTitle = titleNewSong,
-                        Genre = genreNewSong,
-                        Album = albumNewSong,
-                        FilePath = FilePathToAdd,
-                        ImageSongBinary = ImageBinaryAdd,
-                        Times = 0,
-                        TimeAdd = DateTime.Now,
-                        HowLong = timetoadd,
-                        IsFavourite = false,
-                        UserId = CurrentUser.Id
-                    });
+                        Artist newArtist = new Artist();
+                        newArtist.ArtistName = artistNewSong;
+                        newArtist.UserId = CurrentUser.Id;
+                        newArtist.ImageArtistBinary = ImageBinaryAdd;
+                        DataProvider.Ins.DB.Artists.Add(newArtist);
+                        DataProvider.Ins.DB.SaveChanges();
+                    }
+                    artistlist = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.ArtistName == artistNewSong && x.UserId == CurrentUser.Id));
+                    newSongItem.ArtistId = artistlist[0].ArtistId;
+                    //
+                    DataProvider.Ins.DB.Songs.Add(newSongItem);
                     DataProvider.Ins.DB.SaveChanges();
                     LoadCommon();
                     MessageBox.Show("Add successfully");

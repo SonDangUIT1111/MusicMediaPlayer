@@ -16,6 +16,9 @@
     <EntitySetMapping Name="Songs">
       <EntityTypeMapping TypeName="MusicPlayerModel.Song">
         <MappingFragment StoreEntitySet="Song">
+          <ScalarProperty Name="GenreId" ColumnName="GenreId" />
+          <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+          <ScalarProperty Name="ArtistId" ColumnName="ArtistId" />
           <ScalarProperty Name="Album" ColumnName="Album" />
           <ScalarProperty Name="Genre" ColumnName="Genre" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -59,6 +62,36 @@
           <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
           <ScalarProperty Name="principal_id" ColumnName="principal_id" />
           <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Albums">
+      <EntityTypeMapping TypeName="MusicPlayerModel.Album">
+        <MappingFragment StoreEntitySet="Album">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ImageAlbumBinary" ColumnName="ImageAlbumBinary" />
+          <ScalarProperty Name="AlbumName" ColumnName="AlbumName" />
+          <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Artists">
+      <EntityTypeMapping TypeName="MusicPlayerModel.Artist">
+        <MappingFragment StoreEntitySet="Artist">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ImageArtistBinary" ColumnName="ImageArtistBinary" />
+          <ScalarProperty Name="ArtistName" ColumnName="ArtistName" />
+          <ScalarProperty Name="ArtistId" ColumnName="ArtistId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genres">
+      <EntityTypeMapping TypeName="MusicPlayerModel.Genre">
+        <MappingFragment StoreEntitySet="Genre">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ImageGenreBinary" ColumnName="ImageGenreBinary" />
+          <ScalarProperty Name="GenreName" ColumnName="GenreName" />
+          <ScalarProperty Name="GenreId" ColumnName="GenreId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
