@@ -190,8 +190,6 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand DeleteSong { get; set; }
         public ICommand Refresh { get; set; }
         public ICommand ChangeFavourite { get; set; }
-        public ICommand DragStarted { get; set; }
-        public ICommand DragCompleted { get; set; }
         public ICommand ChangeTime { get; set; }
         public ICommand ChangeVolumn { get; set; }
         public ICommand SkipNext { get; set; }
@@ -375,9 +373,13 @@ namespace MusicMediaPlayer.ViewModel
                 if (result == MessageBoxResult.Yes)
                 {
                     var item = p as Song;
+                    int artistid = (int)item.ArtistId;
+                    int albumid = (int)item.AlbumId;
+                    int genreid = (int)item.GenreId;
                     if (item != null)
                     {
-                        var allplaylist = DataProvider.Ins.DB.PlayLists.ToList();
+                        //xu ly playlist
+                        var allplaylist = DataProvider.Ins.DB.PlayLists.Where(x=>x.OwnerId == CurrentUser.Id).ToList();
                         foreach (Model.PlayList playlist in allplaylist)
                         {
                             var list = playlist.Songs1.ToList();
@@ -391,8 +393,27 @@ namespace MusicMediaPlayer.ViewModel
                             }
                         }
                         DataProvider.Ins.DB.Songs.Remove(item);
-                        DataProvider.Ins.DB.Songs.Remove(item);
                         DataProvider.Ins.DB.SaveChanges();
+                        // xu ly artist
+                        if (DataProvider.Ins.DB.Songs.Where(x=>x.UserId == CurrentUser.Id && x.ArtistId == artistid).Count() == 0)
+                        {
+                            ObservableCollection<Artist> artistDelete = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x=>x.UserId == CurrentUser.Id && x.ArtistId == artistid));
+                            DataProvider.Ins.DB.Artists.Remove(artistDelete[0]);
+                        }
+                        //xu ly album
+                        if (DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == albumid).Count() == 0)
+                        {
+                            ObservableCollection<Album> albumDelete = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == albumid));
+                            DataProvider.Ins.DB.Albums.Remove(albumDelete[0]);
+                        }
+                        //xu ly genre
+                        if (DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.GenreId == genreid).Count() == 0)
+                        {
+                            ObservableCollection<Genre> genreDelete = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genres.Where(x => x.UserId == CurrentUser.Id && x.GenreId == genreid));
+                            DataProvider.Ins.DB.Genres.Remove(genreDelete[0]);
+                        }
+                        DataProvider.Ins.DB.SaveChanges();
+                        //
                         MySongWindow.ListSong.Items.Refresh();
                         LoadCommon();
                         LoadEditPage();
@@ -1080,6 +1101,14 @@ namespace MusicMediaPlayer.ViewModel
                     return ((item as Song).SongTitle.IndexOf(EditSongWindow.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0
 
                     || (item as Song).Artist.IndexOf(EditSongWindow.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+            }
+            if (ListEdit.Count == 0)
+            {
+                EditSongWindow.IsThereSong.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                EditSongWindow.IsThereSong.Visibility = Visibility.Hidden;
             }
         }
 
