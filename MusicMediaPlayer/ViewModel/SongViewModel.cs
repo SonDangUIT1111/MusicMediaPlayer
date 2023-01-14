@@ -443,7 +443,95 @@ namespace MusicMediaPlayer.ViewModel
                     ArtistToChange = wd.ChangeArtistSong.Text;
                     GenreToChange = wd.ChangeGenreSong.Text;
                     AlbumToChange = wd.ChangeAlbumtSong.Text;
-
+                    int artistid = (int)SongChanging.ArtistId;
+                    int albumid = (int)SongChanging.AlbumId;
+                    int genreid = (int)SongChanging.GenreId;
+                    byte[] imagechanging = SongChanging.ImageSongBinary;
+                    //xu ly artist
+                    if (ArtistToChange != SongChanging.Artist)
+                    {
+                        ObservableCollection<Artist> artistlist = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x=>x.UserId == CurrentUser.Id && x.ArtistName == ArtistToChange));
+                        //truong hop doi ten artist sang mot ten co san
+                        if (artistlist.Count > 0)
+                        {
+                            SongChanging.ArtistId = artistlist[0].ArtistId;
+                            DataProvider.Ins.DB.SaveChanges();
+                            if (DataProvider.Ins.DB.Songs.Where(x=>x.UserId == CurrentUser.Id && x.ArtistId == artistid).Count() == 0)
+                            {
+                                ObservableCollection<Artist> artistDelete = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.ArtistId == artistid && x.UserId == CurrentUser.Id));
+                                DataProvider.Ins.DB.Artists.Remove(artistDelete[0]);
+                            }
+                        }
+                        //truong hop doi ten artist chua ton tai
+                        else
+                        {
+                            Artist newArtist = new Artist();
+                            newArtist.ArtistName = ArtistToChange;
+                            newArtist.UserId = CurrentUser.Id;
+                            newArtist.ImageArtistBinary = imagechanging;
+                            DataProvider.Ins.DB.Artists.Add(newArtist);
+                            DataProvider.Ins.DB.SaveChanges();
+                            artistlist = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.ArtistName == ArtistToChange && x.UserId == CurrentUser.Id));
+                            SongChanging.ArtistId = artistlist[0].ArtistId;
+                        }
+                    }
+                    //xu ly album
+                    if (AlbumToChange != SongChanging.Album)
+                    {
+                        ObservableCollection<Album> albumlist = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.UserId == CurrentUser.Id && x.AlbumName == AlbumToChange));
+                        //truong hop doi ten album sang mot ten co san
+                        if (albumlist.Count > 0)
+                        {
+                            SongChanging.AlbumId = albumlist[0].AlbumId;
+                            DataProvider.Ins.DB.SaveChanges();
+                            if (DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == albumid).Count() == 0)
+                            {
+                                ObservableCollection<Album> albumDelete = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.AlbumId == albumid && x.UserId == CurrentUser.Id));
+                                DataProvider.Ins.DB.Albums.Remove(albumDelete[0]);
+                            }
+                        }
+                        //truong hop doi ten album chua ton tai
+                        else
+                        {
+                            Album newAlbum = new Album();
+                            newAlbum.AlbumName = AlbumToChange;
+                            newAlbum.UserId = CurrentUser.Id;
+                            newAlbum.ImageAlbumBinary = imagechanging;
+                            DataProvider.Ins.DB.Albums.Add(newAlbum);
+                            DataProvider.Ins.DB.SaveChanges();
+                            albumlist = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.AlbumName == AlbumToChange && x.UserId == CurrentUser.Id));
+                            SongChanging.AlbumId = albumlist[0].AlbumId;
+                        }
+                    }
+                    //xu ly genre
+                    if (GenreToChange != SongChanging.Genre)
+                    {
+                        ObservableCollection<Genre> genrelist = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genres.Where(x => x.UserId == CurrentUser.Id && x.GenreName == GenreToChange));
+                        //truong hop doi ten genre sang mot ten co san
+                        if (genrelist.Count > 0)
+                        {
+                            SongChanging.GenreId = genrelist[0].GenreId;
+                            DataProvider.Ins.DB.SaveChanges();
+                            if (DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.GenreId == genreid).Count() == 0)
+                            {
+                                ObservableCollection<Genre> genreDelete = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genres.Where(x => x.GenreId == genreid && x.UserId == CurrentUser.Id));
+                                DataProvider.Ins.DB.Genres.Remove(genreDelete[0]);
+                            }
+                        }
+                        //truong hop doi ten genre chua ton tai
+                        else
+                        {
+                            Genre newGenre = new Genre();
+                            newGenre.GenreName = GenreToChange;
+                            newGenre.UserId = CurrentUser.Id;
+                            newGenre.ImageGenreBinary = imagechanging;
+                            DataProvider.Ins.DB.Genres.Add(newGenre);
+                            DataProvider.Ins.DB.SaveChanges();
+                            genrelist = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genres.Where(x => x.GenreName == GenreToChange && x.UserId == CurrentUser.Id));
+                            SongChanging.GenreId = genrelist[0].GenreId;
+                        }
+                    }
+                    //
                     SongChanging.SongTitle = TitleToChange;
                     SongChanging.Artist = ArtistToChange;
                     SongChanging.Album = AlbumToChange;
