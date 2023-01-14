@@ -7,7 +7,8 @@
       xmlns:local="clr-namespace:MusicMediaPlayer"
       xmlns:uc="clr-namespace:MusicMediaPlayer.UserControlMusic"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" 
+      d:DesignWidth="800"
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       Title="PlayList"
       Name="PL"
@@ -82,9 +83,10 @@
                     </Menu>
                 </StackPanel>
             </Grid>
+            
+            
             <Grid Height="380">
-                <ListView Margin="10 0 200 10"
-                          ItemsSource="{Binding List, Mode=TwoWay}"
+                <ListBox  ItemsSource="{Binding List, Mode=TwoWay}"
                           Name="listview"
                           SelectionMode="Single"
                           >
@@ -94,76 +96,136 @@
                                    CommandParameter="{Binding ElementName=listview}"/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
-                    <!--<ItemsControl.Template>
-                        <ControlTemplate TargetType="ListView">
-                            <Border BorderBrush="Black" BorderThickness="1" CornerRadius="15">
-                                <ItemsPresenter/>
-                            </Border>
-                        </ControlTemplate>
-                       
-                    </ItemsControl.Template>-->
 
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem">
-                            <Style.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="5">
-                                    </Setter>
-                                </Style>
-                            </Style.Resources>
-                        </Style>
-                    </ListView.ItemContainerStyle>
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel></WrapPanel>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
 
-                    <!--<ListView.ItemTemplate>-->
-                    <!--<DataTemplate>
-                            <StackPanel>
-                                <TextBlock Text="{Binding PlayListName}" VerticalAlignment="Center"></TextBlock>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>-->
-
-                    <ListView.ItemTemplate>
+                    
+                    
+                    <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Grid  Height="70"
-                                   Width="580">
-                                <StackPanel Margin="15 10 0 10"
-                                            Orientation="Horizontal">
+                            <Grid Height="205"
+                                  Width="180"
+                                  >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="135">
 
-                                    <Ellipse Height="48" Width="48" VerticalAlignment="Center">
-                                        <Ellipse.Fill>
-                                            <ImageBrush ImageSource="/Image/anh3.jpg"/>
-                                        </Ellipse.Fill>
-                                    </Ellipse>
+                                    </RowDefinition>
+                                    <RowDefinition Height="70">
 
-                                    <StackPanel Margin="15 0 0 0" Width="440">
-                                        <TextBlock Opacity="1" Text="{Binding PlayListName}" Foreground="Black" FontWeight="Bold" FontSize="20"/>
-                                        <TextBlock Opacity="1" Text="{Binding SongCount}" Foreground="Black" FontWeight="Bold" FontSize="17"></TextBlock>
+                                    </RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <Border CornerRadius="5"
+                                        Grid.Row="0"
+                                        Height="130"
+                                        Width="175"
+                                        >
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="/Image/Japan.jpg">
+                                        </ImageBrush>
+                                    </Border.Background>
+
+                                    <Border.Style>
+                                        <Style TargetType="Border">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Trigger.EnterActions>
+                                                        <BeginStoryboard>
+                                                            <Storyboard>
+                                                                <DoubleAnimation Storyboard.TargetProperty="Height"
+                                                                                 To="135"
+                                                                                 Duration="0:0:0.2"
+                                                                                 >
+                                                                </DoubleAnimation>
+                                                                <DoubleAnimation Storyboard.TargetProperty="Width"
+                                                                                 To="180"
+                                                                                 Duration="0:0:0.2"
+                                                                                 >
+                                                                </DoubleAnimation>
+                                                            </Storyboard>
+                                                        </BeginStoryboard>
+                                                    </Trigger.EnterActions>
+                                                    <Trigger.ExitActions>
+                                                        <BeginStoryboard>
+                                                            <Storyboard>
+                                                                <DoubleAnimation Storyboard.TargetProperty="Height"
+                                                                                 To="130"
+                                                                                 Duration="0:0:0.2"
+                                                                                 >
+                                                                </DoubleAnimation>
+                                                                <DoubleAnimation Storyboard.TargetProperty="Width"
+                                                                                 To="175"
+                                                                                 Duration="0:0:0.2"
+                                                                                 >
+                                                                </DoubleAnimation>
+                                                            </Storyboard>
+                                                        </BeginStoryboard>
+                                                    </Trigger.ExitActions>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Border.Style>
+
+                                </Border>
+
+                                <StackPanel Grid.Row="1"
+                                            Margin="0 5 0 0"
+                                            >
+                                    <TextBlock 
+                                               Text="{Binding PlayListName}" 
+                                               TextAlignment="Center"
+                                               Foreground="Black" 
+                                               FontWeight="Bold" 
+                                               FontSize="20" 
+                                               FontFamily="Bahnschrift SemiBold" />
+
+                                    <TextBlock 
+                                               Text="{Binding SongCount}"
+                                               TextAlignment="Center"
+                                               Foreground="Black" 
+                                               FontWeight="Bold" 
+                                               FontSize="17" 
+                                               FontFamily="Bahnschrift SemiBold" >
+
+                                    </TextBlock>
+
+                                    <StackPanel Orientation="Horizontal"
+                                                >
+                                        <Button Background="Black"
+                                                BorderThickness="0"
+                                                Height="20"
+                                                Width="75"
+                                                Content="Rename"
+                                                Foreground="White"
+                                                FontSize="10"
+                                                Margin="15 0 0 0"
+                                                Command="{Binding Source={StaticResource PlayListVM}, Path=Rename}"
+                                                CommandParameter="{Binding}"
+                                                >
+
+                                        </Button>
+                                        <Button Background="Black"
+                                                BorderThickness="0"
+                                                Height="20"
+                                                Width="75"
+                                                Content="Delete"
+                                                Foreground="White"
+                                                FontSize="10"
+                                                Command="{Binding Source={StaticResource PlayListVM}, Path=Delete}"
+                                                CommandParameter="{Binding}"
+                                                >
+                                        </Button>
                                     </StackPanel>
-
-                                    <materialDesign:PopupBox
-                                                            Margin="20 10 10 10"
-                                                            Padding="2 0 2 0">
-                                        <StackPanel>
-                                            <Button Content="Rename"
-                                                    Command="{Binding Source={StaticResource PlayListVM}, Path=Rename}"
-                                                    CommandParameter="{Binding}"
-                                                    >
-                                            </Button>
-
-                                            <Button Content="Delete" 
-                                                    Command="{Binding Source={StaticResource PlayListVM}, Path=Delete}"
-                                                    CommandParameter="{Binding}"
-                                                    >
-                                            </Button>
-                                        </StackPanel>
-
-                                    </materialDesign:PopupBox>
 
                                 </StackPanel>
                             </Grid>
                         </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                    </ListBox.ItemTemplate>
+                </ListBox>
 
             </Grid>
         </StackPanel>

@@ -28,9 +28,6 @@ namespace MusicMediaPlayer.ViewModel
         public bool IsYes = false;
         public MessageBoxYesNoViewModel()
         {
-            Title = "Exit";
-            Question = "Do you want to exit?";
-
             No = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
                 p.Close();
