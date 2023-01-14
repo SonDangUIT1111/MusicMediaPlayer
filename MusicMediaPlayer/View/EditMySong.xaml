@@ -25,20 +25,20 @@
                                    CommandParameter="{Binding ElementName=EditMySongWD}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-
-    <Grid Background="Transparent"
+    <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromRight, Duration=0:0:0.3}">
+        <Grid Background="Transparent"
           Margin="5"
           Width="1000"
           Height="1000">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="0*"/>
-        </Grid.ColumnDefinitions>
-        <Border CornerRadius="20" 
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0*"/>
+            </Grid.ColumnDefinitions>
+            <Border CornerRadius="20" 
                         BorderBrush="#1ED760"
                         BorderThickness="0"
                         Background="Black" MaxHeight="1000" MaxWidth="1000"/>
-        <TextBlock x:Name="IsThereSong"
+            <TextBlock x:Name="IsThereSong"
                    Foreground="#FFFFFF"
                    Background="Transparent"
                    FontSize="24"
@@ -48,20 +48,20 @@
                    HorizontalAlignment="Left"
                    Height="80"
                    Width="500"></TextBlock>
-        <StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Border BorderBrush="#FFFFFF"
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Border BorderBrush="#FFFFFF"
                         BorderThickness="2"
                         Width="200"
                         Height="40"
                         Margin="20,5,0,0"
                         CornerRadius="15">
-                    <StackPanel Orientation="Horizontal">
-                        <Ellipse Width="10"
+                        <StackPanel Orientation="Horizontal">
+                            <Ellipse Width="10"
                                  Height="10"
                                  Fill="#FFFFFF"
                                  Margin="10,0,0,0"></Ellipse>
-                        <TextBox x:Name="SongFilter"
+                            <TextBox x:Name="SongFilter"
                                   Width="150"
                                   Margin="10,0,0,0"
                                   Background="Transparent"
@@ -72,25 +72,25 @@
                                   VerticalAlignment="Center"
                                   materialDesign:HintAssist.Hint="Search here ..."
                           >
-                            <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="TextChanged">
-                                    <i:InvokeCommandAction Command="{Binding EditFilterChangeValue}"
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding EditFilterChangeValue}"
                                    CommandParameter="{Binding ElementName=EditMySongWD}"/>
-                                </i:EventTrigger>
-                            </i:Interaction.Triggers>
-                        </TextBox>
-                    </StackPanel>
-                </Border>
-                <StackPanel Orientation="Vertical"
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
+                        </StackPanel>
+                    </Border>
+                    <StackPanel Orientation="Vertical"
                             Margin="650,5,0,0">
-                    <Border Background="Transparent"
+                        <Border Background="Transparent"
                         Height="40"
                         Width="40"
                         BorderBrush="#ffffff"
                         Opacity="0.6"
                         BorderThickness="3"
                         CornerRadius="40">
-                        <Button
+                            <Button
                           Margin="0,0,0,0"
                           IsEnabled="False"
                           Content="{materialDesign:PackIcon Plus}"
@@ -101,26 +101,26 @@
                           HorizontalAlignment="Center"
                           VerticalAlignment="Center"
                           BorderThickness="0">
-                        </Button>
-                    </Border>
-                    <Label Content="New"
+                            </Button>
+                        </Border>
+                        <Label Content="New"
                            Foreground="#ffffff"
                            FontSize="14"
                            Opacity="0.5"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"></Label>
-                </StackPanel>
-                <StackPanel Orientation="Vertical"
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical"
                             Margin="20,5,0,0"
                             VerticalAlignment="Top"
                             HorizontalAlignment="Right">
-                    <Border Background="Transparent"
+                        <Border Background="Transparent"
                         Height="40"
                         Width="40"
                         BorderBrush="#ffffff"
                         BorderThickness="3"
                         CornerRadius="40">
-                        <Button
+                            <Button
                           Command="{Binding BackToMySong}"
                           CommandParameter="{Binding ElementName=EditMySongWD}"
                           Margin="0,0,0,0"
@@ -132,85 +132,85 @@
                           HorizontalAlignment="Center"
                           VerticalAlignment="Center"
                           BorderThickness="0">
-                        </Button>
-                    </Border>
-                    <Label Content="Back"
+                            </Button>
+                        </Border>
+                        <Label Content="Back"
                            Foreground="#ffffff"
                            FontSize="14"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"></Label>
+                    </StackPanel>
+
                 </StackPanel>
 
-            </StackPanel>
-
-            <Separator Background="Gray"
+                <Separator Background="Gray"
                        Opacity="0.4"
                        Width="1000"
                        materialDesign:ShadowAssist.ShadowEdges="Bottom"></Separator>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <RadioButton    Style="{StaticResource TabButtonMySong}"
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <RadioButton    Style="{StaticResource TabButtonMySong}"
                                 IsChecked="False"
                                 Opacity="0.5"
                                 IsEnabled="False"
                                 >My Song</RadioButton>
-                <RadioButton    Style="{StaticResource TabButtonMySong}" 
+                    <RadioButton    Style="{StaticResource TabButtonMySong}" 
                                 Opacity="0.5"
                                 IsChecked="False"
                                 IsEnabled="False">New Play</RadioButton>
-                <RadioButton    Style="{StaticResource TabButtonMySong}" 
+                    <RadioButton    Style="{StaticResource TabButtonMySong}" 
                                 Opacity="0.5"
                                 IsChecked="False"
                                 IsEnabled="False">Favourite</RadioButton>
-            </StackPanel>
-            <Separator Background="Gray"
+                </StackPanel>
+                <Separator Background="Gray"
                        Opacity="0.4"
                        Width="auto"
                        Margin="0,0,0,0"
                        materialDesign:ShadowAssist.ShadowEdges="Bottom"></Separator>
-            <StackPanel Orientation="Horizontal" 
+                <StackPanel Orientation="Horizontal" 
                             Height="20"
                             Width="880"
                             Margin="50,10,0,0">
-                <TextBlock Text="Title"
+                    <TextBlock Text="Title"
                            Foreground="#ffffff"
                            Width="200"
                            FontSize="14"
                            FontWeight="Bold"
                            FontFamily="Segoe UI Semibold"
                            Margin="20,0,0,0"/>
-                <TextBlock Text="Artist"
+                    <TextBlock Text="Artist"
                            Foreground="#ffffff"
                            Width="180"
                            FontSize="14"
                            FontWeight="Bold"
                            FontFamily="Segoe UI Semibold"
                            Margin="0,0,0,0"/>
-                <TextBlock Text="Album"
+                    <TextBlock Text="Album"
                            Foreground="#ffffff"
                            Width="120"
                            FontSize="14"
                            FontWeight="Bold"
                            FontFamily="Segoe UI Semibold"
                            Margin="0,0,0,0"/>
-                <TextBlock Text="Genre"
+                    <TextBlock Text="Genre"
                            Foreground="#ffffff"
                            Width="120"
                            FontSize="14"
                            FontWeight="Bold"
                            FontFamily="Segoe UI Semibold"
                            Margin="0,0,0,0"/>
-                <TextBlock Text="Time"
+                    <TextBlock Text="Time"
                            Foreground="#ffffff"
                            Width="80"
                            FontSize="14"
                            FontWeight="Bold"
                            FontFamily="Segoe UI Semibold"
                            Margin="0,0,0,0"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal"
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
                         Height="820"
                         Width="980">
-                <DataGrid 
+                    <DataGrid 
                   x:Name="ListSongEdit"
                   Height="800"
                   Width="950"
@@ -219,30 +219,30 @@
                   Style="{StaticResource DataGridStyle2}"  
                   CellStyle="{StaticResource DataGridCellStyle2}" 
                   RowStyle="{StaticResource DataGridRowStyle2}">
-                    <DataGrid.Columns>
-                        <DataGridTemplateColumn Width="900">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Border CornerRadius="5"
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Width="900">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Border CornerRadius="5"
                                                     BorderThickness="1"
                                                     BorderBrush="White"
                                                     Height="45"
                                                     HorizontalAlignment="Center">
-                                            <Grid>
-                                                <Border CornerRadius="5"
+                                                <Grid>
+                                                    <Border CornerRadius="5"
                                                         Width="40"
                                                         Height="50"
                                                         x:Name="mask">
-                                                    <Border.Background>
-                                                        <ImageBrush Stretch="UniformToFill"
+                                                        <Border.Background>
+                                                            <ImageBrush Stretch="UniformToFill"
                                                                     ImageSource="{Binding ImageSongBinary, Converter={StaticResource ByteToImageConverter}}">
-                                                        </ImageBrush>
-                                                    </Border.Background>
-                                                </Border>
-                                            </Grid>
-                                        </Border>
-                                        <TextBlock Text="{Binding SongTitle}"
+                                                            </ImageBrush>
+                                                        </Border.Background>
+                                                    </Border>
+                                                </Grid>
+                                            </Border>
+                                            <TextBlock Text="{Binding SongTitle}"
                                                         Width="200"
                                                         FontSize="14"
                                                         FontWeight="Bold"
@@ -252,8 +252,8 @@
                                                         HorizontalAlignment="Center"
                                                         TextTrimming="WordEllipsis"
                                                         >
-                                        </TextBlock>
-                                        <TextBlock Text="{Binding Artist}"
+                                            </TextBlock>
+                                            <TextBlock Text="{Binding Artist}"
                                                         Width="180"
                                                         FontSize="12"
                                                         Margin="0,5,0,0"
@@ -262,7 +262,7 @@
                                                         HorizontalAlignment="Center"
                                                         TextTrimming="WordEllipsis"
                                                         ></TextBlock>
-                                        <TextBlock Text="{Binding Album}"
+                                            <TextBlock Text="{Binding Album}"
                                                         Width="120"
                                                         FontSize="12"
                                                         Margin="0,5,0,0"
@@ -271,7 +271,7 @@
                                                         HorizontalAlignment="Center"
                                                         TextTrimming="WordEllipsis"
                                                         ></TextBlock>
-                                        <TextBlock Text="{Binding Genre}"
+                                            <TextBlock Text="{Binding Genre}"
                                                         Width="120"
                                                         FontSize="12"
                                                         Margin="0,5,0,0"
@@ -280,7 +280,7 @@
                                                         HorizontalAlignment="Center"
                                                         TextTrimming="WordEllipsis"
                                                         ></TextBlock>
-                                        <TextBlock Text="{Binding HowLong}"
+                                            <TextBlock Text="{Binding HowLong}"
                                                            Width="80"
                                                            FontSize="12"
                                                            Margin="0,8,0,0"
@@ -288,14 +288,14 @@
                                                            VerticalAlignment="Center"
                                                            FontWeight="Medium"
                                                            ></TextBlock>
-                                        <StackPanel>
-                                            <StackPanel Background="Transparent"
+                                            <StackPanel>
+                                                <StackPanel Background="Transparent"
                                                         Orientation="Horizontal"
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center"
                                                         Margin="10,12,0,0"
                                                         Panel.ZIndex="2">
-                                                <Button     Content="{materialDesign:PackIcon Pencil}"
+                                                    <Button     Content="{materialDesign:PackIcon Pencil}"
                                                                     Background="Transparent"
                                                                     Command="{Binding Source={StaticResource SongVM}, Path=ChangeInfoSong}"
                                                                     CommandParameter="{Binding}"
@@ -305,8 +305,8 @@
                                                                     Foreground="#009EFD"
                                                                     BorderBrush="Transparent">
 
-                                                </Button>
-                                                <Button x:Name="Del"
+                                                    </Button>
+                                                    <Button x:Name="Del"
                                                                     Background="Transparent"
                                                                     Content="{materialDesign:PackIcon DeleteCircle}"
                                                                     Command="{Binding Source={StaticResource SongVM}, Path=DeleteSong}"
@@ -316,8 +316,8 @@
                                                                     Margin="10,0,0,30"
                                                                     Foreground="#FF2C2C"
                                                                     BorderBrush="Transparent">
-                                                </Button>
-                                                <ToggleButton   VerticalAlignment="Center"
+                                                    </Button>
+                                                    <ToggleButton   VerticalAlignment="Center"
                                                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                                             IsChecked="{Binding IsFavourite}"
                                                             Foreground="HotPink"
@@ -329,21 +329,23 @@
                                                             CommandParameter="{Binding}"
                                                                 
                                                                 >
-                                                    <materialDesign:PackIcon
+                                                        <materialDesign:PackIcon
                                                                 Kind="Heart"
                                                                 Height="15"
                                                                 Width="15" />
-                                                </ToggleButton>
+                                                    </ToggleButton>
+                                                </StackPanel>
                                             </StackPanel>
                                         </StackPanel>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                    </DataGrid.Columns>
-                </DataGrid>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
 
+                </StackPanel>
             </StackPanel>
-        </StackPanel>
-    </Grid>
+        </Grid>
+    </materialDesign:TransitioningContent>
+    
 </Page>

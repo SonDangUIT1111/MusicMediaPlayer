@@ -25,7 +25,6 @@
                                    CommandParameter="{Binding ElementName=SongWD}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-
     <Grid Background="Transparent"
           Margin="5"
           Width="1000"
