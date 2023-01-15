@@ -24,6 +24,7 @@ namespace MusicMediaPlayer.Model
         public string AlbumName { get; set; }
         public byte[] ImageAlbumBinary { get; set; }
         public Nullable<int> UserId { get; set; }
+        public string Composer { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Song> Songs { get; set; }

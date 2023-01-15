@@ -8,6 +8,7 @@
     <Property Name="AlbumName" Type="nvarchar" MaxLength="100" />
     <Property Name="ImageAlbumBinary" Type="varbinary(max)" />
     <Property Name="UserId" Type="int" />
+    <Property Name="Composer" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="Artist">
     <Key>
@@ -17,6 +18,8 @@
     <Property Name="ArtistName" Type="nvarchar" MaxLength="100" />
     <Property Name="ImageArtistBinary" Type="varbinary(max)" />
     <Property Name="UserId" Type="int" />
+    <Property Name="Streams" Type="int" />
+    <Property Name="IsPopular" Type="bit" />
   </EntityType>
   <EntityType Name="Genre">
     <Key>

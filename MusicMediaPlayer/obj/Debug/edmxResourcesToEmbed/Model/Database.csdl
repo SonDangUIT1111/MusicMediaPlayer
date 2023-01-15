@@ -131,6 +131,7 @@
     <Property Name="ImageAlbumBinary" Type="Binary" MaxLength="Max" FixedLength="false" />
     <NavigationProperty Name="Songs" Relationship="MusicPlayerModel.FK_Song_Album" FromRole="Album" ToRole="Song" />
     <Property Name="UserId" Type="Int32" />
+    <Property Name="Composer" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Artist">
     <Key>
@@ -141,6 +142,8 @@
     <Property Name="ImageArtistBinary" Type="Binary" MaxLength="Max" FixedLength="false" />
     <NavigationProperty Name="Songs" Relationship="MusicPlayerModel.FK_Song_Artist" FromRole="Artist" ToRole="Song" />
     <Property Name="UserId" Type="Int32" />
+    <Property Name="Streams" Type="Int32" />
+    <Property Name="IsPopular" Type="Boolean" />
   </EntityType>
   <EntityType Name="Genre">
     <Key>

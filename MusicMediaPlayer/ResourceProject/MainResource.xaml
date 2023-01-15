@@ -6,6 +6,7 @@
     <viewmodel:MainViewModel x:Key="MVApp"></viewmodel:MainViewModel>
     <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
     <viewmodel:RegisterViewModel x:Key="RegisterVM"></viewmodel:RegisterViewModel>
+    <viewmodel:Discover_ArtistViewModel x:Key="ArtistVM"></viewmodel:Discover_ArtistViewModel>
     <converter:ByteArrayToBitmapImageConverter x:Name="binaryConverter" x:Key="ByteToImageConverter"/>
     
     

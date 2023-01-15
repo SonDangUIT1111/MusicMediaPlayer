@@ -468,6 +468,7 @@ namespace MusicMediaPlayer.ViewModel
                             Artist newArtist = new Artist();
                             newArtist.ArtistName = ArtistToChange;
                             newArtist.UserId = CurrentUser.Id;
+                            newArtist.Streams = 0;
                             newArtist.ImageArtistBinary = imagechanging;
                             DataProvider.Ins.DB.Artists.Add(newArtist);
                             DataProvider.Ins.DB.SaveChanges();
@@ -496,6 +497,7 @@ namespace MusicMediaPlayer.ViewModel
                             Album newAlbum = new Album();
                             newAlbum.AlbumName = AlbumToChange;
                             newAlbum.UserId = CurrentUser.Id;
+                            newAlbum.Composer = ArtistToChange;
                             newAlbum.ImageAlbumBinary = imagechanging;
                             DataProvider.Ins.DB.Albums.Add(newAlbum);
                             DataProvider.Ins.DB.SaveChanges();
@@ -732,6 +734,7 @@ namespace MusicMediaPlayer.ViewModel
                         Artist newArtist = new Artist();
                         newArtist.ArtistName = artistNewSong;
                         newArtist.UserId = CurrentUser.Id;
+                        newArtist.Streams = 0;
                         newArtist.ImageArtistBinary = ImageBinaryAdd;
                         DataProvider.Ins.DB.Artists.Add(newArtist);
                         DataProvider.Ins.DB.SaveChanges();
@@ -745,6 +748,7 @@ namespace MusicMediaPlayer.ViewModel
                     {
                         Album newAlbum = new Album();
                         newAlbum.AlbumName = albumNewSong;
+                        newAlbum.Composer = artistNewSong;
                         newAlbum.UserId = CurrentUser.Id;
                         newAlbum.ImageAlbumBinary = ImageBinaryAdd;
                         DataProvider.Ins.DB.Albums.Add(newAlbum);

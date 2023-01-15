@@ -13,6 +13,7 @@
           <Property Name="AlbumName" Type="nvarchar" MaxLength="100" />
           <Property Name="ImageAlbumBinary" Type="varbinary(max)" />
           <Property Name="UserId" Type="int" />
+          <Property Name="Composer" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Artist">
           <Key>
@@ -22,6 +23,8 @@
           <Property Name="ArtistName" Type="nvarchar" MaxLength="100" />
           <Property Name="ImageArtistBinary" Type="varbinary(max)" />
           <Property Name="UserId" Type="int" />
+          <Property Name="Streams" Type="int" />
+          <Property Name="IsPopular" Type="bit" />
         </EntityType>
         <EntityType Name="Genre">
           <Key>
@@ -349,6 +352,7 @@
           <Property Name="ImageAlbumBinary" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Songs" Relationship="MusicPlayerModel.FK_Song_Album" FromRole="Album" ToRole="Song" />
           <Property Name="UserId" Type="Int32" />
+          <Property Name="Composer" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Artist">
           <Key>
@@ -359,6 +363,8 @@
           <Property Name="ImageArtistBinary" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Songs" Relationship="MusicPlayerModel.FK_Song_Artist" FromRole="Artist" ToRole="Song" />
           <Property Name="UserId" Type="Int32" />
+          <Property Name="Streams" Type="Int32" />
+          <Property Name="IsPopular" Type="Boolean" />
         </EntityType>
         <EntityType Name="Genre">
           <Key>
@@ -479,6 +485,7 @@
           <EntitySetMapping Name="Albums">
             <EntityTypeMapping TypeName="MusicPlayerModel.Album">
               <MappingFragment StoreEntitySet="Album">
+                <ScalarProperty Name="Composer" ColumnName="Composer" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="ImageAlbumBinary" ColumnName="ImageAlbumBinary" />
                 <ScalarProperty Name="AlbumName" ColumnName="AlbumName" />
@@ -489,6 +496,8 @@
           <EntitySetMapping Name="Artists">
             <EntityTypeMapping TypeName="MusicPlayerModel.Artist">
               <MappingFragment StoreEntitySet="Artist">
+                <ScalarProperty Name="IsPopular" ColumnName="IsPopular" />
+                <ScalarProperty Name="Streams" ColumnName="Streams" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="ImageArtistBinary" ColumnName="ImageArtistBinary" />
                 <ScalarProperty Name="ArtistName" ColumnName="ArtistName" />
