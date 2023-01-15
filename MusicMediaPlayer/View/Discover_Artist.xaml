@@ -117,29 +117,48 @@
                     </ListBox.ItemsPanel>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Grid Height="300"
+                            <Grid Height="260"
                                   Width="225">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="180"/>
-                                    <RowDefinition Height="120"/>
-                                </Grid.RowDefinitions>
-                                <Grid Grid.Row="0">
-                                    <Button Style="{StaticResource ButtonPlayVisibility}"
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="180"/>
+                                        <RowDefinition Height="80"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0">
+                                        <Button Style="{StaticResource ButtonPlayVisibility}"
                                             Panel.ZIndex="2"
-                                            Width="60"
-                                            Height="60"
+                                            Width="50"
+                                            Height="50"
                                             Padding="0"
+                                            Margin="60,0,0,0"
                                             BorderBrush="Transparent"
                                             BorderThickness="0"
                                             Background="Transparent">
-                                        <materialDesign:PackIcon
+                                            <materialDesign:PackIcon
                                                             Foreground="#FFFFFF"
                                                             Kind="Play"
                                                             Opacity="0.8"
-                                                            Height="52"
-                                                            Width="52" />
-                                    </Button>
-                                    <Button Style="{StaticResource ButtonPlayVisibility}"
+                                                            Height="42"
+                                                            Width="42" />
+                                        </Button>
+                                        <Button Style="{StaticResource ButtonPlayVisibility}"
+                                                Panel.ZIndex="2"
+                                                Width="50"
+                                                Height="50"
+                                                Padding="0"
+                                                Margin="-60,0,0,0"
+                                                BorderBrush="Transparent"
+                                                BorderThickness="0"
+                                                Background="Transparent"
+                                                Command="{Binding Source={StaticResource ArtistVM},Path=ChangeImageArtist}"
+                                                CommandParameter="{Binding}">
+                                            <materialDesign:PackIcon
+                                                            Foreground="#FFFFFF"
+                                                            Kind="CameraPartyMode"
+                                                            Opacity="0.8"
+                                                            Height="35"
+                                                            Width="35" />
+                                        </Button>
+                                        <Button Style="{StaticResource ButtonPlayVisibility}"
                                             Panel.ZIndex="1"
                                             IsEnabled="False"
                                             Background="#333333"
@@ -149,62 +168,63 @@
                                             BorderBrush="Transparent"
                                             BorderThickness="0"
                                             >
-                                    </Button>
-                                    <Border CornerRadius="180"
+                                        </Button>
+                                        <Border CornerRadius="180"
                                         Grid.Row="0"
                                         Height="180"
                                         Width="180"
                                         Margin="0,0,0,0"
                                         Panel.ZIndex="0">
-                                        <Border.Background>
-                                            <ImageBrush ImageSource="{Binding ImageArtistBinary, Converter={StaticResource ByteToImageConverter}}"
+                                            <Border.Background>
+                                                <ImageBrush ImageSource="{Binding ImageArtistBinary, Converter={StaticResource ByteToImageConverter}}"
                                                     Stretch="UniformToFill">
-                                            </ImageBrush>
-                                        </Border.Background>
-                                    </Border>
-                                </Grid>
-                                <StackPanel Grid.Row="1"
+                                                </ImageBrush>
+                                            </Border.Background>
+                                        </Border>
+                                    </Grid>
+                                    <StackPanel Grid.Row="1"
                                             Margin="0 20 0 0">
-                                    <TextBlock 
+                                        <TextBlock 
                                                Text="{Binding ArtistName}" 
                                                TextAlignment="Center"
                                                Foreground="White" 
                                                FontWeight="SemiBold" 
                                                FontSize="20"/>
-                                    <StackPanel Orientation="Horizontal"
+                                        <StackPanel Orientation="Horizontal"
                                                 Margin="0 10 0 0"
                                                 >
-                                        <ToggleButton   VerticalAlignment="Center"
+                                            <ToggleButton   VerticalAlignment="Center"
                                                         Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                                         IsChecked="{Binding IsPopular}"
                                                         Foreground="HotPink"
                                                         Background="LightPink"
-                                                        Margin="60,-10,0,0"
+                                                        Margin="40,-10,0,0"
                                                         Width="30"
                                                         Height="30"
                                                         Command="{Binding Source={StaticResource ArtistVM},Path=ChangePopular}"
                                                         CommandParameter="{Binding}" >
-                                            <materialDesign:PackIcon
+                                                <materialDesign:PackIcon
                                                                 Kind="Heart"
                                                                 Height="20"
                                                                 Width="20" />
-                                        </ToggleButton>
-                                        <TextBlock 
+                                            </ToggleButton>
+                                            <TextBlock 
                                                Text="{Binding Streams}" 
                                                TextAlignment="Center"
                                                Foreground="#767676" 
                                                FontWeight="SemiBold" 
                                                FontSize="14"
                                                Margin="10,0,0,0"/>
-                                        <TextBlock 
+                                            <TextBlock 
                                                Text=" Streams" 
                                                TextAlignment="Center"
                                                Foreground="#767676" 
                                                FontWeight="SemiBold" 
-                                               FontSize="14"/>
+                                               FontSize="14"
+                                               Margin="0,0,0,0"/>
+                                        </StackPanel>
                                     </StackPanel>
-                                </StackPanel>
-                            </Grid>
+                                </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>

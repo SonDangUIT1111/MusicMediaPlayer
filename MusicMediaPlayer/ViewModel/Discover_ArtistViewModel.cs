@@ -1,8 +1,10 @@
-﻿using MusicMediaPlayer.Model;
+﻿using Microsoft.Win32;
+using MusicMediaPlayer.Model;
 using MusicMediaPlayer.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +12,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace MusicMediaPlayer.ViewModel
 {
@@ -23,7 +27,10 @@ namespace MusicMediaPlayer.ViewModel
         public bool IsPickAllArtist { get => _IsPickAllArtist; set => _IsPickAllArtist = value; }
         private bool _IsPickPopularArtist = false;
         public bool IsPickPopularArtist { get => _IsPickPopularArtist; set => _IsPickPopularArtist = value; }
-
+        private string _ImagePathToChange;
+        public string ImagePathToChange { get => _ImagePathToChange; set => _ImagePathToChange = value; }
+        private Artist _ArtistChanging;
+        public Artist ArtistChanging { get => _ArtistChanging; set => _ArtistChanging = value; }
         //
         public Discover_Artist ArtistWindow { get; set; }
         //
@@ -36,6 +43,10 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand AllArtist { get; set; }
         public ICommand PopularArtist { get; set; }
         public ICommand ChangePopular { get; set; }
+        public ICommand ChangeImageArtist { get; set; }
+        public ICommand ChangeImage { get; set; }
+        public ICommand Changing { get; set; }
+        public ICommand CancelChanging { get; set; }
 
         //
 
@@ -86,6 +97,65 @@ namespace MusicMediaPlayer.ViewModel
             ChangePopular = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 DataProvider.Ins.DB.SaveChanges();
+            });
+            ChangeImageArtist = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                ArtistChanging = p as Artist;
+                ChangeArtistPictureWindow changewindow = new ChangeArtistPictureWindow();
+                ImageBrush imageBrush = new ImageBrush();
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                var imagestream = new MemoryStream(ArtistChanging.ImageArtistBinary);
+                bitmap.StreamSource = imagestream;
+                bitmap.EndInit();
+                imageBrush.ImageSource = bitmap;
+                changewindow.ChangegrdSelectImg.Background = imageBrush;
+                changewindow.ShowDialog();
+            });
+            ChangeImage = new RelayCommand<Grid>((p) => { return true; }, (p) =>
+            {
+                OpenFileDialog op = new OpenFileDialog();
+                op.Title = "Insert Image";
+                op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" + "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" + "Portable Network Graphic (*.png)|*.png";
+                if (op.ShowDialog() == true)
+                {
+                    ImagePathToChange = op.FileName;
+                    ImageBrush imageBrush = new ImageBrush();
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmap.UriSource = new Uri(ImagePathToChange);
+                    bitmap.EndInit();
+                    imageBrush.ImageSource = bitmap;
+                    p.Background = imageBrush;
+                    if (p.Children.Count > 1)
+                    {
+                        p.Children.Remove(p.Children[0]);
+                        p.Children.Remove(p.Children[1]);
+                    }
+                }
+            });
+            Changing = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                var wd = p as ChangeArtistPictureWindow;
+                if (ImagePathToChange != null)
+                {
+                    Converter.ByteArrayToBitmapImageConverter converter = new MusicMediaPlayer.Converter.ByteArrayToBitmapImageConverter();
+                    byte[] BinaryImage = converter.ImageToBinary(ImagePathToChange);
+                    ArtistChanging.ImageArtistBinary = BinaryImage;
+                }
+                DataProvider.Ins.DB.SaveChanges();
+                LoadCommon();
+                ImagePathToChange = null;
+                MessageBox.Show("Succesfully changed");
+                wd.Close();
+            });
+            CancelChanging = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                var wd = p as ChangeArtistPictureWindow;
+                wd.Close();
+                ImagePathToChange = null;
             });
         }
         public void LoadAll()

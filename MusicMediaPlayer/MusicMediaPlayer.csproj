@@ -229,7 +229,6 @@
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\Discover_ArtistViewModel.cs" />
-    <Compile Include="ViewModel\EditMySongViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\PlayListViewModel.cs" />
     <Compile Include="ViewModel\PlayList_InsideViewModel.cs" />
@@ -241,6 +240,9 @@
     </Compile>
     <Compile Include="View\AddSongPlayList.xaml.cs">
       <DependentUpon>AddSongPlayList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChangeArtistPictureWindow.xaml.cs">
+      <DependentUpon>ChangeArtistPictureWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ChangePassword.xaml.cs">
       <DependentUpon>ChangePassword.xaml</DependentUpon>
@@ -357,6 +359,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AddSongPlayList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ChangeArtistPictureWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
