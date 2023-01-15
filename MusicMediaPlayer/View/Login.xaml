@@ -81,15 +81,7 @@
                     </Image.OpacityMask>-->
             <!--
                 </Image>-->
-
-
-
-
-
         </Border>
-
-
-
         <Grid Grid.Column="1">
             <Grid Height="450"
               Width="300">
