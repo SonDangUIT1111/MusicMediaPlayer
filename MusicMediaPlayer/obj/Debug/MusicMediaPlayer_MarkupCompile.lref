@@ -2,10 +2,12 @@
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\App.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\AddPlayList.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\AddSongPlayList.xaml;;
+FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\ChangeArtistPictureWindow.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\ChangePassword.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\ResourceProject\ExpanderMySongTemplate.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\AddSongToApp.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\Discover_Artist.xaml;;
+FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\Discover_ArtistSong.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\EditMySong.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\EditSongInApp.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\ForgotPassword.xaml;;
@@ -22,5 +24,4 @@ FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\UserControlMus
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\UserControlMusic\UserControlLoginRegister.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\RenamePlayList.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\SleepTimerView.xaml;;
-FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\ChangeArtistPictureWindow.xaml;;
 

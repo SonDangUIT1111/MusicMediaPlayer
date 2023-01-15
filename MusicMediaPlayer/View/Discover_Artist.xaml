@@ -124,7 +124,7 @@
                                         <RowDefinition Height="80"/>
                                     </Grid.RowDefinitions>
                                     <Grid Grid.Row="0">
-                                        <Button Style="{StaticResource ButtonPlayVisibility}"
+                                    <Button Style="{StaticResource ButtonPlayVisibility}"
                                             Panel.ZIndex="2"
                                             Width="50"
                                             Height="50"
@@ -132,8 +132,10 @@
                                             Margin="60,0,0,0"
                                             BorderBrush="Transparent"
                                             BorderThickness="0"
-                                            Background="Transparent">
-                                            <materialDesign:PackIcon
+                                            Background="Transparent"
+                                            Command="{Binding Source={StaticResource ArtistVM},Path=Explore}"
+                                            CommandParameter="{Binding}">
+                                        <materialDesign:PackIcon
                                                             Foreground="#FFFFFF"
                                                             Kind="Play"
                                                             Opacity="0.8"

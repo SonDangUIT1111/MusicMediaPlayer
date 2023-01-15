@@ -47,6 +47,7 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand ChangeImage { get; set; }
         public ICommand Changing { get; set; }
         public ICommand CancelChanging { get; set; }
+        public ICommand Explore { get; set; }
 
         //
 
@@ -156,6 +157,27 @@ namespace MusicMediaPlayer.ViewModel
                 var wd = p as ChangeArtistPictureWindow;
                 wd.Close();
                 ImagePathToChange = null;
+            });
+            Explore = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                Artist item = p as Artist;
+                Discover_ArtistSong window = new Discover_ArtistSong();
+                var windowData = window.DataContext as Discover_ArtistSongViewModel;
+                windowData.CurrentArtist = item;
+
+                ImageBrush imageBrush = new ImageBrush();
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                MemoryStream stream = new MemoryStream(item.ImageArtistBinary);
+                bitmap.StreamSource = stream;
+                bitmap.EndInit();
+                imageBrush.ImageSource = bitmap;
+                imageBrush.Stretch = Stretch.UniformToFill;
+                window.ArtistFrame.Background = imageBrush;
+                window.Name.Text = item.ArtistName;
+                window.Stream.Text = item.Streams.ToString();
+                ArtistWindow.NavigationService.Navigate(window);
             });
         }
         public void LoadAll()

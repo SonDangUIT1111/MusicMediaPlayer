@@ -228,6 +228,7 @@
     <Compile Include="Model\PlayList.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\Discover_ArtistSongViewModel.cs" />
     <Compile Include="ViewModel\Discover_ArtistViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\PlayListViewModel.cs" />
@@ -256,6 +257,9 @@
     </Compile>
     <Compile Include="View\Discover_Artist.xaml.cs">
       <DependentUpon>Discover_Artist.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Discover_ArtistSong.xaml.cs">
+      <DependentUpon>Discover_ArtistSong.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\EditMySong.xaml.cs">
       <DependentUpon>EditMySong.xaml</DependentUpon>
@@ -405,6 +409,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Discover_Artist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Discover_ArtistSong.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -566,6 +574,7 @@
     <Resource Include="Image\anh4.jpg" />
     <Resource Include="Image\anh5.jpg" />
     <Resource Include="Image\visualizer.gif" />
+    <Resource Include="Image\circlecolorgif.gif" />
     <Content Include="Model\Database.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Database.Context.cs</LastGenOutput>
