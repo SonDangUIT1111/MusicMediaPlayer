@@ -41,20 +41,28 @@ namespace MusicMediaPlayer.ViewModel
                 return sb.ToString();
             }
         }
+        private bool allow = false;
         private string currentpass;
         private string newpass;
         private string confirmnewpass;
         private string _UserName;
         private string _Password;
+        private string _NickName;
+        private string allowchangebutton = "Visible";
+        private string accept = "Hidden";
         public string PassWord { get { return _Password; } set { _Password = value; OnPropertyChanged(); } }
         public string UserName { get { return _UserName; } set { _UserName = value; OnPropertyChanged(); } }
+        public string NickName { get { return _NickName; } set { _NickName = value; OnPropertyChanged(); } }
+        public bool AllowChanging { get { return allow; } set { allow = value; OnPropertyChanged(); } }
+        public string AllowChangeButton { get { return allowchangebutton; } set { allowchangebutton = value; OnPropertyChanged(); } }
+        public string Accept { get { return accept; } set { accept = value; OnPropertyChanged(); } }
         public CurrentUserAccountModel CurrentUser { get; set; }
         public ICommand Click { get; set; }
         public ICommand CPCommand { get; set; }
         public ICommand CancelCommand { get; set; }
-        private ObservableCollection<UserAccount> userAccounts;
-        public ObservableCollection<UserAccount> users { get => userAccounts; set { userAccounts = value; OnPropertyChanged(); } }
+        public ICommand ChangeNickname { get; set; }
         public ICommand Confirm { get; set; }
+        public ICommand AcceptChanging { get; set; }
         public string CurrentPass { get { return currentpass; } set { currentpass = value; } }
         public string NewPass { get { return newpass; } set { newpass = value; } }
         public string ConfirmNewPass { get { return confirmnewpass; } set { confirmnewpass = value; } }
@@ -74,6 +82,25 @@ namespace MusicMediaPlayer.ViewModel
             {
                 ChangePassword change = p as ChangePassword;
                 change.Close();
+            });
+            ChangeNickname = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                AllowChanging = true;
+                AllowChangeButton = "Hidden";
+                Accept = "Visible";
+            });
+            AcceptChanging = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                var acc = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == UserName).SingleOrDefault();
+                if (acc != null)
+                {
+                    acc.NickName = NickName;
+                }  
+                AllowChanging = false;
+                AllowChangeButton = "Visible";
+                Accept = "Hidden";
+                DataProvider.Ins.DB.SaveChanges();
+                MessageBox.Show("Successfully changing the nickname");
             });
             Confirm = new RelayCommand<Window>((p)=> { return true; }, (p) =>
             {

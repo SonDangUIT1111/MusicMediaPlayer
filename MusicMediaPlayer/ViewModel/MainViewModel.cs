@@ -85,6 +85,8 @@ namespace MusicMediaPlayer.ViewModel
                     ProfileData.CurrentUser.Id=IDuser[0];
                     ProfileData.UserName = LoginVM.Username;
                     ProfileData.PassWord = LoginVM.Password;
+                    var acc = DataProvider.Ins.DB.UserAccounts.Where((x) => x.UserName == LoginVM.Username).SingleOrDefault();
+                    ProfileData.NickName = acc.NickName;
                     p.Show();
                 }
                 else

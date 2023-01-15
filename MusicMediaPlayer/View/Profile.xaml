@@ -26,13 +26,30 @@
             </LinearGradientBrush>
         </Grid.Background>
         <StackPanel>
-            
             <TextBox x:Name="UserName" Text="{Binding UserName}"></TextBox>
             <TextBox x:Name="Password" Text="{Binding PassWord}"></TextBox>
             <Button Style="{StaticResource CPButton}" Width="150"  Command="{Binding CPCommand}">
                 <TextBlock Text="Change Password" Foreground="AliceBlue" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
             </Button>
+            <TextBox Text="{Binding NickName}" 
+                     Height="50" 
+                     Width="300" 
+                     HorizontalAlignment="Center" 
+                     VerticalAlignment="Center" 
+                     IsEnabled="{Binding AllowChanging}"/>
+            <StackPanel Orientation="Horizontal">
+                <Button Width="60" 
+                        Margin="400 0 0 0" 
+                        Background="AliceBlue" 
+                        Command="{Binding ChangeNickname}" 
+                        Visibility="{Binding AllowChangeButton}"></Button>
+                <Button Width="60" 
+                        Margin="80 0 0 0"
+                        Background="LightGreen" 
+                        Visibility="{Binding Accept}" 
+                        Command="{Binding AcceptChanging}"></Button>
+            </StackPanel>
         </StackPanel>
-        
+
     </Grid>
 </Page>
