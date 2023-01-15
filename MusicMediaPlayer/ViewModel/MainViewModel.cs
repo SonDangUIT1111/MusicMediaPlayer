@@ -1,5 +1,6 @@
 ﻿using MusicMediaPlayer.Model;
 using MusicMediaPlayer.View;
+using Prism.Commands;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,6 +23,10 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand SwitchMyPlayList { get; set; }
         public ICommand SwitchHome { get; set; }
         public ICommand SwitchProfile { get; set; }
+
+        MainWindow mainWindow;
+
+        public ICommand Logoutcommand { get; set; }
         //view model
         MySong MySongPage { get; set; }
         View.PlayList PlayListPage { get; set; }
@@ -79,6 +84,7 @@ namespace MusicMediaPlayer.ViewModel
                     HomeData.CurrentUser.Id=IDuser[0];
                     ProfileData.CurrentUser.Id=IDuser[0];
                     ProfileData.UserName = LoginVM.Username;
+                    ProfileData.PassWord = LoginVM.Password;
                     p.Show();
                 }
                 else
@@ -103,7 +109,6 @@ namespace MusicMediaPlayer.ViewModel
             {
                 p.Content = ProfilePage;
             });
-
         }
     }
 }

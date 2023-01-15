@@ -31,8 +31,8 @@ namespace MusicMediaPlayer.Model
         public byte[] ImageSongBinary { get; set; }
         public Nullable<int> UserId { get; set; }
     
+        public virtual UserAccount UserAccount { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PlayList> PlayLists { get; set; }
-        public virtual UserAccount UserAccount { get; set; }
     }
 }

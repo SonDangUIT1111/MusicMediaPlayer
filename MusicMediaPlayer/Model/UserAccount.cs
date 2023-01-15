@@ -26,6 +26,7 @@ namespace MusicMediaPlayer.Model
         public string UserPassword { get; set; }
         public string UserEmail { get; set; }
         public byte[] UserImage { get; set; }
+        public string NickName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PlayList> PlayLists { get; set; }

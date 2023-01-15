@@ -72,7 +72,7 @@ namespace MusicMediaPlayer.ViewModel
                     foreach (Song item in SelectedItemss.SelectedItems)
                     {
                         item.PlayLists.Add(pl);
-                        pl.Songs1.Add(item);
+                        pl.Songs.Add(item);
                     }
 
                     SelectedItemss.SelectedItems.Clear();

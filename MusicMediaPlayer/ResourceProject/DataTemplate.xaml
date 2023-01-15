@@ -9,7 +9,7 @@
     <DataTemplate DataType="{x:Type vm:UCProfileViewModel}">
         <view:UserControlProFile/>
     </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:ChangePasswordViewModel}">
-        <v:ChangePassword></v:ChangePassword>
+    <DataTemplate DataType="{x:Type vm:LogoutViewModel}">
+        <v:Logout></v:Logout>
     </DataTemplate>
 </ResourceDictionary>

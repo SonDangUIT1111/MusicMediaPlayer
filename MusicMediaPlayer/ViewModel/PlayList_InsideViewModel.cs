@@ -86,13 +86,13 @@ namespace MusicMediaPlayer.ViewModel
 
                 if (dr == MessageBoxResult.Yes)
                 {
-                    var song_in_pl = pl.Songs1;
+                    var song_in_pl = pl.Songs;
 
                     foreach (Song item in song_in_pl.ToList())
                     {
                         item.PlayLists.Remove(pl);
 
-                        pl.Songs1.Remove(item);
+                        pl.Songs.Remove(item);
                     }
 
                     DataProvider.Ins.DB.PlayLists.Remove(pl);
@@ -114,7 +114,7 @@ namespace MusicMediaPlayer.ViewModel
 
                 if (dr == MessageBoxResult.Yes)
                 {
-                    pl.Songs1.Remove(p as Song);
+                    pl.Songs.Remove(p as Song);
                     pl.SongCount = pl.SongCount - 1;
                     DataProvider.Ins.DB.SaveChanges();
                     SongCount = pl.SongCount.ToString() + " Bài hát";
@@ -140,7 +140,7 @@ namespace MusicMediaPlayer.ViewModel
 
         void LoadDanhSach()
         {
-            List = new ObservableCollection<Song>(pl.Songs1);
+            List = new ObservableCollection<Song>(pl.Songs);
         }
     }
 }

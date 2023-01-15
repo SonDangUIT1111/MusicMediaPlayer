@@ -143,7 +143,8 @@
                                 <Button Style="{StaticResource ContactButton}" 
                                         Width="148"  
                                         Height="49" 
-                                        Margin="30 100 0 0">
+                                        Margin="30 100 0 0"
+                                        Command="{Binding Logoutcommand}">
                                     <Grid>
                                         <TextBlock Text= "Log out" 
                                                    Margin="10,0,24,0"/>

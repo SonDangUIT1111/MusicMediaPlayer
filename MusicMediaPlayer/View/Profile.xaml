@@ -25,7 +25,14 @@
                 <GradientStop Color="#1AA7EC"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <TextBox x:Name="UserName" Text="{Binding UserName}"></TextBox>
-        <TextBox x:Name="Password"></TextBox>
+        <StackPanel>
+            
+            <TextBox x:Name="UserName" Text="{Binding UserName}"></TextBox>
+            <TextBox x:Name="Password" Text="{Binding PassWord}"></TextBox>
+            <Button Style="{StaticResource CPButton}" Width="150"  Command="{Binding CPCommand}">
+                <TextBlock Text="Change Password" Foreground="AliceBlue" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+            </Button>
+        </StackPanel>
+        
     </Grid>
 </Page>

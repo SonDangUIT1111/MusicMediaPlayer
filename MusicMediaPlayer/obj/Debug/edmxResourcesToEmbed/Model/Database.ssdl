@@ -53,8 +53,9 @@
     <Property Name="UserPassword" Type="nvarchar(max)" />
     <Property Name="UserEmail" Type="nvarchar" MaxLength="200" />
     <Property Name="UserImage" Type="varbinary(max)" />
+    <Property Name="NickName" Type="nvarchar" MaxLength="100" />
   </EntityType>
-  <Association Name="FK__PlayList__OwnerI__5DCAEF64">
+  <Association Name="FK__PlayList__OwnerI__2C3393D0">
     <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />
     <End Role="PlayList" Type="Self.PlayList" Multiplicity="*" />
     <ReferentialConstraint>
@@ -108,7 +109,7 @@
     <EntitySet Name="Song" EntityType="Self.Song" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserAccount" EntityType="Self.UserAccount" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__PlayList__OwnerI__5DCAEF64" Association="Self.FK__PlayList__OwnerI__5DCAEF64">
+    <AssociationSet Name="FK__PlayList__OwnerI__2C3393D0" Association="Self.FK__PlayList__OwnerI__2C3393D0">
       <End Role="UserAccount" EntitySet="UserAccount" />
       <End Role="PlayList" EntitySet="PlayList" />
     </AssociationSet>
