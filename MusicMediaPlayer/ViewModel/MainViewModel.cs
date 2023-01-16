@@ -12,6 +12,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
+using System.Windows.Media;
+using System.IO;
 
 namespace MusicMediaPlayer.ViewModel
 {
@@ -82,11 +85,15 @@ namespace MusicMediaPlayer.ViewModel
                     MySongData.CurrentUser.Id = IDuser[0];
                     PlayListData.CurrentUser.Id = IDuser[0];
                     HomeData.CurrentUser.Id=IDuser[0];
+
+                    //xu ly profile
                     ProfileData.CurrentUser.Id=IDuser[0];
                     ProfileData.UserName = LoginVM.Username;
                     ProfileData.PassWord = LoginVM.Password;
                     var acc = DataProvider.Ins.DB.UserAccounts.Where((x) => x.UserName == LoginVM.Username).SingleOrDefault();
                     ProfileData.NickName = acc.NickName;
+                    ProfileData.Email = acc.UserEmail;
+                    //
                     p.Show();
                 }
                 else

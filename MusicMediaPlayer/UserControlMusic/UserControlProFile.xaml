@@ -33,7 +33,6 @@
                         <Button Style="{StaticResource ButtonIcon}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 10 0">
                             <Button.Background>
                                 <ImageBrush ImageSource="/Image/78d072b9f34c6c37d32493c50b7d9203.png" />
-
                             </Button.Background>
                         </Button>
                     </Grid>

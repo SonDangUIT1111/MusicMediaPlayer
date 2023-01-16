@@ -9,13 +9,14 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border  CornerRadius="25" BorderBrush="Transparent" BorderThickness="1" Width="150" Height="60">
+                        <Grid>
+                            <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0 0 0 0"/>
+                        </Grid>
                         <Border.Background>
                             <LinearGradientBrush>
-                                <GradientStop Color="#D7816A" Offset="0.056"/>
-                                <GradientStop Color="#BD4F6C" Offset="0.45"/>
+                                <GradientStop Color="#5CA0F2"></GradientStop>
                             </LinearGradientBrush>
                         </Border.Background>
-                        <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0 0 0 0"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -28,8 +29,7 @@
                             <Border  CornerRadius="25" BorderThickness="2" Width="150" Height="60" BorderBrush="#cacaca">
                                 <Border.Background>
                                     <LinearGradientBrush>
-                                        <GradientStop Color="#D7816A" Offset="0.056"/>
-                                        <GradientStop Color="#BD4F6C" Offset="0.45"/>
+                                        <GradientStop Color="#5CA0F2"></GradientStop>
                                     </LinearGradientBrush>
                                 </Border.Background>
                                 <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0 0 0 0"/>
