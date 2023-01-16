@@ -26,8 +26,83 @@
                 <GradientStop Color="#1AA7EC"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <TextBlock Text="Home"
-                   FontSize="60"
-                   Foreground="#FFFFFF"/>
+        <Grid Height="200"
+          Margin="50,0,0,0"
+          Width="550">
+            <StackPanel Orientation="Horizontal"
+                    Margin="0,0,0,0">
+                <Button x:Name="C"
+                    Height="200"
+                    Width="50"/>
+                <Button x:Name="D"
+                    Height="200"
+                    Width="50"/>
+                <Button x:Name="E"
+                    Height="200"
+                    Width="50"/>
+                <Button x:Name="F"
+                    Height="200"
+                    Width="50"/>
+                <Button x:Name="G"
+                    Height="200"
+                    Width="50"/>
+                <Button x:Name="A"
+                    Height="200"
+                    Width="50"/>
+                <Button x:Name="B"
+                    Height="200"
+                    Width="50"/>
+                <Button x:Name="C1"
+                    Height="200"
+                    Width="50"/>
+                <Button x:Name="D1"
+                    Height="200"
+                    Width="50"/>
+                <Button x:Name="E1"
+                    Height="200"
+                    Width="50"/>
+                <Button x:Name="F1"
+                    Height="200"
+                    Width="50"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                    Margin="25,-100,0,0">
+                <Button x:Name="CSharp"
+                    Height="100"
+                    Width="50"
+                    Background="Black"/>
+                <Button x:Name="DSharp"
+                    Height="100"
+                    Width="50"
+                    Background="Black"
+                    Margin="0,0,0,0"/>
+                <Button x:Name="FSharp"
+                    Height="100"
+                    Width="50"
+                    Background="Black"
+                    Margin="50,0,0,0"/>
+                <Button x:Name="GSharp"
+                    Height="100"
+                    Width="50"
+                    Background="Black"
+                    Margin="0,0,0,0"/>
+                <Button x:Name="ASharp"
+                    Height="100"
+                    Width="50"
+                    Background="Black"
+                    Margin="0,0,0,0"/>
+                <Button x:Name="CSharp1"
+                    Height="100"
+                    Width="50"
+                    Background="Black"
+                    Margin="50,0,0,0"/>
+                <Button x:Name="DSharp1"
+                    Height="100"
+                    Width="50"
+                    Background="Black"
+                    Margin="0,0,0,0"/>
+
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>
