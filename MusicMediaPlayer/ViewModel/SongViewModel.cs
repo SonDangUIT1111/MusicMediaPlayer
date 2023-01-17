@@ -24,7 +24,7 @@ namespace MusicMediaPlayer.ViewModel
 
     public class SongViewModel : BaseViewModel
     {
-        private MediaPlayer mediaPlayer = new MediaPlayer();
+        public MediaPlayer mediaPlayer = new MediaPlayer();
         private ObservableCollection<Song> _List;
         public ObservableCollection<Song> List { get => _List; set { _List = value; OnPropertyChanged(); } }
         private ObservableCollection<Song> _ListEdit;
@@ -43,6 +43,7 @@ namespace MusicMediaPlayer.ViewModel
         public Slider sliProgress { get; set; }
         public Grid MainViewProgram { get; set; }
         public Grid PlayerBar { get; set; }
+        public Grid PlayerBarArtist { get; set; }
         public CurrentUserAccountModel CurrentUser { get; set; }
         public DispatcherTimer SleepTimer { get; set; }
         private Song _SelectedItem;
@@ -58,6 +59,7 @@ namespace MusicMediaPlayer.ViewModel
                     try
                     {
                         MainViewProgram.Height = 650;
+                        PlayerBarArtist.Visibility = Visibility.Hidden;
                         PlayerBar.Visibility = Visibility.Visible;
                         SkipPreviousbtn.IsEnabled = true;
                         SkipNextbtn.IsEnabled = true;
@@ -382,12 +384,12 @@ namespace MusicMediaPlayer.ViewModel
                         var allplaylist = DataProvider.Ins.DB.PlayLists.Where(x=>x.OwnerId == CurrentUser.Id).ToList();
                         foreach (Model.PlayList playlist in allplaylist)
                         {
-                            var list = playlist.Songs1.ToList();
+                            var list = playlist.Songs.ToList();
                             foreach (Song song in list)
                             {
                                 if (song == item)
                                 {
-                                    playlist.Songs1.Remove(item);
+                                    playlist.Songs.Remove(item);
                                     playlist.SongCount--;
                                 }
                             }
@@ -710,7 +712,7 @@ namespace MusicMediaPlayer.ViewModel
                         timetoadd = String.Format("{0}", med.NaturalDuration.TimeSpan.ToString(@"mm\:ss"));
                     }
                     Converter.ByteArrayToBitmapImageConverter converter = new MusicMediaPlayer.Converter.ByteArrayToBitmapImageConverter();
-                    ImageBinaryAdd = converter.ImageToBinary(uriIamge);
+                    ImageBinaryAdd = converter.ImageToBinary(uriImage);
 
                     //add song into database
                     Song newSongItem = new Song();

@@ -13,10 +13,10 @@
       TextOptions.TextFormattingMode="Ideal"
       TextOptions.TextRenderingMode="Auto"
       FontFamily="{DynamicResource MaterialDesignFont}"
-      d:DesignHeight="1000" d:DesignWidth="1000"
+      d:DesignHeight="2000" d:DesignWidth="1000"
       Title="Discover_ArtistSong"
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-      x:Name="ArtistSongWD"
+      Name="ArtistSongWD"
       DataContext="{StaticResource ArtistSongVM}">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
@@ -28,12 +28,97 @@
         <Grid Background="Transparent"
           Margin="5"
           Width="1000"
-          Height="1000">
+          Height="2000">
             <Border x:Name="OutsideBackground"
                         CornerRadius="20" 
                         BorderBrush="#1ED760"
                         BorderThickness="0"
-                        Background="Black" MaxHeight="1000" MaxWidth="1000"/>
+                        Background="Black" MaxHeight="2000" MaxWidth="1000"/>
+            <StackPanel Orientation="Horizontal"
+                    Margin="160,570,0,0" 
+                    Width="652"
+                    Visibility="Hidden"
+                    Panel.ZIndex="2">
+                <ToggleButton
+                            x:Name="RandomLoop"
+                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                            IsChecked="False"
+                            Margin="10,0,5,0"
+                            Visibility="Hidden"
+                            Background="#1ED760"
+                            
+                                                >
+                    <materialDesign:PackIcon
+                                                Kind="ShuffleVariant"
+                                                Height="21"
+                                                Width="21"
+                                                Foreground="White"/>
+                </ToggleButton>
+                <Button
+                          Command="{Binding SkipPrevious}"
+                          Margin="0,0,5,0"
+                          Content="{materialDesign:PackIcon SkipPrevious}"
+                          Background="Transparent"
+                          Foreground="White"
+                          Visibility="Hidden"
+                          BorderBrush="Transparent"/>
+                <ToggleButton
+                          x:Name="Play"
+                          Margin="0,0,0,0"
+                          Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                          Content="{materialDesign:PackIcon Play}"
+                          Background="Transparent"
+                          Foreground="White"
+                          BorderBrush="Transparent"
+                          Visibility="Hidden"
+                          IsEnabled="False"/>
+                <ToggleButton
+                          x:Name="Pause"
+                          Visibility="Hidden"
+                          Margin="-40,0,0,0"
+                          Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                          Content="{materialDesign:PackIcon Pause}"
+                          Background="Transparent"
+                          Foreground="White"
+                          BorderBrush="Transparent"
+                          IsEnabled="False"/>
+                <Button
+                          Command="{Binding SkipNext}"
+                          Margin="0,0,5,0"
+                          Visibility="Hidden"
+                          Content="{materialDesign:PackIcon SkipNext}"
+                          Background="Transparent"
+                          Foreground="White"
+                          BorderBrush="Transparent"/>
+                <ToggleButton
+                            x:Name="SequencecyLoop"
+                            Visibility="Hidden"
+                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                            IsChecked="True"
+                            Margin="0,0,5,0"
+
+                            Foreground="White"
+                            Background="#1ED760"
+                                                >
+                    <materialDesign:PackIcon
+                                                Kind="ShuffleDisabled"
+                                                Height="21"
+                                                Width="21" />
+                </ToggleButton>
+                <ToggleButton
+                            x:Name="OneLoop"
+                            Visibility="Hidden"
+                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                            IsChecked="False"
+                            Margin="0,0,5,0"
+                            Foreground="White"
+                            Background="#1ED760">
+                    <materialDesign:PackIcon
+                                                Kind="Loop"
+                                                Height="21"
+                                                Width="21" />
+                </ToggleButton>
+            </StackPanel>
             <StackPanel>
                 <Grid x:Name="ArtistBackground"
                   Height="400"
@@ -55,7 +140,7 @@
                     <StackPanel Height="150"
                             VerticalAlignment="Bottom"
                             Panel.ZIndex="2">
-                        <TextBlock x:Name="Name"
+                        <TextBlock x:Name="NameArtist"
                                Height="80"
                                FontSize="42"
                                FontWeight="Medium"
@@ -363,6 +448,7 @@
                   Width="950"
                   Margin="0,0,0,0"
                   ItemsSource="{Binding ListSong}"
+                  SelectedItem="{Binding SelectedItem}"
                   Style="{StaticResource DataGridStyle1}"  
                   CellStyle="{StaticResource DataGridCellStyle1}" 
                   RowStyle="{StaticResource DataGridRowStyle1}">

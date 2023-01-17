@@ -1,5 +1,6 @@
 ﻿using MusicMediaPlayer.Model;
 using MusicMediaPlayer.View;
+using Prism.Commands;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,6 +12,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
+using System.Windows.Media;
+using System.IO;
 
 namespace MusicMediaPlayer.ViewModel
 {
@@ -22,11 +26,17 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand SwitchMyPlayList { get; set; }
         public ICommand SwitchHome { get; set; }
         public ICommand SwitchProfile { get; set; }
+        public ICommand SwitchArtist { get; set; }
+
+        MainWindow mainWindow;
+
+        public ICommand Logoutcommand { get; set; }
         //view model
         MySong MySongPage { get; set; }
         View.PlayList PlayListPage { get; set; }
         Home HomePage { get; set; }
-        Profile ProfilePage { get; set; }   
+        Profile ProfilePage { get; set; } 
+        Discover_Artist ArtistPage { get; set; }
         //information
         public CurrentUserAccountModel CurrentUser
         {
@@ -48,12 +58,14 @@ namespace MusicMediaPlayer.ViewModel
             PlayListPage = new View.PlayList();
             HomePage = new Home();
             ProfilePage = new Profile();
+            ArtistPage = new Discover_Artist();
 
             //
             var MySongData = MySongPage.DataContext as SongViewModel;
             var PlayListData = PlayListPage.DataContext as PlayListViewModel;
             var HomeData = HomePage.DataContext as HomeViewModel;
-            var ProfileData = ProfilePage.DataContext as ProfileViewModel;  
+            var ProfileData = ProfilePage.DataContext as ProfileViewModel;
+            var ArtistData = ArtistPage.DataContext as Discover_ArtistViewModel;
             //
             LoadedTurnOnLogin = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
@@ -73,14 +85,21 @@ namespace MusicMediaPlayer.ViewModel
                 {
                     //truyen du lieu qua cac view
                     CurrentUser.UserName = LoginVM.Username;
-                    ObservableCollection<int> IDuser = new ObservableCollection<int>(DataProvider.Ins.DB.UserAccount.Where(x => x.UserName == LoginVM.Username).Select(x => x.UserId));
-                    MySongData.CurrentUser.Id = IDuser[0];
+                    ObservableCollection<int> IDuser = new ObservableCollection<int>(DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == LoginVM.Username).Select(x => x.UserId));
                     PlayListData.CurrentUser.Id = IDuser[0];
                     HomeData.CurrentUser.Id=IDuser[0];
+
+                    //xu ly profile
                     ProfileData.CurrentUser.Id=IDuser[0];
                     ProfileData.UserName = LoginVM.Username;
+                    ProfileData.PassWord = LoginVM.Password;
+                    var acc = DataProvider.Ins.DB.UserAccounts.Where((x) => x.UserName == LoginVM.Username).SingleOrDefault();
+                    ProfileData.NickName = acc.NickName;
+                    ProfileData.Email = acc.UserEmail;
+                    //
 
                     //my song window
+                    MySongData.CurrentUser.Id = IDuser[0];
                     MySongData.SkipNextbtn = window.SkipNextbtn;
                     MySongData.SkipPreviousbtn = window.SkipPreviousbtn;
                     MySongData.Playbtn = window.Play;
@@ -90,6 +109,20 @@ namespace MusicMediaPlayer.ViewModel
                     MySongData.sliProgress = window.sliProgress;
                     MySongData.MainViewProgram = window.MainViewProgram;
                     MySongData.PlayerBar = window.PlayerBar;
+                    MySongData.PlayerBarArtist = window.PlayerBarArtist;
+                    //artist window
+                    ArtistData.CurrentUser.Id = IDuser[0];
+                    ArtistData.SkipNextbtn = window.SkipNextbtn2;
+                    ArtistData.SkipPreviousbtn = window.SkipPreviousbtn2;
+                    ArtistData.Playbtn = window.Play2;
+                    ArtistData.Pausebtn = window.Pause2;
+                    ArtistData.InTime = window.InTime2;
+                    ArtistData.TotalTime = window.TotalTime2;
+                    ArtistData.sliProgress = window.sliProgress2;
+                    ArtistData.MainViewProgram = window.MainViewProgram;
+                    ArtistData.PlayerBarArtist = window.PlayerBarArtist;
+                    ArtistData.PlayerBar = window.PlayerBar;
+
                     //
                     p.Show();
                 }
@@ -115,7 +148,10 @@ namespace MusicMediaPlayer.ViewModel
             {
                 p.Content = ProfilePage;
             });
-
+            SwitchArtist = new RelayCommand<Frame>((p) => { return true; }, (p) =>
+            {
+                p.Content = ArtistPage;
+            });
         }
     }
 }

@@ -205,8 +205,8 @@ namespace MusicMediaPlayer.ViewModel
             else
             {
                 //Kiểm tra user và email đăng ký có tồn tại không 
-                var UserCountm = DataProvider.Ins.DB.UserAccount.Where(x => x.UserName == Username).Count();
-                var EmailCountm = DataProvider.Ins.DB.UserAccount.Where(x => x.UserEmail == Email).Count();
+                var UserCountm = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == Username).Count();
+                var EmailCountm = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserEmail == Email).Count();
                 if (UserCountm > 0 )
                 {
                     IsSignedUp = false;
@@ -228,8 +228,8 @@ namespace MusicMediaPlayer.ViewModel
                         Converter.ByteArrayToBitmapImageConverter converter = new MusicMediaPlayer.Converter.ByteArrayToBitmapImageConverter();
                         string uriIamge = filePath;
                         byte[] newUserAvatar = converter.ImageToBinary(uriIamge);
-                        var newuser = new UserAccount() { UserName = Username, UserEmail = Email, UserPassword = passEncode, UserImage = newUserAvatar };
-                        DataProvider.Ins.DB.UserAccount.Add(newuser);
+                        var newuser = new UserAccount() { UserName = Username, NickName = Username ,UserEmail = Email, UserPassword = passEncode, UserImage = newUserAvatar };
+                        DataProvider.Ins.DB.UserAccounts.Add(newuser);
                         DataProvider.Ins.DB.SaveChanges();
                         IsSignedUp = true;
                         p.Close();
@@ -258,7 +258,7 @@ namespace MusicMediaPlayer.ViewModel
             else
             {
                 //Kiểm tra email bảo vệ có tồn tại không 
-                var EmailCountm = DataProvider.Ins.DB.UserAccount.Where(x => x.UserEmail == EmailProtected).Count();
+                var EmailCountm = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserEmail == EmailProtected).Count();
                 //email đúng
                 if (EmailCountm > 0)
                 {
@@ -340,7 +340,7 @@ namespace MusicMediaPlayer.ViewModel
             else
             {
                 string encodenewPass = CreateMD5(Base64Encode(NewPassword));
-                var acc = DataProvider.Ins.DB.UserAccount.Where(x => x.UserEmail == EmailProtected).SingleOrDefault();
+                var acc = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserEmail == EmailProtected).SingleOrDefault();
                 acc.UserPassword = encodenewPass;
                 DataProvider.Ins.DB.SaveChanges();
                 MessageBox.Show("Successfully changes password");

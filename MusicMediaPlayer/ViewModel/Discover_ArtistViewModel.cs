@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -19,6 +20,7 @@ namespace MusicMediaPlayer.ViewModel
 {
     public class Discover_ArtistViewModel:BaseViewModel
     {
+        public MediaPlayer mediaPlayer = new MediaPlayer();
         private ObservableCollection<Artist> _List;
         public ObservableCollection<Artist> List { get => _List; set { _List = value; OnPropertyChanged(); } }
 
@@ -49,12 +51,23 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand CancelChanging { get; set; }
         public ICommand Explore { get; set; }
 
-        //
+        //Passing parameter
+        public Button SkipPreviousbtn { get; set; }
+        public Button SkipNextbtn { get; set; }
+        public ToggleButton Playbtn { get; set; }
+        public ToggleButton Pausebtn { get; set; }
+        public Label InTime { get; set; }
+        public Label TotalTime { get; set; }
+        public Slider sliProgress { get; set; }
+        public Grid MainViewProgram { get; set; }
+        public Grid PlayerBar { get; set; }
+        public Grid PlayerBarArtist { get; set; }
 
+        //
         public Discover_ArtistViewModel()
         {
             CurrentUser = new CurrentUserAccountModel();
-            List = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.UserId == 12));
+            List = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.UserId == CurrentUser.Id));
 
             LoadData = new RelayCommand<Page>((p) => { return true; }, (p) =>
             {
@@ -163,6 +176,7 @@ namespace MusicMediaPlayer.ViewModel
                 Artist item = p as Artist;
                 Discover_ArtistSong window = new Discover_ArtistSong();
                 var windowData = window.DataContext as Discover_ArtistSongViewModel;
+                windowData.CurrentUser = CurrentUser;
                 windowData.CurrentArtist = item;
 
                 ImageBrush imageBrush = new ImageBrush();
@@ -175,14 +189,27 @@ namespace MusicMediaPlayer.ViewModel
                 imageBrush.ImageSource = bitmap;
                 imageBrush.Stretch = Stretch.UniformToFill;
                 window.ArtistFrame.Background = imageBrush;
-                window.Name.Text = item.ArtistName;
+                window.NameArtist.Text = item.ArtistName;
                 window.Stream.Text = item.Streams.ToString();
                 ArtistWindow.NavigationService.Navigate(window);
+
+                //passing parameter
+                windowData.SkipNextbtn = SkipNextbtn;
+                windowData.SkipPreviousbtn = SkipPreviousbtn;
+                windowData.Playbtn = Playbtn;
+                windowData.Pausebtn = Pausebtn;
+                windowData.InTime = InTime;
+                windowData.TotalTime = TotalTime;
+                windowData.sliProgress = sliProgress;
+                windowData.MainViewProgram = MainViewProgram;
+                windowData.PlayerBarArtist = PlayerBarArtist;
+                windowData.PlayerBar = PlayerBar;
+                windowData.mediaPlayer = mediaPlayer;
             });
         }
         public void LoadAll()
         {
-            List = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.UserId == 12).ToList());
+            List = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.UserId == CurrentUser.Id).ToList());
             if (List.Count == 0)
             {
                 ArtistWindow.IsThereSong.Visibility = Visibility.Visible;
@@ -203,7 +230,7 @@ namespace MusicMediaPlayer.ViewModel
         }
         public void LoadPopular()
         {
-            List = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.UserId == 12 && x.IsPopular == true).ToList());
+            List = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.UserId == CurrentUser.Id && x.IsPopular == true).ToList());
             if (List.Count == 0)
             {
                 ArtistWindow.IsThereSong.Visibility = Visibility.Visible;

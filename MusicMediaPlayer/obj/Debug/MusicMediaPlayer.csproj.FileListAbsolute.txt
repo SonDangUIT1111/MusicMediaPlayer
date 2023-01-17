@@ -743,3 +743,11 @@ C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\Discover_ArtistSong.g.cs
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\Discover_ArtistSong.baml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\MessageBoxLoading.g.cs
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\Logout.g.cs
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\bin\Debug\Prism.dll
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\bin\Debug\Prism.pdb
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\bin\Debug\Prism.xml
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\Logout.baml
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\MessageBoxLoading.baml
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\SleepTimerForArtist.g.cs
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\SleepTimerForArtist.baml

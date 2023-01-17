@@ -36,11 +36,11 @@ namespace MusicMediaPlayer.Model
         public Nullable<int> AlbumId { get; set; }
         public Nullable<int> GenreId { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PlayList> PlayLists { get; set; }
-        public virtual UserAccount UserAccount { get; set; }
         public virtual Album Album1 { get; set; }
         public virtual Artist Artist1 { get; set; }
         public virtual Genre Genre1 { get; set; }
+        public virtual UserAccount UserAccount { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PlayList> PlayLists { get; set; }
     }
 }
