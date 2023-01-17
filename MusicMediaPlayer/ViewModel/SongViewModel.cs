@@ -654,7 +654,7 @@ namespace MusicMediaPlayer.ViewModel
                 string artistNewSong = "Unknown";
                 string albumNewSong = "Unknown";
                 string genreNewSong = "Unknown";
-                string uriIamge = filePath;
+                string uriImage = filePath;
                 var MySongWindow = p as AddSongToApp;
                 if (String.IsNullOrEmpty(FilePathToAdd))
                 {
@@ -679,7 +679,7 @@ namespace MusicMediaPlayer.ViewModel
                 }
                 if (ImagePathToAdd != null)
                 {
-                    uriIamge = ImagePathToAdd;
+                    uriImage = ImagePathToAdd;
                 }
                 if (DataProvider.Ins.DB.Songs.Where(o => o.SongTitle == TitleToAdd && o.UserId == CurrentUser.Id).Count() > 0)
                 {

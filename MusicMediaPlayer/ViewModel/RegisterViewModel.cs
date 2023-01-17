@@ -3,6 +3,7 @@ using MusicMediaPlayer.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -222,7 +223,12 @@ namespace MusicMediaPlayer.ViewModel
                     //Thêm user mới vào database
                     try
                     {
-                        var newuser = new UserAccount() { UserName = Username, UserEmail = Email, UserPassword = passEncode };
+                        var projectPath = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
+                        var filePath = Path.Combine(projectPath, "Image", "logomusicapp.png");
+                        Converter.ByteArrayToBitmapImageConverter converter = new MusicMediaPlayer.Converter.ByteArrayToBitmapImageConverter();
+                        string uriIamge = filePath;
+                        byte[] newUserAvatar = converter.ImageToBinary(uriIamge);
+                        var newuser = new UserAccount() { UserName = Username, UserEmail = Email, UserPassword = passEncode, UserImage = newUserAvatar };
                         DataProvider.Ins.DB.UserAccount.Add(newuser);
                         DataProvider.Ins.DB.SaveChanges();
                         IsSignedUp = true;

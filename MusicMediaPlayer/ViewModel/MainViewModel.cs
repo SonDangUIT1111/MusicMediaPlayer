@@ -80,7 +80,7 @@ namespace MusicMediaPlayer.ViewModel
                     ProfileData.CurrentUser.Id=IDuser[0];
                     ProfileData.UserName = LoginVM.Username;
 
-
+                    //my song window
                     MySongData.SkipNextbtn = window.SkipNextbtn;
                     MySongData.SkipPreviousbtn = window.SkipPreviousbtn;
                     MySongData.Playbtn = window.Play;
@@ -90,6 +90,7 @@ namespace MusicMediaPlayer.ViewModel
                     MySongData.sliProgress = window.sliProgress;
                     MySongData.MainViewProgram = window.MainViewProgram;
                     MySongData.PlayerBar = window.PlayerBar;
+                    //
                     p.Show();
                 }
                 else
