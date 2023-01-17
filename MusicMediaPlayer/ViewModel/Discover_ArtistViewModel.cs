@@ -21,10 +21,14 @@ namespace MusicMediaPlayer.ViewModel
     public class Discover_ArtistViewModel:BaseViewModel
     {
         public MediaPlayer mediaPlayer = new MediaPlayer();
+        public MediaPlayer mediaPlayer2 = new MediaPlayer();
         private ObservableCollection<Artist> _List;
         public ObservableCollection<Artist> List { get => _List; set { _List = value; OnPropertyChanged(); } }
+        private bool _mediaPlayerIsPlaying = false;
+        public bool MediaPlayerIsPlaying { get => _mediaPlayerIsPlaying; set => _mediaPlayerIsPlaying = value; }
 
-
+        private bool _mediaPlayerIsPlaying2 = false;
+        public bool MediaPlayerIsPlaying2 { get => _mediaPlayerIsPlaying2; set => _mediaPlayerIsPlaying2 = value; }
         private bool _IsPickAllArtist = true;
         public bool IsPickAllArtist { get => _IsPickAllArtist; set => _IsPickAllArtist = value; }
         private bool _IsPickPopularArtist = false;
@@ -56,6 +60,10 @@ namespace MusicMediaPlayer.ViewModel
         public Button SkipNextbtn { get; set; }
         public ToggleButton Playbtn { get; set; }
         public ToggleButton Pausebtn { get; set; }
+        public ToggleButton PlayInvisible { get; set; }
+        public ToggleButton PauseInvisible { get; set; }
+        public ToggleButton Playbtn2 { get; set; }
+        public ToggleButton Pausebtn2 { get; set; }
         public Label InTime { get; set; }
         public Label TotalTime { get; set; }
         public Slider sliProgress { get; set; }
@@ -198,6 +206,10 @@ namespace MusicMediaPlayer.ViewModel
                 windowData.SkipPreviousbtn = SkipPreviousbtn;
                 windowData.Playbtn = Playbtn;
                 windowData.Pausebtn = Pausebtn;
+                windowData.PlayInvisible = PlayInvisible;
+                windowData.PauseInvisible = PauseInvisible;
+                windowData.Playbtn2 = Playbtn2;
+                windowData.Pausebtn2 = Pausebtn2;
                 windowData.InTime = InTime;
                 windowData.TotalTime = TotalTime;
                 windowData.sliProgress = sliProgress;
@@ -205,6 +217,10 @@ namespace MusicMediaPlayer.ViewModel
                 windowData.PlayerBarArtist = PlayerBarArtist;
                 windowData.PlayerBar = PlayerBar;
                 windowData.mediaPlayer = mediaPlayer;
+                windowData.mediaPlayer2 = mediaPlayer2;
+                windowData.MediaPlayerIsPlaying = MediaPlayerIsPlaying;
+                windowData.MediaPlayerIsPlaying2 = MediaPlayerIsPlaying2;
+                
             });
         }
         public void LoadAll()

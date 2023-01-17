@@ -104,25 +104,32 @@ namespace MusicMediaPlayer.ViewModel
                     MySongData.SkipPreviousbtn = window.SkipPreviousbtn;
                     MySongData.Playbtn = window.Play;
                     MySongData.Pausebtn = window.Pause;
+                    MySongData.Playbtn2 = window.Play2;
+                    MySongData.Pausebtn2 = window.Pause2;
                     MySongData.InTime = window.InTime;
                     MySongData.TotalTime = window.TotalTime;
                     MySongData.sliProgress = window.sliProgress;
                     MySongData.MainViewProgram = window.MainViewProgram;
                     MySongData.PlayerBar = window.PlayerBar;
                     MySongData.PlayerBarArtist = window.PlayerBarArtist;
+                    MySongData.mediaPlayer2 = ArtistData.mediaPlayer2;
                     //artist window
                     ArtistData.CurrentUser.Id = IDuser[0];
                     ArtistData.SkipNextbtn = window.SkipNextbtn2;
                     ArtistData.SkipPreviousbtn = window.SkipPreviousbtn2;
-                    ArtistData.Playbtn = window.Play2;
-                    ArtistData.Pausebtn = window.Pause2;
+                    ArtistData.Playbtn = window.Play;
+                    ArtistData.Pausebtn = window.Pause;
+                    ArtistData.Playbtn2 = window.Play2;
+                    ArtistData.Pausebtn2 = window.Pause2;
                     ArtistData.InTime = window.InTime2;
                     ArtistData.TotalTime = window.TotalTime2;
                     ArtistData.sliProgress = window.sliProgress2;
                     ArtistData.MainViewProgram = window.MainViewProgram;
                     ArtistData.PlayerBarArtist = window.PlayerBarArtist;
                     ArtistData.PlayerBar = window.PlayerBar;
-
+                    ArtistData.mediaPlayer = MySongData.mediaPlayer;
+                    ArtistData.PlayInvisible = MySongPage.Play;
+                    ArtistData.PauseInvisible = MySongPage.Pause;
                     //
                     p.Show();
                 }

@@ -25,6 +25,7 @@ namespace MusicMediaPlayer.ViewModel
     public class SongViewModel : BaseViewModel
     {
         public MediaPlayer mediaPlayer = new MediaPlayer();
+        public MediaPlayer mediaPlayer2 = new MediaPlayer();
         private ObservableCollection<Song> _List;
         public ObservableCollection<Song> List { get => _List; set { _List = value; OnPropertyChanged(); } }
         private ObservableCollection<Song> _ListEdit;
@@ -38,6 +39,8 @@ namespace MusicMediaPlayer.ViewModel
         public Button SkipNextbtn { get; set; }
         public ToggleButton Playbtn { get; set; }
         public ToggleButton Pausebtn { get; set; }
+        public ToggleButton Playbtn2 { get; set; }
+        public ToggleButton Pausebtn2 { get; set; }
         public Label InTime { get; set; }
         public Label TotalTime { get; set; }
         public Slider sliProgress { get; set; }
@@ -58,12 +61,20 @@ namespace MusicMediaPlayer.ViewModel
                 {
                     try
                     {
+                        //sync parameter main window
                         MainViewProgram.Height = 650;
                         PlayerBarArtist.Visibility = Visibility.Hidden;
                         PlayerBar.Visibility = Visibility.Visible;
                         SkipPreviousbtn.IsEnabled = true;
                         SkipNextbtn.IsEnabled = true;
+                        mediaPlayer2.Stop();
+                        MediaPlayerIsPlaying2 = false;
+                        Playbtn2.IsChecked = false;
+                        Pausebtn2.IsChecked = true;
+                        Playbtn2.Visibility = Visibility.Visible;
+                        Pausebtn2.Visibility = Visibility.Hidden;
 
+                        //
                         sliProgress.IsEnabled = true;
                         Playbtn.IsEnabled = true;
                         Playbtn.IsChecked = true;
@@ -85,8 +96,6 @@ namespace MusicMediaPlayer.ViewModel
                         MediaPlayerIsPlaying = true;
                         Playbtn.Visibility = Visibility.Hidden;
                         Pausebtn.Visibility = Visibility.Visible;
-                        MySongWindow.PlayCD.Visibility = Visibility.Hidden;
-                        MySongWindow.PauseCD.Visibility = Visibility.Visible;
                         mediaPlayer.Play();
                         DispatcherTimer timer = new DispatcherTimer();
                         timer.Interval = TimeSpan.FromSeconds(1);
@@ -127,10 +136,12 @@ namespace MusicMediaPlayer.ViewModel
         private bool _CanChangeTOP_CD = true;
         public bool CanChangeTOP_CD { get => _CanChangeTOP_CD; set => _CanChangeTOP_CD = value; }
         //
-        private bool _mediaPlayerIsPlaying = false;
         private bool _userIsDraggingSlider = false;
         public bool UserIsDraggingSlider { get => _userIsDraggingSlider; set => _userIsDraggingSlider = value; }
+        private bool _mediaPlayerIsPlaying = false;
         public bool MediaPlayerIsPlaying { get => _mediaPlayerIsPlaying; set => _mediaPlayerIsPlaying = value; }
+        private bool _mediaPlayerIsPlaying2 = false;
+        public bool MediaPlayerIsPlaying2 { get => _mediaPlayerIsPlaying2; set => _mediaPlayerIsPlaying2 = value; }
         // add,delete
         private string _TitleToAdd;
         public string TitleToAdd { get { return _TitleToAdd; } set { _TitleToAdd = value; } }
@@ -233,8 +244,6 @@ namespace MusicMediaPlayer.ViewModel
                 MySongWindow.Pause.IsChecked = false;
                 p.Play.Visibility = Visibility.Hidden;
                 p.Pause.Visibility = Visibility.Visible;
-                MySongWindow.PlayCD.Visibility = Visibility.Hidden;
-                MySongWindow.PauseCD.Visibility = Visibility.Visible;
             });
             Pause = new RelayCommand<MainWindow>((p) => { return true; }, (p) =>
             {
@@ -246,35 +255,8 @@ namespace MusicMediaPlayer.ViewModel
                 MySongWindow.Pause.IsChecked = true;
                 p.Play.Visibility = Visibility.Visible;
                 p.Pause.Visibility = Visibility.Hidden;
-                MySongWindow.PlayCD.Visibility = Visibility.Visible;
-                MySongWindow.PauseCD.Visibility = Visibility.Hidden;
             });
-            PlayShortcut = new RelayCommand<Page>((p) => { return true; }, (p) =>
-            {
-                mediaPlayer.Play();
-                MediaPlayerIsPlaying = true;
-                Playbtn.IsChecked = true;
-                MySongWindow.Play.IsChecked = true;
-                Pausebtn.IsChecked = false;
-                MySongWindow.Pause.IsChecked = false;
-                Playbtn.Visibility = Visibility.Hidden;
-                Pausebtn.Visibility = Visibility.Visible;
-                MySongWindow.PlayCD.Visibility = Visibility.Hidden;
-                MySongWindow.PauseCD.Visibility = Visibility.Visible;
-            });
-            PauseShortcut = new RelayCommand<Page>((p) => { return true; }, (p) =>
-            {
-                mediaPlayer?.Pause();
-                MediaPlayerIsPlaying = false;
-                Playbtn.IsChecked = false;
-                MySongWindow.Play.IsChecked = false;
-                Pausebtn.IsChecked = true;
-                MySongWindow.Pause.IsChecked = true;
-                Playbtn.Visibility = Visibility.Visible;
-                Pausebtn.Visibility = Visibility.Hidden;
-                MySongWindow.PlayCD.Visibility = Visibility.Visible;
-                MySongWindow.PauseCD.Visibility = Visibility.Hidden;
-            });
+          
             Stop = new RelayCommand<Page>((p) => { return true; }, (p) =>
             {
                 mediaPlayer.Stop();
@@ -973,8 +955,6 @@ namespace MusicMediaPlayer.ViewModel
                         MySongWindow.Pause.IsChecked = true;
                         Playbtn.Visibility = Visibility.Visible;
                         Pausebtn.Visibility = Visibility.Hidden;
-                        MySongWindow.PlayCD.Visibility = Visibility.Visible;
-                        MySongWindow.PauseCD.Visibility = Visibility.Hidden;
                     }
                     else if (CountTimer == 1)
                     {

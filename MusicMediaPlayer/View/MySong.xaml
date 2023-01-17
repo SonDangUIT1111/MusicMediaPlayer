@@ -674,48 +674,6 @@
                                            Text=" streams"></TextBlock>
                                 </StackPanel>
                             </StackPanel>
-                            <Border BorderBrush="Transparent"
-                                    BorderThickness="1"
-                                    CornerRadius="20"
-                                    Background="#1ED760"
-                                    x:Name="PlayCD"
-                                    Height="40"
-                                    Width="120">
-                                <Button Height="30"
-                                        Width="120"
-                                        Content="PLAY"
-                                        IsEnabled=" True"
-                                        FontSize="16"
-                                        FontWeight="Medium"
-                                        BorderBrush="Transparent"
-                                        BorderThickness="0"
-                                        Background="Transparent"
-                                        Foreground="#FFFFFF"
-                                        Command="{Binding PlayShortcut}">
-                                </Button>
-                            </Border>
-                            <Border BorderBrush="Transparent"
-                                    BorderThickness="1"
-                                    CornerRadius="20"
-                                    Background="#1ED760"
-                                    Height="40"
-                                    x:Name="PauseCD"
-                                    Visibility="Hidden"
-                                    Width="120"
-                                    Margin="0,-40,0,0">
-                                <Button Height="30"
-                                        Width="120"
-                                        Content="PAUSE"
-                                        IsEnabled="True"
-                                        FontSize="16"
-                                        FontWeight="Medium"
-                                        BorderBrush="Transparent"
-                                        BorderThickness="0"
-                                        Background="Transparent"
-                                        Foreground="#FFFFFF"
-                                        Command="{Binding PauseShortcut}">
-                                </Button>
-                            </Border>
                         </StackPanel>
                     </Expander>
                 </StackPanel>
