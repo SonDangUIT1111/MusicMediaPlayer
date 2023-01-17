@@ -196,10 +196,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converter\ByteArrayToBitmapImageConverter.cs" />
-    <Compile Include="ViewModel\AddPlayListViewModel.cs" />
-    <Compile Include="ViewModel\AddSongPlayListViewModel.cs" />
-    <Compile Include="ViewModel\ChangePasswordViewModel.cs" />
-    <Compile Include="CurrentUserAccountModel.cs" />
+    <Compile Include="Model\Album.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Artist.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\Database.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -215,10 +217,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Database.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\DataProvider.cs" />
+    <Compile Include="Model\Genre.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\PlayList.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Song.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UserAccount.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\AddPlayListViewModel.cs" />
+    <Compile Include="ViewModel\AddSongPlayListViewModel.cs" />
+    <Compile Include="ViewModel\ChangePasswordViewModel.cs" />
+    <Compile Include="CurrentUserAccountModel.cs" />
+    <Compile Include="Model\DataProvider.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\MessageBoxYesNoViewModel.cs" />
     <Compile Include="ViewModel\MVApp.cs" />
@@ -243,9 +258,6 @@
     </Compile>
     <Compile Include="View\ChangePassword.xaml.cs">
       <DependentUpon>ChangePassword.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Model\sysdiagram.cs">
-      <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\SongViewModel.cs" />
     <Compile Include="View\AddSongToApp.xaml.cs">
@@ -286,12 +298,6 @@
     </Compile>
     <Compile Include="View\Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Song.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\UserAccount.cs">
-      <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="UserControlMusic\UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
@@ -541,7 +547,18 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Model\Database.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Database.edmx</DependentUpon>
+      <LastGenOutput>Database.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\Database.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Database.edmx</DependentUpon>
+      <LastGenOutput>Database.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\poweroff.png" />
   </ItemGroup>
@@ -590,16 +607,6 @@
     <Resource Include="Image\logo5.png" />
     <Resource Include="Image\logo6.jpg" />
     <Resource Include="Image\dang_nghe_nhac.jpg" />
-    <Content Include="Model\Database.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Database.Context.cs</LastGenOutput>
-      <DependentUpon>Database.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model\Database.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Database.edmx</DependentUpon>
-      <LastGenOutput>Database.cs</LastGenOutput>
-    </Content>
     <Resource Include="View\IconApp.ico" />
   </ItemGroup>
   <ItemGroup>

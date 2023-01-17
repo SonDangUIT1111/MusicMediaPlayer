@@ -17,7 +17,7 @@ namespace MusicMediaPlayer.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Song()
         {
-            this.PlayLists = new HashSet<PlayList>();
+            this.PlayList = new HashSet<PlayList>();
         }
     
         public int SongId { get; set; }
@@ -30,9 +30,17 @@ namespace MusicMediaPlayer.Model
         public Nullable<System.DateTime> TimeAdd { get; set; }
         public byte[] ImageSongBinary { get; set; }
         public Nullable<int> UserId { get; set; }
+        public string Genre { get; set; }
+        public string Album { get; set; }
+        public Nullable<int> ArtistId { get; set; }
+        public Nullable<int> AlbumId { get; set; }
+        public Nullable<int> GenreId { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PlayList> PlayLists { get; set; }
+        public virtual Album Album1 { get; set; }
+        public virtual Artist Artist1 { get; set; }
+        public virtual Genre Genre1 { get; set; }
         public virtual UserAccount UserAccount { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PlayList> PlayList { get; set; }
     }
 }

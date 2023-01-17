@@ -55,6 +55,15 @@ namespace MusicMediaPlayer.ViewModel
 
         public bool IsSort = false;
 
+        // start test
+        private string _ImagePathToAdd;
+        public string ImagePathToAdd { get { return _ImagePathToAdd; } set { _ImagePathToAdd = value; OnPropertyChanged(); } }
+
+        private byte[] imageBinaryAdd;
+        public byte[] ImageBinaryAdd { get { return imageBinaryAdd; } set { imageBinaryAdd = value; OnPropertyChanged(); } }
+        // end test
+
+
         public PlayListViewModel()
         {
             CurrentUser = new CurrentUserAccountModel();
@@ -110,16 +119,16 @@ namespace MusicMediaPlayer.ViewModel
                 {
                     var pl = p as MusicMediaPlayer.Model.PlayList;
 
-                    var song_in_pl = pl.Songs1;
+                    var song_in_pl = pl.Song;
 
                     foreach (Song item in song_in_pl.ToList())
                     {
-                        item.PlayLists.Remove(pl);
+                        item.PlayList.Remove(pl);
 
-                        pl.Songs1.Remove(item);
+                        pl.Song.Remove(item);
                     }
 
-                    DataProvider.Ins.DB.PlayLists.Remove(pl);
+                    DataProvider.Ins.DB.PlayList.Remove(pl);
                     DataProvider.Ins.DB.SaveChanges();
                     LoadDanhSach(CurrentUser.Id);
                 }
@@ -180,7 +189,7 @@ namespace MusicMediaPlayer.ViewModel
         }
         public void LoadDanhSach(int identity)
         {
-            List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ins.DB.PlayLists.Where(x => x.OwnerId == identity));
+            List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ins.DB.PlayList.Where(x => x.OwnerId == identity));
         }
     }
 }

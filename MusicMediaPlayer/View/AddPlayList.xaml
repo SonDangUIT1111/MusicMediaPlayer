@@ -8,7 +8,19 @@
         Title="AddPlayList" Height="450" Width="800"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         DataContext="{StaticResource AddPlayListVM}"
-        Name="AddPL">
+        Name="AddPL"
+        
+        
+        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}" 
+        >
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding Load}"
@@ -16,16 +28,92 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid>
-        <StackPanel>
-            <StackPanel Orientation="Horizontal"
-                        Margin="20,20,20,0">
-                <TextBlock Text="Tên PlayList: "
-                           FontSize="20"
-                           FontStyle="Italic"
-                           FontWeight="Bold">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition>
+                
+            </ColumnDefinition>
+            <ColumnDefinition>
+                
+            </ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
-                </TextBlock>
-                <TextBox Width="550"
+        <ListView Grid.Column="0"
+                  x:Name="lv"
+                  ItemsSource="{Binding List}"
+                  SelectionMode="Multiple"
+                  >
+            
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding SelectedItems, Mode=OneWay}"
+                                               CommandParameter="{Binding ElementName=lv}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Tên"
+                                    Width="150"
+                                    DisplayMemberBinding="{Binding SongTitle}"
+                                    >
+                    </GridViewColumn>
+                    <GridViewColumn Header="Ca sĩ"
+                                    Width="150"
+                                    DisplayMemberBinding="{Binding Artist}"
+                                    >
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+
+
+        <StackPanel Grid.Column="1">
+            <StackPanel Orientation="Horizontal"
+                        Margin="0,20,20,0">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="NamePL"
+                        materialDesign:HintAssist.Hint="Playlist Name"
+                        materialDesign:HintAssist.Foreground="Black"
+                         
+                        FontSize="15"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        Foreground="Black"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Height="auto"
+                        Width="210"
+                        HorizontalAlignment="Center"
+                        Margin="30,0,0,0"
+                        Text="{Binding Username}" FontWeight="SemiBold"
+                         
+                        >
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="TextChanged">
+                                    <i:InvokeCommandAction Command="{Binding TextChanged}"
+                                                   CommandParameter="{Binding ElementName=NamePL}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </TextBox>
+                        <materialDesign:PackIcon Kind="FormTextbox"
+                                                 Height="25"
+                                                 Width="25"
+                                                 Foreground="Black"
+                                                 Margin="0,10,0,0"
+                                                 Opacity="0.5"/>
+                    </StackPanel>
+                    <Border BorderBrush="Black"
+                        Height="1"
+                        Width="240"
+                        BorderThickness="10">
+                    </Border>
+                </StackPanel>
+
+
+
+                <!--<TextBox Width="200"
                          x:Name="NamePL"
                          FontSize="15">
                     <i:Interaction.Triggers>
@@ -34,7 +122,9 @@
                                                    CommandParameter="{Binding ElementName=NamePL}"/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
-                </TextBox>
+                </TextBox>-->
+
+
                 <Button Content="Add"
                         x:Name="btnAdd"
                         Command="{Binding Add}"
@@ -43,44 +133,35 @@
 
                 </Button>
             </StackPanel>
-
-            <ListView Height="385"
-                      x:Name="lv"
-                      ItemsSource="{Binding List}"
-                      SelectionMode="Multiple"
-                     >
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="SelectionChanged">
-                        <i:InvokeCommandAction Command="{Binding SelectedItems, Mode=OneWay}"
-                                               CommandParameter="{Binding ElementName=lv}"/>
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
-                <ListView.View>
-                    <GridView>
-                        <!--<GridViewColumn Width="100">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <CheckBox>
-                                        
-                                    </CheckBox>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>-->
-                        <GridViewColumn Header="Tên"
-                                        Width="350"
-                                        DisplayMemberBinding="{Binding SongTitle}"
-                                        >
-
-                        </GridViewColumn>
-                        <GridViewColumn Header="Ca sĩ"
-                                        DisplayMemberBinding="{Binding Artist}"
-                                       >
-
-                        </GridViewColumn>
-                    </GridView>
-                </ListView.View>
-
-            </ListView>
+            <Grid 
+                  Height="150"
+                  Width="150"
+                  Margin="0 30 0 0"
+                  >
+                <Border Background="Black"
+                        CornerRadius="15"
+                        x:Name="grdSelectImg">
+                </Border>
+            </Grid>
+            <Button 
+                    x:Name="btnSelectImage"
+                    Command="{Binding AddImage}"
+                    CommandParameter="{Binding ElementName=grdSelectImg}"
+                    Height="35" 
+                    Width="100" 
+                    Content="Select Image" 
+                    FontSize="14"
+                    Foreground="#FFFFFF"
+                    Background="#1ED760"
+                    BorderBrush="Transparent"
+                    FontWeight="SemiBold" 
+                    ToolTip="Chọn ảnh"
+                    Margin="0,10,0,0" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Bottom"
+                    FocusVisualStyle="{x:Null}"
+                    Padding="0">
+            </Button>
         </StackPanel>
     </Grid>
 </Window>

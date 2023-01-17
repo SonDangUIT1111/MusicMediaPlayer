@@ -10,7 +10,11 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using MusicMediaPlayer.ViewModel;
-
+using System.Windows.Interop;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using MusicMediaPlayer.View;
+using System.IO;
 
 namespace MusicMediaPlayer.ViewModel
 {
@@ -21,6 +25,7 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand Add { get; set; }
         public ICommand TextChanged { get; set; }
         public ICommand SelectedItems { get; set; }
+        public ICommand AddImage { get; set; }
         #endregion
         public CurrentUserAccountModel CurrentUser { get; set; }
         private ObservableCollection<Song> _List;
@@ -40,14 +45,24 @@ namespace MusicMediaPlayer.ViewModel
             }
         }
 
+
+
+        //start test
+        private string _ImagePathToAdd;
+        public string ImagePathToAdd { get { return _ImagePathToAdd; } set { _ImagePathToAdd = value; OnPropertyChanged(); } }
+
+        private byte[] imageBinaryAdd;
+        public byte[] ImageBinaryAdd { get { return imageBinaryAdd; } set { imageBinaryAdd = value; OnPropertyChanged(); } }
+        //end test
+
         public AddPlayListViewModel()
         {
             CurrentUser = new CurrentUserAccountModel();
-            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id));
+            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id));
             Load = new RelayCommand<object>((p) => { return true; }, (p) =>
-             {
-                 List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id));
-             });
+            {
+                 List = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id));
+            });
             Add = new RelayCommand<Window>((p) =>
             {
                 if (string.IsNullOrEmpty(Title))
@@ -65,14 +80,32 @@ namespace MusicMediaPlayer.ViewModel
                 else
                     pl.SongCount = 0;
 
-                DataProvider.Ins.DB.PlayLists.Add(pl);
+                // start test
+                var projectPath = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
+                var filePath = Path.Combine(projectPath, "Image", "logomusicapp.png");
+                string uriIamge = filePath;
+
+                if (ImagePathToAdd != null)
+                {
+                    uriIamge = ImagePathToAdd;
+                }
+
+                Converter.ByteArrayToBitmapImageConverter converter = new MusicMediaPlayer.Converter.ByteArrayToBitmapImageConverter();
+                ImageBinaryAdd = converter.ImageToBinary(uriIamge);
+
+                pl.ImagePlaylistBinary = ImageBinaryAdd;
+
+                // end test
+
+                DataProvider.Ins.DB.PlayList.Add(pl);
+                ImagePathToAdd = null;
 
                 if (SelectedItemss != null && SelectedItemss.SelectedItems.Count > 0)
                 {
                     foreach (Song item in SelectedItemss.SelectedItems)
                     {
-                        item.PlayLists.Add(pl);
-                        pl.Songs1.Add(item);
+                        item.PlayList.Add(pl);
+                        pl.Song.Add(item);
                     }
 
                     SelectedItemss.SelectedItems.Clear();
@@ -97,6 +130,27 @@ namespace MusicMediaPlayer.ViewModel
                 SelectedItemss = p;
             }
             );
+
+
+            AddImage = new RelayCommand<Border>((p) => { return true; }, (p) =>
+            {
+                OpenFileDialog op = new OpenFileDialog();
+                op.Title = "Insert Image";
+                op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" + "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" + "Portable Network Graphic (*.png)|*.png";
+                if (op.ShowDialog() == true)
+                {
+                    ImagePathToAdd = op.FileName;
+                    ImageBrush imageBrush = new ImageBrush();
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmap.UriSource = new Uri(ImagePathToAdd);
+                    bitmap.EndInit();
+                    imageBrush.ImageSource = bitmap;
+                    p.Background = imageBrush;
+                }
+            });
+
         }
     }
 }

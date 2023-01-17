@@ -125,7 +125,8 @@
                                         Width="175"
                                         >
                                     <Border.Background>
-                                        <ImageBrush ImageSource="/Image/Japan.jpg">
+                                        <ImageBrush ImageSource="{Binding ImagePlaylistBinary, Converter={StaticResource ByteToImageConverter}}"
+                                                    Stretch="UniformToFill">
                                         </ImageBrush>
                                     </Border.Background>
 

@@ -180,8 +180,8 @@ namespace MusicMediaPlayer.ViewModel
         public SongViewModel()
         {
             CurrentUser = new CurrentUserAccountModel();
-            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id));
-            TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.Times).ToList());
+            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id));
+            TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.Times).ToList());
             TopTrending.Add(new Song());
             TopTrending.Add(new Song());
             TopTrending.Add(new Song());
@@ -296,7 +296,7 @@ namespace MusicMediaPlayer.ViewModel
                     var item = p as Song;
                     if (item != null)
                     {
-                        DataProvider.Ins.DB.Songs.Remove(item);
+                        DataProvider.Ins.DB.Song.Remove(item);
                         DataProvider.Ins.DB.SaveChanges();
                         MySongWindow.ListSong.Items.Refresh();
                         LoadCommon();
@@ -330,7 +330,7 @@ namespace MusicMediaPlayer.ViewModel
                     MessageBox.Show("Please select an image");
                     return;
                 }
-                if (DataProvider.Ins.DB.Songs.Where(o => o.SongTitle == TitleToChange && o.UserId == CurrentUser.Id).Count() > 0)
+                if (DataProvider.Ins.DB.Song.Where(o => o.SongTitle == TitleToChange && o.UserId == CurrentUser.Id).Count() > 0)
                 {
                     MessageBox.Show("This title already exists, please try another title");
                     return;
@@ -475,7 +475,7 @@ namespace MusicMediaPlayer.ViewModel
                     }
                     Converter.ByteArrayToBitmapImageConverter converter = new MusicMediaPlayer.Converter.ByteArrayToBitmapImageConverter();
                     ImageBinaryAdd = converter.ImageToBinary(uriIamge);
-                    DataProvider.Ins.DB.Songs.Add(new Song()
+                    DataProvider.Ins.DB.Song.Add(new Song()
                     {
                         Artist = artistNewSong,
                         SongTitle = titleNewSong,
@@ -692,14 +692,14 @@ namespace MusicMediaPlayer.ViewModel
             {
                 IsPickMySong = false;
                 IsPickRecent = true;
-                List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.TimeAdd).ToList());
+                List = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.TimeAdd).ToList());
                 LoadRecent();
             });
             AllSong = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 IsPickMySong = true;
                 IsPickRecent = false;
-                List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id));
+                List = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id));
                 Load();
             });
 
@@ -733,7 +733,7 @@ namespace MusicMediaPlayer.ViewModel
         }
         public void Load()
         {
-            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id));
+            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id));
             if (List.Count == 0)
             {
                 MySongWindow.IsThereSong.Visibility = Visibility.Visible;
@@ -755,7 +755,7 @@ namespace MusicMediaPlayer.ViewModel
                 MySongWindow.InTime.Visibility = Visibility.Visible;
                 MySongWindow.TotalTime.Visibility = Visibility.Visible;
             }
-            TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.Times).ToList());
+            TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.Times).ToList());
             TopTrending.Add(new Song());
             TopTrending.Add(new Song());
             TopTrending.Add(new Song());
@@ -774,7 +774,7 @@ namespace MusicMediaPlayer.ViewModel
         }
         public void LoadRecent()
         {
-            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.TimeAdd).ToList());
+            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.TimeAdd).ToList());
             if (List.Count == 0)
             {
                 MySongWindow.IsThereSong.Visibility = Visibility.Visible;
@@ -796,7 +796,7 @@ namespace MusicMediaPlayer.ViewModel
                 MySongWindow.InTime.Visibility = Visibility.Visible;
                 MySongWindow.TotalTime.Visibility = Visibility.Visible;
             }
-            TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.Times).ToList());
+            TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.Times).ToList());
             TopTrending.Add(new Song());
             TopTrending.Add(new Song());
             TopTrending.Add(new Song());
