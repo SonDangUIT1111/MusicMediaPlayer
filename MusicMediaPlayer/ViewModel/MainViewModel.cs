@@ -27,6 +27,7 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand SwitchHome { get; set; }
         public ICommand SwitchProfile { get; set; }
         public ICommand SwitchArtist { get; set; }
+        public ICommand SwitchAlbum { get; set; }
 
         MainWindow mainWindow;
 
@@ -37,6 +38,8 @@ namespace MusicMediaPlayer.ViewModel
         Home HomePage { get; set; }
         Profile ProfilePage { get; set; } 
         Discover_Artist ArtistPage { get; set; }
+
+        Discover_Album AlbumPage { get; set; }
         //information
         public CurrentUserAccountModel CurrentUser
         {
@@ -59,6 +62,7 @@ namespace MusicMediaPlayer.ViewModel
             HomePage = new Home();
             ProfilePage = new Profile();
             ArtistPage = new Discover_Artist();
+            AlbumPage = new Discover_Album();
 
             //
             var MySongData = MySongPage.DataContext as SongViewModel;
@@ -66,6 +70,7 @@ namespace MusicMediaPlayer.ViewModel
             var HomeData = HomePage.DataContext as HomeViewModel;
             var ProfileData = ProfilePage.DataContext as ProfileViewModel;
             var ArtistData = ArtistPage.DataContext as Discover_ArtistViewModel;
+            var AlbumData = AlbumPage.DataContext as Discover_AlbumViewModel;
             //
             LoadedTurnOnLogin = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
@@ -123,7 +128,9 @@ namespace MusicMediaPlayer.ViewModel
                     ArtistData.PlayerBarArtist = window.PlayerBarArtist;
                     ArtistData.PlayerBar = window.PlayerBar;
 
-                    //
+                    //album window
+                    AlbumData.CurrentUser.Id = IDuser[0];
+                    
                     p.Show();
                 }
                 else
@@ -151,6 +158,10 @@ namespace MusicMediaPlayer.ViewModel
             SwitchArtist = new RelayCommand<Frame>((p) => { return true; }, (p) =>
             {
                 p.Content = ArtistPage;
+            });
+            SwitchAlbum = new RelayCommand<Frame>((p) => { return true; }, (p) =>
+            {
+                p.Content = AlbumPage;
             });
         }
     }
