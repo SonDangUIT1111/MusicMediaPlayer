@@ -1,0 +1,530 @@
+﻿<Page x:Class="MusicMediaPlayer.View.Discover_GenreSong"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MusicMediaPlayer.View"
+      xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
+      mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      TextElement.FontWeight="Regular"
+      TextElement.FontSize="13"
+      TextOptions.TextFormattingMode="Ideal"
+      TextOptions.TextRenderingMode="Auto"
+      FontFamily="{DynamicResource MaterialDesignFont}"
+      d:DesignHeight="2000" d:DesignWidth="1000"
+      Title="Discover_GenreSong"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      Name="GenreSongVM"
+      DataContext="{StaticResource GenreSongVM}">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadData}"
+                                   CommandParameter="{Binding ElementName=GenreSongVM}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <ScrollViewer>
+        <Grid Background="Transparent"
+          Margin="5"
+          Width="1000"
+          Height="2000">
+            <Border x:Name="OutsideBackground"
+                        CornerRadius="20" 
+                        BorderBrush="#1ED760"
+                        BorderThickness="0"
+                        Background="Black" MaxHeight="2000" MaxWidth="1000"/>
+            <StackPanel Orientation="Horizontal"
+                    Margin="160,570,0,0" 
+                    Width="652"
+                    Visibility="Hidden"
+                    Panel.ZIndex="2">
+                <ToggleButton
+                            x:Name="RandomLoop"
+                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                            IsChecked="False"
+                            Margin="10,0,5,0"
+                            Visibility="Hidden"
+                            Background="#1ED760"
+                            
+                                                >
+                    <materialDesign:PackIcon
+                                                Kind="ShuffleVariant"
+                                                Height="21"
+                                                Width="21"
+                                                Foreground="White"/>
+                </ToggleButton>
+                <Button
+                          Command="{Binding SkipPrevious}"
+                          Margin="0,0,5,0"
+                          Content="{materialDesign:PackIcon SkipPrevious}"
+                          Background="Transparent"
+                          Foreground="White"
+                          Visibility="Hidden"
+                          BorderBrush="Transparent"/>
+                <ToggleButton
+                          x:Name="Play"
+                          Margin="0,0,0,0"
+                          Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                          Content="{materialDesign:PackIcon Play}"
+                          Background="Transparent"
+                          Foreground="White"
+                          BorderBrush="Transparent"
+                          Visibility="Hidden"
+                          IsEnabled="False"/>
+                <ToggleButton
+                          x:Name="Pause"
+                          Visibility="Hidden"
+                          Margin="-40,0,0,0"
+                          Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                          Content="{materialDesign:PackIcon Pause}"
+                          Background="Transparent"
+                          Foreground="White"
+                          BorderBrush="Transparent"
+                          IsEnabled="False"/>
+                <Button
+                          Command="{Binding SkipNext}"
+                          Margin="0,0,5,0"
+                          Visibility="Hidden"
+                          Content="{materialDesign:PackIcon SkipNext}"
+                          Background="Transparent"
+                          Foreground="White"
+                          BorderBrush="Transparent"/>
+                <ToggleButton
+                            x:Name="SequencecyLoop"
+                            Visibility="Hidden"
+                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                            IsChecked="True"
+                            Margin="0,0,5,0"
+
+                            Foreground="White"
+                            Background="#1ED760"
+                                                >
+                    <materialDesign:PackIcon
+                                                Kind="ShuffleDisabled"
+                                                Height="21"
+                                                Width="21" />
+                </ToggleButton>
+                <ToggleButton
+                            x:Name="OneLoop"
+                            Visibility="Hidden"
+                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                            IsChecked="False"
+                            Margin="0,0,5,0"
+                            Foreground="White"
+                            Background="#1ED760">
+                    <materialDesign:PackIcon
+                                                Kind="Loop"
+                                                Height="21"
+                                                Width="21" />
+                </ToggleButton>
+            </StackPanel>
+            <StackPanel>
+                <Grid x:Name="GenreBackground"
+                  Height="400"
+                  Background="Transparent">
+                    <Image gif:AnimationBehavior.SourceUri="\Image\circlecolorgif.gif" 
+                       IsEnabled="True"
+                       Width="400"
+                       Height="400"
+                       Margin="0,-200,0,-10"
+                       ></Image>
+                    <Border x:Name="GenreFrame"
+                        CornerRadius="180"
+                        Height="150"
+                        Width="150"
+                        Margin="0,-185,0,0"
+                        Background="White"
+                        Panel.ZIndex="1">
+                    </Border>
+                    <StackPanel Height="150"
+                            VerticalAlignment="Bottom"
+                            Panel.ZIndex="2">
+                        <TextBlock x:Name="NameGenre"
+                               Height="80"
+                               FontSize="42"
+                               FontWeight="Medium"
+                               Foreground="#FFFFFF"
+                               TextAlignment="Center"/>
+                        <StackPanel Orientation="Horizontal"
+                                Width="auto"
+                                Margin="0,-20,0,0">
+                            <TextBlock x:Name="Genrename"
+                               Height="30"
+                                       Width="80"
+                               FontSize="18"
+                               FontWeight="Medium"
+                               Foreground="#767676"
+                               Margin="400,0,0,0"/>
+                        </StackPanel>
+                        <Separator Background="#767676"
+                               Margin="0,10,0,0"></Separator>
+                        <TextBlock Text="Hits"
+                               Foreground="#FFFFFF"
+                               FontSize="28"
+                               FontWeight="Medium"
+                               Margin="20,10,0,0"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Margin="0,10,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0"
+                                Width="450">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="{Binding ListPopular[0].ImageSongBinary, Converter={StaticResource ByteToImageConverter}}"
+                               Height="60"
+                               Width="60"
+                               Stretch="UniformToFill"
+                               Panel.ZIndex="1"
+                               HorizontalAlignment="Left"
+                               Margin="0,0,0,0"></Image>
+                            <TextBlock Text="{Binding ListPopular[0].SongTitle}"
+                                       Width="150" 
+                                       Height="50"
+                                       Margin="20,25,0,0"
+                                       TextAlignment="Left"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Foreground="#77CCFF"
+                                       FontSize="18"
+                                       FontWeight="Heavy"
+                                       TextTrimming="WordEllipsis"/>
+                            <TextBlock Width="150" 
+                                        Height="50"
+                                        Margin="0,25,0,0"
+                                        TextAlignment="Left"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Foreground="#77CCFF"
+                                        FontSize="18"
+                                        FontWeight="Heavy"
+                                        TextTrimming="WordEllipsis"
+                                        Text="{Binding ListPopular[0].Genre}"></TextBlock>
+                            <TextBlock Width="50" 
+                                        Height="50"
+                                        Margin="0,25,0,0"
+                                        TextAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Foreground="#77CCFF"
+                                        FontSize="18"
+                                        FontWeight="Heavy"
+                                        Text="{Binding ListPopular[0].Times}"/>
+                        </StackPanel>
+                        <Separator Background="#77CCFF"
+                                   Width="auto"></Separator>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="{Binding ListPopular[1].ImageSongBinary, Converter={StaticResource ByteToImageConverter}}"
+                               Height="60"
+                               Width="60"
+                               Stretch="UniformToFill"
+                               Panel.ZIndex="1"
+                               HorizontalAlignment="Left"
+                               Margin="0,0,0,0"></Image>
+                            <TextBlock Text="{Binding ListPopular[1].SongTitle}"
+                                       Width="150" 
+                                       Height="50"
+                                       Margin="20,25,0,0"
+                                       TextAlignment="Left"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Foreground="#83F28F"
+                                       FontSize="18"
+                                       FontWeight="Heavy"
+                                       TextTrimming="WordEllipsis"/>
+                            <TextBlock Width="150" 
+                                        Height="50"
+                                        Margin="0,25,0,0"
+                                        TextAlignment="Left"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Foreground="#83F28F"
+                                        FontSize="18"
+                                        FontWeight="Heavy"
+                                        TextTrimming="WordEllipsis"
+                                        Text="{Binding ListPopular[1].Genre}"></TextBlock>
+                            <TextBlock Width="50" 
+                                        Height="50"
+                                        Margin="0,25,0,0"
+                                        TextAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Foreground="#83F28F"
+                                        FontSize="18"
+                                        FontWeight="Heavy"
+                                        Text="{Binding ListPopular[1].Times}"/>
+                        </StackPanel>
+                        <Separator Background="#83F28F"
+                                   Width="auto"></Separator>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="{Binding ListPopular[2].ImageSongBinary, Converter={StaticResource ByteToImageConverter}}"
+                               Height="60"
+                               Width="60"
+                               Stretch="UniformToFill"
+                               Panel.ZIndex="1"
+                               HorizontalAlignment="Left"
+                               Margin="0,0,0,0"></Image>
+                            <TextBlock Text="{Binding ListPopular[2].SongTitle}"
+                                       Width="150" 
+                                       Height="50"
+                                       Margin="20,25,0,0"
+                                       TextAlignment="Left"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Foreground="#FE70C6"
+                                       FontSize="18"
+                                       FontWeight="Heavy"
+                                       TextTrimming="WordEllipsis"/>
+                            <TextBlock Width="150" 
+                                        Height="50"
+                                        Margin="0,25,0,0"
+                                        TextAlignment="Left"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Foreground="#FE70C6"
+                                        FontSize="18"
+                                        FontWeight="Heavy"
+                                        TextTrimming="WordEllipsis"
+                                        Text="{Binding ListPopular[2].Genre}"></TextBlock>
+                            <TextBlock Width="50" 
+                                        Height="50"
+                                        Margin="0,25,0,0"
+                                        TextAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Foreground="#FE70C6"
+                                        FontSize="18"
+                                        FontWeight="Heavy"
+                                        Text="{Binding ListPopular[2].Times}"/>
+                        </StackPanel>
+                        <Separator Background="#FE70C6"
+                                   Width="auto"></Separator>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1"
+                                Width="450">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="{Binding ListPopular[3].ImageSongBinary, Converter={StaticResource ByteToImageConverter}}"
+                               Height="60"
+                               Width="60"
+                               Stretch="UniformToFill"
+                               Panel.ZIndex="1"
+                               HorizontalAlignment="Left"
+                               Margin="0,0,0,0"></Image>
+                            <TextBlock Text="{Binding ListPopular[3].SongTitle}"
+                                       Width="150" 
+                                       Height="50"
+                                       Margin="20,25,0,0"
+                                       TextAlignment="Left"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Foreground="#77CCFF"
+                                       FontSize="18"
+                                       FontWeight="Heavy"
+                                       TextTrimming="WordEllipsis"/>
+                            <TextBlock Width="150" 
+                                        Height="50"
+                                        Margin="0,25,0,0"
+                                        TextAlignment="Left"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Foreground="#77CCFF"
+                                        FontSize="18"
+                                        FontWeight="Heavy"
+                                        TextTrimming="WordEllipsis"
+                                        Text="{Binding ListPopular[3].Genre}"></TextBlock>
+                            <TextBlock Width="50" 
+                                        Height="50"
+                                        Margin="0,25,0,0"
+                                        TextAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Foreground="#77CCFF"
+                                        FontSize="18"
+                                        FontWeight="Heavy"
+                                        Text="{Binding ListPopular[3].Times}"/>
+                        </StackPanel>
+                        <Separator Background="#77CCFF"
+                                   Width="auto"></Separator>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="{Binding ListPopular[4].ImageSongBinary, Converter={StaticResource ByteToImageConverter}}"
+                               Height="60"
+                               Width="60"
+                               Stretch="UniformToFill"
+                               Panel.ZIndex="1"
+                               HorizontalAlignment="Left"
+                               Margin="0,0,0,0"></Image>
+                            <TextBlock Text="{Binding ListPopular[4].SongTitle}"
+                                       Width="150" 
+                                       Height="50"
+                                       Margin="20,25,0,0"
+                                       TextAlignment="Left"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Foreground="#83F28F"
+                                       FontSize="18"
+                                       FontWeight="Heavy"
+                                       TextTrimming="WordEllipsis"/>
+                            <TextBlock Width="150" 
+                                        Height="50"
+                                        Margin="0,25,0,0"
+                                        TextAlignment="Left"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Foreground="#83F28F"
+                                        FontSize="18"
+                                        FontWeight="Heavy"
+                                        TextTrimming="WordEllipsis"
+                                        Text="{Binding ListPopular[4].Genre}"></TextBlock>
+                            <TextBlock Width="50" 
+                                        Height="50"
+                                        Margin="0,25,0,0"
+                                        TextAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Foreground="#83F28F"
+                                        FontSize="18"
+                                        FontWeight="Heavy"
+                                        Text="{Binding ListPopular[4].Times}"/>
+                        </StackPanel>
+                        <Separator Background="#83F28F"
+                                   Width="auto"></Separator>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="{Binding ListPopular[5].ImageSongBinary, Converter={StaticResource ByteToImageConverter}}"
+                               Height="60"
+                               Width="60"
+                               Stretch="UniformToFill"
+                               Panel.ZIndex="1"
+                               HorizontalAlignment="Left"
+                               Margin="0,0,0,0"></Image>
+                            <TextBlock Text="{Binding ListPopular[5].SongTitle}"
+                                       Width="150" 
+                                       Height="50"
+                                       Margin="20,25,0,0"
+                                       TextAlignment="Left"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Foreground="#FE70C6"
+                                       FontSize="18"
+                                       FontWeight="Heavy"
+                                       TextTrimming="WordEllipsis"/>
+                            <TextBlock Width="150" 
+                                        Height="50"
+                                        Margin="0,25,0,0"
+                                        TextAlignment="Left"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Foreground="#FE70C6"
+                                        FontSize="18"
+                                        FontWeight="Heavy"
+                                        TextTrimming="WordEllipsis"
+                                        Text="{Binding ListPopular[5].Genre}"></TextBlock>
+                            <TextBlock Width="50" 
+                                        Height="50"
+                                        Margin="0,25,0,0"
+                                        TextAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Foreground="#FE70C6"
+                                        FontSize="18"
+                                        FontWeight="Heavy"
+                                        Text="{Binding ListPopular[5].Times}"/>
+                        </StackPanel>
+                        <Separator Background="#FE70C6"
+                                   Width="auto"></Separator>
+                    </StackPanel>
+                </Grid>
+                <StackPanel>
+                    <TextBlock Text="Musical Composition"
+                               Foreground="#FFFFFF"
+                               FontSize="28"
+                               FontWeight="Medium"
+                               Margin="20,10,0,0"/>
+                    <ScrollViewer>
+                        <DataGrid 
+                  x:Name="CompositionList"
+                  Height="300"
+                  Width="950"
+                  Margin="0,0,0,0"
+                  ItemsSource="{Binding ListSong}"
+                  SelectedItem="{Binding SelectedItem}"
+                  Style="{StaticResource DataGridStyle1}"  
+                  CellStyle="{StaticResource DataGridCellStyle1}" 
+                  RowStyle="{StaticResource DataGridRowStyle1}">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Width="900">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Border CornerRadius="5"
+                                                    BorderThickness="1"
+                                                    BorderBrush="White"
+                                                    Height="45"
+                                                    HorizontalAlignment="Center">
+                                                    <Grid>
+                                                        <Border CornerRadius="5"
+                                                        Width="40"
+                                                        Height="50"
+                                                        x:Name="mask">
+                                                            <Border.Background>
+                                                                <ImageBrush Stretch="UniformToFill"
+                                                                    ImageSource="{Binding ImageSongBinary, Converter={StaticResource ByteToImageConverter}}">
+                                                                </ImageBrush>
+                                                            </Border.Background>
+                                                        </Border>
+                                                    </Grid>
+                                                </Border>
+                                                <TextBlock Text="{Binding SongTitle}"
+                                                        Width="200"
+                                                        FontSize="14"
+                                                        FontWeight="Bold"
+                                                        FontFamily="Segoe UI Semibold"
+                                                        Margin="20,0,0,0"
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"
+                                                        TextTrimming="WordEllipsis"
+                                                        >
+                                                </TextBlock>
+                                                <TextBlock Text="{Binding Artist}"
+                                                        Width="200"
+                                                        FontSize="12"
+                                                        Margin="0,5,0,0"
+                                                        FontWeight="Medium"
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"
+                                                        TextTrimming="WordEllipsis"
+                                                        ></TextBlock>
+                                                <TextBlock Text="{Binding Album}"
+                                                        Width="200"
+                                                        FontSize="12"
+                                                        Margin="0,5,0,0"
+                                                        FontWeight="Medium"
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"
+                                                        TextTrimming="WordEllipsis"
+                                                        ></TextBlock>
+                                                <TextBlock Text="{Binding Genre}"
+                                                        Width="150"
+                                                        FontSize="12"
+                                                        Margin="0,5,0,0"
+                                                        FontWeight="Medium"
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"
+                                                        TextTrimming="WordEllipsis"
+                                                        ></TextBlock>
+                                                <TextBlock Text="{Binding HowLong}"
+                                                           Width="80"
+                                                           FontSize="12"
+                                                           Margin="0,8,0,0"
+                                                           HorizontalAlignment="Center"
+                                                           VerticalAlignment="Center"
+                                                           FontWeight="Medium"
+                                                           ></TextBlock>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </ScrollViewer>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Page>

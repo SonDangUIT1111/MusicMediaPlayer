@@ -2,12 +2,17 @@
 FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\App.xaml;;
 FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\AddPlayList.xaml;;
 FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\AddSongPlayList.xaml;;
+FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\ChangeAlbumPictureWindow.xaml;;
 FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\ChangeArtistPictureWindow.xaml;;
+FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\ChangeGenrePictureWindow.xaml;;
 FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\ChangePassword.xaml;;
 FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\ResourceProject\ExpanderMySongTemplate.xaml;;
 FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\AddSongToApp.xaml;;
+FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\Discover_AlbumSong.xaml;;
 FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\Discover_Artist.xaml;;
 FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\Discover_ArtistSong.xaml;;
+FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\Discover_Genre.xaml;;
+FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\Discover_GenreSong.xaml;;
 FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\EditMySong.xaml;;
 FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\EditSongInApp.xaml;;
 FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\ForgotPassword.xaml;;
@@ -17,6 +22,7 @@ FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\Logout.xaml;;
 FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\MainWindow.xaml;;
 FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\MessageBoxLoading.xaml;;
 FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\MySong.xaml;;
+FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\Discover_Album.xaml;;
 FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\PlayList.xaml;;
 FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\PlayList_Inside.xaml;;
 FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\Profile.xaml;;
@@ -27,7 +33,4 @@ FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\UserControlMusic\UserCont
 FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\RenamePlayList.xaml;;
 FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\SleepTimerForArtist.xaml;;
 FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\SleepTimerView.xaml;;
-FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\Discover_AlbumSong.xaml;;
-FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\Discover_Album.xaml;;
-FC:\Users\ASUS\source\repos\Music17-1\MusicMediaPlayer\View\ChangeAlbumPictureWindow.xaml;;
 
