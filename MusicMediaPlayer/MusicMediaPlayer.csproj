@@ -166,6 +166,9 @@
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
+    <Reference Include="Prism, Version=8.1.97.5141, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Core.8.1.97\lib\net47\Prism.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -230,6 +233,8 @@
     <Compile Include="ViewModel\Discover_ArtistSongViewModel.cs" />
     <Compile Include="ViewModel\Discover_ArtistViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
+    <Compile Include="ViewModel\LogoutViewModel.cs" />
+    <Compile Include="ViewModel\MVApp.cs" />
     <Compile Include="ViewModel\PlayListViewModel.cs" />
     <Compile Include="ViewModel\PlayList_InsideViewModel.cs" />
     <Compile Include="ViewModel\ProfileViewModel.cs" />
@@ -271,6 +276,9 @@
     </Compile>
     <Compile Include="View\MessageBoxLoading.xaml.cs">
       <DependentUpon>MessageBoxLoading.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Logout.xaml.cs">
+      <DependentUpon>Logout.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MySong.xaml.cs">
       <DependentUpon>MySong.xaml</DependentUpon>
@@ -426,6 +434,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Logout.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
