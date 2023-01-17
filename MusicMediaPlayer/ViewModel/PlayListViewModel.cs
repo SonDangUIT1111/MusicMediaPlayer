@@ -63,6 +63,10 @@ namespace MusicMediaPlayer.ViewModel
         public byte[] ImageBinaryAdd { get { return imageBinaryAdd; } set { imageBinaryAdd = value; OnPropertyChanged(); } }
         // end test
 
+        private string _ArrangeName = "Arrange";
+        public string ArrangeName { get { return _ArrangeName; } set { _ArrangeName = value; OnPropertyChanged(); } }
+
+
 
         public PlayListViewModel()
         {
@@ -166,7 +170,9 @@ namespace MusicMediaPlayer.ViewModel
                     view.SortDescriptions.Clear();
                 }
 
+                
                 view.SortDescriptions.Add(new SortDescription("PlayListName", ListSortDirection.Ascending));
+                ArrangeName ="A-Z";
                 IsSort = true;
             }
             );
@@ -181,6 +187,8 @@ namespace MusicMediaPlayer.ViewModel
                 }
 
                 view.SortDescriptions.Add(new SortDescription("PlayListName", ListSortDirection.Descending));
+
+                ArrangeName = "Z-A";
                 IsSort = true;
             }
             );
