@@ -199,6 +199,19 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converter\ByteArrayToBitmapImageConverter.cs" />
+    <Compile Include="Model\Album.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Artist.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Genre.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\AddPlayListViewModel.cs" />
+    <Compile Include="ViewModel\AddSongPlayListViewModel.cs" />
+    <Compile Include="ViewModel\ChangePasswordViewModel.cs" />
+    <Compile Include="CurrentUserAccountModel.cs" />
     <Compile Include="Model\Database.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -217,20 +230,8 @@
     <Compile Include="Model\PlayList.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Song.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\sysdiagram.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\UserAccount.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModel\AddPlayListViewModel.cs" />
-    <Compile Include="ViewModel\AddSongPlayListViewModel.cs" />
-    <Compile Include="ViewModel\ChangePasswordViewModel.cs" />
-    <Compile Include="CurrentUserAccountModel.cs" />
-    <Compile Include="Model\DataProvider.cs" />
+    <Compile Include="ViewModel\Discover_ArtistSongViewModel.cs" />
+    <Compile Include="ViewModel\Discover_ArtistViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\LogoutViewModel.cs" />
     <Compile Include="ViewModel\MVApp.cs" />
@@ -239,19 +240,14 @@
     <Compile Include="ViewModel\ProfileViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\RenamePlayListViewModel.cs" />
-    <Compile Include="ViewModel\UCProfileViewModel.cs" />
-    <Compile Include="ViewModel\UCHomeViewModel.cs" />
-    <Compile Include="UserControlMusic\UserControlHome.xaml.cs">
-      <DependentUpon>UserControlHome.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControlMusic\UserControlProFile.xaml.cs">
-      <DependentUpon>UserControlProFile.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\AddPlayList.xaml.cs">
       <DependentUpon>AddPlayList.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AddSongPlayList.xaml.cs">
       <DependentUpon>AddSongPlayList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChangeArtistPictureWindow.xaml.cs">
+      <DependentUpon>ChangeArtistPictureWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ChangePassword.xaml.cs">
       <DependentUpon>ChangePassword.xaml</DependentUpon>
@@ -259,6 +255,15 @@
     <Compile Include="ViewModel\SongViewModel.cs" />
     <Compile Include="View\AddSongToApp.xaml.cs">
       <DependentUpon>AddSongToApp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Discover_Artist.xaml.cs">
+      <DependentUpon>Discover_Artist.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Discover_ArtistSong.xaml.cs">
+      <DependentUpon>Discover_ArtistSong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditMySong.xaml.cs">
+      <DependentUpon>EditMySong.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\EditSongInApp.xaml.cs">
       <DependentUpon>EditSongInApp.xaml</DependentUpon>
@@ -268,6 +273,9 @@
     </Compile>
     <Compile Include="View\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MessageBoxLoading.xaml.cs">
+      <DependentUpon>MessageBoxLoading.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Logout.xaml.cs">
       <DependentUpon>Logout.xaml</DependentUpon>
@@ -303,6 +311,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ResourceProject\ButtonPlayVisibility.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ResourceProject\ChangePassbt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -315,7 +327,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ResourceProject\DataTemplate.xaml">
+    <Page Include="ResourceProject\DataGridForEditingTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -343,14 +355,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControlMusic\UserControlHome.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControlMusic\UserControlProFile.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="ResourceProject\RenameButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -360,6 +364,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AddSongPlayList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ChangeArtistPictureWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -401,6 +409,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Discover_Artist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Discover_ArtistSong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditMySong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\EditSongInApp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -436,6 +456,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\MessageBoxLoading.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MySong.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -570,6 +594,17 @@
     <Resource Include="Image\anh4.jpg" />
     <Resource Include="Image\anh5.jpg" />
     <Resource Include="Image\visualizer.gif" />
+    <Resource Include="Image\circlecolorgif.gif" />
+    <Content Include="Model\Database.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Database.Context.cs</LastGenOutput>
+      <DependentUpon>Database.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\Database.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Database.edmx</DependentUpon>
+      <LastGenOutput>Database.cs</LastGenOutput>
+    </Content>
     <Resource Include="View\IconApp.ico" />
   </ItemGroup>
   <ItemGroup>

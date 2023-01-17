@@ -3,6 +3,7 @@ using MusicMediaPlayer.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -62,8 +63,6 @@ namespace MusicMediaPlayer.ViewModel
                     case "Username":
                         if (String.IsNullOrEmpty(Username))
                             ErrorMess = "Username can not be empty";
-                        else if (Username.Length < 8)
-                            ErrorMess = "Username requires length greater or equal to 8";
                         break;
                     case "Email":
                         if (String.IsNullOrEmpty(Email))
@@ -178,16 +177,6 @@ namespace MusicMediaPlayer.ViewModel
                 MessageBox.Show("Please enter the email to protect the account");
                 return;
             }
-            else if (Username.Length < 8)
-            {
-                MessageBox.Show("Username requires length greater or equal to 8");
-                return;
-            }
-            else if (Password.Length < 8)
-            {
-                MessageBox.Show("Password requires length greater or equal to 8");
-                return;
-            }
             //Kiểm tra validation của password và email
             int countUpcase = 0, countNum = 0;
             foreach (char c in Password)
@@ -202,26 +191,22 @@ namespace MusicMediaPlayer.ViewModel
                 
                     MessageBox.Show("Password must contain at least 1 Upcase and 1 number");
                     return;
-
-                
-
             }
             else if (Password != ConfirmPassword)
             {
                 MessageBox.Show("Password confirmes wrong");
                 return;
             }
-            else if (!Regex.IsMatch(Email, @"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$"))
+            else if (!Regex.IsMatch(Email, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"))
             {
                     MessageBox.Show("Email format is invalid");
                     return;
-
             }
             else
             {
                 //Kiểm tra user và email đăng ký có tồn tại không 
-                var UserCountm = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == Username).Count();
-                var EmailCountm = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserEmail == Email).Count();
+                var UserCountm = DataProvider.Ins.DB.UserAccount.Where(x => x.UserName == Username).Count();
+                var EmailCountm = DataProvider.Ins.DB.UserAccount.Where(x => x.UserEmail == Email).Count();
                 if (UserCountm > 0 )
                 {
                     IsSignedUp = false;
@@ -238,8 +223,13 @@ namespace MusicMediaPlayer.ViewModel
                     //Thêm user mới vào database
                     try
                     {
-                        var newuser = new UserAccount() { UserName = Username, UserEmail = Email, UserPassword = passEncode };
-                        DataProvider.Ins.DB.UserAccounts.Add(newuser);
+                        var projectPath = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
+                        var filePath = Path.Combine(projectPath, "Image", "logomusicapp.png");
+                        Converter.ByteArrayToBitmapImageConverter converter = new MusicMediaPlayer.Converter.ByteArrayToBitmapImageConverter();
+                        string uriIamge = filePath;
+                        byte[] newUserAvatar = converter.ImageToBinary(uriIamge);
+                        var newuser = new UserAccount() { UserName = Username, UserEmail = Email, UserPassword = passEncode, UserImage = newUserAvatar };
+                        DataProvider.Ins.DB.UserAccount.Add(newuser);
                         DataProvider.Ins.DB.SaveChanges();
                         IsSignedUp = true;
                         p.Close();
@@ -268,7 +258,7 @@ namespace MusicMediaPlayer.ViewModel
             else
             {
                 //Kiểm tra email bảo vệ có tồn tại không 
-                var EmailCountm = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserEmail == EmailProtected).Count();
+                var EmailCountm = DataProvider.Ins.DB.UserAccount.Where(x => x.UserEmail == EmailProtected).Count();
                 //email đúng
                 if (EmailCountm > 0)
                 {
@@ -327,11 +317,6 @@ namespace MusicMediaPlayer.ViewModel
                 MessageBox.Show("Please confirm new password");
                 return;
             }
-            else if (NewPassword.Length < 8)
-            {
-                MessageBox.Show("Password requires length greater or equal to 8");
-                return;
-            }
             //Kiểm tra validation của password 
             int countUpcase = 0, countNum = 0;
             foreach (char c in NewPassword)
@@ -355,7 +340,7 @@ namespace MusicMediaPlayer.ViewModel
             else
             {
                 string encodenewPass = CreateMD5(Base64Encode(NewPassword));
-                var acc = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserEmail == EmailProtected).SingleOrDefault();
+                var acc = DataProvider.Ins.DB.UserAccount.Where(x => x.UserEmail == EmailProtected).SingleOrDefault();
                 acc.UserPassword = encodenewPass;
                 DataProvider.Ins.DB.SaveChanges();
                 MessageBox.Show("Successfully changes password");

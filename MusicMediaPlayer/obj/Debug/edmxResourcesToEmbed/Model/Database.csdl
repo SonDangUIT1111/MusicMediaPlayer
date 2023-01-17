@@ -27,8 +27,15 @@
     <Property Name="TimeAdd" Type="DateTime" Precision="3" />
     <Property Name="ImageSongBinary" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="UserId" Type="Int32" />
-    <NavigationProperty Name="UserAccount" Relationship="Self.FK_Song_User" FromRole="Song" ToRole="UserAccount" />
-    <NavigationProperty Name="PlayLists" Relationship="Self.Has" FromRole="Song" ToRole="PlayList" />
+    <NavigationProperty Name="UserAccount" Relationship="MusicPlayerModel.FK_Song_User" FromRole="Song" ToRole="UserAccount" />
+    <Property Name="Genre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Album" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ArtistId" Type="Int32" />
+    <Property Name="AlbumId" Type="Int32" />
+    <Property Name="GenreId" Type="Int32" />
+    <NavigationProperty Name="Album1" Relationship="MusicPlayerModel.FK_Song_Album" FromRole="Song" ToRole="Album" />
+    <NavigationProperty Name="Artist1" Relationship="MusicPlayerModel.FK_Song_Artist" FromRole="Song" ToRole="Artist" />
+    <NavigationProperty Name="Genre1" Relationship="MusicPlayerModel.FK_Song_Genre" FromRole="Song" ToRole="Genre" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>
@@ -50,8 +57,6 @@
     <Property Name="UserEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="UserImage" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="NickName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="PlayLists" Relationship="Self.FK__PlayList__OwnerI__2C3393D0" FromRole="UserAccount" ToRole="PlayList" />
-    <NavigationProperty Name="Songs" Relationship="Self.FK_Song_User" FromRole="UserAccount" ToRole="Song" />
   </EntityType>
   <Association Name="FK__PlayList__OwnerI__2C3393D0">
     <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />
@@ -98,5 +103,115 @@
       <End Role="PlayList" EntitySet="PlayLists" />
       <End Role="Song" EntitySet="Songs" />
     </AssociationSet>
+    <EntitySet Name="Albums" EntityType="MusicPlayerModel.Album" />
+    <EntitySet Name="Artists" EntityType="MusicPlayerModel.Artist" />
+    <EntitySet Name="Genres" EntityType="MusicPlayerModel.Genre" />
+    <AssociationSet Name="FK_Song_Album" Association="MusicPlayerModel.FK_Song_Album">
+      <End Role="Album" EntitySet="Albums" />
+      <End Role="Song" EntitySet="Songs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Song_Artist" Association="MusicPlayerModel.FK_Song_Artist">
+      <End Role="Artist" EntitySet="Artists" />
+      <End Role="Song" EntitySet="Songs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Song_Genre" Association="MusicPlayerModel.FK_Song_Genre">
+      <End Role="Genre" EntitySet="Genres" />
+      <End Role="Song" EntitySet="Songs" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="Has">
+    <End Type="MusicPlayerModel.PlayList" Role="PlayList" Multiplicity="*" />
+    <End Type="MusicPlayerModel.Song" Role="Song" Multiplicity="*" />
+  </Association>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Song_User">
+    <End Type="MusicPlayerModel.UserAccount" Role="UserAccount" Multiplicity="0..1" />
+    <End Type="MusicPlayerModel.Song" Role="Song" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccount">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Song">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Album">
+    <Key>
+      <PropertyRef Name="AlbumId" />
+    </Key>
+    <Property Name="AlbumId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AlbumName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ImageAlbumBinary" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Songs" Relationship="MusicPlayerModel.FK_Song_Album" FromRole="Album" ToRole="Song" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="Composer" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Artist">
+    <Key>
+      <PropertyRef Name="ArtistId" />
+    </Key>
+    <Property Name="ArtistId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ArtistName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ImageArtistBinary" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Songs" Relationship="MusicPlayerModel.FK_Song_Artist" FromRole="Artist" ToRole="Song" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="Streams" Type="Int32" />
+    <Property Name="IsPopular" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Genre">
+    <Key>
+      <PropertyRef Name="GenreId" />
+    </Key>
+    <Property Name="GenreId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GenreName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ImageGenreBinary" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Songs" Relationship="MusicPlayerModel.FK_Song_Genre" FromRole="Genre" ToRole="Song" />
+    <Property Name="UserId" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_Song_Album">
+    <End Type="MusicPlayerModel.Album" Role="Album" Multiplicity="0..1" />
+    <End Type="MusicPlayerModel.Song" Role="Song" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Album">
+        <PropertyRef Name="AlbumId" />
+      </Principal>
+      <Dependent Role="Song">
+        <PropertyRef Name="AlbumId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Song_Artist">
+    <End Type="MusicPlayerModel.Artist" Role="Artist" Multiplicity="0..1" />
+    <End Type="MusicPlayerModel.Song" Role="Song" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="ArtistId" />
+      </Principal>
+      <Dependent Role="Song">
+        <PropertyRef Name="ArtistId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Song_Genre">
+    <End Type="MusicPlayerModel.Genre" Role="Genre" Multiplicity="0..1" />
+    <End Type="MusicPlayerModel.Song" Role="Song" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genre">
+        <PropertyRef Name="GenreId" />
+      </Principal>
+      <Dependent Role="Song">
+        <PropertyRef Name="GenreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

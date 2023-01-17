@@ -110,16 +110,16 @@ namespace MusicMediaPlayer.ViewModel
                 {
                     var pl = p as MusicMediaPlayer.Model.PlayList;
 
-                    var song_in_pl = pl.Songs;
+                    var song_in_pl = pl.Song;
 
                     foreach (Song item in song_in_pl.ToList())
                     {
-                        item.PlayLists.Remove(pl);
+                        item.PlayList.Remove(pl);
 
-                        pl.Songs.Remove(item);
+                        pl.Song.Remove(item);
                     }
 
-                    DataProvider.Ins.DB.PlayLists.Remove(pl);
+                    DataProvider.Ins.DB.PlayList.Remove(pl);
                     DataProvider.Ins.DB.SaveChanges();
                     LoadDanhSach(CurrentUser.Id);
                 }
@@ -180,7 +180,7 @@ namespace MusicMediaPlayer.ViewModel
         }
         public void LoadDanhSach(int identity)
         {
-            List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ins.DB.PlayLists.Where(x => x.OwnerId == identity));
+            List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ins.DB.PlayList.Where(x => x.OwnerId == identity));
         }
     }
 }

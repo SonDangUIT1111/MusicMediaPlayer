@@ -81,7 +81,7 @@ namespace MusicMediaPlayer.ViewModel
                 {
                     //truyen du lieu qua cac view
                     CurrentUser.UserName = LoginVM.Username;
-                    ObservableCollection<int> IDuser = new ObservableCollection<int>(DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == LoginVM.Username).Select(x => x.UserId));
+                    ObservableCollection<int> IDuser = new ObservableCollection<int>(DataProvider.Ins.DB.UserAccount.Where(x => x.UserName == LoginVM.Username).Select(x => x.UserId));
                     MySongData.CurrentUser.Id = IDuser[0];
                     PlayListData.CurrentUser.Id = IDuser[0];
                     HomeData.CurrentUser.Id=IDuser[0];
@@ -93,6 +93,18 @@ namespace MusicMediaPlayer.ViewModel
                     var acc = DataProvider.Ins.DB.UserAccounts.Where((x) => x.UserName == LoginVM.Username).SingleOrDefault();
                     ProfileData.NickName = acc.NickName;
                     ProfileData.Email = acc.UserEmail;
+                    //
+
+                    //my song window
+                    MySongData.SkipNextbtn = window.SkipNextbtn;
+                    MySongData.SkipPreviousbtn = window.SkipPreviousbtn;
+                    MySongData.Playbtn = window.Play;
+                    MySongData.Pausebtn = window.Pause;
+                    MySongData.InTime = window.InTime;
+                    MySongData.TotalTime = window.TotalTime;
+                    MySongData.sliProgress = window.sliProgress;
+                    MySongData.MainViewProgram = window.MainViewProgram;
+                    MySongData.PlayerBar = window.PlayerBar;
                     //
                     p.Show();
                 }

@@ -4,14 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7580c46435e34513ae8450ce88f84104" Name="Diagram1">
-        <EntityTypeShape EntityType="MusicPlayerModel.PlayList" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicPlayerModel.Song" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicPlayerModel.sysdiagram" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicPlayerModel.UserAccount" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <AssociationConnector Association="MusicPlayerModel.FK__PlayList__OwnerI__2C3393D0" ManuallyRouted="false" />
-        <AssociationConnector Association="MusicPlayerModel.FK_Song_User" ManuallyRouted="false" />
-        <AssociationConnector Association="MusicPlayerModel.Has" ManuallyRouted="false" />
+      <Diagram DiagramId="454147709a2942ccadeefa4bd2af44dc" Name="Diagram1" ZoomLevel="48">
+        <EntityTypeShape EntityType="MusicPlayerModel.PlayList" Width="1.5" PointX="3.875" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicPlayerModel.Song" Width="1.5" PointX="6.625" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicPlayerModel.UserAccount" Width="1.5" PointX="1.125" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="MusicPlayerModel.FK__PlayList__OwnerI__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicPlayerModel.Has" />
+        <EntityTypeShape EntityType="MusicPlayerModel.sysdiagram" Width="1.5" PointX="0.5" PointY="4.25" />
+        <AssociationConnector Association="MusicPlayerModel.FK_Song_User" />
+        <EntityTypeShape EntityType="MusicPlayerModel.Album" Width="1.5" PointX="7" PointY="6.875" />
+        <EntityTypeShape EntityType="MusicPlayerModel.Artist" Width="1.5" PointX="4.25" PointY="7.875" />
+        <EntityTypeShape EntityType="MusicPlayerModel.Genre" Width="1.5" PointX="3.125" PointY="4.75" />
+        <AssociationConnector Association="MusicPlayerModel.FK_Song_Album" />
+        <AssociationConnector Association="MusicPlayerModel.FK_Song_Artist" />
+        <AssociationConnector Association="MusicPlayerModel.FK_Song_Genre" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

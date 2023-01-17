@@ -26,8 +26,6 @@
                 <GradientStop Color="#1AA7EC"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <TextBlock Text="Home"
-                   FontSize="60"
-                   Foreground="#FFFFFF"/>
+      
     </Grid>
 </Page>
