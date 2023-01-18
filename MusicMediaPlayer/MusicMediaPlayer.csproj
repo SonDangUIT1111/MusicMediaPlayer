@@ -250,6 +250,8 @@
     <Compile Include="ViewModel\Discover_AlbumViewModel.cs" />
     <Compile Include="ViewModel\Discover_ArtistSongViewModel.cs" />
     <Compile Include="ViewModel\Discover_ArtistViewModel.cs" />
+    <Compile Include="ViewModel\Discover_GenreSongViewModel.cs" />
+    <Compile Include="ViewModel\Discover_GenreViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\LogoutViewModel.cs" />
     <Compile Include="ViewModel\PlayListViewModel.cs" />
@@ -269,6 +271,9 @@
     <Compile Include="View\ChangeArtistPictureWindow.xaml.cs">
       <DependentUpon>ChangeArtistPictureWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ChangeGenrePictureWindow.xaml.cs">
+      <DependentUpon>ChangeGenrePictureWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ChangePassword.xaml.cs">
       <DependentUpon>ChangePassword.xaml</DependentUpon>
     </Compile>
@@ -284,6 +289,12 @@
     </Compile>
     <Compile Include="View\Discover_ArtistSong.xaml.cs">
       <DependentUpon>Discover_ArtistSong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Discover_Genre.xaml.cs">
+      <DependentUpon>Discover_Genre.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Discover_GenreSong.xaml.cs">
+      <DependentUpon>Discover_GenreSong.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\EditMySong.xaml.cs">
       <DependentUpon>EditMySong.xaml</DependentUpon>
@@ -409,6 +420,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ChangeGenrePictureWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ChangePassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -459,6 +474,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Discover_ArtistSong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Discover_Genre.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Discover_GenreSong.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

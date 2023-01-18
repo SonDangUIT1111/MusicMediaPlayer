@@ -28,6 +28,7 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand SwitchProfile { get; set; }
         public ICommand SwitchArtist { get; set; }
         public ICommand SwitchAlbum { get; set; }
+        public ICommand SwitchGenre { get; set; }
 
         MainWindow mainWindow;
 
@@ -40,6 +41,8 @@ namespace MusicMediaPlayer.ViewModel
         Discover_Artist ArtistPage { get; set; }
 
         Discover_Album AlbumPage { get; set; }
+        
+        Discover_Genre GenrePage { get; set; }
         //information
         public CurrentUserAccountModel CurrentUser
         {
@@ -63,6 +66,7 @@ namespace MusicMediaPlayer.ViewModel
             ProfilePage = new Profile();
             ArtistPage = new Discover_Artist();
             AlbumPage = new Discover_Album();
+            GenrePage = new Discover_Genre();
 
             //
             var MySongData = MySongPage.DataContext as SongViewModel;
@@ -71,6 +75,7 @@ namespace MusicMediaPlayer.ViewModel
             var ProfileData = ProfilePage.DataContext as ProfileViewModel;
             var ArtistData = ArtistPage.DataContext as Discover_ArtistViewModel;
             var AlbumData = AlbumPage.DataContext as Discover_AlbumViewModel;
+            var GenreData = GenrePage.DataContext as Discover_GenreViewModel;
             //
             LoadedTurnOnLogin = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
@@ -139,6 +144,9 @@ namespace MusicMediaPlayer.ViewModel
 
                     //album window
                     AlbumData.CurrentUser.Id = IDuser[0];
+
+                    //Genre window
+                    GenreData.CurrentUser.Id = IDuser[0];
                     
                     p.Show();
                 }
@@ -171,6 +179,10 @@ namespace MusicMediaPlayer.ViewModel
             SwitchAlbum = new RelayCommand<Frame>((p) => { return true; }, (p) =>
             {
                 p.Content = AlbumPage;
+            });
+            SwitchGenre = new RelayCommand<Frame>((p) => { return true; }, (p) =>
+            {
+                p.Content = GenrePage;
             });
         }
     }

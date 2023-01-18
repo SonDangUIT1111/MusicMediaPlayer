@@ -175,7 +175,9 @@
                                             </Grid>
                                         </Button>
                                         <Button Style="{StaticResource ContactButton}"  
-                                                Width="180">
+                                                Width="180" 
+                                                Command="{Binding SwitchGenre}"
+                                                CommandParameter="{Binding ElementName=FrameView}">
                                             <Grid>
                                                 <TextBlock Text= "Genre" 
                                                            Margin="20,0,31,0"/>

@@ -19,5 +19,6 @@
 
     <viewmodel:HomeViewModel x:Key="HomeVM"></viewmodel:HomeViewModel>
     <viewmodel:ProfileViewModel x:Key="ProfileVM"></viewmodel:ProfileViewModel>
-    
+    <viewmodel:Discover_GenreSongViewModel x:Key="GenreSongVM"></viewmodel:Discover_GenreSongViewModel>
+    <viewmodel:Discover_GenreViewModel x:Key="GenreVM"></viewmodel:Discover_GenreViewModel>
 </ResourceDictionary>
