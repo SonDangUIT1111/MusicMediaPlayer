@@ -17,7 +17,7 @@ namespace MusicMediaPlayer.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Song()
         {
-            this.PlayLists = new HashSet<PlayList>();
+            this.PlayList = new HashSet<PlayList>();
         }
     
         public int SongId { get; set; }

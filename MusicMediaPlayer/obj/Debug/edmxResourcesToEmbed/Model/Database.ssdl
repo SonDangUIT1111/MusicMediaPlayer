@@ -193,7 +193,6 @@
     <EntitySet Name="Has" EntityType="Self.Has" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PlayList" EntityType="Self.PlayList" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Song" EntityType="Self.Song" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserAccount" EntityType="Self.UserAccount" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__PlayList__OwnerI__40F9A68C" Association="Self.FK__PlayList__OwnerI__40F9A68C">
       <End Role="UserAccount" EntitySet="UserAccount" />
