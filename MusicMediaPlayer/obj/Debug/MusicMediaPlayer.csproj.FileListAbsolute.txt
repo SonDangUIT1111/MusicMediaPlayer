@@ -1000,3 +1000,5 @@ C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\Discover_Album.baml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\SleepTimerForAlbum.g.cs
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\SleepTimerForAlbum.baml
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\SleepTimerForGenre.g.cs
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\SleepTimerForGenre.baml

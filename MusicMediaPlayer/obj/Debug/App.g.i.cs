@@ -56,7 +56,7 @@ namespace MusicMediaPlayer {
             _contentLoaded = true;
             
             #line 7 "..\..\App.xaml"
-            this.StartupUri = new System.Uri("View/MainWindow.xaml", System.UriKind.Relative);
+            this.StartupUri = new System.Uri("View/ForgotPassword.xaml", System.UriKind.Relative);
             
             #line default
             #line hidden
