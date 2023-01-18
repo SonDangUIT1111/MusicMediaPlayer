@@ -30,7 +30,6 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand SwitchAlbum { get; set; }
         public ICommand SwitchGenre { get; set; }
 
-        MainWindow mainWindow;
 
         public ICommand Logoutcommand { get; set; }
         //view model
@@ -144,10 +143,46 @@ namespace MusicMediaPlayer.ViewModel
 
                     //album window
                     AlbumData.CurrentUser.Id = IDuser[0];
+                    AlbumData.SkipNextbtn = window.SkipNextbtn3;
+                    AlbumData.SkipPreviousbtn = window.SkipPreviousbtn3;
+                    AlbumData.Playbtn = window.Play;
+                    AlbumData.Pausebtn = window.Pause;
+                    AlbumData.Playbtn2 = window.Play2;
+                    AlbumData.Pausebtn2 = window.Pause2;
+                    AlbumData.Playbtn3 = window.Play3;
+                    AlbumData.Pausebtn3 = window.Pause3;
+                    AlbumData.InTime = window.InTime3;
+                    AlbumData.TotalTime = window.TotalTime3;
+                    AlbumData.sliProgress = window.sliProgress3;
+                    AlbumData.MainViewProgram = window.MainViewProgram;
+                    AlbumData.PlayerBarArtist = window.PlayerBarArtist;
+                    AlbumData.PlayerBar = window.PlayerBar;
+                    AlbumData.mediaPlayer = MySongData.mediaPlayer;
+                    AlbumData.PlayInvisible = MySongPage.Play;
+                    AlbumData.PauseInvisible = MySongPage.Pause;
 
                     //Genre window
                     GenreData.CurrentUser.Id = IDuser[0];
-                    
+                    GenreData.SkipNextbtn = window.SkipNextbtn4;
+                    GenreData.SkipPreviousbtn = window.SkipPreviousbtn4;
+                    GenreData.Playbtn = window.Play;
+                    GenreData.Pausebtn = window.Pause;
+                    GenreData.Playbtn2 = window.Play2;
+                    GenreData.Pausebtn2 = window.Pause2;
+                    GenreData.Playbtn3 = window.Play3;
+                    GenreData.Pausebtn3 = window.Pause3;
+                    GenreData.Playbtn4 = window.Play4;
+                    GenreData.Pausebtn4 = window.Pause4;
+                    GenreData.InTime = window.InTime4;
+                    GenreData.TotalTime = window.TotalTime4;
+                    GenreData.sliProgress = window.sliProgress4;
+                    GenreData.MainViewProgram = window.MainViewProgram;
+                    GenreData.PlayerBarArtist = window.PlayerBarArtist;
+                    GenreData.PlayerBar = window.PlayerBar;
+                    GenreData.mediaPlayer = MySongData.mediaPlayer;
+                    GenreData.PlayInvisible = MySongPage.Play;
+                    GenreData.PauseInvisible = MySongPage.Pause;
+
                     p.Show();
                 }
                 else

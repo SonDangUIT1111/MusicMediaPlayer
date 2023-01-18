@@ -431,6 +431,9 @@
     <Compile Include="View\RenamePlayList.xaml.cs">
       <DependentUpon>RenamePlayList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\SleepTimerForAlbum.xaml.cs">
+      <DependentUpon>SleepTimerForAlbum.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\SleepTimerForArtist.xaml.cs">
       <DependentUpon>SleepTimerForArtist.xaml</DependentUpon>
     </Compile>
@@ -573,6 +576,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\RenamePlayList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SleepTimerForAlbum.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

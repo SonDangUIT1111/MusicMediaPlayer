@@ -12,12 +12,16 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 using System.Windows;
+using MusicMediaPlayer.ViewModel;
+using MusicMediaPlayer;
 
 namespace MusicMediaPlayer.ViewModel
 {
     public class Discover_AlbumSongViewModel : BaseViewModel
     {
         public MediaPlayer mediaPlayer = new MediaPlayer();
+        public MediaPlayer mediaPlayer2 = new MediaPlayer();
+        public MediaPlayer mediaPlayer3 = new MediaPlayer();
         private ObservableCollection<Song> _ListSong;
         public ObservableCollection<Song> ListSong { get { return _ListSong; } set { _ListSong = value; OnPropertyChanged(); } }
         private ObservableCollection<Song> _ListPopular;
@@ -32,6 +36,10 @@ namespace MusicMediaPlayer.ViewModel
         //player bar
         private bool _mediaPlayerIsPlaying = false;
         public bool MediaPlayerIsPlaying { get => _mediaPlayerIsPlaying; set => _mediaPlayerIsPlaying = value; }
+        private bool _mediaPlayerIsPlaying2 = false;
+        public bool MediaPlayerIsPlaying2 { get => _mediaPlayerIsPlaying2; set => _mediaPlayerIsPlaying2 = value; }
+        private bool _MediaPlayerIsPlaying3 = false;
+        public bool MediaPlayerIsPlaying3 { get => _MediaPlayerIsPlaying3; set => _MediaPlayerIsPlaying3 = value; }
         private double _VolumePrevious;
         public double VolumePrevious { get => _VolumePrevious; set => _VolumePrevious = value; }
         private int _countTimer;
@@ -55,36 +63,36 @@ namespace MusicMediaPlayer.ViewModel
                         SkipNextbtn.IsEnabled = true;
 
                         sliProgress.IsEnabled = true;
-                        Playbtn.IsEnabled = true;
-                        Playbtn.IsChecked = true;
-                        Pausebtn.IsChecked = false;
+                        Playbtn3.IsEnabled = true;
+                        Playbtn3.IsChecked = true;
+                        Pausebtn3.IsChecked = false;
 
-                        Pausebtn.IsEnabled = true;
+                        Pausebtn3.IsEnabled = true;
                         var stringUri = SelectedItem.FilePath;
                         Uri uri = new Uri(stringUri);
                         SelectedItem.Times++;
                         DataProvider.Ins.DB.SaveChanges();
-                        mediaPlayer.Open(uri);
-                        MediaPlayerIsPlaying = true;
-                        Playbtn.Visibility = Visibility.Hidden;
-                        Pausebtn.Visibility = Visibility.Visible;
+                        mediaPlayer3.Open(uri);
+                        MediaPlayerIsPlaying3 = true;
+                        Playbtn3.Visibility = Visibility.Hidden;
+                        Pausebtn3.Visibility = Visibility.Visible;
 
-                        mediaPlayer.Play();
+                        mediaPlayer3.Play();
                         DispatcherTimer timer = new DispatcherTimer();
                         timer.Interval = TimeSpan.FromSeconds(1);
                         timer.Tick += timer_Tick;
                         timer.Start();
                         void timer_Tick(object sender, EventArgs e)
                         {
-                            if (mediaPlayer.Source != null)
+                            if (mediaPlayer3.Source != null)
                             {
-                                if (mediaPlayer.NaturalDuration.HasTimeSpan == true)
+                                if (mediaPlayer3.NaturalDuration.HasTimeSpan == true)
                                 {
-                                    InTime.Content = String.Format("{0}", mediaPlayer.Position.ToString(@"mm\:ss"));
-                                    TotalTime.Content = String.Format("{0}", mediaPlayer.NaturalDuration.TimeSpan.ToString(@"mm\:ss"));
+                                    InTime.Content = String.Format("{0}", mediaPlayer3.Position.ToString(@"mm\:ss"));
+                                    TotalTime.Content = String.Format("{0}", mediaPlayer3.NaturalDuration.TimeSpan.ToString(@"mm\:ss"));
                                     sliProgress.Minimum = 0;
-                                    sliProgress.Maximum = mediaPlayer.NaturalDuration.TimeSpan.TotalSeconds;
-                                    sliProgress.Value = mediaPlayer.Position.TotalSeconds;
+                                    sliProgress.Maximum = mediaPlayer3.NaturalDuration.TimeSpan.TotalSeconds;
+                                    sliProgress.Value = mediaPlayer3.Position.TotalSeconds;
                                 }
                             }
 
@@ -102,11 +110,18 @@ namespace MusicMediaPlayer.ViewModel
         public Button SkipNextbtn { get; set; }
         public ToggleButton Playbtn { get; set; }
         public ToggleButton Pausebtn { get; set; }
+        public ToggleButton PlayInvisible { get; set; }
+        public ToggleButton PauseInvisible { get; set; }
+        public ToggleButton Playbtn2 { get; set; }
+        public ToggleButton Pausebtn2 { get; set; }
+        public ToggleButton Playbtn3 { get; set; }
+        public ToggleButton Pausebtn3 { get; set; }
         public Label InTime { get; set; }
         public Label TotalTime { get; set; }
         public Slider sliProgress { get; set; }
         public Grid MainViewProgram { get; set; }
         public Grid PlayerBar { get; set; }
+        public Grid PlayerBarArtist { get; set; }
         public Grid PlayerBarAlbum { get; set; }
         public DispatcherTimer SleepTimer { get; set; }
         public ICommand Play { get; set; }
@@ -157,21 +172,21 @@ namespace MusicMediaPlayer.ViewModel
             });
             Play = new RelayCommand<MainWindow>((p) => { return true; }, (p) =>
             {
-                mediaPlayer.Play();
-                MediaPlayerIsPlaying = true;
-                p.Play2.IsChecked = true;
-                p.Pause2.IsChecked = false;
-                p.Play2.Visibility = Visibility.Hidden;
-                p.Pause2.Visibility = Visibility.Visible;
+                mediaPlayer3.Play();
+                MediaPlayerIsPlaying3 = true;
+                p.Play3.IsChecked = true;
+                p.Pause3.IsChecked = false;
+                p.Play3.Visibility = Visibility.Hidden;
+                p.Pause3.Visibility = Visibility.Visible;
             });
             Pause = new RelayCommand<MainWindow>((p) => { return true; }, (p) =>
             {
-                mediaPlayer?.Pause();
-                MediaPlayerIsPlaying = false;
-                p.Play2.IsChecked = false;
-                p.Pause2.IsChecked = true;
-                p.Play2.Visibility = Visibility.Visible;
-                p.Pause2.Visibility = Visibility.Hidden;
+                mediaPlayer3.Pause();
+                MediaPlayerIsPlaying3 = false;
+                p.Play3.IsChecked = false;
+                p.Pause3.IsChecked = true;
+                p.Play3.Visibility = Visibility.Visible;
+                p.Pause3.Visibility = Visibility.Hidden;
             });
             ChangeTime = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
@@ -181,9 +196,9 @@ namespace MusicMediaPlayer.ViewModel
                 }
                 if (sliProgress.IsFocused == true)
                 {
-                    mediaPlayer.Stop();
-                    mediaPlayer.Position = TimeSpan.FromSeconds(sliProgress.Value);
-                    mediaPlayer.Play();
+                    mediaPlayer3.Stop();
+                    mediaPlayer3.Position = TimeSpan.FromSeconds(sliProgress.Value);
+                    mediaPlayer3.Play();
                     AlbumSongWindow.Focus();
                 }
                 if (sliProgress.Value == sliProgress.Maximum)
@@ -224,37 +239,37 @@ namespace MusicMediaPlayer.ViewModel
             });
             ChangeVolumn = new RelayCommand<MainWindow>((p) => { return true; }, (p) =>
             {
-                if (p.Volume2.IsFocused == true)
+                if (p.Volume3.IsFocused == true)
                 {
-                    mediaPlayer.Volume = p.Volume2.Value;
+                    mediaPlayer3.Volume = p.Volume3.Value;
                 }
-                if (p.Volume2.Value >= 0.8)
+                if (p.Volume3.Value >= 0.8)
                 {
-                    p.SpeakerHigh2.Visibility = Visibility.Visible;
-                    p.SpeakerLow2.Visibility = Visibility.Hidden;
-                    p.SpeakerMedium2.Visibility = Visibility.Hidden;
-                    p.SpeakerOff2.Visibility = Visibility.Hidden;
+                    p.SpeakerHigh3.Visibility = Visibility.Visible;
+                    p.SpeakerLow3.Visibility = Visibility.Hidden;
+                    p.SpeakerMedium3.Visibility = Visibility.Hidden;
+                    p.SpeakerOff3.Visibility = Visibility.Hidden;
                 }
-                else if (p.Volume2.Value >= 0.4)
+                else if (p.Volume3.Value >= 0.4)
                 {
-                    p.SpeakerHigh2.Visibility = Visibility.Hidden;
-                    p.SpeakerLow2.Visibility = Visibility.Hidden;
-                    p.SpeakerMedium2.Visibility = Visibility.Visible;
-                    p.SpeakerOff2.Visibility = Visibility.Hidden;
+                    p.SpeakerHigh3.Visibility = Visibility.Hidden;
+                    p.SpeakerLow3.Visibility = Visibility.Hidden;
+                    p.SpeakerMedium3.Visibility = Visibility.Visible;
+                    p.SpeakerOff3.Visibility = Visibility.Hidden;
                 }
-                else if (p.Volume2.Value > 0)
+                else if (p.Volume3.Value > 0)
                 {
-                    p.SpeakerHigh2.Visibility = Visibility.Hidden;
-                    p.SpeakerLow2.Visibility = Visibility.Visible;
-                    p.SpeakerMedium2.Visibility = Visibility.Hidden;
-                    p.SpeakerOff2.Visibility = Visibility.Hidden;
+                    p.SpeakerHigh3.Visibility = Visibility.Hidden;
+                    p.SpeakerLow3.Visibility = Visibility.Visible;
+                    p.SpeakerMedium3.Visibility = Visibility.Hidden;
+                    p.SpeakerOff3.Visibility = Visibility.Hidden;
                 }
                 else
                 {
-                    p.SpeakerHigh2.Visibility = Visibility.Hidden;
-                    p.SpeakerLow2.Visibility = Visibility.Hidden;
-                    p.SpeakerMedium2.Visibility = Visibility.Hidden;
-                    p.SpeakerOff2.Visibility = Visibility.Visible;
+                    p.SpeakerHigh3.Visibility = Visibility.Hidden;
+                    p.SpeakerLow3.Visibility = Visibility.Hidden;
+                    p.SpeakerMedium3.Visibility = Visibility.Hidden;
+                    p.SpeakerOff3.Visibility = Visibility.Visible;
                 }
             });
             SkipNext = new RelayCommand<object>((p) => { return true; }, (p) =>
@@ -278,36 +293,36 @@ namespace MusicMediaPlayer.ViewModel
             });
             ShuffleVariant = new RelayCommand<MainWindow>((p) => { return true; }, (p) =>
             {
-                p.SequencecyLoop2.IsChecked = false;
-                p.OneLoop2.IsChecked = false;
+                p.SequencecyLoop3.IsChecked = false;
+                p.OneLoop3.IsChecked = false;
                 AlbumSongWindow.SequencecyLoop.IsChecked = false;
                 AlbumSongWindow.OneLoop.IsChecked = false;
                 AlbumSongWindow.RandomLoop.IsChecked = true;
             });
             ShuffleDisabled = new RelayCommand<MainWindow>((p) => { return true; }, (p) =>
             {
-                p.RandomLoop2.IsChecked = false;
-                p.OneLoop2.IsChecked = false;
+                p.RandomLoop3.IsChecked = false;
+                p.OneLoop3.IsChecked = false;
                 AlbumSongWindow.RandomLoop.IsChecked = false;
                 AlbumSongWindow.OneLoop.IsChecked = false;
                 AlbumSongWindow.SequencecyLoop.IsChecked = true;
             });
             Loop = new RelayCommand<MainWindow>((p) => { return true; }, (p) =>
             {
-                p.SequencecyLoop2.IsChecked = false;
-                p.RandomLoop2.IsChecked = false;
+                p.SequencecyLoop3.IsChecked = false;
+                p.RandomLoop3.IsChecked = false;
                 AlbumSongWindow.SequencecyLoop.IsChecked = false;
                 AlbumSongWindow.RandomLoop.IsChecked = false;
                 AlbumSongWindow.OneLoop.IsChecked = true;
             });
             NonMute = new RelayCommand<MainWindow>((p) => { return true; }, (p) =>
             {
-                p.Volume2.Value = VolumePrevious;
+                p.Volume3.Value = VolumePrevious;
             });
             Mute = new RelayCommand<MainWindow>((p) => { return true; }, (p) =>
             {
-                VolumePrevious = p.Volume2.Value;
-                p.Volume2.Value = 0;
+                VolumePrevious = p.Volume3.Value;
+                p.Volume3.Value = 0;
             });
 
             // sleep timer
@@ -315,7 +330,7 @@ namespace MusicMediaPlayer.ViewModel
             {
                 Window sleepwd = p as Window;
                 CountTimer = 0;
-                SleepTimerForArtist wd = p as SleepTimerForArtist;
+                SleepTimerForAlbum wd = p as SleepTimerForAlbum;
                 Slider slider = wd.knob as Slider;
                 double convertsleep = slider.Value * 60;
                 int sleepsecond = (int)convertsleep;
@@ -328,12 +343,12 @@ namespace MusicMediaPlayer.ViewModel
                     CountTimer++;
                     if (CountTimer == sleepsecond)
                     {
-                        mediaPlayer.Stop();
+                        mediaPlayer3.Stop();
                         SleepTimer.Stop();
-                        Playbtn.IsChecked = false;
-                        Pausebtn.IsChecked = true;
-                        Playbtn.Visibility = Visibility.Visible;
-                        Pausebtn.Visibility = Visibility.Hidden;
+                        Playbtn3.IsChecked = false;
+                        Pausebtn3.IsChecked = true;
+                        Playbtn3.Visibility = Visibility.Visible;
+                        Pausebtn3.Visibility = Visibility.Hidden;
                     }
                     else if (CountTimer == 1)
                     {

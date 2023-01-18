@@ -21,10 +21,20 @@ namespace MusicMediaPlayer.ViewModel
     public class Discover_GenreViewModel : BaseViewModel
     {
         public MediaPlayer mediaPlayer = new MediaPlayer();
+        public MediaPlayer mediaPlayer2 = new MediaPlayer();
+        public MediaPlayer mediaPlayer3 = new MediaPlayer();
+        public MediaPlayer mediaPlayer4 = new MediaPlayer();
         private ObservableCollection<Genre> _List;
         public ObservableCollection<Genre> List { get => _List; set { _List = value; OnPropertyChanged(); } }
 
-
+        private bool _mediaPlayerIsPlaying = false;
+        public bool MediaPlayerIsPlaying { get => _mediaPlayerIsPlaying; set => _mediaPlayerIsPlaying = value; }
+        private bool _mediaPlayerIsPlaying2 = false;
+        public bool MediaPlayerIsPlaying2 { get => _mediaPlayerIsPlaying2; set => _mediaPlayerIsPlaying2 = value; }
+        private bool _mediaPlayerIsPlaying3 = false;
+        public bool MediaPlayerIsPlaying3 { get => _mediaPlayerIsPlaying3; set => _mediaPlayerIsPlaying3 = value; }
+        private bool _mediaPlayerIsPlaying4 = false;
+        public bool MediaPlayerIsPlaying4 { get => _mediaPlayerIsPlaying4; set => _mediaPlayerIsPlaying4 = value; }
         private bool _IsPickAllGenres = true;
         public bool IsPickAllGenres { get => _IsPickAllGenres; set { _IsPickAllGenres = value; OnPropertyChanged(); } }
         private bool _IsPickPopularGenre = false;
@@ -51,11 +61,21 @@ namespace MusicMediaPlayer.ViewModel
         public Button SkipNextbtn { get; set; }
         public ToggleButton Playbtn { get; set; }
         public ToggleButton Pausebtn { get; set; }
+        public ToggleButton PlayInvisible { get; set; }
+        public ToggleButton PauseInvisible { get; set; }
+        public ToggleButton Playbtn2 { get; set; }
+        public ToggleButton Pausebtn2 { get; set; }
+        public ToggleButton Playbtn3 { get; set; }
+        public ToggleButton Pausebtn3 { get; set; }
+        public ToggleButton Playbtn4 { get; set; }
+        public ToggleButton Pausebtn4 { get; set; }
         public Label InTime { get; set; }
         public Label TotalTime { get; set; }
         public Slider sliProgress { get; set; }
         public Grid MainViewProgram { get; set; }
         public Grid PlayerBar { get; set; }
+        public Grid PlayerBarArtist { get; set; }
+        public Grid PlayerBarAlbum { get; set; }
         public Grid PlayerBarGenre { get; set; }
 
         public Discover_GenreViewModel()
