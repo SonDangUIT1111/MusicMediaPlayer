@@ -55,19 +55,6 @@ namespace MusicMediaPlayer.ViewModel
 
         public bool IsSort = false;
 
-        // start test
-        private string _ImagePathToAdd;
-        public string ImagePathToAdd { get { return _ImagePathToAdd; } set { _ImagePathToAdd = value; OnPropertyChanged(); } }
-
-        private byte[] imageBinaryAdd;
-        public byte[] ImageBinaryAdd { get { return imageBinaryAdd; } set { imageBinaryAdd = value; OnPropertyChanged(); } }
-        // end test
-
-        private string _ArrangeName = "Arrange";
-        public string ArrangeName { get { return _ArrangeName; } set { _ArrangeName = value; OnPropertyChanged(); } }
-
-
-
         public PlayListViewModel()
         {
             CurrentUser = new CurrentUserAccountModel();
@@ -127,12 +114,12 @@ namespace MusicMediaPlayer.ViewModel
 
                     foreach (Song item in song_in_pl.ToList())
                     {
-                        item.PlayList.Remove(pl);
+                        item.PlayLists.Remove(pl);
 
                         pl.Songs.Remove(item);
                     }
 
-                    DataProvider.Ins.DB.PlayList.Remove(pl);
+                    DataProvider.Ins.DB.PlayLists.Remove(pl);
                     DataProvider.Ins.DB.SaveChanges();
                     LoadDanhSach(CurrentUser.Id);
                 }
@@ -149,7 +136,7 @@ namespace MusicMediaPlayer.ViewModel
             }
             );
 
-            MouseDoubleClick = new RelayCommand<ListBox>((p) => { return true; }, (p) =>
+            MouseDoubleClick = new RelayCommand<ListView>((p) => { return true; }, (p) =>
             {
                 PlayList_Inside wd = new PlayList_Inside();
 
@@ -170,9 +157,7 @@ namespace MusicMediaPlayer.ViewModel
                     view.SortDescriptions.Clear();
                 }
 
-                
                 view.SortDescriptions.Add(new SortDescription("PlayListName", ListSortDirection.Ascending));
-                ArrangeName ="A-Z";
                 IsSort = true;
             }
             );
@@ -187,8 +172,6 @@ namespace MusicMediaPlayer.ViewModel
                 }
 
                 view.SortDescriptions.Add(new SortDescription("PlayListName", ListSortDirection.Descending));
-
-                ArrangeName = "Z-A";
                 IsSort = true;
             }
             );
@@ -197,7 +180,7 @@ namespace MusicMediaPlayer.ViewModel
         }
         public void LoadDanhSach(int identity)
         {
-            List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ins.DB.PlayList.Where(x => x.OwnerId == identity));
+            List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ins.DB.PlayLists.Where(x => x.OwnerId == identity));
         }
     }
 }

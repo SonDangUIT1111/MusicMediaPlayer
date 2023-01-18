@@ -743,11 +743,9 @@ C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\Discover_ArtistSong.g.cs
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\Discover_ArtistSong.baml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\MessageBoxLoading.g.cs
-C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\Logout.g.cs
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\bin\Debug\Prism.dll
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\bin\Debug\Prism.pdb
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\bin\Debug\Prism.xml
-C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\Logout.baml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\MessageBoxLoading.baml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\SleepTimerForArtist.g.cs
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\SleepTimerForArtist.baml
@@ -1002,3 +1000,10 @@ C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\SleepTimerForAlbum.baml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\SleepTimerForGenre.g.cs
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\SleepTimerForGenre.baml
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\CloseWindowButton.baml
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\MessageBoxFail.g.cs
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\MessageBoxSuccessful.g.cs
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\MessageBoxYesNo.g.cs
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\MessageBoxFail.baml
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\MessageBoxSuccessful.baml
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\MessageBoxYesNo.baml

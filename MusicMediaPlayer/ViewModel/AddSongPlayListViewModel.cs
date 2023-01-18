@@ -30,7 +30,7 @@ namespace MusicMediaPlayer.ViewModel
 
         public AddSongPlayListViewModel()
         {
-            CurrentUser = new CurrentUserAccountModel();    
+            CurrentUser = new CurrentUserAccountModel();
             Loaded = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
                 thiswindow = p as AddSongPlayList;
@@ -63,7 +63,7 @@ namespace MusicMediaPlayer.ViewModel
 
         void LoadDanhSach(int identity)
         {
-            ObservableCollection<MusicMediaPlayer.Model.Song> list = new ObservableCollection<MusicMediaPlayer.Model.Song>(DataProvider.Ins.DB.Songs.Where(x=>x.UserId == identity));
+            ObservableCollection<MusicMediaPlayer.Model.Song> list = new ObservableCollection<MusicMediaPlayer.Model.Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == identity));
             foreach (Song item in pl.Songs)
             {
                 list.Remove(item);

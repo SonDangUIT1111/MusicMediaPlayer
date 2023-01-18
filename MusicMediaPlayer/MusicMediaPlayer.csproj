@@ -254,7 +254,6 @@
     <Compile Include="ViewModel\Discover_GenreViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\MessageBoxYesNoViewModel.cs" />
-    <Compile Include="ViewModel\MVApp.cs" />
     <Compile Include="ViewModel\PlayListViewModel.cs" />
     <Compile Include="ViewModel\PlayList_InsideViewModel.cs" />
     <Compile Include="ViewModel\ProfileViewModel.cs" />
@@ -519,10 +518,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Login.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Logout.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

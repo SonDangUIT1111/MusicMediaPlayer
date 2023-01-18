@@ -90,17 +90,17 @@ namespace MusicMediaPlayer.ViewModel
 
                     foreach (Song item in song_in_pl.ToList())
                     {
-                        item.PlayList.Remove(pl);
+                        item.PlayLists.Remove(pl);
 
                         pl.Songs.Remove(item);
                     }
 
-                    DataProvider.Ins.DB.PlayList.Remove(pl);
+                    DataProvider.Ins.DB.PlayLists.Remove(pl);
                     DataProvider.Ins.DB.SaveChanges();
 
                     var trang = page_PlayList.DataContext as PlayListViewModel;
 
-                    trang.List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ins.DB.PlayList);
+                    trang.List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ins.DB.PlayLists);
 
                     p.NavigationService.GoBack();
                 }

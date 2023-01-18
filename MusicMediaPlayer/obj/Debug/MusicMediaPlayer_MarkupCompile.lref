@@ -20,9 +20,11 @@ FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\EditSongI
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\ForgotPassword.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\Home.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\Login.xaml;;
-FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\Logout.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\MainWindow.xaml;;
+FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\MessageBoxFail.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\MessageBoxLoading.xaml;;
+FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\MessageBoxSuccessful.xaml;;
+FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\MessageBoxYesNo.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\MySong.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\Discover_Album.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\PlayList.xaml;;
@@ -33,8 +35,8 @@ FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\ResourceProjec
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\UserControlMusic\UserControl1.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\UserControlMusic\UserControlLoginRegister.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\RenamePlayList.xaml;;
-FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\SleepTimerForArtist.xaml;;
-FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\SleepTimerView.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\SleepTimerForAlbum.xaml;;
+FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\SleepTimerForArtist.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\SleepTimerForGenre.xaml;;
+FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\SleepTimerView.xaml;;
 

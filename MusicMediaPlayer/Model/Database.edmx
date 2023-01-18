@@ -74,6 +74,16 @@
           <Property Name="AlbumId" Type="int" />
           <Property Name="GenreId" Type="int" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="UserAccount">
           <Key>
             <PropertyRef Name="UserId" />
@@ -188,6 +198,7 @@
           <EntitySet Name="Has" EntityType="Self.Has" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PlayList" EntityType="Self.PlayList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Song" EntityType="Self.Song" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserAccount" EntityType="Self.UserAccount" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__PlayList__OwnerI__40F9A68C" Association="Self.FK__PlayList__OwnerI__40F9A68C">
             <End Role="UserAccount" EntitySet="UserAccount" />
@@ -487,7 +498,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Song">
+          <EntitySetMapping Name="Songs">
             <EntityTypeMapping TypeName="MusicPlayerModel.Song">
               <MappingFragment StoreEntitySet="Song">
                 <ScalarProperty Name="SongId" ColumnName="SongId" />
@@ -519,7 +530,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="UserAccount">
+          <EntitySetMapping Name="UserAccounts">
             <EntityTypeMapping TypeName="MusicPlayerModel.UserAccount">
               <MappingFragment StoreEntitySet="UserAccount">
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -553,7 +564,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

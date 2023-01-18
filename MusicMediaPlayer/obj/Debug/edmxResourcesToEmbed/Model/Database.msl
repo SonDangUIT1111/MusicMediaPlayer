@@ -46,7 +46,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Song">
+    <EntitySetMapping Name="Songs">
       <EntityTypeMapping TypeName="MusicPlayerModel.Song">
         <MappingFragment StoreEntitySet="Song">
           <ScalarProperty Name="SongId" ColumnName="SongId" />
@@ -78,7 +78,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="UserAccount">
+    <EntitySetMapping Name="UserAccounts">
       <EntityTypeMapping TypeName="MusicPlayerModel.UserAccount">
         <MappingFragment StoreEntitySet="UserAccount">
           <ScalarProperty Name="UserId" ColumnName="UserId" />

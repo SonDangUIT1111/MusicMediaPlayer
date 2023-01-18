@@ -229,8 +229,8 @@ namespace MusicMediaPlayer.ViewModel
         public SongViewModel()
         {
             CurrentUser = new CurrentUserAccountModel();
-            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id));
-            TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.Times).ToList());
+            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id));
+            TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.Times).ToList());
             TopTrending.Add(new Song());
             TopTrending.Add(new Song());
             TopTrending.Add(new Song());
@@ -1025,7 +1025,7 @@ namespace MusicMediaPlayer.ViewModel
         }
         public void Load()
         {
-            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id));
+            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id));
             if (List.Count == 0)
             {
                 MySongWindow.IsThereSong.Visibility = Visibility.Visible;
@@ -1047,7 +1047,7 @@ namespace MusicMediaPlayer.ViewModel
                 InTime.Visibility = Visibility.Visible;
                 TotalTime.Visibility = Visibility.Visible;
             }
-            TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.Times).ToList());
+            TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.Times).ToList());
             TopTrending.Add(new Song());
             TopTrending.Add(new Song());
             TopTrending.Add(new Song());
@@ -1066,7 +1066,7 @@ namespace MusicMediaPlayer.ViewModel
         }
         public void LoadRecent()
         {
-            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.TimeAdd).ToList());
+            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.TimeAdd).ToList());
             if (List.Count == 0)
             {
                 MySongWindow.IsThereSong.Visibility = Visibility.Visible;
@@ -1129,7 +1129,7 @@ namespace MusicMediaPlayer.ViewModel
                 InTime.Visibility = Visibility.Visible;
                 TotalTime.Visibility = Visibility.Visible;
             }
-            TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.Times).ToList());
+            TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.Times).ToList());
             TopTrending.Add(new Song());
             TopTrending.Add(new Song());
             TopTrending.Add(new Song());
