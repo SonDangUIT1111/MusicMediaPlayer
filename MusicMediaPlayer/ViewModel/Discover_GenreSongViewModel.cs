@@ -334,7 +334,7 @@ namespace MusicMediaPlayer.ViewModel
             {
                 Window sleepwd = p as Window;
                 CountTimer = 0;
-                SleepTimerForArtist wd = p as SleepTimerForArtist;
+                SleepTimerForGenre wd = p as SleepTimerForGenre;
                 Slider slider = wd.knob as Slider;
                 double convertsleep = slider.Value * 60;
                 int sleepsecond = (int)convertsleep;
