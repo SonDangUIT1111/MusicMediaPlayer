@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MusicMediaPlayer.View"
+      xmlns:uc="clr-namespace:MusicMediaPlayer.UserControlMusic"
       xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
       mc:Ignorable="d" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -20,12 +21,5 @@
       DataContext="{StaticResource HomeVM}">
 
     <Grid>
-        <Grid.Background>
-            <LinearGradientBrush>
-                <GradientStop Color="#4ADEDE" Offset="0.8"/>
-                <GradientStop Color="#1AA7EC"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-      
     </Grid>
 </Page>

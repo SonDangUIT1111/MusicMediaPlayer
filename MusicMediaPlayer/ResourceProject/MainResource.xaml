@@ -9,8 +9,8 @@
     <viewmodel:Discover_ArtistViewModel x:Key="ArtistVM"></viewmodel:Discover_ArtistViewModel>
     <viewmodel:Discover_ArtistSongViewModel x:Key="ArtistSongVM"></viewmodel:Discover_ArtistSongViewModel>
     <converter:ByteArrayToBitmapImageConverter x:Name="binaryConverter" x:Key="ByteToImageConverter"/>
-    
-    
+    <viewmodel:Discover_AlbumViewModel x:Key="AlbumVM"></viewmodel:Discover_AlbumViewModel>
+    <viewmodel:Discover_AlbumSongViewModel x:Key="AlbumSongVM"></viewmodel:Discover_AlbumSongViewModel>
     <viewmodel:PlayListViewModel x:Key="PlayListVM"></viewmodel:PlayListViewModel>
     <viewmodel:AddPlayListViewModel x:Key="AddPlayListVM"></viewmodel:AddPlayListViewModel>
     <viewmodel:RenamePlayListViewModel x:Key="RenamePlayListVM"></viewmodel:RenamePlayListViewModel>

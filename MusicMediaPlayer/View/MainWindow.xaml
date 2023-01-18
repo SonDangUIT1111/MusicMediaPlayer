@@ -161,7 +161,9 @@
                                             </Grid>
                                         </Button>
                                         <Button Style="{StaticResource ContactButton}"  
-                                                Width="180">
+                                                Width="180" 
+                                                Command="{Binding SwitchAlbum}"
+                                                CommandParameter="{Binding ElementName=FrameView}">
                                             <Grid>
                                                 <TextBlock Text= "Album" 
                                                            Margin="20,0,31,0"/>

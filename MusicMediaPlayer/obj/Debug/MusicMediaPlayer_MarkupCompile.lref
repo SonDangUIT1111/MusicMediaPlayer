@@ -1,11 +1,15 @@
 ﻿
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\App.xaml;;
+FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\UserControlMusic\PianoAdventure.xaml;;
+FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\UserControlMusic\Welcome.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\AddPlayList.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\AddSongPlayList.xaml;;
+FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\ChangeAlbumPictureWindow.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\ChangeArtistPictureWindow.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\ChangePassword.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\ResourceProject\ExpanderMySongTemplate.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\AddSongToApp.xaml;;
+FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\Discover_AlbumSong.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\Discover_Artist.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\Discover_ArtistSong.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\EditMySong.xaml;;
@@ -17,6 +21,7 @@ FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\Logout.xa
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\MainWindow.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\MessageBoxLoading.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\MySong.xaml;;
+FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\Discover_Album.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\PlayList.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\PlayList_Inside.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\Profile.xaml;;
@@ -25,6 +30,6 @@ FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\ResourceProjec
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\UserControlMusic\UserControl1.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\UserControlMusic\UserControlLoginRegister.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\RenamePlayList.xaml;;
-FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\SleepTimerView.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\SleepTimerForArtist.xaml;;
+FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\SleepTimerView.xaml;;
 

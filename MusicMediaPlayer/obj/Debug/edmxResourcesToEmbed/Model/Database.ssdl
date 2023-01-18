@@ -90,6 +90,18 @@
     <Property Name="UserImage" Type="varbinary(max)" />
     <Property Name="NickName" Type="nvarchar" MaxLength="100" />
   </EntityType>
+  <Association Name="FK__PlayList__OwnerI__40F9A68C">
+    <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />
+    <End Role="PlayList" Type="Self.PlayList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccount">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="PlayList">
+        <PropertyRef Name="OwnerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__PlayList__OwnerI__5DCAEF64">
     <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />
     <End Role="PlayList" Type="Self.PlayList" Multiplicity="*" />
@@ -183,6 +195,10 @@
     <EntitySet Name="Song" EntityType="Self.Song" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserAccount" EntityType="Self.UserAccount" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__PlayList__OwnerI__40F9A68C" Association="Self.FK__PlayList__OwnerI__40F9A68C">
+      <End Role="UserAccount" EntitySet="UserAccount" />
+      <End Role="PlayList" EntitySet="PlayList" />
+    </AssociationSet>
     <AssociationSet Name="FK__PlayList__OwnerI__5DCAEF64" Association="Self.FK__PlayList__OwnerI__5DCAEF64">
       <End Role="UserAccount" EntitySet="UserAccount" />
       <End Role="PlayList" EntitySet="PlayList" />

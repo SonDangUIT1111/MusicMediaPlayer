@@ -236,10 +236,18 @@
     <Compile Include="Model\UserAccount.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserControlMusic\PianoAdventure.xaml.cs">
+      <DependentUpon>PianoAdventure.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlMusic\Welcome.xaml.cs">
+      <DependentUpon>Welcome.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\AddPlayListViewModel.cs" />
     <Compile Include="ViewModel\AddSongPlayListViewModel.cs" />
     <Compile Include="ViewModel\ChangePasswordViewModel.cs" />
     <Compile Include="CurrentUserAccountModel.cs" />
+    <Compile Include="ViewModel\Discover_AlbumSongViewModel.cs" />
+    <Compile Include="ViewModel\Discover_AlbumViewModel.cs" />
     <Compile Include="ViewModel\Discover_ArtistSongViewModel.cs" />
     <Compile Include="ViewModel\Discover_ArtistViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
@@ -255,6 +263,9 @@
     <Compile Include="View\AddSongPlayList.xaml.cs">
       <DependentUpon>AddSongPlayList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ChangeAlbumPictureWindow.xaml.cs">
+      <DependentUpon>ChangeAlbumPictureWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ChangeArtistPictureWindow.xaml.cs">
       <DependentUpon>ChangeArtistPictureWindow.xaml</DependentUpon>
     </Compile>
@@ -264,6 +275,9 @@
     <Compile Include="ViewModel\SongViewModel.cs" />
     <Compile Include="View\AddSongToApp.xaml.cs">
       <DependentUpon>AddSongToApp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Discover_AlbumSong.xaml.cs">
+      <DependentUpon>Discover_AlbumSong.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Discover_Artist.xaml.cs">
       <DependentUpon>Discover_Artist.xaml</DependentUpon>
@@ -291,6 +305,9 @@
     </Compile>
     <Compile Include="View\MySong.xaml.cs">
       <DependentUpon>MySong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Discover_Album.xaml.cs">
+      <DependentUpon>Discover_Album.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PlayList.xaml.cs">
       <DependentUpon>PlayList.xaml</DependentUpon>
@@ -368,11 +385,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControlMusic\PianoAdventure.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlMusic\Welcome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AddPlayList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AddSongPlayList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ChangeAlbumPictureWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -418,6 +447,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AddSongToApp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Discover_AlbumSong.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -473,6 +506,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\MySong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Discover_Album.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
