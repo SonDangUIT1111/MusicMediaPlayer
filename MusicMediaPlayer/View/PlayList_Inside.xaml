@@ -4,9 +4,10 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MusicMediaPlayer"
+      xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="1000" d:DesignWidth="1000"
       Title="PlayList_Inside"
       Name="PlayList_Inside_Page"
       DataContext="{StaticResource PlayList_InsideVM}"
@@ -15,12 +16,13 @@
 
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding Loaded}"
+            <i:InvokeCommandAction Command="{Binding LoadData}"
                                    CommandParameter="{Binding ElementName=PlayList_Inside_Page}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
 
-    <Grid Height="450" Width="800">
+    <Grid Height="1000" Width="1000"
+          Background="Black">
         <Grid.RowDefinitions>
             <RowDefinition Height="150"
                            >
@@ -30,7 +32,92 @@
 
             </RowDefinition>
         </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal"
+                    Margin="0,0,0,0" 
+                    Width="652"
+                    Visibility="Hidden"
+                    Background="Black"
+                    Panel.ZIndex="2">
+            <ToggleButton
+                            x:Name="RandomLoop"
+                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                            IsChecked="False"
+                            Margin="10,0,5,0"
+                            Visibility="Hidden"
+                            Background="#1ED760"
+                            
+                                                >
+                <materialDesign:PackIcon
+                                                Kind="ShuffleVariant"
+                                                Height="21"
+                                                Width="21"
+                                                Foreground="White"/>
+            </ToggleButton>
+            <Button
+                          Command="{Binding SkipPrevious}"
+                          Margin="0,0,5,0"
+                          Content="{materialDesign:PackIcon SkipPrevious}"
+                          Background="Transparent"
+                          Foreground="White"
+                          Visibility="Hidden"
+                          BorderBrush="Transparent"/>
+            <ToggleButton
+                          x:Name="Play"
+                          Margin="0,0,0,0"
+                          Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                          Content="{materialDesign:PackIcon Play}"
+                          Background="Red"
+                          Foreground="White"
+                          BorderBrush="Red"
+                          Visibility="Visible"
+                          IsChecked="False"/>
+            <ToggleButton
+                          x:Name="Pause"
+                          Visibility="Hidden"
+                          Margin="-40,0,0,0"
+                          Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                          Content="{materialDesign:PackIcon Pause}"
+                          Background="Transparent"
+                          Foreground="White"
+                          BorderBrush="Transparent"
+                          IsEnabled="False"/>
+            <Button
+                          Command="{Binding SkipNext}"
+                          Margin="0,0,5,0"
+                          Visibility="Hidden"
+                          Content="{materialDesign:PackIcon SkipNext}"
+                          Background="Transparent"
+                          Foreground="White"
+                          BorderBrush="Transparent"/>
+            <ToggleButton
+                            x:Name="SequencecyLoop"
+                            Visibility="Hidden"
+                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                            IsChecked="True"
+                            Margin="0,0,5,0"
 
+                            Foreground="White"
+                            Background="#1ED760"
+                                                >
+                <materialDesign:PackIcon
+                                                Kind="ShuffleDisabled"
+                                                Height="21"
+                                                Width="21" />
+            </ToggleButton>
+            <ToggleButton
+                            x:Name="OneLoop"
+                            Visibility="Hidden"
+                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                            IsChecked="False"
+                            Margin="0,0,5,0"
+                            Foreground="White"
+                            Background="#1ED760">
+                <materialDesign:PackIcon
+                                                Kind="Loop"
+                                                Height="21"
+                                                Width="21" />
+            </ToggleButton>
+        </StackPanel>
         <Grid Grid.Row="0"
               Background="Beige">
             <StackPanel Orientation="Horizontal">
@@ -90,60 +177,247 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1"
-              Background="White">
-            <ListView 
-                    ItemsSource="{Binding List, Mode=TwoWay}"
-                    Name="listview"
-                          >
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <Style.Resources>
-                            <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="5">
-                                </Setter>
-                            </Style>
-                        </Style.Resources>
-                    </Style>
-                </ListView.ItemContainerStyle>
-
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid  Height="70"
-                                   Width="580">
-                            <StackPanel Margin="15 10 0 10"
-                                            Orientation="Horizontal">
-
-                                <Ellipse Height="48" Width="48" VerticalAlignment="Center">
-                                    <Ellipse.Fill>
-                                        <ImageBrush ImageSource="/Image/anh3.jpg"/>
-                                    </Ellipse.Fill>
-                                </Ellipse>
-
-                                <StackPanel Margin="15 0 0 0" Width="440"
-                                       >
-                                    <TextBlock Opacity="1" Text="{Binding SongTitle}" Foreground="Black" FontWeight="Bold" FontSize="20"/>
-                                    <TextBlock Opacity="1" Text="{Binding Artist}" Foreground="Black" FontWeight="Bold" FontSize="17"></TextBlock>
-                                </StackPanel>
-
-                                <materialDesign:PopupBox
-                                                            Margin="20 10 10 10"
-                                                            Padding="2 0 2 0">
-                                    <StackPanel>
-                                        <Button Content="Delete" 
-                                                    Command="{Binding Source={StaticResource PlayList_InsideVM}, Path=Delete_One_Song}"
-                                                    CommandParameter="{Binding}"
-                                                    >
+              Background="Black">
+            <StackPanel Orientation="Horizontal"
+                        Height="820"
+                        Width="980">
+                <DataGrid 
+                  x:Name="listview"
+                  Height="1000"
+                  Width="520"
+                  Margin="10,10,0,0"
+                  ItemsSource="{Binding List}"
+                  SelectedItem="{Binding SelectedItem}"
+                  Style="{StaticResource DataGridStyle1}"  
+                  CellStyle="{StaticResource DataGridCellStyle1}" 
+                  RowStyle="{StaticResource DataGridRowStyle1}">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Width="500">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Style="{StaticResource Visualizer}"
+                                                Background="#1ED760"
+                                                BorderBrush="Transparent"
+                                                Margin="0,0,10,0"
+                                                Padding="0"
+                                                Opacity="0.8"
+                                                Panel.ZIndex="1"
+                                                >
+                                            <Image gif:AnimationBehavior.SourceUri="\Image\visualizer.gif"
+                                                   Height="20"
+                                                   Width="20"
+                                                   />
                                         </Button>
+                                        <Button Style="{StaticResource ButtonInMySong}"
+                                                Background="Transparent"
+                                                BorderBrush="Transparent"
+                                                Margin="-30,0,10,0"
+                                                Padding="0"
+                                                Opacity="0.8">
+                                            <materialDesign:PackIcon Kind="Play"
+                                                                     Foreground="#FFFFFF"
+                                                                     Height="20"
+                                                                     Width="20"></materialDesign:PackIcon>
+                                        </Button>
+                                        <Border CornerRadius="5"
+                                                    BorderThickness="1"
+                                                    BorderBrush="White"
+                                                    Height="45"
+                                                    HorizontalAlignment="Center">
+                                            <Grid>
+                                                <Border CornerRadius="5"
+                                                        Width="40"
+                                                        Height="50"
+                                                        x:Name="mask">
+                                                    <Border.Background>
+                                                        <ImageBrush Stretch="UniformToFill"
+                                                                    ImageSource="{Binding ImageSongBinary, Converter={StaticResource ByteToImageConverter}}">
+                                                        </ImageBrush>
+                                                    </Border.Background>
+                                                </Border>
+                                            </Grid>
+                                        </Border>
+                                        <TextBlock Text="{Binding SongTitle}"
+                                                        Width="150"
+                                                        FontSize="14"
+                                                        FontWeight="Bold"
+                                                        FontFamily="Segoe UI Semibold"
+                                                        Margin="20,0,0,0"
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"
+                                                        TextTrimming="WordEllipsis"
+                                                        >
+                                        </TextBlock>
+                                        <TextBlock Text="{Binding Artist}"
+                                                        Width="150"
+                                                        FontSize="12"
+                                                        Margin="0,5,0,0"
+                                                        FontWeight="Medium"
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"
+                                                        TextTrimming="WordEllipsis"
+                                                        ></TextBlock>
+                                        <TextBlock Text="{Binding HowLong}"
+                                                           Width="50"
+                                                           FontSize="12"
+                                                           Margin="20,8,0,0"
+                                                           HorizontalAlignment="Center"
+                                                           VerticalAlignment="Center"
+                                                           FontWeight="Medium"
+                                                           ></TextBlock>
                                     </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <StackPanel Height="620"
+                            Width="420"
+                            Margin="20,-50,0,0">
+                    <Expander Background="Transparent"
+                              Foreground="Transparent"
+                              Margin="0,-50,0,0"
+                              Height="620"
+                              Width="420"
+                              ExpandDirection="Up"
+                              IsExpanded="False"
+                              x:Name="CDCircle"
+                              >
+                        <StackPanel Height="620">
+                            <Border  Width="300"
+                                     Height="300"
+                                     BorderThickness="0"
+                                     BorderBrush="White"
+                                     CornerRadius="20"
+                                     x:Name="CD"
+                                     RenderTransformOrigin="0.5,0.5">
+                                <Border.Background>
+                                    <ImageBrush ImageSource="/Image/anh3.jpg" 
+                                                Stretch="UniformToFill"></ImageBrush>
+                                </Border.Background>
+                                <Border.RenderTransform>
+                                    <RotateTransform x:Name="MyAnimatedTransform" Angle="0" />
+                                </Border.RenderTransform>
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Style.Triggers>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.EnterActions>
+                                                    <BeginStoryboard x:Name="StartAction">
+                                                        <Storyboard>
+                                                            <ObjectAnimationUsingKeyFrames 
+                                                                                           Storyboard.TargetProperty="CornerRadius"
+                                                                                           >
+                                                                <ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.0">
+                                                                        <DiscreteObjectKeyFrame.Value>
+                                                                            <CornerRadius BottomLeft="45" BottomRight="45" TopLeft="45" TopRight="45" />
+                                                                        </DiscreteObjectKeyFrame.Value>
+                                                                    </DiscreteObjectKeyFrame>
 
-                                </materialDesign:PopupBox>
+                                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.025">
+                                                                        <DiscreteObjectKeyFrame.Value>
+                                                                            <CornerRadius BottomLeft="90" BottomRight="90" TopLeft="90" TopRight="90" />
+                                                                        </DiscreteObjectKeyFrame.Value>
+                                                                    </DiscreteObjectKeyFrame>
 
+                                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.05">
+                                                                        <DiscreteObjectKeyFrame.Value>
+                                                                            <CornerRadius BottomLeft="180" BottomRight="180" TopLeft="180" TopRight="180" />
+                                                                        </DiscreteObjectKeyFrame.Value>
+                                                                    </DiscreteObjectKeyFrame>
+
+                                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.1">
+                                                                        <DiscreteObjectKeyFrame.Value>
+                                                                            <CornerRadius BottomLeft="360" BottomRight="360" TopLeft="360" TopRight="360" />
+                                                                        </DiscreteObjectKeyFrame.Value>
+                                                                    </DiscreteObjectKeyFrame>
+                                                                </ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                            </ObjectAnimationUsingKeyFrames>
+                                                            <DoubleAnimation
+                                                                    Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)"
+                                                                    BeginTime="0:0:0.1"
+                                                                    From="0.0" To="360" Duration="0:0:8" RepeatBehavior="Forever" />
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </MultiDataTrigger.EnterActions>
+                                                <MultiDataTrigger.ExitActions>
+                                                    <RemoveStoryboard BeginStoryboardName="StartAction"></RemoveStoryboard>
+                                                    <BeginStoryboard>
+                                                        <Storyboard x:Name="ExitAction">
+                                                            <DoubleAnimation
+                                                                    Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)"
+                                                                    From="0.0" To="360" Duration="0:0:0.250" />
+                                                            <ObjectAnimationUsingKeyFrames 
+                                                                           Storyboard.TargetProperty="CornerRadius"
+                                                                           >
+                                                                <ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                                                                        <DiscreteObjectKeyFrame.Value>
+                                                                            <CornerRadius BottomLeft="270" BottomRight="270" TopLeft="270" TopRight="270" />
+                                                                        </DiscreteObjectKeyFrame.Value>
+                                                                    </DiscreteObjectKeyFrame>
+
+                                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.325">
+                                                                        <DiscreteObjectKeyFrame.Value>
+                                                                            <CornerRadius BottomLeft="180" BottomRight="180" TopLeft="180" TopRight="180" />
+                                                                        </DiscreteObjectKeyFrame.Value>
+                                                                    </DiscreteObjectKeyFrame>
+
+                                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.35">
+                                                                        <DiscreteObjectKeyFrame.Value>
+                                                                            <CornerRadius BottomLeft="90" BottomRight="90" TopLeft="90" TopRight="90" />
+                                                                        </DiscreteObjectKeyFrame.Value>
+                                                                    </DiscreteObjectKeyFrame>
+
+                                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.4">
+                                                                        <DiscreteObjectKeyFrame.Value>
+                                                                            <CornerRadius BottomLeft="20" BottomRight="20" TopLeft="20" TopRight="20" />
+                                                                        </DiscreteObjectKeyFrame.Value>
+                                                                    </DiscreteObjectKeyFrame>
+                                                                </ObjectAnimationUsingKeyFrames.KeyFrames>
+                                                            </ObjectAnimationUsingKeyFrames>
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </MultiDataTrigger.ExitActions>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding ElementName=Play, Path=IsChecked}" Value="True" />
+                                                </MultiDataTrigger.Conditions>
+                                            </MultiDataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                            </Border>
+
+                            <StackPanel Height="auto"
+                                        Margin="0,20,0,0">
+                                <TextBlock Width="400"
+                                           Height="40"
+                                           FontSize="34"
+                                           FontWeight="Bold"
+                                           Foreground="#FFFFFF"
+                                           TextAlignment="Center"
+                                           Text="Playlist name tu xu"></TextBlock>
+                                <TextBlock Width="400"
+                                           Height="40"
+                                           FontSize="28"
+                                           FontWeight="Bold"
+                                           Foreground="#FFFFFF"
+                                           TextAlignment="Center"
+                                           Text="{Binding SelectedItem.SongTitle}"></TextBlock>
+                                <TextBlock Width="400"
+                                           Height="30"
+                                           FontSize="20"
+                                           FontWeight="Medium"
+                                           Foreground="#767676"
+                                           TextAlignment="Center"
+                                           Text="{Binding SelectedItem.Artist}"></TextBlock>
                             </StackPanel>
-                        </Grid>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
+                        </StackPanel>
+                    </Expander>
+                </StackPanel>
+            </StackPanel>
         </Grid>
 
 

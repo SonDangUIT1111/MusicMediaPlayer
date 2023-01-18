@@ -450,6 +450,9 @@
     <Compile Include="View\SleepTimerForGenre.xaml.cs">
       <DependentUpon>SleepTimerForGenre.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\SleepTimerForPlaylist.xaml.cs">
+      <DependentUpon>SleepTimerForPlaylist.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\SleepTimerView.xaml.cs">
       <DependentUpon>SleepTimerView.xaml</DependentUpon>
     </Compile>
@@ -609,6 +612,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SleepTimerForGenre.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SleepTimerForPlaylist.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

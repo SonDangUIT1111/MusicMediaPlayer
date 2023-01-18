@@ -25,7 +25,10 @@ namespace MusicMediaPlayer.ViewModel
     public class SongViewModel : BaseViewModel
     {
         public MediaPlayer mediaPlayer = new MediaPlayer();
+        public MediaPlayer mediaPlayer1 = new MediaPlayer();
         public MediaPlayer mediaPlayer2 = new MediaPlayer();
+        public MediaPlayer mediaPlayer3 = new MediaPlayer();
+        public MediaPlayer mediaPlayer4 = new MediaPlayer();
         private ObservableCollection<Song> _List;
         public ObservableCollection<Song> List { get => _List; set { _List = value; OnPropertyChanged(); } }
         private ObservableCollection<Song> _ListEdit;
@@ -39,14 +42,27 @@ namespace MusicMediaPlayer.ViewModel
         public Button SkipNextbtn { get; set; }
         public ToggleButton Playbtn { get; set; }
         public ToggleButton Pausebtn { get; set; }
+        public ToggleButton PlayInvisible { get; set; }
+        public ToggleButton PauseInvisible { get; set; }
+        public ToggleButton Playbtn1 { get; set; }
+        public ToggleButton Pausebtn1 { get; set; }
+        public ToggleButton PlayInvisible1 { get; set; }
+        public ToggleButton PauseInvisible1 { get; set; }
         public ToggleButton Playbtn2 { get; set; }
         public ToggleButton Pausebtn2 { get; set; }
+        public ToggleButton Playbtn3 { get; set; }
+        public ToggleButton Pausebtn3 { get; set; }
+        public ToggleButton Playbtn4 { get; set; }
+        public ToggleButton Pausebtn4 { get; set; }
         public Label InTime { get; set; }
         public Label TotalTime { get; set; }
         public Slider sliProgress { get; set; }
         public Grid MainViewProgram { get; set; }
         public Grid PlayerBar { get; set; }
+        public Grid PlayerBarPlaylist { get; set; }
         public Grid PlayerBarArtist { get; set; }
+        public Grid PlayerBarAlbum { get; set; }
+        public Grid PlayerBarGenre { get; set; }
         public CurrentUserAccountModel CurrentUser { get; set; }
         public DispatcherTimer SleepTimer { get; set; }
         private Song _SelectedItem;
@@ -63,16 +79,54 @@ namespace MusicMediaPlayer.ViewModel
                     {
                         //sync parameter main window
                         MainViewProgram.Height = 650;
-                        PlayerBarArtist.Visibility = Visibility.Hidden;
                         PlayerBar.Visibility = Visibility.Visible;
+                        PlayerBarPlaylist.Visibility = Visibility.Hidden;
+                        PlayerBarArtist.Visibility = Visibility.Hidden;
+                        PlayerBarAlbum.Visibility = Visibility.Hidden;
+                        PlayerBarGenre.Visibility = Visibility.Hidden;
                         SkipPreviousbtn.IsEnabled = true;
                         SkipNextbtn.IsEnabled = true;
-                        mediaPlayer2.Stop();
+                        if (mediaPlayer1 != null)
+                        {
+                            mediaPlayer1.Stop();
+                        }
+                        MediaPlayerIsPlaying1 = false;
+                        if (mediaPlayer2 != null)
+                        {
+                            mediaPlayer2.Stop();
+                        }
                         MediaPlayerIsPlaying2 = false;
+                        if (mediaPlayer3 != null)
+                        {
+                            mediaPlayer3.Stop();
+                        }
+                        MediaPlayerIsPlaying3 = false;
+                        if (mediaPlayer4 != null)
+                        {
+                            mediaPlayer4.Stop();
+                        }
+                        MediaPlayerIsPlaying4 = false;
+                        Playbtn1.IsChecked = false;
+                        Pausebtn1.IsChecked = true;
+                        Playbtn1.Visibility = Visibility.Visible;
+                        Pausebtn1.Visibility = Visibility.Hidden;
+                        PlayInvisible1.IsChecked = false;
+                        PauseInvisible1.IsChecked = true;
+
                         Playbtn2.IsChecked = false;
                         Pausebtn2.IsChecked = true;
                         Playbtn2.Visibility = Visibility.Visible;
                         Pausebtn2.Visibility = Visibility.Hidden;
+
+                        Playbtn3.IsChecked = false;
+                        Pausebtn3.IsChecked = true;
+                        Playbtn3.Visibility = Visibility.Visible;
+                        Pausebtn3.Visibility = Visibility.Hidden;
+
+                        Playbtn4.IsChecked = false;
+                        Pausebtn4.IsChecked = true;
+                        Playbtn4.Visibility = Visibility.Visible;
+                        Pausebtn4.Visibility = Visibility.Hidden;
 
                         //
                         sliProgress.IsEnabled = true;
@@ -140,8 +194,15 @@ namespace MusicMediaPlayer.ViewModel
         public bool UserIsDraggingSlider { get => _userIsDraggingSlider; set => _userIsDraggingSlider = value; }
         private bool _mediaPlayerIsPlaying = false;
         public bool MediaPlayerIsPlaying { get => _mediaPlayerIsPlaying; set => _mediaPlayerIsPlaying = value; }
+        private bool _mediaPlayerIsPlaying1 = false;
+        public bool MediaPlayerIsPlaying1 { get => _mediaPlayerIsPlaying1; set => _mediaPlayerIsPlaying1 = value; }
+
         private bool _mediaPlayerIsPlaying2 = false;
         public bool MediaPlayerIsPlaying2 { get => _mediaPlayerIsPlaying2; set => _mediaPlayerIsPlaying2 = value; }
+        private bool _mediaPlayerIsPlaying3 = false;
+        public bool MediaPlayerIsPlaying3 { get => _mediaPlayerIsPlaying3; set => _mediaPlayerIsPlaying3 = value; }
+        private bool _mediaPlayerIsPlaying4 = false;
+        public bool MediaPlayerIsPlaying4 { get => _mediaPlayerIsPlaying4; set => _mediaPlayerIsPlaying4 = value; }
         // add,delete
         private string _TitleToAdd;
         public string TitleToAdd { get { return _TitleToAdd; } set { _TitleToAdd = value; } }

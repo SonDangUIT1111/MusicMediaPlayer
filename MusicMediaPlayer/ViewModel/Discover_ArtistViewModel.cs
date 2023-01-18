@@ -21,14 +21,22 @@ namespace MusicMediaPlayer.ViewModel
     public class Discover_ArtistViewModel:BaseViewModel
     {
         public MediaPlayer mediaPlayer = new MediaPlayer();
+        public MediaPlayer mediaPlayer1 = new MediaPlayer();
         public MediaPlayer mediaPlayer2 = new MediaPlayer();
+        public MediaPlayer mediaPlayer3 = new MediaPlayer();
+        public MediaPlayer mediaPlayer4 = new MediaPlayer();
         private ObservableCollection<Artist> _List;
         public ObservableCollection<Artist> List { get => _List; set { _List = value; OnPropertyChanged(); } }
         private bool _mediaPlayerIsPlaying = false;
         public bool MediaPlayerIsPlaying { get => _mediaPlayerIsPlaying; set => _mediaPlayerIsPlaying = value; }
-
+        private bool _mediaPlayerIsPlaying1 = false;
+        public bool MediaPlayerIsPlaying1 { get => _mediaPlayerIsPlaying1; set => _mediaPlayerIsPlaying1 = value; }
         private bool _mediaPlayerIsPlaying2 = false;
         public bool MediaPlayerIsPlaying2 { get => _mediaPlayerIsPlaying2; set => _mediaPlayerIsPlaying2 = value; }
+        private bool _mediaPlayerIsPlaying3 = false;
+        public bool MediaPlayerIsPlaying3 { get => _mediaPlayerIsPlaying3; set => _mediaPlayerIsPlaying3 = value; }
+        private bool _mediaPlayerIsPlaying4 = false;
+        public bool MediaPlayerIsPlaying4 { get => _mediaPlayerIsPlaying4; set => _mediaPlayerIsPlaying4 = value; }
         private bool _IsPickAllArtist = true;
         public bool IsPickAllArtist { get => _IsPickAllArtist; set => _IsPickAllArtist = value; }
         private bool _IsPickPopularArtist = false;
@@ -62,14 +70,25 @@ namespace MusicMediaPlayer.ViewModel
         public ToggleButton Pausebtn { get; set; }
         public ToggleButton PlayInvisible { get; set; }
         public ToggleButton PauseInvisible { get; set; }
+        public ToggleButton Playbtn1 { get; set; }
+        public ToggleButton Pausebtn1 { get; set; }
+        public ToggleButton PlayInvisible1 { get; set; }
+        public ToggleButton PauseInvisible1 { get; set; }
         public ToggleButton Playbtn2 { get; set; }
         public ToggleButton Pausebtn2 { get; set; }
+        public ToggleButton Playbtn3 { get; set; }
+        public ToggleButton Pausebtn3 { get; set; }
+        public ToggleButton Playbtn4 { get; set; }
+        public ToggleButton Pausebtn4 { get; set; }
         public Label InTime { get; set; }
         public Label TotalTime { get; set; }
         public Slider sliProgress { get; set; }
         public Grid MainViewProgram { get; set; }
         public Grid PlayerBar { get; set; }
+        public Grid PlayerBarPlaylist { get; set; }
         public Grid PlayerBarArtist { get; set; }
+        public Grid PlayerBarAlbum { get; set; }
+        public Grid PlayerBarGenre { get; set; }
 
         //
         public Discover_ArtistViewModel()
@@ -199,7 +218,7 @@ namespace MusicMediaPlayer.ViewModel
                 window.ArtistFrame.Background = imageBrush;
                 window.NameArtist.Text = item.ArtistName;
                 window.Stream.Text = item.Streams.ToString();
-                ArtistWindow.NavigationService.Navigate(window);
+                
 
                 //passing parameter
                 windowData.SkipNextbtn = SkipNextbtn;
@@ -208,19 +227,36 @@ namespace MusicMediaPlayer.ViewModel
                 windowData.Pausebtn = Pausebtn;
                 windowData.PlayInvisible = PlayInvisible;
                 windowData.PauseInvisible = PauseInvisible;
+                windowData.Playbtn1 = Playbtn1;
+                windowData.Pausebtn1 = Pausebtn1;
+                windowData.PlayInvisible1 = PlayInvisible1;
+                windowData.PauseInvisible1 = PauseInvisible1;
                 windowData.Playbtn2 = Playbtn2;
                 windowData.Pausebtn2 = Pausebtn2;
+                windowData.Playbtn3 = Playbtn3;
+                windowData.Pausebtn3 = Pausebtn3;
+                windowData.Playbtn4 = Playbtn4;
+                windowData.Pausebtn4 = Pausebtn4;
                 windowData.InTime = InTime;
                 windowData.TotalTime = TotalTime;
                 windowData.sliProgress = sliProgress;
                 windowData.MainViewProgram = MainViewProgram;
                 windowData.PlayerBarArtist = PlayerBarArtist;
                 windowData.PlayerBar = PlayerBar;
+                windowData.PlayerBarPlaylist = PlayerBarPlaylist;
+                windowData.PlayerBarAlbum = PlayerBarAlbum;
+                windowData.PlayerBarGenre = PlayerBarGenre;
                 windowData.mediaPlayer = mediaPlayer;
+                windowData.mediaPlayer1 = mediaPlayer1;
                 windowData.mediaPlayer2 = mediaPlayer2;
+                windowData.mediaPlayer3 = mediaPlayer3;
+                windowData.mediaPlayer4 = mediaPlayer4;
                 windowData.MediaPlayerIsPlaying = MediaPlayerIsPlaying;
+                windowData.MediaPlayerIsPlaying1 = MediaPlayerIsPlaying1;
                 windowData.MediaPlayerIsPlaying2 = MediaPlayerIsPlaying2;
-                
+                windowData.MediaPlayerIsPlaying3 = MediaPlayerIsPlaying3;
+                windowData.MediaPlayerIsPlaying4 = MediaPlayerIsPlaying4;
+                ArtistWindow.NavigationService.Navigate(window);
             });
         }
         public void LoadAll()

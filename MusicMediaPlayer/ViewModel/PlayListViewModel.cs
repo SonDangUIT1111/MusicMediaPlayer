@@ -11,9 +11,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
 using MessageBox = System.Windows.MessageBox;
 
 namespace MusicMediaPlayer.ViewModel
@@ -55,8 +57,53 @@ namespace MusicMediaPlayer.ViewModel
 
         public bool IsSort = false;
 
+        //passing parameter
+        public MediaPlayer mediaPlayer = new MediaPlayer();
+        public MediaPlayer mediaPlayer1 = new MediaPlayer();
+        public MediaPlayer mediaPlayer2 = new MediaPlayer();
+        public MediaPlayer mediaPlayer3 = new MediaPlayer();
+        public MediaPlayer mediaPlayer4 = new MediaPlayer();
+        private bool _mediaPlayerIsPlaying = false;
+        public bool MediaPlayerIsPlaying { get => _mediaPlayerIsPlaying; set => _mediaPlayerIsPlaying = value; }
+        private bool _mediaPlayerIsPlaying1 = false;
+        public bool MediaPlayerIsPlaying1 { get => _mediaPlayerIsPlaying1; set => _mediaPlayerIsPlaying1 = value; }
+
+        private bool _mediaPlayerIsPlaying2 = false;
+        public bool MediaPlayerIsPlaying2 { get => _mediaPlayerIsPlaying2; set => _mediaPlayerIsPlaying2 = value; }
+        private bool _mediaPlayerIsPlaying3 = false;
+        public bool MediaPlayerIsPlaying3 { get => _mediaPlayerIsPlaying3; set => _mediaPlayerIsPlaying3 = value; }
+        private bool _mediaPlayerIsPlaying4 = false;
+        public bool MediaPlayerIsPlaying4 { get => _mediaPlayerIsPlaying4; set => _mediaPlayerIsPlaying4 = value; }
+        public Button SkipPreviousbtn { get; set; }
+        public Button SkipNextbtn { get; set; }
+        public ToggleButton Playbtn { get; set; }
+        public ToggleButton Pausebtn { get; set; }
+        public ToggleButton PlayInvisible { get; set; }
+        public ToggleButton PauseInvisible { get; set; }
+        public ToggleButton Playbtn1 { get; set; }
+        public ToggleButton Pausebtn1 { get; set; }
+        public ToggleButton PlayInvisible1 { get; set; }
+        public ToggleButton PauseInvisible1 { get; set; }
+        public ToggleButton Playbtn2 { get; set; }
+        public ToggleButton Pausebtn2 { get; set; }
+        public ToggleButton Playbtn3 { get; set; }
+        public ToggleButton Pausebtn3 { get; set; }
+        public ToggleButton Playbtn4 { get; set; }
+        public ToggleButton Pausebtn4 { get; set; }
+        public Label InTime { get; set; }
+        public Label TotalTime { get; set; }
+        public Slider sliProgress { get; set; }
+        public Grid MainViewProgram { get; set; }
+        public Grid PlayerBar { get; set; }
+        public Grid PlayerBarPlaylist { get; set; }
+        public Grid PlayerBarArtist { get; set; }
+        public Grid PlayerBarAlbum { get; set; }
+        public Grid PlayerBarGenre { get; set; }
+
         public PlayListViewModel()
         {
+            PlayInvisible1 = new ToggleButton();
+            PauseInvisible1 = new ToggleButton();
             CurrentUser = new CurrentUserAccountModel();
             bool PlaylistFilter(object item)
             {
@@ -144,6 +191,43 @@ namespace MusicMediaPlayer.ViewModel
 
                 trang.page_PlayList = page;
                 trang.CurrentUser = CurrentUser;
+                trang.SkipNextbtn = SkipNextbtn;
+                trang.SkipPreviousbtn = SkipPreviousbtn;
+                trang.Playbtn = Playbtn;
+                trang.Pausebtn = Pausebtn;
+                trang.PlayInvisible = PlayInvisible;
+                trang.PauseInvisible = PauseInvisible;
+                trang.Playbtn1 = Playbtn1;
+                trang.Pausebtn1 = Pausebtn1;
+                trang.Playbtn2 = Playbtn2;
+                trang.Pausebtn2 = Pausebtn2;
+                trang.Playbtn3 = Playbtn3;
+                trang.Pausebtn3 = Pausebtn3;
+                trang.Playbtn4 = Playbtn4;
+                trang.Pausebtn4 = Pausebtn4;
+                trang.InTime = InTime;
+                trang.TotalTime = TotalTime;
+                trang.sliProgress = sliProgress;
+                trang.MainViewProgram = MainViewProgram;
+                trang.PlayerBarArtist = PlayerBarArtist;
+                trang.PlayerBar = PlayerBar;
+                trang.PlayerBarAlbum = PlayerBarAlbum;
+                trang.PlayerBarGenre = PlayerBarGenre;
+                trang.PlayerBarPlaylist = PlayerBarPlaylist;
+                trang.mediaPlayer = mediaPlayer;
+                trang.mediaPlayer1 = mediaPlayer1;
+                trang.mediaPlayer2 = mediaPlayer2;
+                trang.mediaPlayer3 = mediaPlayer3;
+                trang.mediaPlayer4 = mediaPlayer4;
+                trang.MediaPlayerIsPlaying = MediaPlayerIsPlaying;
+                trang.MediaPlayerIsPlaying1 = MediaPlayerIsPlaying1;
+                trang.MediaPlayerIsPlaying2 = MediaPlayerIsPlaying2;
+                trang.MediaPlayerIsPlaying3 = MediaPlayerIsPlaying3;
+                trang.MediaPlayerIsPlaying4 = MediaPlayerIsPlaying4;
+                wd.Play = PlayInvisible1;
+                wd.Pause = PauseInvisible1;
+                trang.PlayInvisible1 = PlayInvisible1;
+                trang.PauseInvisible1 = PauseInvisible1;
                 page.NavigationService.Navigate(wd);
             }
             );

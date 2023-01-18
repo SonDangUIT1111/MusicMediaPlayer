@@ -22,7 +22,10 @@ namespace MusicMediaPlayer.ViewModel
     public class Discover_ArtistSongViewModel:BaseViewModel
     {
         public MediaPlayer mediaPlayer = new MediaPlayer();
+        public MediaPlayer mediaPlayer1 = new MediaPlayer();
         public MediaPlayer mediaPlayer2 = new MediaPlayer();
+        public MediaPlayer mediaPlayer3 = new MediaPlayer();
+        public MediaPlayer mediaPlayer4 = new MediaPlayer();
         private ObservableCollection<Song> _ListSong;
         public ObservableCollection<Song> ListSong { get { return _ListSong; } set { _ListSong = value; OnPropertyChanged(); } }
         private ObservableCollection<Song> _ListPopular;
@@ -37,8 +40,14 @@ namespace MusicMediaPlayer.ViewModel
         //player bar
         private bool _mediaPlayerIsPlaying = false;
         public bool MediaPlayerIsPlaying { get => _mediaPlayerIsPlaying; set => _mediaPlayerIsPlaying = value; }
+        private bool _mediaPlayerIsPlaying1 = false;
+        public bool MediaPlayerIsPlaying1 { get => _mediaPlayerIsPlaying1; set => _mediaPlayerIsPlaying1 = value; }
         private bool _mediaPlayerIsPlaying2 = false;
         public bool MediaPlayerIsPlaying2 { get => _mediaPlayerIsPlaying2; set => _mediaPlayerIsPlaying2 = value; }
+        private bool _mediaPlayerIsPlaying3 = false;
+        public bool MediaPlayerIsPlaying3 { get => _mediaPlayerIsPlaying3; set => _mediaPlayerIsPlaying3 = value; }
+        private bool _mediaPlayerIsPlaying4 = false;
+        public bool MediaPlayerIsPlaying4 { get => _mediaPlayerIsPlaying4; set => _mediaPlayerIsPlaying4 = value; }
         private double _VolumePrevious;
         public double VolumePrevious { get => _VolumePrevious; set => _VolumePrevious = value; }
          private int _countTimer;
@@ -56,19 +65,58 @@ namespace MusicMediaPlayer.ViewModel
                     try
                     {
                         //sync parameter main window
+
                         MainViewProgram.Height = 650;
                         PlayerBar.Visibility = Visibility.Hidden;
+                        PlayerBarPlaylist.Visibility = Visibility.Hidden;
                         PlayerBarArtist.Visibility = Visibility.Visible;
+                        PlayerBarAlbum.Visibility = Visibility.Hidden;
+                        PlayerBarGenre.Visibility = Visibility.Hidden;
                         SkipPreviousbtn.IsEnabled = true;
                         SkipNextbtn.IsEnabled = true;
-                        mediaPlayer.Stop();
+                        if (mediaPlayer != null)
+                        {
+                            mediaPlayer.Stop();
+                        }
                         MediaPlayerIsPlaying = false;
+                        if (mediaPlayer1 != null)
+                        {
+                            mediaPlayer1.Stop();
+                        }
+                        MediaPlayerIsPlaying1 = false;
+                        if (mediaPlayer3 != null)
+                        {
+                            mediaPlayer3.Stop();
+                        }
+                        MediaPlayerIsPlaying2 = false;
+                        if (mediaPlayer4 != null)
+                        {
+                            mediaPlayer4.Stop();
+                        }
+                        MediaPlayerIsPlaying4 = false;
                         Playbtn.IsChecked = false;
                         Pausebtn.IsChecked = true;
                         Playbtn.Visibility = Visibility.Visible;
                         Pausebtn.Visibility = Visibility.Hidden;
                         PlayInvisible.IsChecked = false;
                         PauseInvisible.IsChecked = true;
+                        PlayInvisible1.IsChecked = false;
+                        PauseInvisible1.IsChecked = true;
+
+                        Playbtn4.IsChecked = false;
+                        Pausebtn4.IsChecked = true;
+                        Playbtn4.Visibility = Visibility.Visible;
+                        Pausebtn4.Visibility = Visibility.Hidden;
+
+                        Playbtn1.IsChecked = false;
+                        Pausebtn1.IsChecked = true;
+                        Playbtn1.Visibility = Visibility.Visible;
+                        Pausebtn1.Visibility = Visibility.Hidden;
+
+                        Playbtn3.IsChecked = false;
+                        Pausebtn3.IsChecked = true;
+                        Playbtn3.Visibility = Visibility.Visible;
+                        Pausebtn3.Visibility = Visibility.Hidden;
 
                         //
                         sliProgress.IsEnabled = true;
@@ -121,14 +169,25 @@ namespace MusicMediaPlayer.ViewModel
         public ToggleButton Pausebtn { get; set; }
         public ToggleButton PlayInvisible { get; set; }
         public ToggleButton PauseInvisible { get; set; }
+        public ToggleButton Playbtn1 { get; set; }
+        public ToggleButton Pausebtn1 { get; set; }
+        public ToggleButton PlayInvisible1 { get; set; }
+        public ToggleButton PauseInvisible1 { get; set; }
         public ToggleButton Playbtn2 { get; set; }
         public ToggleButton Pausebtn2 { get; set; }
+        public ToggleButton Playbtn3 { get; set; }
+        public ToggleButton Pausebtn3 { get; set; }
+        public ToggleButton Playbtn4 { get; set; }
+        public ToggleButton Pausebtn4 { get; set; }
         public Label InTime { get; set; }
         public Label TotalTime { get; set; }
         public Slider sliProgress { get; set; }
         public Grid MainViewProgram { get; set; }
         public Grid PlayerBar { get; set; }
+        public Grid PlayerBarPlaylist { get; set; }
         public Grid PlayerBarArtist { get; set; }
+        public Grid PlayerBarAlbum { get; set; }
+        public Grid PlayerBarGenre { get; set; }
         public DispatcherTimer SleepTimer { get; set; }
         public ICommand Play { get; set; }
         public ICommand Pause { get; set; }

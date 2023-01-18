@@ -21,6 +21,7 @@ namespace MusicMediaPlayer.ViewModel
     public class Discover_GenreViewModel : BaseViewModel
     {
         public MediaPlayer mediaPlayer = new MediaPlayer();
+        public MediaPlayer mediaPlayer1 = new MediaPlayer();
         public MediaPlayer mediaPlayer2 = new MediaPlayer();
         public MediaPlayer mediaPlayer3 = new MediaPlayer();
         public MediaPlayer mediaPlayer4 = new MediaPlayer();
@@ -29,6 +30,8 @@ namespace MusicMediaPlayer.ViewModel
 
         private bool _mediaPlayerIsPlaying = false;
         public bool MediaPlayerIsPlaying { get => _mediaPlayerIsPlaying; set => _mediaPlayerIsPlaying = value; }
+        private bool _mediaPlayerIsPlaying1 = false;
+        public bool MediaPlayerIsPlaying1 { get => _mediaPlayerIsPlaying1; set => _mediaPlayerIsPlaying1 = value; }
         private bool _mediaPlayerIsPlaying2 = false;
         public bool MediaPlayerIsPlaying2 { get => _mediaPlayerIsPlaying2; set => _mediaPlayerIsPlaying2 = value; }
         private bool _mediaPlayerIsPlaying3 = false;
@@ -63,6 +66,10 @@ namespace MusicMediaPlayer.ViewModel
         public ToggleButton Pausebtn { get; set; }
         public ToggleButton PlayInvisible { get; set; }
         public ToggleButton PauseInvisible { get; set; }
+        public ToggleButton Playbtn1 { get; set; }
+        public ToggleButton Pausebtn1 { get; set; }
+        public ToggleButton PlayInvisible1 { get; set; }
+        public ToggleButton PauseInvisible1 { get; set; }
         public ToggleButton Playbtn2 { get; set; }
         public ToggleButton Pausebtn2 { get; set; }
         public ToggleButton Playbtn3 { get; set; }
@@ -74,10 +81,10 @@ namespace MusicMediaPlayer.ViewModel
         public Slider sliProgress { get; set; }
         public Grid MainViewProgram { get; set; }
         public Grid PlayerBar { get; set; }
+        public Grid PlayerBarPlaylist { get; set; }
         public Grid PlayerBarArtist { get; set; }
         public Grid PlayerBarAlbum { get; set; }
         public Grid PlayerBarGenre { get; set; }
-
         public Discover_GenreViewModel()
         {
             CurrentUser = new CurrentUserAccountModel();
@@ -200,6 +207,43 @@ namespace MusicMediaPlayer.ViewModel
                 imageBrush.Stretch = Stretch.UniformToFill;
                 window.GenreFrame.Background = imageBrush;
                 window.NameGenre.Text = item.GenreName;            
+
+                //passing parameter
+                windowData.SkipNextbtn = SkipNextbtn;
+                windowData.SkipPreviousbtn = SkipPreviousbtn;
+                windowData.Playbtn = Playbtn;
+                windowData.Pausebtn = Pausebtn;
+                windowData.PlayInvisible = PlayInvisible;
+                windowData.PauseInvisible = PauseInvisible;
+                windowData.Playbtn1 = Playbtn1;
+                windowData.Pausebtn1 = Pausebtn1;
+                windowData.PlayInvisible1 = PlayInvisible1;
+                windowData.PauseInvisible1 = PauseInvisible1;
+                windowData.Playbtn2 = Playbtn2;
+                windowData.Pausebtn2 = Pausebtn2;
+                windowData.Playbtn3 = Playbtn3;
+                windowData.Pausebtn3 = Pausebtn3;
+                windowData.Playbtn4 = Playbtn4;
+                windowData.Pausebtn4 = Pausebtn4;
+                windowData.InTime = InTime;
+                windowData.TotalTime = TotalTime;
+                windowData.sliProgress = sliProgress;
+                windowData.MainViewProgram = MainViewProgram;
+                windowData.PlayerBarArtist = PlayerBarArtist;
+                windowData.PlayerBar = PlayerBar;
+                windowData.PlayerBarPlaylist = PlayerBarPlaylist;
+                windowData.PlayerBarAlbum = PlayerBarAlbum;
+                windowData.PlayerBarGenre = PlayerBarGenre;
+                windowData.mediaPlayer = mediaPlayer;
+                windowData.mediaPlayer1 = mediaPlayer1;
+                windowData.mediaPlayer2 = mediaPlayer2;
+                windowData.mediaPlayer3 = mediaPlayer3;
+                windowData.mediaPlayer4 = mediaPlayer4;
+                windowData.MediaPlayerIsPlaying = MediaPlayerIsPlaying;
+                windowData.MediaPlayerIsPlaying1 = MediaPlayerIsPlaying1;
+                windowData.MediaPlayerIsPlaying2 = MediaPlayerIsPlaying2;
+                windowData.MediaPlayerIsPlaying3 = MediaPlayerIsPlaying3;
+                windowData.MediaPlayerIsPlaying4 = MediaPlayerIsPlaying4;
                 GenreWindow.NavigationService.Navigate(window);
             });
         }
