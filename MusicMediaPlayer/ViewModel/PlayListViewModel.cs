@@ -110,13 +110,13 @@ namespace MusicMediaPlayer.ViewModel
                 {
                     var pl = p as MusicMediaPlayer.Model.PlayList;
 
-                    var song_in_pl = pl.Songs1;
+                    var song_in_pl = pl.Songs;
 
                     foreach (Song item in song_in_pl.ToList())
                     {
                         item.PlayLists.Remove(pl);
 
-                        pl.Songs1.Remove(item);
+                        pl.Songs.Remove(item);
                     }
 
                     DataProvider.Ins.DB.PlayLists.Remove(pl);

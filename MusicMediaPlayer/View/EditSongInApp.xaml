@@ -15,7 +15,7 @@
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Background="Transparent"
-        Height="350" Width="600"
+        Height="400" Width="600"
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
         DataContext="{StaticResource SongVM}"
         Name="EditSongApp">
@@ -63,7 +63,7 @@
             <StackPanel Orientation="Horizontal">
                 <Grid
                         x:Name="ChangegrdSelectImg"
-                        Margin="50,30,0,0" 
+                        Margin="50,50,0,0" 
                         VerticalAlignment="Top"
                         Width="150"
                         Height="150" 
@@ -106,7 +106,7 @@
                             VerticalAlignment="Top"  
                             Margin="0,25,0,0"/>
                 </Grid>
-                <StackPanel Margin="0,50,0,0">
+                <StackPanel Margin="0,20,0,0">
                     <TextBox x:Name="ChangeTitleSong"
                               materialDesign:HintAssist.Hint="Song Title"
                               Width="300"
@@ -122,6 +122,22 @@
                               Foreground="White"
                               BorderBrush="White"
                               Text="{Binding ArtistToChange}"
+                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox x:Name="ChangeAlbumtSong"
+                              materialDesign:HintAssist.Hint="Album"
+                              Width="300"
+                              Margin="50,20,0,0"
+                              Foreground="White"
+                              BorderBrush="White"
+                              Text="{Binding AlbumToChange}"
+                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox x:Name="ChangeGenreSong"
+                              materialDesign:HintAssist.Hint="Genre"
+                              Width="300"
+                              Margin="50,20,0,0"
+                              Foreground="White"
+                              BorderBrush="White"
+                              Text="{Binding GenreToChange}"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 </StackPanel>
             </StackPanel>

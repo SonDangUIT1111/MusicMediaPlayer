@@ -14,7 +14,7 @@
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Background="Transparent"
-        Title="Add Song" Height="350" Width="600"
+        Title="Add Song" Height="450" Width="600"
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
         DataContext="{StaticResource SongVM}"
         Name="AddSongApp">
@@ -62,7 +62,7 @@
             <StackPanel Orientation="Horizontal">
                 <Grid
                         x:Name="grdSelectImg"
-                        Margin="50,30,0,0" 
+                        Margin="50,80,0,0" 
                         VerticalAlignment="Top"
                         Width="150"
                         Height="150" 
@@ -121,6 +121,22 @@
                               Foreground="White"
                               BorderBrush="White"
                               Text="{Binding ArtistToAdd}"
+                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox x:Name="AlbumSong"
+                              materialDesign:HintAssist.Hint="Album"
+                              Width="300"
+                              Margin="50,20,0,0"
+                              Foreground="White"
+                              BorderBrush="White"
+                              Text="{Binding AlbumToAdd}"
+                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox x:Name="GenreSong"
+                              materialDesign:HintAssist.Hint="Genre"
+                              Width="300"
+                              Margin="50,20,0,0"
+                              Foreground="White"
+                              BorderBrush="White"
+                              Text="{Binding GenreToAdd}"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <StackPanel Orientation="Horizontal"
                         Margin="0,20,0,0">

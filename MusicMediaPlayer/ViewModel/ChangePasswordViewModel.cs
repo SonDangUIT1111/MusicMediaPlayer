@@ -22,7 +22,6 @@ namespace MusicMediaPlayer.ViewModel
                ChangePassword change = p as ChangePassword;
                 change.Close();
             });
-        }
-        
+        }        
     }
 }

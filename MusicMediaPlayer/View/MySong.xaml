@@ -13,7 +13,7 @@
       TextOptions.TextFormattingMode="Ideal"
       TextOptions.TextRenderingMode="Auto"
       FontFamily="{DynamicResource MaterialDesignFont}"
-      d:DesignHeight="640" d:DesignWidth="1000"
+      d:DesignHeight="1000" d:DesignWidth="1000"
       Title="My Song"
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       x:Name="SongWD"
@@ -25,11 +25,10 @@
                                    CommandParameter="{Binding ElementName=SongWD}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-
     <Grid Background="Transparent"
           Margin="5"
           Width="1000"
-          Height="640">
+          Height="1000">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
@@ -37,7 +36,7 @@
         <Border CornerRadius="20" 
                         BorderBrush="#1ED760"
                         BorderThickness="0"
-                        Background="Black" MaxHeight="640" MaxWidth="1000"/>
+                        Background="Black" MaxHeight="1000" MaxWidth="1000"/>
         <TextBlock x:Name="IsThereSong"
                    Foreground="#FFFFFF"
                    Background="Transparent"
@@ -48,157 +47,19 @@
                    HorizontalAlignment="Left"
                    Height="80"
                    Width="500"></TextBlock>
-        <Rectangle  Fill="#222530"
-                    Margin="0,550,0,0"
-                    Height="84" Width="1000"
-                    Panel.ZIndex="1">
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
-                    <i:InvokeCommandAction Command="{Binding ShowTopOrCD}"
-                                   CommandParameter="{Binding}"/>
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-        </Rectangle>
-        <StackPanel Panel.ZIndex="2"
-                    Margin="0,560,0,0"
-                    Width="auto">
-            <StatusBarItem HorizontalContentAlignment="Stretch"
-                           Width="600">
-                <Slider Name="sliProgress" 
-                                Foreground="#1ED760"
-                                Width="400"
-                                IsEnabled="False"
-                                Margin="-60,0,0,0"
-                             >
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="ValueChanged">
-                            <i:InvokeCommandAction Command="{Binding ChangeTime}"
-                                   CommandParameter="{Binding ElementName=SongWD}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-
-                </Slider>
-            </StatusBarItem>
-            <StackPanel Orientation="Horizontal"
-                                Margin="0,-10,0,0">
-                <Label
-                            Height="25"
-                            x:Name="InTime"
-                            Foreground="#ffffff"
-                            Margin="220,-20,0,0"></Label>
-                <Label
-                            Height="25"
-                            x:Name="TotalTime"
-                            Foreground="#ffffff"
-                            Margin="420,-20,0,0"></Label>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal"
-                                Margin="720,-10,0,0">
-                <Button
-                          x:Name="SpeakerHigh"
-                          Width="50"
-                          Background="Transparent"
-                          Foreground="#ffffff"
-                          BorderThickness="0"
-                          Command="{Binding Mute}"
-                          Content="{materialDesign:PackIcon VolumeHigh}">
-                </Button>
-                <Button
-                          x:Name="SpeakerMedium"
-                          Width="50"
-                          Margin="-50,0,0,0"
-                          Visibility="Hidden"
-                          Background="Transparent"
-                          Foreground="#ffffff"
-                          BorderThickness="0"
-                          Command="{Binding Mute}"
-                          Content="{materialDesign:PackIcon VolumeMedium}">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="MouseEnter">
-                            <i:InvokeCommandAction Command="{Binding ShowVolume}"
-                                   CommandParameter="{Binding ElementName=SongWD}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Button>
-                <Button
-                          x:Name="SpeakerLow"
-                          Width="50"
-                          Margin="-50,0,0,0"
-                          Visibility="Hidden"
-                          Background="Transparent"
-                          Foreground="#ffffff"
-                          BorderThickness="0"
-                          Command="{Binding Mute}"
-                          Content="{materialDesign:PackIcon VolumeLow}">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="MouseEnter">
-                            <i:InvokeCommandAction Command="{Binding ShowVolume}"
-                                   CommandParameter="{Binding ElementName=SongWD}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Button>
-                <Button
-                          x:Name="SpeakerOff"
-                          Width="50"
-                          Margin="-50,0,0,0"
-                          Visibility="Hidden"
-                          Background="Transparent"
-                          Foreground="#ffffff"
-                          BorderThickness="0"
-                          Command="{Binding NonMute}"
-                          Content="{materialDesign:PackIcon VolumeOff}">
-                </Button>
-
-                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect ExpandIn}">
-                    <Slider 
-                                 x:Name="Volume" 
-                                 Width="100" 
-                                 Height="30" 
-                                 Maximum="1"
-                                 Value="1"
-                                 Foreground="#FFFFFF"
-                                 Visibility="Visible"
-                                 VerticalAlignment="Bottom"
-                                 HorizontalAlignment="Center">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="ValueChanged">
-                                <i:InvokeCommandAction Command="{Binding ChangeVolumn}"
-                                   CommandParameter="{Binding ElementName=SongWD}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </Slider>
-                </materialDesign:TransitioningContent>
-            </StackPanel>
-
-        </StackPanel>
-
         <StackPanel Orientation="Horizontal"
                     Margin="160,570,0,0" 
                     Width="652"
+                    Visibility="Hidden"
                     Panel.ZIndex="2">
-            <Button
-                      Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
-                      Height="35"
-                      Width="35"
-                      Margin="50,0,0,0"
-                      Foreground="AliceBlue"
-                      Background="Transparent"
-                      BorderBrush="Transparent"
-                      Command="{Binding OpenSleepTimer}"
-                      CommandParameter="{Binding ElementName=SongWD}">
-                <materialDesign:PackIcon
-                        Kind="Alarm"
-                        Height="24"
-                        Width="24" />
-            </Button>
             <ToggleButton
                             x:Name="RandomLoop"
                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                             IsChecked="False"
                             Margin="10,0,5,0"
+                            Visibility="Hidden"
                             Background="#1ED760"
-                            Command="{Binding ShuffleVariant}"
-                            CommandParameter="{Binding ElementName=SongWD}"
+                            
                                                 >
                 <materialDesign:PackIcon
                                                 Kind="ShuffleVariant"
@@ -212,24 +73,24 @@
                           Content="{materialDesign:PackIcon SkipPrevious}"
                           Background="Transparent"
                           Foreground="White"
+                          Visibility="Hidden"
                           BorderBrush="Transparent"/>
             <ToggleButton
                           x:Name="Play"
-                          Command="{Binding Play}"  
                           Margin="0,0,0,0"
                           Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                           Content="{materialDesign:PackIcon Play}"
                           Background="Transparent"
                           Foreground="White"
                           BorderBrush="Transparent"
+                          Visibility="Hidden"
                           IsEnabled="False"/>
             <ToggleButton
                           x:Name="Pause"
-                          Command="{Binding Pause}"
+                          Visibility="Hidden"
                           Margin="-40,0,0,0"
                           Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                           Content="{materialDesign:PackIcon Pause}"
-                          Visibility="Hidden"
                           Background="Transparent"
                           Foreground="White"
                           BorderBrush="Transparent"
@@ -237,17 +98,18 @@
             <Button
                           Command="{Binding SkipNext}"
                           Margin="0,0,5,0"
+                          Visibility="Hidden"
                           Content="{materialDesign:PackIcon SkipNext}"
                           Background="Transparent"
                           Foreground="White"
                           BorderBrush="Transparent"/>
             <ToggleButton
                             x:Name="SequencecyLoop"
+                            Visibility="Hidden"
                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                             IsChecked="True"
                             Margin="0,0,5,0"
-                            Command="{Binding ShuffleDisabled}"
-                            CommandParameter="{Binding ElementName=SongWD}"
+
                             Foreground="White"
                             Background="#1ED760"
                                                 >
@@ -258,11 +120,10 @@
             </ToggleButton>
             <ToggleButton
                             x:Name="OneLoop"
+                            Visibility="Hidden"
                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                             IsChecked="False"
                             Margin="0,0,5,0"
-                            Command="{Binding Loop}"
-                            CommandParameter="{Binding ElementName=SongWD}"
                             Foreground="White"
                             Background="#1ED760">
                 <materialDesign:PackIcon
@@ -305,7 +166,7 @@
                     </StackPanel>
                 </Border>
                 <StackPanel Orientation="Vertical"
-                            Margin="700,5,0,0">
+                            Margin="650,5,0,0">
                     <Border Background="Transparent"
                         Height="40"
                         Width="40"
@@ -332,6 +193,36 @@
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"></Label>
                 </StackPanel>
+                <StackPanel Orientation="Vertical"
+                            Margin="20,5,0,0"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Right">
+                    <Border Background="Transparent"
+                        Height="40"
+                        Width="40"
+                        BorderBrush="#ffffff"
+                        BorderThickness="3"
+                        CornerRadius="40">
+                        <Button
+                          Command="{Binding EditSong}"
+                          CommandParameter="{Binding ElementName=SongWD}"
+                          Margin="0,0,0,0"
+                          Content="{materialDesign:PackIcon Pencil}"
+                          Background="Transparent"
+                          Foreground="#1ED760"
+                          Height="50"
+                          Width="50"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                          BorderThickness="0">
+                        </Button>
+                    </Border>
+                    <Label Content="Edit"
+                           Foreground="#ffffff"
+                           FontSize="14"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"></Label>
+                </StackPanel>
 
             </StackPanel>
 
@@ -349,18 +240,22 @@
                                 Opacity="0.5"
                                 Command="{Binding RecentSong}" 
                                 CommandParameter="{Binding ElementName=SongWD}">New Play</RadioButton>
+                <RadioButton    Style="{StaticResource TabButtonMySong}" 
+                                Opacity="0.5"
+                                Command="{Binding FavouriteSong}" 
+                                CommandParameter="{Binding ElementName=SongWD}">Favourite</RadioButton>
             </StackPanel>
             <Separator Background="Gray"
                        Opacity="0.4"
-                       Width="1000"
+                       Width="auto"
                        Margin="0,0,0,0"
                        materialDesign:ShadowAssist.ShadowEdges="Bottom"></Separator>
             <StackPanel Orientation="Horizontal"
-                        Height="420"
+                        Height="820"
                         Width="980">
                 <DataGrid 
                   x:Name="ListSong"
-                  Height="400"
+                  Height="1000"
                   Width="520"
                   Margin="10,10,0,0"
                   ItemsSource="{Binding List}"
@@ -403,23 +298,20 @@
                                                     Height="45"
                                                     HorizontalAlignment="Center">
                                             <Grid>
-                                                <Border Background="White"
-                                                            CornerRadius="4.5"
-                                                            x:Name="mask"></Border>
-                                                <Image Width ="40"
-                                                            Height ="40"
-                                                            Margin="1"
-                                                            Stretch="Fill"
-                                                            Source="{Binding ImageSongBinary, Converter={StaticResource ByteToImageConverter}}"
-                                                            >
-                                                    <Image.OpacityMask>
-                                                        <VisualBrush Visual="{Binding ElementName=mask}"></VisualBrush>
-                                                    </Image.OpacityMask>
-                                                </Image>
+                                                <Border CornerRadius="5"
+                                                        Width="40"
+                                                        Height="50"
+                                                        x:Name="mask">
+                                                    <Border.Background>
+                                                        <ImageBrush Stretch="UniformToFill"
+                                                                    ImageSource="{Binding ImageSongBinary, Converter={StaticResource ByteToImageConverter}}">
+                                                        </ImageBrush>
+                                                    </Border.Background>
+                                                </Border>
                                             </Grid>
                                         </Border>
                                         <TextBlock Text="{Binding SongTitle}"
-                                                        Width="120"
+                                                        Width="150"
                                                         FontSize="14"
                                                         FontWeight="Bold"
                                                         FontFamily="Segoe UI Semibold"
@@ -430,7 +322,7 @@
                                                         >
                                         </TextBlock>
                                         <TextBlock Text="{Binding Artist}"
-                                                        Width="120"
+                                                        Width="150"
                                                         FontSize="12"
                                                         Margin="0,5,0,0"
                                                         FontWeight="Medium"
@@ -438,57 +330,8 @@
                                                         HorizontalAlignment="Center"
                                                         TextTrimming="WordEllipsis"
                                                         ></TextBlock>
-                                        <StackPanel>
-                                            <StackPanel Background="Transparent"
-                                                        Orientation="Horizontal"
-                                                        HorizontalAlignment="Center"
-                                                        VerticalAlignment="Center"
-                                                        Margin="0,12,0,0">
-                                                <Button     Content="{materialDesign:PackIcon Pencil}"
-                                                                    Style="{StaticResource ButtonInMySong}"
-                                                                    Background="Transparent"
-                                                                    Command="{Binding Source={StaticResource SongVM}, Path=ChangeInfoSong}"
-                                                                    CommandParameter="{Binding}"
-                                                                    Width="20"
-                                                                    Padding="0"
-                                                                    Margin="0,0,0,30"
-                                                                    Foreground="#009EFD"
-                                                                    BorderBrush="Transparent">
-
-                                                </Button>
-                                                <Button x:Name="Del"
-                                                                    Style="{StaticResource ButtonInMySong}"
-                                                                    Background="Transparent"
-                                                                    Content="{materialDesign:PackIcon DeleteCircle}"
-                                                                    Command="{Binding Source={StaticResource SongVM}, Path=DeleteSong}"
-                                                                    CommandParameter="{Binding}"
-                                                                    Width="20"
-                                                                    Padding="0"
-                                                                    Margin="10,0,0,30"
-                                                                    Foreground="#FF2C2C"
-                                                                    BorderBrush="Transparent">
-                                                </Button>
-                                                <ToggleButton   VerticalAlignment="Center"
-                                                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                                            IsChecked="{Binding IsFavourite}"
-                                                            Foreground="HotPink"
-                                                            Background="LightPink"
-                                                            Margin="10,0,0,30"
-                                                            Width="20"
-                                                            Height="20"
-                                                            Command="{Binding Source={StaticResource SongVM},Path=ChangeFavourite}"
-                                                            CommandParameter="{Binding}"
-                                                                
-                                                                >
-                                                    <materialDesign:PackIcon
-                                                                Kind="Heart"
-                                                                Height="15"
-                                                                Width="15" />
-                                                </ToggleButton>
-                                            </StackPanel>
-                                        </StackPanel>
                                         <TextBlock Text="{Binding HowLong}"
-                                                           Width="30"
+                                                           Width="50"
                                                            FontSize="12"
                                                            Margin="20,8,0,0"
                                                            HorizontalAlignment="Center"
@@ -501,13 +344,12 @@
                         </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
-                <StackPanel Height="auto"
+                <StackPanel Height="620"
                             Width="420"
-                            Margin="20,10,0,0">
+                            Margin="20,-50,0,0">
                     <Expander Background="Transparent"
                               Foreground="Transparent"
                               Margin="0,-50,0,0"
-                              IsEnabled="False"
                               IsExpanded="True"
                               x:Name="TopTrendExpander">
                         <StackPanel>
@@ -682,23 +524,24 @@
                     </Expander>
                     <Expander Background="Transparent"
                               Foreground="Transparent"
-                              Margin="0,35,0,0"
-                              Height="420"
+                              Margin="0,-50,0,0"
+                              Height="620"
+                              Width="420"
                               IsEnabled="True"
                               ExpandDirection="Up"
                               IsExpanded="False"
                               x:Name="CDCircle"
                               >
-                        <StackPanel>
-                            <Border  Width="200"
-                                     Height="200"
+                        <StackPanel Height="620">
+                            <Border  Width="300"
+                                     Height="300"
                                      BorderThickness="0"
                                      BorderBrush="White"
                                      CornerRadius="20"
                                      x:Name="CD"
                                      RenderTransformOrigin="0.5,0.5">
                                 <Border.Background>
-                                    <ImageBrush ImageSource="{Binding SelectedItem.ImageSongBinary, Converter={StaticResource ByteToImageConverter}}"></ImageBrush>
+                                    <ImageBrush ImageSource="{Binding SelectedItem.ImageSongBinary, Converter={StaticResource ByteToImageConverter}}" Stretch="UniformToFill"></ImageBrush>
                                 </Border.Background>
                                 <Border.RenderTransform>
                                     <RotateTransform x:Name="MyAnimatedTransform" Angle="0" />
@@ -742,7 +585,7 @@
                                                             <DoubleAnimation
                                                                     Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)"
                                                                     BeginTime="0:0:0.1"
-                                                                    From="0.0" To="360" Duration="0:0:5" RepeatBehavior="Forever" />
+                                                                    From="0.0" To="360" Duration="0:0:8" RepeatBehavior="Forever" />
                                                         </Storyboard>
                                                     </BeginStoryboard>
                                                 </MultiDataTrigger.EnterActions>
@@ -794,7 +637,8 @@
                                 </Border.Style>
                             </Border>
 
-                            <StackPanel Margin="0,20,0,0">
+                            <StackPanel Height="auto"
+                                        Margin="0,20,0,0">
                                 <TextBlock Width="400"
                                            Height="40"
                                            FontSize="34"
@@ -811,6 +655,7 @@
                                            Text="{Binding SelectedItem.Artist}"></TextBlock>
                                 <StackPanel Orientation="Horizontal" 
                                             Width="auto"
+                                            Height="auto"
                                             HorizontalAlignment="Center">
                                     <TextBlock 
                                            Height="20"
@@ -829,48 +674,6 @@
                                            Text=" streams"></TextBlock>
                                 </StackPanel>
                             </StackPanel>
-                            <Border BorderBrush="Transparent"
-                                    BorderThickness="1"
-                                    CornerRadius="20"
-                                    Background="#1ED760"
-                                    x:Name="PlayCD"
-                                    Height="40"
-                                    Width="120">
-                                <Button Height="30"
-                                        Width="120"
-                                        Content="PLAY"
-                                        IsEnabled=" True"
-                                        FontSize="16"
-                                        FontWeight="Medium"
-                                        BorderBrush="Transparent"
-                                        BorderThickness="0"
-                                        Background="Transparent"
-                                        Foreground="#FFFFFF"
-                                        Command="{Binding PlayShortcut}">
-                                </Button>
-                            </Border>
-                            <Border BorderBrush="Transparent"
-                                    BorderThickness="1"
-                                    CornerRadius="20"
-                                    Background="#1ED760"
-                                    Height="40"
-                                    x:Name="PauseCD"
-                                    Visibility="Hidden"
-                                    Width="120"
-                                    Margin="0,-40,0,0">
-                                <Button Height="30"
-                                        Width="120"
-                                        Content="PAUSE"
-                                        IsEnabled="True"
-                                        FontSize="16"
-                                        FontWeight="Medium"
-                                        BorderBrush="Transparent"
-                                        BorderThickness="0"
-                                        Background="Transparent"
-                                        Foreground="#FFFFFF"
-                                        Command="{Binding PauseShortcut}">
-                                </Button>
-                            </Border>
                         </StackPanel>
                     </Expander>
                 </StackPanel>

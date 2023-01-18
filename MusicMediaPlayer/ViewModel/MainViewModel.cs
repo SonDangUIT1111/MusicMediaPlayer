@@ -1,5 +1,6 @@
 ﻿using MusicMediaPlayer.Model;
 using MusicMediaPlayer.View;
+using Prism.Commands;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,6 +12,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
+using System.Windows.Media;
+using System.IO;
 
 namespace MusicMediaPlayer.ViewModel
 {
@@ -22,11 +26,22 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand SwitchMyPlayList { get; set; }
         public ICommand SwitchHome { get; set; }
         public ICommand SwitchProfile { get; set; }
+        public ICommand SwitchArtist { get; set; }
+        public ICommand SwitchAlbum { get; set; }
+        public ICommand SwitchGenre { get; set; }
+
+
+        public ICommand Logoutcommand { get; set; }
         //view model
         MySong MySongPage { get; set; }
         View.PlayList PlayListPage { get; set; }
         Home HomePage { get; set; }
-        Profile ProfilePage { get; set; }   
+        Profile ProfilePage { get; set; } 
+        Discover_Artist ArtistPage { get; set; }
+
+        Discover_Album AlbumPage { get; set; }
+        
+        Discover_Genre GenrePage { get; set; }
         //information
         public CurrentUserAccountModel CurrentUser
         {
@@ -48,12 +63,18 @@ namespace MusicMediaPlayer.ViewModel
             PlayListPage = new View.PlayList();
             HomePage = new Home();
             ProfilePage = new Profile();
+            ArtistPage = new Discover_Artist();
+            AlbumPage = new Discover_Album();
+            GenrePage = new Discover_Genre();
 
             //
             var MySongData = MySongPage.DataContext as SongViewModel;
             var PlayListData = PlayListPage.DataContext as PlayListViewModel;
             var HomeData = HomePage.DataContext as HomeViewModel;
-            var ProfileData = ProfilePage.DataContext as ProfileViewModel;  
+            var ProfileData = ProfilePage.DataContext as ProfileViewModel;
+            var ArtistData = ArtistPage.DataContext as Discover_ArtistViewModel;
+            var AlbumData = AlbumPage.DataContext as Discover_AlbumViewModel;
+            var GenreData = GenrePage.DataContext as Discover_GenreViewModel;
             //
             LoadedTurnOnLogin = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
@@ -74,11 +95,94 @@ namespace MusicMediaPlayer.ViewModel
                     //truyen du lieu qua cac view
                     CurrentUser.UserName = LoginVM.Username;
                     ObservableCollection<int> IDuser = new ObservableCollection<int>(DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == LoginVM.Username).Select(x => x.UserId));
-                    MySongData.CurrentUser.Id = IDuser[0];
                     PlayListData.CurrentUser.Id = IDuser[0];
                     HomeData.CurrentUser.Id=IDuser[0];
+
+                    //xu ly profile
                     ProfileData.CurrentUser.Id=IDuser[0];
                     ProfileData.UserName = LoginVM.Username;
+                    ProfileData.PassWord = LoginVM.Password;
+                    var acc = DataProvider.Ins.DB.UserAccounts.Where((x) => x.UserName == LoginVM.Username).SingleOrDefault();
+                    ProfileData.NickName = acc.NickName;
+                    ProfileData.Email = acc.UserEmail;
+                    //
+
+                    //my song window
+                    MySongData.CurrentUser.Id = IDuser[0];
+                    MySongData.SkipNextbtn = window.SkipNextbtn;
+                    MySongData.SkipPreviousbtn = window.SkipPreviousbtn;
+                    MySongData.Playbtn = window.Play;
+                    MySongData.Pausebtn = window.Pause;
+                    MySongData.Playbtn2 = window.Play2;
+                    MySongData.Pausebtn2 = window.Pause2;
+                    MySongData.InTime = window.InTime;
+                    MySongData.TotalTime = window.TotalTime;
+                    MySongData.sliProgress = window.sliProgress;
+                    MySongData.MainViewProgram = window.MainViewProgram;
+                    MySongData.PlayerBar = window.PlayerBar;
+                    MySongData.PlayerBarArtist = window.PlayerBarArtist;
+                    MySongData.mediaPlayer2 = ArtistData.mediaPlayer2;
+                    //artist window
+                    ArtistData.CurrentUser.Id = IDuser[0];
+                    ArtistData.SkipNextbtn = window.SkipNextbtn2;
+                    ArtistData.SkipPreviousbtn = window.SkipPreviousbtn2;
+                    ArtistData.Playbtn = window.Play;
+                    ArtistData.Pausebtn = window.Pause;
+                    ArtistData.Playbtn2 = window.Play2;
+                    ArtistData.Pausebtn2 = window.Pause2;
+                    ArtistData.InTime = window.InTime2;
+                    ArtistData.TotalTime = window.TotalTime2;
+                    ArtistData.sliProgress = window.sliProgress2;
+                    ArtistData.MainViewProgram = window.MainViewProgram;
+                    ArtistData.PlayerBarArtist = window.PlayerBarArtist;
+                    ArtistData.PlayerBar = window.PlayerBar;
+                    ArtistData.mediaPlayer = MySongData.mediaPlayer;
+                    ArtistData.PlayInvisible = MySongPage.Play;
+                    ArtistData.PauseInvisible = MySongPage.Pause;
+                    //
+
+                    //album window
+                    AlbumData.CurrentUser.Id = IDuser[0];
+                    AlbumData.SkipNextbtn = window.SkipNextbtn3;
+                    AlbumData.SkipPreviousbtn = window.SkipPreviousbtn3;
+                    AlbumData.Playbtn = window.Play;
+                    AlbumData.Pausebtn = window.Pause;
+                    AlbumData.Playbtn2 = window.Play2;
+                    AlbumData.Pausebtn2 = window.Pause2;
+                    AlbumData.Playbtn3 = window.Play3;
+                    AlbumData.Pausebtn3 = window.Pause3;
+                    AlbumData.InTime = window.InTime3;
+                    AlbumData.TotalTime = window.TotalTime3;
+                    AlbumData.sliProgress = window.sliProgress3;
+                    AlbumData.MainViewProgram = window.MainViewProgram;
+                    AlbumData.PlayerBarArtist = window.PlayerBarArtist;
+                    AlbumData.PlayerBar = window.PlayerBar;
+                    AlbumData.mediaPlayer = MySongData.mediaPlayer;
+                    AlbumData.PlayInvisible = MySongPage.Play;
+                    AlbumData.PauseInvisible = MySongPage.Pause;
+
+                    //Genre window
+                    GenreData.CurrentUser.Id = IDuser[0];
+                    GenreData.SkipNextbtn = window.SkipNextbtn4;
+                    GenreData.SkipPreviousbtn = window.SkipPreviousbtn4;
+                    GenreData.Playbtn = window.Play;
+                    GenreData.Pausebtn = window.Pause;
+                    GenreData.Playbtn2 = window.Play2;
+                    GenreData.Pausebtn2 = window.Pause2;
+                    GenreData.Playbtn3 = window.Play3;
+                    GenreData.Pausebtn3 = window.Pause3;
+                    GenreData.Playbtn4 = window.Play4;
+                    GenreData.Pausebtn4 = window.Pause4;
+                    GenreData.InTime = window.InTime4;
+                    GenreData.TotalTime = window.TotalTime4;
+                    GenreData.sliProgress = window.sliProgress4;
+                    GenreData.MainViewProgram = window.MainViewProgram;
+                    GenreData.PlayerBarArtist = window.PlayerBarArtist;
+                    GenreData.PlayerBar = window.PlayerBar;
+                    GenreData.mediaPlayer = MySongData.mediaPlayer;
+                    GenreData.PlayInvisible = MySongPage.Play;
+                    GenreData.PauseInvisible = MySongPage.Pause;
+
                     p.Show();
                 }
                 else
@@ -103,7 +207,18 @@ namespace MusicMediaPlayer.ViewModel
             {
                 p.Content = ProfilePage;
             });
-
+            SwitchArtist = new RelayCommand<Frame>((p) => { return true; }, (p) =>
+            {
+                p.Content = ArtistPage;
+            });
+            SwitchAlbum = new RelayCommand<Frame>((p) => { return true; }, (p) =>
+            {
+                p.Content = AlbumPage;
+            });
+            SwitchGenre = new RelayCommand<Frame>((p) => { return true; }, (p) =>
+            {
+                p.Content = GenrePage;
+            });
         }
     }
 }

@@ -13,19 +13,232 @@
       TextOptions.TextFormattingMode="Ideal"
       TextOptions.TextRenderingMode="Auto"
       FontFamily="{DynamicResource MaterialDesignFont}"
-      d:DesignHeight="640" d:DesignWidth="1000"
+      d:DesignHeight="1000" d:DesignWidth="1000"
       Title="Profile"
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       x:Name="ProfileWD"
-      DataContext="{StaticResource ProfileVM}">
+      DataContext="{StaticResource ProfileVM}"
+      xmlns:icon ="http://metro.mahapps.com/winfx/xaml/iconpacks">
     <Grid>
-        <Grid.Background>
-            <LinearGradientBrush>
-                <GradientStop Color="#4ADEDE" Offset="0.8"/>
-                <GradientStop Color="#1AA7EC"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-        <TextBox x:Name="UserName" Text="{Binding UserName}"></TextBox>
-        <TextBox x:Name="Password"></TextBox>
+        <Border Height="1000" Width="1000" CornerRadius="20">
+            <!--<Grid>
+                <TextBlock Text="Songs" FontSize="24" Foreground="AliceBlue" FontWeight="Bold" Margin="100 60 5 10">
+                </TextBlock>
+                <Border Opacity="0.35" CornerRadius="20">
+                    <Border.Background>
+                        <ImageBrush  ImageSource="/Image/music-notes-curves-swirls-vector-260nw-1705493965.png" Stretch="UniformToFill"/>
+                    </Border.Background>
+                </Border>
+            </Grid>-->
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#5CA0F2" Offset="0.8"/>
+                    <GradientStop Color="AliceBlue"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <StackPanel>
+            <Border CornerRadius="35" 
+                    Width="580" 
+                    Height="250" Background="AliceBlue"
+                    Margin="45">
+                <StackPanel Orientation="Horizontal">
+                    <Border x:Name="AvatarFrame"
+                        Width="180" Height="180" 
+                        CornerRadius="100"
+                        Margin="40 35 0 35" 
+                    BorderThickness="1" 
+                    BorderBrush="Silver">
+
+                    </Border>
+                    <StackPanel>
+                        <TextBox Text="{Binding NickName}" 
+                     Height="28" 
+                     Width="280"                
+                     IsEnabled="{Binding AllowChanging}" Margin="12.5 107.5 12.5 107.5"
+                                 FontSize="15"/>
+                        <Button Style="{StaticResource CPButton}" 
+                    Width="150"  
+                    Command="{Binding CPCommand}"
+                    Background="#5CA0F2"
+                                Margin="0 -75 0 0">
+                            <TextBlock Text="Change Password" 
+                           Foreground="AliceBlue"
+                           FontSize="16" VerticalAlignment="Center" 
+                           HorizontalAlignment="Center"
+                           />
+                        </Button>
+                        <Border BorderBrush="Silver"
+                        Height="2.5"
+                        Width="280"
+                        BorderThickness="10"
+                                Margin="0 -215 0 0">
+                        </Border>
+                    </StackPanel>
+                    <Grid>
+                        <Button Width="35" 
+                                Height="35"
+                        Margin="12.5 107.5 12.5 107.5"
+                        Command="{Binding ChangeNickname}" 
+                        Visibility="{Binding AllowChangeButton}"
+                                BorderBrush="Transparent"
+                        >
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Image/78d072b9f34c6c37d32493c50b7d9203.png" />
+                            </Button.Background>
+                        </Button>
+                        <Button Width="35" 
+                                Height="35"
+                        Visibility="{Binding Accept}" 
+                                Background="AliceBlue"
+                                BorderBrush="Black"
+                                BorderThickness="1.5"
+                        Command="{Binding AcceptChanging}"
+                        Margin="12.5 107.5 12.5 107.5">
+                            <icon:PackIconMaterial 
+                                Kind="Check" 
+                                Height="18" 
+                                Width="17" 
+                                Margin="-6"/>
+                        </Button>
+                    </Grid>
+                </StackPanel>
+            </Border>
+            <StackPanel Orientation="Horizontal" Height="40">
+                <TextBlock Text="Username" 
+                           Height="30" 
+                           Foreground="#444444" 
+                           Width="100" 
+                           FontSize="20" 
+                           FontWeight="SemiBold" 
+                           Margin="320 0 0 0"/>
+                <TextBlock Height="30" 
+                           Foreground="#444444" 
+                           Width="280"
+                           FontSize="20" 
+                           FontWeight="SemiBold" Margin="20 0 0 0"
+                           Text="{Binding UserName}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="40">
+                <TextBlock Text="NickName" 
+                           Height="30" 
+                           Foreground="#444444" 
+                           Width="100" 
+                           FontSize="20" 
+                           FontWeight="SemiBold" 
+                           Margin="320 0 0 0"/>
+                <TextBlock Height="30" 
+                           Foreground="#444444" 
+                           Width="280"
+                           FontSize="20" 
+                           FontWeight="SemiBold" Margin="20 0 0 0"
+                           Text="{Binding NickName}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="40">
+                <TextBlock Text="Email" 
+                           Height="30" 
+                           Foreground="#444444" 
+                           Width="100" 
+                           FontSize="20" 
+                           FontWeight="SemiBold" 
+                           Margin="320 0 0 0"/>
+                <TextBlock Height="30" 
+                           Foreground="#444444" 
+                           Width="280"
+                           FontSize="20" 
+                           FontWeight="SemiBold" Margin="20 0 0 0"
+                           Text="{Binding Email}"/>
+                <Button Width="35" 
+                                Height="35"
+                                Background="AliceBlue"
+                                BorderBrush="Black"
+                                BorderThickness="1.5"
+                        Command="{Binding OpenExpander}" 
+                        CommandParameter="{Binding ElementName=EmailChange}"
+                        Margin="10 0 0 0">
+                    <icon:PackIconMaterial 
+                                Kind="Pencil" 
+                                Height="18" 
+                                Width="17" 
+                                Margin="-7"/>
+                </Button>
+            </StackPanel>
+            <Expander Background="Transparent" 
+                      Width="350" 
+                      Margin="100 -200 0 0"
+                      Height="400" 
+                      IsExpanded="False" 
+                      x:Name="EmailChange" 
+                      IsEnabled="False" 
+                      >
+                
+                <StackPanel>
+                    <TextBlock Width="120" 
+                           Height="30" 
+                           Text="Current Pass" 
+                           Foreground="AliceBlue"
+                           FontSize="14" HorizontalAlignment="Left" 
+                               Margin="10"
+                               TextAlignment="Justify"></TextBlock>
+                    <PasswordBox Width="300" 
+                         Height="40" 
+                         materialDesign:HintAssist.Hint="Enter current password" 
+                         Foreground="AliceBlue" 
+                             x:Name="Password">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="PasswordChanged">
+                                <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}"
+                                   CommandParameter="{Binding ElementName=Password}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </PasswordBox>
+                    <TextBlock Width="120" 
+                           Height="30" 
+                           Text="New Email" Foreground="AliceBlue"
+                           FontSize="14" 
+                           HorizontalAlignment="Left" 
+                           VerticalAlignment="Top"
+                           Margin="10"
+                               TextAlignment="Justify"></TextBlock>
+                    <TextBox Width="300" 
+                         Height="40" 
+                         materialDesign:HintAssist.Hint="Enter new email" 
+                         Foreground="AliceBlue" 
+                         Text="{Binding NewEmail}"
+                             x:Name="NewEmailtb"
+                             />
+                    <TextBlock Width="120" 
+                           Height="30" 
+                           Text="Confirm New Email" Foreground="AliceBlue"
+                           FontSize="14" 
+                           HorizontalAlignment="Left" 
+                           VerticalAlignment="Top"
+                           Margin="10"
+                               TextAlignment="Justify"></TextBlock>
+                    <TextBox Width="300" 
+                         Height="40" 
+                         materialDesign:HintAssist.Hint="Confirm new email" 
+                         Foreground="AliceBlue" 
+                         Text="{Binding ConfirmEmail}"
+                             x:Name="ConfirmEmailtb"
+                             />
+                    <Button Width="35" 
+                                Height="35"
+                                Background="White"
+                                BorderBrush="Snow"
+                                BorderThickness="1.5"
+                        Command="{Binding AcceptChangingEmail}"
+                            CommandParameter="{Binding ElementName=ProfileWD}"
+                        Margin="260 5 0 0">
+                        <icon:PackIconMaterial 
+                                Kind="Check" 
+                                Height="18" 
+                                Width="17" 
+                                Margin="-7"
+                            Foreground="#5CA0F2"/>
+                    </Button>
+                </StackPanel>
+            </Expander>
+        </StackPanel>
     </Grid>
 </Page>

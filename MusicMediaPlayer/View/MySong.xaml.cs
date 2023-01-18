@@ -24,8 +24,8 @@ namespace MusicMediaPlayer.View
         public MySong()
         {
             InitializeComponent();
-            System.Windows.Input.CommandManager.InvalidateRequerySuggested();
         }
 
+     
     }
 }
