@@ -245,10 +245,8 @@
                             Content="LOGIN"
                             IsDefault="True"
                             HorizontalAlignment="Center"
-                                Background="#0099FF"
                             Style="{StaticResource ContactButton}"
-                            Margin="0,20,0,0"
-                                
+                            Margin="0,20,0,0"                              
                             Command="{Binding LoginSuccess}"
                             CommandParameter="{Binding ElementName=LoginWindow}"
                                 

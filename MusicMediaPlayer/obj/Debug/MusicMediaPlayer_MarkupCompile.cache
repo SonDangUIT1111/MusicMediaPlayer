@@ -9,11 +9,11 @@ MusicMediaPlayer
 none
 false
 DEBUG;TRACE
-C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\App.xaml
+C:\Users\ASUS\source\repos\New MP 18-1\MusicMediaPlayer\App.xaml
 62209512315
 2-1797966213
-79651095278
-166-746540733
+781940081021
+166519552295
 ResourceProject\ButtonInMySong.xaml;ResourceProject\ButtonPlayVisibility.xaml;ResourceProject\ChangePassbt.xaml;ResourceProject\Bth.xaml;ResourceProject\CloseWindowButton.xaml;ResourceProject\CPButton.xaml;ResourceProject\DataGridForEditingTemplate.xaml;ResourceProject\Page.xaml;ResourceProject\ProfileText.xaml;ResourceProject\profileIcon.xaml;ResourceProject\PlayerButton.xaml;ResourceProject\ButtonIcon.xaml;ResourceProject\Visualizer.xaml;ResourceProject\RenameButton.xaml;UserControlMusic\PianoAdventure.xaml;UserControlMusic\Welcome.xaml;View\AddPlayList.xaml;View\AddSongPlayList.xaml;View\ChangeAlbumPictureWindow.xaml;View\ChangeArtistPictureWindow.xaml;View\ChangeGenrePictureWindow.xaml;View\ChangePassword.xaml;ResourceProject\DataGridTemplate.xaml;ResourceProject\ErrorTemplate.xaml;ResourceProject\ExpanderMySongTemplate.xaml;ResourceProject\ScrollBarTemplate.xaml;ResourceProject\SliderTemplate.xaml;ResourceProject\TabButtonStyle.xaml;View\AddSongToApp.xaml;View\Discover_AlbumSong.xaml;View\Discover_Artist.xaml;View\Discover_ArtistSong.xaml;View\Discover_Genre.xaml;View\Discover_GenreSong.xaml;View\EditMySong.xaml;View\EditSongInApp.xaml;View\EditSongInPlayList.xaml;View\ForgotPassword.xaml;View\Home.xaml;View\Login.xaml;View\MainWindow.xaml;View\MessageBoxFail.xaml;View\MessageBoxLoading.xaml;View\MessageBoxSuccessful.xaml;View\MessageBoxYesNo.xaml;View\MySong.xaml;View\Discover_Album.xaml;View\PlayList.xaml;View\PlayList_Inside.xaml;View\Profile.xaml;View\Register.xaml;ResourceProject\ButtonStyle.xaml;ResourceProject\MainResource.xaml;ResourceProject\NormalButton.xaml;UserControlMusic\UserControl1.xaml;UserControlMusic\UserControlLoginRegister.xaml;View\RenamePlayList.xaml;View\SleepTimerForAlbum.xaml;View\SleepTimerForArtist.xaml;View\SleepTimerForGenre.xaml;View\SleepTimerForPlaylist.xaml;View\SleepTimerView.xaml;
 
 False

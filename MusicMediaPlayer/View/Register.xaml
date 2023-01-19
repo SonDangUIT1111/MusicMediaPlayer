@@ -162,9 +162,9 @@
                 <StackPanel Margin="0,20,0,0">
                     <Button Width="100" Height="40"  
                             HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Background="#0099FF"
+                            VerticalAlignment="Center"                        
                             Style="{StaticResource ContactButton}"
+                            Background="#0099FF"
                             Command="{Binding SignUpCommand}"
                             IsDefault="True"
                             CommandParameter="{Binding ElementName=RegisterWindow}">
