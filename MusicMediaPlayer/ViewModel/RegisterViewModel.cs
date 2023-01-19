@@ -63,6 +63,8 @@ namespace MusicMediaPlayer.ViewModel
                     case "Username":
                         if (String.IsNullOrEmpty(Username))
                             ErrorMess = "Username can not be empty";
+                        if (Username.Length < 4)
+                            ErrorMess = "Username lenght has to be greater or equal to 4";
                         break;
                     case "Email":
                         if (String.IsNullOrEmpty(Email))
@@ -165,6 +167,11 @@ namespace MusicMediaPlayer.ViewModel
             else if (String.IsNullOrEmpty(Password))
             {
                 MessageBox.Show("Please enter the password");
+                return;
+            }
+            else if (Password.Length < 4)
+            {
+                MessageBox.Show("Password length has to be greater or euqal to 4");
                 return;
             }
             else if (String.IsNullOrEmpty(ConfirmPassword))

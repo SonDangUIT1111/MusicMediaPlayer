@@ -224,8 +224,8 @@ namespace MusicMediaPlayer.ViewModel
                 trang.MediaPlayerIsPlaying2 = MediaPlayerIsPlaying2;
                 trang.MediaPlayerIsPlaying3 = MediaPlayerIsPlaying3;
                 trang.MediaPlayerIsPlaying4 = MediaPlayerIsPlaying4;
-                wd.Play = PlayInvisible1;
-                wd.Pause = PauseInvisible1;
+                PlayInvisible1 = wd.Play;
+                PauseInvisible1 = wd.Pause;
                 trang.PlayInvisible1 = PlayInvisible1;
                 trang.PauseInvisible1 = PauseInvisible1;
                 page.NavigationService.Navigate(wd);

@@ -84,11 +84,14 @@ namespace MusicMediaPlayer.ViewModel
                     return;
                 p.Hide();
                 Login login = new Login();
+                login.Account.Text = null;
+                login.Password.Password = null;
+                var LoginVM = login.DataContext as LoginViewModel;
+                LoginVM.IsLoggedIn = false;
                 login.ShowDialog();
                 //sau khi dang nhap
                 if (login.DataContext == null)
                     return;
-                var LoginVM = login.DataContext as LoginViewModel;
                 var window = p as MainWindow;
                 if (LoginVM.IsLoggedIn == true)
                 {
@@ -109,6 +112,18 @@ namespace MusicMediaPlayer.ViewModel
                     var acc = DataProvider.Ins.DB.UserAccounts.Where((x) => x.UserName == LoginVM.Username).SingleOrDefault();
                     ProfileData.NickName = acc.NickName;
                     ProfileData.Email = acc.UserEmail;
+
+                    //xu ly avatar
+                    ImageBrush imageBrush = new ImageBrush();
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                    MemoryStream stream = new MemoryStream(acc.UserImage);
+                    bitmap.StreamSource = stream;
+                    bitmap.EndInit();
+                    imageBrush.ImageSource = bitmap;
+                    imageBrush.Stretch = Stretch.UniformToFill;
+                    ProfilePage.AvatarFrame.Background = imageBrush;
                     //
 
                     //my song window

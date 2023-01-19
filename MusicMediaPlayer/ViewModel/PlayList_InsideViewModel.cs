@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
@@ -28,6 +29,11 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand Delete_One_Song { get; set; }
 
         public ICommand AddSongs { get; set; }
+        public ICommand RemoveSongs { get; set; }
+        public ICommand LoadDataEditPage { get; set; }
+        public ICommand EditFilterChangeValue { get; set; }
+        public ICommand BackToMyPlaylist { get; set; }
+        public ICommand DeleteSong { get; set; }
 
         #endregion
         public MediaPlayer mediaPlayer { get; set; }
@@ -47,11 +53,15 @@ namespace MusicMediaPlayer.ViewModel
         MusicMediaPlayer.Model.PlayList pl;
 
         public PlayList_Inside thispage { get; set; }
+        public EditSongInPlayList EditSongPlaylistWindow { get; set; }
 
         public bool IsGoBack = false;
 
         private ObservableCollection<MusicMediaPlayer.Model.Song> _List;
         public ObservableCollection<MusicMediaPlayer.Model.Song> List { get => _List; set { _List = value; OnPropertyChanged(); } }
+
+        private ObservableCollection<MusicMediaPlayer.Model.Song> _ListEdit;
+        public ObservableCollection<MusicMediaPlayer.Model.Song> ListEdit { get => _ListEdit; set { _ListEdit = value; OnPropertyChanged(); } }
 
         //player bar
         private bool _mediaPlayerIsPlaying = false;
@@ -147,8 +157,6 @@ namespace MusicMediaPlayer.ViewModel
                         Playbtn1.Visibility = Visibility.Hidden;
                         Pausebtn1.Visibility = Visibility.Visible;
                         thispage.Play.IsChecked = true;
-                        thispage.CDCircle.IsExpanded = false;
-                        thispage.CDCircle.IsExpanded = true;
                         mediaPlayer1.Play();
                         DispatcherTimer timer = new DispatcherTimer();
                         timer.Interval = TimeSpan.FromSeconds(1);
@@ -279,8 +287,46 @@ namespace MusicMediaPlayer.ViewModel
                 }
             }
             );
+            RemoveSongs = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                EditSongPlaylistWindow = new EditSongInPlayList();
+                EditSongPlaylistWindow.PlaylistName.Text = PLName;
+                thispage.NavigationService.Navigate(EditSongPlaylistWindow);
+            });
+            LoadDataEditPage = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                ListEdit = new ObservableCollection<Song>(pl.Songs);
+                CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(EditSongPlaylistWindow.ListSongEdit.ItemsSource);
+                view.Filter = FiltersSong;
 
-            Delete_One_Song = new RelayCommand<object>((p) => { return true; }, (p) =>
+                bool FiltersSong(object item)
+                {
+                    if (String.IsNullOrEmpty(EditSongPlaylistWindow.SongFilter.Text))
+                        return true;
+                    else
+                        return ((item as Song).SongTitle.IndexOf(EditSongPlaylistWindow.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0
+
+                        || (item as Song).Artist.IndexOf(EditSongPlaylistWindow.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+                }
+                if (ListEdit.Count == 0)
+                {
+                    EditSongPlaylistWindow.IsThereSong.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    EditSongPlaylistWindow.IsThereSong.Visibility = Visibility.Hidden;
+                }
+            });
+            EditFilterChangeValue = new RelayCommand<Page>((p) => { return true; }, (p) =>
+            {
+                EditSongPlaylistWindow = p as EditSongInPlayList;
+                CollectionViewSource.GetDefaultView(EditSongPlaylistWindow.ListSongEdit.ItemsSource).Refresh();
+            });
+            BackToMyPlaylist = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                EditSongPlaylistWindow.NavigationService.Navigate(thispage);
+            });
+            DeleteSong = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
 
                 MessageBoxResult dr = System.Windows.MessageBox.Show("Do you want to delete it?", "Delete!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
@@ -292,6 +338,7 @@ namespace MusicMediaPlayer.ViewModel
                     DataProvider.Ins.DB.SaveChanges();
                     SongCount = pl.SongCount.ToString() + " Bài hát";
                     LoadDanhSach();
+                    LoadEditPage();
                 }
 
             }
@@ -514,6 +561,30 @@ namespace MusicMediaPlayer.ViewModel
         void LoadDanhSach()
         {
             List = new ObservableCollection<Song>(pl.Songs);
+        }
+        public void LoadEditPage()
+        {
+            ListEdit = new ObservableCollection<Song>(pl.Songs); 
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(EditSongPlaylistWindow.ListSongEdit.ItemsSource);
+            view.Filter = FiltersSong;
+
+            bool FiltersSong(object item)
+            {
+                if (String.IsNullOrEmpty(EditSongPlaylistWindow.SongFilter.Text))
+                    return true;
+                else
+                    return ((item as Song).SongTitle.IndexOf(EditSongPlaylistWindow.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0
+
+                    || (item as Song).Artist.IndexOf(EditSongPlaylistWindow.SongFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+            }
+            if (ListEdit.Count == 0)
+            {
+                EditSongPlaylistWindow.IsThereSong.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                EditSongPlaylistWindow.IsThereSong.Visibility = Visibility.Hidden;
+            }
         }
     }
 }

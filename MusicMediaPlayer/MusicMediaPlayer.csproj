@@ -302,6 +302,9 @@
     <Compile Include="View\EditSongInApp.xaml.cs">
       <DependentUpon>EditSongInApp.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\EditSongInPlayList.xaml.cs">
+      <DependentUpon>EditSongInPlayList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ForgotPassword.xaml.cs">
       <DependentUpon>ForgotPassword.xaml</DependentUpon>
     </Compile>
@@ -509,6 +512,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\EditSongInApp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditSongInPlayList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

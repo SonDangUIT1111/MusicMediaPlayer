@@ -109,9 +109,9 @@ namespace MusicMediaPlayer.ViewModel
                 {
                     if (currentpass == PassWord)
                     {
-                        if (newpass.Length < 8)
+                        if (newpass.Length < 4)
                         {
-                            MessageBox.Show("Password requires length greater or equal to 8");
+                            MessageBox.Show("Password requires length greater or equal to 4");
                             return;
                         }
                         //Kiểm tra validation của password 
