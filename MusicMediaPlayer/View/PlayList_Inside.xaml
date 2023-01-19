@@ -162,6 +162,9 @@
                                 Command="{Binding AddSongs}">
 
                         </Button>
+                        <Button Content="Remove songs"
+                                Margin="10 0 0 0"
+                                Command="{Binding RemoveSongs}"/>
                         <TextBlock  Text="{Binding SongCount}"
                                     Margin="10 0 0 0 "
                                     FontSize="15"
@@ -281,7 +284,7 @@
                               Height="620"
                               Width="420"
                               ExpandDirection="Up"
-                              IsExpanded="False"
+                              IsExpanded="True"
                               x:Name="CDCircle"
                               >
                         <StackPanel Height="620">

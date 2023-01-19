@@ -43,7 +43,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.ColumnSpan="2">
             <Grid.RowDefinitions>
-                <RowDefinition/>
+                <RowDefinition Height="50"/>
                 <RowDefinition Height="750"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" 
@@ -215,7 +215,9 @@
                                         <Button Style="{StaticResource ContactButton}" 
                                                 Width="148"  
                                                 Height="49" 
-                                                Margin="30 100 0 0">
+                                                Margin="30 100 0 0"
+                                                Command="{Binding LoadedTurnOnLogin}"
+                                                CommandParameter="{Binding ElementName=Main}">
                                             <Grid>
                                                 <TextBlock Text= "Log out" 
                                                            Margin="10,0,24,0"/>
@@ -777,7 +779,7 @@
                         </Grid>
                     </materialDesign:TransitioningContent>
                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn}">
-                        <Grid x:Name="PlayerBarArtist" Margin="0,-200,0,0" Visibility="Hidden">
+                        <Grid x:Name="PlayerBarArtist" Margin="0,-100,0,0" Visibility="Hidden">
                             <Rectangle  Fill="Red"
                                         Margin="0,0,0,0"
                                         Height="100" Width="auto">
@@ -1039,7 +1041,7 @@
                         </Grid>
                     </materialDesign:TransitioningContent>
                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn}">
-                        <Grid x:Name="PlayerBarAlbum" Margin="0,-300,0,0" Visibility="Hidden">
+                        <Grid x:Name="PlayerBarAlbum" Margin="0,-100,0,0" Visibility="Hidden">
                             <Rectangle  Fill="Purple"
                                         Margin="0,0,0,0"
                                         Height="100" Width="auto">
@@ -1301,7 +1303,7 @@
                         </Grid>
                     </materialDesign:TransitioningContent>
                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn}">
-                        <Grid x:Name="PlayerBarGenre" Margin="0,-400,0,0" Visibility="Hidden">
+                        <Grid x:Name="PlayerBarGenre" Margin="0,-100,0,0" Visibility="Hidden">
                             <Rectangle  Fill="Yellow"
                                         Margin="0,0,0,0"
                                         Height="100" Width="auto">
