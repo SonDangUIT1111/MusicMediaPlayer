@@ -28,19 +28,8 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Border CornerRadius="20" Grid.RowSpan="2">
-                <Border.Background>
-                    <LinearGradientBrush>
-                        <!--<GradientStop Color="#BFF098" Offset="0"></GradientStop>
-                        <GradientStop Color="#6FD6FF" Offset="1"></GradientStop>-->
-                        <GradientStop Color="#2af598" Offset="1"/>
-                        <GradientStop Color="#009efd" Offset="0.6"/>
-                        <GradientStop Color="#ba55d3" Offset="0.05"/>
-                        <!--<GradientStop Color="#2af598" Offset="0.2"/>
-                        <GradientStop Color="#009efd" Offset="1"/>-->
-                    </LinearGradientBrush>
-                </Border.Background>
-                <Image Source="/image/universe2.jpg" Opacity="0.1"
+            <Border CornerRadius="20" Grid.RowSpan="2" Background="AliceBlue">
+                <Image Source="/image/Sky.jpg" Opacity="0.5"
                        Stretch="UniformToFill"></Image>
             </Border>
 
@@ -53,7 +42,7 @@
                         Foreground="White"
                         Style="{StaticResource NormalButton}"
                         RenderTransformOrigin="0.5,0.5">
-                    <Image Source="/Image/logomusicapp.png"></Image>
+                    <Image Source="/Image/logo5.png"></Image>
                     <Button.RenderTransform>
                         <RotateTransform x:Name="MyAnimatedTransform" Angle="0" />
                     </Button.RenderTransform>
@@ -74,7 +63,7 @@
                            FontSize="20"
                            FontWeight="Bold"
                            HorizontalAlignment="Center"
-                           Foreground="White"
+                           Foreground="#444444"
                            FontFamily="Candara"
                            Margin="0,10,0,0"></TextBlock>
             </StackPanel>
@@ -172,22 +161,23 @@
                 </StackPanel>
                 <StackPanel Margin="0,20,0,0">
                     <Button Width="100" Height="40"  
-                            Content="Sign up"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
+                            Background="#0099FF"
                             Style="{StaticResource ContactButton}"
                             Command="{Binding SignUpCommand}"
                             IsDefault="True"
-                            CommandParameter="{Binding ElementName=RegisterWindow}"/>
+                            CommandParameter="{Binding ElementName=RegisterWindow}">
+                        <TextBlock Text="Sign up" Margin="7 0 0 0"></TextBlock>
+                    </Button>
                     <StackPanel Orientation="Horizontal"
                                 Margin="0,10,0,0">
                         <TextBlock Text="Have an accout already ?"
-                                   Foreground="White"
+                                   Foreground="#444444"
                                    Margin="65,0,0,0"
-                                   FontWeight="Light"
+                                   FontWeight="Normal"
                                    FontFamily="Candara"></TextBlock>
                         <Button 
-                                Content="Log in" 
                                 VerticalAlignment="Top" 
                                 Padding="0" 
                                 HorizontalContentAlignment="Right" 
@@ -202,7 +192,9 @@
                                 Margin="5,0,30,0"
                                 IsTabStop="False"
                                 Command="{Binding ToLogin}"
-                                CommandParameter="{Binding ElementName=RegisterWindow}">
+                                CommandParameter="{Binding ElementName=RegisterWindow}" Height="20" Width="33"
+                            >
+                            <TextBlock Text="Log in" Foreground="#444444" FontWeight="Medium"/>
                         </Button>
                     </StackPanel>
                 </StackPanel>

@@ -245,6 +245,7 @@
                             Content="LOGIN"
                             IsDefault="True"
                             HorizontalAlignment="Center"
+                                Background="#0099FF"
                             Style="{StaticResource ContactButton}"
                             Margin="0,20,0,0"
                                 
@@ -255,7 +256,7 @@
                         <StackPanel Orientation="Horizontal"
                                 Margin="0,30,0,0">
                             <TextBlock Text="Don't have an accout ?"
-                                   Foreground="#5CA0F2"
+                                   Foreground="#0099FF"
                                    Margin="70,0,0,0"
                                    FontWeight="SemiBold"
                                    FontFamily="Roboto"></TextBlock>
