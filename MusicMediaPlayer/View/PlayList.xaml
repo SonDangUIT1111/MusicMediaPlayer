@@ -7,7 +7,7 @@
       xmlns:local="clr-namespace:MusicMediaPlayer"
       xmlns:uc="clr-namespace:MusicMediaPlayer.UserControlMusic"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="1000" d:DesignWidth="1000"
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       Title="PlayList"
       Name="PL"
@@ -21,151 +21,270 @@
     </i:Interaction.Triggers>
 
 
-    <Grid Background="White" Height="450" Width="800">
+    <Border Background="White"
+            CornerRadius="20">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100">
 
-        <StackPanel>
+                </RowDefinition>
+                <RowDefinition>
 
-            <Grid Height="70">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Margin="30,20,10,10" 
-                               Text="Playlist" 
-                               FontSize="30" 
-                               FontStyle="Italic" 
-                               FontWeight="Bold" 
-                               >
-                    </TextBlock>
-                    <Grid Height="55">
-                        <Border Margin="10,14,10,14">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="310"></ColumnDefinition>
-                                    <ColumnDefinition></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <TextBox Grid.Column="0"
-                                         FontSize="15"
-                                         x:Name="txtFilter"
-                                         >
-                                    <i:Interaction.Triggers>
-                                        <i:EventTrigger EventName="TextChanged">
-                                            <i:InvokeCommandAction Command="{Binding TextChanged}"
-                                                                   CommandParameter="{Binding ElementName=txtFilter}"/>
-                                        </i:EventTrigger>
-                                    </i:Interaction.Triggers>
+                </RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal"
+                    Grid.Row="0" Grid.ColumnSpan="2" >
+                <Border 
+                CornerRadius="10"
+                Width="150"
+                Height="50"
+                BorderBrush="#5CA0F2"
+                BorderThickness="1" 
+                Margin="25 0 0 0">
 
-                                </TextBox>
-                                <TextBlock Grid.Column="1" Width="50"></TextBlock>
-                            </Grid>
-                        </Border>
-                    </Grid>
-                    <Button Content="Add"
-                            Command="{Binding AddPL}"
+                    <ComboBox
+                    materialDesign:HintAssist.Hint="Arrange"
+                    Width="100"
+                     
+                    
+                >
+
+                        <ComboBoxItem Width="100">
+                            <Button Command="{Binding AZ}"
+                            Content="A-Z"
+                            Background="Transparent"
+                            BorderThickness="0"
+                                    Width="100"
                             >
 
+                            </Button>
+
+                        </ComboBoxItem>
+                        <ComboBoxItem Width="100">
+                            <Button Command="{Binding ZA}"
+                            Content="Z-A"
+                            Background="Transparent"
+                            BorderThickness="0"
+                                Width="100"
+                            >
+
+                            </Button>
+                        </ComboBoxItem>
+                    </ComboBox>
+                </Border>
+
+                <Border 
+                CornerRadius="10"
+                Width="600"
+                Height="50"
+                BorderBrush="#5CA0F2"
+                BorderThickness="1" 
+                Margin="25 0 0 0"
+                >
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox VerticalAlignment="Center"
+                         Margin="25 0 0 0"
+                         materialDesign:HintAssist.Hint="SEARCH"
+                         Width="530"
+                         x:Name="txtFilter"
+                         >
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="TextChanged">
+                                    <i:InvokeCommandAction Command="{Binding TextChanged}"
+                                                       CommandParameter="{Binding ElementName=txtFilter}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </TextBox>
+                        <materialDesign:PackIcon Kind="Search"
+                                         VerticalAlignment="Center"
+                                         Height="25"
+                                         Width="25"
+                                         Foreground="Black"
+                                         >
+                        </materialDesign:PackIcon>
+                    </StackPanel>
+                </Border>
+
+                <Border Background="#5CA0F2"
+                    CornerRadius="10"
+                    VerticalAlignment="Center"
+                    Margin="25 0 0 0"
+                    Height="50"
+                    Width="150"
+                    >
+                    <Button Background="Transparent"
+                        BorderThickness="0"
+                        Command="{Binding AddPL}">
+                        <materialDesign:PackIcon Kind="Plus"
+                                             Height="25"
+                                             Width="50"
+                                             Foreground="White"
+                                             >
+
+                        </materialDesign:PackIcon>
                     </Button>
+                </Border>
+            </StackPanel>
 
-                    <Menu Margin="10,20,10,20"
-                          Height="30"
-                          >
-                        <MenuItem Header="Sắp xếp"
-                                  Height="30"
-                                  >
 
-                            <MenuItem Header="A-Z"
-                                      Command="{Binding AZ}"
-                                      >
-                            </MenuItem>
-                            <MenuItem Header="Z-A"
-                                      Command="{Binding ZA}"
-                                      >
-                            </MenuItem>
-                        </MenuItem>
-                    </Menu>
-                </StackPanel>
-            </Grid>
-            <Grid Height="380">
-                <ListView Margin="10 0 200 10"
-                          ItemsSource="{Binding List, Mode=TwoWay}"
+            <ListBox     ItemsSource="{Binding List, Mode=TwoWay}"
                           Name="listview"
                           SelectionMode="Single"
+                           Grid.Row="1" Grid.ColumnSpan="2"
                           >
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="MouseDoubleClick">
-                            <i:InvokeCommandAction Command="{Binding MouseDoubleClick}"
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDoubleClick">
+                        <i:InvokeCommandAction Command="{Binding MouseDoubleClick}"
                                    CommandParameter="{Binding ElementName=listview}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                    <!--<ItemsControl.Template>
-                        <ControlTemplate TargetType="ListView">
-                            <Border BorderBrush="Black" BorderThickness="1" CornerRadius="15">
-                                <ItemsPresenter/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel>
+                        </WrapPanel>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="185"
+                              Width="180"
+                                  >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="135">
+
+                                </RowDefinition>
+                                <RowDefinition Height="50">
+
+                                </RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Border CornerRadius="5"
+                                    Grid.Row="0"
+                                    Height="130"
+                                    Width="175"
+                                    x:Name="Pic"
+                                        >
+                                <Grid>
+                                    <Button Style="{StaticResource ButtonPlayVisibility}"
+                                            Panel.ZIndex="2"
+                                            Width="40"
+                                            Height="40"
+                                            Padding="0"
+                                            Margin="70,0,0,0"
+                                            BorderBrush="Transparent"
+                                            BorderThickness="0"
+                                            Background="White"
+                                            ToolTip="Rename"
+                                            Command="{Binding Source={StaticResource PlayListVM},Path=Rename}"
+                                            CommandParameter="{Binding}">
+                                        <materialDesign:PackIcon
+                                                            Foreground="#222222"
+                                                            Kind="Rename"
+                                                            Opacity="0.8"
+                                                            Height="25"
+                                                            Width="25" />
+                                    </Button>
+
+                                    <Button Style="{StaticResource ButtonPlayVisibility}"
+                                                Panel.ZIndex="2"
+                                                Width="40"
+                                                Height="40"
+                                                Padding="0"
+                                                Margin="-70,0,0,0"
+                                                BorderBrush="Transparent"
+                                                BorderThickness="0"
+                                                Background="White"
+                                                ToolTip="Delete"
+                                                Command="{Binding Source={StaticResource PlayListVM},Path=Delete}"
+                                                CommandParameter="{Binding}">
+                                        <materialDesign:PackIcon
+                                                            Foreground="#BF2604"
+                                                            Kind="Delete"
+                                                            Opacity="0.8"
+                                                            Height="25"
+                                                            Width="25" />
+                                    </Button>
+                                </Grid>
+                                
+                                <Border.Background>
+                                    <ImageBrush ImageSource="/Image/Sky.jpg"
+                                                Stretch="UniformToFill"
+                                                >
+                                    </ImageBrush>
+                                </Border.Background>
+
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Trigger.EnterActions>
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetProperty="Height"
+                                                                                 To="135"
+                                                                                 Duration="0:0:0.2"
+                                                                                 >
+                                                            </DoubleAnimation>
+                                                            <DoubleAnimation Storyboard.TargetProperty="Width"
+                                                                                 To="180"
+                                                                                 Duration="0:0:0.2"
+                                                                                 >
+                                                            </DoubleAnimation>
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </Trigger.EnterActions>
+                                                <Trigger.ExitActions>
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetProperty="Height"
+                                                                                 To="130"
+                                                                                 Duration="0:0:0.2"
+                                                                                 >
+                                                            </DoubleAnimation>
+                                                            <DoubleAnimation Storyboard.TargetProperty="Width"
+                                                                                 To="175"
+                                                                                 Duration="0:0:0.2"
+                                                                                 >
+                                                            </DoubleAnimation>
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </Trigger.ExitActions>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+
                             </Border>
-                        </ControlTemplate>
-                       
-                    </ItemsControl.Template>-->
 
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem">
-                            <Style.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="5">
-                                    </Setter>
-                                </Style>
-                            </Style.Resources>
-                        </Style>
-                    </ListView.ItemContainerStyle>
+                            <StackPanel Grid.Row="1"
+                                        Margin="0 5 0 0"
+                                        >
+                                <TextBlock 
+                                               Text="{Binding PlayListName}" 
+                                               TextAlignment="Left"
+                                               Foreground="Black" 
+                                               FontWeight="SemiBold" 
+                                               FontSize="20" 
+                                               Margin="5 0 0 0" 
+                                    />
 
-                    <!--<ListView.ItemTemplate>-->
-                    <!--<DataTemplate>
-                            <StackPanel>
-                                <TextBlock Text="{Binding PlayListName}" VerticalAlignment="Center"></TextBlock>
+                                <TextBlock 
+                                               Text="{Binding SongCount}"
+                                               TextAlignment="Left"
+                                               Foreground="#767676" 
+                                               FontWeight="SemiBold" 
+                                               FontSize="17" 
+                                               Margin="5 0 0 0"
+                                    >
+
+                                </TextBlock>
                             </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>-->
-
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid  Height="70"
-                                   Width="580">
-                                <StackPanel Margin="15 10 0 10"
-                                            Orientation="Horizontal">
-
-                                    <Ellipse Height="48" Width="48" VerticalAlignment="Center">
-                                        <Ellipse.Fill>
-                                            <ImageBrush ImageSource="/Image/anh3.jpg"/>
-                                        </Ellipse.Fill>
-                                    </Ellipse>
-
-                                    <StackPanel Margin="15 0 0 0" Width="440">
-                                        <TextBlock Opacity="1" Text="{Binding PlayListName}" Foreground="Black" FontWeight="Bold" FontSize="20"/>
-                                        <TextBlock Opacity="1" Text="{Binding SongCount}" Foreground="Black" FontWeight="Bold" FontSize="17"></TextBlock>
-                                    </StackPanel>
-
-                                    <materialDesign:PopupBox
-                                                            Margin="20 10 10 10"
-                                                            Padding="2 0 2 0">
-                                        <StackPanel>
-                                            <Button Content="Rename"
-                                                    Command="{Binding Source={StaticResource PlayListVM}, Path=Rename}"
-                                                    CommandParameter="{Binding}"
-                                                    >
-                                            </Button>
-
-                                            <Button Content="Delete" 
-                                                    Command="{Binding Source={StaticResource PlayListVM}, Path=Delete}"
-                                                    CommandParameter="{Binding}"
-                                                    >
-                                            </Button>
-                                        </StackPanel>
-
-                                    </materialDesign:PopupBox>
-
-                                </StackPanel>
-                            </Grid>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-
-            </Grid>
-        </StackPanel>
-    </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </Border>
 </Page>

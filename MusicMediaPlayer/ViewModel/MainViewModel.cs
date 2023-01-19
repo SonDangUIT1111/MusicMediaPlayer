@@ -97,7 +97,7 @@ namespace MusicMediaPlayer.ViewModel
                 {
                     //truyen du lieu qua cac view
                     CurrentUser.UserName = LoginVM.Username;
-                    ObservableCollection<int> IDuser = new ObservableCollection<int>(DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == LoginVM.Username).Select(x => x.UserId));
+                    ObservableCollection<int> IDuser = new ObservableCollection<int>(DataProvider.Ins.DB.UserAccount.Where(x => x.UserName == LoginVM.Username).Select(x => x.UserId));
                     PlayListData.CurrentUser.Id = IDuser[0];
                     HomeData.CurrentUser.Id=IDuser[0];
                     ProfileData.CurrentUser.Id = IDuser[0];
@@ -109,7 +109,7 @@ namespace MusicMediaPlayer.ViewModel
                     //xu ly profile
                     ProfileData.UserName = LoginVM.Username;
                     ProfileData.PassWord = LoginVM.Password;
-                    var acc = DataProvider.Ins.DB.UserAccounts.Where((x) => x.UserName == LoginVM.Username).SingleOrDefault();
+                    var acc = DataProvider.Ins.DB.UserAccount.Where((x) => x.UserName == LoginVM.Username).SingleOrDefault();
                     ProfileData.NickName = acc.NickName;
                     ProfileData.Email = acc.UserEmail;
 

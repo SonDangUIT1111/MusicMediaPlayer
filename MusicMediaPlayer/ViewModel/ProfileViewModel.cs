@@ -88,7 +88,7 @@ namespace MusicMediaPlayer.ViewModel
             });
             AcceptChanging = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
-                var acc = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == UserName).SingleOrDefault();
+                var acc = DataProvider.Ins.DB.UserAccount.Where(x => x.UserName == UserName).SingleOrDefault();
                 if (acc != null)
                 {
                     acc.NickName = NickName;
@@ -137,7 +137,7 @@ namespace MusicMediaPlayer.ViewModel
                         else
                         {
                             string encodenewPass = CreateMD5(Base64Encode(newpass));
-                            var acc = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == UserName).SingleOrDefault();
+                            var acc = DataProvider.Ins.DB.UserAccount.Where(x => x.UserName == UserName).SingleOrDefault();
                             acc.UserPassword = encodenewPass;
                             DataProvider.Ins.DB.SaveChanges();
                             MessageBox.Show("Successfully changes the password");
@@ -178,7 +178,7 @@ namespace MusicMediaPlayer.ViewModel
                         }
                         else
                         {
-                            var acc = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == UserName).SingleOrDefault();
+                            var acc = DataProvider.Ins.DB.UserAccount.Where(x => x.UserName == UserName).SingleOrDefault();
                             acc.UserEmail = NewEmail;
                             DataProvider.Ins.DB.SaveChanges();
                             Email = NewEmail;
