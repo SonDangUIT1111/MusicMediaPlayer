@@ -29,8 +29,14 @@
             </Grid.RowDefinitions>
 
             <Border CornerRadius="20" Grid.RowSpan="2" Background="AliceBlue">
-                <Image Source="/image/Sky.jpg" Opacity="0.5"
-                       Stretch="UniformToFill"></Image>
+                <Grid>
+                    <Border CornerRadius="20">
+                        <Border.Background>
+                            <ImageBrush ImageSource="/image/Sky.jpg" Opacity="0.5"
+                       Stretch="UniformToFill"></ImageBrush>
+                        </Border.Background>
+                    </Border>
+                </Grid>
             </Border>
 
             <StackPanel>
