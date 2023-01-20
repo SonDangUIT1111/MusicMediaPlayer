@@ -7,7 +7,65 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="1000" d:DesignWidth="1000">
-    <Grid Background="Aqua">
-        <Button Command="{x:Static materialDesign:Transitioner.MoveNextCommand}"/>
+    <Grid Background="#5CA0F2">
+        <Grid>
+            <TextBlock Text="GOOD MORNING USER"
+                       FontSize="50"
+                       Width="600"
+                       FontStyle="Normal"
+                       FontWeight="DemiBold"
+                       Foreground="#FFFFFF"
+                       Margin="-400,400,0,0">
+                <TextBlock.RenderTransform>
+                    <RotateTransform Angle="-45" />
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <Image Source="/Image/logomusicapp.png"
+                   Height="300"
+                   Width="300"
+                   Margin="-200,-100,0,0">
+            </Image>
+            <TextBlock Text="HOW ARE YOU TODAY"
+                       Foreground="#FFFFFF"
+                       FontSize="30"
+                       HorizontalAlignment="Right"
+                       Height="auto"
+                       Width="auto"
+                       Margin="0,50,50,0"/>
+            <StackPanel HorizontalAlignment="Right"
+                        Margin="0,100,200,0">
+                <RadioButton Content="Happy"
+                             Foreground="#ffffff"
+                             FontSize="30"/>
+                <RadioButton Content="Good"
+                             Foreground="#ffffff"
+                             FontSize="30"/>
+                <RadioButton Content="Normal"
+                             Foreground="#ffffff"
+                             FontSize="30"/>
+                <RadioButton Content="Sad"
+                             Foreground="#ffffff"
+                             FontSize="30"/>
+                <RadioButton Content="Hurtful"
+                             Foreground="#ffffff"
+                             FontSize="30"/>
+            </StackPanel>
+            <RichTextBox Background="#1ED760"
+                         Height="300"
+                         Width="400"
+                         HorizontalAlignment="Right">
+            </RichTextBox>
+            <TextBlock Text="Wanna boost your mood"
+                       Foreground="#FFFFFF"
+                       FontSize="30"
+                       Height="50"
+                       HorizontalAlignment="Right"
+                       Margin="0,350,50,0"/>
+            <Button Content="PLAY TIME"
+                    Width="200"
+                    Height="50"
+                    HorizontalAlignment="Right"
+                    Margin="0,500,100,0"/>
+        </Grid>
     </Grid>
 </UserControl>

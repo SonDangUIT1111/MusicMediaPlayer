@@ -381,6 +381,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ResourceProject\Instrument\PianoBlackKeyTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourceProject\Instrument\PianoWhiteKeyTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ResourceProject\Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -730,7 +738,44 @@
       <DependentUpon>Database.edmx</DependentUpon>
       <LastGenOutput>Database.cs</LastGenOutput>
     </Content>
+    <Content Include="ResourceProject\Instrument\Music_Note\A.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\A_Drum.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\B.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\Bb.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\Bb_Drum.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\B_Drum.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\C.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\C1.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\C1_Drum.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\Cq1_Drum.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\Cq_Drum.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\C_Drum.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\C_s.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\C_s1.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\D.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\D1.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\D1_Drum.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\Dq1_Drum.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\Dq_Drum.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\D_Drum.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\D_s.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\D_s1.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\E.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\E1.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\E1_Drum.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\E_Drum.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\F.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\F1.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\F1_Drum.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\Fq_Drum.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\F_Drum.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\F_s.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\G.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\Gq_Drum.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\G_Drum.wav" />
+    <Content Include="ResourceProject\Instrument\Music_Note\G_s.wav" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.6.1\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.6.1\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

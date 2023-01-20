@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:MusicMediaPlayer"
              xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-             StartupUri="View/MainWindow.xaml">
+             StartupUri="UserControlMusic/PianoAdventure.xaml">
     <Application.Resources>
         <ResourceDictionary >
             <ResourceDictionary.MergedDictionaries>
@@ -40,6 +40,9 @@
                 <!--<ResourceDictionary Source="/ResourceProject/SliderTemplate.xaml"></ResourceDictionary>-->
                 <ResourceDictionary Source="/ResourceProject/TabButtonStyle.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/ExpanderMySongTemplate.xaml"></ResourceDictionary>
+
+                <ResourceDictionary Source="/ResourceProject/Instrument/PianoBlackKeyTemplate.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/ResourceProject/Instrument/PianoWhiteKeyTemplate.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
