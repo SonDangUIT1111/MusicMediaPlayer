@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style TargetType="{x:Type Button}" x:Key="Changepass">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="AliceBlue"/>
+        <Setter Property="Foreground" Value="#111111"/>
         <Setter Property="Height" Value="50"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="FontWeight" Value="Bold"/>
@@ -19,9 +19,15 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#e0ffff"/>
-                <Setter Property="Foreground" Value="#444444"/>
-                <Setter Property="Tag" Value="Visible"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" CornerRadius="15" BorderBrush="Black" BorderThickness="1" >
+                                <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
             </Trigger>
         </Style.Triggers>
     </Style>

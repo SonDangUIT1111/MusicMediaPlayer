@@ -63,7 +63,7 @@
                            FontSize="20"
                            FontWeight="Bold"
                            HorizontalAlignment="Center"
-                           Foreground="#444444"
+                           Foreground="#333333"
                            FontFamily="Candara"
                            Margin="0,10,0,0"></TextBlock>
             </StackPanel>
@@ -173,7 +173,7 @@
                     <StackPanel Orientation="Horizontal"
                                 Margin="0,10,0,0">
                         <TextBlock Text="Have an accout already ?"
-                                   Foreground="#444444"
+                                   Foreground="#222222"
                                    Margin="65,0,0,0"
                                    FontWeight="Normal"
                                    FontFamily="Candara"></TextBlock>
@@ -194,7 +194,7 @@
                                 Command="{Binding ToLogin}"
                                 CommandParameter="{Binding ElementName=RegisterWindow}" Height="20" Width="33"
                             >
-                            <TextBlock Text="Log in" Foreground="#444444" FontWeight="Medium"/>
+                            <TextBlock Text="Log in" Foreground="#222222" FontWeight="Medium"/>
                         </Button>
                     </StackPanel>
                 </StackPanel>
