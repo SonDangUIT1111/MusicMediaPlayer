@@ -9,9 +9,55 @@
              d:DesignHeight="1000" d:DesignWidth="1000"
              KeyDown="UserControl_KeyDown">
     <Grid Background="#5CA0F2">
+        <RadioButton x:Name="Practice"
+                     Content="Twinkle Little Star"
+                     Background="Red"
+                     Height="50"
+                     Width="200"
+                     HorizontalAlignment="Left"
+                     Foreground="#FFFFFF"
+                     FontSize="18"
+                     Checked="Practice_Checked"/>
+        <RadioButton x:Name="Adventure"
+                     Content="Adventure on your own"
+                     Foreground="#FFFFFF"
+                     Background="Red"
+                     Height="50"
+                     Width="200"
+                     HorizontalAlignment="Left"
+                     FontSize="18"
+                     Margin="0,100,0,0"
+                     IsChecked="True" 
+                     Checked="RadioButton_Checked"/>
+        <RadioButton x:Name="Custom"
+                     Content="Custom"
+                     Foreground="#FFFFFF"
+                     Background="Red"
+                     Height="50"
+                     Width="200"
+                     HorizontalAlignment="Left"
+                     FontSize="18"
+                     Margin="0,180,0,0"
+                     Checked="Custom_Checked"/>
+        <Expander x:Name="ComposePaper"
+                  Width="300"
+                  Height="300"
+                  HorizontalAlignment="Left"
+                  Background="Transparent"
+                  Margin="0,-500,0,0"
+                  Foreground="Transparent">
+            <StackPanel>
+                <RichTextBox x:Name="MusicScript"
+                         Background="Transparent"
+                         Foreground="White"
+                         Width="300"
+                         Height="200"/>
+                <Button Content="OK" Click="Button_Click"/>
+            </StackPanel>
+        </Expander>
         <Grid Height="300"
           Width="600"
-          Margin="0,150,0,0">
+          Margin="300,150,0,0">
             <Border Background="#FF2C2C"
                 CornerRadius="10 10 10 10">
             </Border>
