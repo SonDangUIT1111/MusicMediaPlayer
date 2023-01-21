@@ -239,6 +239,9 @@
     <Compile Include="UserControlMusic\PianoAdventure.xaml.cs">
       <DependentUpon>PianoAdventure.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlMusic\SteelDrumAdventure.xaml.cs">
+      <DependentUpon>SteelDrumAdventure.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControlMusic\Welcome.xaml.cs">
       <DependentUpon>Welcome.xaml</DependentUpon>
     </Compile>
@@ -389,6 +392,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ResourceProject\Instrument\SteelDrumKeyTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ResourceProject\Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -418,6 +425,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControlMusic\PianoAdventure.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlMusic\SteelDrumAdventure.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

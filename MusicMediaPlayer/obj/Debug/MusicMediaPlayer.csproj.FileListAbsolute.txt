@@ -1013,3 +1013,6 @@ C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\EditSongInPlayList.baml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\Instrument\PianoBlackKeyTemplate.baml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\Instrument\PianoWhiteKeyTemplate.baml
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\Instrument\SteelDrumKeyTemplate.baml
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\UserControlMusic\SteelDrumAdventure.g.cs
+C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\UserControlMusic\SteelDrumAdventure.baml
