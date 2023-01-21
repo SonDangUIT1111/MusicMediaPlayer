@@ -68,12 +68,12 @@
                         </LinearGradientBrush>
                     </TextBlock.Foreground>
                 </TextBlock>-->
-                <Image gif:AnimationBehavior.SourceUri="\Image\MusicNoteBackground.gif" 
+                <!--<Image gif:AnimationBehavior.SourceUri="\Image\MusicNoteBackground.gif" 
                        IsEnabled="True"
                        Width="60"
                        Height="60"
                        Margin="0,-10,0,-10"
-                       ></Image>
+                       ></Image>-->
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Grid
