@@ -724,6 +724,8 @@
     <Resource Include="Image\Sky.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Image\successful4.gif" />
+    <Resource Include="Image\successful2.gif" />
     <Resource Include="Image\error.gif" />
     <Content Include="Model\Database.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
