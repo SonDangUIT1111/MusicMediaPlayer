@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:MusicMediaPlayer"
              xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-             StartupUri="View/MainWindow.xaml">
+             StartupUri="View/MessageBoxFail.xaml">
     <Application.Resources>
         <ResourceDictionary >
             <ResourceDictionary.MergedDictionaries>
