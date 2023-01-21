@@ -845,7 +845,7 @@ namespace MusicMediaPlayer.UserControlMusic
         }
         private async void UserControl_KeyDown(object sender, KeyEventArgs e)
         {
-            if (Practice.IsChecked == false && IsWriteScript == false)
+            if (Practice.IsChecked == false && IsWriteScript == false && CustomMode == false)
             {
                 switch (e.Key)
                 {
@@ -959,7 +959,7 @@ namespace MusicMediaPlayer.UserControlMusic
                         break;
                 }
             }
-            else if (Practice.IsChecked == true && IsWriteScript == false)
+            else if ((Practice.IsChecked == true || CustomMode == true) && IsWriteScript == false)
             {
                 switch (e.Key)
                 {
@@ -1057,6 +1057,31 @@ namespace MusicMediaPlayer.UserControlMusic
         {
             ComposePaper.IsExpanded = false;
             CustomMode = false;
+            try
+            {
+                Ckey.Background = Brushes.White;
+                Dkey.Background = Brushes.White;
+                Ekey.Background = Brushes.White;
+                Fkey.Background = Brushes.White;
+                Gkey.Background = Brushes.White;
+                Akey.Background = Brushes.White;
+                Bkey.Background = Brushes.White;
+                C1key.Background = Brushes.White;
+                D1key.Background = Brushes.White;
+                E1key.Background = Brushes.White;
+                F1key.Background = Brushes.White;
+                CSharp.Background = Brushes.Black;
+                DSharp.Background = Brushes.Black;
+                FSharp.Background = Brushes.Black;
+                GSharp.Background = Brushes.Black;
+                ASharp.Background = Brushes.Black;
+                CSharp1.Background = Brushes.Black;
+                DSharp1.Background = Brushes.Black;
+            }
+            catch (Exception)
+            {
+
+            }
             indexofnote = 0;
             DemoScript = LittleStar;
             LightOut(DemoScript[indexofnote]);
@@ -1158,11 +1183,6 @@ namespace MusicMediaPlayer.UserControlMusic
         {
             TextRange textRange = new TextRange(MusicScript.Document.ContentStart,MusicScript.Document.ContentEnd);
             ConvertScriptToMusicComposition(textRange.Text);
-            IsWriteScript = false;
-            CustomMode = true;
-            indexofnote = 0;
-            ComposePaper.IsExpanded = false;
-            LightOut(DemoScript[indexofnote]);
         }
         public void ConvertScriptToMusicComposition(string script)
         {
@@ -1229,10 +1249,21 @@ namespace MusicMediaPlayer.UserControlMusic
                         case "ds1":
                             newscript[count++] = 18;
                             break;
+                        default:
+                            MessageBox.Show("Script format is invalid");
+                            ComposePaper.IsExpanded = false;
+                            IsWriteScript = false;
+                            Adventure.IsChecked = true;
+                            return;
+                            break;
                     }
                 }
                 DemoScript = newscript;
+                IsWriteScript = false;
                 CustomMode = true;
+                indexofnote = 0;
+                ComposePaper.IsExpanded = false;
+                LightOut(DemoScript[indexofnote]);
             }
             catch (Exception)
             {
