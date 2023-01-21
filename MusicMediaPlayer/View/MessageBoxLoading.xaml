@@ -22,15 +22,15 @@
         >
     <Grid>
         <Border CornerRadius="10" 
-                Background="Black"
-                BorderBrush="Green"
-                BorderThickness="1"
+                Background="White"
+                BorderBrush="#0099FF"
+                BorderThickness="3"
                >
         </Border>
         <StackPanel>
             <Grid Height="80">
                 <TextBlock Text="Processing"
-                           Foreground="#1ED760"
+                           Foreground="#0099FF"
                            FontFamily="Bahnschrift SemiBold" 
                            FontWeight="SemiBold" 
                            FontSize="20"
