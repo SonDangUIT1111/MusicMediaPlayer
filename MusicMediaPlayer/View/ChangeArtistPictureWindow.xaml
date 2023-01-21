@@ -15,7 +15,7 @@
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Background="Transparent"
-        Height="350" Width="400"
+        Height="350" Width="550"
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
         DataContext="{StaticResource ArtistVM}"
         Name="ArtistChangePicWD">
@@ -24,8 +24,21 @@
         <Border CornerRadius="20" 
                 BorderBrush="White"
                 BorderThickness="1"
-                Background="Black"
-                Grid.Column="1"/>
+                Grid.Column="1">
+            <Grid Background="Transparent">
+                <Border CornerRadius="20">
+                    <Border.Background>
+                        <ImageBrush ImageSource="\Image\Sky2.jpg" Stretch="UniformToFill" Opacity="0.8"/>
+                    </Border.Background>
+                </Border>
+            </Grid>
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#0099FF" Offset="0.35"/>
+                    <GradientStop Color="AliceBlue" Offset="0.22"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
         <StackPanel>
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center"
@@ -63,7 +76,7 @@
             <StackPanel Orientation="Horizontal">
                 <Grid
                         x:Name="ChangegrdSelectImg"
-                        Margin="120,20,0,20" 
+                        Margin="200,20,0,20" 
                         VerticalAlignment="Top"
                         Width="150"
                         Height="150" 
@@ -78,7 +91,7 @@
                                 Width="150"
                                 Height="150" 
                                 HorizontalAlignment="Left" 
-                                VerticalAlignment="Top"/>
+                                VerticalAlignment="Top" />
                     <Button 
                             x:Name="btnSelectImage"
                             Command="{Binding ChangeImage}"
@@ -106,9 +119,8 @@
                             VerticalAlignment="Top"  
                             Margin="0,25,0,0"/>
                 </Grid>
-
             </StackPanel>
-            <StackPanel Margin="250,20,0,0"
+            <StackPanel Margin="235,20,0,0"
                         Orientation="Horizontal">
                 <Button
                           Width="40"

@@ -28,8 +28,8 @@ namespace MusicMediaPlayer.ViewModel
 
         public ICommand Delete_One_Song { get; set; }
 
-        public ICommand AddSongs { get; set; }
-        public ICommand RemoveSongs { get; set; }
+        public ICommand AddSong { get; set; }
+        public ICommand RemoveSong { get; set; }
         public ICommand LoadDataEditPage { get; set; }
         public ICommand EditFilterChangeValue { get; set; }
         public ICommand BackToMyPlaylist { get; set; }
@@ -287,7 +287,7 @@ namespace MusicMediaPlayer.ViewModel
                 }
             }
             );
-            RemoveSongs = new RelayCommand<object>((p) => { return true; }, (p) =>
+            RemoveSong = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 EditSongPlaylistWindow = new EditSongInPlayList();
                 EditSongPlaylistWindow.PlaylistName.Text = PLName;
@@ -344,7 +344,7 @@ namespace MusicMediaPlayer.ViewModel
             }
             );
 
-            AddSongs = new RelayCommand<object>((p) => { return true; }, (p) =>
+            AddSong = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 AddSongPlayList wd = new AddSongPlayList();
                 var trang = wd.DataContext as AddSongPlayListViewModel;
