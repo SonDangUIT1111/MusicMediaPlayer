@@ -31,9 +31,9 @@
                        HorizontalAlignment="Right"
                        Height="auto"
                        Width="auto"
-                       Margin="0,50,50,0"/>
+                       Margin="0,0,50,0"/>
             <StackPanel HorizontalAlignment="Right"
-                        Margin="0,100,200,0">
+                        Margin="0,50,200,0">
                 <RadioButton Content="Happy"
                              Foreground="#ffffff"
                              FontSize="30"/>
@@ -65,7 +65,8 @@
                     Width="200"
                     Height="50"
                     HorizontalAlignment="Right"
-                    Margin="0,500,100,0"/>
+                    Margin="0,500,100,0"
+                    Command="{x:Static materialDesign:Transitioner.MoveNextCommand}"/>
         </Grid>
     </Grid>
 </UserControl>

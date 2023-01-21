@@ -9,6 +9,16 @@
              d:DesignHeight="1000" d:DesignWidth="1000"
              KeyDown="UserControl_KeyDown">
     <Grid Background="#5CA0F2">
+        <Button Content="Home"
+                Height="50"
+                Width="200"
+                Margin="0,-500,0,0"
+                Command="{x:Static materialDesign:Transitioner.MoveFirstCommand}"/>
+        <Button Content="Explore Steel drum adventure"
+                Height="50"
+                Width="200"
+                Margin="0,-400,0,0"
+                Command="{x:Static materialDesign:Transitioner.MoveNextCommand}"/>
         <RadioButton x:Name="Practice"
                      Content="Twinkle Little Star"
                      Background="Red"

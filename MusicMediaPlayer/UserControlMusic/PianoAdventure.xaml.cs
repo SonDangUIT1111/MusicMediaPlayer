@@ -95,7 +95,7 @@ namespace MusicMediaPlayer.UserControlMusic
                 {
 
                 }
-                Ckey.Background = Brushes.Transparent;
+                Ckey.Background = Brushes.White;
                 indexofnote++;
                 if (indexofnote == DemoScript.Count())
                 {
@@ -134,7 +134,7 @@ namespace MusicMediaPlayer.UserControlMusic
                 {
 
                 }
-                Dkey.Background = Brushes.Transparent;
+                Dkey.Background = Brushes.White;
                 indexofnote++;
                 if (indexofnote == DemoScript.Count())
                 {
@@ -172,7 +172,7 @@ namespace MusicMediaPlayer.UserControlMusic
                 {
 
                 }
-                Ekey.Background = Brushes.Transparent;
+                Ekey.Background = Brushes.White;
                 indexofnote++;
                 if (indexofnote == DemoScript.Count())
                 {
@@ -210,7 +210,7 @@ namespace MusicMediaPlayer.UserControlMusic
                 {
 
                 }
-                Fkey.Background = Brushes.Transparent;
+                Fkey.Background = Brushes.White;
                 indexofnote++;
                 if (indexofnote == DemoScript.Count())
                 {
@@ -248,7 +248,7 @@ namespace MusicMediaPlayer.UserControlMusic
                 {
 
                 }
-                Gkey.Background = Brushes.Transparent;
+                Gkey.Background = Brushes.White;
                 indexofnote++;
                 if (indexofnote == DemoScript.Count())
                 {
@@ -286,7 +286,7 @@ namespace MusicMediaPlayer.UserControlMusic
                 {
 
                 }
-                Akey.Background = Brushes.Transparent;
+                Akey.Background = Brushes.White;
                 indexofnote++;
                 if (indexofnote == DemoScript.Count())
                 {
@@ -324,7 +324,7 @@ namespace MusicMediaPlayer.UserControlMusic
                 {
 
                 }
-                Bkey.Background = Brushes.Transparent;
+                Bkey.Background = Brushes.White;
                 indexofnote++;
                 if (indexofnote == DemoScript.Count())
                 {
@@ -362,7 +362,7 @@ namespace MusicMediaPlayer.UserControlMusic
                 {
 
                 }
-                C1key.Background = Brushes.Transparent;
+                C1key.Background = Brushes.White;
                 indexofnote++;
                 if (indexofnote == DemoScript.Count())
                 {
@@ -400,7 +400,7 @@ namespace MusicMediaPlayer.UserControlMusic
                 {
 
                 }
-                D1key.Background = Brushes.Transparent;
+                D1key.Background = Brushes.White;
                 indexofnote++;
                 if (indexofnote == DemoScript.Count())
                 {
@@ -438,7 +438,7 @@ namespace MusicMediaPlayer.UserControlMusic
                 {
 
                 }
-                E1key.Background = Brushes.Transparent;
+                E1key.Background = Brushes.White;
                 indexofnote++;
                 if (indexofnote == DemoScript.Count())
                 {
@@ -476,7 +476,7 @@ namespace MusicMediaPlayer.UserControlMusic
                 {
 
                 }
-                F1key.Background = Brushes.Transparent;
+                F1key.Background = Brushes.White;
                 indexofnote++;
                 if (indexofnote == DemoScript.Count())
                 {
@@ -514,7 +514,7 @@ namespace MusicMediaPlayer.UserControlMusic
                 {
 
                 }
-                CSharp.Background = Brushes.Transparent;
+                CSharp.Background = Brushes.Black;
                 indexofnote++;
                 if (indexofnote == DemoScript.Count())
                 {
@@ -552,7 +552,7 @@ namespace MusicMediaPlayer.UserControlMusic
                 {
 
                 }
-                CSharp1.Background = Brushes.Transparent;
+                CSharp1.Background = Brushes.Black;
                 indexofnote++;
                 if (indexofnote == DemoScript.Count())
                 {
@@ -590,7 +590,7 @@ namespace MusicMediaPlayer.UserControlMusic
                 {
 
                 }
-                DSharp.Background = Brushes.Transparent;
+                DSharp.Background = Brushes.Black;
                 indexofnote++;
                 if (indexofnote == DemoScript.Count())
                 {
@@ -628,7 +628,7 @@ namespace MusicMediaPlayer.UserControlMusic
                 {
 
                 }
-                DSharp1.Background = Brushes.Transparent;
+                DSharp1.Background = Brushes.Black;
                 indexofnote++;
                 if (indexofnote == DemoScript.Count())
                 {
@@ -666,7 +666,7 @@ namespace MusicMediaPlayer.UserControlMusic
                 {
 
                 }
-                FSharp.Background = Brushes.Transparent;
+                FSharp.Background = Brushes.Black;
                 indexofnote++;
                 if (indexofnote == DemoScript.Count())
                 {
@@ -704,7 +704,7 @@ namespace MusicMediaPlayer.UserControlMusic
                 {
 
                 }
-                GSharp.Background = Brushes.Transparent;
+                GSharp.Background = Brushes.Black;
                 indexofnote++;
                 if (indexofnote == DemoScript.Count())
                 {
@@ -742,7 +742,7 @@ namespace MusicMediaPlayer.UserControlMusic
                 {
 
                 }
-                ASharp.Background = Brushes.Transparent;
+                ASharp.Background = Brushes.Black;
                 indexofnote++;
                 if (indexofnote == DemoScript.Count())
                 {
@@ -756,182 +756,275 @@ namespace MusicMediaPlayer.UserControlMusic
 
         private async void C_Click(object sender, RoutedEventArgs e)
         {
-            if (IsWriteScript == true)
-                return;
-            Ckey.Background = Brushes.Aqua;
-            C();
-            await Task.Delay(500);
-            Ckey.Background = Brushes.Transparent;
+            if (Practice.IsChecked == false && IsWriteScript == false && CustomMode == false)
+            {
+                Ckey.Background = Brushes.Aqua;
+                C();
+                await Task.Delay(500);
+                Ckey.Background = Brushes.White;
+            }
+            else if ((Practice.IsChecked == true || CustomMode == true) && (IsWriteScript == false))
+            {
+                C();
+            }
+          
         }
 
         private async void D_Click(object sender, RoutedEventArgs e)
         {
-            if (IsWriteScript == true)
-                return;
-            Dkey.Background = Brushes.Aqua;
-            D();
-            await Task.Delay(500);
-            Dkey.Background = Brushes.Transparent;
+            if (Practice.IsChecked == false && IsWriteScript == false && CustomMode == false)
+            {
+                Dkey.Background = Brushes.Aqua;
+                D();
+                await Task.Delay(500);
+                Dkey.Background = Brushes.White;
+            }
+            else if ((Practice.IsChecked == true || CustomMode == true) && (IsWriteScript == false))
+            {
+                D();
+            }
+            
         }
 
         private async void E_Click(object sender, RoutedEventArgs e)
         {
-            if (IsWriteScript == true)
-                return;
-            Ekey.Background = Brushes.Aqua;
-            E();
-            await Task.Delay(500);
-            Ekey.Background = Brushes.Transparent;
+            if (Practice.IsChecked == false && IsWriteScript == false && CustomMode == false)
+            {
+                Ekey.Background = Brushes.Aqua;
+                E();
+                await Task.Delay(500);
+                Ekey.Background = Brushes.White;
+            }
+            else if ((Practice.IsChecked == true || CustomMode == true) && (IsWriteScript == false))
+            {
+                E();
+            }
+           
         }
 
         private async void F_Click(object sender, RoutedEventArgs e)
         {
-            if (IsWriteScript == true)
-                return;
-            Fkey.Background = Brushes.Aqua;
-            F();
-            await Task.Delay(500);
-            Fkey.Background = Brushes.Transparent;
+            if (Practice.IsChecked == false && IsWriteScript == false && CustomMode == false)
+            {
+                Fkey.Background = Brushes.Aqua;
+                F();
+                await Task.Delay(500);
+                Fkey.Background = Brushes.White;
+            }
+            else if ((Practice.IsChecked == true || CustomMode == true) && (IsWriteScript == false))
+            {
+                F();
+            }
         }
 
         private async void G_Click(object sender, RoutedEventArgs e)
         {
-            if (IsWriteScript == true)
-                return;
-            Gkey.Background = Brushes.Aqua;
-            G();
-            await Task.Delay(500);
-            Gkey.Background = Brushes.Transparent;
+            if (Practice.IsChecked == false && IsWriteScript == false && CustomMode == false)
+            {
+                Gkey.Background = Brushes.Aqua;
+                G();
+                await Task.Delay(500);
+                Gkey.Background = Brushes.White;
+            }
+            else if ((Practice.IsChecked == true || CustomMode == true) && (IsWriteScript == false))
+            {
+                G();
+            }
         }
 
         private async void A_Click(object sender, RoutedEventArgs e)
         {
-            if (IsWriteScript == true)
-                return;
-            Akey.Background = Brushes.Aqua;
-            A();
-            await Task.Delay(500);
-            Akey.Background = Brushes.Transparent;
+            if (Practice.IsChecked == false && IsWriteScript == false && CustomMode == false)
+            {
+                Akey.Background = Brushes.Aqua;
+                A();
+                await Task.Delay(500);
+                Akey.Background = Brushes.White;
+            }
+            else if ((Practice.IsChecked == true || CustomMode == true) && (IsWriteScript == false))
+            {
+                A();
+            }
         }
 
         private async void B_Click(object sender, RoutedEventArgs e)
         {
-            if (IsWriteScript == true)
-                return;
-            Bkey.Background = Brushes.Aqua;
-            B();
-            await Task.Delay(500);
-            Bkey.Background = Brushes.Transparent;
+            if (Practice.IsChecked == false && IsWriteScript == false && CustomMode == false)
+            {
+                Bkey.Background = Brushes.Aqua;
+                B();
+                await Task.Delay(500);
+                Bkey.Background = Brushes.White;
+            }
+            else if ((Practice.IsChecked == true || CustomMode == true) && (IsWriteScript == false))
+            {
+                B();
+            }
         }
 
         private async void C1_Click(object sender, RoutedEventArgs e)
         {
-            if (IsWriteScript == true)
-                return;
-            C1key.Background = Brushes.Aqua;
-            C1();
-            await Task.Delay(500);
-            C1key.Background = Brushes.Transparent;
+            if (Practice.IsChecked == false && IsWriteScript == false && CustomMode == false)
+            {
+                C1key.Background = Brushes.Aqua;
+                C1();
+                await Task.Delay(500);
+                C1key.Background = Brushes.White;
+            }
+            else if ((Practice.IsChecked == true || CustomMode == true) && (IsWriteScript == false))
+            {
+                C1();
+            }
         }
 
         private async void D1_Click(object sender, RoutedEventArgs e)
         {
-            if (IsWriteScript == true)
-                return;
-            D1key.Background = Brushes.Aqua;
-            D1();
-            await Task.Delay(500);
-            D1key.Background = Brushes.Transparent;
+            if (Practice.IsChecked == false && IsWriteScript == false && CustomMode == false)
+            {
+                D1key.Background = Brushes.Aqua;
+                D1();
+                await Task.Delay(500);
+                D1key.Background = Brushes.White;
+            }
+            else if ((Practice.IsChecked == true || CustomMode == true) && (IsWriteScript == false))
+            {
+                D1();
+            }
         }
 
         private async void E1_Click(object sender, RoutedEventArgs e)
         {
-            if (IsWriteScript == true)
-                return;
-            E1key.Background = Brushes.Aqua;
-            E1();
-            await Task.Delay(500);
-            E1key.Background = Brushes.Transparent;
+            if (Practice.IsChecked == false && IsWriteScript == false && CustomMode == false)
+            {
+                E1key.Background = Brushes.Aqua;
+                E1();
+                await Task.Delay(500);
+                E1key.Background = Brushes.White;
+            }
+            else if ((Practice.IsChecked == true || CustomMode == true) && (IsWriteScript == false))
+            {
+                E1();
+            }
         }
 
         private async void F1_Click(object sender, RoutedEventArgs e)
         {
-            if (IsWriteScript == true)
-                return;
-            F1key.Background = Brushes.Aqua;
-            F1();
-            await Task.Delay(500);
-            F1key.Background = Brushes.Transparent;
+            if (Practice.IsChecked == false && IsWriteScript == false && CustomMode == false)
+            {
+                F1key.Background = Brushes.Aqua;
+                F1();
+                await Task.Delay(500);
+                F1key.Background = Brushes.White;
+            }
+            else if ((Practice.IsChecked == true || CustomMode == true) && (IsWriteScript == false))
+            {
+                F1();
+            }
         }
 
         private async void CSharp_Click(object sender, RoutedEventArgs e)
         {
-            if (IsWriteScript == true)
-                return;
-            CSharp.Background = Brushes.Aqua;
-            Cs();
-            await Task.Delay(500);
-            CSharp.Background = Brushes.Transparent;
+            if (Practice.IsChecked == false && IsWriteScript == false && CustomMode == false)
+            {
+                CSharp.Background = Brushes.Aqua;
+                Cs();
+                await Task.Delay(500);
+                CSharp.Background = Brushes.Black;
+            }
+            else if ((Practice.IsChecked == true || CustomMode == true) && (IsWriteScript == false))
+            {
+                Cs();
+            }
         }
 
         private async void DSharp_Click(object sender, RoutedEventArgs e)
         {
-            if (IsWriteScript == true)
-                return;
-            DSharp.Background = Brushes.Aqua;
-            Ds();
-            await Task.Delay(500);
-            DSharp.Background = Brushes.Transparent;
+            if (Practice.IsChecked == false && IsWriteScript == false && CustomMode == false)
+            {
+                DSharp.Background = Brushes.Aqua;
+                Ds();
+                await Task.Delay(500);
+                DSharp.Background = Brushes.Black;
+            }
+            else if ((Practice.IsChecked == true || CustomMode == true) && (IsWriteScript == false))
+            {
+                Ds();
+            }
         }
 
         private async void GSharp_Click(object sender, RoutedEventArgs e)
         {
-            if (IsWriteScript == true)
-                return;
-            GSharp.Background = Brushes.Aqua;
-            Gs();
-            await Task.Delay(500);
-            GSharp.Background = Brushes.Transparent;
+            if (Practice.IsChecked == false && IsWriteScript == false && CustomMode == false)
+            {
+                GSharp.Background = Brushes.Aqua;
+                Gs();
+                await Task.Delay(500);
+                GSharp.Background = Brushes.Black;
+            }
+            else if ((Practice.IsChecked == true || CustomMode == true) && (IsWriteScript == false))
+            {
+                Gs();
+            }
         }
 
         private async void FSharp_Click(object sender, RoutedEventArgs e)
         {
-            if (IsWriteScript == true)
-                return;
-            FSharp.Background = Brushes.Aqua;
-            Fs();
-            await Task.Delay(500);
-            FSharp.Background = Brushes.Transparent;
+            if (Practice.IsChecked == false && IsWriteScript == false && CustomMode == false)
+            {
+                FSharp.Background = Brushes.Aqua;
+                Fs();
+                await Task.Delay(500);
+                FSharp.Background = Brushes.Black;
+            }
+            else if ((Practice.IsChecked == true || CustomMode == true) && (IsWriteScript == false))
+            {
+                Fs();
+            }
         }
 
         private async void ASharp_Click(object sender, RoutedEventArgs e)
         {
-            if (IsWriteScript == true)
-                return;
-            ASharp.Background = Brushes.Aqua;
-            Bb();
-            await Task.Delay(500);
-            ASharp.Background = Brushes.Transparent;
+            if (Practice.IsChecked == false && IsWriteScript == false && CustomMode == false)
+            {
+                ASharp.Background = Brushes.Aqua;
+                Bb();
+                await Task.Delay(500);
+                ASharp.Background = Brushes.Black;
+            }
+            else if ((Practice.IsChecked == true || CustomMode == true) && (IsWriteScript == false))
+            {
+                Bb();
+            }
         }
 
         private async void CSharp1_Click(object sender, RoutedEventArgs e)
         {
-            if (IsWriteScript == true)
-                return;
-            CSharp1.Background = Brushes.Aqua;
-            Cs1();
-            await Task.Delay(500);
-            CSharp1.Background = Brushes.Transparent;
+            if (Practice.IsChecked == false && IsWriteScript == false && CustomMode == false)
+            {
+                CSharp1.Background = Brushes.Aqua;
+                Cs1();
+                await Task.Delay(500);
+                CSharp1.Background = Brushes.Black;
+            }
+            else if ((Practice.IsChecked == true || CustomMode == true) && (IsWriteScript == false))
+            {
+                Cs1();
+            }
         }
 
         private async void DSharp1_Click(object sender, RoutedEventArgs e)
         {
-            if (IsWriteScript == true)
-                return;
-            DSharp1.Background = Brushes.Aqua;
-            Ds1();
-            await Task.Delay(500);
-            DSharp1.Background = Brushes.Transparent;
+            if (Practice.IsChecked == false &&IsWriteScript == false && CustomMode == false)
+            {
+                DSharp1.Background = Brushes.Aqua;
+                Ds1();
+                await Task.Delay(500);
+                DSharp1.Background = Brushes.Black;
+            }
+            else if ((Practice.IsChecked == true|| CustomMode==true) && (IsWriteScript == false))
+            {
+                Ds1();
+            }
         }
         private async void UserControl_KeyDown(object sender, KeyEventArgs e)
         {
@@ -943,109 +1036,109 @@ namespace MusicMediaPlayer.UserControlMusic
                         Ckey.Background = Brushes.Aqua;
                         C();
                         await Task.Delay(500);
-                        Ckey.Background = Brushes.Transparent;
+                        Ckey.Background = Brushes.White;
                         break;
                     case Key.S:
                         Dkey.Background = Brushes.Aqua;
                         D();
                         await Task.Delay(500);
-                        Dkey.Background = Brushes.Transparent;
+                        Dkey.Background = Brushes.White;
                         break;
                     case Key.D:
                         Ekey.Background = Brushes.Aqua;
                         E();
                         await Task.Delay(500);
-                        Ekey.Background = Brushes.Transparent;
+                        Ekey.Background = Brushes.White;
                         break;
                     case Key.F:
                         Fkey.Background = Brushes.Aqua;
                         F();
                         await Task.Delay(500);
-                        Fkey.Background = Brushes.Transparent;
+                        Fkey.Background = Brushes.White;
                         break;
                     case Key.G:
                         Gkey.Background = Brushes.Aqua;
                         G();
                         await Task.Delay(500);
-                        Gkey.Background = Brushes.Transparent;
+                        Gkey.Background = Brushes.White;
                         break;
                     case Key.H:
                         Akey.Background = Brushes.Aqua;
                         A();
                         await Task.Delay(500);
-                        Akey.Background = Brushes.Transparent;
+                        Akey.Background = Brushes.White;
                         break;
                     case Key.J:
                         Bkey.Background = Brushes.Aqua;
                         B();
                         await Task.Delay(500);
-                        Bkey.Background = Brushes.Transparent;
+                        Bkey.Background = Brushes.White;
                         break;
                     case Key.K:
                         C1key.Background = Brushes.Aqua;
                         C1();
                         await Task.Delay(500);
-                        C1key.Background = Brushes.Transparent;
+                        C1key.Background = Brushes.White;
                         break;
                     case Key.L:
                         D1key.Background = Brushes.Aqua;
                         D1();
                         await Task.Delay(500);
-                        D1key.Background = Brushes.Transparent;
+                        D1key.Background = Brushes.White;
                         break;
                     case Key.OemSemicolon:
                         E1key.Background = Brushes.Aqua;
                         E1();
                         await Task.Delay(500);
-                        E1key.Background = Brushes.Transparent;
+                        E1key.Background = Brushes.White;
                         break;
                     case Key.OemQuotes:
                         F1key.Background = Brushes.Aqua;
                         F1();
                         await Task.Delay(500);
-                        F1key.Background = Brushes.Transparent;
+                        F1key.Background = Brushes.White;
                         break;
                     case Key.W:
                         CSharp.Background = Brushes.Aqua;
                         Cs();
                         await Task.Delay(500);
-                        CSharp.Background = Brushes.Transparent;
+                        CSharp.Background = Brushes.Black;
                         break;
                     case Key.E:
                         DSharp.Background = Brushes.Aqua;
                         Ds();
                         await Task.Delay(500);
-                        DSharp.Background = Brushes.Transparent;
+                        DSharp.Background = Brushes.Black;
                         break;
                     case Key.T:
                         FSharp.Background = Brushes.Aqua;
                         Fs();
                         await Task.Delay(500);
-                        FSharp.Background = Brushes.Transparent;
+                        FSharp.Background = Brushes.Black;
                         break;
                     case Key.Y:
                         GSharp.Background = Brushes.Aqua;
                         Gs();
                         await Task.Delay(500);
-                        GSharp.Background = Brushes.Transparent;
+                        GSharp.Background = Brushes.Black;
                         break;
                     case Key.U:
                         ASharp.Background = Brushes.Aqua;
                         Bb();
                         await Task.Delay(500);
-                        ASharp.Background = Brushes.Transparent;
+                        ASharp.Background = Brushes.Black;
                         break;
                     case Key.O:
                         CSharp1.Background = Brushes.Aqua;
                         Cs1();
                         await Task.Delay(500);
-                        CSharp1.Background = Brushes.Transparent;
+                        CSharp1.Background = Brushes.Black;
                         break;
                     case Key.P:
                         DSharp1.Background = Brushes.Aqua;
                         Ds1();
                         await Task.Delay(500);
-                        DSharp1.Background = Brushes.Transparent;
+                        DSharp1.Background = Brushes.Black;
                         break;
                 }
             }
@@ -1119,24 +1212,24 @@ namespace MusicMediaPlayer.UserControlMusic
             try
             {
                 ComposePaper.IsExpanded = false;
-                Ckey.Background = Brushes.Transparent;
-                Dkey.Background = Brushes.Transparent;
-                Ekey.Background = Brushes.Transparent;
-                Fkey.Background = Brushes.Transparent;
-                Gkey.Background = Brushes.Transparent;
-                Akey.Background = Brushes.Transparent;
-                Bkey.Background = Brushes.Transparent;
-                C1key.Background = Brushes.Transparent;
-                D1key.Background = Brushes.Transparent;
-                E1key.Background = Brushes.Transparent;
-                F1key.Background = Brushes.Transparent;
-                CSharp.Background = Brushes.Transparent;
-                DSharp.Background = Brushes.Transparent;
-                FSharp.Background = Brushes.Transparent;
-                GSharp.Background = Brushes.Transparent;
-                ASharp.Background = Brushes.Transparent;
-                CSharp1.Background = Brushes.Transparent;
-                DSharp1.Background = Brushes.Transparent;
+                Ckey.Background = Brushes.White;
+                Dkey.Background = Brushes.White;
+                Ekey.Background = Brushes.White;
+                Fkey.Background = Brushes.White;
+                Gkey.Background = Brushes.White;
+                Akey.Background = Brushes.White;
+                Bkey.Background = Brushes.White;
+                C1key.Background = Brushes.White;
+                D1key.Background = Brushes.White;
+                E1key.Background = Brushes.White;
+                F1key.Background = Brushes.White;
+                CSharp.Background = Brushes.Black;
+                DSharp.Background = Brushes.Black;
+                FSharp.Background = Brushes.Black;
+                GSharp.Background = Brushes.Black;
+                ASharp.Background = Brushes.Black;
+                CSharp1.Background = Brushes.Black;
+                DSharp1.Background = Brushes.Black;
             }
             catch (Exception)
             {
@@ -1151,24 +1244,24 @@ namespace MusicMediaPlayer.UserControlMusic
             IsWriteScript = false;
             try
             {
-                Ckey.Background = Brushes.Transparent;
-                Dkey.Background = Brushes.Transparent;
-                Ekey.Background = Brushes.Transparent;
-                Fkey.Background = Brushes.Transparent;
-                Gkey.Background = Brushes.Transparent;
-                Akey.Background = Brushes.Transparent;
-                Bkey.Background = Brushes.Transparent;
-                C1key.Background = Brushes.Transparent;
-                D1key.Background = Brushes.Transparent;
-                E1key.Background = Brushes.Transparent;
-                F1key.Background = Brushes.Transparent;
-                CSharp.Background = Brushes.Transparent;
-                DSharp.Background = Brushes.Transparent;
-                FSharp.Background = Brushes.Transparent;
-                GSharp.Background = Brushes.Transparent;
-                ASharp.Background = Brushes.Transparent;
-                CSharp1.Background = Brushes.Transparent;
-                DSharp1.Background = Brushes.Transparent;
+                Ckey.Background = Brushes.White;
+                Dkey.Background = Brushes.White;
+                Ekey.Background = Brushes.White;
+                Fkey.Background = Brushes.White;
+                Gkey.Background = Brushes.White;
+                Akey.Background = Brushes.White;
+                Bkey.Background = Brushes.White;
+                C1key.Background = Brushes.White;
+                D1key.Background = Brushes.White;
+                E1key.Background = Brushes.White;
+                F1key.Background = Brushes.White;
+                CSharp.Background = Brushes.Black;
+                DSharp.Background = Brushes.Black;
+                FSharp.Background = Brushes.Black;
+                GSharp.Background = Brushes.Black;
+                ASharp.Background = Brushes.Black;
+                CSharp1.Background = Brushes.Black;
+                DSharp1.Background = Brushes.Black;
             }
             catch (Exception)
             {
@@ -1246,24 +1339,24 @@ namespace MusicMediaPlayer.UserControlMusic
             IsWriteScript = true;
             try
             {
-                Ckey.Background = Brushes.Transparent;
-                Dkey.Background = Brushes.Transparent;
-                Ekey.Background = Brushes.Transparent;
-                Fkey.Background = Brushes.Transparent;
-                Gkey.Background = Brushes.Transparent;
-                Akey.Background = Brushes.Transparent;
-                Bkey.Background = Brushes.Transparent;
-                C1key.Background = Brushes.Transparent;
-                D1key.Background = Brushes.Transparent;
-                E1key.Background = Brushes.Transparent;
-                F1key.Background = Brushes.Transparent;
-                CSharp.Background = Brushes.Transparent;
-                DSharp.Background = Brushes.Transparent;
-                FSharp.Background = Brushes.Transparent;
-                GSharp.Background = Brushes.Transparent;
-                ASharp.Background = Brushes.Transparent;
-                CSharp1.Background = Brushes.Transparent;
-                DSharp1.Background = Brushes.Transparent;
+                Ckey.Background = Brushes.White;
+                Dkey.Background = Brushes.White;
+                Ekey.Background = Brushes.White;
+                Fkey.Background = Brushes.White;
+                Gkey.Background = Brushes.White;
+                Akey.Background = Brushes.White;
+                Bkey.Background = Brushes.White;
+                C1key.Background = Brushes.White;
+                D1key.Background = Brushes.White;
+                E1key.Background = Brushes.White;
+                F1key.Background = Brushes.White;
+                CSharp.Background = Brushes.Black;
+                DSharp.Background = Brushes.Black;
+                FSharp.Background = Brushes.Black;
+                GSharp.Background = Brushes.Black;
+                ASharp.Background = Brushes.Black;
+                CSharp1.Background = Brushes.Black;
+                DSharp1.Background = Brushes.Black;
             }
             catch (Exception)
             {
