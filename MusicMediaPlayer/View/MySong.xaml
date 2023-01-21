@@ -36,7 +36,7 @@
         <Border CornerRadius="20" 
                         BorderBrush="#1ED760"
                         BorderThickness="0"
-                        Background="Black" MaxHeight="1000" MaxWidth="1000"/>
+                        Background="White" MaxHeight="1000" MaxWidth="1000"/>
         <TextBlock x:Name="IsThereSong"
                    Foreground="#FFFFFF"
                    Background="Transparent"
@@ -134,7 +134,7 @@
         </StackPanel>
         <StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Border BorderBrush="#FFFFFF"
+                <Border BorderBrush="#0099FF"
                         BorderThickness="2"
                         Width="200"
                         Height="40"
@@ -143,7 +143,7 @@
                     <StackPanel Orientation="Horizontal">
                         <Ellipse Width="10"
                                  Height="10"
-                                 Fill="#FFFFFF"
+                                 Fill="#0099FF"
                                  Margin="10,0,0,0"></Ellipse>
                         <TextBox x:Name="SongFilter"
                                   Width="150"
@@ -151,7 +151,7 @@
                                   Background="Transparent"
                                   BorderBrush="Transparent"
                                   BorderThickness="0"
-                                  Foreground="#ffffff"
+                                  Foreground="#767676"
                                   HorizontalAlignment="Center"
                                   VerticalAlignment="Center"
                                   materialDesign:HintAssist.Hint="Search here ..."
@@ -170,7 +170,7 @@
                     <Border Background="Transparent"
                         Height="40"
                         Width="40"
-                        BorderBrush="#ffffff"
+                        BorderBrush="#0099FF"
                         BorderThickness="3"
                         CornerRadius="40">
                         <Button
@@ -179,7 +179,7 @@
                           Margin="0,0,0,0"
                           Content="{materialDesign:PackIcon Plus}"
                           Background="Transparent"
-                          Foreground="#1ED760"
+                          Foreground="Black"
                           Height="50"
                           Width="50"
                           HorizontalAlignment="Center"
@@ -188,7 +188,8 @@
                         </Button>
                     </Border>
                     <Label Content="New"
-                           Foreground="#ffffff"
+                           Foreground="Black"
+                           FontWeight="SemiBold"
                            FontSize="14"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"></Label>
@@ -200,7 +201,7 @@
                     <Border Background="Transparent"
                         Height="40"
                         Width="40"
-                        BorderBrush="#ffffff"
+                        BorderBrush="#0099FF"
                         BorderThickness="3"
                         CornerRadius="40">
                         <Button
@@ -209,7 +210,7 @@
                           Margin="0,0,0,0"
                           Content="{materialDesign:PackIcon Pencil}"
                           Background="Transparent"
-                          Foreground="#1ED760"
+                          Foreground="Black"
                           Height="50"
                           Width="50"
                           HorizontalAlignment="Center"
@@ -218,7 +219,8 @@
                         </Button>
                     </Border>
                     <Label Content="Edit"
-                           Foreground="#ffffff"
+                           Foreground="Black"
+                           FontWeight="SemiBold"
                            FontSize="14"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"></Label>
@@ -269,7 +271,7 @@
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
                                         <Button Style="{StaticResource Visualizer}"
-                                                Background="#1ED760"
+                                                Background="#0099FF"
                                                 BorderBrush="Transparent"
                                                 Margin="0,0,10,0"
                                                 Padding="0"
@@ -377,13 +379,13 @@
                                            Height="60"
                                            Panel.ZIndex="1"
                                            ></Image>
-                                    <Image gif:AnimationBehavior.SourceUri="\Image\thunderno1.gif"
+                                    <!--<Image gif:AnimationBehavior.SourceUri="\Image\thunderno1.gif"
                                            IsEnabled="True"
                                            Height="80"
                                            Width="80"
                                            Margin="-10,0,0,0"
                                            Panel.ZIndex="0">
-                                    </Image>
+                                    </Image>-->
                                 </Grid>
                                 <TextBlock Width="150" 
                                            Height="50"
@@ -426,13 +428,13 @@
                                            Height="60"
                                            Panel.ZIndex="1"
                                            ></Image>
-                                    <Image gif:AnimationBehavior.SourceUri="\Image\thunderno2.gif"
+                                    <!--<Image gif:AnimationBehavior.SourceUri="\Image\thunderno2.gif"
                                            IsEnabled="True"
                                            Height="25"
                                            Width="25"
                                            Margin="0,10,0,0"
                                            Panel.ZIndex="0">
-                                    </Image>
+                                    </Image>-->
                                 </Grid>
                                 <TextBlock Width="150" 
                                            Height="50"
@@ -470,20 +472,20 @@
                             <Separator Background="#83F28F"
                                        Width="400"></Separator>
                             <StackPanel Orientation="Horizontal">
-                                <Grid>
+                                <Grid Margin="10 0 0 0">
                                     <Image Source="\Image\neon3.png"
                                            Height="60"
                                            Width="60"
                                            Margin="-10,0,0,0"
                                            Panel.ZIndex="1"
                                            ></Image>
-                                    <Image gif:AnimationBehavior.SourceUri="\Image\thunderno3.gif"
+                                    <!--<Image gif:AnimationBehavior.SourceUri="\Image\thunderno3.gif"
                                            IsEnabled="True"
                                            Height="80"
                                            Width="80"
                                            Margin="-10,0,0,0"
                                            Panel.ZIndex="0">
-                                    </Image>
+                                    </Image>-->
                                 </Grid>
                                 <TextBlock Width="150" 
                                            Height="50"
@@ -643,7 +645,7 @@
                                            Height="40"
                                            FontSize="34"
                                            FontWeight="Bold"
-                                           Foreground="#FFFFFF"
+                                           Foreground="Black"
                                            TextAlignment="Center"
                                            Text="{Binding SelectedItem.SongTitle}"></TextBlock>
                                 <TextBlock Width="400"
