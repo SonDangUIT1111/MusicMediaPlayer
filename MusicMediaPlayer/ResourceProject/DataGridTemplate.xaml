@@ -26,7 +26,7 @@
     </Style>
     <Style x:Key="DataGridStyle1" TargetType="{x:Type DataGrid}">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="Foreground" Value="Black"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="RowDetailsVisibilityMode" Value="VisibleWhenSelected"/>
         <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
@@ -107,7 +107,7 @@
         </Setter>
     </Style>
     <Style x:Key="DataGridRowStyle1" TargetType="{x:Type DataGridRow}">
-        <Setter Property="Background" Value="#222528"/>
+        <Setter Property="Background" Value="#73C6D9"/>
         <Setter Property="Margin" Value="0 4 0 0"/>
         <Setter Property="SnapsToDevicePixels" Value="true"/>
         <Setter Property="Validation.ErrorTemplate" Value="{x:Null}"/>
@@ -141,11 +141,11 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#222540"/>
-                <Setter Property="Foreground" Value="#1ED760"/>
+                <Setter Property="Background" Value="#0099FF"/>
+                <Setter Property="Foreground" Value="White"/>
             </Trigger>
             <Trigger Property="IsSelected" Value="True">
-                <Setter Property="Background" Value="#1ED760"/>
+                <Setter Property="Background" Value="#0099FF"/>
                 <Setter Property="Foreground" Value="Black"/>
             </Trigger>
             <MultiTrigger>
@@ -153,7 +153,7 @@
                     <Condition Property="IsSelected" Value="True"></Condition>
                     <Condition Property="Selector.IsSelectionActive" Value="False"></Condition>
                 </MultiTrigger.Conditions>
-                <Setter Property="Background" Value="#1ED760"/>
+                <Setter Property="Background" Value="#0099FF"/>
                 <Setter Property="Foreground" Value="Black"/>
             </MultiTrigger>
         </Style.Triggers>

@@ -183,7 +183,7 @@ namespace MusicMediaPlayer.ViewModel
             }
             );
 
-            MouseDoubleClick = new RelayCommand<ListView>((p) => { return true; }, (p) =>
+            MouseDoubleClick = new RelayCommand<ListBox>((p) => { return true; }, (p) =>
             {
                 PlayList_Inside wd = new PlayList_Inside();
 
