@@ -167,11 +167,12 @@
                                 x:Name="btnAdd"
                                 Command="{Binding Add}"
                                 CommandParameter="{Binding ElementName=AddPL}"
+                                ToolTip="Add"
                                 >
                             <materialDesign:PackIcon Kind="Check"
                                                      Width="25"
                                                      Height="25">
-                                
+
                             </materialDesign:PackIcon>
                         </Button>
                         <Button Margin="25 0 0 0"
@@ -179,7 +180,8 @@
                                 Height="40"
                                 Style="{StaticResource ButtonInAddPLWD}"
                                 Command="{Binding Close}"
-                                CommandParameter="{Binding ElementName=AddPL}">
+                                CommandParameter="{Binding ElementName=AddPL}"
+                                ToolTip="Cancel">
                             <materialDesign:PackIcon Kind="Close"
                                                      Width="25"
                                                      Height="25">
@@ -187,38 +189,8 @@
                             </materialDesign:PackIcon>
                         </Button>
                     </StackPanel>
-                </StackPanel>    
-            </StackPanel>
-            <!--<StackPanel>
-                <StackPanel Orientation="Horizontal"
-                        Margin="20,20,20,0">
-                    <TextBlock Text="Tên PlayList: "
-                           FontSize="20"
-                           FontStyle="Italic"
-                           FontWeight="Bold">
-
-                    </TextBlock>
-                    <TextBox Width="550"
-                         x:Name="NamePL"
-                         FontSize="15">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="TextChanged">
-                                <i:InvokeCommandAction Command="{Binding TextChanged}"
-                                                   CommandParameter="{Binding ElementName=NamePL}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </TextBox>
-                    <Button Content="Add"
-                        x:Name="btnAdd"
-                        Command="{Binding Add}"
-                        CommandParameter="{Binding ElementName=AddPL}"
-                        >
-
-                    </Button>
                 </StackPanel>
-
-                
-            </StackPanel>-->
+            </StackPanel>
         </Grid>
     </Border>
 </Window>
