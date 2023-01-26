@@ -124,7 +124,10 @@
                                         <RowDefinition Height="80"/>
                                     </Grid.RowDefinitions>
                                     <Grid Grid.Row="0">
-                                    <Button Style="{StaticResource ButtonPlayVisibility}"
+                                        
+                                        
+                                        
+                                        <Button Style="{StaticResource ButtonPlayVisibility}"
                                             Panel.ZIndex="2"
                                             Width="50"
                                             Height="50"
@@ -135,13 +138,19 @@
                                             Background="Transparent"
                                             Command="{Binding Source={StaticResource ArtistVM},Path=Explore}"
                                             CommandParameter="{Binding}">
-                                        <materialDesign:PackIcon
+                                            <materialDesign:PackIcon
                                                             Foreground="#FFFFFF"
                                                             Kind="Play"
                                                             Opacity="0.8"
                                                             Height="42"
                                                             Width="42" />
                                         </Button>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
                                         <Button Style="{StaticResource ButtonPlayVisibility}"
                                                 Panel.ZIndex="2"
                                                 Width="50"
@@ -160,6 +169,10 @@
                                                             Height="35"
                                                             Width="35" />
                                         </Button>
+                                        
+                                        
+                                        
+                                        
                                         <Button Style="{StaticResource ButtonPlayVisibility}"
                                             Panel.ZIndex="1"
                                             IsEnabled="False"
@@ -171,6 +184,9 @@
                                             BorderThickness="0"
                                             >
                                         </Button>
+                                        
+                                        
+                                        
                                         <Border CornerRadius="180"
                                         Grid.Row="0"
                                         Height="180"

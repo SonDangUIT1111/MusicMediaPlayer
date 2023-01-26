@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="MusicPlayerModelStoreContainer" CdmEntityContainer="MusicPlayerEntities">
-    <EntitySetMapping Name="Albums">
+    <EntitySetMapping Name="Album">
       <EntityTypeMapping TypeName="MusicPlayerModel.Album">
         <MappingFragment StoreEntitySet="Album">
           <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
@@ -12,7 +12,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Artists">
+    <EntitySetMapping Name="Artist">
       <EntityTypeMapping TypeName="MusicPlayerModel.Artist">
         <MappingFragment StoreEntitySet="Artist">
           <ScalarProperty Name="ArtistId" ColumnName="ArtistId" />
@@ -24,7 +24,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Genres">
+    <EntitySetMapping Name="Genre">
       <EntityTypeMapping TypeName="MusicPlayerModel.Genre">
         <MappingFragment StoreEntitySet="Genre">
           <ScalarProperty Name="GenreId" ColumnName="GenreId" />
@@ -34,7 +34,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PlayLists">
+    <EntitySetMapping Name="PlayList">
       <EntityTypeMapping TypeName="MusicPlayerModel.PlayList">
         <MappingFragment StoreEntitySet="PlayList">
           <ScalarProperty Name="PlayListId" ColumnName="PlayListId" />
@@ -46,7 +46,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Songs">
+    <EntitySetMapping Name="Song">
       <EntityTypeMapping TypeName="MusicPlayerModel.Song">
         <MappingFragment StoreEntitySet="Song">
           <ScalarProperty Name="SongId" ColumnName="SongId" />
@@ -67,18 +67,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="MusicPlayerModel.sysdiagram">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="definition" ColumnName="definition" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="UserAccounts">
+    <EntitySetMapping Name="UserAccount">
       <EntityTypeMapping TypeName="MusicPlayerModel.UserAccount">
         <MappingFragment StoreEntitySet="UserAccount">
           <ScalarProperty Name="UserId" ColumnName="UserId" />

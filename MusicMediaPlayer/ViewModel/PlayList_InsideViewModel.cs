@@ -28,8 +28,8 @@ namespace MusicMediaPlayer.ViewModel
 
         public ICommand Delete_One_Song { get; set; }
 
-        public ICommand AddSongs { get; set; }
-        public ICommand RemoveSongs { get; set; }
+        public ICommand AddSong { get; set; }
+        public ICommand RemoveSong { get; set; }
         public ICommand LoadDataEditPage { get; set; }
         public ICommand EditFilterChangeValue { get; set; }
         public ICommand BackToMyPlaylist { get; set; }
@@ -267,27 +267,27 @@ namespace MusicMediaPlayer.ViewModel
 
                 if (dr == MessageBoxResult.Yes)
                 {
-                    var song_in_pl = pl.Songs;
+                    var song_in_pl = pl.Song;
 
                     foreach (Song item in song_in_pl.ToList())
                     {
-                        item.PlayLists.Remove(pl);
+                        item.PlayList.Remove(pl);
 
-                        pl.Songs.Remove(item);
+                        pl.Song.Remove(item);
                     }
 
-                    DataProvider.Ins.DB.PlayLists.Remove(pl);
+                    DataProvider.Ins.DB.PlayList.Remove(pl);
                     DataProvider.Ins.DB.SaveChanges();
 
                     var trang = page_PlayList.DataContext as PlayListViewModel;
 
-                    trang.List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ins.DB.PlayLists);
+                    trang.List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ins.DB.PlayList);
 
                     p.NavigationService.GoBack();
                 }
             }
             );
-            RemoveSongs = new RelayCommand<object>((p) => { return true; }, (p) =>
+            RemoveSong = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 EditSongPlaylistWindow = new EditSongInPlayList();
                 EditSongPlaylistWindow.PlaylistName.Text = PLName;
@@ -295,7 +295,7 @@ namespace MusicMediaPlayer.ViewModel
             });
             LoadDataEditPage = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                ListEdit = new ObservableCollection<Song>(pl.Songs);
+                ListEdit = new ObservableCollection<Song>(pl.Song);
                 CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(EditSongPlaylistWindow.ListSongEdit.ItemsSource);
                 view.Filter = FiltersSong;
 
@@ -333,7 +333,7 @@ namespace MusicMediaPlayer.ViewModel
 
                 if (dr == MessageBoxResult.Yes)
                 {
-                    pl.Songs.Remove(p as Song);
+                    pl.Song.Remove(p as Song);
                     pl.SongCount = pl.SongCount - 1;
                     DataProvider.Ins.DB.SaveChanges();
                     SongCount = pl.SongCount.ToString() + " Bài hát";
@@ -344,7 +344,7 @@ namespace MusicMediaPlayer.ViewModel
             }
             );
 
-            AddSongs = new RelayCommand<object>((p) => { return true; }, (p) =>
+            AddSong = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 AddSongPlayList wd = new AddSongPlayList();
                 var trang = wd.DataContext as AddSongPlayListViewModel;
@@ -560,11 +560,11 @@ namespace MusicMediaPlayer.ViewModel
 
         void LoadDanhSach()
         {
-            List = new ObservableCollection<Song>(pl.Songs);
+            List = new ObservableCollection<Song>(pl.Song);
         }
         public void LoadEditPage()
         {
-            ListEdit = new ObservableCollection<Song>(pl.Songs); 
+            ListEdit = new ObservableCollection<Song>(pl.Song); 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(EditSongPlaylistWindow.ListSongEdit.ItemsSource);
             view.Filter = FiltersSong;
 

@@ -19,6 +19,8 @@
 
                 <ResourceDictionary Source="/ResourceProject/CloseWindowButton.xaml"></ResourceDictionary>
 
+                <ResourceDictionary Source="/ResourceProject/PlayListResources.xaml"></ResourceDictionary>
+
 
                 <ResourceDictionary Source="/ResourceProject/ButtonInMySong.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/ButtonPlayVisibility.xaml"></ResourceDictionary>
