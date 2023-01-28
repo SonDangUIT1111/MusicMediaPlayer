@@ -1,4 +1,4 @@
-﻿
+﻿C:\Code_VSCode2022\MusicPlayer DESIGN 3\MusicMediaPlayer\obj\Debug\GeneratedInternalTypeHelper.g.cs
 FC:\Code_VSCode2022\MusicPlayer DESIGN 3\MusicMediaPlayer\App.xaml;;
 FC:\Code_VSCode2022\MusicPlayer DESIGN 3\MusicMediaPlayer\UserControlMusic\PianoAdventure.xaml;;
 FC:\Code_VSCode2022\MusicPlayer DESIGN 3\MusicMediaPlayer\UserControlMusic\Welcome.xaml;;
@@ -24,6 +24,7 @@ FC:\Code_VSCode2022\MusicPlayer DESIGN 3\MusicMediaPlayer\View\Login.xaml;;
 FC:\Code_VSCode2022\MusicPlayer DESIGN 3\MusicMediaPlayer\View\MainWindow.xaml;;
 FC:\Code_VSCode2022\MusicPlayer DESIGN 3\MusicMediaPlayer\View\MessageBoxFail.xaml;;
 FC:\Code_VSCode2022\MusicPlayer DESIGN 3\MusicMediaPlayer\View\MessageBoxLoading.xaml;;
+FC:\Code_VSCode2022\MusicPlayer DESIGN 3\MusicMediaPlayer\View\MessageBoxOK.xaml;;
 FC:\Code_VSCode2022\MusicPlayer DESIGN 3\MusicMediaPlayer\View\MessageBoxSuccessful.xaml;;
 FC:\Code_VSCode2022\MusicPlayer DESIGN 3\MusicMediaPlayer\View\MessageBoxYesNo.xaml;;
 FC:\Code_VSCode2022\MusicPlayer DESIGN 3\MusicMediaPlayer\View\MySong.xaml;;

@@ -437,6 +437,19 @@
                                                             Height="25"
                                                             Width="25" />
                                             </Button>
+
+                                            <Button
+                                                    ToolTip="Change Image"
+                                                    ToolTipService.Placement="Bottom"
+                                                   
+                                                >
+                                                <materialDesign:PackIcon
+                                                            Foreground="#222222"
+                                                            Kind="CameraPartyMode"
+                                                            Opacity="0.8"
+                                                            Height="25"
+                                                            Width="25" />
+                                            </Button>
                                         </StackPanel>
                                     </materialDesign:PopupBox>
 

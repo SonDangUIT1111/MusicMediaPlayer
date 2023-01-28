@@ -250,6 +250,7 @@
     <Compile Include="ViewModel\Discover_GenreSongViewModel.cs" />
     <Compile Include="ViewModel\Discover_GenreViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
+    <Compile Include="ViewModel\MessageBoxOK.cs" />
     <Compile Include="ViewModel\MessageBoxYesNoViewModel.cs" />
     <Compile Include="ViewModel\PlayListViewModel.cs" />
     <Compile Include="ViewModel\PlayList_InsideViewModel.cs" />
@@ -313,6 +314,9 @@
     </Compile>
     <Compile Include="View\MessageBoxLoading.xaml.cs">
       <DependentUpon>MessageBoxLoading.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MessageBoxOK.xaml.cs">
+      <DependentUpon>MessageBoxOK.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MessageBoxSuccessful.xaml.cs">
       <DependentUpon>MessageBoxSuccessful.xaml</DependentUpon>
@@ -555,6 +559,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\MessageBoxOK.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MessageBoxSuccessful.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -727,6 +735,7 @@
     <Resource Include="Image\successful4.gif" />
     <Resource Include="Image\successful2.gif" />
     <Resource Include="Image\error.gif" />
+    <Resource Include="Image\warningicon1.jpg" />
     <Content Include="Model\Database.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Database.edmx</DependentUpon>
