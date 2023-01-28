@@ -29,27 +29,10 @@
             <StackPanel Orientation="Horizontal">
                 <Image Width="50"
                         Height="50"
-                        RenderTransformOrigin="0.5,0.5"
-                       Source="/Image/logomusicapp.png">
-                    <Image.RenderTransform>
-                        <RotateTransform x:Name="MyAnimatedTransform" Angle="0" />
-                    </Image.RenderTransform>
-                    <Image.Triggers>
-                        <EventTrigger RoutedEvent="Loaded">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <DoubleAnimation
-                Storyboard.TargetName="MyAnimatedTransform"
-                Storyboard.TargetProperty="(RotateTransform.Angle)"
-                From="0.0" To="360" Duration="0:0:3" RepeatBehavior="Forever" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Image.Triggers>
+                       Source="/Image/logo5.png">
                 </Image>
                 <TextBlock Text="Music Media Player"
                            FontWeight="ExtraBlack"
-                           Opacity="0.8"
                            FontSize="30"
                            FontFamily="Candara"
                            Height="50"
@@ -57,11 +40,11 @@
                            Margin="10,5,0,0"
                            >
                     <TextBlock.Foreground>
-                        <SolidColorBrush Color="White"></SolidColorBrush>
+                        <SolidColorBrush Color="#222222"></SolidColorBrush>
                     </TextBlock.Foreground>
                 </TextBlock>
                 <Button   Background="Transparent"
-                          Foreground="White"
+                          Foreground="#222222"
                           Height="60"
                           Width="60"
                           Margin="0,-5,0,0"
@@ -76,7 +59,7 @@
                                          />
                 </Button>
                 <Button   Background="Transparent"
-                          Foreground="White"
+                          Foreground="#222222"
                           Height="60"
                           Width="60"
                           Margin="10,-5,0,0"
