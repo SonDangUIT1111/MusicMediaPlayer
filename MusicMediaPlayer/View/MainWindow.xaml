@@ -18,7 +18,7 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         Background="Transparent"
         Title="Music Player" 
-        Height="800" Width="1220"
+        Height="800" Width="1225"
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
         ResizeMode="CanResize"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
@@ -296,20 +296,20 @@
                         </Grid>
                         <Grid Grid.Column="2"
                               Background="Transparent"
-                              Margin="5"
+                              Margin="10 5 5 5"
                               Height="auto">
-                            <Border CornerRadius="20 20 0 0" 
+                            <Border 
                                     Background="Transparent"/>
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="61*"/>
-                                    <ColumnDefinition Width="949*"/>
+                                    <!--<ColumnDefinition Width="61*"/>-->
+                                    <ColumnDefinition Width="1000"/>
                                 </Grid.ColumnDefinitions>
                                 <Frame x:Name="FrameView"
                                        Height="auto"
                                        Width="1000"
                                        MinHeight="750"
-                                       NavigationUIVisibility="Hidden" Grid.ColumnSpan="2" Margin="5,0,5,0"
+                                       NavigationUIVisibility="Hidden" Grid.ColumnSpan="2"
                                />
                             </Grid>
                         </Grid>

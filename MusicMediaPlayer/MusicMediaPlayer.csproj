@@ -729,6 +729,7 @@
   <ItemGroup>
     <Resource Include="Image\Sky1.jpg" />
     <Resource Include="Image\SkyBackground1.jpg" />
+    <Resource Include="Image\Sky5.jpg" />
     <Content Include="Model\Database.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Database.edmx</DependentUpon>

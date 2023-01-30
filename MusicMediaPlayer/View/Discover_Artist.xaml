@@ -25,7 +25,6 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid Background="Transparent"
-          Margin="5"
           Width="1000"
           Height="1000">
         <Grid.ColumnDefinitions>
@@ -33,20 +32,18 @@
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
         <Border CornerRadius="20" 
-                        BorderBrush="#1ED760"
-                        BorderThickness="0"
                         MaxHeight="1000" MaxWidth="1000">
             <Grid Background="Transparent">
                 <Border CornerRadius="20">
                     <Border.Background>
-                        <ImageBrush ImageSource="\Image\Sky.jpg" Stretch="UniformToFill" Opacity="0.35"/>
+                        <ImageBrush ImageSource="\Image\Sky5.jpg" Stretch="UniformToFill" Opacity="0.25"/>
                     </Border.Background>
                 </Border>
             </Grid>
             <Border.Background>
                 <LinearGradientBrush>
-                    <GradientStop Color="#0099FF" Offset="0.35"/>
-                    <GradientStop Color="AliceBlue" Offset="0.22"/>
+                    <GradientStop Color="#0099FF" Offset="0.65"/>
+                    <GradientStop Color="AliceBlue" Offset="0.252"/>
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
