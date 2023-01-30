@@ -180,7 +180,10 @@ namespace MusicMediaPlayer.ViewModel
                 }
                     catch (Exception)
                 {
-                    MessageBox.Show("File not found");
+                    MessageBoxOK wd = new MessageBoxOK();
+                    var data = wd.DataContext as MessageBoxOKViewModel;
+                    data.Content = "File not found";
+                    wd.ShowDialog();
                 }
             }
             }
@@ -263,9 +266,16 @@ namespace MusicMediaPlayer.ViewModel
 
             DeletePlayList = new RelayCommand<System.Windows.Controls.Page>((p) => { return true; }, (p) =>
             {
-                MessageBoxResult dr = System.Windows.MessageBox.Show("Do you want to delete it?", "Delete!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                MessageBoxYesNo wd = new MessageBoxYesNo();
 
-                if (dr == MessageBoxResult.Yes)
+                var data = wd.DataContext as MessageBoxYesNoViewModel;
+                data.Title = "Delete!";
+                data.Question = "Do you want to delete it?";
+                wd.ShowDialog();
+
+                var result = wd.DataContext as MessageBoxYesNoViewModel;
+
+                if (result.IsYes == true)
                 {
                     var song_in_pl = pl.Song;
 
@@ -329,9 +339,16 @@ namespace MusicMediaPlayer.ViewModel
             DeleteSong = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
 
-                MessageBoxResult dr = System.Windows.MessageBox.Show("Do you want to delete it?", "Delete!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                MessageBoxYesNo wd = new MessageBoxYesNo();
 
-                if (dr == MessageBoxResult.Yes)
+                var data = wd.DataContext as MessageBoxYesNoViewModel;
+                data.Title = "Delete!";
+                data.Question = "Do you want to delete it?";
+                wd.ShowDialog();
+
+                var result = wd.DataContext as MessageBoxYesNoViewModel;
+
+                if (result.IsYes == true)
                 {
                     pl.Song.Remove(p as Song);
                     pl.SongCount = pl.SongCount - 1;

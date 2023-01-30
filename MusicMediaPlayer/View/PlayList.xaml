@@ -21,8 +21,14 @@
     </i:Interaction.Triggers>
 
 
-    <Border Background="White"
+    <Border 
             CornerRadius="20">
+        <Border.Background>
+            <ImageBrush ImageSource="/Image/Sky.jpg" 
+                        Stretch="UniformToFill"
+                        Opacity="0.2">
+            </ImageBrush>
+        </Border.Background>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100">
@@ -39,14 +45,12 @@
                 Width="150"
                 Height="50"
                 BorderBrush="#5CA0F2"
-                BorderThickness="1" 
+                BorderThickness="3" 
                 Margin="25 0 0 0">
 
                     <ComboBox
                     materialDesign:HintAssist.Hint="Arrange"
                     Width="100"
-                     
-                    
                 >
 
                         <ComboBoxItem Width="100">

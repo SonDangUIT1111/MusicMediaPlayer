@@ -17,6 +17,8 @@ namespace MusicMediaPlayer.ViewModel
 
         public ICommand No { get; set; }
 
+        public ICommand Loaded { get; set; }
+
         #endregion
 
         private string _Title;
@@ -28,6 +30,11 @@ namespace MusicMediaPlayer.ViewModel
         public bool IsYes = false;
         public MessageBoxYesNoViewModel()
         {
+            Loaded = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                IsYes = false;
+            }
+            );
 
             No = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {

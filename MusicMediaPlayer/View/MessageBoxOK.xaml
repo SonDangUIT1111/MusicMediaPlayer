@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:MusicMediaPlayer.View"
         mc:Ignorable="d"
         Title="MessageBoxOK" 
-        Height="125" 
-        Width="300"
+        Height="100" 
+        Width="370"
         
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"        
@@ -34,10 +34,10 @@
         <Grid>
             <StackPanel>
                 <StackPanel Orientation="Horizontal"
-                            Height="50"
-                            Margin="0 20 0 0"
+                            Height="40"
+                            Margin="0 15 0 0"
                             >
-                    <Border Width="50"
+                    <Border Width="40"
                             Margin="15 0 0 0">
                         <Border.Background>
                             <ImageBrush ImageSource="/Image/warningicon1.jpg">
@@ -45,20 +45,20 @@
                             </ImageBrush>
                         </Border.Background>
                     </Border>
-                    <TextBlock Text="Fill User Name"
+                    <TextBlock Text="{Binding Content}"
                                VerticalAlignment="Center"
                                Margin="15 0 0 0"
                                Foreground="Black"
                                FontFamily="Bahnschrift SemiBold" 
                                FontWeight="SemiBold"
-                               FontSize="15"
+                               FontSize="13"
                                >
                         
                     </TextBlock>
                 </StackPanel>
                 <Button Content="OK"
                         Style="{StaticResource YesNoButton}"
-                        Margin="160 10 0 0"
+                        Margin="240 5 0 0"
                         Width="100"
                         Height="25"
                         Command="{Binding OK}"

@@ -250,7 +250,7 @@
     <Compile Include="ViewModel\Discover_GenreSongViewModel.cs" />
     <Compile Include="ViewModel\Discover_GenreViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
-    <Compile Include="ViewModel\MessageBoxOK.cs" />
+    <Compile Include="ViewModel\MessageBoxOKViewModel.cs" />
     <Compile Include="ViewModel\MessageBoxYesNoViewModel.cs" />
     <Compile Include="ViewModel\PlayListViewModel.cs" />
     <Compile Include="ViewModel\PlayList_InsideViewModel.cs" />
