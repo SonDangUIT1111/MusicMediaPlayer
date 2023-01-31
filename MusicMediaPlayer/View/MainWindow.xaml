@@ -316,7 +316,7 @@
                     </Grid>
                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn}">
                         <Grid x:Name="PlayerBar" Margin="0,0,0,0" Visibility="Hidden">
-                            <Rectangle  Fill="#222530"
+                            <Rectangle  Fill="AliceBlue"
                                         Margin="0,0,0,0"
                                         Height="100" Width="auto">
                                 <i:Interaction.Triggers>
@@ -342,11 +342,11 @@
                                         HorizontalAlignment="Left"
                                         Margin="95,15,0,0">
                                 <TextBlock Text="{Binding Source={StaticResource SongVM}, Path=SelectedItem.SongTitle}"
-                                           Foreground="#FFFFFF"
+                                           Foreground="#333333"
                                            FontSize="28"
                                            FontWeight="Medium"/>
                                 <TextBlock Text="{Binding Source={StaticResource SongVM}, Path=SelectedItem.Artist}"
-                                           Foreground="#FFFFFF"
+                                           Foreground="#333333"
                                            FontWeight="DemiBold"
                                            FontSize="16"/>
                             </StackPanel>
@@ -357,7 +357,7 @@
                                            Width="600">
                                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn}">
                                         <Slider Name="sliProgress" 
-                                                Foreground="#1ED760"
+                                                Foreground="#0099FF"
                                                 Width="400"
                                                 IsEnabled="False"
                                                 Margin="-60,0,0,0"
@@ -377,12 +377,12 @@
                                     <Label
                                         Height="25"
                                         x:Name="InTime"
-                                        Foreground="#ffffff"
+                                        Foreground="#333333"
                                         Margin="320,-20,0,0"></Label>
                                     <Label
                                         Height="25"
                                         x:Name="TotalTime"
-                                        Foreground="#ffffff"
+                                        Foreground="#333333"
                                         Margin="450,-20,0,0"></Label>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal"
@@ -391,7 +391,7 @@
                                           x:Name="SpeakerHigh"
                                           Width="50"
                                           Background="Transparent"
-                                          Foreground="#ffffff"
+                                          Foreground="#333333"
                                           BorderThickness="0"
                                           Command="{Binding Source={StaticResource SongVM},Path= Mute}"
                                           CommandParameter="{Binding ElementName=Main}"
@@ -403,7 +403,7 @@
                                           Margin="-50,0,0,0"
                                           Visibility="Hidden"
                                           Background="Transparent"
-                                          Foreground="#ffffff"
+                                          Foreground="#333333"
                                           BorderThickness="0"
                                           Command="{Binding Source={StaticResource SongVM},Path=Mute}"
                                           CommandParameter="{Binding ElementName=Main}"
@@ -415,7 +415,7 @@
                                           Margin="-50,0,0,0"
                                           Visibility="Hidden"
                                           Background="Transparent"
-                                          Foreground="#ffffff"
+                                          Foreground="#333333"
                                           BorderThickness="0"
                                           Command="{Binding Source={StaticResource SongVM},Path= Mute}"
                                           CommandParameter="{Binding ElementName=Main}"
@@ -427,7 +427,7 @@
                                           Margin="-50,0,0,0"
                                           Visibility="Hidden"
                                           Background="Transparent"
-                                          Foreground="#ffffff"
+                                          Foreground="#333333"
                                           BorderThickness="0"
                                           Command="{Binding Source={StaticResource SongVM},Path=NonMute}"
                                           CommandParameter="{Binding ElementName=Main}"
@@ -441,7 +441,7 @@
                                              Height="30" 
                                              Maximum="1"
                                              Value="1"
-                                             Foreground="#1ED760"
+                                             Foreground="#0099FF"
                                              Visibility="Visible"
                                              VerticalAlignment="Bottom"
                                              HorizontalAlignment="Center">
@@ -468,7 +468,7 @@
                                       Height="35"
                                       Width="35"
                                       Margin="50,0,0,0"
-                                      Foreground="AliceBlue"
+                                      Foreground="#444444"
                                       Background="Transparent"
                                       BorderBrush="Transparent"
                                       Command="{Binding Source={StaticResource SongVM},Path=OpenSleepTimer}"
@@ -485,7 +485,7 @@
                                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                             IsChecked="False"
                                             Margin="10,0,5,0"
-                                            Background="#1ED760"
+                                            Background="#0099FF"
                                             Command="{Binding Source={StaticResource SongVM},Path=ShuffleVariant}"
                                             CommandParameter="{Binding ElementName=Main}"
                                                 >
@@ -493,7 +493,7 @@
                                                 Kind="ShuffleVariant"
                                                 Height="21"
                                                 Width="21"
-                                                Foreground="White"/>
+                                                Foreground="#444444"/>
                                 </ToggleButton>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.5}">
                                     <Button
@@ -503,7 +503,7 @@
                                       Margin="0,0,5,0"
                                       Content="{materialDesign:PackIcon SkipPrevious}"
                                       Background="Transparent"
-                                      Foreground="White"
+                                      Foreground="#444444"
                                       IsEnabled="False"
                                       BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
@@ -516,7 +516,7 @@
                                           Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                           Content="{materialDesign:PackIcon Play}"
                                           Background="Transparent"
-                                          Foreground="White"
+                                          Foreground="#444444"
                                           BorderBrush="Transparent"
                                           IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
@@ -530,7 +530,7 @@
                                           Content="{materialDesign:PackIcon Pause}"
                                           Visibility="Hidden"
                                           Background="Transparent"
-                                          Foreground="White"
+                                          Foreground="#444444"
                                           BorderBrush="Transparent"
                                           IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
@@ -542,7 +542,7 @@
                                       Content="{materialDesign:PackIcon SkipNext}"
                                       Background="Transparent"
                                       IsEnabled="False"
-                                      Foreground="White"
+                                      Foreground="#444444"
                                       BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.9}">
@@ -553,10 +553,11 @@
                                             Margin="0,0,5,0"
                                             Command="{Binding Source={StaticResource SongVM},Path=ShuffleDisabled}"
                                             CommandParameter="{Binding ElementName=Main}"
-                                            Foreground="White"
-                                            Background="#1ED760"
+                                            Foreground="#444444"
+                                            Background="#0099FF"
                                                 >
                                         <materialDesign:PackIcon
+                                                Foreground="#444444"
                                                 Kind="ShuffleDisabled"
                                                 Height="21"
                                                 Width="21" />
@@ -571,8 +572,8 @@
                                             Margin="0,0,5,0"
                                             Command="{Binding Source={StaticResource SongVM},Path= Loop}"
                                             CommandParameter="{Binding ElementName=Main}"
-                                            Foreground="White"
-                                            Background="#1ED760">
+                                            Foreground="#444444"
+                                            Background="#0099FF">
                                         <materialDesign:PackIcon
                                                 Kind="Loop"
                                                 Height="21"
@@ -584,7 +585,7 @@
                     </materialDesign:TransitioningContent>
                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn}">
                         <Grid x:Name="PlayerBarPlaylist" Margin="0,-100,0,0" Visibility="Hidden">
-                            <Rectangle  Fill="Blue"
+                            <Rectangle  Fill="AliceBlue"
                                         Margin="0,0,0,0"
                                         Height="100" Width="auto">
                             </Rectangle>
@@ -604,11 +605,11 @@
                                         HorizontalAlignment="Left"
                                         Margin="95,15,0,0">
                                 <TextBlock Text="{Binding Source={StaticResource PlayList_InsideVM}, Path=SelectedItem.SongTitle}"
-                                           Foreground="#FFFFFF"
+                                           Foreground="#333333"
                                            FontSize="28"
                                            FontWeight="Medium"/>
                                 <TextBlock Text="{Binding Source={StaticResource PlayList_InsideVM}, Path=SelectedItem.Artist}"
-                                           Foreground="#FFFFFF"
+                                           Foreground="#333333"
                                            FontWeight="DemiBold"
                                            FontSize="16"/>
                             </StackPanel>
@@ -619,7 +620,7 @@
                                            Width="600">
                                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn}">
                                         <Slider Name="sliProgress1" 
-                                                Foreground="#1ED760"
+                                                Foreground="#0099FF"
                                                 Width="400"
                                                 IsEnabled="False"
                                                 Margin="-60,0,0,0"
@@ -639,12 +640,12 @@
                                     <Label
                                         Height="25"
                                         x:Name="InTime1"
-                                        Foreground="#ffffff"
+                                        Foreground="#333333"
                                         Margin="320,-20,0,0"></Label>
                                     <Label
                                         Height="25"
                                         x:Name="TotalTime1"
-                                        Foreground="#ffffff"
+                                        Foreground="#333333"
                                         Margin="450,-20,0,0"></Label>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal"
@@ -653,7 +654,7 @@
                                           x:Name="SpeakerHigh1"
                                           Width="50"
                                           Background="Transparent"
-                                          Foreground="#ffffff"
+                                          Foreground="#333333"
                                           BorderThickness="0"
                                           Command="{Binding Source={StaticResource PlayList_InsideVM},Path= Mute}"
                                           CommandParameter="{Binding ElementName=Main}"
@@ -665,7 +666,7 @@
                                           Margin="-50,0,0,0"
                                           Visibility="Hidden"
                                           Background="Transparent"
-                                          Foreground="#ffffff"
+                                          Foreground="#333333"
                                           BorderThickness="0"
                                           Command="{Binding Source={StaticResource PlayList_InsideVM},Path=Mute}"
                                           CommandParameter="{Binding ElementName=Main}"
@@ -677,7 +678,7 @@
                                           Margin="-50,0,0,0"
                                           Visibility="Hidden"
                                           Background="Transparent"
-                                          Foreground="#ffffff"
+                                          Foreground="#333333"
                                           BorderThickness="0"
                                           Command="{Binding Source={StaticResource PlayList_InsideVM},Path= Mute}"
                                           CommandParameter="{Binding ElementName=Main}"
@@ -689,7 +690,7 @@
                                           Margin="-50,0,0,0"
                                           Visibility="Hidden"
                                           Background="Transparent"
-                                          Foreground="#ffffff"
+                                          Foreground="#333333"
                                           BorderThickness="0"
                                           Command="{Binding Source={StaticResource PlayList_InsideVM},Path=NonMute}"
                                           CommandParameter="{Binding ElementName=Main}"
@@ -703,7 +704,7 @@
                                              Height="30" 
                                              Maximum="1"
                                              Value="1"
-                                             Foreground="#1ED760"
+                                             Foreground="#0099FF"
                                              Visibility="Visible"
                                              VerticalAlignment="Bottom"
                                              HorizontalAlignment="Center">
@@ -730,7 +731,7 @@
                                       Height="35"
                                       Width="35"
                                       Margin="50,0,0,0"
-                                      Foreground="AliceBlue"
+                                      Foreground="#444444"
                                       Background="Transparent"
                                       BorderBrush="Transparent"
                                       Command="{Binding Source={StaticResource PlayList_InsideVM},Path=OpenSleepTimer}"
@@ -747,7 +748,7 @@
                                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                             IsChecked="False"
                                             Margin="10,0,5,0"
-                                            Background="#1ED760"
+                                            Background="#444444"
                                             Command="{Binding Source={StaticResource PlayList_InsideVM},Path=ShuffleVariant}"
                                             CommandParameter="{Binding ElementName=Main}"
                                                 >
@@ -765,7 +766,7 @@
                                       Margin="0,0,5,0"
                                       Content="{materialDesign:PackIcon SkipPrevious}"
                                       Background="Transparent"
-                                      Foreground="White"
+                                      Foreground="#444444"
                                       IsEnabled="False"
                                       BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
@@ -778,7 +779,7 @@
                                           Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                           Content="{materialDesign:PackIcon Play}"
                                           Background="Transparent"
-                                          Foreground="White"
+                                          Foreground="#444444"
                                           BorderBrush="Transparent"
                                           IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
@@ -792,7 +793,7 @@
                                           Content="{materialDesign:PackIcon Pause}"
                                           Visibility="Hidden"
                                           Background="Transparent"
-                                          Foreground="White"
+                                          Foreground="#444444"
                                           BorderBrush="Transparent"
                                           IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
@@ -804,7 +805,7 @@
                                       Content="{materialDesign:PackIcon SkipNext}"
                                       Background="Transparent"
                                       IsEnabled="False"
-                                      Foreground="White"
+                                      Foreground="#444444"
                                       BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.9}">
@@ -815,8 +816,8 @@
                                             Margin="0,0,5,0"
                                             Command="{Binding Source={StaticResource PlayList_InsideVM},Path=ShuffleDisabled}"
                                             CommandParameter="{Binding ElementName=Main}"
-                                            Foreground="White"
-                                            Background="#1ED760"
+                                            Foreground="#444444"
+                                            Background="#0099FF"
                                                 >
                                         <materialDesign:PackIcon
                                                 Kind="ShuffleDisabled"
@@ -833,8 +834,8 @@
                                             Margin="0,0,5,0"
                                             Command="{Binding Source={StaticResource PlayList_InsideVM},Path= Loop}"
                                             CommandParameter="{Binding ElementName=Main}"
-                                            Foreground="White"
-                                            Background="#1ED760">
+                                            Foreground="#444444"
+                                            Background="#0099FF">
                                         <materialDesign:PackIcon
                                                 Kind="Loop"
                                                 Height="21"
@@ -846,7 +847,7 @@
                     </materialDesign:TransitioningContent>
                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn}">
                         <Grid x:Name="PlayerBarArtist" Margin="0,-100,0,0" Visibility="Hidden">
-                            <Rectangle  Fill="Red"
+                            <Rectangle  Fill="AliceBlue"
                                         Margin="0,0,0,0"
                                         Height="100" Width="auto">
                             </Rectangle>
@@ -866,11 +867,11 @@
                                         HorizontalAlignment="Left"
                                         Margin="95,15,0,0">
                                 <TextBlock Text="{Binding Source={StaticResource ArtistSongVM}, Path=SelectedItem.SongTitle}"
-                                           Foreground="#FFFFFF"
+                                           Foreground="#333333"
                                            FontSize="28"
                                            FontWeight="Medium"/>
                                 <TextBlock Text="{Binding Source={StaticResource ArtistSongVM}, Path=SelectedItem.Artist}"
-                                           Foreground="#FFFFFF"
+                                           Foreground="#333333"
                                            FontWeight="DemiBold"
                                            FontSize="16"/>
                             </StackPanel>
@@ -881,7 +882,7 @@
                                            Width="600">
                                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn}">
                                         <Slider Name="sliProgress2" 
-                                                Foreground="#1ED760"
+                                                Foreground="#0099FF"
                                                 Width="400"
                                                 IsEnabled="False"
                                                 Margin="-60,0,0,0"
@@ -901,12 +902,12 @@
                                     <Label
                                         Height="25"
                                         x:Name="InTime2"
-                                        Foreground="#ffffff"
+                                        Foreground="#333333"
                                         Margin="320,-20,0,0"></Label>
                                     <Label
                                         Height="25"
                                         x:Name="TotalTime2"
-                                        Foreground="#ffffff"
+                                        Foreground="#333333"
                                         Margin="450,-20,0,0"></Label>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal"
@@ -915,7 +916,7 @@
                                           x:Name="SpeakerHigh2"
                                           Width="50"
                                           Background="Transparent"
-                                          Foreground="#ffffff"
+                                          Foreground="#333333"
                                           BorderThickness="0"
                                           Command="{Binding Source={StaticResource ArtistSongVM},Path= Mute}"
                                           CommandParameter="{Binding ElementName=Main}"
@@ -927,7 +928,7 @@
                                           Margin="-50,0,0,0"
                                           Visibility="Hidden"
                                           Background="Transparent"
-                                          Foreground="#ffffff"
+                                          Foreground="#333333"
                                           BorderThickness="0"
                                           Command="{Binding Source={StaticResource ArtistSongVM},Path=Mute}"
                                           CommandParameter="{Binding ElementName=Main}"
@@ -939,7 +940,7 @@
                                           Margin="-50,0,0,0"
                                           Visibility="Hidden"
                                           Background="Transparent"
-                                          Foreground="#ffffff"
+                                          Foreground="#333333"
                                           BorderThickness="0"
                                           Command="{Binding Source={StaticResource ArtistSongVM},Path= Mute}"
                                           CommandParameter="{Binding ElementName=Main}"
@@ -951,7 +952,7 @@
                                           Margin="-50,0,0,0"
                                           Visibility="Hidden"
                                           Background="Transparent"
-                                          Foreground="#ffffff"
+                                          Foreground="#333333"
                                           BorderThickness="0"
                                           Command="{Binding Source={StaticResource ArtistSongVM},Path=NonMute}"
                                           CommandParameter="{Binding ElementName=Main}"
@@ -965,7 +966,7 @@
                                              Height="30" 
                                              Maximum="1"
                                              Value="1"
-                                             Foreground="#1ED760"
+                                             Foreground="#0099FF"
                                              Visibility="Visible"
                                              VerticalAlignment="Bottom"
                                              HorizontalAlignment="Center">
@@ -992,7 +993,7 @@
                                       Height="35"
                                       Width="35"
                                       Margin="50,0,0,0"
-                                      Foreground="AliceBlue"
+                                      Foreground="#444444"
                                       Background="Transparent"
                                       BorderBrush="Transparent"
                                       Command="{Binding Source={StaticResource ArtistSongVM},Path=OpenSleepTimer}"
@@ -1009,7 +1010,7 @@
                                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                             IsChecked="False"
                                             Margin="10,0,5,0"
-                                            Background="#1ED760"
+                                            Background="#0099FF"
                                             Command="{Binding Source={StaticResource ArtistSongVM},Path=ShuffleVariant}"
                                             CommandParameter="{Binding ElementName=Main}"
                                                 >
@@ -1017,7 +1018,7 @@
                                                 Kind="ShuffleVariant"
                                                 Height="21"
                                                 Width="21"
-                                                Foreground="White"/>
+                                                Foreground="#444444"/>
                                 </ToggleButton>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.5}">
                                     <Button
@@ -1027,7 +1028,7 @@
                                       Margin="0,0,5,0"
                                       Content="{materialDesign:PackIcon SkipPrevious}"
                                       Background="Transparent"
-                                      Foreground="White"
+                                      Foreground="#444444"
                                       IsEnabled="False"
                                       BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
@@ -1040,7 +1041,7 @@
                                           Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                           Content="{materialDesign:PackIcon Play}"
                                           Background="Transparent"
-                                          Foreground="White"
+                                          Foreground="#444444"
                                           BorderBrush="Transparent"
                                           IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
@@ -1054,7 +1055,7 @@
                                           Content="{materialDesign:PackIcon Pause}"
                                           Visibility="Hidden"
                                           Background="Transparent"
-                                          Foreground="White"
+                                          Foreground="#444444"
                                           BorderBrush="Transparent"
                                           IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
@@ -1066,7 +1067,7 @@
                                       Content="{materialDesign:PackIcon SkipNext}"
                                       Background="Transparent"
                                       IsEnabled="False"
-                                      Foreground="White"
+                                      Foreground="#444444"
                                       BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.9}">
@@ -1077,8 +1078,8 @@
                                             Margin="0,0,5,0"
                                             Command="{Binding Source={StaticResource ArtistSongVM},Path=ShuffleDisabled}"
                                             CommandParameter="{Binding ElementName=Main}"
-                                            Foreground="White"
-                                            Background="#1ED760"
+                                            Foreground="#444444"
+                                            Background="#0099FF"
                                                 >
                                         <materialDesign:PackIcon
                                                 Kind="ShuffleDisabled"
@@ -1095,8 +1096,8 @@
                                             Margin="0,0,5,0"
                                             Command="{Binding Source={StaticResource ArtistSongVM},Path= Loop}"
                                             CommandParameter="{Binding ElementName=Main}"
-                                            Foreground="White"
-                                            Background="#1ED760">
+                                            Foreground="#444444"
+                                            Background="#0099FF">
                                         <materialDesign:PackIcon
                                                 Kind="Loop"
                                                 Height="21"
@@ -1108,7 +1109,7 @@
                     </materialDesign:TransitioningContent>
                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn}">
                         <Grid x:Name="PlayerBarAlbum" Margin="0,-100,0,0" Visibility="Hidden">
-                            <Rectangle  Fill="Purple"
+                            <Rectangle  Fill="AliceBlue"
                                         Margin="0,0,0,0"
                                         Height="100" Width="auto">
                             </Rectangle>
@@ -1128,11 +1129,11 @@
                                         HorizontalAlignment="Left"
                                         Margin="95,15,0,0">
                                 <TextBlock Text="{Binding Source={StaticResource AlbumSongVM}, Path=SelectedItem.SongTitle}"
-                                           Foreground="#FFFFFF"
+                                           Foreground="#333333"
                                            FontSize="28"
                                            FontWeight="Medium"/>
                                 <TextBlock Text="{Binding Source={StaticResource AlbumSongVM}, Path=SelectedItem.Artist}"
-                                           Foreground="#FFFFFF"
+                                           Foreground="#333333"
                                            FontWeight="DemiBold"
                                            FontSize="16"/>
                             </StackPanel>
@@ -1143,7 +1144,7 @@
                                            Width="600">
                                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn}">
                                         <Slider Name="sliProgress3" 
-                                                Foreground="#1ED760"
+                                                Foreground="#0099FF"
                                                 Width="400"
                                                 IsEnabled="False"
                                                 Margin="-60,0,0,0"
@@ -1163,12 +1164,12 @@
                                     <Label
                                         Height="25"
                                         x:Name="InTime3"
-                                        Foreground="#ffffff"
+                                        Foreground="#333333"
                                         Margin="320,-20,0,0"></Label>
                                     <Label
                                         Height="25"
                                         x:Name="TotalTime3"
-                                        Foreground="#ffffff"
+                                        Foreground="#333333"
                                         Margin="450,-20,0,0"></Label>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal"
@@ -1177,7 +1178,7 @@
                                           x:Name="SpeakerHigh3"
                                           Width="50"
                                           Background="Transparent"
-                                          Foreground="#ffffff"
+                                          Foreground="#333333"
                                           BorderThickness="0"
                                           Command="{Binding Source={StaticResource AlbumSongVM},Path= Mute}"
                                           CommandParameter="{Binding ElementName=Main}"
@@ -1189,7 +1190,7 @@
                                           Margin="-50,0,0,0"
                                           Visibility="Hidden"
                                           Background="Transparent"
-                                          Foreground="#ffffff"
+                                          Foreground="#333333"
                                           BorderThickness="0"
                                           Command="{Binding Source={StaticResource AlbumSongVM},Path=Mute}"
                                           CommandParameter="{Binding ElementName=Main}"
@@ -1201,7 +1202,7 @@
                                           Margin="-50,0,0,0"
                                           Visibility="Hidden"
                                           Background="Transparent"
-                                          Foreground="#ffffff"
+                                          Foreground="#333333"
                                           BorderThickness="0"
                                           Command="{Binding Source={StaticResource AlbumSongVM},Path= Mute}"
                                           CommandParameter="{Binding ElementName=Main}"
@@ -1213,7 +1214,7 @@
                                           Margin="-50,0,0,0"
                                           Visibility="Hidden"
                                           Background="Transparent"
-                                          Foreground="#ffffff"
+                                          Foreground="#333333"
                                           BorderThickness="0"
                                           Command="{Binding Source={StaticResource AlbumSongVM},Path=NonMute}"
                                           CommandParameter="{Binding ElementName=Main}"
@@ -1227,7 +1228,7 @@
                                              Height="30" 
                                              Maximum="1"
                                              Value="1"
-                                             Foreground="#1ED760"
+                                             Foreground="#0099FF"
                                              Visibility="Visible"
                                              VerticalAlignment="Bottom"
                                              HorizontalAlignment="Center">
@@ -1254,7 +1255,7 @@
                                       Height="35"
                                       Width="35"
                                       Margin="50,0,0,0"
-                                      Foreground="AliceBlue"
+                                      Foreground="#444444"
                                       Background="Transparent"
                                       BorderBrush="Transparent"
                                       Command="{Binding Source={StaticResource AlbumSongVM},Path=OpenSleepTimer}"
@@ -1271,7 +1272,7 @@
                                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                             IsChecked="False"
                                             Margin="10,0,5,0"
-                                            Background="#1ED760"
+                                            Background="#0099FF"
                                             Command="{Binding Source={StaticResource AlbumSongVM},Path=ShuffleVariant}"
                                             CommandParameter="{Binding ElementName=Main}"
                                                 >
@@ -1279,7 +1280,7 @@
                                                 Kind="ShuffleVariant"
                                                 Height="21"
                                                 Width="21"
-                                                Foreground="White"/>
+                                                Foreground="#444444"/>
                                 </ToggleButton>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.5}">
                                     <Button
@@ -1289,7 +1290,7 @@
                                       Margin="0,0,5,0"
                                       Content="{materialDesign:PackIcon SkipPrevious}"
                                       Background="Transparent"
-                                      Foreground="White"
+                                      Foreground="#444444"
                                       IsEnabled="False"
                                       BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
@@ -1302,7 +1303,7 @@
                                           Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                           Content="{materialDesign:PackIcon Play}"
                                           Background="Transparent"
-                                          Foreground="White"
+                                          Foreground="#444444"
                                           BorderBrush="Transparent"
                                           IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
@@ -1316,7 +1317,7 @@
                                           Content="{materialDesign:PackIcon Pause}"
                                           Visibility="Hidden"
                                           Background="Transparent"
-                                          Foreground="White"
+                                          Foreground="#444444"
                                           BorderBrush="Transparent"
                                           IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
@@ -1328,7 +1329,7 @@
                                       Content="{materialDesign:PackIcon SkipNext}"
                                       Background="Transparent"
                                       IsEnabled="False"
-                                      Foreground="White"
+                                      Foreground="#444444"
                                       BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.9}">
@@ -1339,8 +1340,8 @@
                                             Margin="0,0,5,0"
                                             Command="{Binding Source={StaticResource AlbumSongVM},Path=ShuffleDisabled}"
                                             CommandParameter="{Binding ElementName=Main}"
-                                            Foreground="White"
-                                            Background="#1ED760"
+                                            Foreground="#444444"
+                                            Background="#0099FF"
                                                 >
                                         <materialDesign:PackIcon
                                                 Kind="ShuffleDisabled"
@@ -1357,8 +1358,8 @@
                                             Margin="0,0,5,0"
                                             Command="{Binding Source={StaticResource AlbumSongVM},Path= Loop}"
                                             CommandParameter="{Binding ElementName=Main}"
-                                            Foreground="White"
-                                            Background="#1ED760">
+                                            Foreground="#444444"
+                                            Background="#0099FF">
                                         <materialDesign:PackIcon
                                                 Kind="Loop"
                                                 Height="21"
@@ -1370,7 +1371,7 @@
                     </materialDesign:TransitioningContent>
                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn}">
                         <Grid x:Name="PlayerBarGenre" Margin="0,-100,0,0" Visibility="Hidden">
-                            <Rectangle  Fill="Yellow"
+                            <Rectangle  Fill="AliceBlue"
                                         Margin="0,0,0,0"
                                         Height="100" Width="auto">
                             </Rectangle>
@@ -1390,11 +1391,11 @@
                                         HorizontalAlignment="Left"
                                         Margin="95,15,0,0">
                                 <TextBlock Text="{Binding Source={StaticResource GenreSongVM}, Path=SelectedItem.SongTitle}"
-                                           Foreground="#FFFFFF"
+                                           Foreground="#333333"
                                            FontSize="28"
                                            FontWeight="Medium"/>
                                 <TextBlock Text="{Binding Source={StaticResource GenreSongVM}, Path=SelectedItem.Artist}"
-                                           Foreground="#FFFFFF"
+                                           Foreground="#333333"
                                            FontWeight="DemiBold"
                                            FontSize="16"/>
                             </StackPanel>
@@ -1405,7 +1406,7 @@
                                            Width="600">
                                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn}">
                                         <Slider Name="sliProgress4" 
-                                                Foreground="#1ED760"
+                                                Foreground="#0099FF"
                                                 Width="400"
                                                 IsEnabled="False"
                                                 Margin="-60,0,0,0"
@@ -1425,12 +1426,12 @@
                                     <Label
                                         Height="25"
                                         x:Name="InTime4"
-                                        Foreground="#ffffff"
+                                        Foreground="#333333"
                                         Margin="320,-20,0,0"></Label>
                                     <Label
                                         Height="25"
                                         x:Name="TotalTime4"
-                                        Foreground="#ffffff"
+                                        Foreground="#333333"
                                         Margin="450,-20,0,0"></Label>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal"
@@ -1439,7 +1440,7 @@
                                           x:Name="SpeakerHigh4"
                                           Width="50"
                                           Background="Transparent"
-                                          Foreground="#ffffff"
+                                          Foreground="#333333"
                                           BorderThickness="0"
                                           Command="{Binding Source={StaticResource GenreSongVM},Path= Mute}"
                                           CommandParameter="{Binding ElementName=Main}"
@@ -1451,7 +1452,7 @@
                                           Margin="-50,0,0,0"
                                           Visibility="Hidden"
                                           Background="Transparent"
-                                          Foreground="#ffffff"
+                                          Foreground="#333333"
                                           BorderThickness="0"
                                           Command="{Binding Source={StaticResource GenreSongVM},Path=Mute}"
                                           CommandParameter="{Binding ElementName=Main}"
@@ -1463,7 +1464,7 @@
                                           Margin="-50,0,0,0"
                                           Visibility="Hidden"
                                           Background="Transparent"
-                                          Foreground="#ffffff"
+                                          Foreground="#333333"
                                           BorderThickness="0"
                                           Command="{Binding Source={StaticResource GenreSongVM},Path= Mute}"
                                           CommandParameter="{Binding ElementName=Main}"
@@ -1475,7 +1476,7 @@
                                           Margin="-50,0,0,0"
                                           Visibility="Hidden"
                                           Background="Transparent"
-                                          Foreground="#ffffff"
+                                          Foreground="#333333"
                                           BorderThickness="0"
                                           Command="{Binding Source={StaticResource GenreSongVM},Path=NonMute}"
                                           CommandParameter="{Binding ElementName=Main}"
@@ -1489,7 +1490,7 @@
                                              Height="30" 
                                              Maximum="1"
                                              Value="1"
-                                             Foreground="#1ED760"
+                                             Foreground="#0099FF"
                                              Visibility="Visible"
                                              VerticalAlignment="Bottom"
                                              HorizontalAlignment="Center">
@@ -1516,7 +1517,7 @@
                                       Height="35"
                                       Width="35"
                                       Margin="50,0,0,0"
-                                      Foreground="AliceBlue"
+                                      Foreground="#444444"
                                       Background="Transparent"
                                       BorderBrush="Transparent"
                                       Command="{Binding Source={StaticResource GenreSongVM},Path=OpenSleepTimer}"
@@ -1533,7 +1534,7 @@
                                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                             IsChecked="False"
                                             Margin="10,0,5,0"
-                                            Background="#1ED760"
+                                            Background="#0099FF"
                                             Command="{Binding Source={StaticResource GenreSongVM},Path=ShuffleVariant}"
                                             CommandParameter="{Binding ElementName=Main}"
                                                 >
@@ -1541,7 +1542,7 @@
                                                 Kind="ShuffleVariant"
                                                 Height="21"
                                                 Width="21"
-                                                Foreground="White"/>
+                                                Foreground="#444444"/>
                                 </ToggleButton>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.5}">
                                     <Button
@@ -1551,7 +1552,7 @@
                                       Margin="0,0,5,0"
                                       Content="{materialDesign:PackIcon SkipPrevious}"
                                       Background="Transparent"
-                                      Foreground="White"
+                                      Foreground="#444444"
                                       IsEnabled="False"
                                       BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
@@ -1564,7 +1565,7 @@
                                           Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                           Content="{materialDesign:PackIcon Play}"
                                           Background="Transparent"
-                                          Foreground="White"
+                                          Foreground="#444444"
                                           BorderBrush="Transparent"
                                           IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
@@ -1578,7 +1579,7 @@
                                           Content="{materialDesign:PackIcon Pause}"
                                           Visibility="Hidden"
                                           Background="Transparent"
-                                          Foreground="White"
+                                          Foreground="#444444"
                                           BorderBrush="Transparent"
                                           IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
@@ -1590,7 +1591,7 @@
                                       Content="{materialDesign:PackIcon SkipNext}"
                                       Background="Transparent"
                                       IsEnabled="False"
-                                      Foreground="White"
+                                      Foreground="#444444"
                                       BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.9}">
@@ -1601,8 +1602,8 @@
                                             Margin="0,0,5,0"
                                             Command="{Binding Source={StaticResource GenreSongVM},Path=ShuffleDisabled}"
                                             CommandParameter="{Binding ElementName=Main}"
-                                            Foreground="White"
-                                            Background="#1ED760"
+                                            Foreground="#444444"
+                                            Background="#0099FF"
                                                 >
                                         <materialDesign:PackIcon
                                                 Kind="ShuffleDisabled"
@@ -1619,8 +1620,8 @@
                                             Margin="0,0,5,0"
                                             Command="{Binding Source={StaticResource GenreSongVM},Path= Loop}"
                                             CommandParameter="{Binding ElementName=Main}"
-                                            Foreground="White"
-                                            Background="#1ED760">
+                                            Foreground="#444444"
+                                            Background="#0099FF">
                                         <materialDesign:PackIcon
                                                 Kind="Loop"
                                                 Height="21"
