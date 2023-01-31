@@ -27,9 +27,9 @@
         <Grid Background="Transparent"
           Margin="5">
             <Border CornerRadius="20" 
-                        BorderBrush="White"
-                        BorderThickness="2"
-                        Background="Black"
+                        BorderBrush="#0099FF"
+                        BorderThickness="3"
+                        Background="White"
                         Grid.Column="1"/>
 
         </Grid>
@@ -42,7 +42,7 @@
               Margin="10"
               Style="{StaticResource ContactButton}"
               BorderThickness="0"
-              Foreground="#1ED761"
+              Foreground="AliceBlue"
               Command="{Binding CloseSleepTimer}"
               CommandParameter="{Binding ElementName=SleepTimerWD}"
               >
@@ -69,9 +69,8 @@
                                      MouseLeftButtonUp="Ellipse_MouseLeftButtonUp">
                                 <Ellipse.Stroke>
                                     <LinearGradientBrush>
-                                        <GradientStop Color="#2af598" Offset="0.9"/>
-                                        <GradientStop Color="#009efd" Offset="0.6"/>
-                                        <GradientStop Color="#ba55d3" Offset="0.3"/>
+                                        <GradientStop Color="#2af598" Offset="1"/>
+                                        <GradientStop Color="#009efd" Offset="0.2"/>
                                     </LinearGradientBrush>
                                 </Ellipse.Stroke>
                             </Ellipse>
@@ -80,18 +79,18 @@
                                        Width="100" 
                                        Height="100"
                                        FontSize="72"
-                                       Foreground="#FFFFFF"
+                                       Foreground="#333333"
                                        Text="{Binding ElementName=knob,Path=Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBlock>
                             <TextBlock Canvas.Left="90" 
                                        Canvas.Top="170"
                                        Width="160" 
                                        Height="50"
                                        FontSize="36"
-                                       Foreground="#FFFFFF"
+                                       Foreground="#333333"
                                        FontWeight="Medium"
                                        Text="Minutes"></TextBlock>
                             <Canvas>
-                                <Ellipse Fill="#FFFFFF"
+                                <Ellipse Fill="#333333"
                                          StrokeThickness="0"
                                          Width="15" 
                                          Height="15" 
@@ -122,7 +121,7 @@
               Margin="0,300,0,0"
               Content="Start"
               Foreground="#FFFFFF"
-              Background="#1ED760"
+              Background="#0099FF"
               FontWeight="Medium"
               Height="80"
               Width="80"
