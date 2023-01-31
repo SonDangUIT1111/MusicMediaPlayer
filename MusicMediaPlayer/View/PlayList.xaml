@@ -47,34 +47,34 @@
                 BorderBrush="#5CA0F2"
                 BorderThickness="1" 
                 Margin="25 0 0 0">
-
-                    <ComboBox
-                    materialDesign:HintAssist.Hint="Arrange"
-                    Width="100"
-                >
-
-                        <ComboBoxItem Width="100">
-                            <Button Command="{Binding AZ}"
-                            Content="A-Z"
-                            Background="Transparent"
-                            BorderThickness="0"
-                                    Width="100"
-                            >
-
-                            </Button>
-
-                        </ComboBoxItem>
-                        <ComboBoxItem Width="100">
-                            <Button Command="{Binding ZA}"
-                            Content="Z-A"
-                            Background="Transparent"
-                            BorderThickness="0"
-                                Width="100"
-                            >
-
-                            </Button>
-                        </ComboBoxItem>
-                    </ComboBox>
+                    <Menu Width="190"
+                          Height="40"
+                          >
+                        <MenuItem   Width="190"
+                                    Height="40"
+                                    Header="Arrange"
+                                    FontWeight="SemiBold"
+                                    FontStyle="Italic"
+                                    >
+                            <MenuItem.Icon>
+                                <materialDesign:PackIcon Kind="FormatLineSpacing" />
+                            </MenuItem.Icon>
+                            <MenuItem
+                                    Header="A-Z"
+                                    Command="{Binding AZ}">
+                                <MenuItem.Icon>
+                                    <materialDesign:PackIcon Kind="ArrowDown" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem
+                                    Header="Z-A"
+                                    Command="{Binding ZA}">
+                                <MenuItem.Icon>
+                                    <materialDesign:PackIcon Kind="ArrowUp" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </MenuItem>
+                    </Menu>
                 </Border>
 
                 <Border 
