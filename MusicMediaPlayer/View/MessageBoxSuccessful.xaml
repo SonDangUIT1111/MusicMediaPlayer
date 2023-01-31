@@ -20,8 +20,16 @@
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
         xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        DataContext="{StaticResource MessageBoxVM}"
+        x:Name="SuccessfulMB"
         >
-
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding Loaded}"
+                                   CommandParameter="{Binding ElementName=SuccessfulMB}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
         <Border CornerRadius="10" 
                 Background="White"
@@ -35,6 +43,7 @@
                 
             </Border>
         </Border>
+        
         <Grid VerticalAlignment="Top"
                 Margin="10 15 10 10">
             <TextBlock Text="Successful"
@@ -54,16 +63,11 @@
             Width="150" 
             Margin="0,40,0,0" 
             CornerRadius="20"
-            
             >
-            
-           
-                <Image gif:AnimationBehavior.SourceUri="\Image\successful4.gif"
+            <Image gif:AnimationBehavior.SourceUri="\Image\successful4.gif"
                    Stretch="Uniform" Margin="5">
 
-                </Image>
-          
-            
+            </Image>
         </Border>
     </Grid>
 </Window>

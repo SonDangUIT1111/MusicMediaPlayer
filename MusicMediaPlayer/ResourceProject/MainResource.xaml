@@ -18,6 +18,7 @@
     <viewmodel:AddSongPlayListViewModel x:Key="AddSongPlayListVM"></viewmodel:AddSongPlayListViewModel>
     <viewmodel:MessageBoxYesNoViewModel x:Key="MessageBoxYesNoVM"></viewmodel:MessageBoxYesNoViewModel>
     <viewmodel:MessageBoxOKViewModel x:Key="MessageBoxOKVM"></viewmodel:MessageBoxOKViewModel>
+    <viewmodel:MessageBoxViewModel x:Key="MessageBoxVM"></viewmodel:MessageBoxViewModel>
 
     <viewmodel:HomeViewModel x:Key="HomeVM"></viewmodel:HomeViewModel>
     <viewmodel:ProfileViewModel x:Key="ProfileVM"></viewmodel:ProfileViewModel>

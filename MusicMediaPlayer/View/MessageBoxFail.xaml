@@ -21,7 +21,17 @@
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
         xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
+        
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        x:Name="FailMB"
+        DataContext="{StaticResource MessageBoxVM}"
         >
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding Loaded}"
+                                   CommandParameter="{Binding ElementName=FailMB}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
         <Border CornerRadius="10" 
                 Background="White"
