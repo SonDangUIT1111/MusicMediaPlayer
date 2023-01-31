@@ -171,12 +171,32 @@
                                     x:Name="Pic"
                                         >
                                 <Grid>
+
+                                    <Button Style="{StaticResource ButtonPlayVisibility}"
+                                                Panel.ZIndex="2"
+                                                Width="40"
+                                                Height="40"
+                                                Padding="0"
+                                                Margin="0,0,0,0"
+                                                BorderBrush="Transparent"
+                                                BorderThickness="0"
+                                                Background="White"
+                                                ToolTip="Change Image"
+                                                >
+                                        <materialDesign:PackIcon
+                                                            Foreground="#222222"
+                                                            Kind="CameraPartyMode"
+                                                            Opacity="0.8"
+                                                            Height="25"
+                                                            Width="25" />
+                                    </Button>
+
                                     <Button Style="{StaticResource ButtonPlayVisibility}"
                                             Panel.ZIndex="2"
                                             Width="40"
                                             Height="40"
                                             Padding="0"
-                                            Margin="70,0,0,0"
+                                            Margin="100,0,0,0"
                                             BorderBrush="Transparent"
                                             BorderThickness="0"
                                             Background="White"
@@ -196,7 +216,7 @@
                                                 Width="40"
                                                 Height="40"
                                                 Padding="0"
-                                                Margin="-70,0,0,0"
+                                                Margin="-100,0,0,0"
                                                 BorderBrush="Transparent"
                                                 BorderThickness="0"
                                                 Background="White"
