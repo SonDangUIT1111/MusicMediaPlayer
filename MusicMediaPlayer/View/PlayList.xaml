@@ -45,7 +45,7 @@
                 Width="150"
                 Height="50"
                 BorderBrush="#5CA0F2"
-                BorderThickness="3" 
+                BorderThickness="1" 
                 Margin="25 0 0 0">
 
                     <ComboBox
@@ -267,7 +267,7 @@
                                         >
                                 <TextBlock 
                                                Text="{Binding PlayListName}" 
-                                               TextAlignment="Left"
+                                               TextAlignment="Center"
                                                Foreground="Black" 
                                                FontWeight="SemiBold" 
                                                FontSize="20" 
@@ -276,7 +276,7 @@
 
                                 <TextBlock 
                                                Text="{Binding SongCount}"
-                                               TextAlignment="Left"
+                                               TextAlignment="Center"
                                                Foreground="#767676" 
                                                FontWeight="SemiBold" 
                                                FontSize="17" 

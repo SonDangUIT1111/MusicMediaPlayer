@@ -353,7 +353,7 @@
                                                 HorizontalAlignment="Center"
                                                 >
                                         <TextBlock 
-                                        Height="40"
+                                        Height="50"
                                         FontSize="34"
                                         FontWeight="SemiBold"
                                         Foreground="Black"

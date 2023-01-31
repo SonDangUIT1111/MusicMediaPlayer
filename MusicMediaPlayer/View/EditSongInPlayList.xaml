@@ -45,7 +45,7 @@
                 </Border.Background>
             </Border>
             <TextBlock x:Name="IsThereSong"
-                   Foreground="#FFFFFF"
+                   Foreground="#333333"
                    Background="Transparent"
                    FontSize="24"
                    Text="Nothing to show here"
@@ -56,7 +56,7 @@
                    Width="500"></TextBlock>
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Border BorderBrush="#0099FF"
+                    <Border BorderBrush="#333333"
                         BorderThickness="2"
                         Width="200"
                         Height="40"
@@ -65,7 +65,7 @@
                         <StackPanel Orientation="Horizontal">
                             <Ellipse Width="10"
                                  Height="10"
-                                 Fill="#0099FF"
+                                 Fill="#333333"
                                  Margin="10,0,0,0"></Ellipse>
                             <TextBox x:Name="SongFilter"
                                   Width="150"
@@ -73,7 +73,7 @@
                                   Background="Transparent"
                                   BorderBrush="Transparent"
                                   BorderThickness="0"
-                                  Foreground="#767676"
+                                  Foreground="#333333"
                                   HorizontalAlignment="Center"
                                   VerticalAlignment="Center"
                                   materialDesign:HintAssist.Hint="Search here ..."
@@ -94,7 +94,7 @@
                         <Border Background="Transparent"
                         Height="40"
                         Width="40"
-                        BorderBrush="#0099FF"
+                        BorderBrush="#333333"
                         BorderThickness="3"
                         CornerRadius="40">
                             <Button
@@ -103,7 +103,7 @@
                           Margin="0,0,0,0"
                           Content="{materialDesign:PackIcon ArrowLeftBold}"
                           Background="Transparent"
-                          Foreground="#767676"
+                          Foreground="#333333"
                           Height="50"
                           Width="50"
                           HorizontalAlignment="Center"
@@ -112,7 +112,7 @@
                             </Button>
                         </Border>
                         <Label Content="Back"
-                           Foreground="#0099FF"
+                           Foreground="#333333"
                            FontWeight="SemiBold"
                            FontSize="14"
                            HorizontalAlignment="Center"

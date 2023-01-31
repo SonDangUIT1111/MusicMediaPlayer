@@ -237,7 +237,7 @@ namespace MusicMediaPlayer.ViewModel
                 thispage = p;
                 pl = page_PlayList.listview.SelectedItem as MusicMediaPlayer.Model.PlayList;
                 PLName = pl.PlayListName;
-                SongCount = pl.SongCount.ToString() + " Bài hát";
+                SongCount = "Song: " + pl.SongCount.ToString();
                 LoadDanhSach();
             }
             );
@@ -353,7 +353,7 @@ namespace MusicMediaPlayer.ViewModel
                     pl.Song.Remove(p as Song);
                     pl.SongCount = pl.SongCount - 1;
                     DataProvider.Ins.DB.SaveChanges();
-                    SongCount = pl.SongCount.ToString() + " Bài hát";
+                    SongCount = "Song: " + pl.SongCount.ToString();
                     LoadDanhSach();
                     LoadEditPage();
                 }
@@ -368,7 +368,7 @@ namespace MusicMediaPlayer.ViewModel
                 trang.pl = pl;
                 trang.CurrentUser = CurrentUser;
                 wd.ShowDialog();
-                SongCount = pl.SongCount.ToString() + " Bài hát";
+                SongCount = "Song: " + pl.SongCount.ToString();
                 LoadDanhSach();
             }
             );
