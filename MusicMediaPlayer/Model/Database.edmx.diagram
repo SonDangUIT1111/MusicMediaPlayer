@@ -4,19 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d8e6ad8b81644d3597748a2a5592eb86" Name="Diagram1">
+      <Diagram DiagramId="2f4aa57c4afd43118d24bfd69abe428f" Name="Diagram1">
         <EntityTypeShape EntityType="MusicPlayerModel.Album" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="MusicPlayerModel.Artist" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
         <EntityTypeShape EntityType="MusicPlayerModel.Genre" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicPlayerModel.PlayList" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicPlayerModel.PlayList" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MusicPlayerModel.Song" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicPlayerModel.sysdiagram" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicPlayerModel.UserAccount" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicPlayerModel.UserAccount" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
         <AssociationConnector Association="MusicPlayerModel.FK_Song_Album" ManuallyRouted="false" />
         <AssociationConnector Association="MusicPlayerModel.FK_Song_Artist" ManuallyRouted="false" />
         <AssociationConnector Association="MusicPlayerModel.FK_Song_Genre" ManuallyRouted="false" />
-        <AssociationConnector Association="MusicPlayerModel.FK__PlayList__OwnerI__40F9A68C" ManuallyRouted="false" />
-        <AssociationConnector Association="MusicPlayerModel.FK__PlayList__OwnerI__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicPlayerModel.FK__PlayList__OwnerI__571DF1D5" ManuallyRouted="false" />
         <AssociationConnector Association="MusicPlayerModel.FK_Song_User" ManuallyRouted="false" />
         <AssociationConnector Association="MusicPlayerModel.Has" ManuallyRouted="false" />
       </Diagram>

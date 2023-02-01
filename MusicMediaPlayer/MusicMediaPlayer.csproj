@@ -230,9 +230,6 @@
     <Compile Include="Model\Song.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\sysdiagram.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\UserAccount.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
@@ -249,6 +246,7 @@
     <Compile Include="ViewModel\AddSongPlayListViewModel.cs" />
     <Compile Include="ViewModel\ChangePasswordViewModel.cs" />
     <Compile Include="CurrentUserAccountModel.cs" />
+    <Compile Include="ViewModel\ChangePlayListPictureViewModel.cs" />
     <Compile Include="ViewModel\Discover_AlbumSongViewModel.cs" />
     <Compile Include="ViewModel\Discover_AlbumViewModel.cs" />
     <Compile Include="ViewModel\Discover_ArtistSongViewModel.cs" />
@@ -285,6 +283,9 @@
     <Compile Include="ViewModel\SongViewModel.cs" />
     <Compile Include="View\AddSongToApp.xaml.cs">
       <DependentUpon>AddSongToApp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChangePlayListPicture.xaml.cs">
+      <DependentUpon>ChangePlayListPicture.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Discover_AlbumSong.xaml.cs">
       <DependentUpon>Discover_AlbumSong.xaml</DependentUpon>
@@ -512,6 +513,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AddSongToApp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ChangePlayListPicture.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

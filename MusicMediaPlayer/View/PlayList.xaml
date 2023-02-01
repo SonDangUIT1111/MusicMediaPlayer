@@ -182,6 +182,8 @@
                                                 BorderThickness="0"
                                                 Background="White"
                                                 ToolTip="Change Image"
+                                                Command="{Binding Source={StaticResource PlayListVM},Path=ChangeImage}"
+                                                CommandParameter="{Binding}"
                                                 >
                                         <materialDesign:PackIcon
                                                             Foreground="#222222"
@@ -233,8 +235,9 @@
                                 </Grid>
                                 
                                 <Border.Background>
-                                    <ImageBrush ImageSource="/Image/Sky.jpg"
+                                    <ImageBrush 
                                                 Stretch="UniformToFill"
+                                                ImageSource="{Binding ImagePlaylistBinary, Converter={StaticResource ByteToImageConverter}}"
                                                 >
                                     </ImageBrush>
                                 </Border.Background>

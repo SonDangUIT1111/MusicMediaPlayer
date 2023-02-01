@@ -46,8 +46,8 @@ namespace MusicMediaPlayer.ViewModel
             {
                 foreach (Song item in thiswindow.listview.SelectedItems)
                 {
-                    item.PlayLists.Add(pl);
-                    pl.Songs.Add(item);
+                    item.PlayList.Add(pl);
+                    pl.Song.Add(item);
                     pl.SongCount = pl.SongCount + 1;
                 }
 
@@ -63,8 +63,8 @@ namespace MusicMediaPlayer.ViewModel
 
         void LoadDanhSach(int identity)
         {
-            ObservableCollection<MusicMediaPlayer.Model.Song> list = new ObservableCollection<MusicMediaPlayer.Model.Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == identity));
-            foreach (Song item in pl.Songs)
+            ObservableCollection<MusicMediaPlayer.Model.Song> list = new ObservableCollection<MusicMediaPlayer.Model.Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == identity));
+            foreach (Song item in pl.Song)
             {
                 list.Remove(item);
             }

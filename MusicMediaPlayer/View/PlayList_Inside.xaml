@@ -250,7 +250,7 @@
                                      x:Name="CD"
                                      RenderTransformOrigin="0.5,0.5">
                                     <Border.Background>
-                                        <ImageBrush ImageSource="/Image/anh3.jpg" 
+                                        <ImageBrush ImageSource="{Binding ImageBinaryAdd, Converter={StaticResource ByteToImageConverter}}" 
                                                 Stretch="UniformToFill"></ImageBrush>
                                     </Border.Background>
                                     <Border.RenderTransform>
@@ -441,7 +441,7 @@
                                             <Button
                                                     ToolTip="Change Image"
                                                     ToolTipService.Placement="Bottom"
-                                                   
+                                                    Command="{Binding ChangeImage}"
                                                 >
                                                 <materialDesign:PackIcon
                                                             Foreground="#222222"
