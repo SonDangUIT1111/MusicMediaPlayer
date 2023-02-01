@@ -20,8 +20,16 @@
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
         
-        DataContext="{StaticResource ChangePlayListPictureVM}"        
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        x:Name="LoadingMB"
+        DataContext="{StaticResource MessageBoxVM}"
         >
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding Loaded}"
+                                   CommandParameter="{Binding ElementName=LoadingMB}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
         <Border CornerRadius="10" 
                 Background="White"
