@@ -12,8 +12,16 @@
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        Background="Beige"
+        Background="Transparent"
         Name="AddSongWD"
+        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
         >
 
     <i:Interaction.Triggers >
@@ -23,37 +31,80 @@
         </i:EventTrigger >
     </i:Interaction.Triggers >
 
+    <Border CornerRadius="20"
+            Background="White"
+            BorderBrush="#0099FF"
+            BorderThickness="3">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="400"></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-
-        <ListView     Grid.Row="0"
+            <StackPanel>
+                <TextBlock Text="Add Songs"
+                           FontWeight="SemiBold"
+                           FontStyle="Italic"
+                           FontSize="40"
+                           TextAlignment="Center"
+                           Margin="0 20 0 0">
+                    
+                </TextBlock>
+                <ListView     
                       x:Name="listview"
                       ItemsSource="{Binding List}"
                       SelectionMode="Multiple"
+                      Margin="20 20 20 0"
+                      Height="275"
                      >
 
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Tên"
-                                    Width="300"
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Tên"
+                                    Width="200"
                                     DisplayMemberBinding="{Binding SongTitle}"
                                         >
 
-                    </GridViewColumn>
-                    <GridViewColumn Header="Ca sĩ"
+                            </GridViewColumn>
+                            <GridViewColumn Header="Ca sĩ"
+                                            Width="200"
                                     DisplayMemberBinding="{Binding Artist}"
                                        >
 
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <StackPanel Orientation="Horizontal"
+                            Margin="0 20 0 0">
+                    <Button Margin="75 0 0 0"
+                                Style="{StaticResource ButtonInAddPLWD}"
+                                Width="100"
+                                Height="40"
+                                x:Name="btnAdd"
+                                Command="{Binding Add}"
+                                ToolTip="Add"
+                                >
+                        <materialDesign:PackIcon Kind="Check"
+                                                     Width="25"
+                                                     Height="25">
 
-        </ListView>
+                        </materialDesign:PackIcon>
+                    </Button>
+                    <Button Margin="130 0 0 0"
+                                Width="100"
+                                Height="40"
+                                Style="{StaticResource ButtonInAddPLWD}"
+                                Command="{Binding Cancel}"
+                            ToolTip="Cancel">
+                        <materialDesign:PackIcon Kind="Close"
+                                                     Width="25"
+                                                     Height="25">
 
-        <StackPanel Orientation="Horizontal"
+                        </materialDesign:PackIcon>
+                    </Button>
+                </StackPanel>
+
+            </StackPanel>
+
+            
+
+        <!--<StackPanel Orientation="Horizontal"
                     Grid.Row="1"
                     >
             <Button Margin=" 100 10 10 10"
@@ -66,6 +117,7 @@
                     Command="{Binding Cancel}">
 
             </Button>
-        </StackPanel>
+        </StackPanel>-->
     </Grid>
+    </Border>
 </Window>

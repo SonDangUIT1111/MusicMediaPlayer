@@ -35,11 +35,17 @@
                 <ColumnDefinition Width="0*"/>
             </Grid.ColumnDefinitions>
             <Border CornerRadius="20" 
-                        BorderBrush="#1ED760"
-                        BorderThickness="0"
-                        Background="Black" MaxHeight="1000" MaxWidth="1000"/>
+                        
+                         MaxHeight="995" MaxWidth="995">
+                <Border.Background>
+                    <ImageBrush ImageSource="/Image/Sky.jpg" 
+                        Stretch="UniformToFill"
+                        Opacity="0.2"
+                        ></ImageBrush>
+                </Border.Background>
+            </Border>
             <TextBlock x:Name="IsThereSong"
-                   Foreground="#FFFFFF"
+                   Foreground="#333333"
                    Background="Transparent"
                    FontSize="24"
                    Text="Nothing to show here"
@@ -50,7 +56,7 @@
                    Width="500"></TextBlock>
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Border BorderBrush="#FFFFFF"
+                    <Border BorderBrush="#333333"
                         BorderThickness="2"
                         Width="200"
                         Height="40"
@@ -59,7 +65,7 @@
                         <StackPanel Orientation="Horizontal">
                             <Ellipse Width="10"
                                  Height="10"
-                                 Fill="#FFFFFF"
+                                 Fill="#333333"
                                  Margin="10,0,0,0"></Ellipse>
                             <TextBox x:Name="SongFilter"
                                   Width="150"
@@ -67,7 +73,7 @@
                                   Background="Transparent"
                                   BorderBrush="Transparent"
                                   BorderThickness="0"
-                                  Foreground="#ffffff"
+                                  Foreground="#333333"
                                   HorizontalAlignment="Center"
                                   VerticalAlignment="Center"
                                   materialDesign:HintAssist.Hint="Search here ..."
@@ -88,7 +94,7 @@
                         <Border Background="Transparent"
                         Height="40"
                         Width="40"
-                        BorderBrush="#ffffff"
+                        BorderBrush="#333333"
                         BorderThickness="3"
                         CornerRadius="40">
                             <Button
@@ -97,7 +103,7 @@
                           Margin="0,0,0,0"
                           Content="{materialDesign:PackIcon ArrowLeftBold}"
                           Background="Transparent"
-                          Foreground="#1ED760"
+                          Foreground="#333333"
                           Height="50"
                           Width="50"
                           HorizontalAlignment="Center"
@@ -106,7 +112,8 @@
                             </Button>
                         </Border>
                         <Label Content="Back"
-                           Foreground="#ffffff"
+                           Foreground="#333333"
+                           FontWeight="SemiBold"
                            FontSize="14"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"></Label>
@@ -122,7 +129,7 @@
                            Height="50"
                            FontSize="36"
                            FontWeight="Medium"
-                           Foreground="#FFFFFF"
+                           Foreground="#767676"
                            Margin="20,0,0,0"
                            Width="auto"/>
                 <Separator Background="Gray"
@@ -135,35 +142,35 @@
                             Width="880"
                             Margin="50,10,0,0">
                     <TextBlock Text="Title"
-                           Foreground="#ffffff"
+                           Foreground="#767676"
                            Width="200"
                            FontSize="14"
                            FontWeight="Bold"
                            FontFamily="Segoe UI Semibold"
                            Margin="20,0,0,0"/>
                     <TextBlock Text="Artist"
-                           Foreground="#ffffff"
+                           Foreground="#767676"
                            Width="180"
                            FontSize="14"
                            FontWeight="Bold"
                            FontFamily="Segoe UI Semibold"
                            Margin="0,0,0,0"/>
                     <TextBlock Text="Album"
-                           Foreground="#ffffff"
+                           Foreground="#767676"
                            Width="120"
                            FontSize="14"
                            FontWeight="Bold"
                            FontFamily="Segoe UI Semibold"
                            Margin="0,0,0,0"/>
                     <TextBlock Text="Genre"
-                           Foreground="#ffffff"
+                           Foreground="#767676"
                            Width="120"
                            FontSize="14"
                            FontWeight="Bold"
                            FontFamily="Segoe UI Semibold"
                            Margin="0,0,0,0"/>
                     <TextBlock Text="Time"
-                           Foreground="#ffffff"
+                           Foreground="#767676"
                            Width="80"
                            FontSize="14"
                            FontWeight="Bold"

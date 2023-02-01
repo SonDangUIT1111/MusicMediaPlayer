@@ -27,44 +27,49 @@
         x:Name="MessageBoxYN"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         >
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding Loaded}"
+                                   CommandParameter="{Binding ElementName=MessageBoxYN}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
         <Border CornerRadius="10" 
-                Background="Black"
-                BorderThickness="1"
-                BorderBrush="Green"
+                Background="White"
+                BorderThickness="3"
+                BorderBrush="#0099FF"
                 >
         </Border>
         <StackPanel>
             <TextBlock Text="{Binding Title}"
-                       Foreground="#1ED760"
+                       Foreground="Black"
                        FontFamily="Bahnschrift SemiBold" 
                        FontWeight="SemiBold" 
                        FontSize="20"
                        HorizontalAlignment="Left"
-                       Margin="10 10 0 0"
+                       Margin="20 20 0 0"
                        >
 
             </TextBlock>
 
             <TextBlock Text="{Binding Question}"
-                   Foreground="White"
+                   Foreground="Black"
                    FontFamily="Bahnschrift SemiBold" 
                    FontWeight="SemiBold" 
-                   FontSize="13"
+                   FontSize="15"
+                   TextWrapping="Wrap"
                    VerticalAlignment="Top" 
-                   Margin="10 15 0 0"
+                   Margin="20 10 0 0"
                    >
             </TextBlock>
 
             <StackPanel Orientation="Horizontal"
                         VerticalAlignment="Bottom"
-                        Margin="0 25 0 0">
+                        Margin="0 15 0 0">
                 <Button Content="Yes"
-                        Margin="80 0 0 0"
-                        Background="Black"
-                        Foreground="White"
-                        BorderBrush="White"
-                        Width="100"
+                        Style="{StaticResource YesNoButton}"
+                        Margin="110 0 0 0"
+                        Width="80"
                         Height="25"
                         FontFamily="Bahnschrift SemiBold" 
                         FontWeight="SemiBold" 
@@ -75,10 +80,8 @@
                 </Button>
                 <Button Content="No"
                         Margin="10 0 0 0"
-                        Background="Black"
-                        Foreground="White"
-                        BorderBrush="White"
-                        Width="100"
+                        Style="{StaticResource YesNoButton}"
+                        Width="80"
                         Height="25"
                         FontFamily="Bahnschrift SemiBold" 
                         FontWeight="SemiBold" 

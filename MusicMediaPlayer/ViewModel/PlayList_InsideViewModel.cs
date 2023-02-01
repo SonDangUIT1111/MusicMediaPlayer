@@ -180,7 +180,10 @@ namespace MusicMediaPlayer.ViewModel
                 }
                     catch (Exception)
                 {
-                    MessageBox.Show("File not found");
+                    MessageBoxOK wd = new MessageBoxOK();
+                    var data = wd.DataContext as MessageBoxOKViewModel;
+                    data.Content = "File not found";
+                    wd.ShowDialog();
                 }
             }
             }
@@ -234,7 +237,7 @@ namespace MusicMediaPlayer.ViewModel
                 thispage = p;
                 pl = page_PlayList.listview.SelectedItem as MusicMediaPlayer.Model.PlayList;
                 PLName = pl.PlayListName;
-                SongCount = pl.SongCount.ToString() + " Bài hát";
+                SongCount = "Song: " + pl.SongCount.ToString();
                 LoadDanhSach();
             }
             );
@@ -263,25 +266,32 @@ namespace MusicMediaPlayer.ViewModel
 
             DeletePlayList = new RelayCommand<System.Windows.Controls.Page>((p) => { return true; }, (p) =>
             {
-                MessageBoxResult dr = System.Windows.MessageBox.Show("Do you want to delete it?", "Delete!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                MessageBoxYesNo wd = new MessageBoxYesNo();
 
-                if (dr == MessageBoxResult.Yes)
+                var data = wd.DataContext as MessageBoxYesNoViewModel;
+                data.Title = "Delete!";
+                data.Question = "Do you want to delete it?";
+                wd.ShowDialog();
+
+                var result = wd.DataContext as MessageBoxYesNoViewModel;
+
+                if (result.IsYes == true)
                 {
-                    var song_in_pl = pl.Song;
+                    var song_in_pl = pl.Songs;
 
                     foreach (Song item in song_in_pl.ToList())
                     {
-                        item.PlayList.Remove(pl);
+                        item.PlayLists.Remove(pl);
 
-                        pl.Song.Remove(item);
+                        pl.Songs.Remove(item);
                     }
 
-                    DataProvider.Ins.DB.PlayList.Remove(pl);
+                    DataProvider.Ins.DB.PlayLists.Remove(pl);
                     DataProvider.Ins.DB.SaveChanges();
 
                     var trang = page_PlayList.DataContext as PlayListViewModel;
 
-                    trang.List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ins.DB.PlayList);
+                    trang.List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ins.DB.PlayLists);
 
                     p.NavigationService.GoBack();
                 }
@@ -295,7 +305,7 @@ namespace MusicMediaPlayer.ViewModel
             });
             LoadDataEditPage = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                ListEdit = new ObservableCollection<Song>(pl.Song);
+                ListEdit = new ObservableCollection<Song>(pl.Songs);
                 CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(EditSongPlaylistWindow.ListSongEdit.ItemsSource);
                 view.Filter = FiltersSong;
 
@@ -329,14 +339,21 @@ namespace MusicMediaPlayer.ViewModel
             DeleteSong = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
 
-                MessageBoxResult dr = System.Windows.MessageBox.Show("Do you want to delete it?", "Delete!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                MessageBoxYesNo wd = new MessageBoxYesNo();
 
-                if (dr == MessageBoxResult.Yes)
+                var data = wd.DataContext as MessageBoxYesNoViewModel;
+                data.Title = "Delete!";
+                data.Question = "Do you want to delete it?";
+                wd.ShowDialog();
+
+                var result = wd.DataContext as MessageBoxYesNoViewModel;
+
+                if (result.IsYes == true)
                 {
-                    pl.Song.Remove(p as Song);
+                    pl.Songs.Remove(p as Song);
                     pl.SongCount = pl.SongCount - 1;
                     DataProvider.Ins.DB.SaveChanges();
-                    SongCount = pl.SongCount.ToString() + " Bài hát";
+                    SongCount = "Song: " + pl.SongCount.ToString();
                     LoadDanhSach();
                     LoadEditPage();
                 }
@@ -351,7 +368,7 @@ namespace MusicMediaPlayer.ViewModel
                 trang.pl = pl;
                 trang.CurrentUser = CurrentUser;
                 wd.ShowDialog();
-                SongCount = pl.SongCount.ToString() + " Bài hát";
+                SongCount = "Song: " + pl.SongCount.ToString();
                 LoadDanhSach();
             }
             );
@@ -560,11 +577,11 @@ namespace MusicMediaPlayer.ViewModel
 
         void LoadDanhSach()
         {
-            List = new ObservableCollection<Song>(pl.Song);
+            List = new ObservableCollection<Song>(pl.Songs);
         }
         public void LoadEditPage()
         {
-            ListEdit = new ObservableCollection<Song>(pl.Song); 
+            ListEdit = new ObservableCollection<Song>(pl.Songs); 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(EditSongPlaylistWindow.ListSongEdit.ItemsSource);
             view.Filter = FiltersSong;
 

@@ -21,16 +21,32 @@
     <Grid Background="Transparent"
           Margin="5">
         <Border CornerRadius="20" 
-                BorderBrush="White"
-                BorderThickness="1"
-                Background="Black"
+                BorderBrush="#0099FF"
+                BorderThickness="3"
+                Background="White"
                 Grid.Column="1"/>
         <StackPanel>
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Margin="0,20,0,0">
-                <Image gif:AnimationBehavior.SourceUri="\Image\MusicNoteBackground.gif" 
+                <Separator Background="#0099FF"
+                           Width="350"
+                           Height="auto"
+                           VerticalAlignment="Bottom"
+                           Margin="0 0 20 5"
+                           >
+                    
+                </Separator>
+                <TextBlock Text="Add Song"
+                           FontWeight="SemiBold"
+                           FontStyle="Italic"
+                           FontSize="40"
+                           TextAlignment="Center"
+                           Margin="0 0 0 0">
+
+                </TextBlock>
+                <!--<Image gif:AnimationBehavior.SourceUri="\Image\MusicNoteBackground.gif" 
                        IsEnabled="True"
                        Width="60"
                        Height="60"
@@ -39,25 +55,24 @@
                 <TextBlock Text="New song - new world"
                            HorizontalAlignment="Center"
                            FontSize="26"
-                           FontFamily="Bahnschrift SemiBold" 
-                           FontWeight="Light" 
+                           FontWeight="SemiBold" 
                            FlowDirection="LeftToRight" 
-                           Effect="{DynamicResource MaterialDesignElevationShadow4}"
+                            FontStyle="Italic"
                            Margin="0,5,0,-10">
-                    <TextBlock.Foreground>
+                    --><!--<TextBlock.Foreground>
                         <LinearGradientBrush>
                             <GradientStop Color="#2af598" Offset="1"/>
                             <GradientStop Color="#009efd" Offset="0.3"/>
                             <GradientStop Color="#ba55d3" Offset="0.05"/>
                         </LinearGradientBrush>
-                    </TextBlock.Foreground>
+                    </TextBlock.Foreground>--><!--
                 </TextBlock>
                 <Image gif:AnimationBehavior.SourceUri="\Image\MusicNoteBackground.gif" 
                        IsEnabled="True"
                        Width="60"
                        Height="60"
                        Margin="0,-10,0,-10"
-                       ></Image>
+                       ></Image>-->
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Grid
@@ -70,7 +85,7 @@
                     <Rectangle 
                                 x:Name="recImage"
                                 StrokeDashArray="4 2" 
-                                Stroke="#ffffff" 
+                                Stroke="#767676" 
                                 StrokeThickness="4" 
                                 RadiusX="4" 
                                 RadiusY="4"
@@ -87,7 +102,7 @@
                             Content="Select Image" 
                             FontSize="14"
                             Foreground="#FFFFFF"
-                            Background="#1ED760"
+                            Background="#0099FF"
                             BorderBrush="Transparent"
                             FontWeight="SemiBold" 
                             ToolTip="Chọn ảnh"
@@ -99,7 +114,7 @@
                     <materialDesign:PackIcon 
                             x:Name="iconImage" 
                             Kind="FileImageOutline" 
-                            Foreground="#ffffff"
+                            Foreground="#767676"
                             Width="64" Height="54"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Top"  
@@ -108,34 +123,46 @@
                 <StackPanel Margin="0,20,0,0">
                     <TextBox x:Name="TitleSong"
                               materialDesign:HintAssist.Hint="Song Title"
+                             materialDesign:HintAssist.Foreground="Black"
+                             FontWeight="SemiBold"
+                                FontSize="15"
+                             Foreground="Black"
+                             Background="Transparent"
                               Width="300"
                               Margin="50,0,0,0"
                               Text="{Binding TitleToAdd}"
-                              Foreground="White"
-                              BorderBrush="White"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <TextBox x:Name="ArtistSong"
                               materialDesign:HintAssist.Hint="Artist"
                               Width="300"
+                              FontWeight="SemiBold"
                               Margin="50,20,0,0"
-                              Foreground="White"
-                              BorderBrush="White"
+                              materialDesign:HintAssist.Foreground="Black"
+                                FontSize="15"
+                             Foreground="Black"
+                             Background="Transparent"
                               Text="{Binding ArtistToAdd}"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <TextBox x:Name="AlbumSong"
                               materialDesign:HintAssist.Hint="Album"
                               Width="300"
+                              FontWeight="SemiBold"
                               Margin="50,20,0,0"
-                              Foreground="White"
-                              BorderBrush="White"
+                              materialDesign:HintAssist.Foreground="Black"
+                                FontSize="15"
+                             Foreground="Black"
+                             Background="Transparent"
                               Text="{Binding AlbumToAdd}"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <TextBox x:Name="GenreSong"
                               materialDesign:HintAssist.Hint="Genre"
                               Width="300"
+                              FontWeight="SemiBold"
                               Margin="50,20,0,0"
-                              Foreground="White"
-                              BorderBrush="White"
+                              materialDesign:HintAssist.Foreground="Black"
+                                FontSize="15"
+                             Foreground="Black"
+                             Background="Transparent"
                               Text="{Binding GenreToAdd}"
                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <StackPanel Orientation="Horizontal"
@@ -143,15 +170,18 @@
                         <StackPanel>
                             <TextBox x:Name="FileMusic"
                                       Margin="50,0,0,0"
+                                     
                                       materialDesign:HintAssist.Hint="Add Music"
                                       Width="270"
+                                      FontWeight="SemiBold"
                                       IsEnabled="False"
-                                      Foreground="White"
-                                      BorderBrush="Transparent"
-                                      BorderThickness="0"
+                                       materialDesign:HintAssist.Foreground="Black"
+                                        FontSize="15"
+                                    Foreground="Black"
+                                    Background="Transparent"
                                       Text="{Binding FilePathToAdd,UpdateSourceTrigger=PropertyChanged,Mode=OneWay}"
                                       Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                            <Border BorderBrush="White"
+                            <Border BorderBrush="Black"
                                     BorderThickness="0.5"
                                     Width="270"
                                     Margin="50,0,0,0"></Border>
@@ -178,7 +208,7 @@
                           Padding="0"
                           BorderThickness="0"
                           Foreground="White"
-                          Background="#1ED760"
+                          Background="#0099FF"
                           Command="{Binding Complete}"
                           CommandParameter="{Binding ElementName=AddSongApp}"
                           Content="{materialDesign:PackIcon Check}"

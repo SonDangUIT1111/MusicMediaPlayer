@@ -213,7 +213,7 @@
                                                  Foreground="Black"
                                                  Margin="0,10,0,0"
                                                  Opacity="0.5"/>
-                        </StackPanel>
+                            </StackPanel>
                         <Border BorderBrush="Black"
                         Height="1"
                         Width="240"

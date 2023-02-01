@@ -230,6 +230,9 @@
     <Compile Include="Model\Song.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\sysdiagram.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\UserAccount.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
@@ -253,6 +256,8 @@
     <Compile Include="ViewModel\Discover_GenreSongViewModel.cs" />
     <Compile Include="ViewModel\Discover_GenreViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
+    <Compile Include="ViewModel\MessageBoxOKViewModel.cs" />
+    <Compile Include="ViewModel\MessageBoxViewModel.cs" />
     <Compile Include="ViewModel\MessageBoxYesNoViewModel.cs" />
     <Compile Include="ViewModel\PlayListViewModel.cs" />
     <Compile Include="ViewModel\PlayList_InsideViewModel.cs" />
@@ -316,6 +321,9 @@
     </Compile>
     <Compile Include="View\MessageBoxLoading.xaml.cs">
       <DependentUpon>MessageBoxLoading.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MessageBoxOK.xaml.cs">
+      <DependentUpon>MessageBoxOK.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MessageBoxSuccessful.xaml.cs">
       <DependentUpon>MessageBoxSuccessful.xaml</DependentUpon>
@@ -574,6 +582,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\MessageBoxOK.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MessageBoxSuccessful.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -741,8 +753,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\Sky.jpg" />
+    <Resource Include="Image\Sky2.jpg" />
+    <Resource Include="Image\Sky3.jpg" />
+    <Resource Include="Image\Sky4.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Image\successful4.gif" />
+    <Resource Include="Image\successful2.gif" />
+    <Resource Include="Image\error.gif" />
+    <Resource Include="Image\warningicon1.jpg" />
+    <Resource Include="Image\Sky1.jpg" />
+    <Resource Include="Image\SkyBackground1.jpg" />
+    <Resource Include="Image\Sky5.jpg" />
     <Content Include="Model\Database.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Database.edmx</DependentUpon>

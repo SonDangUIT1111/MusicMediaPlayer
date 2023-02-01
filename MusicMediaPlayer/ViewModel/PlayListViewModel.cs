@@ -151,22 +151,28 @@ namespace MusicMediaPlayer.ViewModel
 
             Delete = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                MessageBoxResult dr = System.Windows.MessageBox.Show("Do you want to delete it?", "Delete!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                MessageBoxYesNo wd = new MessageBoxYesNo();
 
-                if (dr == MessageBoxResult.Yes)
+                var data = wd.DataContext as MessageBoxYesNoViewModel;
+                data.Title = "Delete!";
+                data.Question = "Do you want to delete it?";
+                wd.ShowDialog();
+
+                var result = wd.DataContext as MessageBoxYesNoViewModel;
+                if (result.IsYes == true)
                 {
                     var pl = p as MusicMediaPlayer.Model.PlayList;
 
-                    var song_in_pl = pl.Song;
+                    var song_in_pl = pl.Songs;
 
                     foreach (Song item in song_in_pl.ToList())
                     {
-                        item.PlayList.Remove(pl);
+                        item.PlayLists.Remove(pl);
 
-                        pl.Song.Remove(item);
+                        pl.Songs.Remove(item);
                     }
 
-                    DataProvider.Ins.DB.PlayList.Remove(pl);
+                    DataProvider.Ins.DB.PlayLists.Remove(pl);
                     DataProvider.Ins.DB.SaveChanges();
                     LoadDanhSach(CurrentUser.Id);
                 }
@@ -183,7 +189,7 @@ namespace MusicMediaPlayer.ViewModel
             }
             );
 
-            MouseDoubleClick = new RelayCommand<ListView>((p) => { return true; }, (p) =>
+            MouseDoubleClick = new RelayCommand<ListBox>((p) => { return true; }, (p) =>
             {
                 PlayList_Inside wd = new PlayList_Inside();
 
@@ -264,7 +270,7 @@ namespace MusicMediaPlayer.ViewModel
         }
         public void LoadDanhSach(int identity)
         {
-            List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ins.DB.PlayList.Where(x => x.OwnerId == identity));
+            List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ins.DB.PlayLists.Where(x => x.OwnerId == identity));
         }
     }
 }

@@ -13,7 +13,7 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="Register" Height="450" Width="300"
+        Title="Register" Height="450" Width="330"
         AllowsTransparency="True" Background="Transparent"
         ResizeMode="NoResize" WindowStyle="None"
         WindowStartupLocation="CenterScreen"
@@ -29,8 +29,14 @@
             </Grid.RowDefinitions>
 
             <Border CornerRadius="20" Grid.RowSpan="2" Background="AliceBlue">
-                <Image Source="/image/Sky.jpg" Opacity="0.5"
-                       Stretch="UniformToFill"></Image>
+                <Grid>
+                    <Border CornerRadius="20">
+                        <Border.Background>
+                            <ImageBrush ImageSource="/image/Sky.jpg" Opacity="0.5"
+                       Stretch="UniformToFill"></ImageBrush>
+                        </Border.Background>
+                    </Border>
+                </Grid>
             </Border>
 
             <StackPanel>
@@ -63,7 +69,7 @@
                            FontSize="20"
                            FontWeight="Bold"
                            HorizontalAlignment="Center"
-                           Foreground="#444444"
+                           Foreground="#333333"
                            FontFamily="Candara"
                            Margin="0,10,0,0"></TextBlock>
             </StackPanel>
@@ -173,8 +179,8 @@
                     <StackPanel Orientation="Horizontal"
                                 Margin="0,10,0,0">
                         <TextBlock Text="Have an accout already ?"
-                                   Foreground="#444444"
-                                   Margin="65,0,0,0"
+                                   Foreground="#222222"
+                                   Margin="75,0,0,0"
                                    FontWeight="Normal"
                                    FontFamily="Candara"></TextBlock>
                         <Button 
@@ -189,12 +195,12 @@
                                 Background="{x:Null}" 
                                 Foreground="{DynamicResource Secondary}" 
                                 BorderBrush="{x:Null}" 
-                                Margin="5,0,30,0"
+                                Margin="10,0,30,0"
                                 IsTabStop="False"
                                 Command="{Binding ToLogin}"
                                 CommandParameter="{Binding ElementName=RegisterWindow}" Height="20" Width="33"
                             >
-                            <TextBlock Text="Log in" Foreground="#444444" FontWeight="Medium"/>
+                            <TextBlock Text="Log in" Foreground="#222222" FontWeight="Medium"/>
                         </Button>
                     </StackPanel>
                 </StackPanel>
