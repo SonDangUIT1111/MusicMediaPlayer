@@ -6,13 +6,14 @@
         xmlns:local="clr-namespace:MusicMediaPlayer"
         mc:Ignorable="d"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-        Title="RenamePlayList" Height="150" Width="300"
+        Title="RenamePlayList" Height="180" Width="300"
         DataContext="{StaticResource RenamePlayListVM}"
         ResizeMode="NoResize"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         Name="RenamePL"
+        Background="Transparent"
         >
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
@@ -20,47 +21,63 @@
                                    CommandParameter="{Binding ElementName=RenamePL}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    <Grid Background="AntiqueWhite">
+    <Border Background="White" 
+            CornerRadius="10"
+            BorderThickness="2"
+            BorderBrush="#0099FF"
+            >
+        <Grid Background="Transparent">
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="65">
+            <StackPanel>
+                <TextBlock Text="Rename"
+                           FontSize="30"
+                           FontWeight="SemiBold"
+                           FontStyle="Italic"
+                           TextAlignment="Center"
+                           Foreground="Black"
+                           Opacity="0.7"
+                           Margin="0 15 0 0"
+                           >
 
-            </RowDefinition>
-            <RowDefinition Height="65">
-
-            </RowDefinition>
-        </Grid.RowDefinitions>
-
-        <TextBox Grid.Row="0"
-                 FontSize="15"
-                 Margin="20 30 20 0"
+                </TextBlock>
+                <TextBox 
+                 FontSize="20"
+                 Margin="20 20 20 0"
                  Name="NamePL">
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="TextChanged">
-                    <i:InvokeCommandAction Command="{Binding TextChanged}"
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding TextChanged}"
                                            CommandParameter="{Binding ElementName=NamePL}"/>
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
 
-        </TextBox>
+                </TextBox>
 
-        <StackPanel Orientation="Horizontal"
-                    Grid.Row="1"
-                    Margin="10 30 10 0">
-            <Button Margin="10 0 10 0"
+                <StackPanel Orientation="Horizontal"
+                   
+                    Margin="0 20 0 0">
+                    <Button Margin="20 0 0 0"
+                            Style="{StaticResource ButtonInRenameWD}"
                     Width="120"
-                    Content="Lưu"
+                            Height="30"
+                    Content="Save"
                     Command="{Binding Luu}"
                     CommandParameter="{Binding ElementName=RenamePL}">
 
-            </Button>
-            <Button Margin="10 0 10 0"
+                    </Button>
+                    <Button Margin="20 0 0 0"
+                            Style="{StaticResource ButtonInRenameWD}"
                     Width="120"
+                    Height="30"
                     Content="Cancel"
                     Command="{Binding Cancel}"
                     CommandParameter="{Binding ElementName=RenamePL}">
 
-            </Button>
-        </StackPanel>
-    </Grid>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+
+
+        </Grid>
+    </Border>
 </Window>

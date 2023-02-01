@@ -8,79 +8,189 @@
         Title="AddPlayList" Height="450" Width="800"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         DataContext="{StaticResource AddPlayListVM}"
-        Name="AddPL">
+        Name="AddPL"
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="None" 
+        AllowsTransparency="True"
+        Background="Transparent"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        >
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding Load}"
                                    CommandParameter="{Binding ElementName=PL}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    <Grid>
-        <StackPanel>
-            <StackPanel Orientation="Horizontal"
-                        Margin="20,20,20,0">
-                <TextBlock Text="Tên PlayList: "
-                           FontSize="20"
-                           FontStyle="Italic"
-                           FontWeight="Bold">
-
-                </TextBlock>
-                <TextBox Width="550"
-                         x:Name="NamePL"
-                         FontSize="15">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="TextChanged">
-                            <i:InvokeCommandAction Command="{Binding TextChanged}"
-                                                   CommandParameter="{Binding ElementName=NamePL}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </TextBox>
-                <Button Content="Add"
-                        x:Name="btnAdd"
-                        Command="{Binding Add}"
-                        CommandParameter="{Binding ElementName=AddPL}"
-                        >
-
-                </Button>
-            </StackPanel>
-
-            <ListView Height="385"
+    <Border CornerRadius="20"
+            Background="White"
+            BorderBrush="#0099FF"
+            BorderThickness="3"
+            >
+        <Grid Background="Transparent">
+            <StackPanel Orientation="Horizontal">
+                <ListView 
                       x:Name="lv"
                       ItemsSource="{Binding List}"
                       SelectionMode="Multiple"
+                      Margin="20 20 0 20"
                      >
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="SelectionChanged">
-                        <i:InvokeCommandAction Command="{Binding SelectedItems, Mode=OneWay}"
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding SelectedItems, Mode=OneWay}"
                                                CommandParameter="{Binding ElementName=lv}"/>
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
-                <ListView.View>
-                    <GridView>
-                        <!--<GridViewColumn Width="100">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <CheckBox>
-                                        
-                                    </CheckBox>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>-->
-                        <GridViewColumn Header="Tên"
-                                        Width="350"
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Tên"
+                                        Width="200"
                                         DisplayMemberBinding="{Binding SongTitle}"
                                         >
 
-                        </GridViewColumn>
-                        <GridViewColumn Header="Ca sĩ"
+                            </GridViewColumn>
+                            <GridViewColumn Header="Ca sĩ"
+                                            Width="150"
                                         DisplayMemberBinding="{Binding Artist}"
                                        >
 
-                        </GridViewColumn>
-                    </GridView>
-                </ListView.View>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <StackPanel Orientation="Horizontal"
+                                Margin="20 0 0 0"
+                                >
+                    <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"
+                                   Background="Gray"
+                                   Opacity="0.4"
+                                   Width="1"
+                                   Height="820"
+                                   />
+                </StackPanel>
+                <StackPanel Margin="70 0 0 0">
+                    <Grid
+                        x:Name="grdSelectImg"
+                        Margin="0 50 0 0" 
+                        VerticalAlignment="Top"
+                        
+                        Width="150"
+                        Height="150" 
+                        HorizontalAlignment="Center">
+                        <Rectangle 
+                                x:Name="recImage"
+                                StrokeDashArray="4 2" 
+                                Stroke="#767676" 
+                                StrokeThickness="4" 
+                                RadiusX="4" 
+                                RadiusY="4"
+                                Width="150"
+                                Height="150" 
+                                HorizontalAlignment="Left" 
+                                VerticalAlignment="Top"/>
+                        <materialDesign:PackIcon 
+                            x:Name="iconImage" 
+                            Kind="FileImageOutline" 
+                            Foreground="#767676"
+                            Width="64" Height="54"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"  
+                            Margin="0,50,0,0"/>
+                    </Grid>
+                    <Button 
+                            x:Name="btnSelectImage"
+                            Command="{Binding AddImage}"
+                            CommandParameter="{Binding ElementName=grdSelectImg}"
+                            Height="35" 
+                            Width="100" 
+                            Content="Select Image" 
+                            FontSize="14"
+                            Foreground="#FFFFFF"
+                            Background="#0099FF"
+                            BorderBrush="Transparent"
+                            FontWeight="SemiBold" 
+                            ToolTip="Chọn ảnh"
+                            Margin="0,20,0,0" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Bottom"
+                            FocusVisualStyle="{x:Null}"
+                            Padding="0"/>
+                    <StackPanel Margin="0 30 0 0">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox x:Name="NamePL"
+                        materialDesign:HintAssist.Hint="Playlist Name"
+                         materialDesign:HintAssist.Foreground="Black"
+                         
+                        FontSize="15"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        Foreground="Black"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Height="auto"
+                        Width="210"
+                        HorizontalAlignment="Center"
+                        Margin="0,0,0,0"
+                        FontWeight="SemiBold"
+                         
+                        >
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding TextChanged}"
+                                                   CommandParameter="{Binding ElementName=NamePL}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
+                            <materialDesign:PackIcon Kind="Pencil"
+                                                 Height="25"
+                                                 Width="25"
+                                                 Foreground="Black"
+                                                 Margin="0,10,0,0"
+                                                 Opacity="0.5"/>
+                        </StackPanel>
+                        <Border BorderBrush="Black"
+                        Height="1"
+                        Width="240"
+                        BorderThickness="10">
+                        </Border>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0 45 0 0">
+                        <Button Margin="0 0 0 0"
+                                Style="{StaticResource ButtonInAddPLWD}"
+                                Width="100"
+                                Height="40"
+                                x:Name="btnAdd"
+                                Command="{Binding Add}"
+                                CommandParameter="{Binding ElementName=AddPL}"
+                                ToolTip="Add"
+                                >
+                            <materialDesign:PackIcon Kind="Check"
+                                                     Width="25"
+                                                     Height="25">
 
-            </ListView>
-        </StackPanel>
-    </Grid>
+                            </materialDesign:PackIcon>
+                        </Button>
+                        <Button Margin="25 0 0 0"
+                                Width="100"
+                                Height="40"
+                                Style="{StaticResource ButtonInAddPLWD}"
+                                Command="{Binding Close}"
+                                CommandParameter="{Binding ElementName=AddPL}"
+                                ToolTip="Cancel">
+                            <materialDesign:PackIcon Kind="Close"
+                                                     Width="25"
+                                                     Height="25">
+
+                            </materialDesign:PackIcon>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Border>
 </Window>
