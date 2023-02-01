@@ -57,11 +57,23 @@ namespace MusicMediaPlayer.ViewModel
                 return;
             if (Username == "")
             {
-                MessageBox.Show("Please enter username");
+                MessageBoxOK wd = new MessageBoxOK();
+
+                var data = wd.DataContext as MessageBoxOKViewModel;
+
+                data.Content = "Please enter username";
+
+                wd.ShowDialog();
             }
             else if (Password == "")
             {
-                MessageBox.Show("Please enter password");
+                MessageBoxOK wd = new MessageBoxOK();
+
+                var data = wd.DataContext as MessageBoxOKViewModel;
+
+                data.Content = "Please enter password";
+
+                wd.ShowDialog();
             }
             else
             {
@@ -78,14 +90,20 @@ namespace MusicMediaPlayer.ViewModel
                     else
                     {
                         IsLoggedIn = false;
-                        MessageBox.Show("Wrong password");
+                        MessageBoxOK wd = new MessageBoxOK();
+                        var data = wd.DataContext as MessageBoxOKViewModel;
+                        data.Content = "Wrong password";
+                        wd.ShowDialog();
                         return;
                     }
                 }
                 else
                 {
                     IsLoggedIn = false;
-                    MessageBox.Show("User Account does not exists");
+                    MessageBoxOK wd = new MessageBoxOK();
+                    var data = wd.DataContext as MessageBoxOKViewModel;
+                    data.Content = "User Account does not exists";
+                    wd.ShowDialog();
                 }
             }
             

@@ -110,6 +110,115 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <!-- RenamePlayList.xaml  -->
+    <Style TargetType="{x:Type Button}" x:Key="ButtonInRenameWD">
+        <Setter Property="Background" Value="#0099FF"/>
+        <Setter Property="Foreground" Value="AliceBlue"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Margin" Value="0 0 0 0"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Tag" Value="Collapsed"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                        <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="40 0 0 0"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#0487D9"/>
+                <Setter Property="Tag" Value="Visible"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <!-- AddPlayList.xaml -->
+    <Style TargetType="{x:Type Button}" x:Key="ButtonInAddPLWD">
+        <Setter Property="Background" Value="#0099FF"/>
+        <Setter Property="Foreground" Value="AliceBlue"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Margin" Value="0 0 0 0"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Tag" Value="Collapsed"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                        <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="40 0 0 0"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#0487D9"/>
+                <Setter Property="Tag" Value="Visible"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- MessageBox YesNo -->
+    <Style TargetType="{x:Type Button}" x:Key="YesNoButton">
+        <Setter Property="Background" Value="#0099FF"/>
+        <Setter Property="Foreground" Value="AliceBlue"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Margin" Value="0 0 0 0"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Tag" Value="Collapsed"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#CCFFFF"/>
+                <Setter Property="Foreground" Value="#444444"/>
+                <Setter Property="Tag" Value="Visible"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <!-- ChangePassword.xaml-->
+    <Style TargetType="{x:Type Button}" x:Key="ChangePasswordWDButton">
+        <Setter Property="Background" Value="#5CA0F2"/>
+        <Setter Property="Foreground" Value="AliceBlue"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Margin" Value="0 0 0 0"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Tag" Value="Collapsed"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#0487D9"/>
+                <Setter Property="Tag" Value="Visible"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
     <!--MainwindowButton-->
     <Style TargetType="{x:Type RadioButton}" x:Key="MainButton">
         <Setter Property="Background" Value="AliceBlue"/>

@@ -27,7 +27,6 @@
     </i:Interaction.Triggers>
     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromRight, Duration=0:0:0.3}">
         <Grid Background="Transparent"
-          Margin="5"
           Width="1000"
           Height="1000">
             <Grid.ColumnDefinitions>
@@ -35,11 +34,16 @@
                 <ColumnDefinition Width="0*"/>
             </Grid.ColumnDefinitions>
             <Border CornerRadius="20" 
-                        BorderBrush="#1ED760"
-                        BorderThickness="0"
-                        Background="Black" MaxHeight="1000" MaxWidth="1000"/>
+                       
+                        MaxHeight="1000" MaxWidth="1000">
+                <Border.Background>
+                    <ImageBrush ImageSource="\Image\Sky.jpg"
+                                Opacity="0.2"
+                                Stretch="UniformToFill"></ImageBrush>
+                </Border.Background>
+            </Border>
             <TextBlock x:Name="IsThereSong"
-                   Foreground="#FFFFFF"
+                   Foreground="#333333"
                    Background="Transparent"
                    FontSize="24"
                    Text="Nothing to show here"
@@ -50,7 +54,7 @@
                    Width="500"></TextBlock>
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Border BorderBrush="#FFFFFF"
+                    <Border BorderBrush="#333333"
                         BorderThickness="2"
                         Width="200"
                         Height="40"
@@ -59,7 +63,7 @@
                         <StackPanel Orientation="Horizontal">
                             <Ellipse Width="10"
                                  Height="10"
-                                 Fill="#FFFFFF"
+                                 Fill="#333333"
                                  Margin="10,0,0,0"></Ellipse>
                             <TextBox x:Name="SongFilter"
                                   Width="150"
@@ -67,7 +71,7 @@
                                   Background="Transparent"
                                   BorderBrush="Transparent"
                                   BorderThickness="0"
-                                  Foreground="#ffffff"
+                                  Foreground="#333333"
                                   HorizontalAlignment="Center"
                                   VerticalAlignment="Center"
                                   materialDesign:HintAssist.Hint="Search here ..."
@@ -86,7 +90,7 @@
                         <Border Background="Transparent"
                         Height="40"
                         Width="40"
-                        BorderBrush="#ffffff"
+                        BorderBrush="#333333"
                         Opacity="0.6"
                         BorderThickness="3"
                         CornerRadius="40">
@@ -95,7 +99,7 @@
                           IsEnabled="False"
                           Content="{materialDesign:PackIcon Plus}"
                           Background="Transparent"
-                          Foreground="#1ED760"
+                          Foreground="#333333"
                           Height="50"
                           Width="50"
                           HorizontalAlignment="Center"
@@ -104,7 +108,7 @@
                             </Button>
                         </Border>
                         <Label Content="New"
-                           Foreground="#ffffff"
+                           Foreground="#333333"
                            FontSize="14"
                            Opacity="0.5"
                            HorizontalAlignment="Center"
@@ -117,7 +121,7 @@
                         <Border Background="Transparent"
                         Height="40"
                         Width="40"
-                        BorderBrush="#ffffff"
+                        BorderBrush="#333333"
                         BorderThickness="3"
                         CornerRadius="40">
                             <Button
@@ -126,7 +130,7 @@
                           Margin="0,0,0,0"
                           Content="{materialDesign:PackIcon ArrowLeftBold}"
                           Background="Transparent"
-                          Foreground="#1ED760"
+                          Foreground="#333333"
                           Height="50"
                           Width="50"
                           HorizontalAlignment="Center"
@@ -135,7 +139,7 @@
                             </Button>
                         </Border>
                         <Label Content="Back"
-                           Foreground="#ffffff"
+                           Foreground="#333333"
                            FontSize="14"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"></Label>
@@ -172,35 +176,35 @@
                             Width="880"
                             Margin="50,10,0,0">
                     <TextBlock Text="Title"
-                           Foreground="#ffffff"
+                           Foreground="Black"
                            Width="200"
                            FontSize="14"
                            FontWeight="Bold"
                            FontFamily="Segoe UI Semibold"
                            Margin="20,0,0,0"/>
                     <TextBlock Text="Artist"
-                           Foreground="#ffffff"
+                           Foreground="Black"
                            Width="180"
                            FontSize="14"
                            FontWeight="Bold"
                            FontFamily="Segoe UI Semibold"
                            Margin="0,0,0,0"/>
                     <TextBlock Text="Album"
-                           Foreground="#ffffff"
+                           Foreground="Black"
                            Width="120"
                            FontSize="14"
                            FontWeight="Bold"
                            FontFamily="Segoe UI Semibold"
                            Margin="0,0,0,0"/>
                     <TextBlock Text="Genre"
-                           Foreground="#ffffff"
+                           Foreground="Black"
                            Width="120"
                            FontSize="14"
                            FontWeight="Bold"
                            FontFamily="Segoe UI Semibold"
                            Margin="0,0,0,0"/>
                     <TextBlock Text="Time"
-                           Foreground="#ffffff"
+                           Foreground="Black"
                            Width="80"
                            FontSize="14"
                            FontWeight="Bold"
@@ -302,7 +306,7 @@
                                                                     Width="20"
                                                                     Padding="0"
                                                                     Margin="0,0,0,30"
-                                                                    Foreground="#009EFD"
+                                                                    Foreground="White"
                                                                     BorderBrush="Transparent">
 
                                                     </Button>
@@ -314,7 +318,7 @@
                                                                     Width="20"
                                                                     Padding="0"
                                                                     Margin="10,0,0,30"
-                                                                    Foreground="#FF2C2C"
+                                                                    Foreground="Salmon"
                                                                     BorderBrush="Transparent">
                                                     </Button>
                                                     <ToggleButton   VerticalAlignment="Center"

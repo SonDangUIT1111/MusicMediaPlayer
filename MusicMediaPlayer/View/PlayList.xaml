@@ -21,8 +21,14 @@
     </i:Interaction.Triggers>
 
 
-    <Border Background="White"
+    <Border 
             CornerRadius="20">
+        <Border.Background>
+            <ImageBrush ImageSource="/Image/Sky.jpg" 
+                        Stretch="UniformToFill"
+                        Opacity="0.2">
+            </ImageBrush>
+        </Border.Background>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100">
@@ -41,36 +47,34 @@
                 BorderBrush="#5CA0F2"
                 BorderThickness="1" 
                 Margin="25 0 0 0">
-
-                    <ComboBox
-                    materialDesign:HintAssist.Hint="Arrange"
-                    Width="100"
-                     
-                    
-                >
-
-                        <ComboBoxItem Width="100">
-                            <Button Command="{Binding AZ}"
-                            Content="A-Z"
-                            Background="Transparent"
-                            BorderThickness="0"
-                                    Width="100"
-                            >
-
-                            </Button>
-
-                        </ComboBoxItem>
-                        <ComboBoxItem Width="100">
-                            <Button Command="{Binding ZA}"
-                            Content="Z-A"
-                            Background="Transparent"
-                            BorderThickness="0"
-                                Width="100"
-                            >
-
-                            </Button>
-                        </ComboBoxItem>
-                    </ComboBox>
+                    <Menu Width="190"
+                          Height="40"
+                          >
+                        <MenuItem   Width="190"
+                                    Height="40"
+                                    Header="Arrange"
+                                    FontWeight="SemiBold"
+                                    FontStyle="Italic"
+                                    >
+                            <MenuItem.Icon>
+                                <materialDesign:PackIcon Kind="FormatLineSpacing" />
+                            </MenuItem.Icon>
+                            <MenuItem
+                                    Header="A-Z"
+                                    Command="{Binding AZ}">
+                                <MenuItem.Icon>
+                                    <materialDesign:PackIcon Kind="ArrowDown" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem
+                                    Header="Z-A"
+                                    Command="{Binding ZA}">
+                                <MenuItem.Icon>
+                                    <materialDesign:PackIcon Kind="ArrowUp" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </MenuItem>
+                    </Menu>
                 </Border>
 
                 <Border 
@@ -167,12 +171,32 @@
                                     x:Name="Pic"
                                         >
                                 <Grid>
+
+                                    <Button Style="{StaticResource ButtonPlayVisibility}"
+                                                Panel.ZIndex="2"
+                                                Width="40"
+                                                Height="40"
+                                                Padding="0"
+                                                Margin="0,0,0,0"
+                                                BorderBrush="Transparent"
+                                                BorderThickness="0"
+                                                Background="White"
+                                                ToolTip="Change Image"
+                                                >
+                                        <materialDesign:PackIcon
+                                                            Foreground="#222222"
+                                                            Kind="CameraPartyMode"
+                                                            Opacity="0.8"
+                                                            Height="25"
+                                                            Width="25" />
+                                    </Button>
+
                                     <Button Style="{StaticResource ButtonPlayVisibility}"
                                             Panel.ZIndex="2"
                                             Width="40"
                                             Height="40"
                                             Padding="0"
-                                            Margin="70,0,0,0"
+                                            Margin="100,0,0,0"
                                             BorderBrush="Transparent"
                                             BorderThickness="0"
                                             Background="White"
@@ -192,7 +216,7 @@
                                                 Width="40"
                                                 Height="40"
                                                 Padding="0"
-                                                Margin="-70,0,0,0"
+                                                Margin="-100,0,0,0"
                                                 BorderBrush="Transparent"
                                                 BorderThickness="0"
                                                 Background="White"
@@ -263,7 +287,7 @@
                                         >
                                 <TextBlock 
                                                Text="{Binding PlayListName}" 
-                                               TextAlignment="Left"
+                                               TextAlignment="Center"
                                                Foreground="Black" 
                                                FontWeight="SemiBold" 
                                                FontSize="20" 
@@ -272,7 +296,7 @@
 
                                 <TextBlock 
                                                Text="{Binding SongCount}"
-                                               TextAlignment="Left"
+                                               TextAlignment="Center"
                                                Foreground="#767676" 
                                                FontWeight="SemiBold" 
                                                FontSize="17" 

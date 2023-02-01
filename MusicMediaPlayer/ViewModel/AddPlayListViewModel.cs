@@ -21,6 +21,7 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand Add { get; set; }
         public ICommand TextChanged { get; set; }
         public ICommand SelectedItems { get; set; }
+        public ICommand Close { get; set; }
         #endregion
         public CurrentUserAccountModel CurrentUser { get; set; }
         private ObservableCollection<Song> _List;
@@ -95,6 +96,12 @@ namespace MusicMediaPlayer.ViewModel
             SelectedItems = new RelayCommand<ListView>((p) => { return true; }, (p) =>
             {
                 SelectedItemss = p;
+            }
+            );
+
+            Close = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                p.Close();
             }
             );
         }

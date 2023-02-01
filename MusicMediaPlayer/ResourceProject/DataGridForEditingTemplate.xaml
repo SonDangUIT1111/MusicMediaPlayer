@@ -107,7 +107,7 @@
         </Setter>
     </Style>
     <Style x:Key="DataGridRowStyle2" TargetType="{x:Type DataGridRow}">
-        <Setter Property="Background" Value="#222528"/>
+        <Setter Property="Background" Value="#5CA0F2"/>
         <Setter Property="Margin" Value="0 4 0 0"/>
         <Setter Property="SnapsToDevicePixels" Value="true"/>
         <Setter Property="Validation.ErrorTemplate" Value="{x:Null}"/>
@@ -141,20 +141,20 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#222528"/>
-                <Setter Property="Foreground" Value="#ffffff"/>
+                <Setter Property="Background" Value="#0099FF"/>
+                <Setter Property="Foreground" Value="Black"/>
             </Trigger>
             <Trigger Property="IsSelected" Value="True">
-                <Setter Property="Background" Value="#222528"/>
-                <Setter Property="Foreground" Value="#ffffff"/>
+                <Setter Property="Background" Value="#0099FF"/>
+                <Setter Property="Foreground" Value="Black"/>
             </Trigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsSelected" Value="True"></Condition>
                     <Condition Property="Selector.IsSelectionActive" Value="False"></Condition>
                 </MultiTrigger.Conditions>
-                <Setter Property="Background" Value="#222528"/>
-                <Setter Property="Foreground" Value="#ffffff"/>
+                <Setter Property="Background" Value="#0099FF"/>
+                <Setter Property="Foreground" Value="Black"/>
             </MultiTrigger>
         </Style.Triggers>
     </Style>
