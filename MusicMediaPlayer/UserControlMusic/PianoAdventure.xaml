@@ -6,8 +6,292 @@
              xmlns:local="clr-namespace:MusicMediaPlayer.UserControlMusic"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="1000" d:DesignWidth="1000">
-    <Grid Background="MediumVioletRed">
-        <Button Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}"/>
+             d:DesignHeight="1000" d:DesignWidth="1000"
+             KeyDown="UserControl_KeyDown">
+    <Grid Background="#5CA0F2">
+        <Button Content="Home"
+                Height="50"
+                Width="200"
+                Margin="0,-500,0,0"
+                Command="{x:Static materialDesign:Transitioner.MoveFirstCommand}"/>
+        <Button Content="Explore Steel drum adventure"
+                Height="50"
+                Width="200"
+                Margin="0,-400,0,0"
+                Command="{x:Static materialDesign:Transitioner.MoveNextCommand}"/>
+        <RadioButton x:Name="Practice"
+                     Content="Twinkle Little Star"
+                     Background="Red"
+                     Height="50"
+                     Width="200"
+                     HorizontalAlignment="Left"
+                     Foreground="#FFFFFF"
+                     FontSize="18"
+                     Checked="Practice_Checked"/>
+        <RadioButton x:Name="Adventure"
+                     Content="Adventure on your own"
+                     Foreground="#FFFFFF"
+                     Background="Red"
+                     Height="50"
+                     Width="200"
+                     HorizontalAlignment="Left"
+                     FontSize="18"
+                     Margin="0,100,0,0"
+                     IsChecked="True" 
+                     Checked="RadioButton_Checked"/>
+        <RadioButton x:Name="Custom"
+                     Content="Custom"
+                     Foreground="#FFFFFF"
+                     Background="Red"
+                     Height="50"
+                     Width="200"
+                     HorizontalAlignment="Left"
+                     FontSize="18"
+                     Margin="0,180,0,0"
+                     Checked="Custom_Checked"/>
+        <Expander x:Name="ComposePaper"
+                  Width="300"
+                  Height="300"
+                  HorizontalAlignment="Left"
+                  Background="Transparent"
+                  Margin="0,-500,0,0"
+                  Foreground="Transparent">
+            <StackPanel>
+                <RichTextBox x:Name="MusicScript"
+                         Background="Black"
+                         Foreground="White"
+                         FontSize="20"
+                         Width="300"
+                         Height="200"/>
+                <Button Content="OK" Click="Button_Click"/>
+            </StackPanel>
+        </Expander>
+        <Grid Height="300"
+          Width="600"
+          Margin="300,150,0,0">
+            <Border Background="#FF2C2C"
+                CornerRadius="10 10 10 10">
+            </Border>
+            <Border Background="#F94449"
+                CornerRadius="10"
+                Height="90"
+                Margin="5"
+                VerticalAlignment="Top"/>
+            <Border Background="#1ED760"
+                CornerRadius="10"
+                Height="50"
+                Width="400"
+                Margin="0,25,0,0"
+                VerticalAlignment="Top"/>
+            <Border CornerRadius="5"
+                Height="200"
+                Width="560"
+                Margin="0,85,0,0">
+                <Border.Effect>
+                    <BlurEffect/>
+                </Border.Effect>
+                <Border.Background>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#D1001F" Offset="0.2"/>
+                        <GradientStop Color="#DE0A26" Offset="0.5"/>
+                    </RadialGradientBrush>
+                </Border.Background>
+            </Border>
+            <Ellipse Height="75"
+                 Width="75"
+                 Fill="#EBECF0"
+                 VerticalAlignment="Top"
+                 HorizontalAlignment="Left"
+                 Margin="20,10,0,0"/>
+            <Ellipse Height="75"
+                 Width="75"
+                 Fill="#EBECF0"
+                 VerticalAlignment="Top"
+                 HorizontalAlignment="Right"
+                 Margin="0,10,10,0"/>
+            <Grid Height="220"
+          Margin="0,80,0,0"
+          Width="550">
+                <StackPanel Orientation="Horizontal"
+                    Margin="0,0,0,0"
+                    Panel.ZIndex="1">
+                    <Button  x:Name="Ckey"
+                    Height="175"
+                    Width="50"
+                            Style="{StaticResource WhiteKeyPiano}"
+                            Click="C_Click"/>
+                    <Button x:Name="Dkey"
+                    Height="175"
+                    Width="50"
+                            Style="{StaticResource WhiteKeyPiano}"
+                            Click="D_Click"/>
+                    <Button x:Name="Ekey"
+                    Height="175"
+                    Width="50"
+                            Style="{StaticResource WhiteKeyPiano}" Click="E_Click"/>
+                    <Button x:Name="Fkey"
+                    Height="175"
+                    Width="50"
+                            Style="{StaticResource WhiteKeyPiano}" Click="F_Click"/>
+                    <Button x:Name="Gkey"
+                    Height="175"
+                    Width="50"
+                            Style="{StaticResource WhiteKeyPiano}" Click="G_Click"/>
+                    <Button x:Name="Akey"
+                    Height="175"
+                    Width="50"
+                            Style="{StaticResource WhiteKeyPiano}" Click="A_Click"/>
+                    <Button x:Name="Bkey"
+                    Height="175"
+                    Width="50"
+                            Style="{StaticResource WhiteKeyPiano}" Click="B_Click"/>
+                    <Button x:Name="C1key"
+                    Height="175"
+                    Width="50"
+                            Style="{StaticResource WhiteKeyPiano}" Click="C1_Click"/>
+                    <Button x:Name="D1key"
+                    Height="175"
+                    Width="50"
+                            Style="{StaticResource WhiteKeyPiano}" Click="D1_Click"/>
+                    <Button x:Name="E1key"
+                    Height="175"
+                    Width="50"
+                            Style="{StaticResource WhiteKeyPiano}" Click="E1_Click"/>
+                    <Button x:Name="F1key"
+                    Height="175"
+                    Width="50"
+                            Style="{StaticResource WhiteKeyPiano}" Click="F1_Click"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                    Margin="0,10,0,0"
+                    Panel.ZIndex="0">
+                    <Button Background="#2B2B2B"
+                    Height="175"
+                    Width="50"
+                            Style="{StaticResource WhiteKeyPiano}"/>
+                    <Button Background="#2B2B2B"
+                    Height="175"
+                    Width="50"
+                            Style="{StaticResource WhiteKeyPiano}"/>
+                    <Button Background="#2B2B2B"
+                    Height="175"
+                    Width="50"
+                            Style="{StaticResource WhiteKeyPiano}"/>
+                    <Button Background="#2B2B2B"
+                    Height="175"
+                    Width="50"
+                            Style="{StaticResource WhiteKeyPiano}"/>
+                    <Button Background="#2B2B2B"
+                    Height="175"
+                    Width="50"
+                            Style="{StaticResource WhiteKeyPiano}"/>
+                    <Button Background="#2B2B2B"
+                    Height="175"
+                    Width="50"
+                            Style="{StaticResource WhiteKeyPiano}"/>
+                    <Button Background="#2B2B2B"
+                    Height="175"
+                    Width="50"
+                            Style="{StaticResource WhiteKeyPiano}"/>
+                    <Button Background="#2B2B2B"
+                    Height="175"
+                    Width="50"
+                            Style="{StaticResource WhiteKeyPiano}"/>
+                    <Button Background="#2B2B2B"
+                    Height="175"
+                    Width="50"
+                            Style="{StaticResource WhiteKeyPiano}"/>
+                    <Button Background="#2B2B2B"
+                    Height="175"
+                    Width="50"
+                            Style="{StaticResource WhiteKeyPiano}"/>
+                    <Button Background="#2B2B2B"
+                    Height="175"
+                    Width="50"
+                            Style="{StaticResource WhiteKeyPiano}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                    Margin="30,-75,0,0"
+                    Panel.ZIndex="4">
+                    <Button x:Name="CSharp"
+                    Height="100"
+                    Width="35"
+                    Style="{StaticResource BlackKeyPiano}" Click="CSharp_Click"/>
+                    <Button x:Name="DSharp"
+                    Height="100"
+                    Width="35"
+                    Style="{StaticResource BlackKeyPiano}"
+                    Margin="18,0,0,0" Click="DSharp_Click"/>
+                    <Button x:Name="FSharp"
+                    Height="100"
+                    Width="35"
+                    Style="{StaticResource BlackKeyPiano}"
+                    Margin="65,0,0,0" Click="FSharp_Click"/>
+                    <Button x:Name="GSharp"
+                    Height="100"
+                    Width="35"
+                    Style="{StaticResource BlackKeyPiano}"
+                    Margin="15,0,0,0" Click="GSharp_Click"/>
+                    <Button x:Name="ASharp"
+                    Height="100"
+                    Width="35"
+                    Style="{StaticResource BlackKeyPiano}"
+                            Click="ASharp_Click"
+                    Margin="15,0,0,0"/>
+                    <Button x:Name="CSharp1"
+                    Height="100"
+                    Width="35"
+                    Style="{StaticResource BlackKeyPiano}"
+                    Margin="60,0,0,0" Click="CSharp1_Click"/>
+                    <Button x:Name="DSharp1"
+                    Height="100"
+                    Width="35"
+                    Style="{StaticResource BlackKeyPiano}"
+                    Margin="15,0,0,0" Click="DSharp1_Click"/>
+
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                    Margin="30,-65,0,0"
+                    Panel.ZIndex="3">
+                    <Button 
+                    Height="100"
+                    Width="35"
+                        Style="{StaticResource BlackKeyPiano}"
+                    Background="#3D3D3D"/>
+                    <Button Style="{StaticResource BlackKeyPiano}"
+                        Background="#3D3D3D"
+                    Height="100"
+                    Width="35"
+                    Margin="18,0,0,0"/>
+                    <Button Style="{StaticResource BlackKeyPiano}"
+                        Background="#3D3D3D"
+                    Height="100"
+                    Width="35"
+                    Margin="65,0,0,0"/>
+                    <Button Style="{StaticResource BlackKeyPiano}"
+                        Background="#3D3D3D"
+                    Height="100"
+                    Width="35"
+                    Margin="15,0,0,0"/>
+                    <Button Style="{StaticResource BlackKeyPiano}"
+                            Background="#3D3D3D"
+                    Height="100"
+                    Width="35"
+                    Margin="15,0,0,0"/>
+                    <Button Style="{StaticResource BlackKeyPiano}"
+                    Height="100"
+                    Width="35"
+                    Background="#3D3D3D"
+                    Margin="60,0,0,0"/>
+                    <Button
+                        Style="{StaticResource BlackKeyPiano}"
+                    Height="100"
+                    Width="35"
+                    Background="#3D3D3D"
+                    Margin="15,0,0,0"/>
+
+                </StackPanel>
+            </Grid>
+        </Grid>
     </Grid>
 </UserControl>

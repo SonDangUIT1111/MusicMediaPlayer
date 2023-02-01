@@ -29,10 +29,13 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand SwitchArtist { get; set; }
         public ICommand SwitchAlbum { get; set; }
         public ICommand SwitchGenre { get; set; }
+        public ICommand BackPiano { get; set; }
+        public ICommand BackHome { get; set; }
 
 
         public ICommand Logoutcommand { get; set; }
         //view model
+        MainWindow mainWindow { get; set; }
         MySong MySongPage { get; set; }
         View.PlayList PlayListPage { get; set; }
         Home HomePage { get; set; }
@@ -76,9 +79,9 @@ namespace MusicMediaPlayer.ViewModel
             var AlbumData = AlbumPage.DataContext as Discover_AlbumViewModel;
             var GenreData = GenrePage.DataContext as Discover_GenreViewModel;
             //
-            LoadedTurnOnLogin = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            LoadedTurnOnLogin = new RelayCommand<MainWindow>((p) => { return true; }, (p) =>
             {
-
+                mainWindow = p;
                 IsLoaded = true;
                 if (p == null)
                     return;
@@ -88,6 +91,8 @@ namespace MusicMediaPlayer.ViewModel
                 login.Password.Password = null;
                 var LoginVM = login.DataContext as LoginViewModel;
                 LoginVM.IsLoggedIn = false;
+                LoginVM.Username = "";
+                LoginVM.Password = "";
                 login.ShowDialog();
                 //sau khi dang nhap
                 if (login.DataContext == null)
@@ -296,6 +301,7 @@ namespace MusicMediaPlayer.ViewModel
                     GenreData.PlayInvisible1 = PlayListData.PlayInvisible1;
                     GenreData.PauseInvisible1 = PlayListData.PauseInvisible1;
 
+                    p.FrameView.Content = HomePage;
                     p.Show();
                 }
                 else
@@ -331,6 +337,10 @@ namespace MusicMediaPlayer.ViewModel
             SwitchGenre = new RelayCommand<Frame>((p) => { return true; }, (p) =>
             {
                 p.Content = GenrePage;
+            });
+            BackHome = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                mainWindow.FrameView.Content = HomePage;
             });
         }
     }

@@ -42,6 +42,10 @@
                 <!--<ResourceDictionary Source="/ResourceProject/SliderTemplate.xaml"></ResourceDictionary>-->
                 <ResourceDictionary Source="/ResourceProject/TabButtonStyle.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/ExpanderMySongTemplate.xaml"></ResourceDictionary>
+
+                <ResourceDictionary Source="/ResourceProject/Instrument/PianoBlackKeyTemplate.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/ResourceProject/Instrument/PianoWhiteKeyTemplate.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/ResourceProject/Instrument/SteelDrumKeyTemplate.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
