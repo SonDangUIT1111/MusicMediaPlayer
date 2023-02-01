@@ -94,7 +94,7 @@ namespace MusicMediaPlayer.ViewModel
         public Discover_ArtistViewModel()
         {
             CurrentUser = new CurrentUserAccountModel();
-            List = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artist.Where(x => x.UserId == CurrentUser.Id));
+            List = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.UserId == CurrentUser.Id));
 
             LoadData = new RelayCommand<Page>((p) => { return true; }, (p) =>
             {
@@ -261,7 +261,7 @@ namespace MusicMediaPlayer.ViewModel
         }
         public void LoadAll()
         {
-            List = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artist.Where(x => x.UserId == CurrentUser.Id).ToList());
+            List = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.UserId == CurrentUser.Id).ToList());
             if (List.Count == 0)
             {
                 ArtistWindow.IsThereSong.Visibility = Visibility.Visible;
@@ -282,7 +282,7 @@ namespace MusicMediaPlayer.ViewModel
         }
         public void LoadPopular()
         {
-            List = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artist.Where(x => x.UserId == CurrentUser.Id && x.IsPopular == true).ToList());
+            List = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.UserId == CurrentUser.Id && x.IsPopular == true).ToList());
             if (List.Count == 0)
             {
                 ArtistWindow.IsThereSong.Visibility = Visibility.Visible;

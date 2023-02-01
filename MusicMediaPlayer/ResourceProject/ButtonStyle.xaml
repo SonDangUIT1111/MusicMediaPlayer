@@ -219,5 +219,60 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    <!--MainwindowButton-->
+    <Style TargetType="{x:Type RadioButton}" x:Key="MainButton">
+        <Setter Property="Background" Value="AliceBlue"/>
+        <Setter Property="Foreground" Value="#333333"/>
+        <Setter Property="Height" Value="38"/>
+        <Setter Property="Margin" Value="0 0 0 0"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Tag" Value="Collapsed"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="20">
+                        <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0 0 0 0"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="AliceBlue"/>
+                <Setter Property="Foreground" Value="#0099FF"/>
+                <Setter Property="Tag" Value="Visible"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="RadioButton">
+                            <Grid Background="Transparent">
+                                <Border Background="{TemplateBinding Background}" CornerRadius="10 10 10 10" >
+                                    <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0 0 0 0"/>
+                                </Border>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Background" Value="AliceBlue"/>
+                <Setter Property="Foreground" Value="#0099FF"/>
+                <Setter Property="Tag" Value="Visible"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="RadioButton">
+                            <Grid Background="Transparent">
+                                <Border Background="{TemplateBinding Background}" CornerRadius="5 20 20 5" >
+                                    <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0 0 0 0"/>
+                                </Border>
+                                <Border Width="5" Height="35.8" CornerRadius="0 2.5 2.5 0" Background="AliceBlue" Margin="-195 0 0 0"></Border>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 
 </ResourceDictionary>

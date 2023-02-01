@@ -24,5 +24,10 @@ namespace MusicMediaPlayer.View
         {
             InitializeComponent();
         }
+
+        private void EmailChange_Collapsed(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
