@@ -26,14 +26,27 @@
     </i:Interaction.Triggers>
     <ScrollViewer>
         <Grid Background="Transparent"
-          Margin="5"
-          Width="1000"
+          Width="980"
           Height="2000">
             <Border x:Name="OutsideBackground"
                         CornerRadius="20" 
                         BorderBrush="#1ED760"
                         BorderThickness="0"
-                        Background="Black" MaxHeight="2000" MaxWidth="1000"/>
+                        MaxHeight="2000" MaxWidth="1000">
+                <Grid Background="Transparent">
+                    <Border CornerRadius="20">
+                        <Border.Background>
+                            <ImageBrush ImageSource="\Image\Sky1.jpg" Stretch="UniformToFill" Opacity="0.45"/>
+                        </Border.Background>
+                    </Border>
+                </Grid>
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#0099FF" Offset="0.35"/>
+                        <GradientStop Color="AliceBlue" Offset="0.12"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
             <StackPanel Orientation="Horizontal"
                     Margin="160,570,0,0" 
                     Width="652"
@@ -123,12 +136,6 @@
                 <Grid x:Name="GenreBackground"
                   Height="400"
                   Background="Transparent">
-                    <Image gif:AnimationBehavior.SourceUri="\Image\circlecolorgif.gif" 
-                       IsEnabled="True"
-                       Width="400"
-                       Height="400"
-                       Margin="0,-200,0,-10"
-                       ></Image>
                     <Border x:Name="GenreFrame"
                         CornerRadius="180"
                         Height="150"
@@ -144,7 +151,7 @@
                                Height="80"
                                FontSize="42"
                                FontWeight="Medium"
-                               Foreground="#FFFFFF"
+                               Foreground="#333333"
                                TextAlignment="Center"/>
                         <StackPanel Orientation="Horizontal"
                                 Width="auto"
@@ -154,13 +161,13 @@
                                        Width="80"
                                FontSize="18"
                                FontWeight="Medium"
-                               Foreground="#767676"
+                               Foreground="#333333"
                                Margin="400,0,0,0"/>
                         </StackPanel>
-                        <Separator Background="#767676"
+                        <Separator Background="Silver"
                                Margin="0,10,0,0"></Separator>
                         <TextBlock Text="Hits"
-                               Foreground="#FFFFFF"
+                               Foreground="#333333"
                                FontSize="28"
                                FontWeight="Medium"
                                Margin="20,10,0,0"/>
@@ -188,7 +195,7 @@
                                        TextAlignment="Left"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
-                                       Foreground="#77CCFF"
+                                       Foreground="#222222"
                                        FontSize="18"
                                        FontWeight="Heavy"
                                        TextTrimming="WordEllipsis"/>
@@ -198,7 +205,7 @@
                                         TextAlignment="Left"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
-                                        Foreground="#77CCFF"
+                                        Foreground="#222222"
                                         FontSize="18"
                                         FontWeight="Heavy"
                                         TextTrimming="WordEllipsis"
@@ -208,12 +215,12 @@
                                         Margin="0,25,0,0"
                                         TextAlignment="Left"
                                         VerticalAlignment="Center"
-                                        Foreground="#77CCFF"
+                                        Foreground="#222222"
                                         FontSize="18"
                                         FontWeight="Heavy"
                                         Text="{Binding ListPopular[0].Times}"/>
                         </StackPanel>
-                        <Separator Background="#77CCFF"
+                        <Separator Background="Silver"
                                    Width="auto"></Separator>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="{Binding ListPopular[1].ImageSongBinary, Converter={StaticResource ByteToImageConverter}}"
@@ -230,7 +237,7 @@
                                        TextAlignment="Left"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
-                                       Foreground="#83F28F"
+                                       Foreground="#222222"
                                        FontSize="18"
                                        FontWeight="Heavy"
                                        TextTrimming="WordEllipsis"/>
@@ -240,7 +247,7 @@
                                         TextAlignment="Left"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
-                                        Foreground="#83F28F"
+                                        Foreground="#222222"
                                         FontSize="18"
                                         FontWeight="Heavy"
                                         TextTrimming="WordEllipsis"
@@ -250,12 +257,12 @@
                                         Margin="0,25,0,0"
                                         TextAlignment="Left"
                                         VerticalAlignment="Center"
-                                        Foreground="#83F28F"
+                                        Foreground="#222222"
                                         FontSize="18"
                                         FontWeight="Heavy"
                                         Text="{Binding ListPopular[1].Times}"/>
                         </StackPanel>
-                        <Separator Background="#83F28F"
+                        <Separator Background="Silver"
                                    Width="auto"></Separator>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="{Binding ListPopular[2].ImageSongBinary, Converter={StaticResource ByteToImageConverter}}"
@@ -272,7 +279,7 @@
                                        TextAlignment="Left"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
-                                       Foreground="#FE70C6"
+                                       Foreground="#222222"
                                        FontSize="18"
                                        FontWeight="Heavy"
                                        TextTrimming="WordEllipsis"/>
@@ -282,7 +289,7 @@
                                         TextAlignment="Left"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
-                                        Foreground="#FE70C6"
+                                        Foreground="#222222"
                                         FontSize="18"
                                         FontWeight="Heavy"
                                         TextTrimming="WordEllipsis"
@@ -292,12 +299,12 @@
                                         Margin="0,25,0,0"
                                         TextAlignment="Left"
                                         VerticalAlignment="Center"
-                                        Foreground="#FE70C6"
+                                        Foreground="#222222"
                                         FontSize="18"
                                         FontWeight="Heavy"
                                         Text="{Binding ListPopular[2].Times}"/>
                         </StackPanel>
-                        <Separator Background="#FE70C6"
+                        <Separator Background="Silver"
                                    Width="auto"></Separator>
                     </StackPanel>
                     <StackPanel Grid.Column="1"
@@ -317,7 +324,7 @@
                                        TextAlignment="Left"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
-                                       Foreground="#77CCFF"
+                                       Foreground="#222222"
                                        FontSize="18"
                                        FontWeight="Heavy"
                                        TextTrimming="WordEllipsis"/>
@@ -327,7 +334,7 @@
                                         TextAlignment="Left"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
-                                        Foreground="#77CCFF"
+                                        Foreground="#222222"
                                         FontSize="18"
                                         FontWeight="Heavy"
                                         TextTrimming="WordEllipsis"
@@ -337,12 +344,12 @@
                                         Margin="0,25,0,0"
                                         TextAlignment="Left"
                                         VerticalAlignment="Center"
-                                        Foreground="#77CCFF"
+                                        Foreground="#222222"
                                         FontSize="18"
                                         FontWeight="Heavy"
                                         Text="{Binding ListPopular[3].Times}"/>
                         </StackPanel>
-                        <Separator Background="#77CCFF"
+                        <Separator Background="Silver"
                                    Width="auto"></Separator>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="{Binding ListPopular[4].ImageSongBinary, Converter={StaticResource ByteToImageConverter}}"
@@ -359,7 +366,7 @@
                                        TextAlignment="Left"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
-                                       Foreground="#83F28F"
+                                       Foreground="#222222"
                                        FontSize="18"
                                        FontWeight="Heavy"
                                        TextTrimming="WordEllipsis"/>
@@ -369,7 +376,7 @@
                                         TextAlignment="Left"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
-                                        Foreground="#83F28F"
+                                        Foreground="#222222"
                                         FontSize="18"
                                         FontWeight="Heavy"
                                         TextTrimming="WordEllipsis"
@@ -379,12 +386,12 @@
                                         Margin="0,25,0,0"
                                         TextAlignment="Left"
                                         VerticalAlignment="Center"
-                                        Foreground="#83F28F"
+                                        Foreground="#222222"
                                         FontSize="18"
                                         FontWeight="Heavy"
                                         Text="{Binding ListPopular[4].Times}"/>
                         </StackPanel>
-                        <Separator Background="#83F28F"
+                        <Separator Background="Silver"
                                    Width="auto"></Separator>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="{Binding ListPopular[5].ImageSongBinary, Converter={StaticResource ByteToImageConverter}}"
@@ -401,7 +408,7 @@
                                        TextAlignment="Left"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
-                                       Foreground="#FE70C6"
+                                       Foreground="#222222"
                                        FontSize="18"
                                        FontWeight="Heavy"
                                        TextTrimming="WordEllipsis"/>
@@ -411,7 +418,7 @@
                                         TextAlignment="Left"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
-                                        Foreground="#FE70C6"
+                                        Foreground="#222222"
                                         FontSize="18"
                                         FontWeight="Heavy"
                                         TextTrimming="WordEllipsis"
@@ -421,18 +428,18 @@
                                         Margin="0,25,0,0"
                                         TextAlignment="Left"
                                         VerticalAlignment="Center"
-                                        Foreground="#FE70C6"
+                                        Foreground="#222222"
                                         FontSize="18"
                                         FontWeight="Heavy"
                                         Text="{Binding ListPopular[5].Times}"/>
                         </StackPanel>
-                        <Separator Background="#FE70C6"
+                        <Separator Background="Silver"
                                    Width="auto"></Separator>
                     </StackPanel>
                 </Grid>
                 <StackPanel>
                     <TextBlock Text="Musical Composition"
-                               Foreground="#FFFFFF"
+                               Foreground="#333333"
                                FontSize="28"
                                FontWeight="Medium"
                                Margin="20,10,0,0"/>
