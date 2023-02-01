@@ -151,9 +151,15 @@ namespace MusicMediaPlayer.ViewModel
 
             Delete = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                MessageBoxResult dr = System.Windows.MessageBox.Show("Do you want to delete it?", "Delete!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                MessageBoxYesNo wd = new MessageBoxYesNo();
 
-                if (dr == MessageBoxResult.Yes)
+                var data = wd.DataContext as MessageBoxYesNoViewModel;
+                data.Title = "Delete!";
+                data.Question = "Do you want to delete it?";
+                wd.ShowDialog();
+
+                var result = wd.DataContext as MessageBoxYesNoViewModel;
+                if (result.IsYes == true)
                 {
                     var pl = p as MusicMediaPlayer.Model.PlayList;
 

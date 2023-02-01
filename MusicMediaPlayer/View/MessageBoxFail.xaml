@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MusicMediaPlayer.View"
         mc:Ignorable="d"
         Title="MessageBoxFail" 
-        Height="150" 
+        Height="140" 
         Width="150"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"        
@@ -21,7 +21,17 @@
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
         xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
+        
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        x:Name="FailMB"
+        DataContext="{StaticResource MessageBoxVM}"
         >
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding Loaded}"
+                                   CommandParameter="{Binding ElementName=FailMB}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
         <Border CornerRadius="10" 
                 Background="White"
@@ -38,7 +48,7 @@
                    TextAlignment="Center"
                    VerticalAlignment="Top" 
                    HorizontalAlignment="Center"
-                   Margin="0 25 0 0"
+                   Margin="0 15 0 0"
                    >
         </TextBlock>
 
@@ -46,7 +56,7 @@
               HorizontalAlignment="Center"
               Height="80"
               Width="125"
-              Margin="0 0 0 10">
+              Margin="0 0 0 15">
             <Image gif:AnimationBehavior.SourceUri="\Image\error.gif"
                    Stretch="Uniform" Margin="0,0,0,2">
 

@@ -27,7 +27,6 @@
     </i:Interaction.Triggers>
     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromRight, Duration=0:0:0.3}">
         <Grid Background="Transparent"
-          Margin="5"
           Width="1000"
           Height="1000">
             <Grid.ColumnDefinitions>
@@ -36,9 +35,15 @@
             </Grid.ColumnDefinitions>
             <Border CornerRadius="20" 
                        
-                        Background="White" MaxHeight="1000" MaxWidth="1000"/>
+                        MaxHeight="1000" MaxWidth="1000">
+                <Border.Background>
+                    <ImageBrush ImageSource="\Image\Sky.jpg"
+                                Opacity="0.2"
+                                Stretch="UniformToFill"></ImageBrush>
+                </Border.Background>
+            </Border>
             <TextBlock x:Name="IsThereSong"
-                   Foreground="#FFFFFF"
+                   Foreground="#333333"
                    Background="Transparent"
                    FontSize="24"
                    Text="Nothing to show here"
@@ -49,7 +54,7 @@
                    Width="500"></TextBlock>
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Border BorderBrush="#0099FF"
+                    <Border BorderBrush="#333333"
                         BorderThickness="2"
                         Width="200"
                         Height="40"
@@ -58,7 +63,7 @@
                         <StackPanel Orientation="Horizontal">
                             <Ellipse Width="10"
                                  Height="10"
-                                 Fill="#0099FF"
+                                 Fill="#333333"
                                  Margin="10,0,0,0"></Ellipse>
                             <TextBox x:Name="SongFilter"
                                   Width="150"
@@ -66,7 +71,7 @@
                                   Background="Transparent"
                                   BorderBrush="Transparent"
                                   BorderThickness="0"
-                                  Foreground="#767676"
+                                  Foreground="#333333"
                                   HorizontalAlignment="Center"
                                   VerticalAlignment="Center"
                                   materialDesign:HintAssist.Hint="Search here ..."
@@ -85,7 +90,7 @@
                         <Border Background="Transparent"
                         Height="40"
                         Width="40"
-                        BorderBrush="#0099FF"
+                        BorderBrush="#333333"
                         Opacity="0.6"
                         BorderThickness="3"
                         CornerRadius="40">
@@ -94,7 +99,7 @@
                           IsEnabled="False"
                           Content="{materialDesign:PackIcon Plus}"
                           Background="Transparent"
-                          Foreground="Black"
+                          Foreground="#333333"
                           Height="50"
                           Width="50"
                           HorizontalAlignment="Center"
@@ -103,7 +108,7 @@
                             </Button>
                         </Border>
                         <Label Content="New"
-                           Foreground="Black"
+                           Foreground="#333333"
                            FontSize="14"
                            Opacity="0.5"
                            HorizontalAlignment="Center"
@@ -116,7 +121,7 @@
                         <Border Background="Transparent"
                         Height="40"
                         Width="40"
-                        BorderBrush="#0099FF"
+                        BorderBrush="#333333"
                         BorderThickness="3"
                         CornerRadius="40">
                             <Button
@@ -125,7 +130,7 @@
                           Margin="0,0,0,0"
                           Content="{materialDesign:PackIcon ArrowLeftBold}"
                           Background="Transparent"
-                          Foreground="Black"
+                          Foreground="#333333"
                           Height="50"
                           Width="50"
                           HorizontalAlignment="Center"
@@ -134,7 +139,7 @@
                             </Button>
                         </Border>
                         <Label Content="Back"
-                           Foreground="Black"
+                           Foreground="#333333"
                            FontSize="14"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"></Label>
@@ -313,7 +318,7 @@
                                                                     Width="20"
                                                                     Padding="0"
                                                                     Margin="10,0,0,30"
-                                                                    Foreground="#FF2C2C"
+                                                                    Foreground="Salmon"
                                                                     BorderBrush="Transparent">
                                                     </Button>
                                                     <ToggleButton   VerticalAlignment="Center"

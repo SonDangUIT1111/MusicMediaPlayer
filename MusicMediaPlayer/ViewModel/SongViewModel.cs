@@ -173,7 +173,10 @@ namespace MusicMediaPlayer.ViewModel
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("File not found");
+                        MessageBoxOK wd = new MessageBoxOK();
+                        var data = wd.DataContext as MessageBoxOKViewModel;
+                        data.Content = "File not found";
+                        wd.ShowDialog();
                     }
                 }
             }
@@ -414,8 +417,16 @@ namespace MusicMediaPlayer.ViewModel
             }, (p)
                  =>
             {
-                MessageBoxResult result = MessageBox.Show("Do you want to delete it", "Delete song", MessageBoxButton.YesNo);
-                if (result == MessageBoxResult.Yes)
+                MessageBoxYesNo wd = new MessageBoxYesNo();
+
+                var data = wd.DataContext as MessageBoxYesNoViewModel;
+                data.Title = "Delete!";
+                data.Question = "Do you want to delete it?";
+                wd.ShowDialog();
+
+                var result = wd.DataContext as MessageBoxYesNoViewModel;
+
+                if (result.IsYes == true)
                 {
                     var item = p as Song;
                     int artistid = (int)item.ArtistId;
@@ -479,7 +490,10 @@ namespace MusicMediaPlayer.ViewModel
                 EditSongInApp wd = p as EditSongInApp;
                 if (DataProvider.Ins.DB.Song.Where(o => o.SongTitle == TitleToChange && o.UserId == CurrentUser.Id).Count() > 0)
                 {
-                    MessageBox.Show("This title already exists, please try another title");
+                    MessageBoxOK mb = new MessageBoxOK();
+                    var data = mb.DataContext as MessageBoxOKViewModel;
+                    data.Content = "This title already exists, please try another title";
+                    mb.ShowDialog();
                     return;
                 }
                 else
@@ -728,7 +742,10 @@ namespace MusicMediaPlayer.ViewModel
                 }
                 if (DataProvider.Ins.DB.Song.Where(o => o.SongTitle == TitleToAdd && o.UserId == CurrentUser.Id).Count() > 0)
                 {
-                    MessageBox.Show("This title already exists, please try another title");
+                    MessageBoxOK mb = new MessageBoxOK();
+                    var data = mb.DataContext as MessageBoxOKViewModel;
+                    data.Content = "This title already exists, please try another title";
+                    mb.ShowDialog();
                     return;
                 }
                 try
@@ -818,7 +835,10 @@ namespace MusicMediaPlayer.ViewModel
                     DataProvider.Ins.DB.Song.Add(newSongItem);
                     DataProvider.Ins.DB.SaveChanges();
                     LoadCommon();
+
                     MessageBox.Show("Add successfully");
+
+                 
                     MySongWindow.Close();
                     TitleToAdd = null;
                     ArtistToAdd = null;
@@ -830,7 +850,10 @@ namespace MusicMediaPlayer.ViewModel
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Add process failed due to some invalid infomation");
+                    MessageBoxOK wd = new MessageBoxOK();
+                    var data = wd.DataContext as MessageBoxOKViewModel;
+                    data.Content = "Add process failed due to some invalid infomation";
+                    wd.ShowDialog();
                 }
 
             });

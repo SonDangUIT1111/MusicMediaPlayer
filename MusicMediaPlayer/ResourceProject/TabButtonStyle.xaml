@@ -45,8 +45,8 @@
                         </Storyboard>
                     </BeginStoryboard>
                 </Trigger.ExitActions>
-                <Setter Property="Foreground" Value="Black"></Setter>
-                <Setter Property="BorderBrush" Value="#0099FF"></Setter>
+                <Setter Property="Foreground" Value="#333333"></Setter>
+                <Setter Property="BorderBrush" Value="Gray"></Setter>
                 <Setter Property="FontSize" Value="16"></Setter>
             </Trigger>
         </Style.Triggers>

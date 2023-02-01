@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MusicMediaPlayer.View"
         mc:Ignorable="d"
         Title="MessageBoxLoading" 
-        Height="150" 
+        Height="140" 
         Width="150"
         WindowStartupLocation="CenterScreen" 
         WindowStyle="None" 
@@ -28,7 +28,7 @@
                >
         </Border>
         <StackPanel>
-            <Grid Height="80">
+            <Grid Height="40" Margin="0 20 0 0">
                 <TextBlock Text="Processing"
                            Foreground="#0099FF"
                            FontFamily="Bahnschrift SemiBold" 

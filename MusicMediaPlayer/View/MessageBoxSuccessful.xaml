@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MusicMediaPlayer.View"
         mc:Ignorable="d"
         Title="MessageBoxSuccessful" 
-        Height="150" 
+        Height="140" 
         Width="150"
         WindowStartupLocation="CenterScreen" 
         WindowStyle="None" 
@@ -20,13 +20,21 @@
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
         xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        DataContext="{StaticResource MessageBoxVM}"
+        x:Name="SuccessfulMB"
         >
-
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding Loaded}"
+                                   CommandParameter="{Binding ElementName=SuccessfulMB}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
         <Border CornerRadius="10" 
                 Background="White"
                 BorderThickness="3"
-                BorderBrush="#0099FF"
+                BorderBrush="#104E8B"
                >
             <Border CornerRadius="10"
                     Background="Black"
@@ -35,10 +43,11 @@
                 
             </Border>
         </Border>
+        
         <Grid VerticalAlignment="Top"
-                Margin="10 30 10 10">
+                Margin="10 15 10 10">
             <TextBlock Text="Successful"
-                    Foreground="#0099FF"
+                    Foreground="#104E8B"
                     FontFamily="Bahnschrift SemiBold" 
                     FontWeight="SemiBold" 
                     FontSize="20"
@@ -52,18 +61,13 @@
         <Border
             Height="100"
             Width="150" 
-            Margin="0,50,0,0" 
+            Margin="0,40,0,0" 
             CornerRadius="20"
-            
             >
-            
-           
-                <Image gif:AnimationBehavior.SourceUri="\Image\successful4.gif"
+            <Image gif:AnimationBehavior.SourceUri="\Image\successful4.gif"
                    Stretch="Uniform" Margin="5">
 
-                </Image>
-          
-            
+            </Image>
         </Border>
     </Grid>
 </Window>
