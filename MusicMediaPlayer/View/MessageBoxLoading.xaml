@@ -23,6 +23,7 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         x:Name="LoadingMB"
         DataContext="{StaticResource MessageBoxVM}"
+        Icon="AppIcon.ico"
         >
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">

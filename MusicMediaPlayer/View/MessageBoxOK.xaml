@@ -26,6 +26,7 @@
         DataContext="{StaticResource MessageBoxOKVM}"
         x:Name="MBOK"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        Icon="AppIcon.ico"
         >
     <Border CornerRadius="10" 
             Background="White"

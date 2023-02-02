@@ -20,7 +20,7 @@
         DataContext="{StaticResource LoginVM}"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         Name="LoginWindow"
-        Icon="IconApp.ico"
+        Icon="AppIcon.ico"
         >
     <Grid>
         <Grid.ColumnDefinitions>

@@ -17,10 +17,11 @@
         AllowsTransparency="True" Background="Transparent"
         ResizeMode="NoResize" WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        Icon="IconApp.ico"
         DataContext="{StaticResource RegisterVM}"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-        Name="RegisterWindow">
+        Name="RegisterWindow"
+        Icon="AppIcon.ico"
+        >
     <Grid>
         <Grid>
             <Grid.RowDefinitions>

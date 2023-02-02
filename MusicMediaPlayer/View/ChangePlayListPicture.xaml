@@ -25,7 +25,8 @@
         
         DataContext="{StaticResource ChangePlayListPictureVM}"
         x:Name="ChangePlayListPictureWD"
-        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"        
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        Icon="AppIcon.ico"
         >
     <Border CornerRadius="20"
             Background="White"

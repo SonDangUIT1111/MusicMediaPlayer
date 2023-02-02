@@ -11,6 +11,7 @@ FC:\Code_VSCode2022\ĐỒ ÁN LTTQ MUSICPLAYER\MusicMediaPlayer\View\ChangeGenre
 FC:\Code_VSCode2022\ĐỒ ÁN LTTQ MUSICPLAYER\MusicMediaPlayer\View\ChangePassword.xaml;;
 FC:\Code_VSCode2022\ĐỒ ÁN LTTQ MUSICPLAYER\MusicMediaPlayer\ResourceProject\ExpanderMySongTemplate.xaml;;
 FC:\Code_VSCode2022\ĐỒ ÁN LTTQ MUSICPLAYER\MusicMediaPlayer\View\AddSongToApp.xaml;;
+FC:\Code_VSCode2022\ĐỒ ÁN LTTQ MUSICPLAYER\MusicMediaPlayer\View\ChangePlayListPicture.xaml;;
 FC:\Code_VSCode2022\ĐỒ ÁN LTTQ MUSICPLAYER\MusicMediaPlayer\View\Discover_AlbumSong.xaml;;
 FC:\Code_VSCode2022\ĐỒ ÁN LTTQ MUSICPLAYER\MusicMediaPlayer\View\Discover_Artist.xaml;;
 FC:\Code_VSCode2022\ĐỒ ÁN LTTQ MUSICPLAYER\MusicMediaPlayer\View\Discover_ArtistSong.xaml;;
@@ -43,5 +44,4 @@ FC:\Code_VSCode2022\ĐỒ ÁN LTTQ MUSICPLAYER\MusicMediaPlayer\View\SleepTimerF
 FC:\Code_VSCode2022\ĐỒ ÁN LTTQ MUSICPLAYER\MusicMediaPlayer\View\SleepTimerForGenre.xaml;;
 FC:\Code_VSCode2022\ĐỒ ÁN LTTQ MUSICPLAYER\MusicMediaPlayer\View\SleepTimerForPlaylist.xaml;;
 FC:\Code_VSCode2022\ĐỒ ÁN LTTQ MUSICPLAYER\MusicMediaPlayer\View\SleepTimerView.xaml;;
-FC:\Code_VSCode2022\ĐỒ ÁN LTTQ MUSICPLAYER\MusicMediaPlayer\View\ChangePlayListPicture.xaml;;
 

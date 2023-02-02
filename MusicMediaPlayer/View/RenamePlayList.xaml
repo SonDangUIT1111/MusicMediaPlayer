@@ -14,6 +14,7 @@
         WindowStyle="None"
         Name="RenamePL"
         Background="Transparent"
+        Icon="AppIcon.ico"
         >
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">

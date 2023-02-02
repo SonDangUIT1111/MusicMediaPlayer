@@ -708,7 +708,7 @@ namespace MusicMediaPlayer.ViewModel
             }, (p) =>
             {
                 var projectPath = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
-                var filePath = Path.Combine(projectPath, "Image", "logomusicapp.png");
+                var filePath = Path.Combine(projectPath, "Image", "music_note.jpg");
                 string titleNewSong = "Unknown";
                 string artistNewSong = "Unknown";
                 string albumNewSong = "Unknown";

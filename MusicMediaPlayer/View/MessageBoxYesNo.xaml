@@ -26,6 +26,7 @@
         DataContext="{StaticResource MessageBoxYesNoVM}"
         x:Name="MessageBoxYN"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        Icon="AppIcon.ico"
         >
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">

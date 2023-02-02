@@ -22,6 +22,7 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
+        Icon="AppIcon.ico"
         >
 
     <i:Interaction.Triggers >

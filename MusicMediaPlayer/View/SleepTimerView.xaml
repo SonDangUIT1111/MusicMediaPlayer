@@ -18,7 +18,9 @@
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
         DataContext="{StaticResource SongVM}"
         Name="SleepTimerWD"
-        xmlns:my="clr-namespace:MusicMediaPlayer.View">
+        xmlns:my="clr-namespace:MusicMediaPlayer.View"
+        Icon="AppIcon.ico"
+        >
     <Window.Resources>
         <my:ValueAngleConverter x:Key="valueAngleConverter"/>
         <my:ValueTextConverter x:Key="valueTextConverter"/>
