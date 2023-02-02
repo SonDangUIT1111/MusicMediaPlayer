@@ -43,8 +43,7 @@
     <Property Name="OwnerId" Type="Int32" Nullable="false" />
     <Property Name="ImagePlaylistBinary" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="TimeCreate" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="UserAccount" Relationship="Self.FK__PlayList__OwnerI__40F9A68C" FromRole="PlayList" ToRole="UserAccount" />
-    <NavigationProperty Name="UserAccount1" Relationship="Self.FK__PlayList__OwnerI__5DCAEF64" FromRole="PlayList" ToRole="UserAccount" />
+    <NavigationProperty Name="UserAccount" Relationship="Self.FK__PlayList__OwnerI__31EC6D26" FromRole="PlayList" ToRole="UserAccount" />
     <NavigationProperty Name="Songs" Relationship="Self.Has" FromRole="PlayList" ToRole="Song" />
   </EntityType>
   <EntityType Name="Song">
@@ -72,16 +71,6 @@
     <NavigationProperty Name="UserAccount" Relationship="Self.FK_Song_User" FromRole="Song" ToRole="UserAccount" />
     <NavigationProperty Name="PlayLists" Relationship="Self.Has" FromRole="Song" ToRole="PlayList" />
   </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <EntityType Name="UserAccount">
     <Key>
       <PropertyRef Name="UserId" />
@@ -92,8 +81,7 @@
     <Property Name="UserEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="UserImage" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="NickName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="PlayLists" Relationship="Self.FK__PlayList__OwnerI__40F9A68C" FromRole="UserAccount" ToRole="PlayList" />
-    <NavigationProperty Name="PlayLists1" Relationship="Self.FK__PlayList__OwnerI__5DCAEF64" FromRole="UserAccount" ToRole="PlayList" />
+    <NavigationProperty Name="PlayLists" Relationship="Self.FK__PlayList__OwnerI__31EC6D26" FromRole="UserAccount" ToRole="PlayList" />
     <NavigationProperty Name="Songs" Relationship="Self.FK_Song_User" FromRole="UserAccount" ToRole="Song" />
   </EntityType>
   <Association Name="FK_Song_Album">
@@ -132,19 +120,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PlayList__OwnerI__40F9A68C">
-    <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />
-    <End Role="PlayList" Type="Self.PlayList" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UserAccount">
-        <PropertyRef Name="UserId" />
-      </Principal>
-      <Dependent Role="PlayList">
-        <PropertyRef Name="OwnerId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__PlayList__OwnerI__5DCAEF64">
+  <Association Name="FK__PlayList__OwnerI__31EC6D26">
     <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />
     <End Role="PlayList" Type="Self.PlayList" Multiplicity="*" />
     <ReferentialConstraint>
@@ -178,7 +154,6 @@
     <EntitySet Name="Genres" EntityType="Self.Genre" />
     <EntitySet Name="PlayLists" EntityType="Self.PlayList" />
     <EntitySet Name="Songs" EntityType="Self.Song" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="UserAccounts" EntityType="Self.UserAccount" />
     <AssociationSet Name="FK_Song_Album" Association="Self.FK_Song_Album">
       <End Role="Album" EntitySet="Albums" />
@@ -192,11 +167,7 @@
       <End Role="Genre" EntitySet="Genres" />
       <End Role="Song" EntitySet="Songs" />
     </AssociationSet>
-    <AssociationSet Name="FK__PlayList__OwnerI__40F9A68C" Association="Self.FK__PlayList__OwnerI__40F9A68C">
-      <End Role="UserAccount" EntitySet="UserAccounts" />
-      <End Role="PlayList" EntitySet="PlayLists" />
-    </AssociationSet>
-    <AssociationSet Name="FK__PlayList__OwnerI__5DCAEF64" Association="Self.FK__PlayList__OwnerI__5DCAEF64">
+    <AssociationSet Name="FK__PlayList__OwnerI__31EC6D26" Association="Self.FK__PlayList__OwnerI__31EC6D26">
       <End Role="UserAccount" EntitySet="UserAccounts" />
       <End Role="PlayList" EntitySet="PlayLists" />
     </AssociationSet>

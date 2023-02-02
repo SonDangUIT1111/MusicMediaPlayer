@@ -13,7 +13,7 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="Register" Height="450" Width="330"
+        Title="Register" Height="450" Width="800"
         AllowsTransparency="True" Background="Transparent"
         ResizeMode="NoResize" WindowStyle="None"
         WindowStartupLocation="CenterScreen"
@@ -22,151 +22,214 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         Name="RegisterWindow">
     <Grid>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border CornerRadius="20 0 0 20" 
+                Panel.ZIndex="1"
+                BorderThickness="0.1"
+                BorderBrush="Transparent"
+                HorizontalAlignment="Center"
+                Width="500"
+                >
+            <Border.Background>
+                <ImageBrush ImageSource="/Image/dang_nghe_nhac.jpg"
+                            Stretch="UniformToFill">
+                </ImageBrush>
+            </Border.Background>
+        </Border>
+        <Grid Grid.Column="1">
+            <Grid Height="450"
+              Width="300">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="160"/>
+                    <RowDefinition Height="229*"/>
+                    <RowDefinition Height="16*"/>
+                    <RowDefinition Height="5*"/>
+                </Grid.RowDefinitions>
 
-            <Border CornerRadius="20" Grid.RowSpan="2" Background="AliceBlue">
-                <Grid>
-                    <Border CornerRadius="20">
-                        <Border.Background>
-                            <ImageBrush ImageSource="/image/Sky.jpg" Opacity="0.5"
-                       Stretch="UniformToFill"></ImageBrush>
-                        </Border.Background>
-                    </Border>
-                </Grid>
-            </Border>
+                <Border Grid.RowSpan="4" CornerRadius="0 20 20 0" Panel.ZIndex="0">
+                    <Border.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#F5F7F6" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
+                <Ellipse Width="200"
+                         Height="200"
+                         Fill="#5CA0F2"
+                         Opacity="0.1"
+                         Stroke="Transparent" 
+                         Margin="219,140,-119,-90" 
+                         Grid.Row="1"
+                         Panel.ZIndex="0" Grid.RowSpan="3"/>
+                <Ellipse Width="200"
+                         Height="200"
+                         Fill="#5CA0F2"
+                         Opacity="0.2"
+                         Stroke="Transparent" 
+                         Margin="-50,127,150,-77" 
+                         Grid.Row="1"
+                         Panel.ZIndex="0" Grid.RowSpan="3"/>
+                <Ellipse Width="100"
+                         Height="100"
+                         Fill="#5CA0F2"
+                         Opacity="0.2"
+                         Stroke="Transparent" 
+                         Margin="-34,190,234,0" 
+                         Grid.Row="1"
+                         Panel.ZIndex="0" VerticalAlignment="Top" Grid.RowSpan="3"/>
+                <Ellipse Width="300"
+                         Height="300"
+                         Fill="#5CA0F2"
+                         Opacity="0.2"
+                         Stroke="Transparent" 
+                         Margin="100,54,-100,-104" 
+                         Grid.Row="1"
+                         Panel.ZIndex="0" Grid.RowSpan="3"/>
 
-            <StackPanel>
-                <uc:UserControlLoginRegister/>
-                <Button Height="75"
-                        Width="75"
+                <StackPanel>
+                    <uc:UserControlLoginRegister></uc:UserControlLoginRegister>
+                    <Button Height="65"
+                        Width="65"
                         HorizontalAlignment="Center"
-                        Margin="0,0,0,0"
+                        Margin="0,-5,0,0"
                         Foreground="White"
                         Style="{StaticResource NormalButton}"
                         RenderTransformOrigin="0.5,0.5">
-                    <Image Source="/Image/logo5.png"></Image>
-                    <Button.RenderTransform>
-                        <RotateTransform x:Name="MyAnimatedTransform" Angle="0" />
-                    </Button.RenderTransform>
-                    <Button.Triggers>
-                        <EventTrigger RoutedEvent="Loaded">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <DoubleAnimation
-                Storyboard.TargetName="MyAnimatedTransform"
-                Storyboard.TargetProperty="(RotateTransform.Angle)"
-                From="0.0" To="360" Duration="0:0:3" RepeatBehavior="Forever" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>
-                </Button>
-                <TextBlock Text="Music Universe"
-                           FontSize="20"
+                        <Image Source="/Image/logo5.png"></Image>
+                    </Button>
+                    <TextBlock Text="Music Universe"
+                           FontSize="22"
                            FontWeight="Bold"
                            HorizontalAlignment="Center"
-                           Foreground="#333333"
-                           FontFamily="Candara"
+                           Foreground="Black"
+                           FontFamily="Roboto"
                            Margin="0,10,0,0"></TextBlock>
-            </StackPanel>
-            <StackPanel Grid.Row="1">
-                <StackPanel>
-                    <TextBox
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.RowSpan="3">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox
                         x:Name="Account"
                         materialDesign:HintAssist.Hint="User Name"
-                        FontSize="15"
+                        FontSize="14"
+                                FontWeight="SemiBold"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Background="Transparent"
                         BorderThickness="0"
                         Height="auto"
-                        Width="250"
+                        Width="260"
                         HorizontalAlignment="Center"
                         Text="{Binding Username,
                         ValidatesOnDataErrors=True,
                         UpdateSourceTrigger=PropertyChanged}"
                         Validation.ErrorTemplate="{StaticResource ErrorMessage}"
+                                Margin="20 0 0 0"
                         />
-                    <Border BorderBrush="White"
+                            <Border BorderBrush="White"
                         Height="1"
                         Width="240"
                         BorderThickness="10">
-                    </Border>
-                </StackPanel>
-                <StackPanel Margin="0,10,0,0">
-                    <PasswordBox x:Name="Password"
+                            </Border>
+
+                            <materialDesign:PackIcon Kind="Account"
+                                                 Height="25"
+                                                 Width="25"
+                                                 Foreground="Black"
+                                                 Margin="0,10,0,0"
+                                                 Opacity="0.5"/>
+                        </StackPanel>
+                        <Border BorderBrush="Black"
+                        Height="1"
+                        Width="260"
+                        BorderThickness="10">
+                        </Border>
+                    </StackPanel>
+                    <StackPanel Margin="0,10,0,0">
+                        <StackPanel Orientation="Horizontal">
+                            <PasswordBox x:Name="Password"
                         materialDesign:HintAssist.Hint="Password"
-                        FontSize="15"
+                        FontSize="14"
+                                         FontWeight="SemiBold"
+                                         Margin="20 0 0 0"
                         Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
                         Background="Transparent"
                         BorderThickness="0"
                         Height="auto"
-                        Width="250"
+                        Width="260"
                         HorizontalAlignment="Center"
                         
                         >
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="PasswordChanged">
-                                <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}"
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="PasswordChanged">
+                                        <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}"
                                    CommandParameter="{Binding ElementName=Password}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </PasswordBox>
-                    <Border BorderBrush="White"
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </PasswordBox>
+                            <Border BorderBrush="White"
                         Height="1"
                         Width="240"
                         BorderThickness="10">
-                    </Border>
-                </StackPanel>
-                <StackPanel Margin="0,10,0,0">
-                    <PasswordBox x:Name="ConfirmPassword"
-                        materialDesign:HintAssist.Hint="Confirm Password"
-                        FontSize="15"
+                            </Border>
+                        </StackPanel>
+                        
+                        <Border BorderBrush="Black"
+                        Height="1"
+                        Width="260"
+                        BorderThickness="10">
+                        </Border>
+                    </StackPanel>
+                    <StackPanel Margin="0,10,0,0">
+                        <PasswordBox x:Name="ConfirmPassword"
+                                     FontWeight="SemiBold"
+                        materialDesign:HintAssist.Hint="Confirm Pass"
+                        FontSize="14"
                         Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
                         Background="Transparent"
                         BorderThickness="0"
                         Height="auto"
-                        Width="250"
+                        Width="260"
                         HorizontalAlignment="Center">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="PasswordChanged">
-                                <i:InvokeCommandAction Command="{Binding ConfirmPasswordChangedCommand}"
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="PasswordChanged">
+                                    <i:InvokeCommandAction Command="{Binding ConfirmPasswordChangedCommand}"
                                    CommandParameter="{Binding ElementName=ConfirmPassword}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </PasswordBox>
-                    <Border BorderBrush="White"
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </PasswordBox>
+                        <Border BorderBrush="Black"
                         Height="1"
-                        Width="240"
+                        Width="260"
                         BorderThickness="10">
-                    </Border>
-                </StackPanel>
-                <StackPanel>
-                    <TextBox x:Name="Email"
+                        </Border>
+                    </StackPanel>
+                    <StackPanel Margin="0 10 0 0">
+                        <TextBox x:Name="Email"
                         materialDesign:HintAssist.Hint="Email"
-                        FontSize="15"
+                        FontSize="14"
+                                 FontWeight="SemiBold"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                         Background="Transparent"
                         BorderThickness="0"
                         Height="auto"
-                        Width="250"
+                        Width="260"
                         HorizontalAlignment="Center"
                         Text="{Binding Email,
                         ValidatesOnDataErrors=True,
                         UpdateSourceTrigger=PropertyChanged}"
                         Validation.ErrorTemplate="{StaticResource ErrorMessage}"
                         />
-                    <Border BorderBrush="White"
+                        <Border BorderBrush="Black"
                         Height="1"
-                        Width="240"
+                        Width="260"
                         BorderThickness="10">
-                    </Border>
-                </StackPanel>
-                <StackPanel Margin="0,20,0,0">
-                    <Button Width="100" Height="40"  
+                        </Border>
+                    </StackPanel>
+                    <StackPanel Margin="0,20,0,0">
+                        <Button Width="100" Height="40"  
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"                        
                             Style="{StaticResource ContactButton}"
@@ -174,16 +237,16 @@
                             Command="{Binding SignUpCommand}"
                             IsDefault="True"
                             CommandParameter="{Binding ElementName=RegisterWindow}">
-                        <TextBlock Text="Sign up" Margin="7 0 0 0"></TextBlock>
-                    </Button>
-                    <StackPanel Orientation="Horizontal"
+                            <TextBlock Text="Sign up" Margin="7 0 0 0"></TextBlock>
+                        </Button>
+                        <StackPanel Orientation="Horizontal"
                                 Margin="0,10,0,0">
-                        <TextBlock Text="Have an accout already ?"
+                            <TextBlock Text="Have an accout already ?"
                                    Foreground="#222222"
                                    Margin="75,0,0,0"
                                    FontWeight="Normal"
                                    FontFamily="Candara"></TextBlock>
-                        <Button 
+                            <Button 
                                 VerticalAlignment="Top" 
                                 Padding="0" 
                                 HorizontalContentAlignment="Right" 
@@ -200,15 +263,12 @@
                                 Command="{Binding ToLogin}"
                                 CommandParameter="{Binding ElementName=RegisterWindow}" Height="20" Width="33"
                             >
-                            <TextBlock Text="Log in" Foreground="#222222" FontWeight="Medium"/>
-                        </Button>
+                                <TextBlock Text="Log in" Foreground="#222222" FontWeight="Medium"/>
+                            </Button>
+                        </StackPanel>
                     </StackPanel>
                 </StackPanel>
-
-
-            </StackPanel>
-
-
+            </Grid>
         </Grid>
     </Grid>
 </Window>

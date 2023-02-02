@@ -39,48 +39,6 @@
                             Stretch="UniformToFill">
                 </ImageBrush>
             </Border.Background>
-            <!--<Image Source="/Image/dang_nghe_nhac.jpg"
-                       Stretch="UniformToFill"
-                   >
-                    -->
-            <!--<Image.Triggers>
-                        <EventTrigger RoutedEvent="Loaded">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <DoubleAnimation 
-                                    Storyboard.TargetProperty="Opacity"
-                                    SpeedRatio=".5"
-                                    From="1"
-                                    To="0.5"
-                                    RepeatBehavior="Forever"/>
-
-                                    <DoubleAnimation
-                                    Storyboard.TargetProperty="Opacity"
-                                    SpeedRatio="0.5"
-                                    From="0.5"
-                                    To="1"
-                                    RepeatBehavior="Forever"/>
-
-                                    <ObjectAnimationUsingKeyFrames
-                                    Storyboard.TargetProperty="Source"
-                                    Duration="0:0:6"
-                                    RepeatBehavior="Forever">
-                                        <DiscreteObjectKeyFrame
-                                        Value="{StaticResource ImageTransition2}"
-                                        KeyTime="0:0:2"/>
-                                        <DiscreteObjectKeyFrame
-                                        Value="{StaticResource ImageTransition3}"
-                                        KeyTime="0:0:4"/>
-                                    </ObjectAnimationUsingKeyFrames>
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Image.Triggers>
-                    <Image.OpacityMask>
-                        <VisualBrush Visual="{Binding ElementName=mask}"></VisualBrush>
-                    </Image.OpacityMask>-->
-            <!--
-                </Image>-->
         </Border>
         <Grid Grid.Column="1">
             <Grid Height="450"
@@ -96,7 +54,6 @@
                     <Border.Background>
                         <LinearGradientBrush>
                             <GradientStop Color="#F5F7F6" Offset="1"/>
-                            <!--<GradientStop Color="#5CA0F2" Offset="0.6"/>-->
                         </LinearGradientBrush>
                     </Border.Background>
                 </Border>

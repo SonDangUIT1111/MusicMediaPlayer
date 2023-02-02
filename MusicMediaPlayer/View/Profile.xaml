@@ -19,89 +19,110 @@
       x:Name="ProfileWD"
       DataContext="{StaticResource ProfileVM}"
       xmlns:icon ="http://metro.mahapps.com/winfx/xaml/iconpacks">
-    <ScrollViewer HorizontalScrollBarVisibility="Auto">
-        <Grid  >
-            <Border Height="1000" Width="970" CornerRadius="20">
-                <Grid>
-                    <Border Opacity="0.8" CornerRadius="20">
-                        <Border.Background>
-                            <ImageBrush  ImageSource="/Image/Sky4.png" />
-                        </Border.Background>
-                    </Border>
-                </Grid>
-                <Border.Background>
-                    <LinearGradientBrush>
-                        <GradientStop Color="#5CA0F2" Offset="0.8"/>
-                        <GradientStop Color="AliceBlue"/>
-                    </LinearGradientBrush>
-                </Border.Background>
-            </Border>
-            <StackPanel>
-                <Border CornerRadius="35" 
-                    Width="580" 
-                    Height="250" Background="AliceBlue"
-                    Margin="45">
-                    <StackPanel Orientation="Horizontal">
-                        <Border x:Name="AvatarFrame"
+    <Grid  >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="550"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border Height="1000" 
+                Width="430"  
+                Grid.Column="1" 
+                Margin="-30 0 0 0" 
+                CornerRadius="0 20 20 0">
+
+            <StackPanel >
+                <Border x:Name="AvatarFrame"
                         Width="180" Height="180" 
                         CornerRadius="100"
-                        Margin="40 35 0 35" 
+                        Margin="0 120 0 0" 
                     BorderThickness="1" 
                     BorderBrush="Silver">
-                        </Border>
-                        <StackPanel>
-                            <TextBox Text="{Binding NickName}" 
+                </Border>
+                <StackPanel>
+                    <TextBox Text="{Binding NickName}" 
                      Height="28" 
-                     Width="280"                
-                     IsEnabled="{Binding AllowChanging}" Margin="12.5 107.5 12.5 107.5"
-                                 FontSize="15"/>
-                            <Button Style="{StaticResource CPButton}" 
+                     Width="280"     
+                             TextAlignment="Center"
+                             FontSize="18"
+                             FontStyle="Normal"
+                             FontWeight="SemiBold"
+                             Foreground="White"
+                     IsEnabled="{Binding AllowChanging}" Margin="12.5 10 12.5 107.5"
+                                 />
+                    <Button Style="{StaticResource CPButton}" 
                     Width="150"  
                     Command="{Binding CPCommand}"
                     Background="#5CA0F2"
                                 Margin="0 -75 0 0">
-                                <TextBlock Text="Change Password" 
+                        <TextBlock Text="Change Password" 
                            Foreground="AliceBlue"
                            FontSize="16" VerticalAlignment="Center" 
                            HorizontalAlignment="Center"
                            />
-                            </Button>
-                            <Border BorderBrush="Silver"
+                    </Button>
+                    <Border BorderBrush="Silver"
                         Height="2.5"
                         Width="280"
                         BorderThickness="10"
                                 Margin="0 -215 0 0">
-                            </Border>
-                        </StackPanel>
-                        <Grid>
-                            <Button Width="35" 
+                    </Border>
+                </StackPanel>
+                <Button Width="35" 
                                 Height="35"
-                        Margin="12.5 107.5 12.5 107.5"
+                        Margin="340 -145 12.5 107"
                         Command="{Binding ChangeNickname}" 
                         Visibility="{Binding AllowChangeButton}"
-                                BorderBrush="Transparent"
+                        BorderBrush="Transparent"
+                        Background="AliceBlue"
                         >
-                                <Button.Background>
-                                    <ImageBrush ImageSource="/Image/78d072b9f34c6c37d32493c50b7d9203.png" />
-                                </Button.Background>
-                            </Button>
-                            <Button Width="35" 
+
+                    <icon:PackIconMaterial 
+                                Kind="Pencil" 
+                                Height="18" 
+                                Width="17" 
+                                Margin="-7"/>
+                    </Button>
+                <Button Width="35" 
                                 Height="35"
                         Visibility="{Binding Accept}" 
                                 Background="AliceBlue"
                                 BorderBrush="Black"
                                 BorderThickness="1.5"
                         Command="{Binding AcceptChanging}"
-                        Margin="12.5 107.5 12.5 107.5">
-                                <icon:PackIconMaterial 
+                        Margin="340 -145 12.5 107">
+                    <icon:PackIconMaterial 
                                 Kind="Check" 
                                 Height="18" 
                                 Width="17" 
                                 Margin="-6"/>
-                            </Button>
-                        </Grid>
-                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <Border.Background>
+                <ImageBrush ImageSource="\image\Sky8.jpg" Opacity="0.88" Stretch="Fill"/>
+            </Border.Background>
+        </Border>
+
+        <Border Height="1000" Width="970" CornerRadius="20" >
+            <Grid>
+                <Border Opacity="0.8" CornerRadius="20">
+                    <Border.Background>
+                        <ImageBrush  ImageSource="/Image/Sky.jpg" Opacity="0.1"/>
+                    </Border.Background>
                 </Border>
+            </Grid>
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="AliceBlue"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <StackPanel Grid.Column="0">
+            <Border CornerRadius="25" 
+                    Width="400" 
+                    Height="70" 
+                    BorderBrush="#444444" 
+                    BorderThickness="2" 
+                    Margin="0 70 0 0">
                 <StackPanel Orientation="Horizontal" Height="40">
                     <TextBlock Text="Username" 
                            Height="30" 
@@ -109,14 +130,23 @@
                            Width="100" 
                            FontSize="20" 
                            FontWeight="SemiBold" 
-                           Margin="320 0 0 0"/>
+                               TextAlignment="Center" 
+                               Margin="10 0 0 0"
+                           />
                     <TextBlock Height="30" 
                            Foreground="#444444" 
-                           Width="280"
+                           Width="265"
                            FontSize="20" 
-                           FontWeight="SemiBold" Margin="20 0 0 0"
+                           FontWeight="SemiBold" Margin="15 0 0 0"
                            Text="{Binding UserName}"/>
                 </StackPanel>
+            </Border>
+            <Border CornerRadius="25" 
+                    Width="400" 
+                    Height="70" 
+                    BorderBrush="#444444" 
+                    BorderThickness="2" 
+                    Margin="0 20 0 0">
                 <StackPanel Orientation="Horizontal" Height="40">
                     <TextBlock Text="NickName" 
                            Height="30" 
@@ -124,14 +154,16 @@
                            Width="100" 
                            FontSize="20" 
                            FontWeight="SemiBold" 
-                           Margin="320 0 0 0"/>
+                           Margin="10 0 0 0"/>
                     <TextBlock Height="30" 
                            Foreground="#444444" 
-                           Width="280"
+                           Width="265"
                            FontSize="20" 
-                           FontWeight="SemiBold" Margin="20 0 0 0"
+                           FontWeight="SemiBold" Margin="15 0 0 0"
                            Text="{Binding NickName}"/>
                 </StackPanel>
+            </Border>
+            <Border CornerRadius="25" Width="400" Height="70" BorderBrush="#444444" BorderThickness="2" Margin="0 20 0 0">
                 <StackPanel Orientation="Horizontal" Height="40">
                     <TextBlock Text="Email" 
                            Height="30" 
@@ -139,30 +171,31 @@
                            Width="100" 
                            FontSize="20" 
                            FontWeight="SemiBold" 
-                           Margin="320 0 0 0"/>
+                           Margin="10 0 0 0"/>
                     <TextBlock Height="30" 
                            Foreground="#444444" 
-                           Width="280"
+                           Width="265"
                            FontSize="20" 
-                           FontWeight="SemiBold" Margin="20 0 0 0"
+                           FontWeight="SemiBold" Margin="15 0 0 0"
                            Text="{Binding Email}"/>
-                    <Button Width="35" 
+                    
+                </StackPanel>
+            </Border>
+            <Button Width="35" 
                                 Height="35"
                                 Background="AliceBlue"
                                 BorderBrush="Black"
                                 BorderThickness="1.5"
                         Command="{Binding OpenExpander}" 
                         CommandParameter="{Binding ElementName=EmailChange}"
-                        Margin="10 0 0 0">
-                        <icon:PackIconMaterial 
+                        Margin="450 -70 0 0">
+                <icon:PackIconMaterial 
                                 Kind="Pencil" 
                                 Height="18" 
                                 Width="17" 
                                 Margin="-7"/>
-                    </Button>
-                </StackPanel>
-
-                <Expander Background="Transparent" 
+            </Button>
+            <Expander Background="Transparent" 
                       Width="350" 
                       Margin="180 0 0 0"
                       Height="400" 
@@ -170,28 +203,28 @@
                       x:Name="EmailChange" 
                       IsEnabled="False"                      
                       >
-                    <Border CornerRadius="20"  Width="320" Height="350">
-                        <StackPanel Margin="0 0 0 0">
-                            <TextBlock Width="120" 
+                <Border CornerRadius="20"  Width="320" Height="350" Background="AliceBlue" BorderBrush="#444444" BorderThickness="1">
+                    <StackPanel Margin="0 0 0 0">
+                        <TextBlock Width="120" 
                            Height="30" 
                            Text="Current Pass" 
                            Foreground="#333333"
                            FontSize="14" HorizontalAlignment="Left" 
                                Margin="10"
                                TextAlignment="Justify"></TextBlock>
-                            <PasswordBox Width="300" 
+                        <PasswordBox Width="300" 
                          Height="40" 
                          materialDesign:HintAssist.Hint="Enter current password" 
                          Foreground="#333333" 
                              x:Name="Password">
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="PasswordChanged">
-                                        <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}"
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="PasswordChanged">
+                                    <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}"
                                    CommandParameter="{Binding ElementName=Password}"/>
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                            </PasswordBox>
-                            <TextBlock Width="120" 
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </PasswordBox>
+                        <TextBlock Width="120" 
                            Height="30" 
                            Text="New Email" Foreground="#333333"
                            FontSize="14" 
@@ -199,14 +232,14 @@
                            VerticalAlignment="Top"
                            Margin="10"
                                TextAlignment="Justify"></TextBlock>
-                            <TextBox Width="300" 
+                        <TextBox Width="300" 
                          Height="40" 
                          materialDesign:HintAssist.Hint="Enter new email" 
                          Foreground="#333333" 
                          Text="{Binding NewEmail}"
                              x:Name="NewEmailtb"
                              />
-                            <TextBlock Width="120" 
+                        <TextBlock Width="120" 
                            Height="30" 
                            Text="Confirm New Email" Foreground="#333333"
                            FontSize="14" 
@@ -214,41 +247,40 @@
                            VerticalAlignment="Top"
                            Margin="10"
                                TextAlignment="Justify"></TextBlock>
-                            <TextBox Width="300" 
+                        <TextBox Width="300" 
                          Height="40" 
                          materialDesign:HintAssist.Hint="Confirm new email" 
                          Foreground="#333333" 
                          Text="{Binding ConfirmEmail}"
                              x:Name="ConfirmEmailtb"
                              />
-                            <Button Width="35" 
+                        <Button Width="35" 
                                 Height="35"
                                 Background="White"
                                 BorderBrush="Snow"
                                 BorderThickness="1.5"
                         Command="{Binding AcceptChangingEmail}"
                             CommandParameter="{Binding ElementName=ProfileWD}"
-                        Margin="260 5 0 0">
-                                <icon:PackIconMaterial 
+                        Margin="260 25 0 0">
+                            <icon:PackIconMaterial 
                                 Kind="Check" 
                                 Height="18" 
                                 Width="17" 
                                 Margin="-7"
                             Foreground="#5CA0F2"/>
-                            </Button>
-                        </StackPanel>
-                        <Border.Background>
-                            <LinearGradientBrush>
-                                <GradientStop Color="#0099FF" Offset="0.965"/>
-                                <GradientStop Color="#90D5EC" Offset="0.33"/>
-                            </LinearGradientBrush>
-                        </Border.Background>
-                    </Border>
+                        </Button>
+                    </StackPanel>
+                    <!--<Border.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#0099FF" Offset="0.965"/>
+                            <GradientStop Color="#90D5EC" Offset="0.33"/>
+                        </LinearGradientBrush>
+                    </Border.Background>-->
+                </Border>
 
-                </Expander>
+            </Expander>
 
-            </StackPanel>
-        </Grid>
-    </ScrollViewer>
-    
+        </StackPanel>
+    </Grid>
+
 </Page>

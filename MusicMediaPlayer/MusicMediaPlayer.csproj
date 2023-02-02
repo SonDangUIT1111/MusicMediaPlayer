@@ -230,9 +230,6 @@
     <Compile Include="Model\Song.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\sysdiagram.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\UserAccount.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
@@ -765,6 +762,10 @@
     <Resource Include="Image\Sky1.jpg" />
     <Resource Include="Image\SkyBackground1.jpg" />
     <Resource Include="Image\Sky5.jpg" />
+    <Resource Include="Image\Sky6.jpg" />
+    <Resource Include="Image\rename.png" />
+    <Resource Include="Image\Sky7.jpg" />
+    <Resource Include="Image\Sky8.jpg" />
     <Content Include="Model\Database.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Database.edmx</DependentUpon>
