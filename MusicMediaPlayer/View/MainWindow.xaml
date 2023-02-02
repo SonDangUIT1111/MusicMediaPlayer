@@ -111,13 +111,10 @@
                                                    FontSize="24"
                                                    Foreground="#FFFFFF"
                                                    FontWeight="SemiBold"
-                                                   FontStyle="Italic"
+                                                   FontStyle="Normal"
                                                    Margin="20,0,0,0"                                                  
                                                    />
                                         </Grid>
-                                        <!--<Border BorderBrush="#FFFFFF"
-                                                BorderThickness="1"
-                                                Margin="0,0,0,0"/>-->
                                         <RadioButton Style="{StaticResource MainButton}"  
                                                 Width="140"
                                                 Command="{Binding SwitchMySong}"
@@ -169,7 +166,7 @@
                                             <TextBlock Text="Discover"
                                                    FontSize="24"
                                                        FontWeight="SemiBold"
-                                                       FontStyle="Italic"
+                                                       FontStyle="Normal"
                                                    Foreground="#FFFFFF"
                                                    Margin="20,0,0,0"/>
                                         </Grid>
@@ -244,7 +241,7 @@
                                             <TextBlock Text="Account"
                                                    FontSize="24"
                                                        FontWeight="SemiBold"
-                                                       FontStyle="Italic"
+                                                       FontStyle="Normal"
                                                    Foreground="#FFFFFF"
                                                    Margin="20,0,0,0"/>
                                         </Grid>

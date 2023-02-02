@@ -5,67 +5,128 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MusicMediaPlayer.UserControlMusic"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" 
-             d:DesignHeight="1000" d:DesignWidth="1000">
-    <Grid Background="#5CA0F2">
+             x:Name="WelcomePage"
+             d:DesignHeight="750" d:DesignWidth="1000">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadTheme}"
+                                   CommandParameter="{Binding ElementName=WelcomePage}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <Border x:Name="MainBackground"
+                Background="#5CA0F2"
+                CornerRadius="20"/>
         <Grid>
-            <TextBlock Text="GOOD MORNING USER"
-                       FontSize="50"
+            <TextBlock x:Name="WelcomeText"
+                       FontSize="80"
                        Width="600"
+                       Height="100"
                        FontStyle="Normal"
                        FontWeight="DemiBold"
                        Foreground="#FFFFFF"
-                       Margin="-400,400,0,0">
-                <TextBlock.RenderTransform>
-                    <RotateTransform Angle="-45" />
-                </TextBlock.RenderTransform>
+                       Text="hello"
+                       Margin="-350,-600,0,0">
             </TextBlock>
-            <Image Source="/Image/logomusicapp.png"
-                   Height="300"
-                   Width="300"
-                   Margin="-200,-100,0,0">
-            </Image>
+            <TextBlock x:Name="User"
+                       FontSize="50"
+                       Width="600"
+                       Height="100"
+                       FontStyle="Normal"
+                       FontWeight="DemiBold"
+                       Foreground="#FFFFFF"
+                       Text="user"
+                       Margin="-150,-400,0,0">
+            </TextBlock>
+            <Border x:Name="UserPic"
+                    Background="Red"
+                    CornerRadius="180"
+                    Height="80"
+                    Width="80"
+                    Margin="-860,-420,0,0">
+            </Border>
             <TextBlock Text="HOW ARE YOU TODAY"
                        Foreground="#FFFFFF"
                        FontSize="30"
                        HorizontalAlignment="Right"
-                       Height="auto"
+                       Height="50"
                        Width="auto"
-                       Margin="0,0,50,0"/>
+                       FontWeight="Medium"
+                       Margin="0,-200,120,0"/>
             <StackPanel HorizontalAlignment="Right"
-                        Margin="0,50,200,0">
-                <RadioButton Content="Happy"
-                             Foreground="#ffffff"
-                             FontSize="30"/>
-                <RadioButton Content="Good"
-                             Foreground="#ffffff"
-                             FontSize="30"/>
-                <RadioButton Content="Normal"
-                             Foreground="#ffffff"
-                             FontSize="30"/>
-                <RadioButton Content="Sad"
-                             Foreground="#ffffff"
-                             FontSize="30"/>
-                <RadioButton Content="Hurtful"
-                             Foreground="#ffffff"
-                             FontSize="30"/>
+                        Margin="0,150,200,0"
+                        Height="300">
+                <RadioButton>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="EmoticonCool"
+                                                 Height="50"
+                                                 Width="50"
+                                                 Foreground="#FFFF00"/>
+                        <TextBlock Text="Exicited"
+                                   FontSize="30"
+                                   Foreground="#FFFFFF"/>
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Emoticon"
+                                                 Height="50"
+                                                 Width="50"
+                                                 Foreground="#FFFF00"/>
+                    <TextBlock Text="Good"
+                               FontSize="30"
+                               Foreground="#FFFFFF"/>
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="EmoticonHappy"
+                                                 Height="50"
+                                                 Width="50"
+                                                 Foreground="#F5F5D1"/>
+                        <TextBlock Text="Normal"
+                               FontSize="30"
+                               Foreground="#FFFFFF"/>
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="EmoticonNeutral"
+                                                 Height="50"
+                                                 Width="50"
+                                                 Foreground="#E69B00"/>
+                        <TextBlock Text="Sad"
+                               FontSize="30"
+                               Foreground="#FFFFFF"/>
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="EmoticonSad"
+                                                 Height="50"
+                                                 Width="50"
+                                                 Foreground="#1ED760"/>
+                        <TextBlock Text="Hurtful"
+                               FontSize="30"
+                               Foreground="#FFFFFF"/>
+                    </StackPanel>
+                </RadioButton>
             </StackPanel>
-            <RichTextBox Background="#1ED760"
-                         Height="300"
-                         Width="400"
-                         HorizontalAlignment="Right">
-            </RichTextBox>
             <TextBlock Text="Wanna boost your mood"
                        Foreground="#FFFFFF"
                        FontSize="30"
                        Height="50"
+                       FontWeight="DemiBold"
                        HorizontalAlignment="Right"
-                       Margin="0,350,50,0"/>
-            <Button Content="PLAY TIME"
-                    Width="200"
-                    Height="50"
+                       Margin="0,420,120,0"/>
+            <Button Style="{StaticResource ContactButton}"
+                    Content="PLAY TIME"
+                    Width="100"
+                    Height="40"
                     HorizontalAlignment="Right"
-                    Margin="0,500,100,0"
+                    Margin="0,500,250,0"
                     Command="{x:Static materialDesign:Transitioner.MoveNextCommand}"/>
         </Grid>
     </Grid>

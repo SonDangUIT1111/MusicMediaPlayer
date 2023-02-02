@@ -105,6 +105,7 @@ namespace MusicMediaPlayer.ViewModel
                     ObservableCollection<int> IDuser = new ObservableCollection<int>(DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == LoginVM.Username).Select(x => x.UserId));
                     PlayListData.CurrentUser.Id = IDuser[0];
                     HomeData.CurrentUser.Id=IDuser[0];
+                    HomeData.CurrentUser.UserName = LoginVM.Username;
                     ProfileData.CurrentUser.Id = IDuser[0];
                     MySongData.CurrentUser.Id = IDuser[0];
                     ArtistData.CurrentUser.Id = IDuser[0];

@@ -14,7 +14,7 @@
       TextOptions.TextFormattingMode="Ideal"
       TextOptions.TextRenderingMode="Auto"
       FontFamily="{DynamicResource MaterialDesignFont}"
-      d:DesignHeight="10000" d:DesignWidth="1000"
+      d:DesignHeight="1000" d:DesignWidth="1000"
       Title="Home"
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       x:Name="HomeWD"
@@ -22,7 +22,7 @@
     <Grid>
         <materialDesign:Transitioner SelectedIndex="0" AutoApplyTransitionOrigins="True">
             <Grid>
-                <uc:Welcome/>
+                <uc:Welcome DataContext="{Binding Source={StaticResource HomeVM}}"/>
             </Grid>
             <materialDesign:TransitionerSlide>
                 <materialDesign:TransitionerSlide.BackwardWipe>

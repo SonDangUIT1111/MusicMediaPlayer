@@ -4,111 +4,166 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MusicMediaPlayer.UserControlMusic"
+             xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="1000" d:DesignWidth="1000"
-             KeyDown="UserControl_KeyDown">
-    <Grid Background="#5CA0F2">
-        <Button Content="Home"
-                Height="50"
-                Width="200"
-                Margin="0,-500,0,0"
+             d:DesignHeight="750" d:DesignWidth="1000"
+             KeyDown="UserControl_KeyDown"
+             Loaded="UserControl_Loaded">
+    <Grid>
+        <Border CornerRadius="20"
+                Background="#5CA0F2"
+                x:Name="MainBackground"/>
+        <Button Style="{StaticResource ContactButton}"
+                Content="Home"
+                Height="40"
+                Width="80"
+                Margin="-900,-600,0,0"
                 Command="{x:Static materialDesign:Transitioner.MoveFirstCommand}"/>
-        <Button Content="Explore Steel drum adventure"
-                Height="50"
-                Width="200"
-                Margin="0,-400,0,0"
+        <Button Style="{StaticResource ContactButton}"
+                Content="Drum"
+                Height="40"
+                Width="80"
+                Margin="-900,-500,0,0"
                 Command="{x:Static materialDesign:Transitioner.MoveNextCommand}"/>
+        <Button Height="50"
+                Width="50"
+                Foreground="#FFFF00"
+                Background="Transparent"
+                Padding="0"
+                BorderBrush="Transparent"
+                Margin="-900,-400,0,0">
+            <materialDesign:PackIcon
+                Kind="LightbulbOn"
+                Height="30"
+                Width="30" />
+        </Button>
+        <Expander   Width="800"
+                    Height="300"
+                    VerticalAlignment="Top"
+                    Background="Transparent"
+                    Foreground="Transparent"
+                    ExpandDirection="Right">
+            <Expander.Header>
+                <TextBlock
+                            Text="Piano Instruction"
+                            Foreground="#FFFFFF"
+                            RenderTransformOrigin=".5,.5">
+                    <TextBlock.LayoutTransform>
+                        <RotateTransform
+                                            Angle="-90" />
+                    </TextBlock.LayoutTransform>
+                </TextBlock>
+            </Expander.Header>
+            <StackPanel
+                  Orientation="Vertical">
+                <Image Height="300"
+                       Source="/Image/PianoInstruction.png"
+                       Stretch="Fill"/>
+            </StackPanel>
+        </Expander>
         <RadioButton x:Name="Practice"
                      Content="Twinkle Little Star"
-                     Background="Red"
+                     Background="#FFFF00"
                      Height="50"
                      Width="200"
                      HorizontalAlignment="Left"
                      Foreground="#FFFFFF"
                      FontSize="18"
+                     Margin="0,-100,0,0"
                      Checked="Practice_Checked"/>
         <RadioButton x:Name="Adventure"
-                     Content="Adventure on your own"
+                     Content="Normal"
                      Foreground="#FFFFFF"
-                     Background="Red"
+                     Background="#FFFF00"
                      Height="50"
                      Width="200"
                      HorizontalAlignment="Left"
                      FontSize="18"
-                     Margin="0,100,0,0"
+                     Margin="0,-40,0,0"
                      IsChecked="True" 
                      Checked="RadioButton_Checked"/>
         <RadioButton x:Name="Custom"
-                     Content="Custom"
+                     Content="Custom Pratice"
                      Foreground="#FFFFFF"
-                     Background="Red"
+                     Background="#FFFF00"
                      Height="50"
                      Width="200"
                      HorizontalAlignment="Left"
                      FontSize="18"
-                     Margin="0,180,0,0"
+                     Margin="0,20,0,0"
+                     Panel.ZIndex="1"
                      Checked="Custom_Checked"/>
         <Expander x:Name="ComposePaper"
-                  Width="300"
+                  Width="340"
                   Height="300"
                   HorizontalAlignment="Left"
                   Background="Transparent"
-                  Margin="0,-500,0,0"
+                  Margin="0,280,0,0"
                   Foreground="Transparent">
             <StackPanel>
                 <RichTextBox x:Name="MusicScript"
                          Background="Black"
                          Foreground="White"
                          FontSize="20"
-                         Width="300"
+                         Width="340"
                          Height="200"/>
-                <Button Content="OK" Click="Button_Click"/>
+                <Button Content="OK" 
+                        Foreground="#FFFFFF"
+                        Click="Button_Click"/>
             </StackPanel>
         </Expander>
         <Grid Height="300"
           Width="600"
-          Margin="300,150,0,0">
-            <Border Background="#FF2C2C"
+          Margin="300,200,0,0">
+            <Border Background="#080808"
                 CornerRadius="10 10 10 10">
             </Border>
-            <Border Background="#F94449"
+            <Border Background="#202020"
                 CornerRadius="10"
                 Height="90"
                 Margin="5"
                 VerticalAlignment="Top"/>
-            <Border Background="#1ED760"
-                CornerRadius="10"
+            <Border
                 Height="50"
                 Width="400"
                 Margin="0,25,0,0"
-                VerticalAlignment="Top"/>
+                VerticalAlignment="Top">
+                <Image gif:AnimationBehavior.SourceUri="/Image/PianoVisualizer.gif"
+                       Stretch="Fill"/>
+            </Border>
             <Border CornerRadius="5"
                 Height="200"
                 Width="560"
-                Margin="0,85,0,0">
+                Margin="0,90,0,0">
                 <Border.Effect>
                     <BlurEffect/>
                 </Border.Effect>
                 <Border.Background>
                     <RadialGradientBrush>
-                        <GradientStop Color="#D1001F" Offset="0.2"/>
-                        <GradientStop Color="#DE0A26" Offset="0.5"/>
+                        <GradientStop Color="#181818" Offset="0.2"/>
+                        <GradientStop Color="#1C1C1C" Offset="0.5"/>
                     </RadialGradientBrush>
                 </Border.Background>
             </Border>
             <Ellipse Height="75"
                  Width="75"
-                 Fill="#EBECF0"
                  VerticalAlignment="Top"
                  HorizontalAlignment="Left"
-                 Margin="20,10,0,0"/>
+                 Margin="20,10,0,0">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="/Image/SpeakerVector.png"/>
+                </Ellipse.Fill>
+            </Ellipse>
             <Ellipse Height="75"
                  Width="75"
-                 Fill="#EBECF0"
                  VerticalAlignment="Top"
                  HorizontalAlignment="Right"
-                 Margin="0,10,10,0"/>
+                 Margin="0,10,10,0">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="/Image/SpeakerVector.png"/>
+                </Ellipse.Fill>
+            </Ellipse>
             <Grid Height="220"
           Margin="0,80,0,0"
           Width="550">
