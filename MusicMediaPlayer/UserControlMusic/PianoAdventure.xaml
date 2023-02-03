@@ -12,12 +12,15 @@
              Loaded="UserControl_Loaded">
     <Grid>
         <Border CornerRadius="20"
-                Background="#5CA0F2"
-                x:Name="MainBackground"/>
+                x:Name="MainBackground">
+            <Border.Background>
+                <ImageBrush ImageSource="/Image/Night.jpg"/>
+            </Border.Background>
+        </Border>
         <Expander   Width="900"
                     Height="350"
                     VerticalAlignment="Top"
-                    Margin="120,0,0,0"
+                    Margin="140,0,0,0"
                     IsEnabled="False"
                     Background="Transparent"
                     Foreground="Transparent"
@@ -37,23 +40,48 @@
         </Expander>
         <Button Style="{StaticResource ContactButton}"
                 Content="Home"
-                Height="40"
                 Width="80"
-                Margin="-850,-600,0,0"
-                Command="{x:Static materialDesign:Transitioner.MoveFirstCommand}"/>
+                Height="25"
+                FontSize="13"
+                VerticalAlignment="Top"
+                Margin="-850,50,0,0"
+                FontWeight="DemiBold"
+                FontFamily="Times New Roman"
+                Command="{x:Static materialDesign:Transitioner.MoveFirstCommand}">
+            <Button.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#2af598"/>
+                    <GradientStop Color="#009efd" Offset="0.23"/>
+                    <GradientStop Color="#FF007F" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
         <Button Style="{StaticResource ContactButton}"
                 Content="Drum"
-                Height="40"
                 Width="80"
-                Margin="-850,-500,0,0"
-                Command="{x:Static materialDesign:Transitioner.MoveNextCommand}"/>
+                Height="25"
+                FontSize="13"
+                FontWeight="DemiBold"
+                VerticalAlignment="Top"
+                FontFamily="Times New Roman"
+                Margin="-850,80,0,0"
+                Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">
+            <Button.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#2af598"/>
+                    <GradientStop Color="#009efd" Offset="0.23"/>
+                    <GradientStop Color="#FF007F" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
         <Button Height="50"
                 Width="50"
-                Foreground="#5CA0F2"
+                Foreground="#FFFF00"
                 Background="Transparent"
                 Padding="0"
                 BorderBrush="Transparent"
-                Margin="-850,-400,0,0"
+                VerticalAlignment="Top"
+                Margin="-850,120,0,0"
                 Click="Button_Click_1">
             <materialDesign:PackIcon
                 Kind="LightbulbOn"
@@ -63,9 +91,10 @@
         <Expander x:Name="ComposePaper"
                   Width="340"
                   Height="300"
+                  VerticalAlignment="Top"
                   HorizontalAlignment="Left"
                   Background="Transparent"
-                  Margin="0,280,0,0"
+                  Margin="0,340,0,0"
                   Foreground="Transparent">
             <StackPanel>
                 <RichTextBox x:Name="MusicScript"
@@ -85,39 +114,43 @@
                      Height="50"
                      Width="200"
                      HorizontalAlignment="Left"
-                     Foreground="#000000"
+                     Foreground="#FFFFFF"
                      FontWeight="Medium"
                      FontSize="18"
-                     Margin="0,-50,0,0"
+                     VerticalAlignment="Top"
+                     Margin="0,260,0,0"
                      Checked="Practice_Checked"/>
         <RadioButton x:Name="Adventure"
                      Content="Normal"
-                     Foreground="#000000"
+                     Foreground="#FFFFFF"
                      FontWeight="Medium"
                      Background="#FFFF00"
                      Height="50"
                      Width="200"
                      HorizontalAlignment="Left"
                      FontSize="18"
-                     Margin="0,0,0,0"
+                     VerticalAlignment="Top"
+                     Margin="0,300,0,0"
                      IsChecked="True" 
                      Checked="RadioButton_Checked"/>
         <RadioButton x:Name="Custom"
                      Content="Custom Pratice"
-                     Foreground="#000000"
+                     Foreground="#FFFFFF"
                      FontWeight="Medium"
                      Background="#FFFF00"
                      Height="50"
                      Width="200"
                      HorizontalAlignment="Left"
+                     VerticalAlignment="Top"
                      FontSize="18"
-                     Margin="0,50,0,0"
+                     Margin="0,340,0,0"
                      Panel.ZIndex="1"
                      Checked="Custom_Checked"/>
        
         <Grid Height="300"
           Width="600"
-          Margin="300,240,0,0">
+              VerticalAlignment="Top"
+          Margin="300,330,0,0">
             <Border Background="#080808"
                 CornerRadius="10 10 10 10">
             </Border>

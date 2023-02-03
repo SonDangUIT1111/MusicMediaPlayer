@@ -17,8 +17,11 @@
     </i:Interaction.Triggers>
     <Grid>
         <Border x:Name="MainBackground"
-                Background="#5CA0F2"
-                CornerRadius="20"/>
+                CornerRadius="20">
+            <Border.Background>
+                <ImageBrush ImageSource="/Image/Night.jpg"/>
+            </Border.Background>
+        </Border>
         <Grid>
             <TextBlock x:Name="WelcomeText"
                        FontSize="80"
@@ -26,47 +29,53 @@
                        Height="100"
                        FontStyle="Normal"
                        FontWeight="DemiBold"
-                       Foreground="#FFFFFF"
+                       Foreground="Black"
                        Text="hello"
-                       Margin="-350,-600,0,0">
+                       VerticalAlignment="Top"
+                       Margin="-350,0,0,0" FontFamily="Freehand521 BT">
             </TextBlock>
             <TextBlock x:Name="User"
-                       FontSize="50"
+                       FontSize="72"
                        Width="600"
                        Height="100"
                        FontStyle="Normal"
                        FontWeight="DemiBold"
-                       Foreground="#FFFFFF"
+                       Foreground="Black"
                        Text="user"
-                       Margin="-150,-400,0,0">
+                       VerticalAlignment="Top"
+                       Margin="-150,100,0,0" FontFamily="Microsoft Uighur">
             </TextBlock>
             <Border x:Name="UserPic"
                     Background="Red"
                     CornerRadius="180"
                     Height="80"
                     Width="80"
-                    Margin="-860,-420,0,0">
+                    VerticalAlignment="Top"
+                    Margin="-860,100,0,0">
             </Border>
-            <TextBlock Text="HOW ARE YOU TODAY"
-                       Foreground="#FFFFFF"
+            <TextBlock Text="How are you today ?"
+                       FontWeight="UltraBold"
                        FontSize="30"
                        HorizontalAlignment="Right"
                        Height="50"
                        Width="auto"
-                       FontWeight="Medium"
-                       Margin="0,-200,120,0"/>
+                       VerticalAlignment="Top"
+                       Margin="0,200,160,0" FontFamily="Monotype Corsiva" Foreground="White"/>
             <StackPanel HorizontalAlignment="Right"
-                        Margin="0,150,200,0"
-                        Height="300">
+                        Margin="0,250,200,0"
+                        Height="300"
+                        VerticalAlignment="Top">
                 <RadioButton>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="EmoticonCool"
                                                  Height="50"
                                                  Width="50"
-                                                 Foreground="#FFFF00"/>
+                                                 Foreground="#FFE9FF00"/>
                         <TextBlock Text="Exicited"
                                    FontSize="30"
-                                   Foreground="#FFFFFF"/>
+                                   FontWeight="DemiBold"
+                                   Foreground="White" 
+                                   FontFamily="Monotype Corsiva"/>
                     </StackPanel>
                 </RadioButton>
                 <RadioButton>
@@ -74,10 +83,11 @@
                         <materialDesign:PackIcon Kind="Emoticon"
                                                  Height="50"
                                                  Width="50"
-                                                 Foreground="#FFFF00"/>
-                    <TextBlock Text="Good"
+                                                 Foreground="#FF44FF00"/>
+                        <TextBlock Text="Good"
                                FontSize="30"
-                               Foreground="#FFFFFF"/>
+                               Foreground="White" 
+                               FontFamily="Monotype Corsiva"/>
                     </StackPanel>
                 </RadioButton>
                 <RadioButton>
@@ -85,10 +95,11 @@
                         <materialDesign:PackIcon Kind="EmoticonHappy"
                                                  Height="50"
                                                  Width="50"
-                                                 Foreground="#F5F5D1"/>
+                                                 Foreground="#FF13EDC6"/>
                         <TextBlock Text="Normal"
                                FontSize="30"
-                               Foreground="#FFFFFF"/>
+                               Foreground="White" 
+                               FontFamily="Monotype Corsiva"/>
                     </StackPanel>
                 </RadioButton>
                 <RadioButton>
@@ -99,7 +110,9 @@
                                                  Foreground="#E69B00"/>
                         <TextBlock Text="Sad"
                                FontSize="30"
-                               Foreground="#FFFFFF"/>
+                               Foreground="White" 
+                               FontWeight="DemiBold"
+                               FontFamily="Monotype Corsiva"/>
                     </StackPanel>
                 </RadioButton>
                 <RadioButton>
@@ -107,27 +120,43 @@
                         <materialDesign:PackIcon Kind="EmoticonSad"
                                                  Height="50"
                                                  Width="50"
-                                                 Foreground="#1ED760"/>
+                                                 Foreground="#FFF97C0E"/>
                         <TextBlock Text="Hurtful"
                                FontSize="30"
-                               Foreground="#FFFFFF"/>
+                               Foreground="White" 
+                               FontWeight="DemiBold"
+                               FontFamily="Monotype Corsiva"/>
                     </StackPanel>
                 </RadioButton>
             </StackPanel>
             <TextBlock Text="Wanna boost your mood"
-                       Foreground="#FFFFFF"
+                       Foreground="White"
                        FontSize="30"
                        Height="50"
+                       VerticalAlignment="Top"
                        FontWeight="DemiBold"
                        HorizontalAlignment="Right"
-                       Margin="0,420,120,0"/>
+                       Margin="0,510,140,0" 
+                       FontFamily="Monotype Corsiva"/>
             <Button Style="{StaticResource ContactButton}"
-                    Content="PLAY TIME"
+                    Content="Play Time"
                     Width="100"
-                    Height="40"
+                    Height="25"
+                    FontSize="13"
+                    VerticalAlignment="Top"
+                    FontWeight="DemiBold"
                     HorizontalAlignment="Right"
-                    Margin="0,500,250,0"
-                    Command="{x:Static materialDesign:Transitioner.MoveNextCommand}"/>
+                    Margin="0,550,228,0"
+                    Command="{x:Static materialDesign:Transitioner.MoveNextCommand}" 
+                    FontFamily="Times New Roman">
+                <Button.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#2af598"/>
+                        <GradientStop Color="#009efd" Offset="0.23"/>
+                        <GradientStop Color="#FF007F" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
         </Grid>
     </Grid>
 </UserControl>
