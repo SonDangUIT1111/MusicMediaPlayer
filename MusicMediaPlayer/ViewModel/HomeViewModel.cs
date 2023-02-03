@@ -29,30 +29,25 @@ namespace MusicMediaPlayer.ViewModel
                 bitmapBack.BeginInit();
                 bitmapBack.CacheOption = BitmapCacheOption.OnLoad;
                 int Hour = DateTime.Now.Hour;
-                if (Hour >= 0 && Hour < 6)
-                {
-                    p.WelcomeText.Text = "New Nice Day";
-                    filePath = Path.Combine(projectPath, "Image", "Sunset.jpg");
-                }
-                else if (Hour >= 6 && Hour < 12)
+                if (Hour >= 6 && Hour < 12)
                 {
                     p.WelcomeText.Text = "Good Morning";
-                    filePath = Path.Combine(projectPath, "Image", "Morning.jpg");
+                    filePath = System.IO.Path.Combine(projectPath, "Image", "Morning.jpg");
                 }
                 else if (Hour >= 12 && Hour < 18)
                 {
-                    p.WelcomeText.Text = "Good Evening";
-                    filePath = Path.Combine(projectPath, "Image", "Evening.jpg");
+                    p.WelcomeText.Text = "Good Afternoon";
+                    filePath = System.IO.Path.Combine(projectPath, "Image", "Afternoon.jpg");
                 }
                 else
                 {
                     p.WelcomeText.Text = "Good Night";
-                    filePath = Path.Combine(projectPath, "Image", "Night.jpg");
+                    filePath = System.IO.Path.Combine(projectPath, "Image", "Night.jpg");
                 }
                 bitmapBack.UriSource = new Uri(filePath);
                 bitmapBack.EndInit();
                 imageBrushBack.ImageSource = bitmapBack;
-                imageBrushBack.Stretch = Stretch.UniformToFill;
+                imageBrushBack.Stretch = Stretch.Fill;
                 p.MainBackground.Background = imageBrushBack;
                 if (EverLoaded == false)
                 {

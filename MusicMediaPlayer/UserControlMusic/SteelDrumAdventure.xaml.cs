@@ -1455,5 +1455,33 @@ namespace MusicMediaPlayer.UserControlMusic
                 MessageBox.Show("Script format is invalid");
             }
         }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            var projectPath = System.IO.Path.GetDirectoryName(System.IO.Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
+            string filePath;
+            ImageBrush imageBrushBack = new ImageBrush();
+            BitmapImage bitmapBack = new BitmapImage();
+            bitmapBack.BeginInit();
+            bitmapBack.CacheOption = BitmapCacheOption.OnLoad;
+            int Hour = DateTime.Now.Hour;
+            if (Hour >= 6 && Hour < 12)
+            {
+                filePath = System.IO.Path.Combine(projectPath, "Image", "Morning.jpg");
+            }
+            else if (Hour >= 12 && Hour < 18)
+            {
+                filePath = System.IO.Path.Combine(projectPath, "Image", "Afternoon.jpg");
+            }
+            else
+            {
+                filePath = System.IO.Path.Combine(projectPath, "Image", "Night.jpg");
+            }
+            bitmapBack.UriSource = new Uri(filePath);
+            bitmapBack.EndInit();
+            imageBrushBack.ImageSource = bitmapBack;
+            imageBrushBack.Stretch = Stretch.UniformToFill;
+            MainBackground.Background = imageBrushBack;
+        }
     }
 }

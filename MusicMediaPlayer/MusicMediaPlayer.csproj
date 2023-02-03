@@ -765,13 +765,12 @@
     <Resource Include="Image\Sky1.jpg" />
     <Resource Include="Image\SkyBackground1.jpg" />
     <Resource Include="Image\Sky5.jpg" />
-    <Resource Include="Image\Morning.jpg" />
-    <Resource Include="Image\Night.jpg" />
-    <Resource Include="Image\Sunset.jpg" />
-    <Resource Include="Image\Evening.jpg" />
     <Resource Include="Image\SpeakerVector.png" />
     <Resource Include="Image\PianoVisualizer.gif" />
     <Resource Include="Image\PianoInstruction.png" />
+    <Resource Include="Image\Afternoon.jpg" />
+    <Resource Include="Image\Morning.jpg" />
+    <Resource Include="Image\Night.jpg" />
     <Content Include="Model\Database.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Database.edmx</DependentUpon>

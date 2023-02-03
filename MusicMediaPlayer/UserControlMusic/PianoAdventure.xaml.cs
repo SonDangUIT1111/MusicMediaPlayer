@@ -1465,17 +1465,13 @@ namespace MusicMediaPlayer.UserControlMusic
             bitmapBack.BeginInit();
             bitmapBack.CacheOption = BitmapCacheOption.OnLoad;
             int Hour = DateTime.Now.Hour;
-            if (Hour >= 0 && Hour < 6)
-            {
-                filePath = System.IO.Path.Combine(projectPath, "Image", "Sunset.jpg");
-            }
-            else if (Hour >= 6 && Hour < 12)
+            if (Hour >= 6 && Hour < 12)
             {
                 filePath = System.IO.Path.Combine(projectPath, "Image", "Morning.jpg");
             }
             else if (Hour >= 12 && Hour < 18)
             {
-                filePath = System.IO.Path.Combine(projectPath, "Image", "Evening.jpg");
+                filePath = System.IO.Path.Combine(projectPath, "Image", "Afternoon.jpg");
             }
             else
             {
@@ -1486,6 +1482,18 @@ namespace MusicMediaPlayer.UserControlMusic
             imageBrushBack.ImageSource = bitmapBack;
             imageBrushBack.Stretch = Stretch.UniformToFill;
             MainBackground.Background = imageBrushBack;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (InstructionBoard.IsExpanded == true)
+            {
+                InstructionBoard.IsExpanded = false;
+            }
+            else
+            {
+                InstructionBoard.IsExpanded = true;
+            }
         }
     }
 }
