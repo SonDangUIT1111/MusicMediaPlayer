@@ -293,8 +293,8 @@ namespace MusicMediaPlayer.ViewModel
         public SongViewModel()
         {
             CurrentUser = new CurrentUserAccountModel();
-            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id));
-            TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.Times).ToList());
+            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id));
+            TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.Times).ToList());
             TopTrending.Add(new Song());
             TopTrending.Add(new Song());
             TopTrending.Add(new Song());
@@ -389,7 +389,7 @@ namespace MusicMediaPlayer.ViewModel
              });
             LoadDataEditPage = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                ListEdit = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id));
+                ListEdit = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id));
                 CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(EditSongWindow.ListSongEdit.ItemsSource);
                 view.Filter = FiltersSong;
 
@@ -435,38 +435,38 @@ namespace MusicMediaPlayer.ViewModel
                     if (item != null)
                     {
                         //xu ly playlist
-                        var allplaylist = DataProvider.Ins.DB.PlayLists.Where(x=>x.OwnerId == CurrentUser.Id).ToList();
+                        var allplaylist = DataProvider.Ins.DB.PlayList.Where(x=>x.OwnerId == CurrentUser.Id).ToList();
                         foreach (Model.PlayList playlist in allplaylist)
                         {
-                            var list = playlist.Songs.ToList();
+                            var list = playlist.Song.ToList();
                             foreach (Song song in list)
                             {
                                 if (song == item)
                                 {
-                                    playlist.Songs.Remove(item);
+                                    playlist.Song.Remove(item);
                                     playlist.SongCount--;
                                 }
                             }
                         }
-                        DataProvider.Ins.DB.Songs.Remove(item);
+                        DataProvider.Ins.DB.Song.Remove(item);
                         DataProvider.Ins.DB.SaveChanges();
                         // xu ly artist
-                        if (DataProvider.Ins.DB.Songs.Where(x=>x.UserId == CurrentUser.Id && x.ArtistId == artistid).Count() == 0)
+                        if (DataProvider.Ins.DB.Song.Where(x=>x.UserId == CurrentUser.Id && x.ArtistId == artistid).Count() == 0)
                         {
-                            ObservableCollection<Artist> artistDelete = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x=>x.UserId == CurrentUser.Id && x.ArtistId == artistid));
-                            DataProvider.Ins.DB.Artists.Remove(artistDelete[0]);
+                            ObservableCollection<Artist> artistDelete = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artist.Where(x=>x.UserId == CurrentUser.Id && x.ArtistId == artistid));
+                            DataProvider.Ins.DB.Artist.Remove(artistDelete[0]);
                         }
                         //xu ly album
-                        if (DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == albumid).Count() == 0)
+                        if (DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == albumid).Count() == 0)
                         {
-                            ObservableCollection<Album> albumDelete = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == albumid));
-                            DataProvider.Ins.DB.Albums.Remove(albumDelete[0]);
+                            ObservableCollection<Album> albumDelete = new ObservableCollection<Album>(DataProvider.Ins.DB.Album.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == albumid));
+                            DataProvider.Ins.DB.Album.Remove(albumDelete[0]);
                         }
                         //xu ly genre
-                        if (DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.GenreId == genreid).Count() == 0)
+                        if (DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id && x.GenreId == genreid).Count() == 0)
                         {
-                            ObservableCollection<Genre> genreDelete = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genres.Where(x => x.UserId == CurrentUser.Id && x.GenreId == genreid));
-                            DataProvider.Ins.DB.Genres.Remove(genreDelete[0]);
+                            ObservableCollection<Genre> genreDelete = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genre.Where(x => x.UserId == CurrentUser.Id && x.GenreId == genreid));
+                            DataProvider.Ins.DB.Genre.Remove(genreDelete[0]);
                         }
                         DataProvider.Ins.DB.SaveChanges();
                         //
@@ -488,7 +488,7 @@ namespace MusicMediaPlayer.ViewModel
             Changing = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 EditSongInApp wd = p as EditSongInApp;
-                if (DataProvider.Ins.DB.Songs.Where(o => o.SongTitle == TitleToChange && o.UserId == CurrentUser.Id).Count() > 0)
+                if (DataProvider.Ins.DB.Song.Where(o => o.SongTitle == TitleToChange && o.UserId == CurrentUser.Id).Count() > 0)
                 {
                     MessageBoxOK mb = new MessageBoxOK();
                     var data = mb.DataContext as MessageBoxOKViewModel;
@@ -509,16 +509,16 @@ namespace MusicMediaPlayer.ViewModel
                     //xu ly artist
                     if (ArtistToChange != SongChanging.Artist)
                     {
-                        ObservableCollection<Artist> artistlist = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x=>x.UserId == CurrentUser.Id && x.ArtistName == ArtistToChange));
+                        ObservableCollection<Artist> artistlist = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artist.Where(x=>x.UserId == CurrentUser.Id && x.ArtistName == ArtistToChange));
                         //truong hop doi ten artist sang mot ten co san
                         if (artistlist.Count > 0)
                         {
                             SongChanging.ArtistId = artistlist[0].ArtistId;
                             DataProvider.Ins.DB.SaveChanges();
-                            if (DataProvider.Ins.DB.Songs.Where(x=>x.UserId == CurrentUser.Id && x.ArtistId == artistid).Count() == 0)
+                            if (DataProvider.Ins.DB.Song.Where(x=>x.UserId == CurrentUser.Id && x.ArtistId == artistid).Count() == 0)
                             {
-                                ObservableCollection<Artist> artistDelete = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.ArtistId == artistid && x.UserId == CurrentUser.Id));
-                                DataProvider.Ins.DB.Artists.Remove(artistDelete[0]);
+                                ObservableCollection<Artist> artistDelete = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artist.Where(x => x.ArtistId == artistid && x.UserId == CurrentUser.Id));
+                                DataProvider.Ins.DB.Artist.Remove(artistDelete[0]);
                             }
                         }
                         //truong hop doi ten artist chua ton tai
@@ -529,25 +529,25 @@ namespace MusicMediaPlayer.ViewModel
                             newArtist.UserId = CurrentUser.Id;
                             newArtist.Streams = 0;
                             newArtist.ImageArtistBinary = imagechanging;
-                            DataProvider.Ins.DB.Artists.Add(newArtist);
+                            DataProvider.Ins.DB.Artist.Add(newArtist);
                             DataProvider.Ins.DB.SaveChanges();
-                            artistlist = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.ArtistName == ArtistToChange && x.UserId == CurrentUser.Id));
+                            artistlist = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artist.Where(x => x.ArtistName == ArtistToChange && x.UserId == CurrentUser.Id));
                             SongChanging.ArtistId = artistlist[0].ArtistId;
                         }
                     }
                     //xu ly album
                     if (AlbumToChange != SongChanging.Album)
                     {
-                        ObservableCollection<Album> albumlist = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.UserId == CurrentUser.Id && x.AlbumName == AlbumToChange));
+                        ObservableCollection<Album> albumlist = new ObservableCollection<Album>(DataProvider.Ins.DB.Album.Where(x => x.UserId == CurrentUser.Id && x.AlbumName == AlbumToChange));
                         //truong hop doi ten album sang mot ten co san
                         if (albumlist.Count > 0)
                         {
                             SongChanging.AlbumId = albumlist[0].AlbumId;
                             DataProvider.Ins.DB.SaveChanges();
-                            if (DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == albumid).Count() == 0)
+                            if (DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == albumid).Count() == 0)
                             {
-                                ObservableCollection<Album> albumDelete = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.AlbumId == albumid && x.UserId == CurrentUser.Id));
-                                DataProvider.Ins.DB.Albums.Remove(albumDelete[0]);
+                                ObservableCollection<Album> albumDelete = new ObservableCollection<Album>(DataProvider.Ins.DB.Album.Where(x => x.AlbumId == albumid && x.UserId == CurrentUser.Id));
+                                DataProvider.Ins.DB.Album.Remove(albumDelete[0]);
                             }
                         }
                         //truong hop doi ten album chua ton tai
@@ -558,25 +558,25 @@ namespace MusicMediaPlayer.ViewModel
                             newAlbum.UserId = CurrentUser.Id;
                             newAlbum.Composer = ArtistToChange;
                             newAlbum.ImageAlbumBinary = imagechanging;
-                            DataProvider.Ins.DB.Albums.Add(newAlbum);
+                            DataProvider.Ins.DB.Album.Add(newAlbum);
                             DataProvider.Ins.DB.SaveChanges();
-                            albumlist = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.AlbumName == AlbumToChange && x.UserId == CurrentUser.Id));
+                            albumlist = new ObservableCollection<Album>(DataProvider.Ins.DB.Album.Where(x => x.AlbumName == AlbumToChange && x.UserId == CurrentUser.Id));
                             SongChanging.AlbumId = albumlist[0].AlbumId;
                         }
                     }
                     //xu ly genre
                     if (GenreToChange != SongChanging.Genre)
                     {
-                        ObservableCollection<Genre> genrelist = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genres.Where(x => x.UserId == CurrentUser.Id && x.GenreName == GenreToChange));
+                        ObservableCollection<Genre> genrelist = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genre.Where(x => x.UserId == CurrentUser.Id && x.GenreName == GenreToChange));
                         //truong hop doi ten genre sang mot ten co san
                         if (genrelist.Count > 0)
                         {
                             SongChanging.GenreId = genrelist[0].GenreId;
                             DataProvider.Ins.DB.SaveChanges();
-                            if (DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.GenreId == genreid).Count() == 0)
+                            if (DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id && x.GenreId == genreid).Count() == 0)
                             {
-                                ObservableCollection<Genre> genreDelete = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genres.Where(x => x.GenreId == genreid && x.UserId == CurrentUser.Id));
-                                DataProvider.Ins.DB.Genres.Remove(genreDelete[0]);
+                                ObservableCollection<Genre> genreDelete = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genre.Where(x => x.GenreId == genreid && x.UserId == CurrentUser.Id));
+                                DataProvider.Ins.DB.Genre.Remove(genreDelete[0]);
                             }
                         }
                         //truong hop doi ten genre chua ton tai
@@ -586,9 +586,9 @@ namespace MusicMediaPlayer.ViewModel
                             newGenre.GenreName = GenreToChange;
                             newGenre.UserId = CurrentUser.Id;
                             newGenre.ImageGenreBinary = imagechanging;
-                            DataProvider.Ins.DB.Genres.Add(newGenre);
+                            DataProvider.Ins.DB.Genre.Add(newGenre);
                             DataProvider.Ins.DB.SaveChanges();
-                            genrelist = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genres.Where(x => x.GenreName == GenreToChange && x.UserId == CurrentUser.Id));
+                            genrelist = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genre.Where(x => x.GenreName == GenreToChange && x.UserId == CurrentUser.Id));
                             SongChanging.GenreId = genrelist[0].GenreId;
                         }
                     }
@@ -708,7 +708,7 @@ namespace MusicMediaPlayer.ViewModel
             }, (p) =>
             {
                 var projectPath = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
-                var filePath = Path.Combine(projectPath, "Image", "logomusicapp.png");
+                var filePath = Path.Combine(projectPath, "Image", "music_note.jpg");
                 string titleNewSong = "Unknown";
                 string artistNewSong = "Unknown";
                 string albumNewSong = "Unknown";
@@ -740,7 +740,7 @@ namespace MusicMediaPlayer.ViewModel
                 {
                     uriImage = ImagePathToAdd;
                 }
-                if (DataProvider.Ins.DB.Songs.Where(o => o.SongTitle == TitleToAdd && o.UserId == CurrentUser.Id).Count() > 0)
+                if (DataProvider.Ins.DB.Song.Where(o => o.SongTitle == TitleToAdd && o.UserId == CurrentUser.Id).Count() > 0)
                 {
                     MessageBoxOK mb = new MessageBoxOK();
                     var data = mb.DataContext as MessageBoxOKViewModel;
@@ -760,11 +760,17 @@ namespace MusicMediaPlayer.ViewModel
                     med.Open(uriadd);
                     string timetoadd = "";
                     // this is a trick to waiting hastimespan change to true
-                    MessageBox.Show("Processing");
+                    MessageBoxLoading MBL = new MessageBoxLoading();
+                    MBL.ShowDialog();
+              
+                    
                     //
                     if (med.HasAudio == false)
                     {
-                        MessageBox.Show("Audio file invalid");
+                        MessageBoxOK wd = new MessageBoxOK();
+                        var data = wd.DataContext as MessageBoxOKViewModel;
+                        data.Content = "Audio file invalid";
+                        wd.ShowDialog();
                         return;
                     }
                     if (med.NaturalDuration.HasTimeSpan)
@@ -790,7 +796,7 @@ namespace MusicMediaPlayer.ViewModel
 
                     //
                     //filter song to artist filter
-                    ObservableCollection<Artist> artistlist = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.ArtistName == artistNewSong && x.UserId == CurrentUser.Id));
+                    ObservableCollection<Artist> artistlist = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artist.Where(x => x.ArtistName == artistNewSong && x.UserId == CurrentUser.Id));
                     if (artistlist.Count == 0)
                     {
                         Artist newArtist = new Artist();
@@ -798,14 +804,14 @@ namespace MusicMediaPlayer.ViewModel
                         newArtist.UserId = CurrentUser.Id;
                         newArtist.Streams = 0;
                         newArtist.ImageArtistBinary = ImageBinaryAdd;
-                        DataProvider.Ins.DB.Artists.Add(newArtist);
+                        DataProvider.Ins.DB.Artist.Add(newArtist);
                         DataProvider.Ins.DB.SaveChanges();
                     }
-                    artistlist = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.ArtistName == artistNewSong && x.UserId == CurrentUser.Id));
+                    artistlist = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artist.Where(x => x.ArtistName == artistNewSong && x.UserId == CurrentUser.Id));
                     newSongItem.ArtistId = artistlist[0].ArtistId;
                     //
                     //filter song to album filter
-                    ObservableCollection<Album> albumlist = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.AlbumName == albumNewSong && x.UserId == CurrentUser.Id));
+                    ObservableCollection<Album> albumlist = new ObservableCollection<Album>(DataProvider.Ins.DB.Album.Where(x => x.AlbumName == albumNewSong && x.UserId == CurrentUser.Id));
                     if (albumlist.Count == 0)
                     {
                         Album newAlbum = new Album();
@@ -813,32 +819,33 @@ namespace MusicMediaPlayer.ViewModel
                         newAlbum.Composer = artistNewSong;
                         newAlbum.UserId = CurrentUser.Id;
                         newAlbum.ImageAlbumBinary = ImageBinaryAdd;
-                        DataProvider.Ins.DB.Albums.Add(newAlbum);
+                        DataProvider.Ins.DB.Album.Add(newAlbum);
                         DataProvider.Ins.DB.SaveChanges();
                     }
-                    albumlist = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.AlbumName == albumNewSong && x.UserId == CurrentUser.Id));
+                    albumlist = new ObservableCollection<Album>(DataProvider.Ins.DB.Album.Where(x => x.AlbumName == albumNewSong && x.UserId == CurrentUser.Id));
                     newSongItem.AlbumId = albumlist[0].AlbumId;
                     //filter song to genre filter
-                    ObservableCollection<Genre> genrelist = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genres.Where(x => x.GenreName == genreNewSong && x.UserId == CurrentUser.Id));
+                    ObservableCollection<Genre> genrelist = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genre.Where(x => x.GenreName == genreNewSong && x.UserId == CurrentUser.Id));
                     if (genrelist.Count == 0)
                     {
                         Genre newGenre = new Genre();
                         newGenre.GenreName = genreNewSong;
                         newGenre.UserId = CurrentUser.Id;
                         newGenre.ImageGenreBinary = ImageBinaryAdd;
-                        DataProvider.Ins.DB.Genres.Add(newGenre);
+                        DataProvider.Ins.DB.Genre.Add(newGenre);
                         DataProvider.Ins.DB.SaveChanges();
                     }
-                    genrelist = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genres.Where(x => x.GenreName == genreNewSong && x.UserId == CurrentUser.Id));
+                    genrelist = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genre.Where(x => x.GenreName == genreNewSong && x.UserId == CurrentUser.Id));
                     newSongItem.GenreId = genrelist[0].GenreId;
                     //
-                    DataProvider.Ins.DB.Songs.Add(newSongItem);
+                    DataProvider.Ins.DB.Song.Add(newSongItem);
                     DataProvider.Ins.DB.SaveChanges();
                     LoadCommon();
 
-                    MessageBox.Show("Add successfully");
+                    MessageBoxSuccessful MB = new MessageBoxSuccessful();
+                    MB.ShowDialog();
 
-                 
+
                     MySongWindow.Close();
                     TitleToAdd = null;
                     ArtistToAdd = null;
@@ -1109,7 +1116,7 @@ namespace MusicMediaPlayer.ViewModel
         }
         public void Load()
         {
-            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id));
+            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id));
             if (List.Count == 0)
             {
                 MySongWindow.IsThereSong.Visibility = Visibility.Visible;
@@ -1131,7 +1138,7 @@ namespace MusicMediaPlayer.ViewModel
                 InTime.Visibility = Visibility.Visible;
                 TotalTime.Visibility = Visibility.Visible;
             }
-            TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.Times).ToList());
+            TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.Times).ToList());
             TopTrending.Add(new Song());
             TopTrending.Add(new Song());
             TopTrending.Add(new Song());
@@ -1150,7 +1157,7 @@ namespace MusicMediaPlayer.ViewModel
         }
         public void LoadRecent()
         {
-            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.TimeAdd).ToList());
+            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.TimeAdd).ToList());
             if (List.Count == 0)
             {
                 MySongWindow.IsThereSong.Visibility = Visibility.Visible;
@@ -1172,7 +1179,7 @@ namespace MusicMediaPlayer.ViewModel
                 InTime.Visibility = Visibility.Visible;
                 TotalTime.Visibility = Visibility.Visible;
             }
-            TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.Times).ToList());
+            TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.Times).ToList());
             TopTrending.Add(new Song());
             TopTrending.Add(new Song());
             TopTrending.Add(new Song());
@@ -1191,7 +1198,7 @@ namespace MusicMediaPlayer.ViewModel
         }
         void LoadFavourite()
         {
-            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.IsFavourite == true).ToList());
+            List = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id && x.IsFavourite == true).ToList());
             if (List.Count == 0)
             {
                 MySongWindow.IsThereSong.Visibility = Visibility.Visible;
@@ -1213,7 +1220,7 @@ namespace MusicMediaPlayer.ViewModel
                 InTime.Visibility = Visibility.Visible;
                 TotalTime.Visibility = Visibility.Visible;
             }
-            TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.Times).ToList());
+            TopTrending = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id).OrderByDescending(x => x.Times).ToList());
             TopTrending.Add(new Song());
             TopTrending.Add(new Song());
             TopTrending.Add(new Song());
@@ -1247,7 +1254,7 @@ namespace MusicMediaPlayer.ViewModel
         }
         public void LoadEditPage()
         {
-            ListEdit = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id));
+            ListEdit = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id));
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(EditSongWindow.ListSongEdit.ItemsSource);
             view.Filter = FiltersSong;
 

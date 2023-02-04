@@ -18,7 +18,9 @@
         Height="400" Width="600"
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
         DataContext="{StaticResource SongVM}"
-        Name="EditSongApp">
+        Name="EditSongApp"
+        Icon="AppIcon.ico"
+        >
     <Grid Background="Transparent"
           Margin="5">
         <Border CornerRadius="20" 

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MessageBoxOK" 
         Height="100" 
-        Width="370"
+        Width="500"
         
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"        
@@ -26,6 +26,7 @@
         DataContext="{StaticResource MessageBoxOKVM}"
         x:Name="MBOK"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        Icon="AppIcon.ico"
         >
     <Border CornerRadius="10" 
             Background="White"
@@ -52,17 +53,19 @@
                                FontFamily="Bahnschrift SemiBold" 
                                FontWeight="SemiBold"
                                FontSize="13"
+                               TextWrapping="Wrap"
                                >
                         
                     </TextBlock>
                 </StackPanel>
                 <Button Content="OK"
                         Style="{StaticResource YesNoButton}"
-                        Margin="240 5 0 0"
+                        Margin="0 0 15 0"
                         Width="100"
                         Height="25"
                         Command="{Binding OK}"
                         CommandParameter="{Binding ElementName=MBOK}"
+                        HorizontalAlignment="Right"
                         >
                 </Button>
             </StackPanel>

@@ -68,20 +68,17 @@ namespace MusicMediaPlayer.ViewModel
             else if (Password == "")
             {
                 MessageBoxOK wd = new MessageBoxOK();
-
                 var data = wd.DataContext as MessageBoxOKViewModel;
-
                 data.Content = "Please enter password";
-
                 wd.ShowDialog();
             }
             else
             {
                 string passEncode = CreateMD5(Base64Encode(Password));
-                var AccCount = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == Username).Count();
+                var AccCount = DataProvider.Ins.DB.UserAccount.Where(x => x.UserName == Username).Count();
                 if (AccCount > 0)
                 {
-                    var CheckPass = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == Username && x.UserPassword == passEncode).Count();
+                    var CheckPass = DataProvider.Ins.DB.UserAccount.Where(x => x.UserName == Username && x.UserPassword == passEncode).Count();
                     if (CheckPass > 0)
                     {
                         IsLoggedIn = true;

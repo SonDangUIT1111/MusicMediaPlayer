@@ -22,7 +22,7 @@
         Height="800" Width="1225"
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-        Icon="IconApp.ico"
+        Icon="AppIcon.ico"
         Name="Main"
         >
 
@@ -90,8 +90,8 @@
                                                    TextAlignment="Center"
                                                            
                                                            />
-                                                <iconPacks:PackIconMaterial x:Name="Icon" Kind="HomeVariant" 
-                                                                             
+                                                <iconPacks:PackIconMaterial 
+                                                                            Kind="HomeVariant" 
                                                                             Height="15" 
                                                                             Width="20" 
                                                                             Margin="20 0 0 0"
@@ -748,7 +748,7 @@
                                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                             IsChecked="False"
                                             Margin="10,0,5,0"
-                                            Background="#444444"
+                                            Background="#0099FF"
                                             Command="{Binding Source={StaticResource PlayList_InsideVM},Path=ShuffleVariant}"
                                             CommandParameter="{Binding ElementName=Main}"
                                                 >
@@ -756,7 +756,7 @@
                                                 Kind="ShuffleVariant"
                                                 Height="21"
                                                 Width="21"
-                                                Foreground="White"/>
+                                                Foreground="#444444"/>
                                 </ToggleButton>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.5}">
                                     <Button

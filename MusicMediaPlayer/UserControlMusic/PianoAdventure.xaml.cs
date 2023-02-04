@@ -1440,7 +1440,6 @@ namespace MusicMediaPlayer.UserControlMusic
                             IsWriteScript = false;
                             Adventure.IsChecked = true;
                             return;
-                            break;
                     }
                 }
                 DemoScript = newscript;

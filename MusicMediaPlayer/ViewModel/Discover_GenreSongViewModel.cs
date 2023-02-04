@@ -153,7 +153,10 @@ namespace MusicMediaPlayer.ViewModel
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("File not found");
+                        MessageBoxOK MB = new MessageBoxOK();
+                        var data = MB.DataContext as MessageBoxOKViewModel;
+                        data.Content = "File not found";
+                        MB.ShowDialog();
                     }
                 }
             }
@@ -209,8 +212,8 @@ namespace MusicMediaPlayer.ViewModel
         {
             CurrentUser = new CurrentUserAccountModel();
             CurrentGenre = new Genre();
-            ListSong = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == CurrentGenre.GenreId));
-            ListPopular = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == CurrentGenre.GenreId).OrderBy(x => x.Times));
+            ListSong = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == CurrentGenre.GenreId));
+            ListPopular = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == CurrentGenre.GenreId).OrderBy(x => x.Times));
             ListPopular.Add(new Song());
             ListPopular.Add(new Song());
             ListPopular.Add(new Song());
@@ -222,8 +225,8 @@ namespace MusicMediaPlayer.ViewModel
             LoadData = new RelayCommand<Page>((p) => { return true; }, (p) =>
             {
                 GenreSongWindow = p as Discover_GenreSong;
-                ListSong = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == CurrentGenre.GenreId));
-                ListPopular = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == CurrentGenre.GenreId).OrderBy(x => x.Times));
+                ListSong = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == CurrentGenre.GenreId));
+                ListPopular = new ObservableCollection<Song>(DataProvider.Ins.DB.Song.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == CurrentGenre.GenreId).OrderBy(x => x.Times));
                 ListPopular.Add(new Song());
                 ListPopular.Add(new Song());
                 ListPopular.Add(new Song());

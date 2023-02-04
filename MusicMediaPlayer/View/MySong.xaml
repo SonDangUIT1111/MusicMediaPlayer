@@ -302,14 +302,14 @@
                                                                      Width="20"></materialDesign:PackIcon>
                                         </Button>
                                         <Border CornerRadius="5"
-                                                    BorderThickness="1"
+                                                    BorderThickness="0"
                                                     BorderBrush="White"
-                                                    Height="45"
+                                                    Height="40"
                                                     HorizontalAlignment="Center">
                                             <Grid>
                                                 <Border CornerRadius="5"
                                                         Width="40"
-                                                        Height="50"
+                                                        Height="40"
                                                         x:Name="mask">
                                                     <Border.Background>
                                                         <ImageBrush Stretch="UniformToFill"
@@ -474,7 +474,7 @@
                                 </Grid>
                                 <TextBlock Width="150" 
                                            Height="50"
-                                           Margin="-10,25,0,0"
+                                           Margin=".0,25,0,0"
                                            TextAlignment="Left"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"

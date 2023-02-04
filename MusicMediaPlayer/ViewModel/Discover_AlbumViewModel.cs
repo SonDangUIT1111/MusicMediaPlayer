@@ -92,7 +92,7 @@ namespace MusicMediaPlayer.ViewModel
         public Discover_AlbumViewModel()
         {
             CurrentUser = new CurrentUserAccountModel();
-            List = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.UserId == CurrentUser.Id));
+            List = new ObservableCollection<Album>(DataProvider.Ins.DB.Album.Where(x => x.UserId == CurrentUser.Id));
 
 
             LoadData = new RelayCommand<Page>((p) => { return true; }, (p) =>
@@ -178,7 +178,8 @@ namespace MusicMediaPlayer.ViewModel
                 DataProvider.Ins.DB.SaveChanges();
                 LoadAll();
                 ImagePathToChange = null;
-                MessageBox.Show("Succesfully changed");
+                MessageBoxSuccessful MB = new MessageBoxSuccessful();
+                MB.ShowDialog();
                 wd.Close();
             });
             CancelChanging = new RelayCommand<object>((p) => { return true; }, (p) =>
@@ -250,7 +251,7 @@ namespace MusicMediaPlayer.ViewModel
         }
         public void LoadAll()
         {
-            List = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.UserId == CurrentUser.Id).ToList());
+            List = new ObservableCollection<Album>(DataProvider.Ins.DB.Album.Where(x => x.UserId == CurrentUser.Id).ToList());
             if (List.Count == 0)
             {
                 AlbumWindow.IsThereSong.Visibility = Visibility.Visible;

@@ -88,7 +88,7 @@ namespace MusicMediaPlayer.ViewModel
             });
             AcceptChanging = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
-                var acc = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == UserName).SingleOrDefault();
+                var acc = DataProvider.Ins.DB.UserAccount.Where(x => x.UserName == UserName).SingleOrDefault();
                 if (acc != null)
                 {
                     acc.NickName = NickName;
@@ -97,13 +97,17 @@ namespace MusicMediaPlayer.ViewModel
                 AllowChangeButton = "Visible";
                 Accept = "Hidden";
                 DataProvider.Ins.DB.SaveChanges();
-                MessageBox.Show("Successfully changing the nickname");
+                MessageBoxSuccessful MB = new MessageBoxSuccessful(); 
+                MB.ShowDialog();
             });
             Confirm = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
                 if (currentpass == null || newpass == null || confirmnewpass == null)
                 {
-                    MessageBox.Show("Please fill all needed information");
+                    MessageBoxOK wd = new MessageBoxOK();
+                    var data = wd.DataContext as MessageBoxOKViewModel;
+                    data.Content = "Please fill all needed information";
+                    wd.ShowDialog();
                 }
                 else
                 {
@@ -111,7 +115,10 @@ namespace MusicMediaPlayer.ViewModel
                     {
                         if (newpass.Length < 4)
                         {
-                            MessageBox.Show("Password requires length greater or equal to 4");
+                            MessageBoxOK wd = new MessageBoxOK();
+                            var data = wd.DataContext as MessageBoxOKViewModel;
+                            data.Content = "Password requires length greater or equal to 4";
+                            wd.ShowDialog();
                             return;
                         }
                         //Kiểm tra validation của password 
@@ -125,27 +132,36 @@ namespace MusicMediaPlayer.ViewModel
                         }
                         if (countNum == 0 || countUpcase == 0)
                         {
-
-                            MessageBox.Show("Password must contain at least 1 Upcase and 1 number");
+                            MessageBoxOK wd = new MessageBoxOK();
+                            var data = wd.DataContext as MessageBoxOKViewModel;
+                            data.Content = "Password must contain at least 1 Upcase and 1 number";
+                            wd.ShowDialog();
                             return;
                         }
                         if (confirmnewpass != newpass)
                         {
-                            MessageBox.Show("Password did not match");
+                            MessageBoxOK wd = new MessageBoxOK();
+                            var data = wd.DataContext as MessageBoxOKViewModel;
+                            data.Content = "Password did not match";
+                            wd.ShowDialog();
                             return;
                         }
                         else
                         {
                             string encodenewPass = CreateMD5(Base64Encode(newpass));
-                            var acc = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == UserName).SingleOrDefault();
+                            var acc = DataProvider.Ins.DB.UserAccount.Where(x => x.UserName == UserName).SingleOrDefault();
                             acc.UserPassword = encodenewPass;
                             DataProvider.Ins.DB.SaveChanges();
-                            MessageBox.Show("Successfully changes the password");
+                            MessageBoxSuccessful MB = new MessageBoxSuccessful();
+                            MB.ShowDialog();
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Current password is wrong");
+                        MessageBoxOK wd = new MessageBoxOK();
+                        var data = wd.DataContext as MessageBoxOKViewModel;
+                        data.Content = "Current password is wrong";
+                        wd.ShowDialog();
                     }
                 }
             });
@@ -160,7 +176,10 @@ namespace MusicMediaPlayer.ViewModel
             {
                 if (CurrentPass == null || NewEmail == null || ConfirmEmail == null)
                 {
-                    MessageBox.Show("Please fill all needed information");
+                    MessageBoxOK wd = new MessageBoxOK();
+                    var data = wd.DataContext as MessageBoxOKViewModel;
+                    data.Content = "Please fill all needed information";
+                    wd.ShowDialog();
                 }
                 else
                 {
@@ -168,17 +187,23 @@ namespace MusicMediaPlayer.ViewModel
                     {
                         if (!Regex.IsMatch(NewEmail, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"))
                         {
-                            MessageBox.Show("New Email format is invalid");
+                            MessageBoxOK wd = new MessageBoxOK();
+                            var data = wd.DataContext as MessageBoxOKViewModel;
+                            data.Content = "New Email format is invalid";
+                            wd.ShowDialog();
                             return;
                         }
                         if (NewEmail != ConfirmEmail)
                         {
-                            MessageBox.Show("Email did not match");
+                            MessageBoxOK wd = new MessageBoxOK();
+                            var data = wd.DataContext as MessageBoxOKViewModel;
+                            data.Content = "Email did not match";
+                            wd.ShowDialog();
                             return;
                         }
                         else
                         {
-                            var acc = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == UserName).SingleOrDefault();
+                            var acc = DataProvider.Ins.DB.UserAccount.Where(x => x.UserName == UserName).SingleOrDefault();
                             acc.UserEmail = NewEmail;
                             DataProvider.Ins.DB.SaveChanges();
                             Email = NewEmail;
@@ -187,12 +212,16 @@ namespace MusicMediaPlayer.ViewModel
                             p.NewEmailtb.Text = null;
                             p.ConfirmEmailtb.Text = null;
                             p.Password.Password = null;
-                            MessageBox.Show("Successfully changes the email");
+                            MessageBoxSuccessful MB = new MessageBoxSuccessful();
+                            MB.ShowDialog();
                         }    
                     }   
                     else
                     {
-                        MessageBox.Show("Current password is wrong");
+                        MessageBoxOK wd = new MessageBoxOK();
+                        var data = wd.DataContext as MessageBoxOKViewModel;
+                        data.Content = "Current password is wrong";
+                        wd.ShowDialog();
                     }    
                 }    
             }

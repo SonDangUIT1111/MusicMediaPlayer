@@ -18,7 +18,9 @@
         Height="320" Width="400"
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
         DataContext="{StaticResource AlbumVM}"
-        Name="AlbumChangePicWD">
+        Name="AlbumChangePicWD"
+        Icon="AppIcon.ico"
+        >
     <Grid Background="Transparent"
           Margin="5">
         <Border CornerRadius="20" 
