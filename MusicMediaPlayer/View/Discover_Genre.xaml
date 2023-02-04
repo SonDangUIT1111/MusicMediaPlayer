@@ -13,7 +13,7 @@
       TextOptions.TextFormattingMode="Ideal"
       TextOptions.TextRenderingMode="Auto"
       FontFamily="{DynamicResource MaterialDesignFont}"
-      d:DesignHeight="1000" d:DesignWidth="1000"
+      d:DesignHeight="750" d:DesignWidth="1000"
       Title="Discover_Genre"
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       x:Name="GenreWD"
@@ -26,7 +26,7 @@
     </i:Interaction.Triggers>
     <Grid Background="Transparent"
           Width="1000"
-          Height="1000">
+          Height="750">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
@@ -110,28 +110,30 @@
                        Margin="0,0,0,0"
                        materialDesign:ShadowAssist.ShadowEdges="Bottom"></Separator>
             <StackPanel Orientation="Horizontal"
-                        Height="820"
+                        Height="620"
                         Width="980">
-                <ListBox x:Name="ListGenre"
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                              VerticalScrollBarVisibility="Auto">
+                    <ListBox x:Name="ListGenre"
                          ItemsSource="{Binding List}"
-                         Height="800"
+                         Height="580"
                          Width="950"
                          Margin="10,20,10,10">
-                    <ListBox.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel></WrapPanel>
-                        </ItemsPanelTemplate>
-                    </ListBox.ItemsPanel>
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Grid Height="260"
-                                  Width="225">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="180"/>
-                                    <RowDefinition Height="80"/>
-                                </Grid.RowDefinitions>
-                                <Grid Grid.Row="0">
-                                    <Button Style="{StaticResource ButtonPlayVisibility}"
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel></WrapPanel>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Height="260"
+                                  Width="200">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="180"/>
+                                        <RowDefinition Height="80"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0">
+                                        <Button Style="{StaticResource ButtonPlayVisibility}"
                                             Panel.ZIndex="2"
                                             Width="50"
                                             Height="50"
@@ -139,17 +141,17 @@
                                             Margin="60,0,0,0"
                                             BorderBrush="Transparent"
                                             BorderThickness="0"
-                                            Background="Transparent"
+                                            Background="#FFFFFF"
                                             Command="{Binding Source={StaticResource GenreVM},Path=Explore}"
                                             CommandParameter="{Binding}">
-                                        <materialDesign:PackIcon
-                                                            Foreground="#FFFFFF"
+                                            <materialDesign:PackIcon
+                                                            Foreground="#000000"
                                                             Kind="Play"
                                                             Opacity="0.8"
                                                             Height="42"
                                                             Width="42" />
-                                    </Button>
-                                    <Button Style="{StaticResource ButtonPlayVisibility}"
+                                        </Button>
+                                        <Button Style="{StaticResource ButtonPlayVisibility}"
                                                 Panel.ZIndex="2"
                                                 Width="50"
                                                 Height="50"
@@ -157,58 +159,48 @@
                                                 Margin="-60,0,0,0"
                                                 BorderBrush="Transparent"
                                                 BorderThickness="0"
-                                                Background="Transparent"
+                                                Background="#FFFFFF"
                                                 Command="{Binding Source={StaticResource GenreVM},Path=ChangeImageGenre}"
                                                 CommandParameter="{Binding}">
-                                        <materialDesign:PackIcon
-                                                            Foreground="#FFFFFF"
+                                            <materialDesign:PackIcon
+                                                            Foreground="#000000"
                                                             Kind="CameraPartyMode"
                                                             Opacity="0.8"
                                                             Height="35"
                                                             Width="35" />
-                                    </Button>
-                                    <Button Style="{StaticResource ButtonPlayVisibility}"
-                                            Panel.ZIndex="1"
-                                            IsEnabled="False"
-                                            Background="#333333"
-                                            Opacity="0.5"
-                                            Height="180"
-                                            Width="180"
-                                            BorderBrush="Transparent"
-                                            BorderThickness="0"
-                                            >
-                                    </Button>
-                                    <Border CornerRadius="180"
+                                        </Button>
+                                        <Border CornerRadius="180"
                                         Grid.Row="0"
                                         Height="180"
                                         Width="180"
                                         Margin="0,0,0,0"
                                         Panel.ZIndex="0">
-                                        <Border.Background>
-                                            <ImageBrush ImageSource="{Binding ImageGenreBinary, Converter={StaticResource ByteToImageConverter}}"
+                                            <Border.Background>
+                                                <ImageBrush ImageSource="{Binding ImageGenreBinary, Converter={StaticResource ByteToImageConverter}}"
                                                     Stretch="UniformToFill">
-                                            </ImageBrush>
-                                        </Border.Background>
-                                    </Border>
-                                </Grid>
-                                <StackPanel Grid.Row="1"
+                                                </ImageBrush>
+                                            </Border.Background>
+                                        </Border>
+                                    </Grid>
+                                    <StackPanel Grid.Row="1"
                                             Margin="0 20 0 0">
-                                    <TextBlock 
+                                        <TextBlock 
                                                Text="{Binding GenreName}"
                                                TextAlignment="Center"
                                                Foreground="#333333" 
                                                FontWeight="SemiBold" 
                                                FontSize="20"/>
-                                    <StackPanel Orientation="Horizontal"
+                                        <StackPanel Orientation="Horizontal"
                                                 Margin="0 10 0 0"
                                                 >
 
+                                        </StackPanel>
                                     </StackPanel>
-                                </StackPanel>
-                            </Grid>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </ScrollViewer>
             </StackPanel>
         </StackPanel>
     </Grid>

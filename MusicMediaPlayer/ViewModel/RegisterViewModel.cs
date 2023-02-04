@@ -260,7 +260,7 @@ namespace MusicMediaPlayer.ViewModel
                     try
                     {
                         var projectPath = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
-                        var filePath = Path.Combine(projectPath, "Image", "logomusicapp.png");
+                        var filePath = Path.Combine(projectPath, "Image", "music_note.jpg");
                         Converter.ByteArrayToBitmapImageConverter converter = new MusicMediaPlayer.Converter.ByteArrayToBitmapImageConverter();
                         string uriIamge = filePath;
                         byte[] newUserAvatar = converter.ImageToBinary(uriIamge);

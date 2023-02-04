@@ -52,7 +52,7 @@ namespace MusicMediaPlayer.ViewModel
 
         public View.PlayList page_PlayList;
 
-        MusicMediaPlayer.Model.PlayList pl;
+        public MusicMediaPlayer.Model.PlayList pl { get; set; }
 
         public PlayList_Inside thispage { get; set; }
         public EditSongInPlayList EditSongPlaylistWindow { get; set; }
@@ -237,7 +237,6 @@ namespace MusicMediaPlayer.ViewModel
             LoadData = new RelayCommand<PlayList_Inside>((p) => { return true; }, (p) =>
             {
                 thispage = p;
-                pl = page_PlayList.listview.SelectedItem as MusicMediaPlayer.Model.PlayList;
                 PLName = pl.PlayListName;
                 ImageBinaryAdd = pl.ImagePlaylistBinary;
                 SongCount = "Song: " + pl.SongCount.ToString();

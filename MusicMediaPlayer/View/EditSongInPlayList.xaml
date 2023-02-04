@@ -13,7 +13,7 @@
       TextOptions.TextFormattingMode="Ideal"
       TextOptions.TextRenderingMode="Auto"
       FontFamily="{DynamicResource MaterialDesignFont}"
-      d:DesignHeight="1000" d:DesignWidth="1000"
+      d:DesignHeight="750" d:DesignWidth="1000"
       Title="Edit Song"
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       x:Name="EditSongPlaylistWD"
@@ -29,7 +29,7 @@
         <Grid Background="Transparent"
           Margin="5"
           Width="1000"
-          Height="1000">
+          Height="750">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="0*"/>
@@ -178,41 +178,43 @@
                            Margin="0,0,0,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal"
-                        Height="820"
+                        Height="580"
                         Width="980">
-                    <DataGrid 
+                    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                                  VerticalScrollBarVisibility="Auto">
+                        <DataGrid 
                   x:Name="ListSongEdit"
-                  Height="800"
+                  Height="560"
                   Width="950"
                   Margin="15,0,0,0"
                   ItemsSource="{Binding ListEdit}"
                   Style="{StaticResource DataGridStyle2}"  
                   CellStyle="{StaticResource DataGridCellStyle2}" 
                   RowStyle="{StaticResource DataGridRowStyle2}">
-                        <DataGrid.Columns>
-                            <DataGridTemplateColumn Width="900">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <Border CornerRadius="5"
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Width="900">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Border CornerRadius="5"
                                                     BorderThickness="1"
                                                     BorderBrush="White"
                                                     Height="45"
                                                     HorizontalAlignment="Center">
-                                                <Grid>
-                                                    <Border CornerRadius="5"
+                                                    <Grid>
+                                                        <Border CornerRadius="5"
                                                         Width="40"
                                                         Height="50"
                                                         x:Name="mask">
-                                                        <Border.Background>
-                                                            <ImageBrush Stretch="UniformToFill"
+                                                            <Border.Background>
+                                                                <ImageBrush Stretch="UniformToFill"
                                                                     ImageSource="{Binding ImageSongBinary, Converter={StaticResource ByteToImageConverter}}">
-                                                            </ImageBrush>
-                                                        </Border.Background>
-                                                    </Border>
-                                                </Grid>
-                                            </Border>
-                                            <TextBlock Text="{Binding SongTitle}"
+                                                                </ImageBrush>
+                                                            </Border.Background>
+                                                        </Border>
+                                                    </Grid>
+                                                </Border>
+                                                <TextBlock Text="{Binding SongTitle}"
                                                         Width="200"
                                                         FontSize="14"
                                                         FontWeight="Bold"
@@ -222,8 +224,8 @@
                                                         HorizontalAlignment="Center"
                                                         TextTrimming="WordEllipsis"
                                                         >
-                                            </TextBlock>
-                                            <TextBlock Text="{Binding Artist}"
+                                                </TextBlock>
+                                                <TextBlock Text="{Binding Artist}"
                                                         Width="180"
                                                         FontSize="12"
                                                         Margin="0,5,0,0"
@@ -232,7 +234,7 @@
                                                         HorizontalAlignment="Center"
                                                         TextTrimming="WordEllipsis"
                                                         ></TextBlock>
-                                            <TextBlock Text="{Binding Album}"
+                                                <TextBlock Text="{Binding Album}"
                                                         Width="120"
                                                         FontSize="12"
                                                         Margin="0,5,0,0"
@@ -241,7 +243,7 @@
                                                         HorizontalAlignment="Center"
                                                         TextTrimming="WordEllipsis"
                                                         ></TextBlock>
-                                            <TextBlock Text="{Binding Genre}"
+                                                <TextBlock Text="{Binding Genre}"
                                                         Width="120"
                                                         FontSize="12"
                                                         Margin="0,5,0,0"
@@ -250,7 +252,7 @@
                                                         HorizontalAlignment="Center"
                                                         TextTrimming="WordEllipsis"
                                                         ></TextBlock>
-                                            <TextBlock Text="{Binding HowLong}"
+                                                <TextBlock Text="{Binding HowLong}"
                                                            Width="80"
                                                            FontSize="12"
                                                            Margin="0,8,0,0"
@@ -258,14 +260,14 @@
                                                            VerticalAlignment="Center"
                                                            FontWeight="Medium"
                                                            ></TextBlock>
-                                            <StackPanel>
-                                                <StackPanel Background="Transparent"
+                                                <StackPanel>
+                                                    <StackPanel Background="Transparent"
                                                         Orientation="Horizontal"
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center"
                                                         Margin="10,12,0,0"
                                                         Panel.ZIndex="2">
-                                                    <Button x:Name="Del"
+                                                        <Button x:Name="Del"
                                                                     Background="Transparent"
                                                                     Content="{materialDesign:PackIcon DeleteCircle}"
                                                                     Command="{Binding Source={StaticResource PlayList_InsideVM}, Path=DeleteSong}"
@@ -275,16 +277,16 @@
                                                                     Margin="10,0,0,30"
                                                                     Foreground="#FF2C2C"
                                                                     BorderBrush="Transparent">
-                                                    </Button>
+                                                        </Button>
+                                                    </StackPanel>
                                                 </StackPanel>
                                             </StackPanel>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
-
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </ScrollViewer>
                 </StackPanel>
             </StackPanel>
         </Grid>

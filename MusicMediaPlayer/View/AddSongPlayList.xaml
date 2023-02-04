@@ -46,31 +46,34 @@
                            FontFamily="Arial Rounded MT Bold" 
                            Foreground="#FF07AEFF">
                 </TextBlock>
-                <ListView     
+                <ScrollViewer VerticalScrollBarVisibility="Auto"
+                              HorizontalScrollBarVisibility="Disabled">
+                    <ListView     
                       x:Name="listview"
                       ItemsSource="{Binding List}"
                       SelectionMode="Multiple"
-                      Margin="20 20 20 0"
-                      Height="275">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="Title"
+                      Margin="20 0 20 0"
+                      Height="300">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Title"
                                     Width="200"
                                     DisplayMemberBinding="{Binding SongTitle}"
                                         >
 
-                            </GridViewColumn>
-                            <GridViewColumn Header="Artist"
+                                </GridViewColumn>
+                                <GridViewColumn Header="Artist"
                                             Width="200"
                                     DisplayMemberBinding="{Binding Artist}"
                                        >
 
-                            </GridViewColumn>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
                 <StackPanel Orientation="Horizontal"
-                            Margin="0 20 0 0">
+                            Margin="10 20 0 0">
                     <Button Margin="75 0 0 0"
                                 Style="{StaticResource ButtonInAddPLWD}"
                                 Width="100"

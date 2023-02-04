@@ -41,20 +41,18 @@
             <StackPanel Orientation="Horizontal"
                     Grid.Row="0" Grid.ColumnSpan="2" >
                 <Border 
-                CornerRadius="10"
-                Width="150"
+                CornerRadius="180"
+                Width="50"
                 Height="50"
-                BorderBrush="#5CA0F2"
+                BorderBrush="#333333"
                 BorderThickness="1" 
                 Margin="25 0 0 0">
-                    <Menu Width="190"
-                          Height="40"
+                    <Menu Width="50"
+                          Height="50"
                           >
-                        <MenuItem   Width="190"
-                                    Height="40"
-                                    Header="Arrange"
+                        <MenuItem   Width="50"
+                                    Height="50"
                                     FontWeight="SemiBold"
-                                    FontStyle="Italic"
                                     >
                             <MenuItem.Icon>
                                 <materialDesign:PackIcon Kind="FormatLineSpacing" />
@@ -78,18 +76,28 @@
                 </Border>
 
                 <Border 
-                CornerRadius="10"
-                Width="600"
-                Height="50"
-                BorderBrush="#5CA0F2"
-                BorderThickness="1" 
-                Margin="25 0 0 0"
+                        BorderBrush="#333333"
+                        BorderThickness="2"
+                        Width="200"
+                        Height="40"
+                        Margin="20,5,0,0"
+                        CornerRadius="15"
                 >
                     <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10"
+                                 Height="10"
+                                 Fill="#333333"
+                                 Margin="10,0,0,0"></Ellipse>
                         <TextBox VerticalAlignment="Center"
                          Margin="25 0 0 0"
-                         materialDesign:HintAssist.Hint="SEARCH"
-                         Width="530"
+                                 Background="Transparent"
+                                  BorderBrush="Transparent"
+                                  BorderThickness="0"
+                                  Foreground="#333333"
+                                  HorizontalAlignment="Center"
+                                  
+                         materialDesign:HintAssist.Hint="Search here ..."
+                         Width="150"
                          x:Name="txtFilter"
                          >
                             <i:Interaction.Triggers>
@@ -109,25 +117,35 @@
                     </StackPanel>
                 </Border>
 
-                <Border Background="#5CA0F2"
-                    CornerRadius="10"
+                <Border BorderBrush="#333333"
+                        Background="Transparent"
+                        BorderThickness="3"
+                    CornerRadius="180"
                     VerticalAlignment="Center"
-                    Margin="25 0 0 0"
+                    Margin="600 0 0 0"
                     Height="50"
-                    Width="150"
+                    Width="50"
                     >
                     <Button Background="Transparent"
                         BorderThickness="0"
+                            Padding="0"
                         Command="{Binding AddPL}">
                         <materialDesign:PackIcon Kind="Plus"
                                              Height="25"
-                                             Width="50"
-                                             Foreground="White"
+                                             Width="25"
+                                             Foreground="#333333"
                                              >
 
                         </materialDesign:PackIcon>
                     </Button>
                 </Border>
+                <Label Content="New"
+                           Foreground="#333333"
+                           FontWeight="SemiBold"
+                           FontSize="14"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                       Margin="-50,70,0,0"></Label>
             </StackPanel>
 
 
@@ -136,13 +154,6 @@
                           SelectionMode="Single"
                            Grid.Row="1" Grid.ColumnSpan="2"
                           >
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="MouseDoubleClick">
-                        <i:InvokeCommandAction Command="{Binding MouseDoubleClick}"
-                                   CommandParameter="{Binding ElementName=listview}"/>
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
-
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel>
@@ -152,11 +163,11 @@
 
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Grid Height="185"
+                        <Grid Height="225"
                               Width="180"
                                   >
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="135">
+                                <RowDefinition Height="175">
 
                                 </RowDefinition>
                                 <RowDefinition Height="50">
@@ -166,7 +177,7 @@
 
                             <Border CornerRadius="5"
                                     Grid.Row="0"
-                                    Height="130"
+                                    Height="175"
                                     Width="175"
                                     x:Name="Pic"
                                         >
@@ -177,7 +188,7 @@
                                                 Width="40"
                                                 Height="40"
                                                 Padding="0"
-                                                Margin="0,0,0,0"
+                                                Margin="-50,0,0,0"
                                                 BorderBrush="Transparent"
                                                 BorderThickness="0"
                                                 Background="White"
@@ -192,42 +203,22 @@
                                                             Height="25"
                                                             Width="25" />
                                     </Button>
-
-                                    <Button Style="{StaticResource ButtonPlayVisibility}"
-                                            Panel.ZIndex="2"
-                                            Width="40"
-                                            Height="40"
-                                            Padding="0"
-                                            Margin="100,0,0,0"
-                                            BorderBrush="Transparent"
-                                            BorderThickness="0"
-                                            Background="White"
-                                            ToolTip="Rename"
-                                            Command="{Binding Source={StaticResource PlayListVM},Path=Rename}"
-                                            CommandParameter="{Binding}">
-                                        <materialDesign:PackIcon
-                                                            Foreground="#222222"
-                                                            Kind="Rename"
-                                                            Opacity="0.8"
-                                                            Height="25"
-                                                            Width="25" />
-                                    </Button>
-
                                     <Button Style="{StaticResource ButtonPlayVisibility}"
                                                 Panel.ZIndex="2"
                                                 Width="40"
                                                 Height="40"
                                                 Padding="0"
-                                                Margin="-100,0,0,0"
+                                                Margin="50,0,0,0"
                                                 BorderBrush="Transparent"
                                                 BorderThickness="0"
                                                 Background="White"
-                                                ToolTip="Delete"
-                                                Command="{Binding Source={StaticResource PlayListVM},Path=Delete}"
-                                                CommandParameter="{Binding}">
+                                                ToolTip="Play"
+                                                Command="{Binding Source={StaticResource PlayListVM},Path=MouseDoubleClick}"
+                                                CommandParameter="{Binding}"
+                                                >
                                         <materialDesign:PackIcon
-                                                            Foreground="#BF2604"
-                                                            Kind="Delete"
+                                                            Foreground="#222222"
+                                                            Kind="Play"
                                                             Opacity="0.8"
                                                             Height="25"
                                                             Width="25" />
@@ -250,7 +241,7 @@
                                                     <BeginStoryboard>
                                                         <Storyboard>
                                                             <DoubleAnimation Storyboard.TargetProperty="Height"
-                                                                                 To="135"
+                                                                                 To="180"
                                                                                  Duration="0:0:0.2"
                                                                                  >
                                                             </DoubleAnimation>
@@ -266,7 +257,7 @@
                                                     <BeginStoryboard>
                                                         <Storyboard>
                                                             <DoubleAnimation Storyboard.TargetProperty="Height"
-                                                                                 To="130"
+                                                                                 To="175"
                                                                                  Duration="0:0:0.2"
                                                                                  >
                                                             </DoubleAnimation>

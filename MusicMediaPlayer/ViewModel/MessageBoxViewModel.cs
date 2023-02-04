@@ -37,6 +37,7 @@ namespace MusicMediaPlayer.ViewModel
                     if (second < 1)
                     {
                         second = 2500;
+                        timer.Stop();
                         p.Close();
                     }
                 }

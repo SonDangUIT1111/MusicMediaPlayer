@@ -63,15 +63,17 @@
                              Foreground="White"
                      IsEnabled="{Binding AllowChanging}" Margin="12.5 10 12.5 107.5"
                                  />
-                    <Button Style="{StaticResource CPButton}" 
-                    Width="150"  
+                    <Button Style="{StaticResource ContactButton}" 
+                    Width="180" 
+                    Padding="0"
                     Command="{Binding CPCommand}"
-                    Background="#5CA0F2"
                                 Margin="0 -75 0 0">
                         <TextBlock Text="Change Password" 
                            Foreground="AliceBlue"
-                           FontSize="16" VerticalAlignment="Center" 
+                           FontSize="16" 
+                           VerticalAlignment="Center" 
                            HorizontalAlignment="Center"
+                                   Margin="-20,0,0,0"
                            />
                     </Button>
                     <Border BorderBrush="Silver"
@@ -285,8 +287,9 @@
                                 BorderBrush="#333333"
                                 BorderThickness="1"/>
                         <StackPanel Orientation="Horizontal">
-                            <Button Width="80" 
+                            <Button Width="100" 
                                 Height="40"
+                                Style="{StaticResource ButtonInAddPLWD}"    
                                 Background="#1ED760"
                                 BorderBrush="Transparent"
                                 BorderThickness="1.5"
@@ -297,11 +300,11 @@
                                 Kind="Check" 
                                 Height="18" 
                                 Width="17" 
-                                Margin="-7"
-                            Foreground="#5CA0F2"/>
+                            Foreground="#FFFFFF"/>
                         </Button>
-                        <Button Width="80" 
+                        <Button Width="100" 
                                 Height="40"
+                                Style="{StaticResource ButtonInAddPLWD}"
                                 Background="#FF616161"
                                 BorderBrush="Transparent"
                                 BorderThickness="1.5"
@@ -310,10 +313,9 @@
                         Margin="50 25 0 0">
                             <icon:PackIconMaterial 
                                 Kind="Close" 
-                                Height="14" 
-                                Width="14" 
-                                Margin="-7"
-                            Foreground="#5CA0F2"/>
+                                Height="18" 
+                                Width="17" 
+                            Foreground="#FFFFFF"/>
                         </Button>
                     </StackPanel>
         </StackPanel>

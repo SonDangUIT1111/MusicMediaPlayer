@@ -36,34 +36,8 @@
                            FontWeight="SemiBold"
                            FontSize="40"
                            TextAlignment="Center"
-                           Foreground="#FF07AEFF" FontFamily="Arial Rounded MT Bold"/>
-                <!--<Image gif:AnimationBehavior.SourceUri="\Image\MusicNoteBackground.gif" 
-                       IsEnabled="True"
-                       Width="60"
-                       Height="60"
-                       Margin="0,-10,0,-10"
-                       ></Image>
-                <TextBlock Text="New song - new world"
-                           HorizontalAlignment="Center"
-                           FontSize="26"
-                           FontWeight="SemiBold" 
-                           FlowDirection="LeftToRight" 
-                            FontStyle="Italic"
-                           Margin="0,5,0,-10">
-                    --><!--<TextBlock.Foreground>
-                        <LinearGradientBrush>
-                            <GradientStop Color="#2af598" Offset="1"/>
-                            <GradientStop Color="#009efd" Offset="0.3"/>
-                            <GradientStop Color="#ba55d3" Offset="0.05"/>
-                        </LinearGradientBrush>
-                    </TextBlock.Foreground>--><!--
-                </TextBlock>
-                <Image gif:AnimationBehavior.SourceUri="\Image\MusicNoteBackground.gif" 
-                       IsEnabled="True"
-                       Width="60"
-                       Height="60"
-                       Margin="0,-10,0,-10"
-                       ></Image>-->
+                           Foreground="#FF07AEFF" 
+                           FontFamily="Arial Rounded MT Bold"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Grid
@@ -192,10 +166,11 @@
             </StackPanel>
            
 
-            <StackPanel Margin="380,20,0,0"
+            <StackPanel Margin="350,15,0,0"
                         Orientation="Horizontal">
-                <Button
-                          Width="80"
+                <Button   Style="{StaticResource ButtonInAddPLWD}"
+                          Width="100"
+                          Height="40"
                           Padding="0"
                           BorderThickness="0"
                           Foreground="White"
@@ -205,9 +180,10 @@
                           Content="{materialDesign:PackIcon Check}"
                           ToolTip="Add">
                 </Button>
-                <Button
+                <Button   Style="{StaticResource ButtonInAddPLWD}"
                           Margin="10,0,0,0"
-                          Width="80"
+                          Width="100"
+                          Height="40"
                           Padding="0"
                           BorderThickness="0"
                           Foreground="White"

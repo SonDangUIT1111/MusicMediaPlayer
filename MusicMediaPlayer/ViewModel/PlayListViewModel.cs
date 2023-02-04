@@ -205,12 +205,12 @@ namespace MusicMediaPlayer.ViewModel
             }
             );
 
-            MouseDoubleClick = new RelayCommand<ListBox>((p) => { return true; }, (p) =>
+            MouseDoubleClick = new RelayCommand<Model.PlayList>((p) => { return true; }, (p) =>
             {
                 PlayList_Inside wd = new PlayList_Inside();
 
                 var trang = wd.DataContext as PlayList_InsideViewModel;
-
+                trang.pl = p as Model.PlayList;
                 trang.page_PlayList = page;
                 trang.CurrentUser = CurrentUser;
                 trang.SkipNextbtn = SkipNextbtn;

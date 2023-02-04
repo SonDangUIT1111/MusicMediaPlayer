@@ -162,10 +162,11 @@
             </StackPanel>
 
 
-            <StackPanel Margin="400,20,0,0"
+            <StackPanel Margin="350,20,0,0"
                         Orientation="Horizontal">
-                <Button
-                          Width="80"
+                <Button   Style="{StaticResource ButtonInAddPLWD}"
+                          Width="100"
+                          Height="40"
                           Padding="0"
                           BorderThickness="0"
                           Foreground="White"
@@ -175,9 +176,10 @@
                           Content="{materialDesign:PackIcon Check}"
                           ToolTip="Add">
                 </Button>
-                <Button
+                <Button   Style="{StaticResource ButtonInAddPLWD}"
                           Margin="10,0,0,0"
-                          Width="80"
+                          Width="100"
+                          Height="40"
                           Padding="0"
                           BorderThickness="0"
                           Foreground="White"

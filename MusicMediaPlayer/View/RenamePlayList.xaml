@@ -31,7 +31,7 @@
 
             <StackPanel>
                 <TextBlock Text="Rename Playlist"
-                           FontSize="26"
+                           FontSize="28"
                            TextAlignment="Center"
                            Foreground="#FF07AEFF"
                            Opacity="1"

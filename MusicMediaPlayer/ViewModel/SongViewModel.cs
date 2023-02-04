@@ -611,7 +611,8 @@ namespace MusicMediaPlayer.ViewModel
                     AlbumToChange = null;
                     GenreToChange = null;
                     ImagePathToChange = null;
-                    MessageBox.Show("Succesfully changed");
+                    MessageBoxSuccessful ms = new MessageBoxSuccessful();
+                    ms.Show();
                     wd.Close();
                 }
             });
@@ -717,7 +718,10 @@ namespace MusicMediaPlayer.ViewModel
                 var MySongWindow = p as AddSongToApp;
                 if (String.IsNullOrEmpty(FilePathToAdd))
                 {
-                    MessageBox.Show("Please add song file");
+                    MessageBoxOK ms = new MessageBoxOK();
+                    var dt = ms.DataContext as MessageBoxOKViewModel;
+                    dt.Content = "Please add song file";
+                    ms.ShowDialog();
                     return;
                 }
                 if (!String.IsNullOrEmpty(MySongWindow.TitleSong.Text))
@@ -750,9 +754,6 @@ namespace MusicMediaPlayer.ViewModel
                 }
                 try
                 {
-                    
-                    
-                    
                     //
                     string stradd = FilePathToAdd;
                     Uri uriadd = new Uri(stradd);
@@ -762,8 +763,6 @@ namespace MusicMediaPlayer.ViewModel
                     // this is a trick to waiting hastimespan change to true
                     MessageBoxLoading MBL = new MessageBoxLoading();
                     MBL.ShowDialog();
-              
-                    
                     //
                     if (med.HasAudio == false)
                     {

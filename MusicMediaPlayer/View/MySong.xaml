@@ -13,7 +13,7 @@
       TextOptions.TextFormattingMode="Ideal"
       TextOptions.TextRenderingMode="Auto"
       FontFamily="{DynamicResource MaterialDesignFont}"
-      d:DesignHeight="1000" d:DesignWidth="1000"
+      d:DesignHeight="750" d:DesignWidth="1000"
       Title="My Song"
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       x:Name="SongWD"
@@ -27,7 +27,7 @@
     </i:Interaction.Triggers>
     <Grid Background="Transparent"
           Width="1000"
-          Height="1000">
+          Height="750">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
@@ -260,11 +260,13 @@
                        Margin="0,0,0,0"
                        materialDesign:ShadowAssist.ShadowEdges="Bottom"></Separator>
             <StackPanel Orientation="Horizontal"
-                        Height="820"
+                        Height="600"
                         Width="980">
-                <DataGrid 
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                              VerticalScrollBarVisibility="Auto">
+                    <DataGrid 
                   x:Name="ListSong"
-                  Height="1000"
+                  Height="580"
                   Width="520"
                   Margin="10,10,0,0"
                   ItemsSource="{Binding List}"
@@ -272,12 +274,12 @@
                   Style="{StaticResource DataGridStyle1}"  
                   CellStyle="{StaticResource DataGridCellStyle1}" 
                   RowStyle="{StaticResource DataGridRowStyle1}">
-                    <DataGrid.Columns>
-                        <DataGridTemplateColumn Width="500">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Button Style="{StaticResource Visualizer}"
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Width="500">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Style="{StaticResource Visualizer}"
                                                 Background="#0099FF"
                                                 BorderBrush="Transparent"
                                                 Margin="0,0,10,0"
@@ -285,41 +287,41 @@
                                                 Opacity="0.8"
                                                 Panel.ZIndex="1"
                                                 >
-                                            <Image gif:AnimationBehavior.SourceUri="\Image\visualizer.gif"
+                                                <Image gif:AnimationBehavior.SourceUri="\Image\visualizer.gif"
                                                    Height="20"
                                                    Width="20"
                                                    />
-                                        </Button>
-                                        <Button Style="{StaticResource ButtonInMySong}"
+                                            </Button>
+                                            <Button Style="{StaticResource ButtonInMySong}"
                                                 Background="Transparent"
                                                 BorderBrush="Transparent"
                                                 Margin="-30,0,10,0"
                                                 Padding="0"
                                                 Opacity="0.8">
-                                            <materialDesign:PackIcon Kind="Play"
+                                                <materialDesign:PackIcon Kind="Play"
                                                                      Foreground="#FFFFFF"
                                                                      Height="20"
                                                                      Width="20"></materialDesign:PackIcon>
-                                        </Button>
-                                        <Border CornerRadius="5"
+                                            </Button>
+                                            <Border CornerRadius="5"
                                                     BorderThickness="0"
                                                     BorderBrush="White"
                                                     Height="40"
                                                     HorizontalAlignment="Center">
-                                            <Grid>
-                                                <Border CornerRadius="5"
+                                                <Grid>
+                                                    <Border CornerRadius="5"
                                                         Width="40"
                                                         Height="40"
                                                         x:Name="mask">
-                                                    <Border.Background>
-                                                        <ImageBrush Stretch="UniformToFill"
+                                                        <Border.Background>
+                                                            <ImageBrush Stretch="UniformToFill"
                                                                     ImageSource="{Binding ImageSongBinary, Converter={StaticResource ByteToImageConverter}}">
-                                                        </ImageBrush>
-                                                    </Border.Background>
-                                                </Border>
-                                            </Grid>
-                                        </Border>
-                                        <TextBlock Text="{Binding SongTitle}"
+                                                            </ImageBrush>
+                                                        </Border.Background>
+                                                    </Border>
+                                                </Grid>
+                                            </Border>
+                                            <TextBlock Text="{Binding SongTitle}"
                                                         Width="150"
                                                         FontSize="14"
                                                         FontWeight="Bold"
@@ -329,8 +331,8 @@
                                                         HorizontalAlignment="Center"
                                                         TextTrimming="WordEllipsis"
                                                         >
-                                        </TextBlock>
-                                        <TextBlock Text="{Binding Artist}"
+                                            </TextBlock>
+                                            <TextBlock Text="{Binding Artist}"
                                                         Width="150"
                                                         FontSize="12"
                                                         Margin="0,5,0,0"
@@ -339,7 +341,7 @@
                                                         HorizontalAlignment="Center"
                                                         TextTrimming="WordEllipsis"
                                                         ></TextBlock>
-                                        <TextBlock Text="{Binding HowLong}"
+                                            <TextBlock Text="{Binding HowLong}"
                                                            Width="50"
                                                            FontSize="12"
                                                            Margin="20,8,0,0"
@@ -347,18 +349,19 @@
                                                            VerticalAlignment="Center"
                                                            FontWeight="Medium"
                                                            ></TextBlock>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                    </DataGrid.Columns>
-                </DataGrid>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </ScrollViewer>
                 <StackPanel Height="620"
                             Width="420"
-                            Margin="20,-50,0,0">
+                            Margin="20,0,0,0">
                     <Expander Background="Transparent"
                               Foreground="Transparent"
-                              Margin="0,-50,0,0"
+                              Margin="0,0,0,0"
                               IsExpanded="True"
                               x:Name="TopTrendExpander">
                         <StackPanel>
@@ -511,7 +514,7 @@
                     </Expander>
                     <Expander Background="Transparent"
                               Foreground="Transparent"
-                              Margin="0,-50,0,0"
+                              Margin="0,0,0,0"
                               Height="620"
                               Width="420"
                               IsEnabled="True"

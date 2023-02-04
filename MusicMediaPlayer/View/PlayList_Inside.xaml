@@ -357,6 +357,7 @@
                                         FontSize="34"
                                         FontWeight="SemiBold"
                                         Foreground="Black"
+                                        FontFamily="Arial Rounded MT Bold"
                                         Opacity="0.7"
                                         TextAlignment="Center"
                                         Text="{Binding PLName}"
@@ -369,6 +370,7 @@
                                            Height="40"
                                            FontSize="28"
                                            FontWeight="Bold"
+                                           FontFamily="Arial Rounded MT Bold"
                                            Foreground="#767676"
                                            TextAlignment="Center"
                                            Text="{Binding SongCount}"></TextBlock>
