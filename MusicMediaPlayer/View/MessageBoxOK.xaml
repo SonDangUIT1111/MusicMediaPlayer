@@ -5,16 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MusicMediaPlayer.View"
         mc:Ignorable="d"
-        Title="MessageBoxOK" 
-        Height="100" 
-        Width="370"
-        
+        Title="Warning" 
+        Height="200" 
+        Width="400"   
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"        
         AllowsTransparency="True"
         Background="Transparent"
-        
-        
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -26,8 +23,9 @@
         DataContext="{StaticResource MessageBoxOKVM}"
         x:Name="MBOK"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        Icon="AppIcon.ico"
         >
-    <Border CornerRadius="10" 
+    <Border CornerRadius="20" 
             Background="White"
             BorderThickness="3"
             BorderBrush="#0099FF">
@@ -41,28 +39,30 @@
                             Margin="15 0 0 0">
                         <Border.Background>
                             <ImageBrush ImageSource="/Image/warningicon1.jpg">
-                                
                             </ImageBrush>
                         </Border.Background>
                     </Border>
-                    <TextBlock Text="{Binding Content}"
+                </StackPanel>
+                <TextBlock Text="{Binding Content}"
                                VerticalAlignment="Center"
-                               Margin="15 0 0 0"
+                               Margin="5 30 0 20"
                                Foreground="Black"
                                FontFamily="Bahnschrift SemiBold" 
                                FontWeight="SemiBold"
-                               FontSize="13"
+                               FontSize="16"
+                               Height="50"
+                               Width="350"
+                               TextWrapping="Wrap"
                                >
-                        
-                    </TextBlock>
-                </StackPanel>
+                </TextBlock>
                 <Button Content="OK"
                         Style="{StaticResource YesNoButton}"
-                        Margin="240 5 0 0"
+                        Margin="0 -20 50 0"
                         Width="100"
-                        Height="25"
+                        Height="30"
                         Command="{Binding OK}"
                         CommandParameter="{Binding ElementName=MBOK}"
+                        HorizontalAlignment="Right"
                         >
                 </Button>
             </StackPanel>

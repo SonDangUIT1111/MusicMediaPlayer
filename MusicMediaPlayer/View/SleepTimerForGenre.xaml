@@ -14,11 +14,13 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         Background="Transparent"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-        Title="Add Song" Height="500" Width="500"
+        Title="Sleep Timer" Height="500" Width="500"
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
         DataContext="{StaticResource GenreSongVM}"
         Name="SleepTimerWD"
-        xmlns:my="clr-namespace:MusicMediaPlayer.View">
+        xmlns:my="clr-namespace:MusicMediaPlayer.View"
+        Icon="AppIcon.ico"
+        >
     <Window.Resources>
         <my:ValueAngleConverter x:Key="valueAngleConverter"/>
         <my:ValueTextConverter x:Key="valueTextConverter"/>
@@ -121,7 +123,7 @@
               Margin="0,300,0,0"
               Content="Start"
               Foreground="#FFFFFF"
-              Background="#0099FF"
+              Background="#1ED760"
               FontWeight="Medium"
               Height="80"
               Width="80"

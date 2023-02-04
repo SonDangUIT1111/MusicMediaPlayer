@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MusicMediaPlayer.View"
         mc:Ignorable="d"
-        Title="MessageBoxSuccessful" 
-        Height="140" 
-        Width="150"
+        Title="Successfully" 
+        Height="200" 
+        Width="400"
         WindowStartupLocation="CenterScreen" 
         WindowStyle="None" 
         AllowsTransparency="True"
@@ -23,6 +23,7 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         DataContext="{StaticResource MessageBoxVM}"
         x:Name="SuccessfulMB"
+        Icon="AppIcon.ico"
         >
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
@@ -31,43 +32,43 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid>
-        <Border CornerRadius="10" 
-                Background="White"
-                BorderThickness="3"
-                BorderBrush="#104E8B"
-               >
+        <Border Background="#F2F6F6"
+                CornerRadius="20"
+                BorderBrush="#FF07AEFF"
+                BorderThickness="3">
             <Border CornerRadius="10"
                     Background="Black"
                     Opacity="0.08"
                     >
-                
+
             </Border>
         </Border>
-        
-        <Grid VerticalAlignment="Top"
-                Margin="10 15 10 10">
-            <TextBlock Text="Successful"
-                    Foreground="#104E8B"
-                    FontFamily="Bahnschrift SemiBold" 
+        <Border
+            Height="200"
+            Width="400" 
+            CornerRadius="20"
+            Margin="0,0,0,0" 
+            BorderBrush="#FF07AEFF"
+            BorderThickness="3"
+            Background="#F2F6F6">
+            <Grid>
+                <Image gif:AnimationBehavior.SourceUri="\Image\successful2.gif"
+                       Stretch="Uniform" 
+                       Margin="-230,0,0,0"
+                       Width="160"
+                       Height="160">
+                </Image>
+                <TextBlock Text="Successfully"
+                    Foreground="#1ED760"
+                    FontFamily="Arial Rounded MT Bold" 
                     FontWeight="SemiBold" 
-                    FontSize="20"
+                    FontSize="40"
                     TextAlignment="Center"
                     VerticalAlignment="Top" 
-                    >
-            </TextBlock>
-        </Grid>
-
-
-        <Border
-            Height="100"
-            Width="150" 
-            Margin="0,40,0,0" 
-            CornerRadius="20"
-            >
-            <Image gif:AnimationBehavior.SourceUri="\Image\successful4.gif"
-                   Stretch="Uniform" Margin="5">
-
-            </Image>
+                    Width="250"
+                    Margin="122,77,22,0">
+                </TextBlock>
+            </Grid>
         </Border>
     </Grid>
 </Window>

@@ -17,7 +17,9 @@
         Title="Add Song" Height="450" Width="600"
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
         DataContext="{StaticResource SongVM}"
-        Name="AddSongApp">
+        Name="AddSongApp"
+        Icon="AppIcon.ico"
+        >
     <Grid Background="Transparent"
           Margin="5">
         <Border CornerRadius="20" 
@@ -30,22 +32,11 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Margin="0,20,0,0">
-                <Separator Background="#0099FF"
-                           Width="350"
-                           Height="auto"
-                           VerticalAlignment="Bottom"
-                           Margin="0 0 20 5"
-                           >
-                    
-                </Separator>
-                <TextBlock Text="Add Song"
+                <TextBlock Text="Add Your Song"
                            FontWeight="SemiBold"
-                           FontStyle="Italic"
                            FontSize="40"
                            TextAlignment="Center"
-                           Margin="0 0 0 0">
-
-                </TextBlock>
+                           Foreground="#FF07AEFF" FontFamily="Arial Rounded MT Bold"/>
                 <!--<Image gif:AnimationBehavior.SourceUri="\Image\MusicNoteBackground.gif" 
                        IsEnabled="True"
                        Width="60"
@@ -201,14 +192,14 @@
             </StackPanel>
            
 
-            <StackPanel Margin="460,20,0,0"
+            <StackPanel Margin="380,20,0,0"
                         Orientation="Horizontal">
                 <Button
-                          Width="40"
+                          Width="80"
                           Padding="0"
                           BorderThickness="0"
                           Foreground="White"
-                          Background="#0099FF"
+                          Background="#FF1ED760"
                           Command="{Binding Complete}"
                           CommandParameter="{Binding ElementName=AddSongApp}"
                           Content="{materialDesign:PackIcon Check}"
@@ -216,11 +207,11 @@
                 </Button>
                 <Button
                           Margin="10,0,0,0"
-                          Width="40"
+                          Width="80"
                           Padding="0"
                           BorderThickness="0"
                           Foreground="White"
-                          Background="#B3B3B3"
+                          Background="#FF787878"
                           Command="{Binding Cancel}"
                           CommandParameter="{Binding ElementName=AddSongApp}"
                           Content="{materialDesign:PackIcon Close}"

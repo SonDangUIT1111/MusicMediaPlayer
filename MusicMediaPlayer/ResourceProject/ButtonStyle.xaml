@@ -20,8 +20,8 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#CCFFFF"/>
-                <Setter Property="Foreground" Value="#444444"/>
+                <Setter Property="Background" Value="#1ED760"/>
+                <Setter Property="Foreground" Value="#FFFFFF"/>
                 <Setter Property="Tag" Value="Visible"/>
             </Trigger>
         </Style.Triggers>
@@ -50,7 +50,8 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#CCFFFF"/>
+                <Setter Property="Foreground" Value="Black"></Setter>
+                <Setter Property="Background" Value="#0099FF"/>
                 <Setter Property="Tag" Value="Visible"/>
             </Trigger>
         </Style.Triggers>
@@ -77,7 +78,8 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#0487D9"/>
+                <Setter Property="Foreground" Value="Black"></Setter>
+                <Setter Property="Background" Value="#0099FF"/>
                 <Setter Property="Tag" Value="Visible"/>
             </Trigger>
         </Style.Triggers>
@@ -105,7 +107,8 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#0487D9"/>
+                <Setter Property="Foreground" Value="Black"></Setter>
+                <Setter Property="Background" Value="#0099FF"/>
                 <Setter Property="Tag" Value="Visible"/>
             </Trigger>
         </Style.Triggers>
@@ -186,8 +189,8 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#CCFFFF"/>
-                <Setter Property="Foreground" Value="#444444"/>
+                <Setter Property="Background" Value="#1ED760"/>
+                <Setter Property="Foreground" Value="#FFFFFF"/>
                 <Setter Property="Tag" Value="Visible"/>
             </Trigger>
         </Style.Triggers>
@@ -214,7 +217,8 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#0487D9"/>
+                <Setter Property="Foreground" Value="Black"></Setter>
+                <Setter Property="Background" Value="#0099FF"/>
                 <Setter Property="Tag" Value="Visible"/>
             </Trigger>
         </Style.Triggers>

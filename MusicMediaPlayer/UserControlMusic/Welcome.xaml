@@ -141,7 +141,7 @@
             <Button Style="{StaticResource ContactButton}"
                     Content="Play Time"
                     Width="100"
-                    Height="25"
+                    Height="30"
                     FontSize="13"
                     VerticalAlignment="Top"
                     FontWeight="DemiBold"
@@ -151,9 +151,8 @@
                     FontFamily="Times New Roman">
                 <Button.Background>
                     <LinearGradientBrush>
-                        <GradientStop Color="#2af598"/>
-                        <GradientStop Color="#009efd" Offset="0.23"/>
-                        <GradientStop Color="#FF007F" Offset="1"/>
+                        <GradientStop Color="#2af598" Offset="1"/>
+                        <GradientStop Color="#009efd" Offset="0.3"/>
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>

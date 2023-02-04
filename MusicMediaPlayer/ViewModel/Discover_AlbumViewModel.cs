@@ -178,7 +178,8 @@ namespace MusicMediaPlayer.ViewModel
                 DataProvider.Ins.DB.SaveChanges();
                 LoadAll();
                 ImagePathToChange = null;
-                MessageBox.Show("Succesfully changed");
+                MessageBoxSuccessful MB = new MessageBoxSuccessful();
+                MB.ShowDialog();
                 wd.Close();
             });
             CancelChanging = new RelayCommand<object>((p) => { return true; }, (p) =>

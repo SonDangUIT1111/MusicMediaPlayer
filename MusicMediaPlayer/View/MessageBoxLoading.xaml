@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MusicMediaPlayer.View"
         mc:Ignorable="d"
-        Title="MessageBoxLoading" 
-        Height="140" 
-        Width="150"
+        Title="Processing" 
+        Height="200" 
+        Width="400"
         WindowStartupLocation="CenterScreen" 
         WindowStyle="None" 
         AllowsTransparency="True"
@@ -19,21 +19,33 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
+        
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        x:Name="LoadingMB"
+        DataContext="{StaticResource MessageBoxVM}"
+        Icon="AppIcon.ico"
         >
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding Loaded}"
+                                   CommandParameter="{Binding ElementName=LoadingMB}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
-        <Border CornerRadius="10" 
+        <Border CornerRadius="20" 
                 Background="White"
                 BorderBrush="#0099FF"
                 BorderThickness="3"
                >
         </Border>
-        <StackPanel>
-            <Grid Height="40" Margin="0 20 0 0">
+        <Grid>
+            <Grid Height="40" Margin="150 0 0 0">
                 <TextBlock Text="Processing"
                            Foreground="#0099FF"
-                           FontFamily="Bahnschrift SemiBold" 
+                           FontFamily="Arial Rounded MT Bold" 
                            FontWeight="SemiBold" 
-                           FontSize="20"
+                           FontSize="36"
+                           Width="200"
                            TextAlignment="Center"
                            VerticalAlignment="Center"
                            >
@@ -44,11 +56,12 @@
                      IsIndeterminate="True"
                      Style="{StaticResource MaterialDesignCircularProgressBar}"
                      Value="0"
-                     Height="40"
-                     Width="40"
+                     Height="100"
+                     Width="100"
+                     Margin="-200,0,0,0"
                      >
             </ProgressBar>
-        </StackPanel>
+        </Grid>
 
     </Grid>
 </Window>

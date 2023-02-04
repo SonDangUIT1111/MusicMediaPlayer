@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:MusicMediaPlayer.View"
         mc:Ignorable="d"
         Title="MessageBoxYesNo"
-        Height="125" 
-        Width="300"
+        Height="150" 
+        Width="350"
         
         
         WindowStartupLocation="CenterScreen"
@@ -26,6 +26,7 @@
         DataContext="{StaticResource MessageBoxYesNoVM}"
         x:Name="MessageBoxYN"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        Icon="AppIcon.ico"
         >
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
@@ -65,28 +66,28 @@
 
             <StackPanel Orientation="Horizontal"
                         VerticalAlignment="Bottom"
-                        Margin="0 15 0 0">
+                        Margin="20 30 0 0">
                 <Button Content="Yes"
                         Style="{StaticResource YesNoButton}"
                         Margin="110 0 0 0"
-                        Width="80"
-                        Height="25"
+                        Width="90"
+                        Height="30"
                         FontFamily="Bahnschrift SemiBold" 
                         FontWeight="SemiBold" 
                         Command="{Binding Yes}"
-                        CommandParameter="{Binding ElementName=MessageBoxYN}"
+                        CommandParameter="{Binding ElementName=MessageBoxYN}" Background="#FF1ED760"
                         >
 
                 </Button>
                 <Button Content="No"
                         Margin="10 0 0 0"
                         Style="{StaticResource YesNoButton}"
-                        Width="80"
-                        Height="25"
+                        Width="90"
+                        Height="30"
                         FontFamily="Bahnschrift SemiBold" 
                         FontWeight="SemiBold" 
                         Command="{Binding No}"
-                        CommandParameter="{Binding ElementName=MessageBoxYN}"
+                        CommandParameter="{Binding ElementName=MessageBoxYN}" Background="#FFEE4949"
                         >
 
                 </Button>

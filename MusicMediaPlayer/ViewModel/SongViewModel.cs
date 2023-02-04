@@ -708,7 +708,7 @@ namespace MusicMediaPlayer.ViewModel
             }, (p) =>
             {
                 var projectPath = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
-                var filePath = Path.Combine(projectPath, "Image", "logomusicapp.png");
+                var filePath = Path.Combine(projectPath, "Image", "music_note.jpg");
                 string titleNewSong = "Unknown";
                 string artistNewSong = "Unknown";
                 string albumNewSong = "Unknown";
@@ -760,11 +760,17 @@ namespace MusicMediaPlayer.ViewModel
                     med.Open(uriadd);
                     string timetoadd = "";
                     // this is a trick to waiting hastimespan change to true
-                    MessageBox.Show("Processing");
+                    MessageBoxLoading MBL = new MessageBoxLoading();
+                    MBL.ShowDialog();
+              
+                    
                     //
                     if (med.HasAudio == false)
                     {
-                        MessageBox.Show("Audio file invalid");
+                        MessageBoxOK wd = new MessageBoxOK();
+                        var data = wd.DataContext as MessageBoxOKViewModel;
+                        data.Content = "Audio file invalid";
+                        wd.ShowDialog();
                         return;
                     }
                     if (med.NaturalDuration.HasTimeSpan)
@@ -836,9 +842,10 @@ namespace MusicMediaPlayer.ViewModel
                     DataProvider.Ins.DB.SaveChanges();
                     LoadCommon();
 
-                    MessageBox.Show("Add successfully");
+                    MessageBoxSuccessful MB = new MessageBoxSuccessful();
+                    MB.ShowDialog();
 
-                 
+
                     MySongWindow.Close();
                     TitleToAdd = null;
                     ArtistToAdd = null;

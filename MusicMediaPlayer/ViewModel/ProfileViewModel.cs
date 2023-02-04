@@ -1,10 +1,12 @@
-﻿using MusicMediaPlayer.Model;
+﻿using Microsoft.Win32;
+using MusicMediaPlayer.Model;
 using MusicMediaPlayer.View;
 using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -13,6 +15,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace MusicMediaPlayer.ViewModel
 {
@@ -44,7 +48,8 @@ namespace MusicMediaPlayer.ViewModel
 
 
         //
-        public Border AvatarFrame { get; set; }
+
+        public Profile ProfileWindow { get; set; }
 
         //
         public ICommand Click { get; set; }
@@ -58,11 +63,20 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand ConfirmChangedCommand { get; set; }
         public ICommand OpenExpander { get; set; }
         public ICommand AcceptChangingEmail { get; set; }
+        public ICommand CancelChangingEmail { get; set; }
+        public ICommand ChangeAvatarCommand { get; set; }
+        public ICommand ChangeImage { get; set; }
+        public ICommand Changing { get; set; }
+        public ICommand CancelChanging { get; set; }
         public string CurrentPass { get { return currentpass; } set { currentpass = value; } }
         public string NewPass { get { return newpass; } set { newpass = value; } }
         public string ConfirmNewPass { get { return confirmnewpass; } set { confirmnewpass = value; } }
         public string NewEmail { get { return newemail; } set { newemail = value; } }
         public string ConfirmEmail { get { return confirmemail; } set { confirmemail = value; } }
+        private string _ImagePathToChange;
+        public string ImagePathToChange { get => _ImagePathToChange; set => _ImagePathToChange = value; }
+        private UserAccount _AccountChanging;
+        public UserAccount AccountChanging { get => _AccountChanging; set => _AccountChanging = value; }
         public ProfileViewModel()
         {
             CurrentUser = new CurrentUserAccountModel();
@@ -97,13 +111,17 @@ namespace MusicMediaPlayer.ViewModel
                 AllowChangeButton = "Visible";
                 Accept = "Hidden";
                 DataProvider.Ins.DB.SaveChanges();
-                MessageBox.Show("Successfully changing the nickname");
+                MessageBoxSuccessful MB = new MessageBoxSuccessful(); 
+                MB.ShowDialog();
             });
             Confirm = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
                 if (currentpass == null || newpass == null || confirmnewpass == null)
                 {
-                    MessageBox.Show("Please fill all needed information");
+                    MessageBoxOK wd = new MessageBoxOK();
+                    var data = wd.DataContext as MessageBoxOKViewModel;
+                    data.Content = "Please fill all needed information";
+                    wd.ShowDialog();
                 }
                 else
                 {
@@ -111,7 +129,10 @@ namespace MusicMediaPlayer.ViewModel
                     {
                         if (newpass.Length < 4)
                         {
-                            MessageBox.Show("Password requires length greater or equal to 4");
+                            MessageBoxOK wd = new MessageBoxOK();
+                            var data = wd.DataContext as MessageBoxOKViewModel;
+                            data.Content = "Password requires length greater or equal to 4";
+                            wd.ShowDialog();
                             return;
                         }
                         //Kiểm tra validation của password 
@@ -125,13 +146,18 @@ namespace MusicMediaPlayer.ViewModel
                         }
                         if (countNum == 0 || countUpcase == 0)
                         {
-
-                            MessageBox.Show("Password must contain at least 1 Upcase and 1 number");
+                            MessageBoxOK wd = new MessageBoxOK();
+                            var data = wd.DataContext as MessageBoxOKViewModel;
+                            data.Content = "Password must contain at least 1 Upcase and 1 number";
+                            wd.ShowDialog();
                             return;
                         }
                         if (confirmnewpass != newpass)
                         {
-                            MessageBox.Show("Password did not match");
+                            MessageBoxOK wd = new MessageBoxOK();
+                            var data = wd.DataContext as MessageBoxOKViewModel;
+                            data.Content = "Password did not match";
+                            wd.ShowDialog();
                             return;
                         }
                         else
@@ -140,12 +166,16 @@ namespace MusicMediaPlayer.ViewModel
                             var acc = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == UserName).SingleOrDefault();
                             acc.UserPassword = encodenewPass;
                             DataProvider.Ins.DB.SaveChanges();
-                            MessageBox.Show("Successfully changes the password");
+                            MessageBoxSuccessful MB = new MessageBoxSuccessful();
+                            MB.ShowDialog();
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Current password is wrong");
+                        MessageBoxOK wd = new MessageBoxOK();
+                        var data = wd.DataContext as MessageBoxOKViewModel;
+                        data.Content = "Current password is wrong";
+                        wd.ShowDialog();
                     }
                 }
             });
@@ -160,7 +190,10 @@ namespace MusicMediaPlayer.ViewModel
             {
                 if (CurrentPass == null || NewEmail == null || ConfirmEmail == null)
                 {
-                    MessageBox.Show("Please fill all needed information");
+                    MessageBoxOK wd = new MessageBoxOK();
+                    var data = wd.DataContext as MessageBoxOKViewModel;
+                    data.Content = "Please fill all needed information";
+                    wd.ShowDialog();
                 }
                 else
                 {
@@ -168,12 +201,18 @@ namespace MusicMediaPlayer.ViewModel
                     {
                         if (!Regex.IsMatch(NewEmail, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"))
                         {
-                            MessageBox.Show("New Email format is invalid");
+                            MessageBoxOK wd = new MessageBoxOK();
+                            var data = wd.DataContext as MessageBoxOKViewModel;
+                            data.Content = "New Email format is invalid";
+                            wd.ShowDialog();
                             return;
                         }
                         if (NewEmail != ConfirmEmail)
                         {
-                            MessageBox.Show("Email did not match");
+                            MessageBoxOK wd = new MessageBoxOK();
+                            var data = wd.DataContext as MessageBoxOKViewModel;
+                            data.Content = "Email did not match";
+                            wd.ShowDialog();
                             return;
                         }
                         else
@@ -187,16 +226,98 @@ namespace MusicMediaPlayer.ViewModel
                             p.NewEmailtb.Text = null;
                             p.ConfirmEmailtb.Text = null;
                             p.Password.Password = null;
-                            MessageBox.Show("Successfully changes the email");
+                            MessageBoxSuccessful MB = new MessageBoxSuccessful();
+                            MB.ShowDialog();
                         }    
                     }   
                     else
                     {
-                        MessageBox.Show("Current password is wrong");
+                        MessageBoxOK wd = new MessageBoxOK();
+                        var data = wd.DataContext as MessageBoxOKViewModel;
+                        data.Content = "Current password is wrong";
+                        wd.ShowDialog();
                     }    
                 }    
             }
             );
+            CancelChangingEmail = new RelayCommand<Profile>((p) => { return true; }, (p) =>
+            {
+                p.EmailChange.IsEnabled = false;
+                p.EmailChange.IsExpanded = false;
+                p.NewEmailtb.Text = null;
+                p.ConfirmEmailtb.Text = null;
+                p.Password.Password = null;
+            }
+            );
+            ChangeAvatarCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                ProfileWindow = p as Profile;
+                var users = DataProvider.Ins.DB.UserAccounts.Where(o => o.UserId == CurrentUser.Id).SingleOrDefault();
+                ChangeAvatar changewindow = new ChangeAvatar();
+                ImageBrush imageBrush = new ImageBrush();
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                var imagestream = new MemoryStream(users.UserImage);
+                bitmap.StreamSource = imagestream;
+                bitmap.EndInit();
+                imageBrush.ImageSource = bitmap;
+                changewindow.ChangegrdSelectImg.Background = imageBrush;
+                changewindow.ShowDialog();
+            });
+            ChangeImage = new RelayCommand<Grid>((p) => { return true; }, (p) =>
+            {
+                OpenFileDialog op = new OpenFileDialog();
+                op.Title = "Insert Image";
+                op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" + "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" + "Portable Network Graphic (*.png)|*.png";
+                if (op.ShowDialog() == true)
+                {
+                    ImagePathToChange = op.FileName;
+                    ImageBrush imageBrush = new ImageBrush();
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmap.UriSource = new Uri(ImagePathToChange);
+                    bitmap.EndInit();
+                    imageBrush.ImageSource = bitmap;
+                    p.Background = imageBrush;
+                    if (p.Children.Count > 1)
+                    {
+                        p.Children.Remove(p.Children[0]);
+                        p.Children.Remove(p.Children[1]);
+                    }
+                }
+            });
+            Changing = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                var users = DataProvider.Ins.DB.UserAccounts.Where(o => o.UserId == CurrentUser.Id).SingleOrDefault();
+                var wd = p as ChangeAvatar;
+                if (ImagePathToChange != null)
+                {
+                    Converter.ByteArrayToBitmapImageConverter converter = new MusicMediaPlayer.Converter.ByteArrayToBitmapImageConverter();
+                    byte[] BinaryImage = converter.ImageToBinary(ImagePathToChange);
+                    users.UserImage = BinaryImage;
+                }
+                DataProvider.Ins.DB.SaveChanges();
+                ImageBrush imageBrush = new ImageBrush();
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                bitmap.UriSource = new Uri(ImagePathToChange);
+                bitmap.EndInit();
+                imageBrush.ImageSource = bitmap;
+                ProfileWindow.AvatarFrame.Background = imageBrush;
+                ImagePathToChange = null;
+                MessageBoxSuccessful MB = new MessageBoxSuccessful();
+                MB.ShowDialog();
+                wd.Close();
+            });
+            CancelChanging = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                var wd = p as ChangeAvatar;
+                wd.Close();
+                ImagePathToChange = null;
+            });
         }
         public static string Base64Encode(string plainText)
         {

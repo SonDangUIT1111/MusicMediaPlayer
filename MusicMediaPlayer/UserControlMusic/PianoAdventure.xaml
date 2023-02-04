@@ -41,7 +41,7 @@
         <Button Style="{StaticResource ContactButton}"
                 Content="Home"
                 Width="80"
-                Height="25"
+                Height="30"
                 FontSize="13"
                 VerticalAlignment="Top"
                 Margin="-850,50,0,0"
@@ -50,27 +50,25 @@
                 Command="{x:Static materialDesign:Transitioner.MoveFirstCommand}">
             <Button.Background>
                 <LinearGradientBrush>
-                    <GradientStop Color="#2af598"/>
-                    <GradientStop Color="#009efd" Offset="0.23"/>
-                    <GradientStop Color="#FF007F" Offset="1"/>
+                    <GradientStop Color="#2af598" Offset="1"/>
+                    <GradientStop Color="#009efd" Offset="0.3"/>
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
         <Button Style="{StaticResource ContactButton}"
                 Content="Drum"
                 Width="80"
-                Height="25"
+                Height="30"
                 FontSize="13"
                 FontWeight="DemiBold"
                 VerticalAlignment="Top"
                 FontFamily="Times New Roman"
-                Margin="-850,80,0,0"
+                Margin="-850,100,0,0"
                 Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">
             <Button.Background>
                 <LinearGradientBrush>
-                    <GradientStop Color="#2af598"/>
-                    <GradientStop Color="#009efd" Offset="0.23"/>
-                    <GradientStop Color="#FF007F" Offset="1"/>
+                    <GradientStop Color="#2af598" Offset="1"/>
+                    <GradientStop Color="#009efd" Offset="0.3"/>
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
@@ -81,7 +79,7 @@
                 Padding="0"
                 BorderBrush="Transparent"
                 VerticalAlignment="Top"
-                Margin="-850,120,0,0"
+                Margin="-850,150,0,0"
                 Click="Button_Click_1">
             <materialDesign:PackIcon
                 Kind="LightbulbOn"

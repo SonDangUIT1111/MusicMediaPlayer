@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MusicMediaPlayer.View"
         mc:Ignorable="d"
-        Title="Artist Picture"
+        Title="Change Artist Cover"
         xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -18,17 +18,19 @@
         Height="320" Width="400"
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
         DataContext="{StaticResource ArtistVM}"
-        Name="ArtistChangePicWD">
+        Name="ArtistChangePicWD"
+        Icon="AppIcon.ico"
+        >
     <Grid Background="Transparent"
           Margin="5">
         <Border CornerRadius="20" 
-                BorderBrush="#0FF"
+                BorderBrush="#FF07AEFF"
                 BorderThickness="2.5"
                 Grid.Column="1">
             <Grid Background="Transparent">
                 <Border CornerRadius="20">
                     <Border.Background>
-                        <ImageBrush ImageSource="\Image\Sky4.png" Stretch="UniformToFill" Opacity="0.9"/>
+                        <SolidColorBrush Color="#FFFFFF"/>
                     </Border.Background>
                 </Border>
             </Grid>
@@ -45,13 +47,13 @@
                         VerticalAlignment="Center"
                         Margin="0,20,0,0">
 
-                <TextBlock Text="New Clothes - Cooler"
+                <TextBlock Text="Artist Cover"
                            HorizontalAlignment="Center"
                            FontSize="26"
-                           FontFamily="Bahnschrift SemiBold" 
+                           FontFamily="Arial Rounded MT Bold" 
                            FontWeight="Light" 
                            FlowDirection="LeftToRight" 
-                           Margin="0,5,0,-10" Foreground="#222222">
+                           Margin="0,5,0,-10" Foreground="#FF07AEFF">
                 </TextBlock>
                 
             </StackPanel>
@@ -94,7 +96,7 @@
                     <materialDesign:PackIcon 
                             x:Name="iconImage" 
                             Kind="FileImageOutline" 
-                            Foreground="#333333"
+                            Foreground="Transparent"
                             Width="64" Height="54"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Top"  
@@ -104,26 +106,28 @@
             <StackPanel Margin="0,20,0,0"
                         Orientation="Horizontal"
                         HorizontalAlignment="Center">
-                <Button
-                          Width="40"
+                <Button   Style="{StaticResource ButtonInAddPLWD}"
+                          Height="40"
+                          Width="100"
                           Padding="0"
                           BorderThickness="1"
                           Foreground="White"
-                          Background="#0099FF"
+                          Background="#FF1ED760"
                           BorderBrush="AliceBlue"                          
                           Command="{Binding Changing}"
                           CommandParameter="{Binding ElementName=ArtistChangePicWD}"
                           Content="{materialDesign:PackIcon Check}"
                           ToolTip="Add">
                 </Button>
-                <Button
-                          Margin="10,0,0,0"
-                          Width="40"
+                <Button   Style="{StaticResource ButtonInAddPLWD}"
+                          Height="40"
+                          Margin="50,0,0,0"
+                          Width="100"
                           Padding="0"
                           BorderThickness="1"
                     BorderBrush="AliceBlue"
                           Foreground="White"
-                          Background="Salmon"
+                          Background="#FF7E7E7E"
                           Command="{Binding CancelChanging}"
                           CommandParameter="{Binding ElementName=ArtistChangePicWD}"
                           Content="{materialDesign:PackIcon Close}"

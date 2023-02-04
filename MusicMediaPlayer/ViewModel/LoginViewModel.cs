@@ -68,11 +68,8 @@ namespace MusicMediaPlayer.ViewModel
             else if (Password == "")
             {
                 MessageBoxOK wd = new MessageBoxOK();
-
                 var data = wd.DataContext as MessageBoxOKViewModel;
-
                 data.Content = "Please enter password";
-
                 wd.ShowDialog();
             }
             else

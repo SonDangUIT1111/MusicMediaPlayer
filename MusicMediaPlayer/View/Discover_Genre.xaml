@@ -48,7 +48,7 @@
             </Border.Background>
         </Border>
         <TextBlock x:Name="IsThereSong"
-                   Foreground="#FFFFFF"
+                   Foreground="#333333"
                    Background="Transparent"
                    FontSize="24"
                    Text="Nothing to show here"

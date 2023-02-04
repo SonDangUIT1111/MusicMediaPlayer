@@ -249,6 +249,7 @@
     <Compile Include="ViewModel\AddSongPlayListViewModel.cs" />
     <Compile Include="ViewModel\ChangePasswordViewModel.cs" />
     <Compile Include="CurrentUserAccountModel.cs" />
+    <Compile Include="ViewModel\ChangePlayListPictureViewModel.cs" />
     <Compile Include="ViewModel\Discover_AlbumSongViewModel.cs" />
     <Compile Include="ViewModel\Discover_AlbumViewModel.cs" />
     <Compile Include="ViewModel\Discover_ArtistSongViewModel.cs" />
@@ -276,6 +277,9 @@
     <Compile Include="View\ChangeArtistPictureWindow.xaml.cs">
       <DependentUpon>ChangeArtistPictureWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ChangeAvatar.xaml.cs">
+      <DependentUpon>ChangeAvatar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ChangeGenrePictureWindow.xaml.cs">
       <DependentUpon>ChangeGenrePictureWindow.xaml</DependentUpon>
     </Compile>
@@ -285,6 +289,9 @@
     <Compile Include="ViewModel\SongViewModel.cs" />
     <Compile Include="View\AddSongToApp.xaml.cs">
       <DependentUpon>AddSongToApp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChangePlayListPicture.xaml.cs">
+      <DependentUpon>ChangePlayListPicture.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Discover_AlbumSong.xaml.cs">
       <DependentUpon>Discover_AlbumSong.xaml</DependentUpon>
@@ -461,6 +468,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ChangeAvatar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ChangeGenrePictureWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -512,6 +523,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AddSongToApp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ChangePlayListPicture.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -758,6 +773,7 @@
     <Resource Include="Image\Sky4.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="View\AppIcon.ico" />
     <Resource Include="Image\successful4.gif" />
     <Resource Include="Image\successful2.gif" />
     <Resource Include="Image\error.gif" />
@@ -771,6 +787,13 @@
     <Resource Include="Image\Afternoon.jpg" />
     <Resource Include="Image\Morning.jpg" />
     <Resource Include="Image\Night.jpg" />
+    <Resource Include="Image\logo7.png" />
+    <Resource Include="Image\music_note.jpg" />
+    <Resource Include="Image\music_note1.png" />
+    <Resource Include="Image\Sky6.jpg" />
+    <Resource Include="Image\rename.png" />
+    <Resource Include="Image\Sky7.jpg" />
+    <Resource Include="Image\Sky8.jpg" />
     <Content Include="Model\Database.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Database.edmx</DependentUpon>

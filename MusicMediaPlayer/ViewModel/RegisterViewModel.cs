@@ -161,27 +161,42 @@ namespace MusicMediaPlayer.ViewModel
             //Kiểm tra đã nhập đủ thông tin
             if (String.IsNullOrEmpty(Username))
             {
-                MessageBox.Show("Please enter the user name");
+                MessageBoxOK MB = new MessageBoxOK();
+                var data = MB.DataContext as MessageBoxOKViewModel;
+                data.Content = "Please enter the user name";
+                MB.ShowDialog();
                 return;
             }
             else if (String.IsNullOrEmpty(Password))
             {
-                MessageBox.Show("Please enter the password");
+                MessageBoxOK MB = new MessageBoxOK();
+                var data = MB.DataContext as MessageBoxOKViewModel;
+                data.Content = "Please enter the password";
+                MB.ShowDialog();
                 return;
             }
             else if (Password.Length < 4)
             {
-                MessageBox.Show("Password length has to be greater or euqal to 4");
+                MessageBoxOK MB = new MessageBoxOK();
+                var data = MB.DataContext as MessageBoxOKViewModel;
+                data.Content = "Password length has to be greater or euqal to 4";
+                MB.ShowDialog();
                 return;
             }
             else if (String.IsNullOrEmpty(ConfirmPassword))
             {
-                MessageBox.Show("Please confirm the password");
+                MessageBoxOK MB = new MessageBoxOK();
+                var data = MB.DataContext as MessageBoxOKViewModel;
+                data.Content = "Please confirm the password";
+                MB.ShowDialog();
                 return;
             }
             else if (String.IsNullOrEmpty(Email))
             {
-                MessageBox.Show("Please enter the email to protect the account");
+                MessageBoxOK MB = new MessageBoxOK();
+                var data = MB.DataContext as MessageBoxOKViewModel;
+                data.Content = "Please enter the email to protect the account";
+                MB.ShowDialog();
                 return;
             }
             //Kiểm tra validation của password và email
@@ -195,19 +210,27 @@ namespace MusicMediaPlayer.ViewModel
             }
             if (countNum == 0 || countUpcase == 0)
             {
-                
-                    MessageBox.Show("Password must contain at least 1 Upcase and 1 number");
-                    return;
+                MessageBoxOK MB = new MessageBoxOK();
+                var data = MB.DataContext as MessageBoxOKViewModel;
+                data.Content = "Password must contain at least 1 Upcase and 1 number";
+                MB.ShowDialog();
+                return;
             }
             else if (Password != ConfirmPassword)
             {
-                MessageBox.Show("Password confirmes wrong");
+                MessageBoxOK MB = new MessageBoxOK();
+                var data = MB.DataContext as MessageBoxOKViewModel;
+                data.Content = "Password confirmes wrong";
+                MB.ShowDialog();
                 return;
             }
             else if (!Regex.IsMatch(Email, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"))
             {
-                    MessageBox.Show("Email format is invalid");
-                    return;
+                MessageBoxOK MB = new MessageBoxOK();
+                var data = MB.DataContext as MessageBoxOKViewModel;
+                data.Content = "Email format is invalid";
+                MB.ShowDialog();
+                return;
             }
             else
             {
@@ -217,12 +240,18 @@ namespace MusicMediaPlayer.ViewModel
                 if (UserCountm > 0 )
                 {
                     IsSignedUp = false;
-                    MessageBox.Show("Username has been used, please try another username");
+                    MessageBoxOK MB = new MessageBoxOK();
+                    var data = MB.DataContext as MessageBoxOKViewModel;
+                    data.Content = "Username has been used, please try another username";
+                    MB.ShowDialog();
                 }
                 if (EmailCountm > 0)
                 {
                     IsSignedUp = false;
-                    MessageBox.Show("Email has been used, please try another email");
+                    MessageBoxOK MB = new MessageBoxOK();
+                    var data = MB.DataContext as MessageBoxOKViewModel;
+                    data.Content = "Email has been used, please try another email";
+                    MB.ShowDialog();
                 }
                 else
                 {
@@ -259,7 +288,10 @@ namespace MusicMediaPlayer.ViewModel
             //Kiểm tra đã nhập đủ thông tin
             if (String.IsNullOrEmpty(EmailProtected))
             {
-                MessageBox.Show("Please enter the email has assigned");
+                MessageBoxOK MB = new MessageBoxOK();
+                var data = MB.DataContext as MessageBoxOKViewModel;
+                data.Content = "Please enter the email has assigned";
+                MB.ShowDialog();
                 return;
             }
             else
@@ -280,7 +312,10 @@ namespace MusicMediaPlayer.ViewModel
                 else
                 {
                     IsSend = false;
-                    MessageBox.Show("This email has not been assigned");
+                    MessageBoxOK MB = new MessageBoxOK();
+                    var data = MB.DataContext as MessageBoxOKViewModel;
+                    data.Content = "This email has not been assigned";
+                    MB.ShowDialog();
                     return;
                 }
             }
@@ -299,14 +334,20 @@ namespace MusicMediaPlayer.ViewModel
                 }
                 else
                 {
-                    MessageBox.Show("The code is not right");
+                    MessageBoxOK MB = new MessageBoxOK();
+                    var data = MB.DataContext as MessageBoxOKViewModel;
+                    data.Content = "The code is not right";
+                    MB.ShowDialog();
                     IsVerified = false;
                 }
             }
             catch (Exception)
             {
                 IsVerified = false;
-                MessageBox.Show("Code format is not correct");
+                MessageBoxOK MB = new MessageBoxOK();
+                var data = MB.DataContext as MessageBoxOKViewModel;
+                data.Content = "Code format is not correct";
+                MB.ShowDialog();
             }
         }
         void Change(Window p)
@@ -315,13 +356,18 @@ namespace MusicMediaPlayer.ViewModel
                 return;
             if (String.IsNullOrEmpty(NewPassword))
             {
-                MessageBox.Show("Please enter new password");
+                MessageBoxOK MB = new MessageBoxOK();
+                var data = MB.DataContext as MessageBoxOKViewModel;
+                data.Content = "Please enter new password";
+                MB.ShowDialog();
                 return;
             }
             if (String.IsNullOrEmpty(ConfirmNewPassword))
             {
-
-                MessageBox.Show("Please confirm new password");
+                MessageBoxOK MB = new MessageBoxOK();
+                var data = MB.DataContext as MessageBoxOKViewModel;
+                data.Content = "Please confirm new password";
+                MB.ShowDialog();
                 return;
             }
             //Kiểm tra validation của password 
@@ -335,13 +381,18 @@ namespace MusicMediaPlayer.ViewModel
             }
             if (countNum == 0 || countUpcase == 0)
             {
-
-                MessageBox.Show("Password must contain at least 1 Upcase and 1 number");
+                MessageBoxOK MB = new MessageBoxOK();
+                var data = MB.DataContext as MessageBoxOKViewModel;
+                data.Content = "Password must contain at least 1 Upcase and 1 number";
+                MB.ShowDialog();
                 return;
             }
             if (ConfirmNewPassword != NewPassword)
             {
-                MessageBox.Show("Confirm wrong");
+                MessageBoxOK MB = new MessageBoxOK();
+                var data = MB.DataContext as MessageBoxOKViewModel;
+                data.Content = "Confirm wrong";
+                MB.ShowDialog();
                 return;
             }
             else
@@ -350,7 +401,8 @@ namespace MusicMediaPlayer.ViewModel
                 var acc = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserEmail == EmailProtected).SingleOrDefault();
                 acc.UserPassword = encodenewPass;
                 DataProvider.Ins.DB.SaveChanges();
-                MessageBox.Show("Successfully changes password");
+                MessageBoxSuccessful MB = new MessageBoxSuccessful();
+                MB.ShowDialog();
             }
         }
         public static string Base64Encode(string plainText)
@@ -392,11 +444,17 @@ namespace MusicMediaPlayer.ViewModel
             try
             {
                 client.Send(message);
-                MessageBox.Show("The code verified has been sent to your email protect");
+                MessageBoxOK MB = new MessageBoxOK();
+                var data = MB.DataContext as MessageBoxOKViewModel;
+                data.Content = "The code verified has been sent to your email protect";
+                MB.ShowDialog();
             }
             catch (Exception)
             {
-                MessageBox.Show("Failed to sent, please wait a minute and try again");
+                MessageBoxOK MB = new MessageBoxOK();
+                var data = MB.DataContext as MessageBoxOKViewModel;
+                data.Content = "Failed to sent, please wait a minute and try again";
+                MB.ShowDialog();
             }
         }
 

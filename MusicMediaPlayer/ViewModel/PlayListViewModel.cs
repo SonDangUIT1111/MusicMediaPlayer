@@ -39,6 +39,7 @@ namespace MusicMediaPlayer.ViewModel
 
         public ICommand ZA { get; set; }
 
+        public ICommand ChangeImage { get; set; }
         #endregion
 
         private ObservableCollection<MusicMediaPlayer.Model.PlayList> _List;
@@ -146,6 +147,21 @@ namespace MusicMediaPlayer.ViewModel
                     RenameWD.IsLuu = false;
                     wd.NamePL.Text = null;
                 }
+            }
+            );
+
+            ChangeImage = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                ChangePlayListPicture wd = new ChangePlayListPicture();
+
+                var playlistimage = wd.DataContext as ChangePlayListPictureViewModel;
+
+                var pl = p as MusicMediaPlayer.Model.PlayList;
+
+                playlistimage.pl = pl;
+
+                wd.ShowDialog();
+                LoadDanhSach(CurrentUser.Id);
             }
             );
 

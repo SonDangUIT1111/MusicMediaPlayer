@@ -157,7 +157,10 @@ namespace MusicMediaPlayer.ViewModel
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("File not found");
+                        MessageBoxOK MB = new MessageBoxOK();
+                        var data = MB.DataContext as MessageBoxOKViewModel;
+                        data.Content = "File not found";
+                        MB.ShowDialog();
                     }
                 }
             }

@@ -34,8 +34,10 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand EditFilterChangeValue { get; set; }
         public ICommand BackToMyPlaylist { get; set; }
         public ICommand DeleteSong { get; set; }
-
+        public ICommand ChangeImage { get; set; }
         #endregion
+        private byte[] imageBinaryAdd;
+        public byte[] ImageBinaryAdd { get { return imageBinaryAdd; } set { imageBinaryAdd = value; OnPropertyChanged(); } }
         public MediaPlayer mediaPlayer { get; set; }
         public MediaPlayer mediaPlayer1 { get; set; }
         public MediaPlayer mediaPlayer2 { get; set; }
@@ -237,6 +239,7 @@ namespace MusicMediaPlayer.ViewModel
                 thispage = p;
                 pl = page_PlayList.listview.SelectedItem as MusicMediaPlayer.Model.PlayList;
                 PLName = pl.PlayListName;
+                ImageBinaryAdd = pl.ImagePlaylistBinary;
                 SongCount = "Song: " + pl.SongCount.ToString();
                 LoadDanhSach();
             }
@@ -261,6 +264,20 @@ namespace MusicMediaPlayer.ViewModel
                     wd.NamePL.Text = null;
                     rename.IsLuu = false;
                 }
+            }
+            );
+
+            ChangeImage = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                ChangePlayListPicture wd = new ChangePlayListPicture();
+
+                var playlistimage = wd.DataContext as ChangePlayListPictureViewModel;
+
+                playlistimage.pl = pl;
+
+                wd.ShowDialog();
+
+                ImageBinaryAdd = pl.ImagePlaylistBinary;
             }
             );
 

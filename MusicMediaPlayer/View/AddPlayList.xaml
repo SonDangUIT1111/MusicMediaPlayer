@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MusicMediaPlayer"
         mc:Ignorable="d"
-        Title="AddPlayList" Height="450" Width="800"
+        Title="Add PlayList" Height="450" Width="800"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         DataContext="{StaticResource AddPlayListVM}"
         Name="AddPL"
@@ -20,6 +20,7 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
+        Icon="AppIcon.ico"
         >
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
@@ -48,13 +49,13 @@
                     </i:Interaction.Triggers>
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Tên"
+                            <GridViewColumn Header="Title"
                                         Width="200"
                                         DisplayMemberBinding="{Binding SongTitle}"
                                         >
 
                             </GridViewColumn>
-                            <GridViewColumn Header="Ca sĩ"
+                            <GridViewColumn Header="Artist"
                                             Width="150"
                                         DisplayMemberBinding="{Binding Artist}"
                                        >
@@ -148,7 +149,7 @@
                             <materialDesign:PackIcon Kind="Pencil"
                                                  Height="25"
                                                  Width="25"
-                                                 Foreground="Black"
+                                                 Foreground="#FF007EFF"
                                                  Margin="0,10,0,0"
                                                  Opacity="0.5"/>
                         </StackPanel>
@@ -167,7 +168,7 @@
                                 x:Name="btnAdd"
                                 Command="{Binding Add}"
                                 CommandParameter="{Binding ElementName=AddPL}"
-                                ToolTip="Add"
+                                ToolTip="Add" Background="#FF1ED760"
                                 >
                             <materialDesign:PackIcon Kind="Check"
                                                      Width="25"
@@ -181,7 +182,7 @@
                                 Style="{StaticResource ButtonInAddPLWD}"
                                 Command="{Binding Close}"
                                 CommandParameter="{Binding ElementName=AddPL}"
-                                ToolTip="Cancel">
+                                ToolTip="Cancel" Background="#FF676767">
                             <materialDesign:PackIcon Kind="Close"
                                                      Width="25"
                                                      Height="25">

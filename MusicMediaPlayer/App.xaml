@@ -17,12 +17,8 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.PopupBox.xaml" />
                 <ResourceDictionary Source="/ResourceProject/MainResource.xaml"/>
                 <ResourceDictionary Source="/ResourceProject/ButtonStyle.xaml"></ResourceDictionary>
-
                 <ResourceDictionary Source="/ResourceProject/CloseWindowButton.xaml"></ResourceDictionary>
-
                 <ResourceDictionary Source="/ResourceProject/PlayListResources.xaml"></ResourceDictionary>
-
-
                 <ResourceDictionary Source="/ResourceProject/ButtonInMySong.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/ButtonPlayVisibility.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/Visualizer.xaml"></ResourceDictionary>

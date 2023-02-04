@@ -19,24 +19,24 @@ namespace MusicMediaPlayer.ViewModel
 
         DispatcherTimer timer;
         
-        int second;
+        int second = 2500;
 
         
         public MessageBoxViewModel() 
         {
             Loaded = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
-                second = 3;
                 timer = new DispatcherTimer();
-                timer.Interval = new TimeSpan(0, 0, 1);
+                timer.Interval = new TimeSpan(0, 0, 0,0,500);
                 timer.Tick += Timer_Tick;
                 timer.Start();
 
                 void Timer_Tick(object sender, EventArgs e)
                 {
-                    second--;
-                    if (second == 0)
+                    second-=500;
+                    if (second < 1)
                     {
+                        second = 2500;
                         p.Close();
                     }
                 }
