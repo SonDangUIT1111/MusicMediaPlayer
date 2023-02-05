@@ -245,7 +245,7 @@
                             </i:Interaction.Triggers>
                         </PasswordBox>
                         <Border Width="300"
-                                BorderBrush="#333333"
+                                BorderBrush="#009efd"
                                 BorderThickness="1"/>
                         <TextBlock Width="120" 
                            Height="20" 
@@ -264,7 +264,7 @@
                              x:Name="NewEmailtb"
                              />
                         <Border Width="300"
-                                BorderBrush="#333333"
+                                BorderBrush="#009efd"
                                 BorderThickness="1"/>
                         <TextBlock Width="150" 
                            Height="20" 
@@ -284,7 +284,7 @@
                              x:Name="ConfirmEmailtb"
                              />
                         <Border Width="300"
-                                BorderBrush="#333333"
+                                BorderBrush="#009efd"
                                 BorderThickness="1"/>
                         <StackPanel Orientation="Horizontal">
                             <Button Width="100" 

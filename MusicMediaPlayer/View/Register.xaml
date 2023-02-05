@@ -105,9 +105,15 @@
                            FontSize="22"
                            FontWeight="Bold"
                            HorizontalAlignment="Center"
-                           Foreground="Black"
-                           FontFamily="Roboto"
-                           Margin="0,10,0,0"></TextBlock>
+                           FontFamily="Arial Rounded MT Bold"
+                           Margin="0,10,0,0">
+                        <TextBlock.Foreground>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#2af598" Offset="1"/>
+                                <GradientStop Color="#009efd" Offset="0.3"/>
+                            </LinearGradientBrush>
+                        </TextBlock.Foreground>
+                    </TextBlock>
                 </StackPanel>
                 <StackPanel Grid.Row="1" Grid.RowSpan="3">
                     <StackPanel>
@@ -142,7 +148,7 @@
                                                  Margin="0,10,0,0"
                                                  Opacity="0.5"/>
                         </StackPanel>
-                        <Border BorderBrush="Black"
+                        <Border BorderBrush="#009efd"
                         Height="1"
                         Width="260"
                         BorderThickness="10">
@@ -177,7 +183,7 @@
                             </Border>
                         </StackPanel>
 
-                        <Border BorderBrush="Black"
+                        <Border BorderBrush="#009efd"
                         Height="1"
                         Width="260"
                         BorderThickness="10">
@@ -201,7 +207,7 @@
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </PasswordBox>
-                        <Border BorderBrush="Black"
+                        <Border BorderBrush="#009efd"
                         Height="1"
                         Width="260"
                         BorderThickness="10">
@@ -223,7 +229,7 @@
                         UpdateSourceTrigger=PropertyChanged}"
                         Validation.ErrorTemplate="{StaticResource ErrorMessage}"
                         />
-                        <Border BorderBrush="Black"
+                        <Border BorderBrush="#009efd"
                         Height="1"
                         Width="260"
                         BorderThickness="10">

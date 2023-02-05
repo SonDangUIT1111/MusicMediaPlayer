@@ -15,7 +15,7 @@
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Background="Transparent"
-        Height="320" Width="400"
+        Height="320" Width="450"
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
         DataContext="{StaticResource GenreVM}"
         Name="GenreChangePicWD"
@@ -45,7 +45,7 @@
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Margin="0,20,0,0">
+                        Margin="0,10,0,0">
 
                 <TextBlock Text="Genre Cover"
                            HorizontalAlignment="Center"
@@ -57,6 +57,22 @@
                            Foreground="#FF07AEFF">
                 </TextBlock>
             </StackPanel>
+            <TextBlock Text="Music Universe"
+                           FontWeight="ExtraBlack"
+                           FontSize="16"
+                           FontFamily="Arial Rounded MT Bold"
+                           Height="20"
+                           Width="120"
+                           Margin="0,10,0,-20"
+                           >
+                <TextBlock.Foreground>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#2af598" Offset="1"/>
+                        <GradientStop Color="#009efd" Offset="0.3"/>
+                    </LinearGradientBrush>
+                </TextBlock.Foreground>
+            </TextBlock>
+
             <StackPanel Orientation="Horizontal" 
                         Margin="0 30 0 0"
                         HorizontalAlignment="Center">

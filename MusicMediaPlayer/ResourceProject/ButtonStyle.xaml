@@ -31,8 +31,8 @@
     
     <!--   ForgotPassword.xaml   SENDCODE BUTTON     -->
     <Style TargetType="{x:Type Button}" x:Key="SENDCODE">
-        <Setter Property="Background" Value="#5CA0F2"/>
-        <Setter Property="Foreground" Value="AliceBlue"/>
+        <Setter Property="Background" Value="#2af598"/>
+        <Setter Property="Foreground" Value="#000000"/>
         <Setter Property="Height" Value="50"/>
         <Setter Property="Margin" Value="0 0 0 0"/>
         <Setter Property="FontSize" Value="13"/>
@@ -59,8 +59,8 @@
 
     <!--   ForgotPassword.xaml   VERIFIED BUTTON     -->
     <Style TargetType="{x:Type Button}" x:Key="VERIFIED">
-        <Setter Property="Background" Value="#5CA0F2"/>
-        <Setter Property="Foreground" Value="AliceBlue"/>
+        <Setter Property="Background" Value="#2af598"/>
+        <Setter Property="Foreground" Value="#000000"/>
         <Setter Property="Height" Value="50"/>
         <Setter Property="Margin" Value="0 0 0 0"/>
         <Setter Property="FontSize" Value="13"/>
@@ -88,8 +88,8 @@
 
     <!--   ForgotPassword.xaml   CHANGE PASSWORD BUTTON     -->
     <Style TargetType="{x:Type Button}" x:Key="CHANGEPASSWORD">
-        <Setter Property="Background" Value="#5CA0F2"/>
-        <Setter Property="Foreground" Value="AliceBlue"/>
+        <Setter Property="Background" Value="#2af598"/>
+        <Setter Property="Foreground" Value="#000000"/>
         <Setter Property="Height" Value="50"/>
         <Setter Property="Margin" Value="0 0 0 0"/>
         <Setter Property="FontSize" Value="13"/>
@@ -198,8 +198,8 @@
     
     <!-- ChangePassword.xaml-->
     <Style TargetType="{x:Type Button}" x:Key="ChangePasswordWDButton">
-        <Setter Property="Background" Value="#5CA0F2"/>
-        <Setter Property="Foreground" Value="AliceBlue"/>
+        <Setter Property="Background" Value="#2af598"/>
+        <Setter Property="Foreground" Value="#000000"/>
         <Setter Property="Height" Value="50"/>
         <Setter Property="Margin" Value="0 0 0 0"/>
         <Setter Property="FontSize" Value="13"/>

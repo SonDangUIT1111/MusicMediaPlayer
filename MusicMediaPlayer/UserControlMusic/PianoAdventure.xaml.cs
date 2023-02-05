@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using MusicMediaPlayer.View;
+using MusicMediaPlayer.ViewModel;
 
 namespace MusicMediaPlayer.UserControlMusic
 {
@@ -1435,7 +1437,10 @@ namespace MusicMediaPlayer.UserControlMusic
                             newscript[count++] = 18;
                             break;
                         default:
-                            MessageBox.Show("Script format is invalid");
+                            MessageBoxOK ms = new MessageBoxOK();
+                            var dt = ms.DataContext as MessageBoxOKViewModel;
+                            dt.Content = "Script format is invalid";
+                            ms.ShowDialog();
                             ComposePaper.IsExpanded = false;
                             IsWriteScript = false;
                             Adventure.IsChecked = true;
@@ -1451,7 +1456,10 @@ namespace MusicMediaPlayer.UserControlMusic
             }
             catch (Exception)
             {
-                MessageBox.Show("Script format is invalid");
+                MessageBoxOK ms = new MessageBoxOK();
+                var dt = ms.DataContext as MessageBoxOKViewModel;
+                dt.Content = "Script format is invalid";
+                ms.ShowDialog();
             }
         }
 

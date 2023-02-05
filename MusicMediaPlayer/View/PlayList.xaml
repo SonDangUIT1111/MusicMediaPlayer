@@ -41,41 +41,6 @@
             <StackPanel Orientation="Horizontal"
                     Grid.Row="0" Grid.ColumnSpan="2" >
                 <Border 
-                CornerRadius="180"
-                Width="50"
-                Height="50"
-                BorderBrush="#333333"
-                BorderThickness="1" 
-                Margin="25 0 0 0">
-                    <Menu Width="50"
-                          Height="50"
-                          >
-                        <MenuItem   Width="50"
-                                    Height="50"
-                                    FontWeight="SemiBold"
-                                    >
-                            <MenuItem.Icon>
-                                <materialDesign:PackIcon Kind="FormatLineSpacing" />
-                            </MenuItem.Icon>
-                            <MenuItem
-                                    Header="A-Z"
-                                    Command="{Binding AZ}">
-                                <MenuItem.Icon>
-                                    <materialDesign:PackIcon Kind="ArrowDown" />
-                                </MenuItem.Icon>
-                            </MenuItem>
-                            <MenuItem
-                                    Header="Z-A"
-                                    Command="{Binding ZA}">
-                                <MenuItem.Icon>
-                                    <materialDesign:PackIcon Kind="ArrowUp" />
-                                </MenuItem.Icon>
-                            </MenuItem>
-                        </MenuItem>
-                    </Menu>
-                </Border>
-
-                <Border 
                         BorderBrush="#333333"
                         BorderThickness="2"
                         Width="200"
@@ -122,7 +87,7 @@
                         BorderThickness="3"
                     CornerRadius="180"
                     VerticalAlignment="Center"
-                    Margin="600 0 0 0"
+                    Margin="600 -30 0 0"
                     Height="50"
                     Width="50"
                     >
@@ -145,7 +110,54 @@
                            FontSize="14"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
-                       Margin="-50,70,0,0"></Label>
+                       Margin="-50,50,0,0"></Label>
+                <Border 
+                CornerRadius="180"
+                Width="50"
+                Height="50"
+                BorderBrush="#333333"
+                BorderThickness="3" 
+                Margin="25 -30 0 0">
+                    <Menu Width="50"
+                          Height="50"
+                          >
+                        <MenuItem   Width="50"
+                                    Height="50"
+                                    FontWeight="SemiBold"
+                                    Foreground="#333333"
+                                    Margin="0,0,0,0"
+                                    >
+                            <MenuItem.Icon>
+                                <materialDesign:PackIcon Kind="FormatLineSpacing"
+                                                         Padding="0" 
+                                                         Margin="-15,-5,0,0"
+                                                         Height="25" 
+                                                         Width="50"/>
+                            </MenuItem.Icon>
+                            <MenuItem
+                                    Header="A-Z"
+                                    Command="{Binding AZ}">
+                                <MenuItem.Icon>
+                                    <materialDesign:PackIcon Kind="ArrowDown" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem
+                                    Header="Z-A"
+                                    Command="{Binding ZA}">
+                                <MenuItem.Icon>
+                                    <materialDesign:PackIcon Kind="ArrowUp" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </MenuItem>
+                    </Menu>
+                </Border>
+                <Label Content="Arrange"
+                           Foreground="#333333"
+                           FontWeight="SemiBold"
+                           FontSize="14"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                       Margin="-55,50,0,0"></Label>
             </StackPanel>
 
 
@@ -224,7 +236,7 @@
                                                             Width="25" />
                                     </Button>
                                 </Grid>
-                                
+
                                 <Border.Background>
                                     <ImageBrush 
                                                 Stretch="UniformToFill"

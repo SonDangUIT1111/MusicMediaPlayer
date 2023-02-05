@@ -34,6 +34,23 @@
             BorderThickness="3"
             >
         <Grid Background="Transparent">
+            <TextBlock Text="Music Universe"
+                           FontWeight="ExtraBlack"
+                           FontSize="16"
+                           FontFamily="Arial Rounded MT Bold"
+                           Height="20"
+                           Width="120"
+                           Margin="20,10,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           >
+                <TextBlock.Foreground>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#2af598" Offset="1"/>
+                        <GradientStop Color="#009efd" Offset="0.3"/>
+                    </LinearGradientBrush>
+                </TextBlock.Foreground>
+            </TextBlock>
             <StackPanel Orientation="Horizontal">
                 <ScrollViewer VerticalScrollBarVisibility="Auto"
                               HorizontalScrollBarVisibility="Disabled">

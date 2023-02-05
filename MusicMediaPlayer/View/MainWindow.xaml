@@ -117,6 +117,7 @@
                                         </Grid>
                                         <RadioButton Style="{StaticResource MainButton}"  
                                                 Width="140"
+                                                x:Name="MySongBtn"
                                                 Command="{Binding SwitchMySong}"
                                                 CommandParameter="{Binding ElementName=FrameView}"
                                                      Margin="0 20 0 0">
@@ -323,6 +324,19 @@
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </Rectangle>
+                            <iconPacks:PackIconMaterial Kind="Music" 
+                                                                            Panel.ZIndex="1"
+                                                                            Margin="0,0,0,0"
+                                                                            RenderTransformOrigin="0.763,1.3" 
+                                                                            Height="16" 
+                                                                            Width="25">
+                                <iconPacks:PackIconMaterial.Foreground>
+                                    <LinearGradientBrush>
+                                        <GradientStop Color="#98FB91" Offset="0.35"></GradientStop>
+                                        <GradientStop Color="#00FF77" Offset="0.6"></GradientStop>
+                                    </LinearGradientBrush>
+                                </iconPacks:PackIconMaterial.Foreground>
+                            </iconPacks:PackIconMaterial>
                             <Border Height="75"
                                     Width="75"
                                     CornerRadius="10"
@@ -586,6 +600,17 @@
                                         Margin="0,0,0,0"
                                         Height="100" Width="auto">
                             </Rectangle>
+                            <iconPacks:PackIconMaterial Kind="Heart" 
+                                                                            Panel.ZIndex="1"                             
+                                                                            Height="16" Width="28" 
+                                                                            Margin="0 0 0 0">
+                                <iconPacks:PackIconMaterial.Foreground>
+                                    <LinearGradientBrush>
+                                        <GradientStop Color="#FFD3DE" Offset="0.18"></GradientStop>
+                                        <GradientStop Color="#FF7DA7" Offset="0.6"></GradientStop>
+                                    </LinearGradientBrush>
+                                </iconPacks:PackIconMaterial.Foreground>
+                            </iconPacks:PackIconMaterial>
                             <Border Height="75"
                                     Width="75"
                                     CornerRadius="10"
@@ -848,6 +873,17 @@
                                         Margin="0,0,0,0"
                                         Height="100" Width="auto">
                             </Rectangle>
+                            <iconPacks:PackIconMaterial Kind="Account" 
+                                                                            Panel.ZIndex="1"                                                   
+                                                                            Height="16" Width="28" 
+                                                                            Margin="0 0 0 0">
+                                <iconPacks:PackIconMaterial.Foreground>
+                                    <LinearGradientBrush>
+                                        <GradientStop Color="#F2F5D0" Offset="0.15"></GradientStop>
+                                        <GradientStop Color="#F9957F" Offset="0.6"></GradientStop>
+                                    </LinearGradientBrush>
+                                </iconPacks:PackIconMaterial.Foreground>
+                            </iconPacks:PackIconMaterial>
                             <Border Height="75"
                                     Width="75"
                                     CornerRadius="10"
@@ -1110,6 +1146,17 @@
                                         Margin="0,0,0,0"
                                         Height="100" Width="auto">
                             </Rectangle>
+                            <iconPacks:PackIconMaterial Kind="Library" 
+                                                                            Panel.ZIndex="1"                                      
+                                                                            Height="16" Width="28" 
+                                                                            Margin="0 0 0 0">
+                                <iconPacks:PackIconMaterial.Foreground>
+                                    <LinearGradientBrush>
+                                        <GradientStop Color="#FDF5A6" Offset="0.15"></GradientStop>
+                                        <GradientStop Color="#B88746" Offset="0.65"></GradientStop>
+                                    </LinearGradientBrush>
+                                </iconPacks:PackIconMaterial.Foreground>
+                            </iconPacks:PackIconMaterial>
                             <Border Height="75"
                                     Width="75"
                                     CornerRadius="10"
@@ -1372,6 +1419,17 @@
                                         Margin="0,0,0,0"
                                         Height="100" Width="auto">
                             </Rectangle>
+                            <iconPacks:PackIconMaterial Kind="MusicBox" 
+                                                                            Panel.ZIndex="1"                                                
+                                                                            Height="16" Width="28" 
+                                                                            Margin="0 0 0 0">
+                                <iconPacks:PackIconMaterial.Foreground>
+                                    <LinearGradientBrush>
+                                        <GradientStop Color="#D380FA" Offset="0.25"></GradientStop>
+                                        <GradientStop Color="#6B00D7" Offset="0.65"></GradientStop>
+                                    </LinearGradientBrush>
+                                </iconPacks:PackIconMaterial.Foreground>
+                            </iconPacks:PackIconMaterial>
                             <Border Height="75"
                                     Width="75"
                                     CornerRadius="10"

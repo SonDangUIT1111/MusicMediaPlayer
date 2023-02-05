@@ -125,13 +125,20 @@
                        Opacity="0.4"
                        Width="1000"
                        materialDesign:ShadowAssist.ShadowEdges="Bottom"></Separator>
+                <TextBlock Height="50"
+                           FontSize="36"
+                           Text="Playlist:"
+                           FontWeight="Medium"
+                           Foreground="#767676"
+                           Margin="20,0,0,0"
+                           Width="auto" FontFamily="Arial Rounded MT Bold"/>
                 <TextBlock x:Name="PlaylistName"
                            Height="50"
                            FontSize="36"
                            FontWeight="Medium"
                            Foreground="#767676"
                            Margin="20,0,0,0"
-                           Width="auto"/>
+                           Width="auto" FontFamily="Arial Rounded MT Bold"/>
                 <Separator Background="Gray"
                        Opacity="0.4"
                        Width="auto"

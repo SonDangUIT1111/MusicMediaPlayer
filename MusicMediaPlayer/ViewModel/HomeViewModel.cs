@@ -62,7 +62,7 @@ namespace MusicMediaPlayer.ViewModel
                     imageBrush.ImageSource = bitmap;
                     imageBrush.Stretch = Stretch.UniformToFill;
                     p.UserPic.Background = imageBrush;
-                    p.User.Text = CurrentUser.UserName;
+                    p.User.Text = acc.NickName;
                     EverLoaded = true;
                 }
                

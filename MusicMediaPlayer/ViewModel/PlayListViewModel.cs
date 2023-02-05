@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -16,6 +17,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using MessageBox = System.Windows.MessageBox;
 
 namespace MusicMediaPlayer.ViewModel
@@ -153,13 +155,17 @@ namespace MusicMediaPlayer.ViewModel
             ChangeImage = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 ChangePlayListPicture wd = new ChangePlayListPicture();
-
                 var playlistimage = wd.DataContext as ChangePlayListPictureViewModel;
-
                 var pl = p as MusicMediaPlayer.Model.PlayList;
-
                 playlistimage.pl = pl;
-
+                ImageBrush imageBrush = new ImageBrush();
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                var memory = new MemoryStream(pl.ImagePlaylistBinary);
+                bitmap.StreamSource = memory;
+                bitmap.EndInit();
+                imageBrush.ImageSource = bitmap;
                 wd.ShowDialog();
                 LoadDanhSach(CurrentUser.Id);
             }
