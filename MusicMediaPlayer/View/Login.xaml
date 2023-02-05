@@ -135,8 +135,8 @@
                          
                         />
                             <materialDesign:PackIcon Kind="Account"
-                                                 Height="25"
-                                                 Width="25"
+                                                 Height="20"
+                                                 Width="20"
                                                  Foreground="Black"
                                                  Margin="0,10,0,0"
                                                  Opacity="0.5"/>
@@ -170,13 +170,43 @@
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </PasswordBox>
-                            <materialDesign:PackIcon Kind="KeyVariant"
-                                                 Height="25"
-                                                 Width="25"
-                                                 Foreground="Black"
-                                                 Margin="0,10,0,0"
-                                                 Opacity="0.5"/>
-                            </StackPanel>
+                            <TextBox x:Name="PasswordEye"
+                                    Margin="-210 0 0 0"
+                                    materialDesign:HintAssist.Hint="Password"
+                                    materialDesign:HintAssist.Foreground="Black"
+                                    FontSize="15"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                    Background="Transparent"
+                                    Height="auto"
+                                    Width="230"
+                                     BorderThickness="0"
+                                    HorizontalAlignment="Center"
+                                    FontWeight="SemiBold"
+                                    Foreground="Black"
+                                    Visibility="Hidden">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding PasswordEyeChangedCommand}"
+                                   CommandParameter="{Binding ElementName=PasswordEye}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
+                            <Button x:Name="ShowPass"
+                                Style="{StaticResource NormalButton}"
+                                Content="{materialDesign:PackIcon Kind=Eye}"
+                                Foreground="#333333"
+                                Margin="-20,0,0,0"
+                                Command="{Binding ShowPassword}"
+                                CommandParameter="{Binding ElementName=LoginWindow}"/>
+                            <Button x:Name="UnshowPass"
+                                Style="{StaticResource NormalButton}"
+                                Content="{materialDesign:PackIcon Kind=EyeOff}"
+                                Foreground="#333333"
+                                Margin="-20,0,0,0"
+                                Visibility="Hidden"
+                                Command="{Binding UnshowPassword}"
+                                CommandParameter="{Binding ElementName=LoginWindow}"/>
+                        </StackPanel>
                         <Border BorderBrush="#009efd"
                         Height="1"
                         Width="240"

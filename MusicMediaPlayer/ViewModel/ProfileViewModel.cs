@@ -59,8 +59,11 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand Confirm { get; set; }
         public ICommand AcceptChanging { get; set; }
         public ICommand PasswordChangedCommand { get; set; }
+        public ICommand PasswordEyeChangedCommand { get; set; }
         public ICommand NewPassChangedCommand { get; set; }
+        public ICommand NewPassEyeChangedCommand { get; set; }
         public ICommand ConfirmChangedCommand { get; set; }
+        public ICommand ConfirmEyeChangedCommand { get; set; }
         public ICommand OpenExpander { get; set; }
         public ICommand AcceptChangingEmail { get; set; }
         public ICommand CancelChangingEmail { get; set; }
@@ -68,6 +71,14 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand ChangeImage { get; set; }
         public ICommand Changing { get; set; }
         public ICommand CancelChanging { get; set; }
+        public ICommand ShowCurrentPassword { get; set; }
+        public ICommand UnShowCurrentPassword { get; set; }
+        public ICommand ShowNewPassword { get; set; }
+        public ICommand UnShowNewPassword { get; set; }
+        public ICommand ShowConfirmPassword { get; set; }
+        public ICommand UnShowConfirmPassword { get; set; }
+        public ICommand ShowPassword_Email { get; set; }
+        public ICommand UnshowPassword_Email { get; set; }
         public string CurrentPass { get { return currentpass; } set { currentpass = value; } }
         public string NewPass { get { return newpass; } set { newpass = value; } }
         public string ConfirmNewPass { get { return confirmnewpass; } set { confirmnewpass = value; } }
@@ -114,7 +125,7 @@ namespace MusicMediaPlayer.ViewModel
                 MessageBoxSuccessful MB = new MessageBoxSuccessful(); 
                 MB.ShowDialog();
             });
-            Confirm = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            Confirm = new RelayCommand<ChangePassword>((p) => { return true; }, (p) =>
             {
                 if (currentpass == null || newpass == null || confirmnewpass == null)
                 {
@@ -166,8 +177,12 @@ namespace MusicMediaPlayer.ViewModel
                             var acc = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == UserName).SingleOrDefault();
                             acc.UserPassword = encodenewPass;
                             DataProvider.Ins.DB.SaveChanges();
+                            CurrentPass = null;
+                            NewPass = null;
+                            ConfirmNewPass = null;
                             MessageBoxSuccessful MB = new MessageBoxSuccessful();
                             MB.ShowDialog();
+                            p.Close();
                         }
                     }
                     else
@@ -180,8 +195,11 @@ namespace MusicMediaPlayer.ViewModel
                 }
             });
             PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { CurrentPass = p.Password; });
+            PasswordEyeChangedCommand = new RelayCommand<TextBox>((p) => { return true; }, (p) => { CurrentPass = p.Text; });
             NewPassChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { NewPass = p.Password; });
+            NewPassEyeChangedCommand = new RelayCommand<TextBox>((p) => { return true; }, (p) => { NewPass = p.Text; });
             ConfirmChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { ConfirmNewPass = p.Password; });
+            ConfirmEyeChangedCommand = new RelayCommand<TextBox>((p) => { return true; }, (p) => { ConfirmNewPass = p.Text; });
             OpenExpander = new RelayCommand<Expander>((p) => { return true; }, (p) => {
                 p.IsEnabled = true;
                 p.IsExpanded = true;
@@ -226,6 +244,7 @@ namespace MusicMediaPlayer.ViewModel
                             p.NewEmailtb.Text = null;
                             p.ConfirmEmailtb.Text = null;
                             p.Password.Password = null;
+                            p.PasswordEye.Text = null;
                             MessageBoxSuccessful MB = new MessageBoxSuccessful();
                             MB.ShowDialog();
                         }    
@@ -318,6 +337,71 @@ namespace MusicMediaPlayer.ViewModel
                 wd.Close();
                 ImagePathToChange = null;
             });
+            ShowCurrentPassword = new RelayCommand<ChangePassword>((p) => { return true; }, (p) =>
+            {
+                p.ShowCurrent.Visibility = Visibility.Hidden;
+                p.UnshowCurrent.Visibility = Visibility.Visible;
+                p.PasswordEye.Text = p.Password.Password;
+                p.PasswordEye.Visibility = Visibility.Visible;
+                p.Password.Visibility = Visibility.Hidden;
+            });
+            UnShowCurrentPassword = new RelayCommand<ChangePassword>((p) => { return true; }, (p) =>
+            {
+                p.ShowCurrent.Visibility = Visibility.Visible;
+                p.UnshowCurrent.Visibility= Visibility.Hidden;
+                p.Password.Visibility = Visibility.Visible;
+                p.Password.Password = p.PasswordEye.Text;
+                p.PasswordEye.Visibility = Visibility.Hidden;
+            });
+            ShowNewPassword = new RelayCommand<ChangePassword>((p) => { return true; }, (p) =>
+            {
+                p.ShowNewPass.Visibility = Visibility.Hidden;
+                p.UnshowNewPass.Visibility = Visibility.Visible;
+                p.NewPassEye.Text = p.NewPass.Password;
+                p.NewPassEye.Visibility = Visibility.Visible;
+                p.NewPass.Visibility = Visibility.Hidden;
+            });
+            UnShowNewPassword = new RelayCommand<ChangePassword>((p) => { return true; }, (p) =>
+            {
+                p.ShowNewPass.Visibility = Visibility.Visible;
+                p.UnshowNewPass.Visibility = Visibility.Hidden;
+                p.NewPass.Visibility = Visibility.Visible;
+                p.NewPass.Password = p.NewPassEye.Text;
+                p.NewPassEye.Visibility = Visibility.Hidden;
+            });
+            ShowConfirmPassword = new RelayCommand<ChangePassword>((p) => { return true; }, (p) =>
+            {
+                p.ShowConfirmPass.Visibility = Visibility.Hidden;
+                p.UnshowConfirmPass.Visibility = Visibility.Visible;
+                p.ConfirmPassEye.Text = p.ConfirmPass.Password;
+                p.ConfirmPassEye.Visibility = Visibility.Visible;
+                p.ConfirmPass.Visibility = Visibility.Hidden;
+            });
+            UnShowConfirmPassword = new RelayCommand<ChangePassword>((p) => { return true; }, (p) =>
+            {
+                p.ShowConfirmPass.Visibility = Visibility.Visible;
+                p.UnshowConfirmPass.Visibility = Visibility.Hidden;
+                p.ConfirmPass.Visibility = Visibility.Visible;
+                p.ConfirmPass.Password = p.ConfirmPassEye.Text;
+                p.ConfirmPassEye.Visibility = Visibility.Hidden;
+            });
+            ShowPassword_Email = new RelayCommand<Profile>((p) => { return true; }, (p) =>
+            {
+                p.ShowPass.Visibility = Visibility.Hidden;
+                p.UnshowPass.Visibility = Visibility.Visible;
+                p.PasswordEye.Text = p.Password.Password;
+                p.PasswordEye.Visibility = Visibility.Visible;
+                p.Password.Visibility = Visibility.Hidden;
+            });
+            UnshowPassword_Email = new RelayCommand<Profile>((p) => { return true; }, (p) =>
+            {
+                p.ShowPass.Visibility = Visibility.Visible;
+                p.UnshowPass.Visibility = Visibility.Hidden;
+                p.Password.Visibility = Visibility.Visible;
+                p.Password.Password = p.PasswordEye.Text;
+                p.PasswordEye.Visibility = Visibility.Hidden;
+            });
+
         }
         public static string Base64Encode(string plainText)
         {

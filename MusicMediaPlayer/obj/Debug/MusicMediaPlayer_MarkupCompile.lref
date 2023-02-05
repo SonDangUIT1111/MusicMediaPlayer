@@ -1,4 +1,4 @@
-﻿
+﻿C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\GeneratedInternalTypeHelper.g.cs
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\App.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\UserControlMusic\PianoAdventure.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\UserControlMusic\SteelDrumAdventure.xaml;;
@@ -7,6 +7,7 @@ FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\AddPlayLi
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\AddSongPlayList.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\ChangeAlbumPictureWindow.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\ChangeArtistPictureWindow.xaml;;
+FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\ChangeAvatar.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\ChangeGenrePictureWindow.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\ChangePassword.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\ResourceProject\ExpanderMySongTemplate.xaml;;
@@ -44,5 +45,4 @@ FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\SleepTime
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\SleepTimerForGenre.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\SleepTimerForPlaylist.xaml;;
 FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\SleepTimerView.xaml;;
-FC:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\View\ChangeAvatar.xaml;;
 

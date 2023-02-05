@@ -154,6 +154,28 @@
                         BorderThickness="10">
                         </Border>
                     </StackPanel>
+                    <StackPanel Margin="0 10 0 0">
+                        <TextBox x:Name="Email"
+                        materialDesign:HintAssist.Hint="Email"
+                        FontSize="14"
+                                 FontWeight="SemiBold"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Height="auto"
+                        Width="260"
+                        HorizontalAlignment="Center"
+                        Text="{Binding Email,
+                        ValidatesOnDataErrors=True,
+                        UpdateSourceTrigger=PropertyChanged}"
+                        Validation.ErrorTemplate="{StaticResource ErrorMessage}"
+                        />
+                        <Border BorderBrush="#009efd"
+                        Height="1"
+                        Width="260"
+                        BorderThickness="10">
+                        </Border>
+                    </StackPanel>
                     <StackPanel Margin="0,10,0,0">
                         <StackPanel Orientation="Horizontal">
                             <PasswordBox x:Name="Password"
@@ -176,11 +198,42 @@
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </PasswordBox>
-                            <Border BorderBrush="White"
-                        Height="1"
-                        Width="240"
-                        BorderThickness="10">
-                            </Border>
+                            <TextBox x:Name="PasswordEye"
+                                    Margin="-290 0 0 0"
+                                    materialDesign:HintAssist.Hint="Password"
+                                    materialDesign:HintAssist.Foreground="Black"
+                                    FontSize="14"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                    Background="Transparent"
+                                    Height="auto"
+                                    Width="230"
+                                     BorderThickness="0"
+                                    HorizontalAlignment="Center"
+                                    FontWeight="SemiBold"
+                                    Foreground="Black"
+                                    Visibility="Hidden">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding PasswordEyeChangedCommand}"
+                                   CommandParameter="{Binding ElementName=PasswordEye}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
+                            <Button x:Name="ShowPass"
+                                Style="{StaticResource NormalButton}"
+                                Content="{materialDesign:PackIcon Kind=Eye}"
+                                Foreground="#333333"
+                                Margin="-20,0,0,0"
+                                Command="{Binding ShowPassword_Register}"
+                                CommandParameter="{Binding ElementName=RegisterWindow}"/>
+                            <Button x:Name="UnshowPass"
+                                Style="{StaticResource NormalButton}"
+                                Content="{materialDesign:PackIcon Kind=EyeOff}"
+                                Foreground="#333333"
+                                Margin="-20,0,0,0"
+                                Visibility="Hidden"
+                                Command="{Binding UnshowPassword_Register}"
+                                CommandParameter="{Binding ElementName=RegisterWindow}"/>
                         </StackPanel>
 
                         <Border BorderBrush="#009efd"
@@ -190,7 +243,9 @@
                         </Border>
                     </StackPanel>
                     <StackPanel Margin="0,10,0,0">
-                        <PasswordBox x:Name="ConfirmPassword"
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="20,0,0,0">
+                            <PasswordBox x:Name="ConfirmPassword"
                                      FontWeight="SemiBold"
                         materialDesign:HintAssist.Hint="Confirm Pass"
                         FontSize="14"
@@ -200,35 +255,50 @@
                         Height="auto"
                         Width="260"
                         HorizontalAlignment="Center">
-                            <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="PasswordChanged">
-                                    <i:InvokeCommandAction Command="{Binding ConfirmPasswordChangedCommand}"
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="PasswordChanged">
+                                        <i:InvokeCommandAction Command="{Binding ConfirmPasswordChangedCommand}"
                                    CommandParameter="{Binding ElementName=ConfirmPassword}"/>
-                                </i:EventTrigger>
-                            </i:Interaction.Triggers>
-                        </PasswordBox>
-                        <Border BorderBrush="#009efd"
-                        Height="1"
-                        Width="260"
-                        BorderThickness="10">
-                        </Border>
-                    </StackPanel>
-                    <StackPanel Margin="0 10 0 0">
-                        <TextBox x:Name="Email"
-                        materialDesign:HintAssist.Hint="Email"
-                        FontSize="14"
-                                 FontWeight="SemiBold"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                        Background="Transparent"
-                        BorderThickness="0"
-                        Height="auto"
-                        Width="260"
-                        HorizontalAlignment="Center"
-                        Text="{Binding Email,
-                        ValidatesOnDataErrors=True,
-                        UpdateSourceTrigger=PropertyChanged}"
-                        Validation.ErrorTemplate="{StaticResource ErrorMessage}"
-                        />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </PasswordBox>
+                            <TextBox x:Name="ConfirmPasswordEye"
+                                    Margin="-290 0 0 0"
+                                    materialDesign:HintAssist.Hint="Confirm Pass"
+                                    materialDesign:HintAssist.Foreground="Black"
+                                    FontSize="14"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                    Background="Transparent"
+                                    Height="auto"
+                                    Width="230"
+                                     BorderThickness="0"
+                                    HorizontalAlignment="Center"
+                                    FontWeight="SemiBold"
+                                    Foreground="Black"
+                                    Visibility="Hidden">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding ConfirmPasswordEyeChangedCommand}"
+                                   CommandParameter="{Binding ElementName=ConfirmPasswordEye}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
+                            <Button x:Name="ShowConfirmPass"
+                                Style="{StaticResource NormalButton}"
+                                Content="{materialDesign:PackIcon Kind=Eye}"
+                                Foreground="#333333"
+                                Margin="-20,0,0,0"
+                                Command="{Binding ShowConfirmPassword_Register}"
+                                CommandParameter="{Binding ElementName=RegisterWindow}"/>
+                            <Button x:Name="UnshowConfirmPass"
+                                Style="{StaticResource NormalButton}"
+                                Content="{materialDesign:PackIcon Kind=EyeOff}"
+                                Foreground="#333333"
+                                Margin="-20,0,0,0"
+                                Visibility="Hidden"
+                                Command="{Binding UnshowConfirmPassword_Register}"
+                                CommandParameter="{Binding ElementName=RegisterWindow}"/>
+                        </StackPanel>
                         <Border BorderBrush="#009efd"
                         Height="1"
                         Width="260"

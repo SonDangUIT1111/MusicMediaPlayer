@@ -23,6 +23,9 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand ToForgotPassword { get; set; }
         public ICommand LoginSuccess { get; set; }
         public ICommand PasswordChangedCommand { get; set; }
+        public ICommand PasswordEyeChangedCommand { get; set; }
+        public ICommand ShowPassword { get; set; }
+        public ICommand UnshowPassword { get; set; }
         public LoginViewModel()
         {
             IsLoggedIn = false;
@@ -41,12 +44,29 @@ namespace MusicMediaPlayer.ViewModel
                 Log(p);
             });
             PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; },(p)=> { Password = p.Password; });
+            PasswordEyeChangedCommand = new RelayCommand<TextBox>((p) => { return true; }, (p) => { Password = p.Text; });
             ToForgotPassword = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
                 p.Close();
                 ForgotPassword forgotPassword = new ForgotPassword();
                 forgotPassword.ShowDialog();
 
+            });
+            ShowPassword = new RelayCommand<Login>((p) => { return true; }, (p) =>
+            {
+                p.ShowPass.Visibility = Visibility.Hidden;
+                p.UnshowPass.Visibility = Visibility.Visible;
+                p.PasswordEye.Text = p.Password.Password;
+                p.PasswordEye.Visibility = Visibility.Visible;
+                p.Password.Visibility = Visibility.Hidden;
+            });
+            UnshowPassword = new RelayCommand<Login>((p) => { return true; }, (p) =>
+            {
+                p.ShowPass.Visibility = Visibility.Visible;
+                p.UnshowPass.Visibility = Visibility.Hidden;
+                p.Password.Visibility = Visibility.Visible;
+                p.Password.Password = p.PasswordEye.Text;
+                p.PasswordEye.Visibility = Visibility.Hidden;
             });
 
 

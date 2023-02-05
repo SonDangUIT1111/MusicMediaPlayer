@@ -231,18 +231,55 @@
                                    FontSize="16" 
                                    HorizontalAlignment="Left" 
                                    Margin="10"></TextBlock>
-                        <PasswordBox Width="300" 
+                        <StackPanel Orientation="Horizontal">
+                            <PasswordBox Width="300"
                          Height="30" 
                          materialDesign:HintAssist.Hint="Enter current password" 
                          Foreground="#000000" 
-                         x:Name="Password">
-                            <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="PasswordChanged">
-                                    <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}"
+                         x:Name="Password"
+                                         Margin="10,0,0,0">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="PasswordChanged">
+                                        <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}"
                                    CommandParameter="{Binding ElementName=Password}"/>
-                                </i:EventTrigger>
-                            </i:Interaction.Triggers>
-                        </PasswordBox>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </PasswordBox>
+                            <TextBox x:Name="PasswordEye"
+                                    Margin="-300 -10 0 0"
+                                    materialDesign:HintAssist.Hint="Enter current password"
+                                    materialDesign:HintAssist.Foreground="Black"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                    Background="Transparent"
+                                    Height="auto"
+                                    Width="300"
+                                     BorderThickness="0"
+                                    HorizontalAlignment="Center"
+                                    Foreground="Black"
+                                    Visibility="Hidden">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding PasswordEyeChangedCommand}"
+                                   CommandParameter="{Binding ElementName=PasswordEye}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
+                            <Button x:Name="ShowPass"
+                                Style="{StaticResource NormalButton}"
+                                Content="{materialDesign:PackIcon Kind=Eye}"
+                                Foreground="#333333"
+                                Margin="-20,0,0,0"
+                                Command="{Binding ShowPassword_Email}"
+                                CommandParameter="{Binding ElementName=ProfileWD}"/>
+                            <Button x:Name="UnshowPass"
+                                Style="{StaticResource NormalButton}"
+                                Content="{materialDesign:PackIcon Kind=EyeOff}"
+                                Foreground="#333333"
+                                Margin="-20,0,0,0"
+                                Visibility="Hidden"
+                                Command="{Binding UnshowPassword_Email}"
+                                CommandParameter="{Binding ElementName=ProfileWD}"/>
+                        </StackPanel>
                         <Border Width="300"
                                 BorderBrush="#009efd"
                                 BorderThickness="1"/>

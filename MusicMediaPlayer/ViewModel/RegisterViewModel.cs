@@ -42,15 +42,27 @@ namespace MusicMediaPlayer.ViewModel
         public string ConfirmNewPassword { get => _ConfirmNewPassword; set { _ConfirmNewPassword = value; OnPropertyChanged(); } }
         public ICommand ToLogin { get; set; }
         public ICommand PasswordChangedCommand { get; set; }
+        public ICommand PasswordEyeChangedCommand { get; set; }
         public ICommand ConfirmPasswordChangedCommand { get; set; }
+
+        public ICommand ConfirmPasswordEyeChangedCommand { get; set; }
         public ICommand SignUpCommand { get; set; }
         public ICommand SendCodeCommand { get; set; }
         public ICommand NewPasswordChangedCommand { get; set; }
+        public ICommand NewPassEyeChangedCommand { get; set; }
         public ICommand ConfirmNewPasswordChangedCommand { get; set; }
+        public ICommand ConfirmEyeChangedCommand { get; set; }
         public ICommand VerifiedCommand { get; set; }
         public ICommand ChangePasswordCommand { get; set; }
         public ICommand CheckCode { get; set; }
-
+        public ICommand ShowNewPassword { get; set; }
+        public ICommand UnshowNewPassword { get; set; }
+        public ICommand ShowConfirmPassword { get; set; }
+        public ICommand UnshowConfirmPassword { get; set; }
+        public ICommand ShowPassword_Register { get; set; }
+        public ICommand UnshowPassword_Register { get; set; }
+        public ICommand ShowConfirmPassword_Register { get; set; }
+        public ICommand UnshowConfirmPassword_Register { get; set; }
         public string Error { get { return null; } }
 
         public string this[string columnName]
@@ -95,7 +107,11 @@ namespace MusicMediaPlayer.ViewModel
                  
              });
             PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { Password = p.Password; });
+            PasswordEyeChangedCommand = new RelayCommand<TextBox>((p) => { return true; }, (p) => { Password = p.Text; });
+            ConfirmPasswordEyeChangedCommand = new RelayCommand<TextBox>((p) => { return true; }, (p) => { ConfirmPassword = p.Text; });
             ConfirmPasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { ConfirmPassword = p.Password; });
+            NewPassEyeChangedCommand = new RelayCommand<TextBox>((p) => { return true; }, (p) => { NewPassword = p.Text; });
+            ConfirmEyeChangedCommand = new RelayCommand<TextBox>((p) => { return true; }, (p) => { ConfirmNewPassword = p.Text; });
             //lệnh nhấn nút sign up
             SignUpCommand = new RelayCommand<Window>((p) => { return true; },(p) =>
             {
@@ -153,6 +169,70 @@ namespace MusicMediaPlayer.ViewModel
              {
                  Change(p);
              });
+            ShowNewPassword = new RelayCommand<ForgotPassword>((p) => { return true; }, (p) =>
+            {
+                p.ShowNewPass.Visibility = Visibility.Hidden;
+                p.UnshowNewPass.Visibility = Visibility.Visible;
+                p.NewPassEye.Text = p.NewPassword.Password;
+                p.NewPassEye.Visibility = Visibility.Visible;
+                p.NewPassword.Visibility = Visibility.Hidden;
+            });
+            UnshowNewPassword = new RelayCommand<ForgotPassword>((p) => { return true; }, (p) =>
+            {
+                p.ShowNewPass.Visibility = Visibility.Visible;
+                p.UnshowNewPass.Visibility = Visibility.Hidden;
+                p.NewPassword.Visibility = Visibility.Visible;
+                p.NewPassword.Password = p.NewPassEye.Text;
+                p.NewPassEye.Visibility = Visibility.Hidden;
+            });
+            ShowConfirmPassword = new RelayCommand<ForgotPassword>((p) => { return true; }, (p) =>
+            {
+                p.ShowConfirmPass.Visibility = Visibility.Hidden;
+                p.UnshowConfirmPass.Visibility = Visibility.Visible;
+                p.ConfirmPassEye.Text = p.ConfirmNewPassword.Password;
+                p.ConfirmPassEye.Visibility = Visibility.Visible;
+                p.ConfirmNewPassword.Visibility = Visibility.Hidden;
+            });
+            UnshowConfirmPassword = new RelayCommand<ForgotPassword>((p) => { return true; }, (p) =>
+            {
+                p.ShowConfirmPass.Visibility = Visibility.Visible;
+                p.UnshowConfirmPass.Visibility = Visibility.Hidden;
+                p.ConfirmNewPassword.Visibility = Visibility.Visible;
+                p.ConfirmNewPassword.Password = p.ConfirmPassEye.Text;
+                p.ConfirmPassEye.Visibility = Visibility.Hidden;
+            });
+            ShowPassword_Register = new RelayCommand<Register>((p) => { return true; }, (p) =>
+            {
+                p.ShowPass.Visibility = Visibility.Hidden;
+                p.UnshowPass.Visibility = Visibility.Visible;
+                p.PasswordEye.Text = p.Password.Password;
+                p.PasswordEye.Visibility = Visibility.Visible;
+                p.Password.Visibility = Visibility.Hidden;
+            });
+            UnshowPassword_Register = new RelayCommand<Register>((p) => { return true; }, (p) =>
+            {
+                p.ShowPass.Visibility = Visibility.Visible;
+                p.UnshowPass.Visibility = Visibility.Hidden;
+                p.Password.Visibility = Visibility.Visible;
+                p.Password.Password = p.PasswordEye.Text;
+                p.PasswordEye.Visibility = Visibility.Hidden;
+            });
+            ShowConfirmPassword_Register = new RelayCommand<Register>((p) => { return true; }, (p) =>
+            {
+                p.ShowConfirmPass.Visibility = Visibility.Hidden;
+                p.UnshowConfirmPass.Visibility = Visibility.Visible;
+                p.ConfirmPasswordEye.Text = p.ConfirmPassword.Password;
+                p.ConfirmPasswordEye.Visibility = Visibility.Visible;
+                p.ConfirmPassword.Visibility = Visibility.Hidden;
+            });
+            UnshowConfirmPassword_Register = new RelayCommand<Register>((p) => { return true; }, (p) =>
+            {
+                p.ShowConfirmPass.Visibility = Visibility.Visible;
+                p.UnshowConfirmPass.Visibility = Visibility.Hidden;
+                p.ConfirmPassword.Visibility = Visibility.Visible;
+                p.ConfirmPassword.Password = p.ConfirmPasswordEye.Text;
+                p.ConfirmPasswordEye.Visibility = Visibility.Hidden;
+            });
         }
         void Sign(Window p)
         {
