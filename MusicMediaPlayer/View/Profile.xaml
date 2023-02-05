@@ -25,7 +25,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Border Height="750" 
-                Width="430"  
+                Width="470"  
                 Grid.Column="1" 
                 Margin="-30 0 0 0" 
                 CornerRadius="0 20 20 0">
@@ -69,7 +69,6 @@
                     Command="{Binding CPCommand}"
                                 Margin="0 -75 0 0">
                         <TextBlock Text="Change Password" 
-                           Foreground="AliceBlue"
                            FontSize="16" 
                            VerticalAlignment="Center" 
                            HorizontalAlignment="Center"
@@ -287,36 +286,30 @@
                                 BorderBrush="#009efd"
                                 BorderThickness="1"/>
                         <StackPanel Orientation="Horizontal">
-                            <Button Width="100" 
-                                Height="40"
-                                Style="{StaticResource ButtonInAddPLWD}"    
-                                Background="#1ED760"
+                            <Button Width="80" 
+                                Height="30"
+                                Content="CONFIRM"
+                                Style="{StaticResource CHANGEPASSWORD}"    
+                                Background="#2af598"
+                                FontWeight="DemiBold"
                                 BorderBrush="Transparent"
                                 BorderThickness="1.5"
                         Command="{Binding AcceptChangingEmail}"
                             CommandParameter="{Binding ElementName=ProfileWD}"
                         Margin="50 25 0 0">
-                            <icon:PackIconMaterial 
-                                Kind="Check" 
-                                Height="18" 
-                                Width="17" 
-                            Foreground="#FFFFFF"/>
-                        </Button>
-                        <Button Width="100" 
-                                Height="40"
-                                Style="{StaticResource ButtonInAddPLWD}"
-                                Background="#FF616161"
+                            </Button>
+                            <Button Width="80" 
+                                Height="30"
+                                    Content="CANCEL"
+                                Style="{StaticResource CHANGEPASSWORD}"
+                                    FontWeight="DemiBold"
+                                Background="#CDCDCD"
                                 BorderBrush="Transparent"
                                 BorderThickness="1.5"
                         Command="{Binding CancelChangingEmail}"
                             CommandParameter="{Binding ElementName=ProfileWD}"
                         Margin="50 25 0 0">
-                            <icon:PackIconMaterial 
-                                Kind="Close" 
-                                Height="18" 
-                                Width="17" 
-                            Foreground="#FFFFFF"/>
-                        </Button>
+                            </Button>
                     </StackPanel>
         </StackPanel>
                     <!--<Border.Background>

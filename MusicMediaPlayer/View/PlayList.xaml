@@ -45,7 +45,7 @@
                         BorderThickness="2"
                         Width="200"
                         Height="40"
-                        Margin="20,5,0,0"
+                        Margin="20,-20,0,0"
                         CornerRadius="15"
                 >
                     <StackPanel Orientation="Horizontal">
@@ -88,8 +88,8 @@
                     CornerRadius="180"
                     VerticalAlignment="Center"
                     Margin="600 -30 0 0"
-                    Height="50"
-                    Width="50"
+                    Height="40"
+                    Width="40"
                     >
                     <Button Background="Transparent"
                         BorderThickness="0"
@@ -108,13 +108,14 @@
                            Foreground="#333333"
                            FontWeight="SemiBold"
                            FontSize="14"
+                       FontFamily="Roboto"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
-                       Margin="-50,50,0,0"></Label>
+                       Margin="-40,40,0,0"></Label>
                 <Border 
                 CornerRadius="180"
-                Width="50"
-                Height="50"
+                Width="40"
+                Height="40"
                 BorderBrush="#333333"
                 BorderThickness="3" 
                 Margin="25 -30 0 0">
@@ -125,12 +126,12 @@
                                     Height="50"
                                     FontWeight="SemiBold"
                                     Foreground="#333333"
-                                    Margin="0,0,0,0"
+                                    Margin="-10,0,0,0"
                                     >
                             <MenuItem.Icon>
                                 <materialDesign:PackIcon Kind="FormatLineSpacing"
                                                          Padding="0" 
-                                                         Margin="-15,-5,0,0"
+                                                         Margin="-12,-12,0,0"
                                                          Height="25" 
                                                          Width="50"/>
                             </MenuItem.Icon>
@@ -154,12 +155,17 @@
                 <Label Content="Arrange"
                            Foreground="#333333"
                            FontWeight="SemiBold"
+                       FontFamily="Roboto"
                            FontSize="14"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
-                       Margin="-55,50,0,0"></Label>
+                       Margin="-50,40,0,0"></Label>
             </StackPanel>
-
+            <Separator Background="Gray"
+                           Opacity="0.4"
+                           Width="1000"
+                       Margin="0,80,0,0"
+                           materialDesign:ShadowAssist.ShadowEdges="Bottom"/>
 
             <ListBox     ItemsSource="{Binding List, Mode=TwoWay}"
                           Name="listview"

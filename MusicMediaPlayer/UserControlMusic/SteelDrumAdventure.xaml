@@ -65,7 +65,10 @@
                          FontSize="20"
                          Width="300"
                          Height="200"/>
-                <Button Content="OK" Click="Button_Click"/>
+                <Button Content="OK" 
+                        Background="#2af598"
+                        Foreground="#000000"
+                        Click="Button_Click"/>
             </StackPanel>
         </Expander>
         <RadioButton x:Name="Practice"

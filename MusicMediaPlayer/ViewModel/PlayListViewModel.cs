@@ -166,6 +166,7 @@ namespace MusicMediaPlayer.ViewModel
                 bitmap.StreamSource = memory;
                 bitmap.EndInit();
                 imageBrush.ImageSource = bitmap;
+                wd.grdSelectImg.Background = imageBrush;
                 wd.ShowDialog();
                 LoadDanhSach(CurrentUser.Id);
             }

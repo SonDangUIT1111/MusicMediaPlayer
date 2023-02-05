@@ -97,7 +97,8 @@
                                 x:Name="btnAdd"
                                 
                                 Command="{Binding Add}"
-                                ToolTip="Add" Background="#FF1ED760"
+                                ToolTip="Add" Background="#2af598"
+                               Foreground="#FFFFFF"
                                 >
                         <materialDesign:PackIcon Kind="Check"
                                                      Width="25"
@@ -110,7 +111,7 @@
                                 Height="40"
                                 Style="{StaticResource ButtonInAddPLWD}"
                                 Command="{Binding Cancel}"
-                            ToolTip="Cancel" Background="#FF727272">
+                            ToolTip="Cancel" Background="#CDCDCD">
                         <materialDesign:PackIcon Kind="Close"
                                                      Width="25"
                                                      Height="25">

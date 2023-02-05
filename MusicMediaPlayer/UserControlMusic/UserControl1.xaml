@@ -48,32 +48,34 @@
                 </TextBlock>
                 <Button   Background="Transparent"
                           Foreground="#5CA0F2"
-                          Height="60"
-                          Width="60"
-                          Margin="0,-5,0,0"
+                          Height="50"
+                          Width="50"
+                          Padding="0"
+                          Margin="35,0,0,0"
                           BorderThickness="0"
                           ToolTip="Minimized"
                           ToolBar.OverflowMode="AsNeeded"
                           Command="{Binding MinimalWindowCommand}"
                           CommandParameter="{Binding ElementName=UCMain}">
                     <materialDesign:PackIcon Kind="WindowMinimize"
-                                             Height="30"
-                                             Width="30"
+                                             Height="20"
+                                             Width="20"
                                          />
                 </Button>
-                <Button   Background="Transparent"
-                          Foreground="#5CA0F2"
-                          Height="60"
-                          Width="60"
-                          Margin="10,-5,0,0"
+                <Button   Style="{StaticResource CloseWindowButton}"
+                          Height="50"
+                          Width="50"
+                          Padding="0"
+                          Margin="10,0,0,0"
                           BorderThickness="0"
                           ToolTip="Close"
                           ToolBar.OverflowMode="AsNeeded"
                           Command="{Binding CloseWindowCommand}"
                           CommandParameter="{Binding ElementName=UCMain}">
                     <materialDesign:PackIcon Kind="WindowClose"
-                                             Height="30"
-                                             Width="30"
+                                             Foreground="#5CA0F2"
+                                             Height="20"
+                                             Width="20"
                      />
                 </Button>
                 

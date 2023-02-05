@@ -36,7 +36,7 @@
             <Grid Background="Transparent">
                 <Border CornerRadius="20">
                     <Border.Background>
-                        <ImageBrush ImageSource="\Image\Sky5.jpg" Stretch="UniformToFill" Opacity="0.25"/>
+                        <ImageBrush ImageSource="\Image\Sky5.jpg" Stretch="UniformToFill" Opacity="0.45"/>
                     </Border.Background>
                 </Border>
             </Grid>

@@ -53,12 +53,14 @@
             </TextBlock>
             <StackPanel Orientation="Horizontal">
                 <ScrollViewer VerticalScrollBarVisibility="Auto"
-                              HorizontalScrollBarVisibility="Disabled">
+                              HorizontalScrollBarVisibility="Disabled"
+                              Margin="0,40,0,0">
                     <ListView 
                       x:Name="lv"
                       ItemsSource="{Binding List}"
                       SelectionMode="Multiple"
-                      Margin="20 20 0 20"
+                      Margin="10 0 0 20"
+                      Height="380"
                      >
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">
@@ -188,7 +190,9 @@
                                 x:Name="btnAdd"
                                 Command="{Binding Add}"
                                 CommandParameter="{Binding ElementName=AddPL}"
-                                ToolTip="Add" Background="#FF1ED760"
+                                ToolTip="Add" 
+                                Background="#2af598"
+                                Foreground="#FFFFFF"
                                 >
                             <materialDesign:PackIcon Kind="Check"
                                                      Width="25"
@@ -202,7 +206,8 @@
                                 Style="{StaticResource ButtonInAddPLWD}"
                                 Command="{Binding Close}"
                                 CommandParameter="{Binding ElementName=AddPL}"
-                                ToolTip="Cancel" Background="#FF676767">
+                                ToolTip="Cancel" Background="#CDCDCD"
+                                Foreground="#FFFFFF">
                             <materialDesign:PackIcon Kind="Close"
                                                      Width="25"
                                                      Height="25">

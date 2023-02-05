@@ -61,8 +61,10 @@
                     Width="120"
                             Height="30"
                     Content="Save"
+                            Background="#2af598"
+                            Foreground="#000000"
                     Command="{Binding Luu}"
-                    CommandParameter="{Binding ElementName=RenamePL}" Background="#FF1ED760">
+                    CommandParameter="{Binding ElementName=RenamePL}">
 
                     </Button>
                     <Button Margin="20 0 0 0"
@@ -71,7 +73,9 @@
                     Height="30"
                     Content="Cancel"
                     Command="{Binding Cancel}"
-                    CommandParameter="{Binding ElementName=RenamePL}" Background="#FF838383">
+                    CommandParameter="{Binding ElementName=RenamePL}" 
+                            Background="#CDCDCD"
+                            Foreground="#000000">
 
                     </Button>
                 </StackPanel>

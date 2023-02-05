@@ -117,7 +117,7 @@
                                 x:Name="btnAdd"
                                 Command="{Binding Change}"
                                 CommandParameter="{Binding ElementName=ChangePlayListPictureWD}"
-                                ToolTip="Add" Background="#FF1ED760"
+                                ToolTip="Add" Background="#2af598"
                                 >
                     <materialDesign:PackIcon Kind="Check"
                                                      Width="25"
@@ -132,7 +132,7 @@
                                 Command="{Binding Close}"
                                 CommandParameter="{Binding ElementName=ChangePlayListPictureWD}"
                                 ToolTip="Cancel" 
-                                Background="#FF707070">
+                                Background="#CDCDCD">
                     <materialDesign:PackIcon Kind="Close"
                                                      Width="25"
                                                      Height="25">

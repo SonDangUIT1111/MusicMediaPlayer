@@ -20,13 +20,8 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#3AB3DA"></Setter>
-                <Setter Property="Foreground" Value="Blue"></Setter>
-                <Setter Property="Opacity" Value="0.8"></Setter>
-            </Trigger>
-            <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Background" Value="#1ED769"></Setter>
-                <Setter Property="Foreground" Value="Blue"></Setter>
+                <Setter Property="Background" Value="#5CA0F2"></Setter>
+                <Setter Property="Foreground" Value="#FFFFFF"></Setter>
                 <Setter Property="Opacity" Value="0.8"></Setter>
             </Trigger>
         </Style.Triggers>
