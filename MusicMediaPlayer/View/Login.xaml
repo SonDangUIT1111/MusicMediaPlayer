@@ -106,7 +106,7 @@
                         <Image Source="/Image/logo5.png"></Image>
                     </Button>
                     <TextBlock Text="Music Universe"
-                               FontSize="25"
+                               FontSize="22"
                                FontWeight="Bold"
                                HorizontalAlignment="Center"
                                FontFamily="Arial Rounded MT Bold"

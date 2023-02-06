@@ -595,6 +595,7 @@ namespace MusicMediaPlayer.ViewModel
                     {
                         mediaPlayer1.Stop();
                         SleepTimer.Stop();
+                        thispage.Play.IsChecked = false;
                         Playbtn1.IsChecked = false;
                         Pausebtn1.IsChecked = true;
                         Playbtn1.Visibility = Visibility.Visible;

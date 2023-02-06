@@ -108,6 +108,7 @@ namespace MusicMediaPlayer.ViewModel
                         Playbtn1.Visibility = Visibility.Visible;
                         Pausebtn1.Visibility = Visibility.Hidden;
 
+                        
                         Playbtn3.IsChecked = false;
                         Pausebtn3.IsChecked = true;
                         Playbtn3.Visibility = Visibility.Visible;
@@ -427,7 +428,7 @@ namespace MusicMediaPlayer.ViewModel
             });
             OpenSleepTimer = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                SleepTimerForArtist sleeptimerView = new SleepTimerForArtist();
+                SleepTimerForGenre sleeptimerView = new SleepTimerForGenre();
                 sleeptimerView.ShowDialog();
             });
         }

@@ -208,8 +208,7 @@ namespace MusicMediaPlayer.ViewModel
                 window.AlbumFrame.Background = imageBrush;
                 window.NameAlbum.Text = item.AlbumName;
                 window.Composer.Text = item.Composer.ToString();
-                
-
+               
                 //passing parameter
                 windowData.SkipNextbtn = SkipNextbtn;
                 windowData.SkipPreviousbtn = SkipPreviousbtn;
