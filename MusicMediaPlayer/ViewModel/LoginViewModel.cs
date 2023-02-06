@@ -31,10 +31,10 @@ namespace MusicMediaPlayer.ViewModel
             IsLoggedIn = false;
             Username = "";
             Password = "";
-            LogintoRegister = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            LogintoRegister = new RelayCommand<Login>((p) => { return true; }, (p) =>
             {
+                Username = "";
                 p.Close();
-                p.Resources.Clear();
                 Register register = new Register();
                 register.ShowDialog();
             
@@ -45,8 +45,9 @@ namespace MusicMediaPlayer.ViewModel
             });
             PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; },(p)=> { Password = p.Password; });
             PasswordEyeChangedCommand = new RelayCommand<TextBox>((p) => { return true; }, (p) => { Password = p.Text; });
-            ToForgotPassword = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            ToForgotPassword = new RelayCommand<Login>((p) => { return true; }, (p) =>
             {
+                Username = "";
                 p.Close();
                 ForgotPassword forgotPassword = new ForgotPassword();
                 forgotPassword.ShowDialog();
@@ -68,8 +69,6 @@ namespace MusicMediaPlayer.ViewModel
                 p.Password.Password = p.PasswordEye.Text;
                 p.PasswordEye.Visibility = Visibility.Hidden;
             });
-
-
         }
         void Log(Window p)
         {
@@ -78,11 +77,8 @@ namespace MusicMediaPlayer.ViewModel
             if (Username == "")
             {
                 MessageBoxOK wd = new MessageBoxOK();
-
                 var data = wd.DataContext as MessageBoxOKViewModel;
-
                 data.Content = "Please enter username";
-
                 wd.ShowDialog();
             }
             else if (Password == "")

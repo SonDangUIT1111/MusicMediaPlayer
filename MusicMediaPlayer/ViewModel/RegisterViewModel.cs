@@ -41,6 +41,7 @@ namespace MusicMediaPlayer.ViewModel
         public string Code { get => _Code; set { _Code = value; OnPropertyChanged(); } }
         public string ConfirmNewPassword { get => _ConfirmNewPassword; set { _ConfirmNewPassword = value; OnPropertyChanged(); } }
         public ICommand ToLogin { get; set; }
+        public ICommand ToLogin_ForgotPassword { get; set; }
         public ICommand PasswordChangedCommand { get; set; }
         public ICommand PasswordEyeChangedCommand { get; set; }
         public ICommand ConfirmPasswordChangedCommand { get; set; }
@@ -90,30 +91,43 @@ namespace MusicMediaPlayer.ViewModel
 
         public RegisterViewModel()
         {
-            //khởi tạo
+            //Declare random code
             RandomCode = 0;
-            //cờ đánh dấu trạng thái
+            //Flags to check
             IsSend = false;
             IsVerified = false;
             IsSignedUp = false;
-            //lệnh nhấn nút login
-            ToLogin = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            //
+            ToLogin = new RelayCommand<Register>((p) => { return true; }, (p) =>
              {
                  if (p == null)
                      return;
+                 p.Account.Text = "";
+                 p.Email.Text = "";
                  p.Close();
                  Login login = new Login();
                  login.ShowDialog();
                  
              });
+            ToLogin_ForgotPassword = new RelayCommand<ForgotPassword>((p) => { return true; }, (p) =>
+            {
+                if (p == null)
+                    return;
+                EmailProtected = "";
+                p.CodeVerified.Text = "";
+                p.Close();
+                Login login = new Login();
+                login.ShowDialog();
+
+            });
             PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { Password = p.Password; });
             PasswordEyeChangedCommand = new RelayCommand<TextBox>((p) => { return true; }, (p) => { Password = p.Text; });
             ConfirmPasswordEyeChangedCommand = new RelayCommand<TextBox>((p) => { return true; }, (p) => { ConfirmPassword = p.Text; });
             ConfirmPasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { ConfirmPassword = p.Password; });
             NewPassEyeChangedCommand = new RelayCommand<TextBox>((p) => { return true; }, (p) => { NewPassword = p.Text; });
             ConfirmEyeChangedCommand = new RelayCommand<TextBox>((p) => { return true; }, (p) => { ConfirmNewPassword = p.Text; });
-            //lệnh nhấn nút sign up
-            SignUpCommand = new RelayCommand<Window>((p) => { return true; },(p) =>
+            //
+            SignUpCommand = new RelayCommand<Register>((p) => { return true; },(p) =>
             {
                 Sign(p);
             } );
@@ -234,11 +248,11 @@ namespace MusicMediaPlayer.ViewModel
                 p.ConfirmPasswordEye.Visibility = Visibility.Hidden;
             });
         }
-        void Sign(Window p)
+        void Sign(Register p)
         {
             if (p == null)
                 return;
-            //Kiểm tra đã nhập đủ thông tin
+            //Check fully information
             if (String.IsNullOrEmpty(Username))
             {
                 MessageBoxOK MB = new MessageBoxOK();
@@ -279,7 +293,7 @@ namespace MusicMediaPlayer.ViewModel
                 MB.ShowDialog();
                 return;
             }
-            //Kiểm tra validation của password và email
+            //check validation  of password - email
             int countUpcase = 0, countNum = 0;
             foreach (char c in Password)
             {
@@ -314,7 +328,7 @@ namespace MusicMediaPlayer.ViewModel
             }
             else
             {
-                //Kiểm tra user và email đăng ký có tồn tại không 
+                //check user - email does exists ?
                 var UserCountm = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == Username).Count();
                 var EmailCountm = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserEmail == Email).Count();
                 if (UserCountm > 0 )
@@ -336,7 +350,7 @@ namespace MusicMediaPlayer.ViewModel
                 else
                 {
                     string passEncode = CreateMD5(Base64Encode(Password));
-                    //Thêm user mới vào database
+                    //add new user to database
                     try
                     {
                         var projectPath = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
@@ -347,7 +361,11 @@ namespace MusicMediaPlayer.ViewModel
                         var newuser = new UserAccount() { UserName = Username, NickName = Username ,UserEmail = Email, UserPassword = passEncode, UserImage = newUserAvatar };
                         DataProvider.Ins.DB.UserAccounts.Add(newuser);
                         DataProvider.Ins.DB.SaveChanges();
+                        MessageBoxSuccessful ms = new MessageBoxSuccessful();
+                        ms.ShowDialog();
                         IsSignedUp = true;
+                        p.Account.Text = null;
+                        p.Email.Text = null;
                         p.Close();
                         Login login = new Login();
                         login.ShowDialog();
@@ -365,7 +383,7 @@ namespace MusicMediaPlayer.ViewModel
         {
             if (p == null)
                 return;
-            //Kiểm tra đã nhập đủ thông tin
+            //check fully information
             if (String.IsNullOrEmpty(EmailProtected))
             {
                 MessageBoxOK MB = new MessageBoxOK();
@@ -376,17 +394,16 @@ namespace MusicMediaPlayer.ViewModel
             }
             else
             {
-                //Kiểm tra email bảo vệ có tồn tại không 
+                //check email exists ?
                 var EmailCountm = DataProvider.Ins.DB.UserAccounts.Where(x => x.UserEmail == EmailProtected).Count();
-                //email đúng
+                //if exists
                 if (EmailCountm > 0)
                 {
                     IsSend = true;
                     Random rd = new Random();
                     RandomCode = rd.Next(100000,999999);
                     string RandomCodeString = RandomCode.ToString();
-                    MessageBox.Show(RandomCodeString);
-                    SendCodeByEmail(RandomCodeString, "thienthanvsacquy1234@gmail.com");
+                    SendCodeByEmail(RandomCodeString,EmailProtected);
                     return;
                 }
                 else
@@ -410,6 +427,10 @@ namespace MusicMediaPlayer.ViewModel
                 if (Int32.Parse(window.CodeVerified.Text) == RandomCode)
                 {
                     IsVerified = true;
+                    MessageBoxOK MB = new MessageBoxOK();
+                    var data = MB.DataContext as MessageBoxOKViewModel;
+                    data.Content = "Successfully verified, please enter your new password";
+                    MB.ShowDialog();
                     return;
                 }
                 else
@@ -450,7 +471,7 @@ namespace MusicMediaPlayer.ViewModel
                 MB.ShowDialog();
                 return;
             }
-            //Kiểm tra validation của password 
+            //check validation of password
             int countUpcase = 0, countNum = 0;
             foreach (char c in NewPassword)
             {
@@ -483,6 +504,9 @@ namespace MusicMediaPlayer.ViewModel
                 DataProvider.Ins.DB.SaveChanges();
                 MessageBoxSuccessful MB = new MessageBoxSuccessful();
                 MB.ShowDialog();
+                p.Close();
+                Login login = new Login();
+                login.ShowDialog();
             }
         }
         public static string Base64Encode(string plainText)
@@ -531,9 +555,7 @@ namespace MusicMediaPlayer.ViewModel
             }
             catch (Exception)
             {
-                MessageBoxOK MB = new MessageBoxOK();
-                var data = MB.DataContext as MessageBoxOKViewModel;
-                data.Content = "Failed to sent, please wait a minute and try again";
+                MessageBoxFail MB = new MessageBoxFail();
                 MB.ShowDialog();
             }
         }

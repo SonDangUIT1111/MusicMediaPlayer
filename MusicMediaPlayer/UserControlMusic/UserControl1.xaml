@@ -47,7 +47,7 @@
                     </TextBlock.Foreground>
                 </TextBlock>
                 <Button   Background="Transparent"
-                          Foreground="#5CA0F2"
+                          Foreground="White"
                           Height="50"
                           Width="50"
                           Padding="0"
@@ -57,9 +57,25 @@
                           ToolBar.OverflowMode="AsNeeded"
                           Command="{Binding MinimalWindowCommand}"
                           CommandParameter="{Binding ElementName=UCMain}">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver"
+                                         Value="True">
+                                    <Setter Property="Background"
+                                            Value="Red">
+
+                                    </Setter>
+
+                                </Trigger>
+                            </Style.Triggers>
+
+                        </Style>
+                    </Button.Style>
                     <materialDesign:PackIcon Kind="WindowMinimize"
                                              Height="20"
                                              Width="20"
+                                             Foreground="#5CA0F2"
                                          />
                 </Button>
                 <Button   Style="{StaticResource CloseWindowButton}"

@@ -32,8 +32,7 @@
                 BorderThickness="0.1"
                 BorderBrush="Transparent"
                 HorizontalAlignment="Center"
-                Width="500"
-                >
+                Width="500">
             <Border.Background>
                 <ImageBrush ImageSource="/Image/dang_nghe_nhac.jpg"
                             Stretch="UniformToFill">
@@ -50,7 +49,8 @@
                     <RowDefinition Height="5*"/>
                 </Grid.RowDefinitions>
 
-                <Border Grid.RowSpan="4" CornerRadius="0 20 20 0" Panel.ZIndex="0">
+                <Border Grid.RowSpan="4" CornerRadius="0 20 20 0" 
+                        Panel.ZIndex="0">
                     <Border.Background>
                         <LinearGradientBrush>
                             <GradientStop Color="#F5F7F6" Offset="1"/>
@@ -64,7 +64,8 @@
                          Stroke="Transparent" 
                          Margin="219,140,-119,-90" 
                          Grid.Row="1"
-                         Panel.ZIndex="0" Grid.RowSpan="3"/>
+                         Panel.ZIndex="0" 
+                         Grid.RowSpan="3"/>
                 <Ellipse Width="200"
                          Height="200"
                          Fill="#5CA0F2"
@@ -72,7 +73,8 @@
                          Stroke="Transparent" 
                          Margin="-50,127,150,-77" 
                          Grid.Row="1"
-                         Panel.ZIndex="0" Grid.RowSpan="3"/>
+                         Panel.ZIndex="0" 
+                         Grid.RowSpan="3"/>
                 <Ellipse Width="100"
                          Height="100"
                          Fill="#5CA0F2"
@@ -80,7 +82,9 @@
                          Stroke="Transparent" 
                          Margin="-34,190,234,0" 
                          Grid.Row="1"
-                         Panel.ZIndex="0" VerticalAlignment="Top" Grid.RowSpan="3"/>
+                         Panel.ZIndex="0" 
+                         VerticalAlignment="Top" 
+                         Grid.RowSpan="3"/>
                 <Ellipse Width="300"
                          Height="300"
                          Fill="#5CA0F2"
@@ -93,20 +97,20 @@
                 <StackPanel>
                     <uc:UserControlLoginRegister></uc:UserControlLoginRegister>
                     <Button Height="75"
-                        Width="75"
-                        HorizontalAlignment="Center"
-                        Margin="0,5,0,0"
-                        Foreground="White"
-                        Style="{StaticResource NormalButton}"
-                        RenderTransformOrigin="0.5,0.5">
+                            Width="75"
+                            HorizontalAlignment="Center"
+                            Margin="0,5,0,0"
+                            Foreground="White"
+                            Style="{StaticResource NormalButton}"
+                            RenderTransformOrigin="0.5,0.5">
                         <Image Source="/Image/logo5.png"></Image>
                     </Button>
                     <TextBlock Text="Music Universe"
-                           FontSize="25"
-                           FontWeight="Bold"
-                           HorizontalAlignment="Center"
-                           FontFamily="Arial Rounded MT Bold"
-                           Margin="0,10,0,0">
+                               FontSize="25"
+                               FontWeight="Bold"
+                               HorizontalAlignment="Center"
+                               FontFamily="Arial Rounded MT Bold"
+                               Margin="0,10,0,0">
                         <TextBlock.Foreground>
                             <LinearGradientBrush>
                                 <GradientStop Color="#2af598" Offset="1"/>
@@ -119,21 +123,19 @@
                     <StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <TextBox x:Name="Account"
-                        materialDesign:HintAssist.Hint="User Name"
-                         materialDesign:HintAssist.Foreground="Black"
-                         
-                        FontSize="15"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                        Foreground="Black"
-                        Background="Transparent"
-                        BorderThickness="0"
-                        Height="auto"
-                        Width="210"
-                        HorizontalAlignment="Center"
-                        Margin="30,0,0,0"
-                        Text="{Binding Username}" FontWeight="SemiBold"
-                         
-                        />
+                                     materialDesign:HintAssist.Hint="User Name"
+                                     materialDesign:HintAssist.Foreground="Black"
+                                     FontSize="15"
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                     Foreground="Black"
+                                     Background="Transparent"
+                                     BorderThickness="0"
+                                     Height="auto"
+                                     Width="210"
+                                     HorizontalAlignment="Center"
+                                     Margin="30,0,0,0"
+                                     Text="{Binding Username}" 
+                                     FontWeight="SemiBold"/>
                             <materialDesign:PackIcon Kind="Account"
                                                  Height="20"
                                                  Width="20"
@@ -142,117 +144,113 @@
                                                  Opacity="0.5"/>
                         </StackPanel>
                         <Border BorderBrush="#009efd"
-                        Height="1"
-                        Width="240"
-                        BorderThickness="10">
+                                Height="1"
+                                Width="240"
+                                BorderThickness="10">
                         </Border>
                     </StackPanel>
                     <StackPanel Margin="0,10,0,0">
                         <StackPanel Orientation="Horizontal">
                             <PasswordBox x:Name="Password"
-                        materialDesign:HintAssist.Hint="Password"
-                        materialDesign:HintAssist.Foreground="Black"
-                        FontSize="15"
-                        Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
-                        
-                          FontWeight="SemiBold"
+                                         materialDesign:HintAssist.Hint="Password"
+                                         materialDesign:HintAssist.Foreground="Black"
+                                         FontSize="15"
+                                         Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                                         FontWeight="SemiBold"
                                          Foreground="Black"
-                        Background="Transparent"
-                        BorderThickness="0"
-                        Height="auto"
-                        Width="210"
-                        HorizontalAlignment="Center"
-                        Margin="30,0,0,0">
+                                         Background="Transparent"
+                                         BorderThickness="0"
+                                         Height="auto"
+                                         Width="210"
+                                         HorizontalAlignment="Center"
+                                         Margin="30,0,0,0">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="PasswordChanged">
                                         <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}"
-                                   CommandParameter="{Binding ElementName=Password}"/>
+                                                               CommandParameter="{Binding ElementName=Password}"/>
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </PasswordBox>
                             <TextBox x:Name="PasswordEye"
-                                    Margin="-210 0 0 0"
-                                    materialDesign:HintAssist.Hint="Password"
-                                    materialDesign:HintAssist.Foreground="Black"
-                                    FontSize="15"
-                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                    Background="Transparent"
-                                    Height="auto"
-                                    Width="230"
+                                     Margin="-210 0 0 0"
+                                     materialDesign:HintAssist.Hint="Password"
+                                     materialDesign:HintAssist.Foreground="Black"
+                                     FontSize="15"
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                     Background="Transparent"
+                                     Height="auto"
+                                     Width="230"
                                      BorderThickness="0"
-                                    HorizontalAlignment="Center"
-                                    FontWeight="SemiBold"
-                                    Foreground="Black"
-                                    Visibility="Hidden">
+                                     HorizontalAlignment="Center"
+                                     FontWeight="SemiBold"
+                                     Foreground="Black"
+                                     Visibility="Hidden">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="TextChanged">
                                         <i:InvokeCommandAction Command="{Binding PasswordEyeChangedCommand}"
-                                   CommandParameter="{Binding ElementName=PasswordEye}"/>
+                                                               CommandParameter="{Binding ElementName=PasswordEye}"/>
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </TextBox>
                             <Button x:Name="ShowPass"
-                                Style="{StaticResource NormalButton}"
-                                Content="{materialDesign:PackIcon Kind=Eye}"
-                                Foreground="#333333"
-                                Margin="-20,0,0,0"
-                                Command="{Binding ShowPassword}"
-                                CommandParameter="{Binding ElementName=LoginWindow}"/>
+                                    Style="{StaticResource NormalButton}"
+                                    Content="{materialDesign:PackIcon Kind=Eye}"
+                                    Foreground="#333333"
+                                    Margin="-20,0,0,0"
+                                    Command="{Binding ShowPassword}"
+                                    CommandParameter="{Binding ElementName=LoginWindow}"/>
                             <Button x:Name="UnshowPass"
-                                Style="{StaticResource NormalButton}"
-                                Content="{materialDesign:PackIcon Kind=EyeOff}"
-                                Foreground="#333333"
-                                Margin="-20,0,0,0"
-                                Visibility="Hidden"
-                                Command="{Binding UnshowPassword}"
-                                CommandParameter="{Binding ElementName=LoginWindow}"/>
+                                    Style="{StaticResource NormalButton}"
+                                    Content="{materialDesign:PackIcon Kind=EyeOff}"
+                                    Foreground="#333333"
+                                    Margin="-20,0,0,0"
+                                    Visibility="Hidden"
+                                    Command="{Binding UnshowPassword}"
+                                    CommandParameter="{Binding ElementName=LoginWindow}"/>
                         </StackPanel>
                         <Border BorderBrush="#009efd"
-                        Height="1"
-                        Width="240"
-                        BorderThickness="10">
+                                Height="1"
+                                Width="240"
+                                BorderThickness="10">
                         </Border>
                     </StackPanel>
                     <StackPanel Margin="0,5,0,0">
-                        <Button 
-                        Content="Forgot password?" 
-                        VerticalAlignment="Top" 
-                        Padding="0" 
-                        HorizontalContentAlignment="Right" 
-                        VerticalContentAlignment="Center" 
-                        FontSize="11" 
-                        FontWeight="SemiBold" 
-                        Cursor="Hand" 
-                        FocusVisualStyle="{x:Null}"
-                        Background="{x:Null}" 
-                        Foreground="#444444" 
-                        BorderBrush="{x:Null}" 
-                        Margin="150,0,30,0"
-                        IsTabStop="False"
-                        Height="auto"
-                        Width="100"
-                        Command="{Binding ToForgotPassword}"
-                        CommandParameter="{Binding ElementName=LoginWindow}">
+                        <Button Content="Forgot password?" 
+                                VerticalAlignment="Top" 
+                                Padding="0" 
+                                HorizontalContentAlignment="Right" 
+                                VerticalContentAlignment="Center" 
+                                FontSize="11" 
+                                FontWeight="SemiBold" 
+                                Cursor="Hand" 
+                                FocusVisualStyle="{x:Null}"
+                                Background="{x:Null}" 
+                                Foreground="#444444" 
+                                BorderBrush="{x:Null}" 
+                                Margin="150,0,30,0"
+                                IsTabStop="False"
+                                Height="auto"
+                                Width="100"
+                                Command="{Binding ToForgotPassword}"
+                                CommandParameter="{Binding ElementName=LoginWindow}">
                         </Button>
-                        <Button Width="80" Height="30"  
-                            Content="LOGIN"
-                            IsDefault="True"
-                            HorizontalAlignment="Center"
-                            Style="{StaticResource ContactButton}"
-                            Margin="0,20,0,0"                              
-                            Command="{Binding LoginSuccess}"
-                            CommandParameter="{Binding ElementName=LoginWindow}"
-                                
-                                />
+                        <Button Width="80" 
+                                Height="30"  
+                                Content="LOGIN"
+                                IsDefault="True"
+                                HorizontalAlignment="Center"
+                                Style="{StaticResource ContactButton}"
+                                Margin="0,20,0,0"                              
+                                Command="{Binding LoginSuccess}"
+                                CommandParameter="{Binding ElementName=LoginWindow}"/>
                         <StackPanel Orientation="Horizontal"
-                                Margin="0,30,0,0">
+                                    Margin="0,30,0,0">
                             <TextBlock Text="Don't have an accout ?"
-                                   Foreground="#0099FF"
-                                   Margin="70,0,0,0"
-                                   FontWeight="SemiBold"
-                                   FontFamily="Roboto"></TextBlock>
-                            <Button 
-                                    Content="Sign up" 
+                                       Foreground="#0099FF"
+                                       Margin="70,0,0,0"
+                                       FontWeight="SemiBold"
+                                       FontFamily="Roboto"></TextBlock>
+                            <Button Content="Sign up" 
                                     VerticalAlignment="Top" 
                                     Padding="0" 
                                     HorizontalContentAlignment="Right" 
@@ -267,8 +265,7 @@
                                     Margin="5,0,30,0"
                                     IsTabStop="False"
                                     Command="{Binding LogintoRegister}"
-                                    CommandParameter="{Binding ElementName=LoginWindow}"
-                                   >
+                                    CommandParameter="{Binding ElementName=LoginWindow}">
                             </Button>
                         </StackPanel>
                     </StackPanel>

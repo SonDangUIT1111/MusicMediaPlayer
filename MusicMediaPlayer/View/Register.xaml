@@ -20,8 +20,7 @@
         DataContext="{StaticResource RegisterVM}"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         Name="RegisterWindow"
-        Icon="AppIcon.ico"
-        >
+        Icon="AppIcon.ico">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="500"></ColumnDefinition>
@@ -32,8 +31,7 @@
                 BorderThickness="0.1"
                 BorderBrush="Transparent"
                 HorizontalAlignment="Center"
-                Width="500"
-                >
+                Width="500">
             <Border.Background>
                 <ImageBrush ImageSource="/Image/dang_nghe_nhac.jpg"
                             Stretch="UniformToFill">
@@ -50,7 +48,9 @@
                     <RowDefinition Height="5*"/>
                 </Grid.RowDefinitions>
 
-                <Border Grid.RowSpan="4" CornerRadius="0 20 20 0" Panel.ZIndex="0">
+                <Border Grid.RowSpan="4" 
+                        CornerRadius="0 20 20 0" 
+                        Panel.ZIndex="0">
                     <Border.Background>
                         <LinearGradientBrush>
                             <GradientStop Color="#F5F7F6" Offset="1"/>
@@ -80,7 +80,9 @@
                          Stroke="Transparent" 
                          Margin="-23,210,223,0" 
                          Grid.Row="1"
-                         Panel.ZIndex="0" VerticalAlignment="Top" Grid.RowSpan="3"/>
+                         Panel.ZIndex="0" 
+                         VerticalAlignment="Top" 
+                         Grid.RowSpan="3"/>
                 <Ellipse Width="300"
                          Height="300"
                          Fill="#5CA0F2"
@@ -93,20 +95,20 @@
                 <StackPanel>
                     <uc:UserControlLoginRegister></uc:UserControlLoginRegister>
                     <Button Height="65"
-                        Width="65"
-                        HorizontalAlignment="Center"
-                        Margin="0,-5,0,0"
-                        Foreground="White"
-                        Style="{StaticResource NormalButton}"
-                        RenderTransformOrigin="0.5,0.5">
+                            Width="65"
+                            HorizontalAlignment="Center"
+                            Margin="0,-5,0,0"
+                            Foreground="White"
+                            Style="{StaticResource NormalButton}"
+                            RenderTransformOrigin="0.5,0.5">
                         <Image Source="/Image/logo5.png"></Image>
                     </Button>
                     <TextBlock Text="Music Universe"
-                           FontSize="22"
-                           FontWeight="Bold"
-                           HorizontalAlignment="Center"
-                           FontFamily="Arial Rounded MT Bold"
-                           Margin="0,10,0,0">
+                               FontSize="22"
+                               FontWeight="Bold"
+                               HorizontalAlignment="Center"
+                               FontFamily="Arial Rounded MT Bold"
+                               Margin="0,10,0,0">
                         <TextBlock.Foreground>
                             <LinearGradientBrush>
                                 <GradientStop Color="#2af598" Offset="1"/>
@@ -118,29 +120,26 @@
                 <StackPanel Grid.Row="1" Grid.RowSpan="3">
                     <StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <TextBox
-                        x:Name="Account"
-                        materialDesign:HintAssist.Hint="User Name"
-                        FontSize="14"
-                                FontWeight="SemiBold"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                        Background="Transparent"
-                        BorderThickness="0"
-                        Height="auto"
-                        Width="260"
-                        HorizontalAlignment="Center"
-                        Text="{Binding Username,
-                        ValidatesOnDataErrors=True,
-                        UpdateSourceTrigger=PropertyChanged}"
-                        Validation.ErrorTemplate="{StaticResource ErrorMessage}"
-                                Margin="20 0 0 0"
-                        />
+                            <TextBox x:Name="Account"
+                                     materialDesign:HintAssist.Hint="User Name"
+                                     FontSize="14"
+                                     FontWeight="SemiBold"
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                     Background="Transparent"
+                                     BorderThickness="0"
+                                     Height="auto"
+                                     Width="260"
+                                     HorizontalAlignment="Center"
+                                     Text="{Binding Username,
+                                     ValidatesOnDataErrors=True,
+                                     UpdateSourceTrigger=PropertyChanged}"
+                                     Validation.ErrorTemplate="{StaticResource ErrorMessage}"
+                                     Margin="20 0 0 0"/>
                             <Border BorderBrush="White"
-                        Height="1"
-                        Width="240"
-                        BorderThickness="10">
+                                    Height="1"
+                                    Width="240"
+                                    BorderThickness="10">
                             </Border>
-
                             <materialDesign:PackIcon Kind="Account"
                                                  Height="25"
                                                  Width="25"
@@ -149,197 +148,196 @@
                                                  Opacity="0.5"/>
                         </StackPanel>
                         <Border BorderBrush="#009efd"
-                        Height="1"
-                        Width="260"
-                        BorderThickness="10">
+                                Height="1"
+                                Width="260"
+                                BorderThickness="10">
                         </Border>
                     </StackPanel>
                     <StackPanel Margin="0 10 0 0">
                         <TextBox x:Name="Email"
-                        materialDesign:HintAssist.Hint="Email"
-                        FontSize="14"
+                                 materialDesign:HintAssist.Hint="Email"
+                                 FontSize="14"
                                  FontWeight="SemiBold"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                        Background="Transparent"
-                        BorderThickness="0"
-                        Height="auto"
-                        Width="260"
-                        HorizontalAlignment="Center"
-                        Text="{Binding Email,
-                        ValidatesOnDataErrors=True,
-                        UpdateSourceTrigger=PropertyChanged}"
-                        Validation.ErrorTemplate="{StaticResource ErrorMessage}"
-                        />
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 Background="Transparent"
+                                 BorderThickness="0"
+                                 Height="auto"
+                                 Width="260"
+                                 HorizontalAlignment="Center"
+                                 Text="{Binding Email,
+                                 ValidatesOnDataErrors=True,
+                                 UpdateSourceTrigger=PropertyChanged}"
+                                 Validation.ErrorTemplate="{StaticResource ErrorMessage}"/>
                         <Border BorderBrush="#009efd"
-                        Height="1"
-                        Width="260"
-                        BorderThickness="10">
+                                Height="1"
+                                Width="260"
+                                BorderThickness="10">
                         </Border>
                     </StackPanel>
                     <StackPanel Margin="0,10,0,0">
                         <StackPanel Orientation="Horizontal">
                             <PasswordBox x:Name="Password"
-                        materialDesign:HintAssist.Hint="Password"
-                        FontSize="14"
+                                         materialDesign:HintAssist.Hint="Password"
+                                         FontSize="14"
                                          FontWeight="SemiBold"
                                          Margin="20 0 0 0"
-                        Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
-                        Background="Transparent"
-                        BorderThickness="0"
-                        Height="auto"
-                        Width="260"
-                        HorizontalAlignment="Center"
-                        
-                        >
+                                         Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                                         Background="Transparent"
+                                         BorderThickness="0"
+                                         Height="auto"
+                                         Width="260"
+                                         HorizontalAlignment="Center">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="PasswordChanged">
                                         <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}"
-                                   CommandParameter="{Binding ElementName=Password}"/>
+                                                               CommandParameter="{Binding ElementName=Password}"/>
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </PasswordBox>
                             <TextBox x:Name="PasswordEye"
-                                    Margin="-290 0 0 0"
-                                    materialDesign:HintAssist.Hint="Password"
-                                    materialDesign:HintAssist.Foreground="Black"
-                                    FontSize="14"
-                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                    Background="Transparent"
-                                    Height="auto"
-                                    Width="230"
+                                     Margin="-290 0 0 0"
+                                     materialDesign:HintAssist.Hint="Password"
+                                     materialDesign:HintAssist.Foreground="Black"
+                                     FontSize="14"
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                     Background="Transparent"
+                                     Height="auto"
+                                     Width="230"
                                      BorderThickness="0"
-                                    HorizontalAlignment="Center"
-                                    FontWeight="SemiBold"
-                                    Foreground="Black"
-                                    Visibility="Hidden">
+                                     HorizontalAlignment="Center"
+                                     FontWeight="SemiBold"
+                                     Foreground="Black"
+                                     Visibility="Hidden">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="TextChanged">
                                         <i:InvokeCommandAction Command="{Binding PasswordEyeChangedCommand}"
-                                   CommandParameter="{Binding ElementName=PasswordEye}"/>
+                                                               CommandParameter="{Binding ElementName=PasswordEye}"/>
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </TextBox>
                             <Button x:Name="ShowPass"
-                                Style="{StaticResource NormalButton}"
-                                Content="{materialDesign:PackIcon Kind=Eye}"
-                                Foreground="#333333"
-                                Margin="-20,0,0,0"
-                                Command="{Binding ShowPassword_Register}"
-                                CommandParameter="{Binding ElementName=RegisterWindow}"/>
+                                    Style="{StaticResource NormalButton}"
+                                    Content="{materialDesign:PackIcon Kind=Eye}"
+                                    Foreground="#333333"
+                                    Margin="-20,0,0,0"
+                                    Command="{Binding ShowPassword_Register}"
+                                    CommandParameter="{Binding ElementName=RegisterWindow}"/>
                             <Button x:Name="UnshowPass"
-                                Style="{StaticResource NormalButton}"
-                                Content="{materialDesign:PackIcon Kind=EyeOff}"
-                                Foreground="#333333"
-                                Margin="-20,0,0,0"
-                                Visibility="Hidden"
-                                Command="{Binding UnshowPassword_Register}"
-                                CommandParameter="{Binding ElementName=RegisterWindow}"/>
+                                    Style="{StaticResource NormalButton}"
+                                    Content="{materialDesign:PackIcon Kind=EyeOff}"
+                                    Foreground="#333333"
+                                    Margin="-20,0,0,0"
+                                    Visibility="Hidden"
+                                    Command="{Binding UnshowPassword_Register}"
+                                    CommandParameter="{Binding ElementName=RegisterWindow}"/>
                         </StackPanel>
 
                         <Border BorderBrush="#009efd"
-                        Height="1"
-                        Width="260"
-                        BorderThickness="10">
+                                Height="1"
+                                Width="260"
+                                BorderThickness="10">
                         </Border>
                     </StackPanel>
                     <StackPanel Margin="0,10,0,0">
                         <StackPanel Orientation="Horizontal"
                                     Margin="20,0,0,0">
                             <PasswordBox x:Name="ConfirmPassword"
-                                     FontWeight="SemiBold"
-                        materialDesign:HintAssist.Hint="Confirm Pass"
-                        FontSize="14"
-                        Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
-                        Background="Transparent"
-                        BorderThickness="0"
-                        Height="auto"
-                        Width="260"
-                        HorizontalAlignment="Center">
+                                         FontWeight="SemiBold"
+                                         materialDesign:HintAssist.Hint="Confirm Pass"
+                                         FontSize="14"
+                                         Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                                         Background="Transparent"
+                                         BorderThickness="0"
+                                         Height="auto"
+                                         Width="260"
+                                         HorizontalAlignment="Center">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="PasswordChanged">
                                         <i:InvokeCommandAction Command="{Binding ConfirmPasswordChangedCommand}"
-                                   CommandParameter="{Binding ElementName=ConfirmPassword}"/>
+                                                               CommandParameter="{Binding ElementName=ConfirmPassword}"/>
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </PasswordBox>
                             <TextBox x:Name="ConfirmPasswordEye"
-                                    Margin="-290 0 0 0"
-                                    materialDesign:HintAssist.Hint="Confirm Pass"
-                                    materialDesign:HintAssist.Foreground="Black"
-                                    FontSize="14"
-                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                    Background="Transparent"
-                                    Height="auto"
-                                    Width="230"
+                                     Margin="-290 0 0 0"
+                                     materialDesign:HintAssist.Hint="Confirm Pass"
+                                     materialDesign:HintAssist.Foreground="Black"
+                                     FontSize="14"
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                     Background="Transparent"
+                                     Height="auto"
+                                     Width="230"
                                      BorderThickness="0"
-                                    HorizontalAlignment="Center"
-                                    FontWeight="SemiBold"
-                                    Foreground="Black"
-                                    Visibility="Hidden">
+                                     HorizontalAlignment="Center"
+                                     FontWeight="SemiBold"
+                                     Foreground="Black"
+                                     Visibility="Hidden">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="TextChanged">
                                         <i:InvokeCommandAction Command="{Binding ConfirmPasswordEyeChangedCommand}"
-                                   CommandParameter="{Binding ElementName=ConfirmPasswordEye}"/>
+                                                               CommandParameter="{Binding ElementName=ConfirmPasswordEye}"/>
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </TextBox>
                             <Button x:Name="ShowConfirmPass"
-                                Style="{StaticResource NormalButton}"
-                                Content="{materialDesign:PackIcon Kind=Eye}"
-                                Foreground="#333333"
-                                Margin="-20,0,0,0"
-                                Command="{Binding ShowConfirmPassword_Register}"
-                                CommandParameter="{Binding ElementName=RegisterWindow}"/>
+                                    Style="{StaticResource NormalButton}"
+                                    Content="{materialDesign:PackIcon Kind=Eye}"
+                                    Foreground="#333333"
+                                    Margin="-20,0,0,0"
+                                    Command="{Binding ShowConfirmPassword_Register}"
+                                    CommandParameter="{Binding ElementName=RegisterWindow}"/>
                             <Button x:Name="UnshowConfirmPass"
-                                Style="{StaticResource NormalButton}"
-                                Content="{materialDesign:PackIcon Kind=EyeOff}"
-                                Foreground="#333333"
-                                Margin="-20,0,0,0"
-                                Visibility="Hidden"
-                                Command="{Binding UnshowConfirmPassword_Register}"
-                                CommandParameter="{Binding ElementName=RegisterWindow}"/>
+                                    Style="{StaticResource NormalButton}"
+                                    Content="{materialDesign:PackIcon Kind=EyeOff}"
+                                    Foreground="#333333"
+                                    Margin="-20,0,0,0"
+                                    Visibility="Hidden"
+                                    Command="{Binding UnshowConfirmPassword_Register}"
+                                    CommandParameter="{Binding ElementName=RegisterWindow}"/>
                         </StackPanel>
                         <Border BorderBrush="#009efd"
-                        Height="1"
-                        Width="260"
-                        BorderThickness="10">
+                                Height="1"
+                                Width="260"
+                                BorderThickness="10">
                         </Border>
                     </StackPanel>
                     <StackPanel Margin="0,20,0,0">
                         <Button Width="90" Height="30"  
-                            Margin="0,10,0,0"
-                            HorizontalAlignment="Center"
-                            Content="SIGN UP"
-                            Style="{StaticResource ContactButton}"
-                            Command="{Binding SignUpCommand}"
-                            IsDefault="True"
-                            CommandParameter="{Binding ElementName=RegisterWindow}">
+                                Margin="0,10,0,0"
+                                HorizontalAlignment="Center"
+                                Content="SIGN UP"
+                                Style="{StaticResource ContactButton}"
+                                Command="{Binding SignUpCommand}"
+                                IsDefault="True"
+                                CommandParameter="{Binding ElementName=RegisterWindow}">
                         </Button>
                         <StackPanel Orientation="Horizontal"
-                                Margin="0,10,0,0">
+                                    Margin="0,10,0,0">
                             <TextBlock Text="Have an accout already ?"
                                    Foreground="#222222"
                                    Margin="75,0,0,0"
                                    FontWeight="Normal"
                                    FontFamily="Candara"></TextBlock>
-                            <Button 
-                                VerticalAlignment="Top" 
-                                Padding="0" 
-                                HorizontalContentAlignment="Right" 
-                                VerticalContentAlignment="Top" 
-                                FontSize="12" 
-                                FontWeight="Medium" 
-                                Cursor="Hand" 
-                                FocusVisualStyle="{x:Null}"
-                                Background="{x:Null}" 
-                                Foreground="{DynamicResource Secondary}" 
-                                BorderBrush="{x:Null}" 
-                                Margin="10,0,30,0"
-                                IsTabStop="False"
-                                Command="{Binding ToLogin}"
-                                CommandParameter="{Binding ElementName=RegisterWindow}" Height="20" Width="33"
-                            >
-                                <TextBlock Text="Log in" Foreground="#222222" FontWeight="Medium"/>
+                            <Button VerticalAlignment="Top" 
+                                    Padding="0" 
+                                    HorizontalContentAlignment="Right" 
+                                    VerticalContentAlignment="Top" 
+                                    FontSize="12" 
+                                    FontWeight="Medium" 
+                                    Cursor="Hand" 
+                                    FocusVisualStyle="{x:Null}"
+                                    Background="{x:Null}" 
+                                    Foreground="{DynamicResource Secondary}" 
+                                    BorderBrush="{x:Null}" 
+                                    Margin="10,0,30,0"
+                                    IsTabStop="False"
+                                    Command="{Binding ToLogin}"
+                                    CommandParameter="{Binding ElementName=RegisterWindow}" 
+                                    Height="20"
+                                    Width="33">
+                                <TextBlock Text="Log in" 
+                                           Foreground="#222222" 
+                                           FontWeight="Medium"/>
                             </Button>
                         </StackPanel>
                     </StackPanel>
