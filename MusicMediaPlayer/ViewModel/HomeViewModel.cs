@@ -14,7 +14,6 @@ namespace MusicMediaPlayer.ViewModel
 {
     public class HomeViewModel:BaseViewModel
     {
-        private bool EverLoaded = false;
         public CurrentUserAccountModel CurrentUser { get; set; }
         public ICommand LoadTheme { get; set; }
         public HomeViewModel()
@@ -22,6 +21,7 @@ namespace MusicMediaPlayer.ViewModel
             CurrentUser = new CurrentUserAccountModel();
             LoadTheme = new RelayCommand<Welcome>(p => { return true; }, (p) =>
             {
+                //Load ? morning-afternoon-night theme 
                 var projectPath = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
                 string filePath;
                 ImageBrush imageBrushBack = new ImageBrush();
@@ -49,22 +49,20 @@ namespace MusicMediaPlayer.ViewModel
                 imageBrushBack.ImageSource = bitmapBack;
                 imageBrushBack.Stretch = Stretch.Fill;
                 p.MainBackground.Background = imageBrushBack;
-                if (EverLoaded == false)
-                {
-                    var acc = DataProvider.Ins.DB.UserAccounts.Where((x) => x.UserName == CurrentUser.UserName).SingleOrDefault();
-                    ImageBrush imageBrush = new ImageBrush();
-                    BitmapImage bitmap = new BitmapImage();
-                    bitmap.BeginInit();
-                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
-                    MemoryStream stream = new MemoryStream(acc.UserImage);
-                    bitmap.StreamSource = stream;
-                    bitmap.EndInit();
-                    imageBrush.ImageSource = bitmap;
-                    imageBrush.Stretch = Stretch.UniformToFill;
-                    p.UserPic.Background = imageBrush;
-                    p.User.Text = acc.NickName;
-                    EverLoaded = true;
-                }
+
+                //load username and avatar
+                var acc = DataProvider.Ins.DB.UserAccounts.Where((x) => x.UserName == CurrentUser.UserName).SingleOrDefault();
+                ImageBrush imageBrush = new ImageBrush();
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                MemoryStream stream = new MemoryStream(acc.UserImage);
+                bitmap.StreamSource = stream;
+                bitmap.EndInit();
+                imageBrush.ImageSource = bitmap;
+                imageBrush.Stretch = Stretch.UniformToFill;
+                p.UserPic.Background = imageBrush;
+                p.User.Text = acc.NickName;
                
             });
         }

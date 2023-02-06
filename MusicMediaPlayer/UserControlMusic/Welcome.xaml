@@ -36,7 +36,9 @@
                        Foreground="#FF05FFAE"
                        Text="hello"
                        VerticalAlignment="Top"
-                       Margin="25,0,375,0" FontFamily="Freehand521 BT" Grid.ColumnSpan="2">
+                       Margin="25,0,375,0" 
+                       FontFamily="Freehand521 BT" 
+                       Grid.ColumnSpan="2">
             </TextBlock>
             <TextBlock x:Name="User"
                        FontSize="42"
@@ -48,7 +50,8 @@
                        Foreground="#FF05FFAE"
                        Text="user"
                        VerticalAlignment="Top"
-                       Margin="18,115,275,0" Grid.Column="1">
+                       Margin="18,115,275,0" 
+                       Grid.Column="1">
             </TextBlock>
             <Border x:Name="UserPic"
                     Background="Red"
@@ -56,7 +59,8 @@
                     Height="80"
                     Width="80"
                     VerticalAlignment="Top"
-                    Margin="30,100,890,0" Grid.ColumnSpan="2">
+                    Margin="30,100,890,0" 
+                    Grid.ColumnSpan="2">
             </Border>
             <TextBlock Text="How are you today ?"
                        FontWeight="UltraBold"
@@ -65,7 +69,10 @@
                        Height="50"
                        Width="auto"
                        VerticalAlignment="Top"
-                       Margin="0,200,160,0" FontFamily="Monotype Corsiva" Foreground="White" Grid.Column="1"/>
+                       Margin="0,200,160,0" 
+                       FontFamily="Monotype Corsiva" 
+                       Foreground="White" 
+                       Grid.Column="1"/>
             <StackPanel HorizontalAlignment="Right"
                         Margin="0,250,200,0"
                         Height="300"
@@ -88,11 +95,11 @@
                         <materialDesign:PackIcon Kind="Emoticon"
                                                  Height="50"
                                                  Width="50"
-                                                 Foreground="#FF44FF00"/>
+                                                 Foreground="#FF55EE74"/>
                         <TextBlock Text="Good"
-                               FontSize="30"
-                               Foreground="White" 
-                               FontFamily="Monotype Corsiva"/>
+                                   FontSize="30"
+                                   Foreground="White" 
+                                   FontFamily="Monotype Corsiva"/>
                     </StackPanel>
                 </RadioButton>
                 <RadioButton>
@@ -100,11 +107,11 @@
                         <materialDesign:PackIcon Kind="EmoticonHappy"
                                                  Height="50"
                                                  Width="50"
-                                                 Foreground="#FF13EDC6"/>
+                                                 Foreground="#FF00E3FF"/>
                         <TextBlock Text="Normal"
-                               FontSize="30"
-                               Foreground="White" 
-                               FontFamily="Monotype Corsiva"/>
+                                   FontSize="30"
+                                   Foreground="White" 
+                                   FontFamily="Monotype Corsiva"/>
                     </StackPanel>
                 </RadioButton>
                 <RadioButton>
@@ -112,12 +119,12 @@
                         <materialDesign:PackIcon Kind="EmoticonNeutral"
                                                  Height="50"
                                                  Width="50"
-                                                 Foreground="#E69B00"/>
+                                                 Foreground="#FF9E65EE"/>
                         <TextBlock Text="Sad"
-                               FontSize="30"
-                               Foreground="White" 
-                               FontWeight="DemiBold"
-                               FontFamily="Monotype Corsiva"/>
+                                   FontSize="30"
+                                   Foreground="White" 
+                                   FontWeight="DemiBold"
+                                   FontFamily="Monotype Corsiva"/>
                     </StackPanel>
                 </RadioButton>
                 <RadioButton>
@@ -125,12 +132,12 @@
                         <materialDesign:PackIcon Kind="EmoticonSad"
                                                  Height="50"
                                                  Width="50"
-                                                 Foreground="#FFF97C0E"/>
+                                                 Foreground="#FFFF0081"/>
                         <TextBlock Text="Hurtful"
-                               FontSize="30"
-                               Foreground="White" 
-                               FontWeight="DemiBold"
-                               FontFamily="Monotype Corsiva"/>
+                                   FontSize="30"
+                                   Foreground="White" 
+                                   FontWeight="DemiBold"
+                                   FontFamily="Monotype Corsiva"/>
                     </StackPanel>
                 </RadioButton>
             </StackPanel>

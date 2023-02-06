@@ -60,11 +60,11 @@
                   Foreground="Transparent">
             <StackPanel>
                 <RichTextBox x:Name="MusicScript"
-                         Background="Black"
-                         Foreground="White"
-                         FontSize="20"
-                         Width="300"
-                         Height="200"/>
+                             Background="Black"
+                             Foreground="White"
+                             FontSize="20"
+                             Width="300"
+                             Height="200"/>
                 <Button Content="OK" 
                         Background="#2af598"
                         Foreground="#000000"
@@ -105,12 +105,12 @@
                      Margin="0,280,0,0"
                      Checked="Custom_Checked"/>
         <Grid Height="800"
-          Width="610"
-          VerticalAlignment="Top"
-          Margin="250,-80,0,0">
+              Width="610"
+              VerticalAlignment="Top"
+              Margin="250,-80,0,0">
             <Ellipse Height="600"
                      Width="600"
-                     Fill="#DEDEDE"
+                     Fill="#B1B3BC"
                      Panel.ZIndex="2"/>
             <Ellipse Height="600"
                      Width="600"
@@ -123,71 +123,92 @@
                      StrokeThickness="10"
                      Panel.ZIndex="1"/>
             <Grid Panel.ZIndex="3">
-                <Button Style="{StaticResource SteelDrumKey}" Margin="255,459,255,241"
+                <Button Style="{StaticResource SteelDrumKey}" 
+                        Margin="255,459,255,241"
                         Content="C1"
                         x:Name="C1key"
                         Click="C1_Click"/>
-                <Button Style="{StaticResource SteelDrumKey}" Margin="255,228,255,472"
+                <Button Style="{StaticResource SteelDrumKey}" 
+                        Margin="255,228,255,472"
                         Content="C#1"
                         x:Name="CSharp1" Click="CSharp1_Click"/>
-                <Button Style="{StaticResource SteelDrumKey}" Margin="360,419,150,281"
+                <Button Style="{StaticResource SteelDrumKey}" 
+                        Margin="360,419,150,281"
                         Content="D1"
                         x:Name="D1key"
                         Click="D1_Click"/>
-                <Button Style="{StaticResource SteelDrumKey}" Margin="153,419,357,281"
+                <Button Style="{StaticResource SteelDrumKey}" 
+                        Margin="153,419,357,281"
                         Content="F1"
                         x:Name="F1key"
                         Click="F1_Click"/>
-                <Button Style="{StaticResource SteelDrumKey}" Margin="360,300,150,400"
+                <Button Style="{StaticResource SteelDrumKey}" 
+                        Margin="360,300,150,400"
                         Content="E1"
                         x:Name="E1key"
                         Click="E1_Click"/>
-                <Button Style="{StaticResource SteelDrumKey}" Margin="150,300,360,400"
+                <Button Style="{StaticResource SteelDrumKey}" 
+                        Margin="150,300,360,400"
                         Content="D#1"
                         x:Name="DSharp1" Click="DSharp1_Click"/>
-                <Button Style="{StaticResource SteelDrumKey}" Margin="134,145,376,555"
+                <Button Style="{StaticResource SteelDrumKey}" 
+                        Margin="134,145,376,555"
                         Content="C#"
                         x:Name="CSharp" Click="CSharp_Click"/>
-                <Button Style="{StaticResource SteelDrumKey}" Margin="380,145,130,555"
+                <Button Style="{StaticResource SteelDrumKey}" 
+                        Margin="380,145,130,555"
                         Content="B"
                         x:Name="Bkey"
                         Click="B_Click"/>
-                <Button Style="{StaticResource SteelDrumKey}" Margin="380,555,130,145"
+                <Button Style="{StaticResource SteelDrumKey}" 
+                        Margin="380,555,130,145"
                         Content="G"
                         x:Name="Gkey"
                         Click="G_Click"/>
-                <Button Style="{StaticResource SteelDrumKey}" Margin="134,555,376,145"
+                <Button Style="{StaticResource SteelDrumKey}" 
+                        Margin="134,555,376,145"
                         Content="F"
                         x:Name="Fkey"
                         Click="F_Click"/>
-                <Button Style="{StaticResource SteelDrumKey}" Margin="457,469,53,231"
+                <Button Style="{StaticResource SteelDrumKey}" 
+                        Margin="457,469,53,231"
                         Content="D"
                         x:Name="Dkey"
                         Click="D_Click"/>
-                <Button Style="{StaticResource SteelDrumKey}" Margin="53,469,457,231"
+                <Button Style="{StaticResource SteelDrumKey}" 
+                        Margin="53,469,457,231"
                         Content="Bb"
-                        x:Name="ASharp" Click="ASharp_Click"/>
-                <Button Style="{StaticResource SteelDrumKey}" Margin="457,228,53,472"
+                        x:Name="ASharp" 
+                        Click="ASharp_Click"/>
+                <Button Style="{StaticResource SteelDrumKey}" 
+                        Margin="457,228,53,472"
                         Content="E"
                         x:Name="Ekey"
                         Click="E_Click"/>
-                <Button Style="{StaticResource SteelDrumKey}" Margin="255,110,255,590"
+                <Button Style="{StaticResource SteelDrumKey}" 
+                        Margin="255,110,255,590"
                         Content="F#"
-                        x:Name="FSharp" Click="FSharp_Click"/>
-                <Button Style="{StaticResource SteelDrumKey}" Margin="255,583,255,117"
+                        x:Name="FSharp" 
+                        Click="FSharp_Click"/>
+                <Button Style="{StaticResource SteelDrumKey}" 
+                        Margin="255,583,255,117"
                         Content="C"
                         x:Name="Ckey"
                         Click="C_Click"/>
-                <Button Style="{StaticResource SteelDrumKey}" Margin="488,350,22,350"
+                <Button Style="{StaticResource SteelDrumKey}" 
+                        Margin="488,350,22,350"
                         Content="A"
                         x:Name="Akey"
                         Click="A_Click"/>
-                <Button Style="{StaticResource SteelDrumKey}" Margin="27,350,483,350"
+                <Button Style="{StaticResource SteelDrumKey}" 
+                        Margin="27,350,483,350"
                         Content="D#"
                         x:Name="DSharp" Click="DSharp_Click"/>
-                <Button Style="{StaticResource SteelDrumKey}" Margin="53,228,457,472"
+                <Button Style="{StaticResource SteelDrumKey}" 
+                        Margin="53,228,457,472"
                         Content="G#"
-                        x:Name="GSharp" Click="GSharp_Click"/>
+                        x:Name="GSharp" 
+                        Click="GSharp_Click"/>
             </Grid>
         </Grid>
     </Grid>

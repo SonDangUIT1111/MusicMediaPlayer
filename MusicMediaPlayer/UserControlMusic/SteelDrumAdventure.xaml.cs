@@ -1437,9 +1437,7 @@ namespace MusicMediaPlayer.UserControlMusic
                             newscript[count++] = 18;
                             break;
                         default:
-                            MessageBoxOK ms = new MessageBoxOK();
-                            var dt = ms.DataContext as MessageBoxOKViewModel;
-                            dt.Content = "Script format is invalid";
+                            MessageBoxFail ms = new MessageBoxFail();
                             ms.ShowDialog();
                             ComposePaper.IsExpanded = false;
                             IsWriteScript = false;
@@ -1457,9 +1455,7 @@ namespace MusicMediaPlayer.UserControlMusic
             }
             catch (Exception)
             {
-                MessageBoxOK ms = new MessageBoxOK();
-                var dt = ms.DataContext as MessageBoxOKViewModel;
-                dt.Content = "Script format is invalid";
+                MessageBoxFail ms = new MessageBoxFail();
                 ms.ShowDialog();
             }
         }
