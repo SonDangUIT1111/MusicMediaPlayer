@@ -18,29 +18,17 @@
                 <ResourceDictionary Source="/ResourceProject/MainResource.xaml"/>
                 <ResourceDictionary Source="/ResourceProject/ButtonStyle.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/CloseWindowButton.xaml"></ResourceDictionary>
-                <ResourceDictionary Source="/ResourceProject/PlayListResources.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/ButtonInMySong.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/ButtonPlayVisibility.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/Visualizer.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/NormalButton.xaml"></ResourceDictionary>
-                <ResourceDictionary Source="/ResourceProject/ButtonIcon.xaml"></ResourceDictionary>
-                <ResourceDictionary Source="/ResourceProject/PlayerButton.xaml"></ResourceDictionary>
-                <ResourceDictionary Source="/ResourceProject/profileIcon.xaml"></ResourceDictionary>
-                <ResourceDictionary Source="/ResourceProject/RenameButton.xaml"></ResourceDictionary>
-                <ResourceDictionary Source="ResourceProject/ProfileText.xaml"></ResourceDictionary>
-                <ResourceDictionary Source="ResourceProject/CPButton.xaml"></ResourceDictionary>
-                <ResourceDictionary Source="ResourceProject/Bth.xaml"></ResourceDictionary>
-                <ResourceDictionary Source="ResourceProject/Page.xaml"></ResourceDictionary>
-                <ResourceDictionary Source="ResourceProject/ChangePassbt.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/ErrorTemplate.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/DataGridTemplate.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/DataGridForEditingTemplate.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/ScrollBarTemplate.xaml"></ResourceDictionary>
-                <!--<ResourceDictionary Source="/ResourceProject/SliderTemplate.xaml"></ResourceDictionary>-->
                 <ResourceDictionary Source="/ResourceProject/Instrument/SteelDrumKeyTemplate.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/TabButtonStyle.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/ExpanderMySongTemplate.xaml"></ResourceDictionary>
-
                 <ResourceDictionary Source="/ResourceProject/Instrument/PianoBlackKeyTemplate.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/ResourceProject/Instrument/PianoWhiteKeyTemplate.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>

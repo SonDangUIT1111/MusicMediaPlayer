@@ -567,7 +567,6 @@ C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\Music
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\DataGridTemplate.baml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\ErrorTemplate.baml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\ScrollBarTemplate.baml
-C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\SliderTemplate.baml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\TabButtonStyle.baml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\ButtonStyle.baml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\NormalButton.baml
@@ -606,15 +605,6 @@ C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\Music
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.csproj.CopyComplete
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.exe
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\MusicMediaPlayer.pdb
-C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\ChangePassbt.baml
-C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\Bth.baml
-C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\CPButton.baml
-C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\Page.baml
-C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\ProfileText.baml
-C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\profileIcon.baml
-C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\PlayerButton.baml
-C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\ButtonIcon.baml
-C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\RenameButton.baml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\ChangePassword.g.cs
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.BootstrapIcons.dll
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.dll
@@ -1762,7 +1752,6 @@ C:\Code_VSCode2022\MusicPlayer DESIGN 3\MusicMediaPlayer\obj\Debug\View\MessageB
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\Instrument\PianoBlackKeyTemplate.baml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\Instrument\PianoWhiteKeyTemplate.baml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\Instrument\SteelDrumKeyTemplate.baml
-C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\ResourceProject\PlayListResources.baml
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\UserControlMusic\SteelDrumAdventure.g.cs
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\View\MessageBoxOK.g.cs
 C:\Users\Administrator\source\repos\MusicPlayer\MusicMediaPlayer\obj\Debug\UserControlMusic\SteelDrumAdventure.baml

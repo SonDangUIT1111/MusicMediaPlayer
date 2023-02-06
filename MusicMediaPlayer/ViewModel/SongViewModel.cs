@@ -106,69 +106,91 @@ namespace MusicMediaPlayer.ViewModel
                             mediaPlayer4.Stop();
                         }
                         MediaPlayerIsPlaying4 = false;
+                        //sync with playlist
                         Playbtn1.IsChecked = false;
                         Pausebtn1.IsChecked = true;
                         Playbtn1.Visibility = Visibility.Visible;
                         Pausebtn1.Visibility = Visibility.Hidden;
                         PlayInvisible1.IsChecked = false;
                         PauseInvisible1.IsChecked = true;
-
+                        //sync with artist
                         Playbtn2.IsChecked = false;
                         Pausebtn2.IsChecked = true;
                         Playbtn2.Visibility = Visibility.Visible;
                         Pausebtn2.Visibility = Visibility.Hidden;
-
+                        //sync with album
                         Playbtn3.IsChecked = false;
                         Pausebtn3.IsChecked = true;
                         Playbtn3.Visibility = Visibility.Visible;
                         Pausebtn3.Visibility = Visibility.Hidden;
-
+                        //sync with genre
                         Playbtn4.IsChecked = false;
                         Pausebtn4.IsChecked = true;
                         Playbtn4.Visibility = Visibility.Visible;
                         Pausebtn4.Visibility = Visibility.Hidden;
-
-                        //
-                        sliProgress.IsEnabled = true;
-                        Playbtn.IsEnabled = true;
-                        Playbtn.IsChecked = true;
-                        MySongWindow.Play.IsChecked = true;
-                        Pausebtn.IsChecked = false;
-                        MySongWindow.Pause.IsChecked = false;
-                        if (CanChangeTOP_CD == true)
-                        {
-                            MySongWindow.TopTrendExpander.IsExpanded = false;
-                            MySongWindow.CDCircle.IsExpanded = false;
-                            MySongWindow.CDCircle.IsExpanded = true;
-                        }
-                        Pausebtn.IsEnabled = true;
+                        //check file exists
                         var stringUri = SelectedItem.FilePath;
                         Uri uri = new Uri(stringUri);
                         SelectedItem.Times++;
                         DataProvider.Ins.DB.SaveChanges();
-                        mediaPlayer.Open(uri);
-                        MediaPlayerIsPlaying = true;
-                        Playbtn.Visibility = Visibility.Hidden;
-                        Pausebtn.Visibility = Visibility.Visible;
-                        mediaPlayer.Play();
-                        DispatcherTimer timer = new DispatcherTimer();
-                        timer.Interval = TimeSpan.FromSeconds(1);
-                        timer.Tick += timer_Tick;
-                        timer.Start();
-                        void timer_Tick(object sender, EventArgs e)
+                        if (File.Exists(stringUri) == false)
                         {
-                            if (mediaPlayer.Source != null)
+                            mediaPlayer.Stop();
+                            InTime.Content = "00:00";
+                            sliProgress.Minimum = 0;
+                            sliProgress.Maximum = 0;
+                            sliProgress.Value = 0;
+                            Playbtn.IsEnabled = false;
+                            Playbtn.IsChecked = false;
+                            Playbtn.Visibility = Visibility.Hidden;
+                            Pausebtn.Visibility = Visibility.Visible;
+                            Pausebtn.IsEnabled = false;
+                            MySongWindow.Play.IsChecked = false;
+                            MessageBoxFail ms = new MessageBoxFail();
+                            ms.ShowDialog();
+                            return;
+                        }
+                        else
+                        {
+                            //open some function when song is picked
+                            sliProgress.IsEnabled = true;
+                            Playbtn.IsEnabled = true;
+                            Playbtn.IsChecked = true;
+                            MySongWindow.Play.IsChecked = true;
+                            Pausebtn.IsChecked = false;
+                            MySongWindow.Pause.IsChecked = false;
+                            if (CanChangeTOP_CD == true)
                             {
-                                if (mediaPlayer.NaturalDuration.HasTimeSpan == true)
-                                {
-                                    InTime.Content = String.Format("{0}", mediaPlayer.Position.ToString(@"mm\:ss"));
-                                    TotalTime.Content = String.Format("{0}", mediaPlayer.NaturalDuration.TimeSpan.ToString(@"mm\:ss"));
-                                    sliProgress.Minimum = 0;
-                                    sliProgress.Maximum = mediaPlayer.NaturalDuration.TimeSpan.TotalSeconds;
-                                    sliProgress.Value = mediaPlayer.Position.TotalSeconds;
-                                }
+                                MySongWindow.TopTrendExpander.IsExpanded = false;
+                                MySongWindow.CDCircle.IsExpanded = false;
+                                MySongWindow.CDCircle.IsExpanded = true;
                             }
+                            Pausebtn.IsEnabled = true;
+                            mediaPlayer.Open(uri);
+                            MediaPlayerIsPlaying = true;
+                            Playbtn.Visibility = Visibility.Hidden;
+                            Pausebtn.Visibility = Visibility.Visible;
+                            mediaPlayer.Play();
+                            DispatcherTimer timer = new DispatcherTimer();
+                            timer.Interval = TimeSpan.FromSeconds(1);
+                            timer.Tick += timer_Tick;
+                            timer.Start();
+                            void timer_Tick(object sender, EventArgs e)
+                            {
+                                if (mediaPlayer.Source != null)
+                                {
 
+                                    if (mediaPlayer.NaturalDuration.HasTimeSpan == true)
+                                    {
+                                        InTime.Content = String.Format("{0}", mediaPlayer.Position.ToString(@"mm\:ss"));
+                                        TotalTime.Content = String.Format("{0}", mediaPlayer.NaturalDuration.TimeSpan.ToString(@"mm\:ss"));
+                                        sliProgress.Minimum = 0;
+                                        sliProgress.Maximum = mediaPlayer.NaturalDuration.TimeSpan.TotalSeconds;
+                                        sliProgress.Value = mediaPlayer.Position.TotalSeconds;
+                                    }
+                                }
+
+                            }
                         }
                     }
                     catch (Exception)
@@ -192,9 +214,7 @@ namespace MusicMediaPlayer.ViewModel
         public bool IsPickFavourite { get => _IsPickFavourite; set => _IsPickFavourite = value;}
         private bool _CanChangeTOP_CD = true;
         public bool CanChangeTOP_CD { get => _CanChangeTOP_CD; set => _CanChangeTOP_CD = value; }
-        //
-        private bool _userIsDraggingSlider = false;
-        public bool UserIsDraggingSlider { get => _userIsDraggingSlider; set => _userIsDraggingSlider = value; }
+        //flag
         private bool _mediaPlayerIsPlaying = false;
         public bool MediaPlayerIsPlaying { get => _mediaPlayerIsPlaying; set => _mediaPlayerIsPlaying = value; }
         private bool _mediaPlayerIsPlaying1 = false;
@@ -253,7 +273,6 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand ChangeImage { get; set; }
         public ICommand LoadData { get; set; }
         public ICommand Play { get; set; }
-        public ICommand Stop { get; set; }
         public ICommand PlayShortcut { get; set; }
         public ICommand PauseShortcut { get; set; }
         public ICommand Pause { get; set; }
@@ -265,7 +284,6 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand LoadDataEditPage { get; set; }
         public ICommand ChangeInfoSong { get; set; }
         public ICommand DeleteSong { get; set; }
-        public ICommand Refresh { get; set; }
         public ICommand ChangeFavourite { get; set; }
         public ICommand ChangeTime { get; set; }
         public ICommand ChangeVolumn { get; set; }
@@ -320,11 +338,6 @@ namespace MusicMediaPlayer.ViewModel
                 p.Play.Visibility = Visibility.Visible;
                 p.Pause.Visibility = Visibility.Hidden;
             });
-          
-            Stop = new RelayCommand<Page>((p) => { return true; }, (p) =>
-            {
-                mediaPlayer.Stop();
-            });
             LoadData = new RelayCommand<Page>((p) => { return true; }, (p) =>
             {
                 MySongWindow = p as MySong;
@@ -352,7 +365,6 @@ namespace MusicMediaPlayer.ViewModel
                 }
                 CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(MySongWindow.ListSong.ItemsSource);
                 view.Filter = FiltersSong;
-
                 bool FiltersSong(object item)
                 {
                     if (String.IsNullOrEmpty(MySongWindow.SongFilter.Text))
@@ -366,6 +378,8 @@ namespace MusicMediaPlayer.ViewModel
             FilterChangeValue = new RelayCommand<Page>((p) => { return true; }, (p) =>
             {
                 MySongWindow = p as MySong;
+                MySongWindow.CDCircle.IsExpanded = false;
+                MySongWindow.TopTrendExpander.IsExpanded = true;
                 CollectionViewSource.GetDefaultView(MySongWindow.ListSong.ItemsSource).Refresh();
             });
             EditFilterChangeValue = new RelayCommand<Page>((p) => { return true; }, (p) =>
@@ -392,7 +406,6 @@ namespace MusicMediaPlayer.ViewModel
                 ListEdit = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id));
                 CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(EditSongWindow.ListSongEdit.ItemsSource);
                 view.Filter = FiltersSong;
-
                 bool FiltersSong(object item)
                 {
                     if (String.IsNullOrEmpty(EditSongWindow.SongFilter.Text))
@@ -417,24 +430,27 @@ namespace MusicMediaPlayer.ViewModel
             }, (p)
                  =>
             {
+                bool IsDeletePlaying = false;
                 MessageBoxYesNo wd = new MessageBoxYesNo();
-
                 var data = wd.DataContext as MessageBoxYesNoViewModel;
                 data.Title = "Delete!";
                 data.Question = "Do you want to delete it?";
                 wd.ShowDialog();
-
                 var result = wd.DataContext as MessageBoxYesNoViewModel;
-
                 if (result.IsYes == true)
                 {
                     var item = p as Song;
+                    //check if delete the song is playing
+                    if (item == MySongWindow.ListSong.SelectedItem)
+                    {
+                        IsDeletePlaying = true;
+                    }
                     int artistid = (int)item.ArtistId;
                     int albumid = (int)item.AlbumId;
                     int genreid = (int)item.GenreId;
                     if (item != null)
                     {
-                        //xu ly playlist
+                        //Sync with playlist
                         var allplaylist = DataProvider.Ins.DB.PlayLists.Where(x=>x.OwnerId == CurrentUser.Id).ToList();
                         foreach (Model.PlayList playlist in allplaylist)
                         {
@@ -450,34 +466,33 @@ namespace MusicMediaPlayer.ViewModel
                         }
                         DataProvider.Ins.DB.Songs.Remove(item);
                         DataProvider.Ins.DB.SaveChanges();
-                        // xu ly artist
+                        //Sync with artist
                         if (DataProvider.Ins.DB.Songs.Where(x=>x.UserId == CurrentUser.Id && x.ArtistId == artistid).Count() == 0)
                         {
                             ObservableCollection<Artist> artistDelete = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x=>x.UserId == CurrentUser.Id && x.ArtistId == artistid));
                             DataProvider.Ins.DB.Artists.Remove(artistDelete[0]);
                         }
-                        //xu ly album
+                        //Sync with album
                         if (DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == albumid).Count() == 0)
                         {
                             ObservableCollection<Album> albumDelete = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == albumid));
                             DataProvider.Ins.DB.Albums.Remove(albumDelete[0]);
                         }
-                        //xu ly genre
+                        //Sync with genre
                         if (DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.GenreId == genreid).Count() == 0)
                         {
                             ObservableCollection<Genre> genreDelete = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genres.Where(x => x.UserId == CurrentUser.Id && x.GenreId == genreid));
                             DataProvider.Ins.DB.Genres.Remove(genreDelete[0]);
                         }
                         DataProvider.Ins.DB.SaveChanges();
-                        //
+                        //Complete delete
                         MySongWindow.ListSong.Items.Refresh();
                         LoadCommon();
                         LoadEditPage();
-                        if (List.Count != 0 && MediaPlayerIsPlaying == true)
+                        if (List.Count != 0 && MediaPlayerIsPlaying == true && IsDeletePlaying == true)
                         {
-                            int nextindex = (MySongWindow.ListSong.SelectedIndex + 1) % List.Count;
                             MySongWindow.ListSong.SelectedIndex = -1;
-                            MySongWindow.ListSong.SelectedIndex = nextindex;
+                            MySongWindow.ListSong.SelectedIndex = 0;
                         }
                     }
                 }
@@ -506,11 +521,11 @@ namespace MusicMediaPlayer.ViewModel
                     int albumid = (int)SongChanging.AlbumId;
                     int genreid = (int)SongChanging.GenreId;
                     byte[] imagechanging = SongChanging.ImageSongBinary;
-                    //xu ly artist
+                    //Sync with artist
                     if (ArtistToChange != SongChanging.Artist)
                     {
                         ObservableCollection<Artist> artistlist = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x=>x.UserId == CurrentUser.Id && x.ArtistName == ArtistToChange));
-                        //truong hop doi ten artist sang mot ten co san
+                        //Case rename to the name that exists
                         if (artistlist.Count > 0)
                         {
                             SongChanging.ArtistId = artistlist[0].ArtistId;
@@ -521,7 +536,7 @@ namespace MusicMediaPlayer.ViewModel
                                 DataProvider.Ins.DB.Artists.Remove(artistDelete[0]);
                             }
                         }
-                        //truong hop doi ten artist chua ton tai
+                        //case rename to the name that does not exists
                         else
                         {
                             Artist newArtist = new Artist();
@@ -535,11 +550,11 @@ namespace MusicMediaPlayer.ViewModel
                             SongChanging.ArtistId = artistlist[0].ArtistId;
                         }
                     }
-                    //xu ly album
+                    //sync with album
                     if (AlbumToChange != SongChanging.Album)
                     {
                         ObservableCollection<Album> albumlist = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.UserId == CurrentUser.Id && x.AlbumName == AlbumToChange));
-                        //truong hop doi ten album sang mot ten co san
+                        //case rename to the name that exists
                         if (albumlist.Count > 0)
                         {
                             SongChanging.AlbumId = albumlist[0].AlbumId;
@@ -550,7 +565,7 @@ namespace MusicMediaPlayer.ViewModel
                                 DataProvider.Ins.DB.Albums.Remove(albumDelete[0]);
                             }
                         }
-                        //truong hop doi ten album chua ton tai
+                        //case rename to the name that does not exists
                         else
                         {
                             Album newAlbum = new Album();
@@ -564,11 +579,11 @@ namespace MusicMediaPlayer.ViewModel
                             SongChanging.AlbumId = albumlist[0].AlbumId;
                         }
                     }
-                    //xu ly genre
+                    //sync with genre
                     if (GenreToChange != SongChanging.Genre)
                     {
                         ObservableCollection<Genre> genrelist = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genres.Where(x => x.UserId == CurrentUser.Id && x.GenreName == GenreToChange));
-                        //truong hop doi ten genre sang mot ten co san
+                        //case rename to the name that exists
                         if (genrelist.Count > 0)
                         {
                             SongChanging.GenreId = genrelist[0].GenreId;
@@ -579,7 +594,7 @@ namespace MusicMediaPlayer.ViewModel
                                 DataProvider.Ins.DB.Genres.Remove(genreDelete[0]);
                             }
                         }
-                        //truong hop doi ten genre chua ton tai
+                        //case rename to the name that does not exist
                         else
                         {
                             Genre newGenre = new Genre();
@@ -592,7 +607,7 @@ namespace MusicMediaPlayer.ViewModel
                             SongChanging.GenreId = genrelist[0].GenreId;
                         }
                     }
-                    //
+                    //change
                     SongChanging.SongTitle = TitleToChange;
                     SongChanging.Artist = ArtistToChange;
                     SongChanging.Album = AlbumToChange;
@@ -611,6 +626,8 @@ namespace MusicMediaPlayer.ViewModel
                     AlbumToChange = null;
                     GenreToChange = null;
                     ImagePathToChange = null;
+                    MySongWindow.CDCircle.IsExpanded = false;
+                    MySongWindow.CDCircle.IsExpanded = true;
                     MessageBoxSuccessful ms = new MessageBoxSuccessful();
                     ms.Show();
                     wd.Close();
@@ -636,11 +653,6 @@ namespace MusicMediaPlayer.ViewModel
                 editWD.ShowDialog();
             });
 
-            Refresh = new RelayCommand<Page>((p) => { return true; }, (p) =>
-            {
-                MySongWindow.ListSong.Items.Refresh();
-                LoadCommon();
-            });
             ChangeFavourite = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 Song item = p as Song;
@@ -766,10 +778,8 @@ namespace MusicMediaPlayer.ViewModel
                     //
                     if (med.HasAudio == false)
                     {
-                        MessageBoxOK wd = new MessageBoxOK();
-                        var data = wd.DataContext as MessageBoxOKViewModel;
-                        data.Content = "Audio file invalid";
-                        wd.ShowDialog();
+                        MessageBoxFail ms = new MessageBoxFail();
+                        ms.ShowDialog();
                         return;
                     }
                     if (med.NaturalDuration.HasTimeSpan)
@@ -856,9 +866,7 @@ namespace MusicMediaPlayer.ViewModel
                 }
                 catch (Exception)
                 {
-                    MessageBoxOK wd = new MessageBoxOK();
-                    var data = wd.DataContext as MessageBoxOKViewModel;
-                    data.Content = "Add process failed due to some invalid infomation";
+                    MessageBoxFail wd = new MessageBoxFail();
                     wd.ShowDialog();
                 }
 
@@ -903,10 +911,10 @@ namespace MusicMediaPlayer.ViewModel
                     {
                         Random random = new Random();
                         int nextIndex = -1;
-                        while (nextIndex < 0 || nextIndex == MySongWindow.ListSong.SelectedIndex)
+                        do
                         {
-                            nextIndex = random.Next(0, MySongWindow.ListSong.Items.Count + 1);
-                        }
+                            nextIndex = random.Next(0, MySongWindow.ListSong.Items.Count);
+                        } while (nextIndex < 0 || nextIndex == MySongWindow.ListSong.SelectedIndex);
                         MySongWindow.ListSong.SelectedIndex = -1;
                         MySongWindow.ListSong.SelectedIndex = nextIndex;
                     }
@@ -1012,11 +1020,13 @@ namespace MusicMediaPlayer.ViewModel
             NonMute = new RelayCommand<MainWindow>((p) => { return true; }, (p) =>
             {
                 p.Volume.Value = VolumePrevious;
+                mediaPlayer.Volume = p.Volume.Value;
             });
             Mute = new RelayCommand<MainWindow>((p) => { return true; }, (p) =>
             {
                 VolumePrevious = p.Volume.Value;
                 p.Volume.Value = 0;
+                mediaPlayer.Volume = 0;
             });
 
             // sleep timer

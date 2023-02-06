@@ -19,8 +19,7 @@
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
         DataContext="{StaticResource SongVM}"
         Name="EditSongApp"
-        Icon="AppIcon.ico"
-        >
+        Icon="AppIcon.ico">
     <Grid Background="Transparent"
           Margin="5">
         <Border CornerRadius="20" 
@@ -40,34 +39,6 @@
                            FontFamily="Arial Rounded MT Bold">
 
                 </TextBlock>
-                <!--<Image gif:AnimationBehavior.SourceUri="\Image\MusicNoteBackground.gif" 
-                       IsEnabled="True"
-                       Width="60"
-                       Height="60"
-                       Margin="0,-10,0,-10"
-                       ></Image>
-                <TextBlock Text="New change - New experience"
-                           HorizontalAlignment="Center"
-                           FontSize="26"
-                           FontFamily="Bahnschrift SemiBold" 
-                           FontWeight="Light" 
-                           FlowDirection="LeftToRight" 
-                           Effect="{DynamicResource MaterialDesignElevationShadow4}"
-                           Margin="0,5,0,-10">
-                    <TextBlock.Foreground>
-                        <LinearGradientBrush>
-                            <GradientStop Color="#2af598" Offset="1"/>
-                            <GradientStop Color="#009efd" Offset="0.3"/>
-                            <GradientStop Color="#ba55d3" Offset="0.05"/>
-                        </LinearGradientBrush>
-                    </TextBlock.Foreground>
-                </TextBlock>-->
-                <!--<Image gif:AnimationBehavior.SourceUri="\Image\MusicNoteBackground.gif" 
-                       IsEnabled="True"
-                       Width="60"
-                       Height="60"
-                       Margin="0,-10,0,-10"
-                       ></Image>-->
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Grid
@@ -117,47 +88,45 @@
                 </Grid>
                 <StackPanel Margin="0,20,0,0">
                     <TextBox x:Name="ChangeTitleSong"
-                              materialDesign:HintAssist.Hint="Song Title"
-                              materialDesign:HintAssist.Foreground="Black"  
-                                FontSize="15"
+                             materialDesign:HintAssist.Hint="Song Title"
+                             materialDesign:HintAssist.Foreground="Black"  
+                             FontSize="15"
                              FontWeight="SemiBold"
-                              Width="300"
-                              Margin="50,0,0,0"
-                              Text="{Binding TitleToChange}"
-                              Foreground="Black"
-                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                             Width="300"
+                             Margin="50,0,0,0"
+                             Text="{Binding TitleToChange}"
+                             Foreground="Black"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <TextBox x:Name="ChangeArtistSong"
-                              materialDesign:HintAssist.Hint="Artist"
-                              materialDesign:HintAssist.Foreground="Black"  
-                                FontSize="15"
+                             materialDesign:HintAssist.Hint="Artist"
+                             materialDesign:HintAssist.Foreground="Black"  
+                             FontSize="15"
                              FontWeight="SemiBold"
-                              Width="300"
-                              Margin="50,20,0,0"
-                              Foreground="Black"
-                            
-                              Text="{Binding ArtistToChange}"
-                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                             Width="300"
+                             Margin="50,20,0,0"
+                             Foreground="Black"
+                             Text="{Binding ArtistToChange}"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <TextBox x:Name="ChangeAlbumtSong"
-                              materialDesign:HintAssist.Hint="Album"
-                              materialDesign:HintAssist.Foreground="Black"  
-                                FontSize="15"
+                             materialDesign:HintAssist.Hint="Album"
+                             materialDesign:HintAssist.Foreground="Black"  
+                             FontSize="15"
                              FontWeight="SemiBold"
-                              Width="300"
-                              Margin="50,20,0,0"
-                              Foreground="Black"
-                              Text="{Binding AlbumToChange}"
-                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                             Width="300"
+                             Margin="50,20,0,0"
+                             Foreground="Black"
+                             Text="{Binding AlbumToChange}"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <TextBox x:Name="ChangeGenreSong"
-                              materialDesign:HintAssist.Hint="Genre"
-                              materialDesign:HintAssist.Foreground="Black"  
-                                FontSize="15"
+                             materialDesign:HintAssist.Hint="Genre"
+                             materialDesign:HintAssist.Foreground="Black"  
+                             FontSize="15"
                              FontWeight="SemiBold"
-                              Width="300"
-                              Margin="50,20,0,0"
-                              Foreground="Black"
-                              
-                              Text="{Binding GenreToChange}"
-                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                             Width="300"
+                             Margin="50,20,0,0"
+                             Foreground="Black"
+                             Text="{Binding GenreToChange}"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 </StackPanel>
             </StackPanel>
 
@@ -171,6 +140,7 @@
                           BorderThickness="0"
                           Foreground="White"
                           Background="#2af598"
+                          IsDefault="True"
                           Command="{Binding Changing}"
                           CommandParameter="{Binding ElementName=EditSongApp}"
                           Content="{materialDesign:PackIcon Check}"
