@@ -17,8 +17,7 @@
       Title="Edit Song"
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       x:Name="EditSongPlaylistWD"
-      DataContext="{StaticResource PlayList_InsideVM}"
-      >
+      DataContext="{StaticResource PlayList_InsideVM}">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadDataEditPage}"
@@ -27,192 +26,191 @@
     </i:Interaction.Triggers>
     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromRight, Duration=0:0:0.3}">
         <Grid Background="Transparent"
-          Margin="5"
-          Width="1000"
-          Height="750">
+              Margin="5"
+              Width="1000"
+              Height="750">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="0*"/>
             </Grid.ColumnDefinitions>
             <Border CornerRadius="20" 
-                        
-                         MaxHeight="995" MaxWidth="995">
+                    MaxHeight="995" 
+                    MaxWidth="995">
                 <Border.Background>
                     <ImageBrush ImageSource="/Image/Sky.jpg" 
-                        Stretch="UniformToFill"
-                        Opacity="0.2"
+                                Stretch="UniformToFill"
+                                Opacity="0.2"
                         ></ImageBrush>
                 </Border.Background>
             </Border>
             <TextBlock x:Name="IsThereSong"
-                   Foreground="#333333"
-                   Background="Transparent"
-                   FontSize="24"
-                   Text="Nothing to show here"
-                   Margin="20,180,0,0"
-                   VerticalAlignment="Top"
-                   HorizontalAlignment="Left"
-                   Height="80"
-                   Width="500"></TextBlock>
+                       Foreground="#333333"
+                       Background="Transparent"
+                       FontSize="24"
+                       Text="Nothing to show here"
+                       Margin="20,180,0,0"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Height="80"
+                       Width="500"></TextBlock>
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Border BorderBrush="#333333"
-                        BorderThickness="2"
-                        Width="200"
-                        Height="40"
-                        Margin="20,5,0,0"
-                        CornerRadius="15">
+                            BorderThickness="2"
+                            Width="200"
+                            Height="40"
+                            Margin="20,5,0,0"
+                            CornerRadius="15">
                         <StackPanel Orientation="Horizontal">
                             <Ellipse Width="10"
-                                 Height="10"
-                                 Fill="#333333"
-                                 Margin="10,0,0,0"></Ellipse>
-                            <TextBox x:Name="SongFilter"
-                                  Width="150"
-                                  Margin="10,0,0,0"
-                                  Background="Transparent"
-                                  BorderBrush="Transparent"
-                                  BorderThickness="0"
-                                  Foreground="#333333"
-                                  HorizontalAlignment="Center"
-                                  VerticalAlignment="Center"
-                                  materialDesign:HintAssist.Hint="Search here ..."
-                          >
+                                     Height="10"
+                                     Fill="#333333"
+                                     Margin="10,0,0,0"></Ellipse>
+                            <TextBox  x:Name="SongFilter"
+                                      Width="150"
+                                      Margin="10,0,0,0"
+                                      Background="Transparent"
+                                      BorderBrush="Transparent"
+                                      BorderThickness="0"
+                                      Foreground="#333333"
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      materialDesign:HintAssist.Hint="Search here ...">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="TextChanged">
                                         <i:InvokeCommandAction Command="{Binding EditFilterChangeValue}"
-                                   CommandParameter="{Binding ElementName=EditSongPlaylistWD}"/>
+                                                               CommandParameter="{Binding ElementName=EditSongPlaylistWD}"/>
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </TextBox>
                         </StackPanel>
                     </Border>
                     <StackPanel Orientation="Vertical"
-                            Margin="700,5,0,0"
-                            VerticalAlignment="Top"
-                            HorizontalAlignment="Right">
+                                Margin="700,5,0,0"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="Right">
                         <Border Background="Transparent"
-                        Height="40"
-                        Width="40"
-                        BorderBrush="#333333"
-                        BorderThickness="3"
-                        CornerRadius="40">
+                                Height="40"
+                                Width="40"
+                                BorderBrush="#333333"
+                                BorderThickness="3"
+                                CornerRadius="40">
                             <Button
-                          Command="{Binding BackToMyPlaylist}"
-                          CommandParameter="{Binding ElementName=EditMySongWD}"
-                          Margin="0,0,0,0"
-                          Content="{materialDesign:PackIcon ArrowLeftBold}"
-                          Background="Transparent"
-                          Foreground="#333333"
-                          Height="50"
-                          Width="50"
-                          HorizontalAlignment="Center"
-                          VerticalAlignment="Center"
-                          BorderThickness="0">
+                                      Command="{Binding BackToMyPlaylist}"
+                                      CommandParameter="{Binding ElementName=EditMySongWD}"
+                                      Margin="0,0,0,0"
+                                      Content="{materialDesign:PackIcon ArrowLeftBold}"
+                                      Background="Transparent"
+                                      Foreground="#333333"
+                                      Height="50"
+                                      Width="50"
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      BorderThickness="0">
                             </Button>
                         </Border>
                         <Label Content="Back"
-                           Foreground="#333333"
-                           FontWeight="SemiBold"
-                           FontSize="14"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"></Label>
+                               Foreground="#333333"
+                               FontWeight="SemiBold"
+                               FontSize="14"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"></Label>
                     </StackPanel>
 
                 </StackPanel>
 
                 <Separator Background="Gray"
-                       Opacity="0.4"
-                       Width="1000"
-                       materialDesign:ShadowAssist.ShadowEdges="Bottom"></Separator>
+                           Opacity="0.4"
+                           Width="1000"
+                           materialDesign:ShadowAssist.ShadowEdges="Bottom"></Separator>
                 <TextBlock Height="50"
-                           FontSize="36"
+                           FontSize="20"
                            Text="Playlist:"
                            FontWeight="Medium"
                            Foreground="#767676"
                            Margin="20,0,0,0"
                            Width="auto" FontFamily="Arial Rounded MT Bold"/>
                 <TextBlock x:Name="PlaylistName"
-                           Height="50"
-                           FontSize="36"
+                           Height="40"
+                           FontSize="30"
                            FontWeight="Medium"
                            Foreground="#767676"
-                           Margin="20,0,0,0"
+                           Margin="20,-20,0,0"
                            Width="auto" FontFamily="Arial Rounded MT Bold"/>
                 <Separator Background="Gray"
-                       Opacity="0.4"
-                       Width="auto"
-                       Margin="0,0,0,0"
-                       materialDesign:ShadowAssist.ShadowEdges="Bottom"></Separator>
+                           Opacity="0.4"
+                           Width="auto"
+                           Margin="0,0,0,0"
+                           materialDesign:ShadowAssist.ShadowEdges="Bottom"></Separator>
                 <StackPanel Orientation="Horizontal" 
                             Height="20"
                             Width="880"
                             Margin="50,10,0,0">
                     <TextBlock Text="Title"
-                           Foreground="#767676"
-                           Width="200"
-                           FontSize="14"
-                           FontWeight="Bold"
-                           FontFamily="Segoe UI Semibold"
-                           Margin="20,0,0,0"/>
+                               Foreground="#767676"
+                               Width="200"
+                               FontSize="14"
+                               FontWeight="Bold"
+                               FontFamily="Segoe UI Semibold"
+                               Margin="20,0,0,0"/>
                     <TextBlock Text="Artist"
-                           Foreground="#767676"
-                           Width="180"
-                           FontSize="14"
-                           FontWeight="Bold"
-                           FontFamily="Segoe UI Semibold"
-                           Margin="0,0,0,0"/>
+                               Foreground="#767676"
+                               Width="180"
+                               FontSize="14"
+                               FontWeight="Bold"
+                               FontFamily="Segoe UI Semibold"
+                               Margin="0,0,0,0"/>
                     <TextBlock Text="Album"
-                           Foreground="#767676"
-                           Width="120"
-                           FontSize="14"
-                           FontWeight="Bold"
-                           FontFamily="Segoe UI Semibold"
-                           Margin="0,0,0,0"/>
+                               Foreground="#767676"
+                               Width="120"
+                               FontSize="14"
+                               FontWeight="Bold"
+                               FontFamily="Segoe UI Semibold"
+                               Margin="0,0,0,0"/>
                     <TextBlock Text="Genre"
-                           Foreground="#767676"
-                           Width="120"
-                           FontSize="14"
-                           FontWeight="Bold"
-                           FontFamily="Segoe UI Semibold"
-                           Margin="0,0,0,0"/>
+                               Foreground="#767676"
+                               Width="120"
+                               FontSize="14"
+                               FontWeight="Bold"
+                               FontFamily="Segoe UI Semibold"
+                               Margin="0,0,0,0"/>
                     <TextBlock Text="Time"
-                           Foreground="#767676"
-                           Width="80"
-                           FontSize="14"
-                           FontWeight="Bold"
-                           FontFamily="Segoe UI Semibold"
-                           Margin="0,0,0,0"/>
+                               Foreground="#767676"
+                               Width="80"
+                               FontSize="14"
+                               FontWeight="Bold"
+                               FontFamily="Segoe UI Semibold"
+                               Margin="0,0,0,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal"
-                        Height="580"
-                        Width="980">
+                            Height="580"
+                            Width="980">
                     <ScrollViewer HorizontalScrollBarVisibility="Disabled"
                                   VerticalScrollBarVisibility="Auto">
                         <DataGrid 
-                  x:Name="ListSongEdit"
-                  Height="560"
-                  Width="950"
-                  Margin="15,0,0,0"
-                  ItemsSource="{Binding ListEdit}"
-                  Style="{StaticResource DataGridStyle2}"  
-                  CellStyle="{StaticResource DataGridCellStyle2}" 
-                  RowStyle="{StaticResource DataGridRowStyle2}">
+                                  x:Name="ListSongEdit"
+                                  Height="560"
+                                  Width="950"
+                                  Margin="15,0,0,0"
+                                  ItemsSource="{Binding ListEdit}"
+                                  Style="{StaticResource DataGridStyle2}"  
+                                  CellStyle="{StaticResource DataGridCellStyle2}" 
+                                  RowStyle="{StaticResource DataGridRowStyle2}">
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn Width="900">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal">
                                                 <Border CornerRadius="5"
-                                                    BorderThickness="1"
-                                                    BorderBrush="White"
-                                                    Height="45"
-                                                    HorizontalAlignment="Center">
+                                                        BorderThickness="1"
+                                                        BorderBrush="White"
+                                                        Height="45"
+                                                        HorizontalAlignment="Center">
                                                     <Grid>
                                                         <Border CornerRadius="5"
-                                                        Width="40"
-                                                        Height="50"
-                                                        x:Name="mask">
+                                                                Width="40"
+                                                                Height="50"
+                                                                x:Name="mask">
                                                             <Border.Background>
                                                                 <ImageBrush Stretch="UniformToFill"
                                                                     ImageSource="{Binding ImageSongBinary, Converter={StaticResource ByteToImageConverter}}">
@@ -221,43 +219,42 @@
                                                         </Border>
                                                     </Grid>
                                                 </Border>
-                                                <TextBlock Text="{Binding SongTitle}"
-                                                        Width="200"
-                                                        FontSize="14"
-                                                        FontWeight="Bold"
-                                                        FontFamily="Segoe UI Semibold"
-                                                        Margin="20,0,0,0"
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center"
-                                                        TextTrimming="WordEllipsis"
-                                                        >
+                                                <TextBlock  Text="{Binding SongTitle}"
+                                                            Width="200"
+                                                            FontSize="14"
+                                                            FontWeight="Bold"
+                                                            FontFamily="Segoe UI Semibold"
+                                                            Margin="20,0,0,0"
+                                                            VerticalAlignment="Center"
+                                                            HorizontalAlignment="Center"
+                                                            TextTrimming="WordEllipsis">
                                                 </TextBlock>
-                                                <TextBlock Text="{Binding Artist}"
-                                                        Width="180"
-                                                        FontSize="12"
-                                                        Margin="0,5,0,0"
-                                                        FontWeight="Medium"
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center"
-                                                        TextTrimming="WordEllipsis"
+                                                <TextBlock  Text="{Binding Artist}"
+                                                            Width="180"
+                                                            FontSize="12"
+                                                            Margin="0,5,0,0"
+                                                            FontWeight="Medium"
+                                                            VerticalAlignment="Center"
+                                                            HorizontalAlignment="Center"
+                                                            TextTrimming="WordEllipsis"
                                                         ></TextBlock>
-                                                <TextBlock Text="{Binding Album}"
-                                                        Width="120"
-                                                        FontSize="12"
-                                                        Margin="0,5,0,0"
-                                                        FontWeight="Medium"
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center"
-                                                        TextTrimming="WordEllipsis"
+                                                <TextBlock  Text="{Binding Album}"
+                                                            Width="120"
+                                                            FontSize="12"
+                                                            Margin="0,5,0,0"
+                                                            FontWeight="Medium"
+                                                            VerticalAlignment="Center"
+                                                            HorizontalAlignment="Center"
+                                                            TextTrimming="WordEllipsis"
                                                         ></TextBlock>
-                                                <TextBlock Text="{Binding Genre}"
-                                                        Width="120"
-                                                        FontSize="12"
-                                                        Margin="0,5,0,0"
-                                                        FontWeight="Medium"
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center"
-                                                        TextTrimming="WordEllipsis"
+                                                <TextBlock  Text="{Binding Genre}"
+                                                            Width="120"
+                                                            FontSize="12"
+                                                            Margin="0,5,0,0"
+                                                            FontWeight="Medium"
+                                                            VerticalAlignment="Center"
+                                                            HorizontalAlignment="Center"
+                                                            TextTrimming="WordEllipsis"
                                                         ></TextBlock>
                                                 <TextBlock Text="{Binding HowLong}"
                                                            Width="80"
@@ -269,21 +266,21 @@
                                                            ></TextBlock>
                                                 <StackPanel>
                                                     <StackPanel Background="Transparent"
-                                                        Orientation="Horizontal"
-                                                        HorizontalAlignment="Center"
-                                                        VerticalAlignment="Center"
-                                                        Margin="10,12,0,0"
-                                                        Panel.ZIndex="2">
+                                                                Orientation="Horizontal"
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                Margin="10,12,0,0"
+                                                                Panel.ZIndex="2">
                                                         <Button x:Name="Del"
-                                                                    Background="Transparent"
-                                                                    Content="{materialDesign:PackIcon DeleteCircle}"
-                                                                    Command="{Binding Source={StaticResource PlayList_InsideVM}, Path=DeleteSong}"
-                                                                    CommandParameter="{Binding}"
-                                                                    Width="20"
-                                                                    Padding="0"
-                                                                    Margin="10,0,0,30"
-                                                                    Foreground="#FF2C2C"
-                                                                    BorderBrush="Transparent">
+                                                                Background="Transparent"
+                                                                Content="{materialDesign:PackIcon DeleteCircle}"
+                                                                Command="{Binding Source={StaticResource PlayList_InsideVM}, Path=DeleteSong}"
+                                                                CommandParameter="{Binding}"
+                                                                Width="20"
+                                                                Padding="0"
+                                                                Margin="10,0,0,30"
+                                                                Foreground="#FF2C2C"
+                                                                BorderBrush="Transparent">
                                                         </Button>
                                                     </StackPanel>
                                                 </StackPanel>

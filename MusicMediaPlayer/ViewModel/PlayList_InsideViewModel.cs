@@ -3,6 +3,7 @@ using MusicMediaPlayer.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -122,62 +123,83 @@ namespace MusicMediaPlayer.ViewModel
                             mediaPlayer4.Stop();
                         }
                         MediaPlayerIsPlaying4 = false;
+                        //sync with my song
                         Playbtn.IsChecked = false;
                         Pausebtn.IsChecked = true;
                         Playbtn.Visibility = Visibility.Visible;
                         Pausebtn.Visibility = Visibility.Hidden;
                         PlayInvisible.IsChecked = false;
                         PauseInvisible.IsChecked = true;
-
+                        //sync with artist
                         Playbtn2.IsChecked = false;
                         Pausebtn2.IsChecked = true;
                         Playbtn2.Visibility = Visibility.Visible;
                         Pausebtn2.Visibility = Visibility.Hidden;
-
+                        //sync with album
                         Playbtn3.IsChecked = false;
                         Pausebtn3.IsChecked = true;
                         Playbtn3.Visibility = Visibility.Visible;
                         Pausebtn3.Visibility = Visibility.Hidden;
-
+                        //sync with genre
                         Playbtn4.IsChecked = false;
                         Pausebtn4.IsChecked = true;
                         Playbtn4.Visibility = Visibility.Visible;
                         Pausebtn4.Visibility = Visibility.Hidden;
-
-                        //
-                        sliProgress.IsEnabled = true;
-                        Playbtn1.IsEnabled = true;
-                        Playbtn1.IsChecked = true;
-                        Pausebtn1.IsChecked = false;
-                        Pausebtn1.IsEnabled = true;
+                        //check file exists
                         var stringUri = SelectedItem.FilePath;
                         Uri uri = new Uri(stringUri);
                         SelectedItem.Times++;
                         DataProvider.Ins.DB.SaveChanges();
-                        mediaPlayer1.Open(uri);
-                        MediaPlayerIsPlaying1 = true;
-                        Playbtn1.Visibility = Visibility.Hidden;
-                        Pausebtn1.Visibility = Visibility.Visible;
-                        thispage.Play.IsChecked = true;
-                        mediaPlayer1.Play();
-                        DispatcherTimer timer = new DispatcherTimer();
-                        timer.Interval = TimeSpan.FromSeconds(1);
-                        timer.Tick += timer_Tick;
-                        timer.Start();
-                        void timer_Tick(object sender, EventArgs e)
+                        if (File.Exists(stringUri) == false)
                         {
-                            if (mediaPlayer1.Source != null)
+                            mediaPlayer1.Stop();
+                            InTime.Content = "00:00";
+                            sliProgress.Minimum = 0;
+                            sliProgress.Maximum = 1;
+                            sliProgress.Value = 0;
+                            Playbtn1.IsEnabled = false;
+                            Playbtn1.IsChecked = false;
+                            Playbtn1.Visibility = Visibility.Hidden;
+                            Pausebtn1.Visibility = Visibility.Visible;
+                            Pausebtn1.IsEnabled = false;
+                            thispage.Play.IsChecked = false;
+                            MessageBoxFail ms = new MessageBoxFail();
+                            ms.ShowDialog();
+                            return;
+                        }
+                        else
+                        {
+                            //open some function when song is picked
+                            sliProgress.IsEnabled = true;
+                            Playbtn1.IsEnabled = true;
+                            Playbtn1.IsChecked = true;
+                            Pausebtn1.IsChecked = false;
+                            Pausebtn1.IsEnabled = true;
+                            mediaPlayer1.Open(uri);
+                            MediaPlayerIsPlaying1 = true;
+                            Playbtn1.Visibility = Visibility.Hidden;
+                            Pausebtn1.Visibility = Visibility.Visible;
+                            thispage.Play.IsChecked = true;
+                            mediaPlayer1.Play();
+                            DispatcherTimer timer = new DispatcherTimer();
+                            timer.Interval = TimeSpan.FromSeconds(1);
+                            timer.Tick += timer_Tick;
+                            timer.Start();
+                            void timer_Tick(object sender, EventArgs e)
                             {
-                                if (mediaPlayer1.NaturalDuration.HasTimeSpan == true)
+                                if (mediaPlayer1.Source != null)
                                 {
-                                    InTime.Content = String.Format("{0}", mediaPlayer1.Position.ToString(@"mm\:ss"));
-                                    TotalTime.Content = String.Format("{0}", mediaPlayer1.NaturalDuration.TimeSpan.ToString(@"mm\:ss"));
-                                    sliProgress.Minimum = 0;
-                                    sliProgress.Maximum = mediaPlayer1.NaturalDuration.TimeSpan.TotalSeconds;
-                                    sliProgress.Value = mediaPlayer1.Position.TotalSeconds;
+                                    if (mediaPlayer1.NaturalDuration.HasTimeSpan == true)
+                                    {
+                                        InTime.Content = String.Format("{0}", mediaPlayer1.Position.ToString(@"mm\:ss"));
+                                        TotalTime.Content = String.Format("{0}", mediaPlayer1.NaturalDuration.TimeSpan.ToString(@"mm\:ss"));
+                                        sliProgress.Minimum = 0;
+                                        sliProgress.Maximum = mediaPlayer1.NaturalDuration.TimeSpan.TotalSeconds;
+                                        sliProgress.Value = mediaPlayer1.Position.TotalSeconds;
+                                    }
                                 }
-                            }
 
+                            }
                         }
                 }
                     catch (Exception)
@@ -247,69 +269,57 @@ namespace MusicMediaPlayer.ViewModel
             Rename = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 RenamePlayList wd = new RenamePlayList();
-
                 wd.ShowDialog();
-
                 var rename = wd.DataContext as RenamePlayListViewModel;
-
                 if (rename.IsLuu)
                 {
                     pl.PlayListName = rename.Title;
-
                     DataProvider.Ins.DB.SaveChanges();
-
                     PLName = rename.Title;
-
                     wd.NamePL.Text = null;
                     rename.IsLuu = false;
                 }
-            }
-            );
+            });
 
             ChangeImage = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 ChangePlayListPicture wd = new ChangePlayListPicture();
-
                 var playlistimage = wd.DataContext as ChangePlayListPictureViewModel;
-
                 playlistimage.pl = pl;
-
                 wd.ShowDialog();
-
                 ImageBinaryAdd = pl.ImagePlaylistBinary;
-            }
-            );
+            });
 
             DeletePlayList = new RelayCommand<System.Windows.Controls.Page>((p) => { return true; }, (p) =>
             {
                 MessageBoxYesNo wd = new MessageBoxYesNo();
-
                 var data = wd.DataContext as MessageBoxYesNoViewModel;
                 data.Title = "Delete!";
                 data.Question = "Do you want to delete it?";
                 wd.ShowDialog();
-
                 var result = wd.DataContext as MessageBoxYesNoViewModel;
-
                 if (result.IsYes == true)
                 {
+                    mediaPlayer1.Stop();
+                    thispage.listview.SelectedIndex = -1;
                     var song_in_pl = pl.Songs;
-
                     foreach (Song item in song_in_pl.ToList())
                     {
                         item.PlayLists.Remove(pl);
-
                         pl.Songs.Remove(item);
                     }
 
                     DataProvider.Ins.DB.PlayLists.Remove(pl);
                     DataProvider.Ins.DB.SaveChanges();
-
                     var trang = page_PlayList.DataContext as PlayListViewModel;
-
                     trang.List = new ObservableCollection<MusicMediaPlayer.Model.PlayList>(DataProvider.Ins.DB.PlayLists);
-
-                    p.NavigationService.GoBack();
+                    Playbtn1.IsEnabled = false;
+                    Pausebtn1.IsEnabled = false;
+                    Playbtn1.Visibility = Visibility.Hidden;
+                    Pausebtn1.Visibility = Visibility.Visible;
+                    SkipNextbtn.IsEnabled = false;
+                    SkipPreviousbtn.IsEnabled = false;
+                    p.NavigationService.Navigate(page_PlayList);
                 }
             }
             );
@@ -356,22 +366,29 @@ namespace MusicMediaPlayer.ViewModel
             {
 
                 MessageBoxYesNo wd = new MessageBoxYesNo();
-
                 var data = wd.DataContext as MessageBoxYesNoViewModel;
                 data.Title = "Delete!";
                 data.Question = "Do you want to delete it?";
                 wd.ShowDialog();
-
                 var result = wd.DataContext as MessageBoxYesNoViewModel;
-
                 if (result.IsYes == true)
                 {
-                    pl.Songs.Remove(p as Song);
+                    bool IsDeletePlaying = false;
+                    var item = p as Song;
+                    if ( item == thispage.listview.SelectedItem)
+                    {
+                        IsDeletePlaying = true;
+                    }
+                    pl.Songs.Remove(item);
                     pl.SongCount = pl.SongCount - 1;
                     DataProvider.Ins.DB.SaveChanges();
                     SongCount = "Song: " + pl.SongCount.ToString();
                     LoadDanhSach();
                     LoadEditPage();
+                    if (IsDeletePlaying == true & thispage.listview.Items.Count > 0)
+                    {
+                        thispage.listview.SelectedIndex = 0;
+                    }
                 }
 
             }
@@ -431,10 +448,10 @@ namespace MusicMediaPlayer.ViewModel
                     {
                         Random random = new Random();
                         int nextIndex = -1;
-                        while (nextIndex < 0 || nextIndex == thispage.listview.SelectedIndex)
+                        do
                         {
                             nextIndex = random.Next(0, thispage.listview.Items.Count + 1);
-                        }
+                        } while (nextIndex < 0 || nextIndex == thispage.listview.SelectedIndex);
                         thispage.listview.SelectedIndex = -1;
                         thispage.listview.SelectedIndex = nextIndex;
                     }
@@ -540,11 +557,13 @@ namespace MusicMediaPlayer.ViewModel
             NonMute = new RelayCommand<MainWindow>((p) => { return true; }, (p) =>
             {
                 p.Volume1.Value = VolumePrevious;
+                mediaPlayer1.Volume = p.Volume1.Value;
             });
             Mute = new RelayCommand<MainWindow>((p) => { return true; }, (p) =>
             {
                 VolumePrevious = p.Volume1.Value;
                 p.Volume1.Value = 0;
+                mediaPlayer1.Volume = 0;
             });
 
             // sleep timer

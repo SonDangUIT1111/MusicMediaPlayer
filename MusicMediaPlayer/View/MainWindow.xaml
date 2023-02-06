@@ -112,7 +112,8 @@
                                                    Foreground="#FFFFFF"
                                                    FontWeight="SemiBold"
                                                    FontStyle="Normal"
-                                                   Margin="20,0,0,0"                                                  
+                                                   Margin="20,0,0,0" 
+                                                   FontFamily="Arial Rounded MT Bold"
                                                    />
                                         </Grid>
                                         <RadioButton Style="{StaticResource MainButton}"  
@@ -169,7 +170,8 @@
                                                        FontWeight="SemiBold"
                                                        FontStyle="Normal"
                                                    Foreground="#FFFFFF"
-                                                   Margin="20,0,0,0"/>
+                                                   Margin="20,0,0,0"
+                                                       FontFamily="Arial Rounded MT Bold"/>
                                         </Grid>
 
                                         <RadioButton Style="{StaticResource MainButton}"  
@@ -244,6 +246,7 @@
                                                        FontWeight="SemiBold"
                                                        FontStyle="Normal"
                                                    Foreground="#FFFFFF"
+                                                       FontFamily="Arial Rounded MT Bold"
                                                    Margin="20,0,0,0"/>
                                         </Grid>
 

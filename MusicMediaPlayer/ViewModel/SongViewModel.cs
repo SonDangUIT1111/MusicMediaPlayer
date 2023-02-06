@@ -138,7 +138,7 @@ namespace MusicMediaPlayer.ViewModel
                             mediaPlayer.Stop();
                             InTime.Content = "00:00";
                             sliProgress.Minimum = 0;
-                            sliProgress.Maximum = 0;
+                            sliProgress.Maximum = 1;
                             sliProgress.Value = 0;
                             Playbtn.IsEnabled = false;
                             Playbtn.IsChecked = false;

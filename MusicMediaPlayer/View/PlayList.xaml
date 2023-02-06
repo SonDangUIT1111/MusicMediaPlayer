@@ -11,18 +11,14 @@
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       Title="PlayList"
       Name="PL"
-      DataContext="{StaticResource PlayListVM}"
-      >
+      DataContext="{StaticResource PlayListVM}">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding Load}"
                                    CommandParameter="{Binding ElementName=PL}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-
-
-    <Border 
-            CornerRadius="20">
+    <Border CornerRadius="20">
         <Border.Background>
             <ImageBrush ImageSource="/Image/Sky.jpg" 
                         Stretch="UniformToFill"
@@ -32,102 +28,90 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100">
-
                 </RowDefinition>
                 <RowDefinition>
-
                 </RowDefinition>
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal"
-                    Grid.Row="0" Grid.ColumnSpan="2" >
+                        Grid.Row="0" Grid.ColumnSpan="2" >
                 <Border 
                         BorderBrush="#333333"
                         BorderThickness="2"
                         Width="200"
                         Height="40"
                         Margin="20,-20,0,0"
-                        CornerRadius="15"
-                >
+                        CornerRadius="15">
                     <StackPanel Orientation="Horizontal">
                         <Ellipse Width="10"
                                  Height="10"
                                  Fill="#333333"
                                  Margin="10,0,0,0"></Ellipse>
                         <TextBox VerticalAlignment="Center"
-                         Margin="25 0 0 0"
+                                 Margin="25 0 0 0"
                                  Background="Transparent"
-                                  BorderBrush="Transparent"
-                                  BorderThickness="0"
-                                  Foreground="#333333"
-                                  HorizontalAlignment="Center"
-                                  
-                         materialDesign:HintAssist.Hint="Search here ..."
-                         Width="150"
-                         x:Name="txtFilter"
-                         >
+                                 BorderBrush="Transparent"
+                                 BorderThickness="0"
+                                 Foreground="#333333"
+                                 HorizontalAlignment="Center"
+                                 materialDesign:HintAssist.Hint="Search here ..."
+                                 Width="150"
+                                 x:Name="txtFilter">
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="TextChanged">
                                     <i:InvokeCommandAction Command="{Binding TextChanged}"
-                                                       CommandParameter="{Binding ElementName=txtFilter}"/>
+                                                           CommandParameter="{Binding ElementName=txtFilter}"/>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </TextBox>
                         <materialDesign:PackIcon Kind="Search"
-                                         VerticalAlignment="Center"
-                                         Height="25"
-                                         Width="25"
-                                         Foreground="Black"
-                                         >
+                                                 VerticalAlignment="Center"
+                                                 Height="25"
+                                                 Width="25"
+                                                 Foreground="Black">
                         </materialDesign:PackIcon>
                     </StackPanel>
                 </Border>
-
                 <Border BorderBrush="#333333"
                         Background="Transparent"
                         BorderThickness="3"
-                    CornerRadius="180"
-                    VerticalAlignment="Center"
-                    Margin="600 -30 0 0"
-                    Height="40"
-                    Width="40"
-                    >
+                        CornerRadius="180"
+                        VerticalAlignment="Center"
+                        Margin="600 -30 0 0"
+                        Height="40"
+                        Width="40">
                     <Button Background="Transparent"
-                        BorderThickness="0"
+                            BorderThickness="0"
                             Padding="0"
-                        Command="{Binding AddPL}">
+                            Command="{Binding AddPL}">
                         <materialDesign:PackIcon Kind="Plus"
-                                             Height="25"
-                                             Width="25"
-                                             Foreground="#333333"
-                                             >
-
+                                                 Height="25"
+                                                 Width="25"
+                                                 Foreground="#333333">
                         </materialDesign:PackIcon>
                     </Button>
                 </Border>
-                <Label Content="New"
-                           Foreground="#333333"
-                           FontWeight="SemiBold"
-                           FontSize="14"
-                       FontFamily="Roboto"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                       Margin="-40,40,0,0"></Label>
+                <Label  Content="New"
+                        Foreground="#333333"
+                        FontWeight="SemiBold"
+                        FontSize="14"
+                        FontFamily="Roboto"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Margin="-40,40,0,0"></Label>
                 <Border 
-                CornerRadius="180"
-                Width="40"
-                Height="40"
-                BorderBrush="#333333"
-                BorderThickness="3" 
-                Margin="25 -30 0 0">
+                        CornerRadius="180"
+                        Width="40"
+                        Height="40"
+                        BorderBrush="#333333"
+                        BorderThickness="3" 
+                        Margin="25 -30 0 0">
                     <Menu Width="50"
-                          Height="50"
-                          >
+                          Height="50">
                         <MenuItem   Width="50"
                                     Height="50"
                                     FontWeight="SemiBold"
                                     Foreground="#333333"
-                                    Margin="-10,0,0,0"
-                                    >
+                                    Margin="-10,0,0,0">
                             <MenuItem.Icon>
                                 <materialDesign:PackIcon Kind="FormatLineSpacing"
                                                          Padding="0" 
@@ -136,15 +120,15 @@
                                                          Width="50"/>
                             </MenuItem.Icon>
                             <MenuItem
-                                    Header="A-Z"
-                                    Command="{Binding AZ}">
+                                        Header="A-Z"
+                                        Command="{Binding AZ}">
                                 <MenuItem.Icon>
                                     <materialDesign:PackIcon Kind="ArrowDown" />
                                 </MenuItem.Icon>
                             </MenuItem>
                             <MenuItem
-                                    Header="Z-A"
-                                    Command="{Binding ZA}">
+                                        Header="Z-A"
+                                        Command="{Binding ZA}">
                                 <MenuItem.Icon>
                                     <materialDesign:PackIcon Kind="ArrowUp" />
                                 </MenuItem.Icon>
@@ -152,26 +136,26 @@
                         </MenuItem>
                     </Menu>
                 </Border>
-                <Label Content="Arrange"
-                           Foreground="#333333"
-                           FontWeight="SemiBold"
-                       FontFamily="Roboto"
-                           FontSize="14"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                       Margin="-50,40,0,0"></Label>
+                <Label  Content="Arrange"
+                        Foreground="#333333"
+                        FontWeight="SemiBold"
+                        FontFamily="Roboto"
+                        FontSize="14"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Margin="-50,40,0,0"></Label>
             </StackPanel>
-            <Separator Background="Gray"
-                           Opacity="0.4"
-                           Width="1000"
-                       Margin="0,80,0,0"
-                           materialDesign:ShadowAssist.ShadowEdges="Bottom"/>
+            <Separator  Background="Gray"
+                        Opacity="0.4"
+                        Width="1000"
+                        Margin="0,80,0,0"
+                        materialDesign:ShadowAssist.ShadowEdges="Bottom"/>
 
             <ListBox     ItemsSource="{Binding List, Mode=TwoWay}"
-                          Name="listview"
-                          SelectionMode="Single"
-                           Grid.Row="1" Grid.ColumnSpan="2"
-                          >
+                         Name="listview"
+                         SelectionMode="Single"
+                         Grid.Row="1" 
+                         Grid.ColumnSpan="2">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel>
@@ -182,72 +166,63 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid Height="225"
-                              Width="180"
-                                  >
+                              Width="180">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="175">
-
                                 </RowDefinition>
                                 <RowDefinition Height="50">
-
                                 </RowDefinition>
                             </Grid.RowDefinitions>
-
                             <Border CornerRadius="5"
                                     Grid.Row="0"
                                     Height="175"
                                     Width="175"
-                                    x:Name="Pic"
-                                        >
+                                    x:Name="Pic">
                                 <Grid>
-
                                     <Button Style="{StaticResource ButtonPlayVisibility}"
-                                                Panel.ZIndex="2"
-                                                Width="40"
-                                                Height="40"
-                                                Padding="0"
-                                                Margin="-50,0,0,0"
-                                                BorderBrush="Transparent"
-                                                BorderThickness="0"
-                                                Background="White"
-                                                ToolTip="Change Image"
-                                                Command="{Binding Source={StaticResource PlayListVM},Path=ChangeImage}"
-                                                CommandParameter="{Binding}"
-                                                >
+                                            Panel.ZIndex="2"
+                                            Width="40"
+                                            Height="40"
+                                            Padding="0"
+                                            Margin="-50,0,0,0"
+                                            BorderBrush="Transparent"
+                                            BorderThickness="0"
+                                            Background="White"
+                                            ToolTip="Change Image"
+                                            Command="{Binding Source={StaticResource PlayListVM},Path=ChangeImage}"
+                                            CommandParameter="{Binding}">
                                         <materialDesign:PackIcon
-                                                            Foreground="#222222"
-                                                            Kind="CameraPartyMode"
-                                                            Opacity="0.8"
-                                                            Height="25"
-                                                            Width="25" />
+                                                                Foreground="#222222"
+                                                                Kind="CameraPartyMode"
+                                                                Opacity="0.8"
+                                                                Height="25"
+                                                                Width="25" />
                                     </Button>
                                     <Button Style="{StaticResource ButtonPlayVisibility}"
-                                                Panel.ZIndex="2"
-                                                Width="40"
-                                                Height="40"
-                                                Padding="0"
-                                                Margin="50,0,0,0"
-                                                BorderBrush="Transparent"
-                                                BorderThickness="0"
-                                                Background="White"
-                                                ToolTip="Play"
-                                                Command="{Binding Source={StaticResource PlayListVM},Path=MouseDoubleClick}"
-                                                CommandParameter="{Binding}"
-                                                >
+                                            Panel.ZIndex="2"
+                                            Width="40"
+                                            Height="40"
+                                            Padding="0"
+                                            Margin="50,0,0,0"
+                                            BorderBrush="Transparent"
+                                            BorderThickness="0"
+                                            Background="White"
+                                            ToolTip="Play"
+                                            Command="{Binding Source={StaticResource PlayListVM},Path=MouseDoubleClick}"
+                                            CommandParameter="{Binding}">
                                         <materialDesign:PackIcon
-                                                            Foreground="#222222"
-                                                            Kind="Play"
-                                                            Opacity="0.8"
-                                                            Height="25"
-                                                            Width="25" />
+                                                                Foreground="#222222"
+                                                                Kind="Play"
+                                                                Opacity="0.8"
+                                                                Height="25"
+                                                                Width="25" />
                                     </Button>
                                 </Grid>
 
                                 <Border.Background>
                                     <ImageBrush 
                                                 Stretch="UniformToFill"
-                                                ImageSource="{Binding ImagePlaylistBinary, Converter={StaticResource ByteToImageConverter}}"
-                                                >
+                                                ImageSource="{Binding ImagePlaylistBinary, Converter={StaticResource ByteToImageConverter}}">
                                     </ImageBrush>
                                 </Border.Background>
 
@@ -260,13 +235,11 @@
                                                         <Storyboard>
                                                             <DoubleAnimation Storyboard.TargetProperty="Height"
                                                                                  To="180"
-                                                                                 Duration="0:0:0.2"
-                                                                                 >
+                                                                                 Duration="0:0:0.2">
                                                             </DoubleAnimation>
                                                             <DoubleAnimation Storyboard.TargetProperty="Width"
                                                                                  To="180"
-                                                                                 Duration="0:0:0.2"
-                                                                                 >
+                                                                                 Duration="0:0:0.2">
                                                             </DoubleAnimation>
                                                         </Storyboard>
                                                     </BeginStoryboard>
@@ -276,13 +249,11 @@
                                                         <Storyboard>
                                                             <DoubleAnimation Storyboard.TargetProperty="Height"
                                                                                  To="175"
-                                                                                 Duration="0:0:0.2"
-                                                                                 >
+                                                                                 Duration="0:0:0.2">
                                                             </DoubleAnimation>
                                                             <DoubleAnimation Storyboard.TargetProperty="Width"
                                                                                  To="175"
-                                                                                 Duration="0:0:0.2"
-                                                                                 >
+                                                                                 Duration="0:0:0.2">
                                                             </DoubleAnimation>
                                                         </Storyboard>
                                                     </BeginStoryboard>
@@ -295,27 +266,21 @@
                             </Border>
 
                             <StackPanel Grid.Row="1"
-                                        Margin="0 5 0 0"
-                                        >
+                                        Margin="0 5 0 0">
                                 <TextBlock 
                                                Text="{Binding PlayListName}" 
                                                TextAlignment="Center"
                                                Foreground="Black" 
                                                FontWeight="SemiBold" 
                                                FontSize="20" 
-                                               Margin="5 0 0 0" 
-                                    />
-
+                                               Margin="5 0 0 0"/>
                                 <TextBlock 
                                                Text="{Binding SongCount}"
                                                TextAlignment="Center"
                                                Foreground="#767676" 
                                                FontWeight="SemiBold" 
                                                FontSize="17" 
-                                               Margin="5 0 0 0"
-                                    >
-
-                                </TextBlock>
+                                               Margin="5 0 0 0"/>
                             </StackPanel>
                         </Grid>
                     </DataTemplate>

@@ -5,22 +5,19 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MusicMediaPlayer"
       xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
-       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="1000" d:DesignWidth="1000"
       Title="PlayList_Inside"
       Name="PlayList_Inside_Page"
       DataContext="{StaticResource PlayList_InsideVM}"
-      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-      >
-
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" >
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadData}"
                                    CommandParameter="{Binding ElementName=PlayList_Inside_Page}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-
     <Border 
             Height="1000" Width="1000"
             CornerRadius="20">
@@ -30,24 +27,20 @@
                         Opacity="0.2"
                         ></ImageBrush>
         </Border.Background>
-        <Grid 
-          Background="Transparent">
-
+        <Grid Background="Transparent">
             <StackPanel Orientation="Horizontal"
-                    Margin="0,0,0,0" 
-                    Width="652"
-                    Visibility="Hidden"
-                    Background="White"
-                    Panel.ZIndex="2">
+                        Margin="0,0,0,0" 
+                        Width="652"
+                        Visibility="Hidden"
+                        Background="White"
+                        Panel.ZIndex="2">
                 <ToggleButton
-                            x:Name="RandomLoop"
-                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                            IsChecked="False"
-                            Margin="10,0,5,0"
-                            Visibility="Hidden"
-                            Background="#0099FF"
-                            
-                                                >
+                                x:Name="RandomLoop"
+                                Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                IsChecked="False"
+                                Margin="10,0,5,0"
+                                Visibility="Hidden"
+                                Background="#0099FF">
                     <materialDesign:PackIcon
                                                 Kind="ShuffleVariant"
                                                 Height="21"
@@ -98,8 +91,7 @@
                             Margin="0,0,5,0"
 
                             Foreground="White"
-                            Background="#0099FF"
-                                                >
+                            Background="#0099FF">
                     <materialDesign:PackIcon
                                                 Kind="ShuffleDisabled"
                                                 Height="21"
@@ -113,58 +105,53 @@
                             Margin="0,0,5,0"
                             Foreground="White"
                             Background="#0099FF">
-                    <materialDesign:PackIcon
-                                                Kind="Loop"
+                    <materialDesign:PackIcon    Kind="Loop"
                                                 Height="21"
                                                 Width="21" />
                 </ToggleButton>
             </StackPanel>
-
             <Grid 
               Background="Transparent">
                 <StackPanel Orientation="Horizontal"
-                        Height="820"
-                        Width="980" 
-                        Margin="10,10,10,170"
-                        >
+                            Height="820"
+                            Width="980" 
+                            Margin="10,10,10,170">
                     <DataGrid 
-                  x:Name="listview"
-                  Height="1000"
-                  Width="520"
-                  Margin="10,10,0,0"
-                  ItemsSource="{Binding List}"
-                  SelectedItem="{Binding SelectedItem}"
-                  Style="{StaticResource DataGridStyle1}"  
-                  CellStyle="{StaticResource DataGridCellStyle1}" 
-                  RowStyle="{StaticResource DataGridRowStyle1}">
+                              x:Name="listview"
+                              Height="1000"
+                              Width="520"
+                              Margin="10,10,0,0"
+                              ItemsSource="{Binding List}"
+                              SelectedItem="{Binding SelectedItem}"
+                              Style="{StaticResource DataGridStyle1}"  
+                              CellStyle="{StaticResource DataGridCellStyle1}" 
+                              RowStyle="{StaticResource DataGridRowStyle1}">
                         <DataGrid.Columns>
                             <DataGridTemplateColumn Width="500">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
                                             <Button Style="{StaticResource Visualizer}"
-                                                Background="#0099FF"
-                                                BorderBrush="Transparent"
-                                                Margin="0,0,10,0"
-                                                Padding="0"
-                                                Opacity="0.8"
-                                                Panel.ZIndex="1"
-                                                >
+                                                    Background="#0099FF"
+                                                    BorderBrush="Transparent"
+                                                    Margin="0,0,10,0"
+                                                    Padding="0"
+                                                    Opacity="0.8"
+                                                    Panel.ZIndex="1">
                                                 <Image gif:AnimationBehavior.SourceUri="\Image\visualizer.gif"
                                                    Height="20"
-                                                   Width="20"
-                                                   />
+                                                   Width="20"/>
                                             </Button>
                                             <Button Style="{StaticResource ButtonInMySong}"
-                                                Background="Transparent"
-                                                BorderBrush="Transparent"
-                                                Margin="-30,0,10,0"
-                                                Padding="0"
-                                                Opacity="0.8">
+                                                    Background="Transparent"
+                                                    BorderBrush="Transparent"
+                                                    Margin="-30,0,10,0"
+                                                    Padding="0"
+                                                    Opacity="0.8">
                                                 <materialDesign:PackIcon Kind="Play"
-                                                                     Foreground="#FFFFFF"
-                                                                     Height="20"
-                                                                     Width="20"></materialDesign:PackIcon>
+                                                                         Foreground="#FFFFFF"
+                                                                         Height="20"
+                                                                         Width="20"></materialDesign:PackIcon>
                                             </Button>
                                             <Border CornerRadius="5"
                                                     BorderThickness="1"
@@ -173,18 +160,18 @@
                                                     HorizontalAlignment="Center">
                                                 <Grid>
                                                     <Border CornerRadius="5"
-                                                        Width="40"
-                                                        Height="50"
-                                                        x:Name="mask">
+                                                            Width="40"
+                                                            Height="50"
+                                                            x:Name="mask">
                                                         <Border.Background>
                                                             <ImageBrush Stretch="UniformToFill"
-                                                                    ImageSource="{Binding ImageSongBinary, Converter={StaticResource ByteToImageConverter}}">
+                                                                        ImageSource="{Binding ImageSongBinary, Converter={StaticResource ByteToImageConverter}}">
                                                             </ImageBrush>
                                                         </Border.Background>
                                                     </Border>
                                                 </Grid>
                                             </Border>
-                                            <TextBlock Text="{Binding SongTitle}"
+                                            <TextBlock  Text="{Binding SongTitle}"
                                                         Width="150"
                                                         FontSize="14"
                                                         FontWeight="Bold"
@@ -192,8 +179,7 @@
                                                         Margin="20,0,0,0"
                                                         VerticalAlignment="Center"
                                                         HorizontalAlignment="Center"
-                                                        TextTrimming="WordEllipsis"
-                                                        >
+                                                        TextTrimming="WordEllipsis">
                                             </TextBlock>
                                             <TextBlock Text="{Binding Artist}"
                                                         Width="150"
@@ -202,56 +188,50 @@
                                                         FontWeight="Medium"
                                                         VerticalAlignment="Center"
                                                         HorizontalAlignment="Center"
-                                                        TextTrimming="WordEllipsis"
-                                                        ></TextBlock>
-                                            <TextBlock Text="{Binding HowLong}"
-                                                           Width="50"
-                                                           FontSize="12"
-                                                           Margin="20,8,0,0"
-                                                           HorizontalAlignment="Center"
-                                                           VerticalAlignment="Center"
-                                                           FontWeight="Medium"
-                                                           ></TextBlock>
+                                                        TextTrimming="WordEllipsis"></TextBlock>
+                                            <TextBlock  Text="{Binding HowLong}"
+                                                        Width="50"
+                                                        FontSize="12"
+                                                        Margin="20,8,0,0"
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center"
+                                                        FontWeight="Medium"></TextBlock>
                                         </StackPanel>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-
                     <StackPanel Orientation="Horizontal"
-                                Margin="20 0 0 0"
-                                >
+                                Margin="20 0 0 0">
                         <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"
                                    Background="Gray"
                                    Opacity="0.4"
                                    Width="1"
-                                   Height="820"
-                                   />
+                                   Height="820"/>
                     </StackPanel>
                     <StackPanel Height="620"
-                            Width="420"
-                            Margin="0,100,0,0">
+                                Width="420"
+                                Margin="0,100,0,0">
                         <Expander Background="Transparent"
-                              Foreground="Transparent"
-                              Margin="0,-50,0,0"
-                              Height="620"
-                              Width="420"
-                              ExpandDirection="Up"
-                              IsExpanded="True"
-                              x:Name="CDCircle"
-                              >
+                                  Foreground="Transparent"
+                                  Margin="0,-50,0,0"
+                                  Height="620"
+                                  Width="420"
+                                  ExpandDirection="Up"
+                                  IsExpanded="True"
+                                  x:Name="CDCircle">
                             <StackPanel Height="620">
                                 <Border  Width="300"
-                                     Height="300"
-                                     BorderThickness="0"
-                                     BorderBrush="White"
-                                     CornerRadius="20"
-                                     x:Name="CD"
-                                     RenderTransformOrigin="0.5,0.5">
+                                         Height="300"
+                                         BorderThickness="0"
+                                         BorderBrush="White"
+                                         CornerRadius="20"
+                                         x:Name="CD"
+                                         RenderTransformOrigin="0.5,0.5">
                                     <Border.Background>
                                         <ImageBrush ImageSource="{Binding ImageBinaryAdd, Converter={StaticResource ByteToImageConverter}}" 
-                                                Stretch="UniformToFill"></ImageBrush>
+                                                    Stretch="UniformToFill"></ImageBrush>
                                     </Border.Background>
                                     <Border.RenderTransform>
                                         <RotateTransform x:Name="MyAnimatedTransform" Angle="0" />
@@ -293,9 +273,9 @@
                                                                     </ObjectAnimationUsingKeyFrames.KeyFrames>
                                                                 </ObjectAnimationUsingKeyFrames>
                                                                 <DoubleAnimation
-                                                                    Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)"
-                                                                    BeginTime="0:0:0.1"
-                                                                    From="0.0" To="360" Duration="0:0:8" RepeatBehavior="Forever" />
+                                                                                Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)"
+                                                                                BeginTime="0:0:0.1"
+                                                                                From="0.0" To="360" Duration="0:0:8" RepeatBehavior="Forever" />
                                                             </Storyboard>
                                                         </BeginStoryboard>
                                                     </MultiDataTrigger.EnterActions>
@@ -304,11 +284,9 @@
                                                         <BeginStoryboard>
                                                             <Storyboard x:Name="ExitAction">
                                                                 <DoubleAnimation
-                                                                    Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)"
-                                                                    From="0.0" To="360" Duration="0:0:0.250" />
-                                                                <ObjectAnimationUsingKeyFrames 
-                                                                           Storyboard.TargetProperty="CornerRadius"
-                                                                           >
+                                                                                Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)"
+                                                                                From="0.0" To="360" Duration="0:0:0.250" />
+                                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="CornerRadius">
                                                                     <ObjectAnimationUsingKeyFrames.KeyFrames>
                                                                         <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
                                                                             <DiscreteObjectKeyFrame.Value>
@@ -348,52 +326,51 @@
                                 </Border>
 
                                 <StackPanel Height="auto"
-                                        Margin="0,20,0,0">
+                                            Margin="0,20,0,0">
                                     <StackPanel Orientation="Horizontal"
-                                                HorizontalAlignment="Center"
-                                                >
+                                                HorizontalAlignment="Center">
                                         <TextBlock 
-                                        Height="50"
-                                        FontSize="34"
-                                        FontWeight="SemiBold"
-                                        Foreground="Black"
-                                        FontFamily="Arial Rounded MT Bold"
-                                        Opacity="0.7"
-                                        TextAlignment="Center"
-                                        Text="{Binding PLName}"
-                                        TextWrapping="Wrap">
+                                                    Height="50"
+                                                    FontSize="34"
+                                                    FontWeight="SemiBold"
+                                                    Foreground="Black"
+                                                    FontFamily="Arial Rounded MT Bold"
+                                                    Opacity="0.7"
+                                                    TextAlignment="Center"
+                                                    Text="{Binding PLName}"
+                                                    TextWrapping="Wrap">
                                         </TextBlock>
                                     </StackPanel>
 
 
                                     <TextBlock Width="300"
-                                           Height="40"
-                                           FontSize="28"
-                                           FontWeight="Bold"
-                                           FontFamily="Arial Rounded MT Bold"
-                                           Foreground="#767676"
-                                           TextAlignment="Center"
-                                           Text="{Binding SongCount}"></TextBlock>
+                                               Height="40"
+                                               FontSize="28"
+                                               FontWeight="Bold"
+                                               FontFamily="Arial Rounded MT Bold"
+                                               Foreground="#767676"
+                                               TextAlignment="Center"
+                                               Text="{Binding SongCount}"></TextBlock>
 
                                     <materialDesign:PopupBox
-                                            Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
-                                            PlacementMode="LeftAndAlignMiddles"
-                                            ToolTipService.Placement="Right"
-                                            UnfurlOrientation="Horizontal"
-                                            ToolTip="Edit"
-                                            Margin="0 0 60 0"
-                                            HorizontalAlignment="Right"
-                                            Background="#0099FF"
-                                            Foreground="White"
-                                            materialDesign:ShadowAssist.ShadowDepth="Depth1"
-                                            >
+                                                            Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
+                                                            PlacementMode="LeftAndAlignMiddles"
+                                                            ToolTipService.Placement="Right"
+                                                            UnfurlOrientation="Horizontal"
+                                                            ToolTip="Edit"
+                                                            Margin="0 0 60 0"
+                                                            HorizontalAlignment="Right"
+                                                            BorderThickness="0"
+                                                            BorderBrush="Transparent"
+                                                            Background="#2af598"
+                                                            Foreground="#000000"
+                                                            materialDesign:ShadowAssist.ShadowDepth="Depth1">
 
                                         <StackPanel Orientation="Horizontal">
                                             <Button
                                                     ToolTip="Rename"
                                                     ToolTipService.Placement="Bottom"
-                                                    Command="{Binding Rename}"
-                                                    >
+                                                    Command="{Binding Rename}">
                                                 <materialDesign:PackIcon
                                                             Foreground="#222222"
                                                             Kind="Rename"
@@ -405,7 +382,7 @@
                                                     ToolTip="Delete"
                                                     ToolTipService.Placement="Bottom"
                                                     Command="{Binding DeletePlayList}"
-                                                >
+                                                    CommandParameter="{Binding ElementName=PlayList_Inside_Page}">
                                                 <materialDesign:PackIcon
                                                             Foreground="#BF2604"
                                                             Kind="Delete"
@@ -417,8 +394,7 @@
                                             <Button
                                                     ToolTip="Remove Song"
                                                     ToolTipService.Placement="Bottom"
-                                                    Command="{Binding RemoveSong}"
-                                                >
+                                                    Command="{Binding RemoveSong}">
                                                 <materialDesign:PackIcon
                                                             Foreground="#222222"
                                                             Kind="PlaylistRemove"
@@ -430,24 +406,10 @@
                                             <Button
                                                     ToolTip="Add Song"
                                                     ToolTipService.Placement="Bottom"
-                                                    Command="{Binding AddSong}"
-                                                >
+                                                    Command="{Binding AddSong}">
                                                 <materialDesign:PackIcon
                                                             Foreground="#222222"
                                                             Kind="PlaylistPlus"
-                                                            Opacity="0.8"
-                                                            Height="25"
-                                                            Width="25" />
-                                            </Button>
-
-                                            <Button
-                                                    ToolTip="Change Image"
-                                                    ToolTipService.Placement="Bottom"
-                                                    Command="{Binding ChangeImage}"
-                                                >
-                                                <materialDesign:PackIcon
-                                                            Foreground="#222222"
-                                                            Kind="CameraPartyMode"
                                                             Opacity="0.8"
                                                             Height="25"
                                                             Width="25" />

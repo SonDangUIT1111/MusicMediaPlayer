@@ -50,10 +50,6 @@ namespace MusicMediaPlayer.ViewModel
                     bitmap.EndInit();
                     imageBrush.ImageSource = bitmap;
                     p.Background = imageBrush;
-                    if (p.Children.Count > 1)
-                    {
-                        p.Children.Clear();
-                    }
                 }
             });
 
