@@ -32,11 +32,14 @@
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
         <Border CornerRadius="20" 
-                        MaxHeight="1000" MaxWidth="1000">
+                MaxHeight="1000" 
+                MaxWidth="1000">
             <Grid Background="Transparent">
                 <Border CornerRadius="20">
                     <Border.Background>
-                        <ImageBrush ImageSource="\Image\Sky5.jpg" Stretch="UniformToFill" Opacity="0.45"/>
+                        <ImageBrush ImageSource="\Image\Sky5.jpg"
+                                    Stretch="UniformToFill" 
+                                    Opacity="0.45"/>
                     </Border.Background>
                 </Border>
             </Grid>
@@ -80,12 +83,11 @@
                                   Foreground="#444444"
                                   HorizontalAlignment="Center"
                                   VerticalAlignment="Center"
-                                  materialDesign:HintAssist.Hint="Search here ..."
-                          >
+                                  materialDesign:HintAssist.Hint="Search here ...">
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="TextChanged">
                                     <i:InvokeCommandAction Command="{Binding FilterChangeValue}"
-                                   CommandParameter="{Binding ElementName=AlbumWD}"/>
+                                                           CommandParameter="{Binding ElementName=AlbumWD}"/>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </TextBox>
@@ -115,10 +117,10 @@
                 <ScrollViewer HorizontalScrollBarVisibility="Disabled"
                               VerticalScrollBarVisibility="Auto">
                     <ListBox x:Name="ListAlbum"
-                         ItemsSource="{Binding List}"
-                         Height="580"
-                         Width="950"
-                         Margin="10,20,10,10">
+                             ItemsSource="{Binding List}"
+                             Height="580"
+                             Width="950"
+                             Margin="10,20,10,10">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel></WrapPanel>
@@ -127,29 +129,28 @@
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Grid Height="260"
-                                  Width="200">
+                                      Width="200">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="180"/>
                                         <RowDefinition Height="80"/>
                                     </Grid.RowDefinitions>
                                     <Grid Grid.Row="0">
                                         <Button Style="{StaticResource ButtonPlayVisibility}"
-                                            Panel.ZIndex="2"
-                                            Width="50"
-                                            Height="50"
-                                            Padding="0"
-                                            Margin="60,0,0,0"
-                                            BorderBrush="Transparent"
-                                            BorderThickness="0"
-                                            Background="#FFFFFF"
-                                            Command="{Binding Source={StaticResource AlbumVM},Path=Explore}"
-                                            CommandParameter="{Binding}">
-                                            <materialDesign:PackIcon
-                                                            Foreground="#000000"
-                                                            Kind="Play"
-                                                            Opacity="0.8"
-                                                            Height="42"
-                                                            Width="42" />
+                                                Panel.ZIndex="2"
+                                                Width="50"
+                                                Height="50"
+                                                Padding="0"
+                                                Margin="60,0,0,0"
+                                                BorderBrush="Transparent"
+                                                BorderThickness="0"
+                                                Background="#FFFFFF"
+                                                Command="{Binding Source={StaticResource AlbumVM},Path=Explore}"
+                                                CommandParameter="{Binding}">
+                                            <materialDesign:PackIcon Foreground="#000000"
+                                                                     Kind="Play"
+                                                                     Opacity="0.8"
+                                                                     Height="42"
+                                                                     Width="42" />
                                         </Button>
                                         <Button Style="{StaticResource ButtonPlayVisibility}"
                                                 Panel.ZIndex="2"
@@ -162,43 +163,41 @@
                                                 Background="#FFFFFF"
                                                 Command="{Binding Source={StaticResource AlbumVM},Path=ChangeImageAlbum}"
                                                 CommandParameter="{Binding}">
-                                            <materialDesign:PackIcon
-                                                            Foreground="#000000"
-                                                            Kind="CameraPartyMode"
-                                                            Opacity="0.8"
-                                                            Height="35"
-                                                            Width="35" />
+                                            <materialDesign:PackIcon Foreground="#000000"
+                                                                     Kind="CameraPartyMode"
+                                                                     Opacity="0.8"
+                                                                     Height="35"
+                                                                     Width="35" />
                                         </Button>
                                         <Border CornerRadius="180"
-                                        Grid.Row="0"
-                                        Height="180"
-                                        Width="180"
-                                        Margin="0,0,0,0"
-                                        Panel.ZIndex="0">
+                                                Grid.Row="0"
+                                                Height="180"
+                                                Width="180"
+                                                Margin="0,0,0,0"
+                                                Panel.ZIndex="0">
                                             <Border.Background>
                                                 <ImageBrush ImageSource="{Binding ImageAlbumBinary, Converter={StaticResource ByteToImageConverter}}"
-                                                    Stretch="UniformToFill">
+                                                            Stretch="UniformToFill">
                                                 </ImageBrush>
                                             </Border.Background>
                                         </Border>
                                     </Grid>
                                     <StackPanel Grid.Row="1"
-                                            Margin="0 20 0 0">
+                                                Margin="0 20 0 0">
                                         <TextBlock 
-                                               Text="{Binding AlbumName}" 
-                                               TextAlignment="Center"
-                                               Foreground="#333333" 
-                                               FontWeight="SemiBold" 
-                                               FontSize="20"
-                                        Margin="0 0 0 0"/>
+                                                   Text="{Binding AlbumName}" 
+                                                   TextAlignment="Center"
+                                                   Foreground="#333333" 
+                                                   FontWeight="SemiBold" 
+                                                   FontSize="20"
+                                                   Margin="0 0 0 0"/>
 
                                         <TextBlock 
                                                Text="{Binding Composer}" 
                                                TextAlignment="Center"
                                                Foreground="#333333" 
                                                FontWeight="SemiBold" 
-                                               FontSize="14"
-                                               />
+                                               FontSize="14"/>
                                     </StackPanel>
                                 </Grid>
                             </DataTemplate>

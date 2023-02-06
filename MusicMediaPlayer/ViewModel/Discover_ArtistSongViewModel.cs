@@ -65,7 +65,6 @@ namespace MusicMediaPlayer.ViewModel
                     try
                     {
                         //sync parameter main window
-
                         MainViewProgram.Height = 650;
                         PlayerBar.Visibility = Visibility.Hidden;
                         PlayerBarPlaylist.Visibility = Visibility.Hidden;
@@ -94,6 +93,7 @@ namespace MusicMediaPlayer.ViewModel
                             mediaPlayer4.Stop();
                         }
                         MediaPlayerIsPlaying4 = false;
+                        //Sync with my song
                         Playbtn.IsChecked = false;
                         Pausebtn.IsChecked = true;
                         Playbtn.Visibility = Visibility.Visible;
@@ -102,57 +102,74 @@ namespace MusicMediaPlayer.ViewModel
                         PauseInvisible.IsChecked = true;
                         PlayInvisible1.IsChecked = false;
                         PauseInvisible1.IsChecked = true;
-
+                        //Sync with genre
                         Playbtn4.IsChecked = false;
                         Pausebtn4.IsChecked = true;
                         Playbtn4.Visibility = Visibility.Visible;
                         Pausebtn4.Visibility = Visibility.Hidden;
-
+                        //Sync with my playlist
                         Playbtn1.IsChecked = false;
                         Pausebtn1.IsChecked = true;
                         Playbtn1.Visibility = Visibility.Visible;
                         Pausebtn1.Visibility = Visibility.Hidden;
-
+                        //Sync with album
                         Playbtn3.IsChecked = false;
                         Pausebtn3.IsChecked = true;
                         Playbtn3.Visibility = Visibility.Visible;
                         Pausebtn3.Visibility = Visibility.Hidden;
-
-                        //
-                        sliProgress.IsEnabled = true;
-                        Playbtn2.IsEnabled = true;
-                        Playbtn2.IsChecked = true;
-                        Pausebtn2.IsChecked = false;
-                       
-                        Pausebtn2.IsEnabled = true;
+                        //check file is exists ?
                         var stringUri = SelectedItem.FilePath;
                         Uri uri = new Uri(stringUri);
                         SelectedItem.Times++;
                         DataProvider.Ins.DB.SaveChanges();
-                        mediaPlayer2.Open(uri);
-                        MediaPlayerIsPlaying2 = true;
-                        Playbtn2.Visibility = Visibility.Hidden;
-                        Pausebtn2.Visibility = Visibility.Visible;
-
-                        mediaPlayer2.Play();
-                        DispatcherTimer timer = new DispatcherTimer();
-                        timer.Interval = TimeSpan.FromSeconds(1);
-                        timer.Tick += timer_Tick;
-                        timer.Start();
-                        void timer_Tick(object sender, EventArgs e)
+                        if (File.Exists(stringUri) == false)
                         {
-                            if (mediaPlayer2.Source != null)
+                            mediaPlayer2.Stop();
+                            InTime.Content = "00:00";
+                            sliProgress.Minimum = 0;
+                            sliProgress.Maximum = 1;
+                            sliProgress.Value = 0;
+                            Playbtn2.IsEnabled = false;
+                            Playbtn2.IsChecked = false;
+                            Playbtn2.Visibility = Visibility.Hidden;
+                            Pausebtn2.Visibility = Visibility.Visible;
+                            Pausebtn2.IsEnabled = false;
+                            MessageBoxFail ms = new MessageBoxFail();
+                            ms.ShowDialog();
+                            return;
+                        }
+                        else
+                        {
+                            //open some function when the song is selected
+                            sliProgress.IsEnabled = true;
+                            Playbtn2.IsEnabled = true;
+                            Playbtn2.IsChecked = true;
+                            Pausebtn2.IsChecked = false;
+                            Pausebtn2.IsEnabled = true;
+                            mediaPlayer2.Open(uri);
+                            MediaPlayerIsPlaying2 = true;
+                            Playbtn2.Visibility = Visibility.Hidden;
+                            Pausebtn2.Visibility = Visibility.Visible;
+                            mediaPlayer2.Play();
+                            DispatcherTimer timer = new DispatcherTimer();
+                            timer.Interval = TimeSpan.FromSeconds(1);
+                            timer.Tick += timer_Tick;
+                            timer.Start();
+                            void timer_Tick(object sender, EventArgs e)
                             {
-                                if (mediaPlayer2.NaturalDuration.HasTimeSpan == true)
+                                if (mediaPlayer2.Source != null)
                                 {
-                                    InTime.Content = String.Format("{0}", mediaPlayer2.Position.ToString(@"mm\:ss"));
-                                    TotalTime.Content = String.Format("{0}", mediaPlayer2.NaturalDuration.TimeSpan.ToString(@"mm\:ss"));
-                                    sliProgress.Minimum = 0;
-                                    sliProgress.Maximum = mediaPlayer2.NaturalDuration.TimeSpan.TotalSeconds;
-                                    sliProgress.Value = mediaPlayer2.Position.TotalSeconds;
+                                    if (mediaPlayer2.NaturalDuration.HasTimeSpan == true)
+                                    {
+                                        InTime.Content = String.Format("{0}", mediaPlayer2.Position.ToString(@"mm\:ss"));
+                                        TotalTime.Content = String.Format("{0}", mediaPlayer2.NaturalDuration.TimeSpan.ToString(@"mm\:ss"));
+                                        sliProgress.Minimum = 0;
+                                        sliProgress.Maximum = mediaPlayer2.NaturalDuration.TimeSpan.TotalSeconds;
+                                        sliProgress.Value = mediaPlayer2.Position.TotalSeconds;
+                                    }
                                 }
-                            }
 
+                            }
                         }
                     }
                     catch (Exception)
@@ -277,10 +294,10 @@ namespace MusicMediaPlayer.ViewModel
                     {
                         Random random = new Random();
                         int nextIndex = -1;
-                        while (nextIndex < 0 || nextIndex == ArtistSongWindow.CompositionList.SelectedIndex)
+                        do
                         {
-                            nextIndex = random.Next(0, ArtistSongWindow.CompositionList.Items.Count + 1);
-                        }
+                            nextIndex = random.Next(0, ArtistSongWindow.CompositionList.Items.Count);
+                        } while (nextIndex < 0 || nextIndex == ArtistSongWindow.CompositionList.SelectedIndex);
                         ArtistSongWindow.CompositionList.SelectedIndex = -1;
                         ArtistSongWindow.CompositionList.SelectedIndex = nextIndex;
                     }
@@ -386,11 +403,13 @@ namespace MusicMediaPlayer.ViewModel
             NonMute = new RelayCommand<MainWindow>((p) => { return true; }, (p) =>
             {
                 p.Volume2.Value = VolumePrevious;
+                mediaPlayer2.Volume = p.Volume2.Value;
             });
             Mute = new RelayCommand<MainWindow>((p) => { return true; }, (p) =>
             {
                 VolumePrevious = p.Volume2.Value;
                 p.Volume2.Value = 0;
+                mediaPlayer2.Volume = 0;
             });
 
             // sleep timer
@@ -402,10 +421,19 @@ namespace MusicMediaPlayer.ViewModel
                 Slider slider = wd.knob as Slider;
                 double convertsleep = slider.Value * 60;
                 int sleepsecond = (int)convertsleep;
+                DispatcherTimer countdownoff = new DispatcherTimer();
+                countdownoff.Interval = TimeSpan.FromSeconds(1);
+                countdownoff.Tick += countdown_Tick;
+                countdownoff.Start();
                 SleepTimer = new DispatcherTimer();
                 SleepTimer.Interval = TimeSpan.FromSeconds(1);
                 SleepTimer.Tick += timer_Tick;
                 SleepTimer.Start();
+                void countdown_Tick(object sender, EventArgs e)
+                {
+                    countdownoff.Stop();
+                    sleepwd.Close();
+                }
                 void timer_Tick(object sender, EventArgs e)
                 {
                     CountTimer++;
@@ -417,10 +445,6 @@ namespace MusicMediaPlayer.ViewModel
                         Pausebtn2.IsChecked = true;
                         Playbtn2.Visibility = Visibility.Visible;
                         Pausebtn2.Visibility = Visibility.Hidden;
-                    }
-                    else if (CountTimer == 1)
-                    {
-                        sleepwd.Close();
                     }
                 }
             });

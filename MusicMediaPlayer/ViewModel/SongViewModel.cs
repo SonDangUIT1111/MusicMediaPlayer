@@ -1038,10 +1038,19 @@ namespace MusicMediaPlayer.ViewModel
                 Slider slider = wd.knob as Slider;
                 double convertsleep = slider.Value * 60;
                 int sleepsecond = (int)convertsleep;
+                DispatcherTimer countdownoff = new DispatcherTimer();
+                countdownoff.Interval = TimeSpan.FromSeconds(1);
+                countdownoff.Tick += countdown_Tick;
+                countdownoff.Start();
                 SleepTimer = new DispatcherTimer();
                 SleepTimer.Interval = TimeSpan.FromSeconds(1);
                 SleepTimer.Tick += timer_Tick;
                 SleepTimer.Start();
+                void countdown_Tick(object sender,EventArgs e)
+                {
+                    countdownoff.Stop();
+                    sleepwd.Close();
+                }
                 void timer_Tick(object sender, EventArgs e)
                 {
                     CountTimer++;
@@ -1055,10 +1064,6 @@ namespace MusicMediaPlayer.ViewModel
                         MySongWindow.Pause.IsChecked = true;
                         Playbtn.Visibility = Visibility.Visible;
                         Pausebtn.Visibility = Visibility.Hidden;
-                    }
-                    else if (CountTimer == 1)
-                    {
-                        sleepwd.Close();
                     }
                 }
             });

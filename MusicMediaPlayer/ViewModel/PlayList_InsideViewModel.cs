@@ -450,7 +450,7 @@ namespace MusicMediaPlayer.ViewModel
                         int nextIndex = -1;
                         do
                         {
-                            nextIndex = random.Next(0, thispage.listview.Items.Count + 1);
+                            nextIndex = random.Next(0, thispage.listview.Items.Count);
                         } while (nextIndex < 0 || nextIndex == thispage.listview.SelectedIndex);
                         thispage.listview.SelectedIndex = -1;
                         thispage.listview.SelectedIndex = nextIndex;
@@ -575,10 +575,19 @@ namespace MusicMediaPlayer.ViewModel
                 Slider slider = wd.knob as Slider;
                 double convertsleep = slider.Value * 60;
                 int sleepsecond = (int)convertsleep;
+                DispatcherTimer countdownoff = new DispatcherTimer();
+                countdownoff.Interval = TimeSpan.FromSeconds(1);
+                countdownoff.Tick += countdown_Tick;
+                countdownoff.Start();
                 SleepTimer = new DispatcherTimer();
                 SleepTimer.Interval = TimeSpan.FromSeconds(1);
                 SleepTimer.Tick += timer_Tick;
                 SleepTimer.Start();
+                void countdown_Tick(object sender, EventArgs e)
+                {
+                    countdownoff.Stop();
+                    sleepwd.Close();
+                }
                 void timer_Tick(object sender, EventArgs e)
                 {
                     CountTimer++;
