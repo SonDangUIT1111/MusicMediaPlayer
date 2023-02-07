@@ -669,54 +669,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\poweroff.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Image\poweroff2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Image\logomusicapp.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="UserControlMusic\logomusicapp.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="UserControlMusic\poweroff2.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\universe2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Image\MusicNoteBackground.gif" />
     <Resource Include="Image\neon1.png" />
     <Resource Include="Image\neon2.png" />
     <Resource Include="Image\neon3.png" />
-    <Resource Include="Image\thunderno1.gif" />
-    <Resource Include="Image\thunderno3.gif" />
-    <Resource Include="Image\thunderno2.gif" />
-    <Resource Include="Image\classicdisc.png" />
-    <Resource Include="Image\hinh-anh-nen-EDM.jpg" />
-    <Resource Include="Image\talk-about-faverte-music-1024x682.jpg" />
-    <Resource Include="Image\music-notes-curves-swirls-vector-260nw-1705493965.png" />
-    <Resource Include="Image\Streaming2017.jpg" />
-    <Resource Include="Image\streamingimage2.jpg" />
-    <Resource Include="Image\78d072b9f34c6c37d32493c50b7d9203.png" />
-    <Resource Include="Image\anh1.jpg" />
-    <Resource Include="Image\anh2.jpg" />
-    <Resource Include="Image\anh3.jpg" />
-    <Resource Include="Image\anh4.jpg" />
-    <Resource Include="Image\anh5.jpg" />
     <Resource Include="Image\visualizer.gif" />
-    <Resource Include="Image\successful.gif" />
-    <Resource Include="Image\warningicon.jpg" />
-    <Resource Include="Image\Japan.jpg" />
-    <Resource Include="Image\earth.jpeg" />
-    <Resource Include="Image\logo.png" />
-    <Resource Include="Image\logo4.png" />
     <Resource Include="Image\logo5.png" />
-    <Resource Include="Image\logo6.jpg" />
     <Resource Include="Image\dang_nghe_nhac.jpg" />
-    <Resource Include="Image\circlecolorgif.gif" />
     <Resource Include="View\IconApp.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -724,31 +688,23 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\Sky.jpg" />
-    <Resource Include="Image\Sky2.jpg" />
-    <Resource Include="Image\Sky3.jpg" />
     <Resource Include="Image\Sky4.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="View\AppIcon.ico" />
-    <Resource Include="Image\successful4.gif" />
     <Resource Include="Image\successful2.gif" />
     <Resource Include="Image\error.gif" />
     <Resource Include="Image\warningicon1.jpg" />
-    <Resource Include="Image\Sky1.jpg" />
     <Resource Include="Image\SkyBackground1.jpg" />
     <Resource Include="Image\Sky5.jpg" />
     <Resource Include="Image\SpeakerVector.png" />
-    <Resource Include="Image\PianoVisualizer.gif" />
     <Resource Include="Image\PianoInstruction.png" />
     <Resource Include="Image\Afternoon.jpg" />
     <Resource Include="Image\Morning.jpg" />
     <Resource Include="Image\Night.jpg" />
-    <Resource Include="Image\logo7.png" />
     <Resource Include="Image\music_note.jpg" />
     <Resource Include="Image\music_note1.png" />
-    <Resource Include="Image\Sky6.jpg" />
     <Resource Include="Image\rename.png" />
-    <Resource Include="Image\Sky7.jpg" />
     <Resource Include="Image\Sky8.jpg" />
     <Content Include="Model\Database.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
