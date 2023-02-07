@@ -19,8 +19,7 @@
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
         DataContext="{StaticResource ArtistVM}"
         Name="ArtistChangePicWD"
-        Icon="AppIcon.ico"
-        >
+        Icon="AppIcon.ico">
     <Grid Background="Transparent"
           Margin="5">
         <Border CornerRadius="20" 
@@ -53,18 +52,18 @@
                            FontFamily="Arial Rounded MT Bold" 
                            FontWeight="Light" 
                            FlowDirection="LeftToRight" 
-                           Margin="0,5,0,-10" Foreground="#FF07AEFF">
+                           Margin="0,5,0,-10" 
+                           Foreground="#FF07AEFF">
                 </TextBlock>
                 
             </StackPanel>
             <TextBlock Text="Music Universe"
-                           FontWeight="ExtraBlack"
-                           FontSize="16"
-                           FontFamily="Arial Rounded MT Bold"
-                           Height="20"
-                           Width="120"
-                           Margin="0,10,0,-20"
-                           >
+                       FontWeight="ExtraBlack"
+                       FontSize="16"
+                       FontFamily="Arial Rounded MT Bold"
+                       Height="20"
+                       Width="120"
+                       Margin="0,10,0,-20">
                 <TextBlock.Foreground>
                     <LinearGradientBrush>
                         <GradientStop Color="#2af598" Offset="1"/>
@@ -73,7 +72,9 @@
                 </TextBlock.Foreground>
             </TextBlock>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 30 0 0">
+            <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center" 
+                        Margin="0 30 0 0">
                 <Grid
                         x:Name="ChangegrdSelectImg"
                         VerticalAlignment="Top"
@@ -141,7 +142,7 @@
                           Width="100"
                           Padding="0"
                           BorderThickness="1"
-                    BorderBrush="AliceBlue"
+                          BorderBrush="AliceBlue"
                           Foreground="White"
                           Background="#CDCDCD"
                           Command="{Binding CancelChanging}"

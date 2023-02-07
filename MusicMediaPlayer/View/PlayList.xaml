@@ -234,12 +234,12 @@
                                                     <BeginStoryboard>
                                                         <Storyboard>
                                                             <DoubleAnimation Storyboard.TargetProperty="Height"
-                                                                                 To="180"
-                                                                                 Duration="0:0:0.2">
+                                                                             To="180"
+                                                                             Duration="0:0:0.2">
                                                             </DoubleAnimation>
                                                             <DoubleAnimation Storyboard.TargetProperty="Width"
-                                                                                 To="180"
-                                                                                 Duration="0:0:0.2">
+                                                                             To="180"
+                                                                             Duration="0:0:0.2">
                                                             </DoubleAnimation>
                                                         </Storyboard>
                                                     </BeginStoryboard>

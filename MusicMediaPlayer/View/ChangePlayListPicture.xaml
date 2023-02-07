@@ -8,13 +8,10 @@
         Title="Change PlayList Cover" 
         Height="320" 
         Width="450"
-        
         WindowStartupLocation="CenterScreen" 
         WindowStyle="None" 
         AllowsTransparency="True"
-        
         Background="Transparent"
-        
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -25,31 +22,28 @@
         DataContext="{StaticResource ChangePlayListPictureVM}"
         x:Name="ChangePlayListPictureWD"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-        Icon="AppIcon.ico"
-        >
+        Icon="AppIcon.ico">
     <Border CornerRadius="20"
             Background="White"
             BorderThickness="3"
-            BorderBrush="#0099FF"
-            >
+            BorderBrush="#0099FF">
         <StackPanel>
             <TextBlock Text="Playlist Cover"
                        TextAlignment="Center"
                        FontSize="26"
                        FontWeight="SemiBold"
                        FontStyle="Normal"
-                       Margin="0 10 0 0" FontFamily="Arial Rounded MT Bold" Foreground="#FF07AEFF"
-                       >
-
+                       Margin="0 10 0 0" 
+                       FontFamily="Arial Rounded MT Bold" 
+                       Foreground="#FF07AEFF">
             </TextBlock>
-            <TextBlock Text="Music Universe"
-                           FontWeight="ExtraBlack"
-                           FontSize="16"
-                           FontFamily="Arial Rounded MT Bold"
-                           Height="20"
-                           Width="120"
-                           Margin="0,0,0,-10"
-                           >
+            <TextBlock  Text="Music Universe"
+                        FontWeight="ExtraBlack"
+                        FontSize="16"
+                        FontFamily="Arial Rounded MT Bold"
+                        Height="20"
+                        Width="120"
+                        Margin="0,0,0,-10">
                 <TextBlock.Foreground>
                     <LinearGradientBrush>
                         <GradientStop Color="#2af598" Offset="1"/>
@@ -59,84 +53,83 @@
             </TextBlock>
 
             <Grid
-                            x:Name="grdSelectImg"
-                            Margin="0 20 0 0" 
-                            VerticalAlignment="Top"
-                            Width="150"
-                            Height="150" 
-                            HorizontalAlignment="Center">
+                x:Name="grdSelectImg"
+                Margin="0 20 0 0" 
+                VerticalAlignment="Top"
+                Width="150"
+                Height="150" 
+                HorizontalAlignment="Center">
                 <Rectangle 
-                                    x:Name="recImage"
-                                    StrokeDashArray="4 2" 
-                                    Stroke="#333333" 
-                                    StrokeThickness="4" 
-                                    RadiusX="4" 
-                                    RadiusY="4"
-                                    Width="150"
-                                    Height="150" 
-                                    HorizontalAlignment="Left" 
-                                    VerticalAlignment="Top">
+                        x:Name="recImage"
+                        StrokeDashArray="4 2" 
+                        Stroke="#333333" 
+                        StrokeThickness="4" 
+                        RadiusX="4" 
+                        RadiusY="4"
+                        Width="150"
+                        Height="150" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Top">
 
                 </Rectangle>
                 <Button 
-                            x:Name="btnSelectImage"
-                            Command="{Binding AddImage}"
-                            CommandParameter="{Binding ElementName=grdSelectImg}"
-                            Height="35" 
-                            Width="100" 
-                            Content="Select Image" 
-                            FontSize="14"
-                            Foreground="#FFFFFF"
-                            Background="#0099FF"
-                            BorderBrush="Transparent"
-                            FontWeight="SemiBold" 
-                            Margin="0,100,0,0" 
-                            HorizontalAlignment="Center" 
-                            VerticalAlignment="Top"
-                            FocusVisualStyle="{x:Null}"
-                            Padding="0">
+                        x:Name="btnSelectImage"
+                        Command="{Binding AddImage}"
+                        CommandParameter="{Binding ElementName=grdSelectImg}"
+                        Height="35" 
+                        Width="100" 
+                        Content="Select Image" 
+                        FontSize="14"
+                        Foreground="#FFFFFF"
+                        Background="#0099FF"
+                        BorderBrush="Transparent"
+                        FontWeight="SemiBold" 
+                        Margin="0,100,0,0" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Top"
+                        FocusVisualStyle="{x:Null}"
+                        Padding="0">
 
                 </Button>
                 <materialDesign:PackIcon 
-                                x:Name="iconImage" 
-                                Kind="FileImageOutline" 
-                                Foreground="Transparent"
-                                Width="64" Height="54"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Top"  
-                                Margin="0,40,0,0">
+                                        x:Name="iconImage" 
+                                        Kind="FileImageOutline" 
+                                        Foreground="Transparent"
+                                        Width="64" Height="54"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Top"  
+                                        Margin="0,40,0,0">
 
                 </materialDesign:PackIcon>
             </Grid>
             <StackPanel Orientation="Horizontal"
                         Margin="0 30 0 0">
                 <Button Margin="100 0 0 0"
-                                Style="{StaticResource ButtonInAddPLWD}"
-                                Width="100"
-                                Height="40"
-                                x:Name="btnAdd"
-                                Command="{Binding Change}"
-                                CommandParameter="{Binding ElementName=ChangePlayListPictureWD}"
-                                ToolTip="Add" Background="#2af598"
-                                >
+                        Style="{StaticResource ButtonInAddPLWD}"
+                        Width="100"
+                        Height="40"
+                        x:Name="btnAdd"
+                        Command="{Binding Change}"
+                        CommandParameter="{Binding ElementName=ChangePlayListPictureWD}"
+                        ToolTip="Add" 
+                        Background="#2af598">
                     <materialDesign:PackIcon Kind="Check"
-                                                     Width="25"
-                                                     Height="25">
+                                             Width="25"
+                                             Height="25">
 
                     </materialDesign:PackIcon>
                 </Button>
                 <Button Margin="50 0 0 0"
-                                Width="100"
-                                Height="40"
-                                Style="{StaticResource ButtonInAddPLWD}"
-                                Command="{Binding Close}"
-                                CommandParameter="{Binding ElementName=ChangePlayListPictureWD}"
-                                ToolTip="Cancel" 
-                                Background="#CDCDCD">
+                        Width="100"
+                        Height="40"
+                        Style="{StaticResource ButtonInAddPLWD}"
+                        Command="{Binding Close}"
+                        CommandParameter="{Binding ElementName=ChangePlayListPictureWD}"
+                        ToolTip="Cancel" 
+                        Background="#CDCDCD">
                     <materialDesign:PackIcon Kind="Close"
-                                                     Width="25"
-                                                     Height="25">
-
+                                             Width="25"
+                                             Height="25">
                     </materialDesign:PackIcon>
                 </Button>
             </StackPanel>

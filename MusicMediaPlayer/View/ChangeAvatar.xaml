@@ -19,8 +19,7 @@
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
         DataContext="{StaticResource ProfileVM}"
         Name="AvatarChangeWD"
-        Icon="AppIcon.ico"
-        >
+        Icon="AppIcon.ico">
     <Grid Background="Transparent"
           Margin="5">
         <Border CornerRadius="20" 
@@ -64,8 +63,7 @@
                            FontFamily="Arial Rounded MT Bold"
                            Height="20"
                            Width="120"
-                           Margin="0,10,0,-20"
-                           >
+                           Margin="0,10,0,-20">
                 <TextBlock.Foreground>
                     <LinearGradientBrush>
                         <GradientStop Color="#2af598" Offset="1"/>
@@ -74,13 +72,14 @@
                 </TextBlock.Foreground>
             </TextBlock>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 30 0 0">
+            <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center" 
+                        Margin="0 30 0 0">
                 <Grid
                         x:Name="ChangegrdSelectImg"
                         VerticalAlignment="Center"
                         Width="150"
-                        Height="150" 
-                        >
+                        Height="150" >
                     <Rectangle 
                                 x:Name="ChangerecImage"
                                 StrokeDashArray="4 2" 
@@ -142,7 +141,7 @@
                           Padding="0"
                           Margin="50,0,0,0"
                           BorderThickness="1"
-                    BorderBrush="AliceBlue"
+                          BorderBrush="AliceBlue"
                           Foreground="White"
                           Background="#CDCDCD"
                           Command="{Binding CancelChanging}"

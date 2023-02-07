@@ -14,8 +14,7 @@
         WindowStyle="None"
         Name="RenamePL"
         Background="Transparent"
-        Icon="AppIcon.ico"
-        >
+        Icon="AppIcon.ico">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding Load}"
@@ -25,10 +24,8 @@
     <Border Background="White" 
             CornerRadius="10"
             BorderThickness="2"
-            BorderBrush="#0099FF"
-            >
+            BorderBrush="#0099FF">
         <Grid Background="Transparent">
-
             <StackPanel>
                 <TextBlock Text="Rename Playlist"
                            FontSize="28"
@@ -36,47 +33,40 @@
                            Foreground="#FF07AEFF"
                            Opacity="1"
                            Margin="0 15 0 0" 
-                           FontFamily="Arial Rounded MT Bold"
-                           >
-
+                           FontFamily="Arial Rounded MT Bold">
                 </TextBlock>
-                <TextBox 
-                 FontSize="20"
-                 Margin="20 20 20 0"
-                 Name="NamePL">
+                <TextBox FontFamily="Arial"
+                         FontSize="20"
+                         Margin="20 20 20 0"
+                         Name="NamePL">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="TextChanged">
                             <i:InvokeCommandAction Command="{Binding TextChanged}"
-                                           CommandParameter="{Binding ElementName=NamePL}"/>
+                                                   CommandParameter="{Binding ElementName=NamePL}"/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
-
                 </TextBox>
-
                 <StackPanel Orientation="Horizontal"
-                   
-                    Margin="0 20 0 0">
+                            Margin="0 20 0 0">
                     <Button Margin="20 0 0 0"
                             Style="{StaticResource ButtonInRenameWD}"
-                    Width="120"
+                            Width="120"
                             Height="30"
-                    Content="Save"
+                            Content="Save"
                             Background="#2af598"
                             Foreground="#000000"
-                    Command="{Binding Luu}"
-                    CommandParameter="{Binding ElementName=RenamePL}">
-
+                            Command="{Binding Luu}"
+                            CommandParameter="{Binding ElementName=RenamePL}">
                     </Button>
                     <Button Margin="20 0 0 0"
                             Style="{StaticResource ButtonInRenameWD}"
-                    Width="120"
-                    Height="30"
-                    Content="Cancel"
-                    Command="{Binding Cancel}"
-                    CommandParameter="{Binding ElementName=RenamePL}" 
+                            Width="120"
+                            Height="30"
+                            Content="Cancel"
+                            Command="{Binding Cancel}"
+                            CommandParameter="{Binding ElementName=RenamePL}" 
                             Background="#CDCDCD"
                             Foreground="#000000">
-
                     </Button>
                 </StackPanel>
             </StackPanel>

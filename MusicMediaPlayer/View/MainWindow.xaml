@@ -237,7 +237,6 @@
                                                        Foreground="#FFFFFF"
                                                        Margin="20,0,0,0"/>
                                         </Grid>
-
                                         <RadioButton Style="{StaticResource MainButton}" 
                                                      Command="{Binding SwitchProfile}" 
                                                      CommandParameter="{Binding ElementName=FrameView}"

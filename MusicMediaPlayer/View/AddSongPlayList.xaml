@@ -22,9 +22,7 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Icon="AppIcon.ico"
-        >
-
+        Icon="AppIcon.ico">
     <i:Interaction.Triggers >
         <i:EventTrigger EventName = "Loaded" >
             <i:InvokeCommandAction Command = "{Binding Loaded}"
@@ -52,8 +50,7 @@
                            FontFamily="Arial Rounded MT Bold"
                            Height="20"
                            Width="120"
-                           Margin="0,5,0,0"
-                           >
+                           Margin="0,5,0,0">
                     <TextBlock.Foreground>
                         <LinearGradientBrush>
                             <GradientStop Color="#2af598" Offset="1"/>
@@ -65,24 +62,20 @@
                 <ScrollViewer VerticalScrollBarVisibility="Auto"
                               HorizontalScrollBarVisibility="Disabled">
                     <ListView     
-                      x:Name="listview"
-                      ItemsSource="{Binding List}"
-                      SelectionMode="Multiple"
-                      Margin="20 0 20 0"
-                      Height="300">
+                              x:Name="listview"
+                              ItemsSource="{Binding List}"
+                              SelectionMode="Multiple"
+                              Margin="20 0 20 0"
+                              Height="300">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Title"
-                                    Width="250"
-                                    DisplayMemberBinding="{Binding SongTitle}"
-                                        >
-
+                                                Width="250"
+                                                DisplayMemberBinding="{Binding SongTitle}">
                                 </GridViewColumn>
                                 <GridViewColumn Header="Artist"
-                                            Width="200"
-                                    DisplayMemberBinding="{Binding Artist}"
-                                       >
-
+                                                Width="200"
+                                                DisplayMemberBinding="{Binding Artist}">
                                 </GridViewColumn>
                             </GridView>
                         </ListView.View>
@@ -95,49 +88,30 @@
                                 Width="100"
                                 Height="40"
                                 x:Name="btnAdd"
-                                
                                 Command="{Binding Add}"
                                 ToolTip="Add" Background="#2af598"
-                               Foreground="#FFFFFF"
-                                >
+                               Foreground="#FFFFFF">
                         <materialDesign:PackIcon Kind="Check"
-                                                     Width="25"
-                                                     Height="25">
+                                                 Width="25"
+                                                 Height="25">
 
                         </materialDesign:PackIcon>
                     </Button>
                     <Button Margin="130 0 0 0"
-                                Width="100"
-                                Height="40"
-                                Style="{StaticResource ButtonInAddPLWD}"
-                                Command="{Binding Cancel}"
-                            ToolTip="Cancel" Background="#CDCDCD">
+                            Width="100"
+                            Height="40"
+                            Style="{StaticResource ButtonInAddPLWD}"
+                            Command="{Binding Cancel}"
+                            ToolTip="Cancel" 
+                            Background="#CDCDCD">
                         <materialDesign:PackIcon Kind="Close"
-                                                     Width="25"
-                                                     Height="25">
+                                                 Width="25"
+                                                 Height="25">
 
                         </materialDesign:PackIcon>
                     </Button>
                 </StackPanel>
-
             </StackPanel>
-
-            
-
-        <!--<StackPanel Orientation="Horizontal"
-                    Grid.Row="1"
-                    >
-            <Button Margin=" 100 10 10 10"
-                    Content="Add"
-                    Command="{Binding Add}">
-
-            </Button>
-            <Button Margin="130 10 100 10"
-                    Content="Cancel"
-                    Command="{Binding Cancel}">
-
-            </Button>
-        </StackPanel>-->
-    </Grid>
+        </Grid>
     </Border>
 </Window>

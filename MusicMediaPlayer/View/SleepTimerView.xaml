@@ -19,21 +19,19 @@
         DataContext="{StaticResource SongVM}"
         Name="SleepTimerWD"
         xmlns:my="clr-namespace:MusicMediaPlayer.View"
-        Icon="AppIcon.ico"
-        >
+        Icon="AppIcon.ico">
     <Window.Resources>
         <my:ValueAngleConverter x:Key="valueAngleConverter"/>
         <my:ValueTextConverter x:Key="valueTextConverter"/>
     </Window.Resources>
     <Grid>
         <Grid Background="Transparent"
-          Margin="5">
+              Margin="5">
             <Border CornerRadius="20" 
                         BorderBrush="#0099FF"
                         BorderThickness="3"
                         Background="White"
                         Grid.Column="1"/>
-
         </Grid>
         <Button
               Height="50"
@@ -45,8 +43,7 @@
               Style="{StaticResource ChangePasswordWDButton}"
               BorderThickness="0"
               Command="{Binding CloseSleepTimer}"
-              CommandParameter="{Binding ElementName=SleepTimerWD}"
-              >
+              CommandParameter="{Binding ElementName=SleepTimerWD}">
             <materialDesign:PackIcon Kind="KeyboardReturn" />
         </Button>
         <Slider Name="knob"
@@ -129,7 +126,6 @@
               Style="{StaticResource MaterialDesignActionLightToggleButton}"
               IsChecked="False"
               Command="{Binding Sleeper}"
-              CommandParameter="{Binding ElementName=SleepTimerWD}"
-             />
+              CommandParameter="{Binding ElementName=SleepTimerWD}"/>
     </Grid>
 </Window>
