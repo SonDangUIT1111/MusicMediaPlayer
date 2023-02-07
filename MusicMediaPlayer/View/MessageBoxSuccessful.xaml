@@ -23,27 +23,25 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         DataContext="{StaticResource MessageBoxVM}"
         x:Name="SuccessfulMB"
-        Icon="AppIcon.ico"
-        >
+        Icon="AppIcon.ico">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding Loaded}"
                                    CommandParameter="{Binding ElementName=SuccessfulMB}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    <Grid>
-        <Border Background="#F2F6F6"
+    <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromLeft, Duration=0:0:0.5}">
+        <Grid>
+            <Border Background="Transparent"
                 CornerRadius="20"
-                BorderBrush="#FF07AEFF"
+                BorderBrush="Transparent"
                 BorderThickness="3">
-            <Border CornerRadius="10"
-                    Background="Black"
-                    Opacity="0.08"
-                    >
-
+                <Border CornerRadius="10"
+                        Background="Transparent"
+                        Opacity="0.08">
+                </Border>
             </Border>
-        </Border>
-        <Border
+            <Border
             Height="200"
             Width="400" 
             CornerRadius="20"
@@ -51,14 +49,14 @@
             BorderBrush="#FF07AEFF"
             BorderThickness="3"
             Background="#F2F6F6">
-            <Grid>
-                <Image gif:AnimationBehavior.SourceUri="\Image\successful2.gif"
+                <Grid>
+                    <Image gif:AnimationBehavior.SourceUri="\Image\successful2.gif"
                        Stretch="Uniform" 
                        Margin="-230,0,0,0"
                        Width="160"
                        Height="160">
-                </Image>
-                <TextBlock Text="Successfully"
+                    </Image>
+                    <TextBlock Text="Successfully"
                     Foreground="#1ED760"
                     FontFamily="Arial Rounded MT Bold" 
                     FontWeight="SemiBold" 
@@ -67,8 +65,9 @@
                     VerticalAlignment="Top" 
                     Width="250"
                     Margin="122,77,22,0">
-                </TextBlock>
-            </Grid>
-        </Border>
-    </Grid>
+                    </TextBlock>
+                </Grid>
+            </Border>
+        </Grid>
+    </materialDesign:TransitioningContent>
 </Window>

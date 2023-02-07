@@ -12,7 +12,6 @@
         WindowStyle="None"        
         AllowsTransparency="True"
         Background="Transparent"
-        
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -21,37 +20,36 @@
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
         xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
-        
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         x:Name="FailMB"
         DataContext="{StaticResource MessageBoxVM}"
-        Icon="AppIcon.ico"
-        >
+        Icon="AppIcon.ico">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding Loaded}"
                                    CommandParameter="{Binding ElementName=FailMB}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    <Grid>
-        <Border CornerRadius="10" 
+    <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromLeft, Duration=0:0:0.5}">
+        <Grid>
+            <Border CornerRadius="10" 
                 Background="White"
                 BorderThickness="3"
                 BorderBrush="#0099FF"
                 >
-        </Border>
-        <Grid VerticalAlignment="Bottom"
+            </Border>
+            <Grid VerticalAlignment="Bottom"
               HorizontalAlignment="Center"
               Height="200"
               Width="400"
               Margin="0 0 0 15">
-            <Image gif:AnimationBehavior.SourceUri="\Image\error.gif"
+                <Image gif:AnimationBehavior.SourceUri="\Image\error.gif"
                    Stretch="Uniform" 
                        Margin="-200,25,0,0"
                        Width="180"
                        Height="180">
-            </Image>
-            <TextBlock Text="Failed !"
+                </Image>
+                <TextBlock Text="Failed !"
                     Foreground="#FFF65880"
                     FontFamily="Arial Rounded MT Bold" 
                     FontWeight="SemiBold" 
@@ -60,8 +58,9 @@
                     TextAlignment="Center"
                     VerticalAlignment="Top" 
                     Width="300">
-            </TextBlock>
-        </Grid>
+                </TextBlock>
+            </Grid>
 
-    </Grid>
+        </Grid>
+    </materialDesign:TransitioningContent>
 </Window>

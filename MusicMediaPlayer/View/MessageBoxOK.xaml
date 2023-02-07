@@ -19,12 +19,10 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        
         DataContext="{StaticResource MessageBoxOKVM}"
         x:Name="MBOK"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-        Icon="AppIcon.ico"
-        >
+        Icon="AppIcon.ico">
     <Border CornerRadius="20" 
             Background="White"
             BorderThickness="3"
@@ -33,8 +31,7 @@
             <StackPanel>
                 <StackPanel Orientation="Horizontal"
                             Height="40"
-                            Margin="0 15 0 0"
-                            >
+                            Margin="0 15 0 0">
                     <Border Width="40"
                             Margin="15 0 0 0">
                         <Border.Background>
@@ -44,16 +41,15 @@
                     </Border>
                 </StackPanel>
                 <TextBlock Text="{Binding Content}"
-                               VerticalAlignment="Center"
-                               Margin="5 30 0 20"
-                               Foreground="Black"
-                               FontFamily="Bahnschrift SemiBold" 
-                               FontWeight="SemiBold"
-                               FontSize="16"
-                               Height="50"
-                               Width="350"
-                               TextWrapping="Wrap"
-                               >
+                           VerticalAlignment="Center"
+                           Margin="5 30 0 20"
+                           Foreground="Black"
+                           FontFamily="Bahnschrift SemiBold" 
+                           FontWeight="SemiBold"
+                           FontSize="16"
+                           Height="50"
+                           Width="350"
+                           TextWrapping="Wrap">
                 </TextBlock>
                 <Button Content="OK"
                         Style="{StaticResource YesNoButton}"
@@ -62,8 +58,7 @@
                         Height="30"
                         Command="{Binding OK}"
                         CommandParameter="{Binding ElementName=MBOK}"
-                        HorizontalAlignment="Right"
-                        >
+                        HorizontalAlignment="Right">
                 </Button>
             </StackPanel>
         </Grid>

@@ -8,13 +8,10 @@
         Title="MessageBoxYesNo"
         Height="150" 
         Width="350"
-        
-        
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"        
         AllowsTransparency="True"
         Background="Transparent"
-        
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -22,12 +19,10 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        
         DataContext="{StaticResource MessageBoxYesNoVM}"
         x:Name="MessageBoxYN"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-        Icon="AppIcon.ico"
-        >
+        Icon="AppIcon.ico">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding Loaded}"
@@ -38,8 +33,7 @@
         <Border CornerRadius="10" 
                 Background="White"
                 BorderThickness="3"
-                BorderBrush="#0099FF"
-                >
+                BorderBrush="#0099FF">
         </Border>
         <StackPanel>
             <TextBlock Text="{Binding Title}"
@@ -48,20 +42,17 @@
                        FontWeight="SemiBold" 
                        FontSize="20"
                        HorizontalAlignment="Left"
-                       Margin="20 20 0 0"
-                       >
-
+                       Margin="20 20 0 0">
             </TextBlock>
 
             <TextBlock Text="{Binding Question}"
-                   Foreground="Black"
-                   FontFamily="Bahnschrift SemiBold" 
-                   FontWeight="SemiBold" 
-                   FontSize="15"
-                   TextWrapping="Wrap"
-                   VerticalAlignment="Top" 
-                   Margin="20 10 0 0"
-                   >
+                       Foreground="Black"
+                       FontFamily="Bahnschrift SemiBold" 
+                       FontWeight="SemiBold" 
+                       FontSize="15"
+                       TextWrapping="Wrap"
+                       VerticalAlignment="Top" 
+                       Margin="20 10 0 0">
             </TextBlock>
 
             <StackPanel Orientation="Horizontal"
@@ -75,9 +66,8 @@
                         FontFamily="Bahnschrift SemiBold" 
                         FontWeight="SemiBold" 
                         Command="{Binding Yes}"
-                        CommandParameter="{Binding ElementName=MessageBoxYN}" Background="#FF1ED760"
-                        >
-
+                        CommandParameter="{Binding ElementName=MessageBoxYN}" 
+                        Background="#FF1ED760">
                 </Button>
                 <Button Content="No"
                         Margin="10 0 0 0"
@@ -87,9 +77,8 @@
                         FontFamily="Bahnschrift SemiBold" 
                         FontWeight="SemiBold" 
                         Command="{Binding No}"
-                        CommandParameter="{Binding ElementName=MessageBoxYN}" Background="#FFEE4949"
-                        >
-
+                        CommandParameter="{Binding ElementName=MessageBoxYN}" 
+                        Background="#FFEE4949">
                 </Button>
             </StackPanel>
         </StackPanel>
