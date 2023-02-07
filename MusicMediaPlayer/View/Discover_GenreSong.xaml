@@ -25,17 +25,20 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid Background="Transparent"
-          Width="980"
+          Width="1000"
           Height="750">
         <Border x:Name="OutsideBackground"
-                        CornerRadius="20" 
-                        BorderBrush="#1ED760"
-                        BorderThickness="0"
-                        MaxHeight="2000" MaxWidth="1000">
+                CornerRadius="20" 
+                BorderBrush="#1ED760"
+                BorderThickness="0"
+                MaxHeight="2000" 
+                MaxWidth="1000">
             <Grid Background="Transparent">
                 <Border CornerRadius="20">
                     <Border.Background>
-                        <ImageBrush ImageSource="\Image\Sky5.jpg" Stretch="UniformToFill" Opacity="0.45"/>
+                        <ImageBrush ImageSource="\Image\Sky5.jpg" 
+                                    Stretch="UniformToFill" 
+                                    Opacity="0.45"/>
                     </Border.Background>
                 </Border>
             </Grid>
@@ -57,14 +60,11 @@
                             IsChecked="False"
                             Margin="10,0,5,0"
                             Visibility="Hidden"
-                            Background="#1ED760"
-                            
-                                                >
-                <materialDesign:PackIcon
-                                                Kind="ShuffleVariant"
-                                                Height="21"
-                                                Width="21"
-                                                Foreground="White"/>
+                            Background="#1ED760">
+                <materialDesign:PackIcon Kind="ShuffleVariant"
+                                         Height="21"
+                                         Width="21"
+                                         Foreground="White"/>
             </ToggleButton>
             <Button
                           Command="{Binding SkipPrevious}"
@@ -110,12 +110,10 @@
                             Margin="0,0,5,0"
 
                             Foreground="White"
-                            Background="#1ED760"
-                                                >
-                <materialDesign:PackIcon
-                                                Kind="ShuffleDisabled"
-                                                Height="21"
-                                                Width="21" />
+                            Background="#1ED760">
+                <materialDesign:PackIcon Kind="ShuffleDisabled"
+                                         Height="21"
+                                         Width="21" />
             </ToggleButton>
             <ToggleButton
                             x:Name="OneLoop"
@@ -125,49 +123,49 @@
                             Margin="0,0,5,0"
                             Foreground="White"
                             Background="#1ED760">
-                <materialDesign:PackIcon
-                                                Kind="Loop"
-                                                Height="21"
-                                                Width="21" />
+                <materialDesign:PackIcon Kind="Loop"
+                                         Height="21"
+                                         Width="21" />
             </ToggleButton>
         </StackPanel>
         <StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Grid x:Name="AlbumBackground"
-                  Height="400"
-                  Width="250"
-                  Background="Transparent"
-                  HorizontalAlignment="Left"
-                  Margin="20,0,0,0">
+                      Height="400"
+                      Width="250"
+                      Background="Transparent"
+                      HorizontalAlignment="Left"
+                      Margin="20,0,0,0">
 
                     <Border x:Name="GenreFrame"
-                        CornerRadius="180"
-                        Height="150"
-                        Width="150"
-                        Margin="0,-185,0,0"
-                        Background="White"
-                        Panel.ZIndex="1">
+                            CornerRadius="180"
+                            Height="150"
+                            Width="150"
+                            Margin="0,-185,0,0"
+                            Background="White"
+                            Panel.ZIndex="1">
                     </Border>
                     <StackPanel Height="150"
-                            VerticalAlignment="Bottom"
-                            Panel.ZIndex="2"
+                                VerticalAlignment="Bottom"
+                                Panel.ZIndex="2"
                                 Margin="0,0,0,50">
                         <TextBlock x:Name="NameGenre"
-                               Height="50"
-                               Text="ten genre"
-                               Width="250"
-                               FontSize="36"
-                               FontWeight="Medium"
-                               Foreground="#333333"
-                               TextAlignment="Center" 
+                                   Height="50"
+                                   Text="ten genre"
+                                   Width="250"
+                                   FontSize="36"
+                                   FontWeight="Medium"
+                                   Foreground="#333333"
+                                   TextAlignment="Center" 
                                    TextTrimming="WordEllipsis"
                                    FontFamily="Arial Rounded MT Bold"/>
                     </StackPanel>
                 </Grid>
-                <TextBlock Text="Hits"
-                               FontSize="26"
-                               Margin="50,50,0,0"
-                               FontWeight="DemiBold" FontFamily="Arial Rounded MT Bold"/>
+                <TextBlock  Text="Hits"
+                            FontSize="26"
+                            Margin="50,50,0,0"
+                            FontWeight="DemiBold" 
+                            FontFamily="Arial Rounded MT Bold"/>
             </StackPanel>
             <Grid Margin="320,-300,0,0">
                 <Grid.ColumnDefinitions>
@@ -178,7 +176,7 @@
                                 Width="300"
                                 Margin="0,0,0,0">
                     <StackPanel Orientation="Horizontal"
-                                    materialDesign:ColorZoneAssist.Background="#333333">
+                                materialDesign:ColorZoneAssist.Background="#333333">
                         <Image Source="{Binding ListPopular[0].ImageSongBinary, Converter={StaticResource ByteToImageConverter}}"
                                Height="60"
                                Width="60"
@@ -187,15 +185,15 @@
                                HorizontalAlignment="Left"
                                Margin="0,0,0,0"></Image>
                         <Polygon Fill="#2af598"
-                                       Height="40"
-                                       Width="40"
-                                       Margin="-80,-20,0,0"
-                                       Panel.ZIndex="1"
-                                     Points="0,0 20,0 0,20">
+                                 Height="40"
+                                 Width="40"
+                                 Margin="-80,-20,0,0"
+                                 Panel.ZIndex="1"
+                                 Points="0,0 20,0 0,20">
                         </Polygon>
                         <StackPanel Orientation="Vertical"
-                                        Width="240"
-                                        Margin="10,0,0,0">
+                                    Width="240"
+                                    Margin="10,0,0,0">
                             <TextBlock Text="{Binding ListPopular[0].SongTitle}"
                                        Width="240" 
                                        Height="30"
@@ -206,7 +204,8 @@
                                        Foreground="#222222"
                                        FontSize="22"
                                        FontWeight="Bold"
-                                       TextTrimming="WordEllipsis" FontFamily="Arial Rounded MT Bold"/>
+                                       TextTrimming="WordEllipsis" 
+                                       FontFamily="Arial Rounded MT Bold"/>
                             <TextBlock Width="240" 
                                         Height="20"
                                         Margin="0,0,0,0"
@@ -217,19 +216,20 @@
                                         FontSize="14"
                                         FontWeight="DemiBold"
                                         TextTrimming="WordEllipsis"
-                                        Text="{Binding ListPopular[0].Album}" FontFamily="Segoe UI Semibold"></TextBlock>
+                                        Text="{Binding ListPopular[0].Album}"
+                                        FontFamily="Segoe UI Semibold"></TextBlock>
                         </StackPanel>
                     </StackPanel>
                     <Polygon Fill="#FF99CC"
-                                       Height="40"
-                                       Width="40"
-                                       Margin="260,0,0,-50"
-                                 Points="0,0 -20,0 0,-20">
+                             Height="40"
+                             Width="40"
+                             Margin="260,0,0,-50"
+                             Points="0,0 -20,0 0,-20">
                     </Polygon>
                     <Separator Background="#0099FF"
-                                   Width="auto"></Separator>
+                               Width="auto"></Separator>
                     <StackPanel Orientation="Horizontal"
-                                    materialDesign:ColorZoneAssist.Background="#333333">
+                                materialDesign:ColorZoneAssist.Background="#333333">
                         <Image Source="{Binding ListPopular[2].ImageSongBinary, Converter={StaticResource ByteToImageConverter}}"
                                Height="60"
                                Width="60"
@@ -238,15 +238,15 @@
                                HorizontalAlignment="Left"
                                Margin="0,0,0,0"></Image>
                         <Polygon Fill="#2af598"
-                                       Height="40"
-                                       Width="40"
-                                       Margin="-80,-20,0,0"
-                                       Panel.ZIndex="1"
-                                       Points="0,0 20,0 0,20">
+                                 Height="40"
+                                 Width="40"
+                                 Margin="-80,-20,0,0"
+                                 Panel.ZIndex="1"
+                                 Points="0,0 20,0 0,20">
                         </Polygon>
                         <StackPanel Orientation="Vertical"
-                                        Width="240"
-                                        Margin="10,0,0,0">
+                                    Width="240"
+                                    Margin="10,0,0,0">
                             <TextBlock Text="{Binding ListPopular[2].SongTitle}"
                                        Width="240" 
                                        Height="30"
@@ -257,30 +257,32 @@
                                        Foreground="#222222"
                                        FontSize="22"
                                        FontWeight="Bold"
-                                       TextTrimming="WordEllipsis" FontFamily="Arial Rounded MT Bold"/>
+                                       TextTrimming="WordEllipsis" 
+                                       FontFamily="Arial Rounded MT Bold"/>
                             <TextBlock Width="240" 
-                                        Height="20"
-                                        Margin="0,0,0,0"
-                                        TextAlignment="Left"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        Foreground="#FF707070"
-                                        FontSize="14"
-                                        FontWeight="DemiBold"
-                                        TextTrimming="WordEllipsis"
-                                        Text="{Binding ListPopular[2].Album}" FontFamily="Segoe UI Semibold"></TextBlock>
+                                       Height="20"
+                                       Margin="0,0,0,0"
+                                       TextAlignment="Left"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Foreground="#FF707070"
+                                       FontSize="14"
+                                       FontWeight="DemiBold"
+                                       TextTrimming="WordEllipsis"
+                                       Text="{Binding ListPopular[2].Album}" 
+                                       FontFamily="Segoe UI Semibold"></TextBlock>
                         </StackPanel>
                     </StackPanel>
                     <Polygon Fill="#FF99CC"
-                                       Height="40"
-                                       Width="40"
-                                 Points="0,0 -20,0 0,-20"
-                                       Margin="260,0,0,-50">
+                             Height="40"
+                             Width="40"
+                             Points="0,0 -20,0 0,-20"
+                             Margin="260,0,0,-50">
                     </Polygon>
                     <Separator Background="#0099FF"
-                                   Width="auto"></Separator>
+                               Width="auto"></Separator>
                     <StackPanel Orientation="Horizontal"
-                                    materialDesign:ColorZoneAssist.Background="#333333">
+                                materialDesign:ColorZoneAssist.Background="#333333">
                         <Image Source="{Binding ListPopular[4].ImageSongBinary, Converter={StaticResource ByteToImageConverter}}"
                                Height="60"
                                Width="60"
@@ -289,15 +291,15 @@
                                HorizontalAlignment="Left"
                                Margin="0,0,0,0"></Image>
                         <Polygon Fill="#2af598"
-                                       Height="40"
-                                       Width="40"
-                                       Margin="-80,-20,0,0"
-                                       Panel.ZIndex="1"
-                                     Points="0,0 20,0 0,20">
+                                 Height="40"
+                                 Width="40"
+                                 Margin="-80,-20,0,0"
+                                 Panel.ZIndex="1"
+                                 Points="0,0 20,0 0,20">
                         </Polygon>
                         <StackPanel Orientation="Vertical"
-                                        Width="240"
-                                        Margin="10,0,0,0">
+                                    Width="240"
+                                    Margin="10,0,0,0">
                             <TextBlock Text="{Binding ListPopular[4].SongTitle}"
                                        Width="240" 
                                        Height="30"
@@ -308,33 +310,35 @@
                                        Foreground="#222222"
                                        FontSize="22"
                                        FontWeight="Bold"
-                                       TextTrimming="WordEllipsis" FontFamily="Arial Rounded MT Bold"/>
+                                       TextTrimming="WordEllipsis" 
+                                       FontFamily="Arial Rounded MT Bold"/>
                             <TextBlock Width="240" 
-                                        Height="20"
-                                        Margin="0,0,0,0"
-                                        TextAlignment="Left"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        Foreground="#FF707070"
-                                        FontSize="14"
-                                        FontWeight="DemiBold"
-                                        TextTrimming="WordEllipsis"
-                                        Text="{Binding ListPopular[4].Album}" FontFamily="Segoe UI Semibold"></TextBlock>
+                                       Height="20"
+                                       Margin="0,0,0,0"
+                                       TextAlignment="Left"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Foreground="#FF707070"
+                                       FontSize="14"
+                                       FontWeight="DemiBold"
+                                       TextTrimming="WordEllipsis"
+                                       Text="{Binding ListPopular[4].Album}" 
+                                       FontFamily="Segoe UI Semibold"></TextBlock>
                         </StackPanel>
                     </StackPanel>
                     <Polygon Fill="#FF99CC"
-                                       Height="40"
-                                       Width="40"
-                                       Margin="260,0,0,-50"
-                                 Points="0,0 -20,0 0,-20">
+                             Height="40"
+                             Width="40"
+                             Margin="260,0,0,-50"
+                             Points="0,0 -20,0 0,-20">
                     </Polygon>
                     <Separator Background="#0099FF"
-                                   Width="auto"></Separator>
+                               Width="auto"></Separator>
                 </StackPanel>
                 <StackPanel Grid.Column="1"
-                                Width="300">
+                            Width="300">
                     <StackPanel Orientation="Horizontal"
-                                    materialDesign:ColorZoneAssist.Background="#333333">
+                                materialDesign:ColorZoneAssist.Background="#333333">
                         <Image Source="{Binding ListPopular[1].ImageSongBinary, Converter={StaticResource ByteToImageConverter}}"
                                Height="60"
                                Width="60"
@@ -343,15 +347,15 @@
                                HorizontalAlignment="Left"
                                Margin="0,0,0,0"></Image>
                         <Polygon Fill="#2af598"
-                                       Height="40"
-                                       Width="40"
-                                       Margin="-80,-20,0,0"
-                                       Panel.ZIndex="1"
-                                     Points="0,0 20,0 0,20">
+                                 Height="40"
+                                 Width="40"
+                                 Margin="-80,-20,0,0"
+                                 Panel.ZIndex="1"
+                                 Points="0,0 20,0 0,20">
                         </Polygon>
                         <StackPanel Orientation="Vertical"
-                                        Width="240"
-                                        Margin="10,0,0,0">
+                                    Width="240"
+                                    Margin="10,0,0,0">
                             <TextBlock Text="{Binding ListPopular[1].SongTitle}"
                                        Width="240" 
                                        Height="30"
@@ -362,28 +366,30 @@
                                        Foreground="#222222"
                                        FontSize="22"
                                        FontWeight="Bold"
-                                       TextTrimming="WordEllipsis" FontFamily="Arial Rounded MT Bold"/>
+                                       TextTrimming="WordEllipsis" 
+                                       FontFamily="Arial Rounded MT Bold"/>
                             <TextBlock Width="240" 
-                                        Height="20"
-                                        Margin="0,0,0,0"
-                                        TextAlignment="Left"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        Foreground="#FF707070"
-                                        FontSize="14"
-                                        FontWeight="DemiBold"
-                                        TextTrimming="WordEllipsis"
-                                        Text="{Binding ListPopular[1].Album}" FontFamily="Segoe UI Semibold"></TextBlock>
+                                       Height="20"
+                                       Margin="0,0,0,0"
+                                       TextAlignment="Left"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Foreground="#FF707070"
+                                       FontSize="14"
+                                       FontWeight="DemiBold"
+                                       TextTrimming="WordEllipsis"
+                                       Text="{Binding ListPopular[1].Album}" 
+                                       FontFamily="Segoe UI Semibold"></TextBlock>
                         </StackPanel>
                     </StackPanel>
                     <Polygon Fill="#FF99CC"
-                                       Height="40"
-                                       Width="40"
-                                       Margin="260,0,0,-50"
-                                 Points="0,0 -20,0 0,-20">
+                             Height="40"
+                             Width="40"
+                             Margin="260,0,0,-50"
+                             Points="0,0 -20,0 0,-20">
                     </Polygon>
                     <Separator Background="#0099FF"
-                                   Width="auto"></Separator>
+                               Width="auto"></Separator>
                     <StackPanel Orientation="Horizontal"
                                     materialDesign:ColorZoneAssist.Background="#333333">
                         <Image Source="{Binding ListPopular[3].ImageSongBinary, Converter={StaticResource ByteToImageConverter}}"
@@ -394,15 +400,15 @@
                                HorizontalAlignment="Left"
                                Margin="0,0,0,0"></Image>
                         <Polygon Fill="#2af598"
-                                       Height="40"
-                                       Width="40"
-                                       Margin="-80,-20,0,0"
-                                       Panel.ZIndex="1"
-                                     Points="0,0 20,0 0,20">
+                                 Height="40"
+                                 Width="40"
+                                 Margin="-80,-20,0,0"
+                                 Panel.ZIndex="1"
+                                 Points="0,0 20,0 0,20">
                         </Polygon>
                         <StackPanel Orientation="Vertical"
-                                        Width="240"
-                                        Margin="10,0,0,0">
+                                    Width="240"
+                                    Margin="10,0,0,0">
                             <TextBlock Text="{Binding ListPopular[3].SongTitle}"
                                        Width="240" 
                                        Height="30"
@@ -413,30 +419,32 @@
                                        Foreground="#222222"
                                        FontSize="22"
                                        FontWeight="Bold"
-                                       TextTrimming="WordEllipsis" FontFamily="Arial Rounded MT Bold"/>
+                                       TextTrimming="WordEllipsis" 
+                                       FontFamily="Arial Rounded MT Bold"/>
                             <TextBlock Width="240" 
-                                        Height="20"
-                                        Margin="0,0,0,0"
-                                        TextAlignment="Left"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        Foreground="#FF707070"
-                                        FontSize="14"
-                                        FontWeight="DemiBold"
-                                        TextTrimming="WordEllipsis"
-                                        Text="{Binding ListPopular[3].Album}" FontFamily="Segoe UI Semibold"></TextBlock>
+                                       Height="20"
+                                       Margin="0,0,0,0"
+                                       TextAlignment="Left"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Foreground="#FF707070"
+                                       FontSize="14"
+                                       FontWeight="DemiBold"
+                                       TextTrimming="WordEllipsis"
+                                       Text="{Binding ListPopular[3].Album}" 
+                                       FontFamily="Segoe UI Semibold"></TextBlock>
                         </StackPanel>
                     </StackPanel>
                     <Polygon Fill="#FF99CC"
-                                       Height="40"
-                                       Width="40"
-                                       Margin="260,0,0,-50"
-                                 Points="0,0 -20,0 0,-20">
+                             Height="40"
+                             Width="40"
+                             Margin="260,0,0,-50"
+                             Points="0,0 -20,0 0,-20">
                     </Polygon>
                     <Separator Background="#0099FF"
-                                   Width="auto"></Separator>
+                               Width="auto"></Separator>
                     <StackPanel Orientation="Horizontal"
-                                    materialDesign:ColorZoneAssist.Background="#333333">
+                                materialDesign:ColorZoneAssist.Background="#333333">
                         <Image Source="{Binding ListPopular[5].ImageSongBinary, Converter={StaticResource ByteToImageConverter}}"
                                Height="60"
                                Width="60"
@@ -445,15 +453,15 @@
                                HorizontalAlignment="Left"
                                Margin="0,0,0,0"></Image>
                         <Polygon Fill="#2af598"
-                                       Height="40"
-                                       Width="40"
-                                       Margin="-80,-20,0,0"
-                                       Panel.ZIndex="1"
-                                     Points="0,0 20,0 0,20">
+                                 Height="40"
+                                 Width="40"
+                                 Margin="-80,-20,0,0"
+                                 Panel.ZIndex="1"
+                                 Points="0,0 20,0 0,20">
                         </Polygon>
                         <StackPanel Orientation="Vertical"
-                                        Width="240"
-                                        Margin="10,0,0,0">
+                                    Width="240"
+                                    Margin="10,0,0,0">
                             <TextBlock Text="{Binding ListPopular[5].SongTitle}"
                                        Width="240" 
                                        Height="30"
@@ -464,50 +472,53 @@
                                        Foreground="#222222"
                                        FontSize="22"
                                        FontWeight="Bold"
-                                       TextTrimming="WordEllipsis" FontFamily="Arial Rounded MT Bold"/>
+                                       TextTrimming="WordEllipsis" 
+                                       FontFamily="Arial Rounded MT Bold"/>
                             <TextBlock Width="240" 
-                                        Height="20"
-                                        Margin="0,0,0,0"
-                                        TextAlignment="Left"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        Foreground="#FF707070"
-                                        FontSize="14"
-                                        FontWeight="DemiBold"
-                                        TextTrimming="WordEllipsis"
-                                        Text="{Binding ListPopular[5].Album}" FontFamily="Segoe UI Semibold"></TextBlock>
+                                       Height="20"
+                                       Margin="0,0,0,0"
+                                       TextAlignment="Left"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Foreground="#FF707070"
+                                       FontSize="14"
+                                       FontWeight="DemiBold"
+                                       TextTrimming="WordEllipsis"
+                                       Text="{Binding ListPopular[5].Album}" 
+                                       FontFamily="Segoe UI Semibold"></TextBlock>
                         </StackPanel>
                     </StackPanel>
                     <Polygon Fill="#FF99CC"
-                                       Height="40"
-                                       Width="40"
-                                       Margin="260,0,0,-50"
-                                 Points="0,0 -20,0 0,-20">
+                             Height="40"
+                             Width="40"
+                             Margin="260,0,0,-50"
+                             Points="0,0 -20,0 0,-20">
                     </Polygon>
                     <Separator Background="#0099FF"
-                                   Width="auto"></Separator>
+                               Width="auto"></Separator>
                 </StackPanel>
             </Grid>
             <StackPanel Margin="0,-50,0,0">
-                <TextBlock Text="Musical Composition"
-                               Foreground="#333333"
-                               FontSize="28"
-                               FontWeight="Medium"
-                               Margin="20,-50,0,50"
-                               Height="50" FontFamily="Segoe UI Semibold"/>
+                <TextBlock  Text="Musical Composition"
+                            Foreground="#333333"
+                            FontSize="28"
+                            FontWeight="Medium"
+                            Margin="20,-50,0,50"
+                            Height="50" 
+                            FontFamily="Segoe UI Semibold"/>
                 <ScrollViewer HorizontalScrollBarVisibility="Disabled"
-                                  VerticalScrollBarVisibility="Auto"
-                                  Margin="0,-50,0,0">
+                              VerticalScrollBarVisibility="Auto"
+                              Margin="0,-50,0,0">
                     <DataGrid 
-                  x:Name="CompositionList"
-                  Height="350"
-                  Width="950"
-                  Margin="0,0,0,0"
-                  ItemsSource="{Binding ListSong}"
-                  SelectedItem="{Binding SelectedItem}"
-                  Style="{StaticResource DataGridStyle1}"  
-                  CellStyle="{StaticResource DataGridCellStyle1}" 
-                  RowStyle="{StaticResource DataGridRowStyle1}">
+                              x:Name="CompositionList"
+                              Height="350"
+                              Width="950"
+                              Margin="0,0,0,0"
+                              ItemsSource="{Binding ListSong}"
+                              SelectedItem="{Binding SelectedItem}"
+                              Style="{StaticResource DataGridStyle1}"  
+                              CellStyle="{StaticResource DataGridCellStyle1}" 
+                              RowStyle="{StaticResource DataGridRowStyle1}">
                         <DataGrid.Columns>
                             <DataGridTemplateColumn Width="900">
                                 <DataGridTemplateColumn.CellTemplate>
@@ -520,62 +531,61 @@
                                                     HorizontalAlignment="Center">
                                                 <Grid>
                                                     <Border CornerRadius="5"
-                                                        Width="40"
-                                                        Height="50"
-                                                        x:Name="mask">
+                                                            Width="40"
+                                                            Height="50"
+                                                            x:Name="mask">
                                                         <Border.Background>
                                                             <ImageBrush Stretch="UniformToFill"
-                                                                    ImageSource="{Binding ImageSongBinary, Converter={StaticResource ByteToImageConverter}}">
+                                                                        ImageSource="{Binding ImageSongBinary, Converter={StaticResource ByteToImageConverter}}">
                                                             </ImageBrush>
                                                         </Border.Background>
                                                     </Border>
                                                 </Grid>
                                             </Border>
                                             <TextBlock Text="{Binding SongTitle}"
-                                                        Width="200"
-                                                        FontSize="14"
-                                                        FontWeight="Bold"
-                                                        FontFamily="Segoe UI Semibold"
-                                                        Margin="20,0,0,0"
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center"
-                                                        TextTrimming="WordEllipsis"
-                                                        >
+                                                       Width="200"
+                                                       FontSize="14"
+                                                       FontWeight="Bold"
+                                                       FontFamily="Segoe UI Semibold"
+                                                       Margin="20,0,0,0"
+                                                       VerticalAlignment="Center"
+                                                       HorizontalAlignment="Center"
+                                                       TextTrimming="WordEllipsis">
                                             </TextBlock>
                                             <TextBlock Text="{Binding Artist}"
-                                                        Width="200"
-                                                        FontSize="12"
-                                                        Margin="0,5,0,0"
-                                                        FontWeight="Medium"
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center"
-                                                        TextTrimming="WordEllipsis"
+                                                       Width="200"
+                                                       FontSize="12"
+                                                       Margin="0,5,0,0"
+                                                       FontWeight="Medium"
+                                                       VerticalAlignment="Center"
+                                                       HorizontalAlignment="Center"
+                                                       TextTrimming="WordEllipsis"
                                                         ></TextBlock>
                                             <TextBlock Text="{Binding Album}"
-                                                        Width="200"
-                                                        FontSize="12"
-                                                        Margin="0,5,0,0"
-                                                        FontWeight="Medium"
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center"
-                                                        TextTrimming="WordEllipsis"
+                                                       Width="200"
+                                                       FontSize="12"
+                                                       Margin="0,5,0,0"
+                                                       FontWeight="Medium"
+                                                       VerticalAlignment="Center"
+                                                       HorizontalAlignment="Center"
+                                                       TextTrimming="WordEllipsis"
                                                         ></TextBlock>
                                             <TextBlock Text="{Binding Genre}"
-                                                        Width="150"
-                                                        FontSize="12"
-                                                        Margin="0,5,0,0"
-                                                        FontWeight="Medium"
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center"
-                                                        TextTrimming="WordEllipsis"
+                                                       Width="150"
+                                                       FontSize="12"
+                                                       Margin="0,5,0,0"
+                                                       FontWeight="Medium"
+                                                       VerticalAlignment="Center"
+                                                       HorizontalAlignment="Center"
+                                                       TextTrimming="WordEllipsis"
                                                         ></TextBlock>
                                             <TextBlock Text="{Binding HowLong}"
-                                                           Width="80"
-                                                           FontSize="12"
-                                                           Margin="0,8,0,0"
-                                                           HorizontalAlignment="Center"
-                                                           VerticalAlignment="Center"
-                                                           FontWeight="Medium"
+                                                       Width="80"
+                                                       FontSize="12"
+                                                       Margin="0,8,0,0"
+                                                       HorizontalAlignment="Center"
+                                                       VerticalAlignment="Center"
+                                                       FontWeight="Medium"
                                                            ></TextBlock>
                                         </StackPanel>
                                     </DataTemplate>

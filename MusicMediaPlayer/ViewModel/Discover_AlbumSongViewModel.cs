@@ -83,9 +83,9 @@ namespace MusicMediaPlayer.ViewModel
                             mediaPlayer1.Stop();
                         }
                         MediaPlayerIsPlaying1 = false;
-                        if (mediaPlayer3 != null)
+                        if (mediaPlayer2 != null)
                         {
-                            mediaPlayer3.Stop();
+                            mediaPlayer2.Stop();
                         }
                         MediaPlayerIsPlaying2 = false;
                         if (mediaPlayer4 != null)
