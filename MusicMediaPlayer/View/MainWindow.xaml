@@ -479,10 +479,10 @@
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal"
-                                        Margin="380,0,0,0" 
+                                        Margin="350,0,0,0" 
                                         Width="652"
                                         Panel.ZIndex="2">
-                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.4}">
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.3}">
 
                                     <Button
                                               Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
@@ -500,8 +500,8 @@
                                                                 Width="24" />
                                     </Button>
                                 </materialDesign:TransitioningContent>
-
-                                <ToggleButton
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.4}">
+                                    <ToggleButton
                                             x:Name="RandomLoop"
                                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                             IsChecked="False"
@@ -509,12 +509,13 @@
                                             Background="#0099FF"
                                             Command="{Binding Source={StaticResource SongVM},Path=ShuffleVariant}"
                                             CommandParameter="{Binding ElementName=Main}">
-                                    <materialDesign:PackIcon
+                                        <materialDesign:PackIcon
                                                 Kind="ShuffleVariant"
                                                 Height="21"
                                                 Width="21"
                                                 Foreground="#444444"/>
-                                </ToggleButton>
+                                    </ToggleButton>
+                                </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.5}">
                                     <Button
                                               x:Name="SkipPreviousbtn"
@@ -598,6 +599,23 @@
                                                                 Height="21"
                                                                 Width="21" />
                                     </ToggleButton>
+                                </materialDesign:TransitioningContent>
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:1.1}">
+                                    <Button
+                                              Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                              Height="35"
+                                              Width="35"
+                                              Margin="0,0,0,0"
+                                              Foreground="#444444"
+                                              Background="Transparent"
+                                              BorderBrush="Transparent"
+                                              Command="{Binding Source={StaticResource MVApp},Path=BackBegin}"
+                                              CommandParameter="{Binding ElementName=Main}">
+                                        <materialDesign:PackIcon
+                                                                Kind="AppleMobileme"
+                                                                Height="24"
+                                                                Width="24" />
+                                    </Button>
                                 </materialDesign:TransitioningContent>
                             </StackPanel>
                         </Grid>
@@ -771,7 +789,7 @@
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal"
-                                        Margin="380,0,0,0" 
+                                        Margin="350,0,0,0" 
                                         Width="652"
                                         Panel.ZIndex="2">
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.4}">
@@ -792,8 +810,8 @@
                                                                     Width="24" />
                                     </Button>
                                 </materialDesign:TransitioningContent>
-
-                                <ToggleButton
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.5}">
+                                    <ToggleButton
                                             x:Name="RandomLoop1"
                                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                             IsChecked="False"
@@ -801,13 +819,14 @@
                                             Background="#0099FF"
                                             Command="{Binding Source={StaticResource PlayList_InsideVM},Path=ShuffleVariant}"
                                             CommandParameter="{Binding ElementName=Main}">
-                                    <materialDesign:PackIcon
+                                        <materialDesign:PackIcon
                                                         Kind="ShuffleVariant"
                                                         Height="21"
                                                         Width="21"
                                                         Foreground="#444444"/>
-                                </ToggleButton>
-                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.5}">
+                                    </ToggleButton>
+                                </materialDesign:TransitioningContent>
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.6}">
                                     <Button
                                               x:Name="SkipPreviousbtn1"
                                               Command="{Binding Source={StaticResource PlayList_InsideVM}, Path=SkipPrevious}"
@@ -819,7 +838,7 @@
                                               IsEnabled="False"
                                               BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
-                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.6}">
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.7}">
                                     <ToggleButton
                                                   x:Name="Play1"
                                                   Command="{Binding Source={StaticResource PlayList_InsideVM},Path= Play}"  
@@ -832,7 +851,7 @@
                                                   BorderBrush="Transparent"
                                                   IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
-                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.7}">
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.8}">
                                     <ToggleButton
                                                   x:Name="Pause1"
                                                   Command="{Binding Source={StaticResource PlayList_InsideVM},Path= Pause}"
@@ -846,7 +865,7 @@
                                                   BorderBrush="Transparent"
                                                   IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
-                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.8}">
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.9}">
                                     <Button
                                               x:Name="SkipNextbtn1"     
                                               Command="{Binding Source={StaticResource PlayList_InsideVM},Path= SkipNext}"
@@ -857,7 +876,7 @@
                                               Foreground="#444444"
                                               BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
-                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.9}">
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:1}">
                                     <ToggleButton
                                             x:Name="SequencecyLoop1"
                                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
@@ -874,7 +893,7 @@
                                                                 Width="21" />
                                     </ToggleButton>
                                 </materialDesign:TransitioningContent>
-                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:1}">
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:1.1}">
 
                                     <ToggleButton
                                                     x:Name="OneLoop1"
@@ -890,6 +909,23 @@
                                                                 Height="21"
                                                                 Width="21" />
                                     </ToggleButton>
+                                </materialDesign:TransitioningContent>
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:1.2}">
+                                    <Button
+                                              Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                              Height="35"
+                                              Width="35"
+                                              Margin="0,0,0,0"
+                                              Foreground="#444444"
+                                              Background="Transparent"
+                                              BorderBrush="Transparent"
+                                              Command="{Binding Source={StaticResource MVApp},Path=BackBegin}"
+                                              CommandParameter="{Binding ElementName=Main}">
+                                        <materialDesign:PackIcon
+                                                                Kind="AppleMobileme"
+                                                                Height="24"
+                                                                Width="24" />
+                                    </Button>
                                 </materialDesign:TransitioningContent>
                             </StackPanel>
                         </Grid>
@@ -1082,8 +1118,8 @@
                                                             Width="24" />
                                     </Button>
                                 </materialDesign:TransitioningContent>
-
-                                <ToggleButton
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.5}">
+                                    <ToggleButton
                                             x:Name="RandomLoop2"
                                             Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                             IsChecked="False"
@@ -1091,13 +1127,14 @@
                                             Background="#0099FF"
                                             Command="{Binding Source={StaticResource ArtistSongVM},Path=ShuffleVariant}"
                                             CommandParameter="{Binding ElementName=Main}">
-                                    <materialDesign:PackIcon
+                                        <materialDesign:PackIcon
                                                             Kind="ShuffleVariant"
                                                             Height="21"
                                                             Width="21"
                                                             Foreground="#444444"/>
-                                </ToggleButton>
-                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.5}">
+                                    </ToggleButton>
+                                </materialDesign:TransitioningContent>
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.6}">
                                     <Button
                                               x:Name="SkipPreviousbtn2"
                                               Command="{Binding Source={StaticResource ArtistSongVM}, Path=SkipPrevious}"
@@ -1109,7 +1146,7 @@
                                               IsEnabled="False"
                                               BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
-                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.6}">
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.7}">
                                     <ToggleButton
                                                   x:Name="Play2"
                                                   Command="{Binding Source={StaticResource ArtistSongVM},Path= Play}"  
@@ -1122,7 +1159,7 @@
                                                   BorderBrush="Transparent"
                                                   IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
-                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.7}">
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.8}">
                                     <ToggleButton
                                                   x:Name="Pause2"
                                                   Command="{Binding Source={StaticResource ArtistSongVM},Path= Pause}"
@@ -1136,7 +1173,7 @@
                                                   BorderBrush="Transparent"
                                                   IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
-                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.8}">
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.9}">
                                     <Button
                                               x:Name="SkipNextbtn2"     
                                               Command="{Binding Source={StaticResource ArtistSongVM},Path= SkipNext}"
@@ -1147,7 +1184,7 @@
                                               Foreground="#444444"
                                               BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
-                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.9}">
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:1}">
                                     <ToggleButton
                                                     x:Name="SequencecyLoop2"
                                                     Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
@@ -1163,7 +1200,7 @@
                                                                 Width="21" />
                                     </ToggleButton>
                                 </materialDesign:TransitioningContent>
-                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:1}">
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:1.1}">
 
                                     <ToggleButton
                                                     x:Name="OneLoop2"
@@ -1179,6 +1216,23 @@
                                                                 Height="21"
                                                                 Width="21" />
                                     </ToggleButton>
+                                </materialDesign:TransitioningContent>
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:1.2}">
+                                    <Button
+                                              Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                              Height="35"
+                                              Width="35"
+                                              Margin="0,0,0,0"
+                                              Foreground="#444444"
+                                              Background="Transparent"
+                                              BorderBrush="Transparent"
+                                              Command="{Binding Source={StaticResource MVApp},Path=BackBegin}"
+                                              CommandParameter="{Binding ElementName=Main}">
+                                        <materialDesign:PackIcon
+                                                                Kind="AppleMobileme"
+                                                                Height="24"
+                                                                Width="24" />
+                                    </Button>
                                 </materialDesign:TransitioningContent>
                             </StackPanel>
                         </Grid>
@@ -1351,7 +1405,7 @@
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal"
-                                        Margin="380,0,0,0" 
+                                        Margin="350,0,0,0" 
                                         Width="652"
                                         Panel.ZIndex="2">
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.4}">
@@ -1372,8 +1426,8 @@
                                                                 Width="24" />
                                     </Button>
                                 </materialDesign:TransitioningContent>
-
-                                <ToggleButton
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.5}">
+                                    <ToggleButton
                                                 x:Name="RandomLoop3"
                                                 Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                                 IsChecked="False"
@@ -1381,13 +1435,14 @@
                                                 Background="#0099FF"
                                                 Command="{Binding Source={StaticResource AlbumSongVM},Path=ShuffleVariant}"
                                                 CommandParameter="{Binding ElementName=Main}">
-                                    <materialDesign:PackIcon
+                                        <materialDesign:PackIcon
                                                 Kind="ShuffleVariant"
                                                 Height="21"
                                                 Width="21"
                                                 Foreground="#444444"/>
-                                </ToggleButton>
-                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.5}">
+                                    </ToggleButton>
+                                </materialDesign:TransitioningContent>
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.6}">
                                     <Button
                                               x:Name="SkipPreviousbtn3"
                                               Command="{Binding Source={StaticResource AlbumSongVM}, Path=SkipPrevious}"
@@ -1399,7 +1454,7 @@
                                               IsEnabled="False"
                                               BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
-                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.6}">
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.7}">
                                     <ToggleButton
                                               x:Name="Play3"
                                               Command="{Binding Source={StaticResource AlbumSongVM},Path= Play}"  
@@ -1412,7 +1467,7 @@
                                               BorderBrush="Transparent"
                                               IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
-                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.7}">
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.8}">
                                     <ToggleButton
                                               x:Name="Pause3"
                                               Command="{Binding Source={StaticResource AlbumSongVM},Path= Pause}"
@@ -1426,7 +1481,7 @@
                                               BorderBrush="Transparent"
                                               IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
-                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.8}">
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.9}">
                                     <Button
                                               x:Name="SkipNextbtn3"     
                                               Command="{Binding Source={StaticResource AlbumSongVM},Path= SkipNext}"
@@ -1437,7 +1492,7 @@
                                               Foreground="#444444"
                                               BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
-                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.9}">
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:1}">
                                     <ToggleButton
                                                     x:Name="SequencecyLoop3"
                                                     Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
@@ -1453,7 +1508,7 @@
                                                 Width="21" />
                                     </ToggleButton>
                                 </materialDesign:TransitioningContent>
-                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:1}">
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:1.1}">
 
                                     <ToggleButton
                                                     x:Name="OneLoop3"
@@ -1469,6 +1524,23 @@
                                                                 Height="21"
                                                                 Width="21" />
                                     </ToggleButton>
+                                </materialDesign:TransitioningContent>
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:1.2}">
+                                    <Button
+                                              Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                              Height="35"
+                                              Width="35"
+                                              Margin="0,0,0,0"
+                                              Foreground="#444444"
+                                              Background="Transparent"
+                                              BorderBrush="Transparent"
+                                              Command="{Binding Source={StaticResource MVApp},Path=BackBegin}"
+                                              CommandParameter="{Binding ElementName=Main}">
+                                        <materialDesign:PackIcon
+                                                                Kind="AppleMobileme"
+                                                                Height="24"
+                                                                Width="24" />
+                                    </Button>
                                 </materialDesign:TransitioningContent>
                             </StackPanel>
                         </Grid>
@@ -1641,7 +1713,7 @@
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal"
-                                        Margin="380,0,0,0" 
+                                        Margin="350,0,0,0" 
                                         Width="652"
                                         Panel.ZIndex="2">
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.4}">
@@ -1662,8 +1734,8 @@
                                                                     Width="24" />
                                     </Button>
                                 </materialDesign:TransitioningContent>
-
-                                <ToggleButton
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.5}">
+                                    <ToggleButton
                                                 x:Name="RandomLoop4"
                                                 Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                                                 IsChecked="False"
@@ -1671,13 +1743,14 @@
                                                 Background="#0099FF"
                                                 Command="{Binding Source={StaticResource GenreSongVM},Path=ShuffleVariant}"
                                                 CommandParameter="{Binding ElementName=Main}">
-                                    <materialDesign:PackIcon
+                                        <materialDesign:PackIcon
                                                             Kind="ShuffleVariant"
                                                             Height="21"
                                                             Width="21"
                                                             Foreground="#444444"/>
-                                </ToggleButton>
-                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.5}">
+                                    </ToggleButton>
+                                </materialDesign:TransitioningContent>
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.6}">
                                     <Button
                                               x:Name="SkipPreviousbtn4"
                                               Command="{Binding Source={StaticResource GenreSongVM}, Path=SkipPrevious}"
@@ -1689,7 +1762,7 @@
                                               IsEnabled="False"
                                               BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
-                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.6}">
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.7}">
                                     <ToggleButton
                                                   x:Name="Play4"
                                                   Command="{Binding Source={StaticResource GenreSongVM},Path= Play}"  
@@ -1702,7 +1775,7 @@
                                                   BorderBrush="Transparent"
                                                   IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
-                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.7}">
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.8}">
                                     <ToggleButton
                                                   x:Name="Pause4"
                                                   Command="{Binding Source={StaticResource GenreSongVM},Path= Pause}"
@@ -1716,7 +1789,7 @@
                                                   BorderBrush="Transparent"
                                                   IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
-                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.8}">
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.9}">
                                     <Button
                                               x:Name="SkipNextbtn4"     
                                               Command="{Binding Source={StaticResource GenreSongVM},Path= SkipNext}"
@@ -1727,7 +1800,7 @@
                                               Foreground="#444444"
                                               BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
-                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.9}">
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:1}">
                                     <ToggleButton
                                                     x:Name="SequencecyLoop4"
                                                     Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
@@ -1743,7 +1816,7 @@
                                                                 Width="21" />
                                     </ToggleButton>
                                 </materialDesign:TransitioningContent>
-                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:1}">
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:1.1}">
 
                                     <ToggleButton
                                                     x:Name="OneLoop4"
@@ -1759,6 +1832,23 @@
                                                                     Height="21"
                                                                     Width="21" />
                                     </ToggleButton>
+                                </materialDesign:TransitioningContent>
+                                <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:1.2}">
+                                    <Button
+                                              Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                              Height="35"
+                                              Width="35"
+                                              Margin="0,0,0,0"
+                                              Foreground="#444444"
+                                              Background="Transparent"
+                                              BorderBrush="Transparent"
+                                              Command="{Binding Source={StaticResource MVApp},Path=BackBegin}"
+                                              CommandParameter="{Binding ElementName=Main}">
+                                        <materialDesign:PackIcon
+                                                                Kind="AppleMobileme"
+                                                                Height="24"
+                                                                Width="24" />
+                                    </Button>
                                 </materialDesign:TransitioningContent>
                             </StackPanel>
                         </Grid>

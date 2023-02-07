@@ -1123,9 +1123,7 @@ namespace MusicMediaPlayer.ViewModel
                     MySongWindow.CDCircle.IsExpanded = false;
                 }
             });
-
-
-
+           
 
         }
         public void Load()

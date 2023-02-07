@@ -48,6 +48,7 @@ namespace MusicMediaPlayer.ViewModel
         public Genre GenreChanging { get => _GenreChanging; set => _GenreChanging = value; }
 
         public Discover_Genre GenreWindow { get; set; }
+        public Discover_GenreSong GenreSongWindow { get; set; }
 
         public CurrentUserAccountModel CurrentUser { get; set; }
         public ICommand LoadData { get; set; }
@@ -192,8 +193,8 @@ namespace MusicMediaPlayer.ViewModel
             Explore = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 Genre item = p as Genre;
-                Discover_GenreSong window = new Discover_GenreSong();
-                var windowData = window.DataContext as Discover_GenreSongViewModel;
+                GenreSongWindow = new Discover_GenreSong();
+                var windowData = GenreSongWindow.DataContext as Discover_GenreSongViewModel;
                 windowData.CurrentUser = CurrentUser;
                 windowData.CurrentGenre = item;
 
@@ -206,8 +207,8 @@ namespace MusicMediaPlayer.ViewModel
                 bitmap.EndInit();
                 imageBrush.ImageSource = bitmap;
                 imageBrush.Stretch = Stretch.UniformToFill;
-                window.GenreFrame.Background = imageBrush;
-                window.NameGenre.Text = item.GenreName;            
+                GenreSongWindow.GenreFrame.Background = imageBrush;
+                GenreSongWindow.NameGenre.Text = item.GenreName;            
 
                 //passing parameter
                 windowData.SkipNextbtn = SkipNextbtn;
@@ -245,7 +246,7 @@ namespace MusicMediaPlayer.ViewModel
                 windowData.MediaPlayerIsPlaying2 = MediaPlayerIsPlaying2;
                 windowData.MediaPlayerIsPlaying3 = MediaPlayerIsPlaying3;
                 windowData.MediaPlayerIsPlaying4 = MediaPlayerIsPlaying4;
-                GenreWindow.NavigationService.Navigate(window);
+                GenreWindow.NavigationService.Navigate(GenreSongWindow);
             });
         }
         public void LoadAll()

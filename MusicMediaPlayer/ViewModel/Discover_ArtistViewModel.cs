@@ -64,6 +64,7 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand Explore { get; set; }
 
         //Passing parameter
+        public Discover_ArtistSong ArtistSongWindow { get; set; }
         public Button SkipPreviousbtn { get; set; }
         public Button SkipNextbtn { get; set; }
         public ToggleButton Playbtn { get; set; }
@@ -202,8 +203,8 @@ namespace MusicMediaPlayer.ViewModel
             Explore = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 Artist item = p as Artist;
-                Discover_ArtistSong window = new Discover_ArtistSong();
-                var windowData = window.DataContext as Discover_ArtistSongViewModel;
+                ArtistSongWindow = new Discover_ArtistSong();
+                var windowData = ArtistSongWindow.DataContext as Discover_ArtistSongViewModel;
                 windowData.CurrentUser = CurrentUser;
                 windowData.CurrentArtist = item;
 
@@ -216,9 +217,9 @@ namespace MusicMediaPlayer.ViewModel
                 bitmap.EndInit();
                 imageBrush.ImageSource = bitmap;
                 imageBrush.Stretch = Stretch.UniformToFill;
-                window.ArtistFrame.Background = imageBrush;
-                window.NameArtist.Text = item.ArtistName;
-                window.Stream.Text = item.Streams.ToString();
+                ArtistSongWindow.ArtistFrame.Background = imageBrush;
+                ArtistSongWindow.NameArtist.Text = item.ArtistName;
+                ArtistSongWindow.Stream.Text = item.Streams.ToString();
                 
 
                 //passing parameter
@@ -257,7 +258,7 @@ namespace MusicMediaPlayer.ViewModel
                 windowData.MediaPlayerIsPlaying2 = MediaPlayerIsPlaying2;
                 windowData.MediaPlayerIsPlaying3 = MediaPlayerIsPlaying3;
                 windowData.MediaPlayerIsPlaying4 = MediaPlayerIsPlaying4;
-                ArtistWindow.NavigationService.Navigate(window);
+                ArtistWindow.NavigationService.Navigate(ArtistSongWindow);
             });
         }
         public void LoadAll()

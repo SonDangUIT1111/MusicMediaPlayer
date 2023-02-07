@@ -191,8 +191,8 @@ namespace MusicMediaPlayer.ViewModel
             Explore = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 Album item = p as Album;
-                Discover_AlbumSong window = new Discover_AlbumSong();
-                var windowData = window.DataContext as Discover_AlbumSongViewModel;
+                AlbumSongWindow = new Discover_AlbumSong();
+                var windowData = AlbumSongWindow.DataContext as Discover_AlbumSongViewModel;
                 windowData.CurrentUser = CurrentUser;
                 windowData.CurrentAlbum = item;
 
@@ -205,9 +205,9 @@ namespace MusicMediaPlayer.ViewModel
                 bitmap.EndInit();
                 imageBrush.ImageSource = bitmap;
                 imageBrush.Stretch = Stretch.UniformToFill;
-                window.AlbumFrame.Background = imageBrush;
-                window.NameAlbum.Text = item.AlbumName;
-                window.Composer.Text = item.Composer.ToString();
+                AlbumSongWindow.AlbumFrame.Background = imageBrush;
+                AlbumSongWindow.NameAlbum.Text = item.AlbumName;
+                AlbumSongWindow.Composer.Text = item.Composer.ToString();
                
                 //passing parameter
                 windowData.SkipNextbtn = SkipNextbtn;
@@ -245,7 +245,7 @@ namespace MusicMediaPlayer.ViewModel
                 windowData.MediaPlayerIsPlaying2 = MediaPlayerIsPlaying2;
                 windowData.MediaPlayerIsPlaying3 = MediaPlayerIsPlaying3;
                 windowData.MediaPlayerIsPlaying4 = MediaPlayerIsPlaying4;
-                AlbumWindow.NavigationService.Navigate(window);
+                AlbumWindow.NavigationService.Navigate(AlbumSongWindow);
             });
         }
         public void LoadAll()

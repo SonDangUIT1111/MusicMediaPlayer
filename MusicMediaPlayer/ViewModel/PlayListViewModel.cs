@@ -57,6 +57,7 @@ namespace MusicMediaPlayer.ViewModel
         public MusicMediaPlayer.Model.PlayList ItemDoubleClick { get => _ItemDoubleClick; set { _ItemDoubleClick = value; OnPropertyChanged(); } }
 
         public View.PlayList page;
+        public PlayList_Inside PlayListInsideWindow;
 
         public bool IsSort = false;
 
@@ -214,9 +215,9 @@ namespace MusicMediaPlayer.ViewModel
 
             MouseDoubleClick = new RelayCommand<Model.PlayList>((p) => { return true; }, (p) =>
             {
-                PlayList_Inside wd = new PlayList_Inside();
+                PlayListInsideWindow = new PlayList_Inside();
 
-                var trang = wd.DataContext as PlayList_InsideViewModel;
+                var trang = PlayListInsideWindow.DataContext as PlayList_InsideViewModel;
                 trang.pl = p as Model.PlayList;
                 trang.page_PlayList = page;
                 trang.CurrentUser = CurrentUser;
@@ -253,11 +254,11 @@ namespace MusicMediaPlayer.ViewModel
                 trang.MediaPlayerIsPlaying2 = MediaPlayerIsPlaying2;
                 trang.MediaPlayerIsPlaying3 = MediaPlayerIsPlaying3;
                 trang.MediaPlayerIsPlaying4 = MediaPlayerIsPlaying4;
-                PlayInvisible1 = wd.Play;
-                PauseInvisible1 = wd.Pause;
+                PlayInvisible1 = PlayListInsideWindow.Play;
+                PauseInvisible1 = PlayListInsideWindow.Pause;
                 trang.PlayInvisible1 = PlayInvisible1;
                 trang.PauseInvisible1 = PauseInvisible1;
-                page.NavigationService.Navigate(wd);
+                page.NavigationService.Navigate(PlayListInsideWindow);
             }
             );
 

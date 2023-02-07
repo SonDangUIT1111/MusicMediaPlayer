@@ -30,9 +30,9 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand SwitchAlbum { get; set; }
         public ICommand SwitchGenre { get; set; }
         public ICommand BackPiano { get; set; }
-        public ICommand BackHome { get; set; }
         public ICommand EnterProgress { get; set; }
         public ICommand LeaveProgress { get; set; }
+        public ICommand BackBegin { get; set; }
 
         public ICommand Logoutcommand { get; set; }
         //view model
@@ -330,10 +330,6 @@ namespace MusicMediaPlayer.ViewModel
             {
                 p.Content = GenrePage;
             });
-            BackHome = new RelayCommand<object>((p) => { return true; }, (p) =>
-            {
-                mainWindow.FrameView.Content = HomePage;
-            });
             EnterProgress = new RelayCommand<Slider>((p) => { return true; }, (p) =>
             {
                 p.Focus();
@@ -341,6 +337,96 @@ namespace MusicMediaPlayer.ViewModel
             LeaveProgress = new RelayCommand<Button>((p) => { return true; }, (p) =>
             {
                 p.Focus();
+            });
+            BackBegin = new RelayCommand<MainWindow>((p) => { return true; }, (p) =>
+            {
+                if (MySongData.MySongWindow != null)
+                {
+                    MySongData.MySongWindow.TopTrendExpander.IsExpanded = true;
+                    MySongData.MySongWindow.CDCircle.IsExpanded = false;
+                    MySongData.CanChangeTOP_CD = !MySongData.CanChangeTOP_CD;
+                }
+                if (MySongData.mediaPlayer != null)
+                {
+                    MySongData.mediaPlayer.Stop();
+                }
+                MySongData.MediaPlayerIsPlaying = false;
+                if (PlayListData.mediaPlayer1 != null)
+                {
+                    PlayListData.mediaPlayer1.Stop();
+                }
+                PlayListData.MediaPlayerIsPlaying1 = false;
+                if (ArtistData.mediaPlayer2 != null)
+                {
+                    ArtistData.mediaPlayer2.Stop();
+                }
+                ArtistData.MediaPlayerIsPlaying2 = false;
+                if (AlbumData.mediaPlayer3 != null)
+                {
+                    AlbumData.mediaPlayer3.Stop();
+                }
+                AlbumData.MediaPlayerIsPlaying3 = false;
+                if (GenreData.mediaPlayer4 != null)
+                {
+                    GenreData.mediaPlayer4.Stop();
+                }
+                GenreData.MediaPlayerIsPlaying4 = false;
+                //sync with playlist
+                if (PlayListData.PlayListInsideWindow != null && PlayListData.PlayListInsideWindow.listview != null)
+                {
+                    PlayListData.PlayListInsideWindow.listview.SelectedIndex = -1;
+                    PlayListData.PlayListInsideWindow.Play.IsChecked = false;
+                    PlayListData.PlayListInsideWindow.Pause.IsChecked = true;
+                }
+                PlayListData.Playbtn1.IsChecked = false;
+                PlayListData.Pausebtn1.IsChecked = true;
+                PlayListData.Playbtn1.Visibility = Visibility.Visible;
+                PlayListData.Pausebtn1.Visibility = Visibility.Hidden;
+                //sync with artist
+                if (ArtistData.ArtistSongWindow != null && ArtistData.ArtistSongWindow.CompositionList != null)
+                {
+                    ArtistData.ArtistSongWindow.CompositionList.SelectedIndex = -1;
+                }
+                ArtistData.Playbtn2.IsChecked = false;
+                ArtistData.Pausebtn2.IsChecked = true;
+                ArtistData.Playbtn2.Visibility = Visibility.Visible;
+                ArtistData.Pausebtn2.Visibility = Visibility.Hidden;
+                //sync with album
+                if (AlbumData.AlbumSongWindow != null && AlbumData.AlbumSongWindow.CompositionList != null)
+                {
+                    AlbumData.AlbumSongWindow.CompositionList.SelectedIndex = -1;
+                }
+                AlbumData.Playbtn3.IsChecked = false;
+                AlbumData.Pausebtn3.IsChecked = true;
+                AlbumData.Playbtn3.Visibility = Visibility.Visible;
+                AlbumData.Pausebtn3.Visibility = Visibility.Hidden;
+                //sync with genre
+                if (GenreData.GenreSongWindow != null && GenreData.GenreSongWindow.CompositionList != null)
+                {
+                    GenreData.GenreSongWindow.CompositionList.SelectedIndex = -1;
+                }
+                GenreData.Playbtn4.IsChecked = false;
+                GenreData.Pausebtn4.IsChecked = true;
+                GenreData.Playbtn4.Visibility = Visibility.Visible;
+                GenreData.Pausebtn4.Visibility = Visibility.Hidden;
+                //sync with my song
+                if (MySongPage.ListSong != null)
+                {
+                    MySongPage.ListSong.SelectedIndex = -1;
+                }
+                MySongData.Playbtn.IsChecked = false;
+                MySongData.Pausebtn.IsChecked = true;
+                MySongData.Playbtn.Visibility = Visibility.Visible;
+                MySongData.Pausebtn.Visibility = Visibility.Hidden;
+                ArtistData.PlayInvisible.IsChecked = false;
+                ArtistData.PauseInvisible.IsChecked = true;
+                //
+                p.MainViewProgram.Height = 750;
+                p.PlayerBar.Visibility = Visibility.Hidden;
+                p.PlayerBarPlaylist.Visibility = Visibility.Hidden;
+                p.PlayerBarArtist.Visibility = Visibility.Hidden;
+                p.PlayerBarAlbum.Visibility = Visibility.Hidden;
+                p.PlayerBarGenre.Visibility = Visibility.Hidden;
             });
         }
     }
