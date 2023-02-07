@@ -175,6 +175,14 @@
                                                 Width="180"
                                                 Margin="0,0,0,0"
                                                 Panel.ZIndex="0">
+                                            <Border.Effect>
+                                                <DropShadowEffect
+                                                                  ShadowDepth="10"
+                                                                  Direction="330"
+                                                                  Color="#333333"
+                                                                  Opacity="1"
+                                                                  BlurRadius="16"/>
+                                            </Border.Effect>
                                             <Border.Background>
                                                 <ImageBrush ImageSource="{Binding ImageAlbumBinary, Converter={StaticResource ByteToImageConverter}}"
                                                             Stretch="UniformToFill">

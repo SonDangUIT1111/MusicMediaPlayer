@@ -33,25 +33,41 @@
                        Height="100"
                        FontStyle="Normal"
                        FontWeight="DemiBold"
-                       Foreground="#FF05FFAE"
+                       Foreground="#009efd"
                        Text="hello"
                        VerticalAlignment="Top"
                        Margin="25,0,375,0" 
                        FontFamily="Freehand521 BT" 
                        Grid.ColumnSpan="2">
+                <TextBlock.Effect>
+                    <DropShadowEffect
+                                      ShadowDepth="4"
+                                      Direction="330"
+                                      Color="#FFFFFF"
+                                      Opacity="1"
+                                      BlurRadius="2"/>
+                </TextBlock.Effect>
             </TextBlock>
             <TextBlock x:Name="User"
-                       FontSize="42"
+                       FontSize="30"
                        Width="600"
                        Height="100"
                        FontFamily="Arial Rounded MT Bold"
                        FontStyle="Normal"
                        FontWeight="DemiBold"
-                       Foreground="#FF05FFAE"
+                       Foreground="#009efd"
                        Text="user"
                        VerticalAlignment="Top"
-                       Margin="18,115,275,0" 
+                       Margin="18,120,275,0" 
                        Grid.Column="1">
+                <TextBlock.Effect>
+                    <DropShadowEffect
+                                      ShadowDepth="3"
+                                      Direction="330"
+                                      Color="#FFFFFF"
+                                      Opacity="1"
+                                      BlurRadius="0"/>
+                </TextBlock.Effect>
             </TextBlock>
             <Border x:Name="UserPic"
                     Background="Red"
@@ -72,7 +88,16 @@
                        Margin="0,200,160,0" 
                        FontFamily="Monotype Corsiva" 
                        Foreground="White" 
-                       Grid.Column="1"/>
+                       Grid.Column="1">
+                <TextBlock.Effect>
+                    <DropShadowEffect
+                                      ShadowDepth="1"
+                                      Direction="330"
+                                      Color="#3CDFFF"
+                                      Opacity="1"
+                                      BlurRadius="2"/>
+                </TextBlock.Effect>
+            </TextBlock>
             <StackPanel HorizontalAlignment="Right"
                         Margin="0,250,200,0"
                         Height="300"
@@ -87,7 +112,16 @@
                                    FontSize="30"
                                    FontWeight="DemiBold"
                                    Foreground="White" 
-                                   FontFamily="Monotype Corsiva"/>
+                                   FontFamily="Monotype Corsiva">
+                            <TextBlock.Effect>
+                                <DropShadowEffect
+                                      ShadowDepth="1"
+                                      Direction="330"
+                                      Color="#3CDFFF"
+                                      Opacity="1"
+                                      BlurRadius="2"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
                     </StackPanel>
                 </RadioButton>
                 <RadioButton>
@@ -99,7 +133,16 @@
                         <TextBlock Text="Good"
                                    FontSize="30"
                                    Foreground="White" 
-                                   FontFamily="Monotype Corsiva"/>
+                                   FontFamily="Monotype Corsiva">
+                            <TextBlock.Effect>
+                                <DropShadowEffect
+                                      ShadowDepth="1"
+                                      Direction="330"
+                                      Color="#3CDFFF"
+                                      Opacity="1"
+                                      BlurRadius="2"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
                     </StackPanel>
                 </RadioButton>
                 <RadioButton>
@@ -111,7 +154,16 @@
                         <TextBlock Text="Normal"
                                    FontSize="30"
                                    Foreground="White" 
-                                   FontFamily="Monotype Corsiva"/>
+                                   FontFamily="Monotype Corsiva">
+                            <TextBlock.Effect>
+                                <DropShadowEffect
+                                              ShadowDepth="1"
+                                              Direction="330"
+                                              Color="#3CDFFF"
+                                              Opacity="1"
+                                              BlurRadius="2"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
                     </StackPanel>
                 </RadioButton>
                 <RadioButton>
@@ -124,7 +176,16 @@
                                    FontSize="30"
                                    Foreground="White" 
                                    FontWeight="DemiBold"
-                                   FontFamily="Monotype Corsiva"/>
+                                   FontFamily="Monotype Corsiva">
+                            <TextBlock.Effect>
+                                <DropShadowEffect
+                                      ShadowDepth="1"
+                                      Direction="330"
+                                      Color="#3CDFFF"
+                                      Opacity="1"
+                                      BlurRadius="2"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
                     </StackPanel>
                 </RadioButton>
                 <RadioButton>
@@ -137,7 +198,16 @@
                                    FontSize="30"
                                    Foreground="White" 
                                    FontWeight="DemiBold"
-                                   FontFamily="Monotype Corsiva"/>
+                                   FontFamily="Monotype Corsiva">
+                            <TextBlock.Effect>
+                                <DropShadowEffect
+                                      ShadowDepth="1"
+                                      Direction="330"
+                                      Color="#3CDFFF"
+                                      Opacity="1"
+                                      BlurRadius="2"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
                     </StackPanel>
                 </RadioButton>
             </StackPanel>
@@ -149,7 +219,16 @@
                        FontWeight="DemiBold"
                        HorizontalAlignment="Right"
                        Margin="0,510,140,0" 
-                       FontFamily="Monotype Corsiva" Grid.Column="1"/>
+                       FontFamily="Monotype Corsiva" Grid.Column="1">
+                <TextBlock.Effect>
+                    <DropShadowEffect
+                                      ShadowDepth="1"
+                                      Direction="330"
+                                      Color="#3CDFFF"
+                                      Opacity="1"
+                                      BlurRadius="2"/>
+                </TextBlock.Effect>
+            </TextBlock>
             <Button Style="{StaticResource ContactButton}"
                     Content="Play Time"
                     Width="100"
