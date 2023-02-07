@@ -51,7 +51,7 @@ namespace MusicMediaPlayer.ViewModel
         private double _VolumePrevious;
         public double VolumePrevious { get => _VolumePrevious; set => _VolumePrevious = value; }
         private int _countTimer;
-        public int CountTimer { get => _countTimer; set => _countTimer = value; }
+        public int CountTimer { get => _countTimer; set => _countTimer = value; }}
         private Song _SelectedItem;
         public Song SelectedItem
         {

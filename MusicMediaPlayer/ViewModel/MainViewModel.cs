@@ -31,7 +31,8 @@ namespace MusicMediaPlayer.ViewModel
         public ICommand SwitchGenre { get; set; }
         public ICommand BackPiano { get; set; }
         public ICommand BackHome { get; set; }
-
+        public ICommand EnterProgress { get; set; }
+        public ICommand LeaveProgress { get; set; }
 
         public ICommand Logoutcommand { get; set; }
         //view model
@@ -41,9 +42,7 @@ namespace MusicMediaPlayer.ViewModel
         Home HomePage { get; set; }
         Profile ProfilePage { get; set; } 
         Discover_Artist ArtistPage { get; set; }
-
         Discover_Album AlbumPage { get; set; }
-        
         Discover_Genre GenrePage { get; set; }
         //information
         public CurrentUserAccountModel CurrentUser
@@ -69,8 +68,7 @@ namespace MusicMediaPlayer.ViewModel
             ArtistPage = new Discover_Artist();
             AlbumPage = new Discover_Album();
             GenrePage = new Discover_Genre();
-
-            //
+            //Get Datacontext to passing parameter
             var MySongData = MySongPage.DataContext as SongViewModel;
             var PlayListData = PlayListPage.DataContext as PlayListViewModel;
             var HomeData = HomePage.DataContext as HomeViewModel;
@@ -78,7 +76,7 @@ namespace MusicMediaPlayer.ViewModel
             var ArtistData = ArtistPage.DataContext as Discover_ArtistViewModel;
             var AlbumData = AlbumPage.DataContext as Discover_AlbumViewModel;
             var GenreData = GenrePage.DataContext as Discover_GenreViewModel;
-            //
+            //Login
             LoadedTurnOnLogin = new RelayCommand<MainWindow>((p) => { return true; }, (p) =>
             {
                 mainWindow = p;
@@ -94,32 +92,30 @@ namespace MusicMediaPlayer.ViewModel
                 LoginVM.Username = "";
                 LoginVM.Password = "";
                 login.ShowDialog();
-                //sau khi dang nhap
+                //Login successfully
                 if (login.DataContext == null)
                     return;
                 var window = p as MainWindow;
                 if (LoginVM.IsLoggedIn == true)
                 {
-                    //truyen du lieu qua cac view
+                    //passing information through all page
                     CurrentUser.UserName = LoginVM.Username;
                     ObservableCollection<int> IDuser = new ObservableCollection<int>(DataProvider.Ins.DB.UserAccounts.Where(x => x.UserName == LoginVM.Username).Select(x => x.UserId));
                     PlayListData.CurrentUser.Id = IDuser[0];
-                    HomeData.CurrentUser.Id=IDuser[0];
+                    HomeData.CurrentUser.Id = IDuser[0];
                     HomeData.CurrentUser.UserName = LoginVM.Username;
                     ProfileData.CurrentUser.Id = IDuser[0];
                     MySongData.CurrentUser.Id = IDuser[0];
                     ArtistData.CurrentUser.Id = IDuser[0];
                     AlbumData.CurrentUser.Id = IDuser[0];
                     GenreData.CurrentUser.Id = IDuser[0];
-
-                    //xu ly profile
+                    //passing profile
                     ProfileData.UserName = LoginVM.Username;
                     ProfileData.PassWord = LoginVM.Password;
                     var acc = DataProvider.Ins.DB.UserAccounts.Where((x) => x.UserName == LoginVM.Username).SingleOrDefault();
                     ProfileData.NickName = acc.NickName;
                     ProfileData.Email = acc.UserEmail;
-
-                    //xu ly avatar
+                    //sync avatar
                     ImageBrush imageBrush = new ImageBrush();
                     BitmapImage bitmap = new BitmapImage();
                     bitmap.BeginInit();
@@ -130,9 +126,7 @@ namespace MusicMediaPlayer.ViewModel
                     imageBrush.ImageSource = bitmap;
                     imageBrush.Stretch = Stretch.UniformToFill;
                     ProfilePage.AvatarFrame.Background = imageBrush;
-                    //
-
-                    //my song window
+                    //passing my song
                     MySongData.SkipNextbtn = window.SkipNextbtn;
                     MySongData.SkipPreviousbtn = window.SkipPreviousbtn;
                     MySongData.Playbtn = window.Play;
@@ -230,8 +224,6 @@ namespace MusicMediaPlayer.ViewModel
                     ArtistData.PauseInvisible = MySongPage.Pause;
                     ArtistData.PlayInvisible1 = PlayListData.PlayInvisible1;
                     ArtistData.PauseInvisible1 = PlayListData.PauseInvisible1;
-                    //
-
                     //album window
                     AlbumData.SkipNextbtn = window.SkipNextbtn3;
                     AlbumData.SkipPreviousbtn = window.SkipPreviousbtn3;
@@ -266,7 +258,6 @@ namespace MusicMediaPlayer.ViewModel
                     AlbumData.PauseInvisible = MySongPage.Pause;
                     AlbumData.PlayInvisible1 = PlayListData.PlayInvisible1;
                     AlbumData.PauseInvisible1 = PlayListData.PauseInvisible1;
-
                     //Genre window
                     GenreData.SkipNextbtn = window.SkipNextbtn4;
                     GenreData.SkipPreviousbtn = window.SkipPreviousbtn4;
@@ -342,6 +333,14 @@ namespace MusicMediaPlayer.ViewModel
             BackHome = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 mainWindow.FrameView.Content = HomePage;
+            });
+            EnterProgress = new RelayCommand<Slider>((p) => { return true; }, (p) =>
+            {
+                p.Focus();
+            });
+            LeaveProgress = new RelayCommand<Button>((p) => { return true; }, (p) =>
+            {
+                p.Focus();
             });
         }
     }

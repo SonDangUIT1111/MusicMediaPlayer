@@ -23,13 +23,10 @@
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         Icon="AppIcon.ico"
-        Name="Main"
-        >
-
+        Name="Main">
     <Window.DataContext>
         <vm:MainViewModel></vm:MainViewModel>
     </Window.DataContext>
-
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadedTurnOnLogin}"
@@ -50,7 +47,8 @@
                   Panel.ZIndex="1">
                 <view:UserControl1/>
             </Grid>
-            <Border CornerRadius="20" BorderBrush="Transparent"
+            <Border CornerRadius="20" 
+                    BorderBrush="Transparent"
                     BorderThickness="0"
                     Grid.ColumnSpan="5" 
                     Grid.RowSpan="2">
@@ -76,26 +74,25 @@
                                     Background="Transparent"
                                     Grid.Column="1">
                                 <Grid>
-                                    <Border CornerRadius="0 30 0 20" Background="#0099FF" Margin="0,0,0,10">
+                                    <Border CornerRadius="0 30 0 20" 
+                                            Background="#0099FF" 
+                                            Margin="0,0,0,10">
 
                                     </Border>
                                     <StackPanel>
                                         <RadioButton Style="{StaticResource MainButton}" 
-                                        Width="140" 
-                                        Command="{Binding SwitchHome}" 
-                                        CommandParameter="{Binding ElementName=FrameView}"
+                                                     Width="140" 
+                                                     Command="{Binding SwitchHome}" 
+                                                     CommandParameter="{Binding ElementName=FrameView}"
                                                      Margin="0 20 0 0">
                                             <Grid>
                                                 <TextBlock Text= "Home" 
-                                                   TextAlignment="Center"
-                                                           
-                                                           />
+                                                           TextAlignment="Center"/>
                                                 <iconPacks:PackIconMaterial 
                                                                             Kind="HomeVariant" 
                                                                             Height="15" 
                                                                             Width="20" 
-                                                                            Margin="20 0 0 0"
-                                                                            >
+                                                                            Margin="20 0 0 0">
                                                     <iconPacks:PackIconMaterial.Foreground>
                                                         <LinearGradientBrush>
                                                             <GradientStop Color="#FFF0DD" Offset="0.05"></GradientStop>
@@ -106,27 +103,25 @@
                                             </Grid>
                                         </RadioButton>
 
-                                        <Grid Background="#0099FF" Margin="0 20 0 0">
+                                        <Grid Background="#0099FF" 
+                                              Margin="0 20 0 0">
                                             <TextBlock Text="Library"
-                                                   FontSize="24"
-                                                   Foreground="#FFFFFF"
-                                                   FontWeight="SemiBold"
-                                                   FontStyle="Normal"
-                                                   Margin="20,0,0,0" 
-                                                   />
+                                                       FontSize="24"
+                                                       Foreground="#FFFFFF"
+                                                       FontWeight="SemiBold"
+                                                       FontStyle="Normal"
+                                                       Margin="20,0,0,0" />
                                         </Grid>
                                         <RadioButton Style="{StaticResource MainButton}"  
-                                                Width="140"
-                                                x:Name="MySongBtn"
-                                                Command="{Binding SwitchMySong}"
-                                                CommandParameter="{Binding ElementName=FrameView}"
+                                                     Width="140"
+                                                     x:Name="MySongBtn"
+                                                     Command="{Binding SwitchMySong}"
+                                                     CommandParameter="{Binding ElementName=FrameView}"
                                                      Margin="0 20 0 0">
                                             <Grid>
                                                 <TextBlock Text= "My Song" 
-                                                           TextAlignment="Center"
-                                                           />
+                                                           TextAlignment="Center"/>
                                                 <iconPacks:PackIconMaterial Kind="Music" 
-                                                                            
                                                                             Margin="15,0,0,0"
                                                                             RenderTransformOrigin="0.763,1.3" 
                                                                             Height="16" 
@@ -141,16 +136,15 @@
                                             </Grid>
                                         </RadioButton>
                                         <RadioButton Style="{StaticResource MainButton}"  
-                                                Width="140"
-                                                Command="{Binding SwitchMyPlayList}"
-                                                CommandParameter="{Binding ElementName=FrameView}"
+                                                     Width="140"
+                                                     Command="{Binding SwitchMyPlayList}"
+                                                     CommandParameter="{Binding ElementName=FrameView}"
                                                      Margin="0 15 0 0">
                                             <Grid>
                                                 <TextBlock Text= "My Playlist" 
                                                            TextAlignment="Center"
                                                            Margin="10 0 0 0"/>
-                                                <iconPacks:PackIconMaterial Kind="Heart" 
-                                                                                                        
+                                                <iconPacks:PackIconMaterial Kind="Heart"                            
                                                                             Height="16" Width="28" 
                                                                             VerticalAlignment="Center"
                                                                             Margin="14 0 0 0">
@@ -165,23 +159,22 @@
                                         </RadioButton>
                                         <Grid Margin="0 20 0 0">
                                             <TextBlock Text="Discover"
-                                                   FontSize="24"
+                                                       FontSize="24"
                                                        FontWeight="SemiBold"
                                                        FontStyle="Normal"
-                                                   Foreground="#FFFFFF"
-                                                   Margin="20,0,0,0"/>
+                                                       Foreground="#FFFFFF"
+                                                       Margin="20,0,0,0"/>
                                         </Grid>
 
                                         <RadioButton Style="{StaticResource MainButton}"  
-                                                Width="140"
-                                                Command="{Binding SwitchArtist}"
-                                                CommandParameter="{Binding ElementName=FrameView}"
+                                                     Width="140"
+                                                     Command="{Binding SwitchArtist}"
+                                                     CommandParameter="{Binding ElementName=FrameView}"
                                                      Margin="0 20 0 0">
                                             <Grid>
                                                 <TextBlock Text= "Artist" 
                                                            TextAlignment="Center"/>
-                                                <iconPacks:PackIconMaterial Kind="Account" 
-                                                                                                                                
+                                                <iconPacks:PackIconMaterial Kind="Account"                                                    
                                                                             Height="16" Width="28" 
                                                                             VerticalAlignment="Center"
                                                                             Margin="15 0 0 0">
@@ -195,15 +188,14 @@
                                             </Grid>
                                         </RadioButton>
                                         <RadioButton Style="{StaticResource MainButton}"  
-                                                Width="140" 
-                                                Command="{Binding SwitchAlbum}"
-                                                CommandParameter="{Binding ElementName=FrameView}"
+                                                     Width="140" 
+                                                     Command="{Binding SwitchAlbum}"
+                                                     CommandParameter="{Binding ElementName=FrameView}"
                                                      Margin="0 15 0 0">
                                             <Grid>
                                                 <TextBlock Text= "Album" 
                                                            TextAlignment="Center"/>
-                                                <iconPacks:PackIconMaterial Kind="Library" 
-                                                                                                                  
+                                                <iconPacks:PackIconMaterial Kind="Library"                                       
                                                                             Height="16" Width="28" 
                                                                             VerticalAlignment="Center"
                                                                             Margin="15 0 0 0">
@@ -217,15 +209,14 @@
                                             </Grid>
                                         </RadioButton>
                                         <RadioButton Style="{StaticResource MainButton}"  
-                                                Width="140" 
-                                                Command="{Binding SwitchGenre}"
-                                                CommandParameter="{Binding ElementName=FrameView}"
+                                                     Width="140" 
+                                                     Command="{Binding SwitchGenre}"
+                                                     CommandParameter="{Binding ElementName=FrameView}"
                                                      Margin="0 15 0 0">
                                             <Grid>
                                                 <TextBlock Text= "Genre" 
                                                            TextAlignment="Center"/>
-                                                <iconPacks:PackIconMaterial Kind="MusicBox" 
-                                                                                                                                                      
+                                                <iconPacks:PackIconMaterial Kind="MusicBox"                                                                        
                                                                             Height="16" Width="28" 
                                                                             VerticalAlignment="Center"
                                                                             Margin="15 0 0 0">
@@ -240,28 +231,26 @@
                                         </RadioButton>
                                         <Grid Margin="0 20 0 0">
                                             <TextBlock Text="Account"
-                                                   FontSize="24"
+                                                       FontSize="24"
                                                        FontWeight="SemiBold"
                                                        FontStyle="Normal"
-                                                   Foreground="#FFFFFF"
-                                                     
-                                                   Margin="20,0,0,0"/>
+                                                       Foreground="#FFFFFF"
+                                                       Margin="20,0,0,0"/>
                                         </Grid>
 
                                         <RadioButton Style="{StaticResource MainButton}" 
-                                                Command="{Binding SwitchProfile}" 
-                                                CommandParameter="{Binding ElementName=FrameView}"
-                                                Width="140" Margin="0 20 0 0" 
-                                                BorderBrush="Transparent">
+                                                     Command="{Binding SwitchProfile}" 
+                                                     CommandParameter="{Binding ElementName=FrameView}"
+                                                     Width="140" Margin="0 20 0 0" 
+                                                     BorderBrush="Transparent">
                                             <Grid>
                                                 <TextBlock Text= "Profile" 
                                                            TextAlignment="Center"/>
                                                 <iconPacks:PackIconMaterial  Kind="AccountCash" 
-                                                                     
-                                                                     Height="16" 
-                                                                     Width="20"                                                                      
-                                                                     VerticalAlignment="Center"
-                                                                     Margin="15 0 0 0">
+                                                                             Height="16" 
+                                                                             Width="20"                                                                      
+                                                                             VerticalAlignment="Center"
+                                                                             Margin="15 0 0 0">
                                                     <iconPacks:PackIconMaterial.Foreground>
                                                         <LinearGradientBrush>
                                                             <GradientStop Color="#DBE9F5" Offset="0.195"></GradientStop>
@@ -271,17 +260,19 @@
                                                 </iconPacks:PackIconMaterial>
                                             </Grid>
                                         </RadioButton>
-
+                                        <Button x:Name="ButtonToMakeProgressLostFocus"
+                                                Visibility="Visible"
+                                                Background="Transparent"
+                                                BorderBrush="Transparent"/>
                                         <RadioButton Style="{StaticResource MainButton}" 
-                                                Width="130"  
-                                                Height="38" 
-                                                Margin="0 45 0 0"
-                                                Command="{Binding LoadedTurnOnLogin}"
-                                                CommandParameter="{Binding ElementName=Main}">
+                                                     Width="140"  
+                                                     Height="38" 
+                                                     Margin="0 0 0 0"
+                                                     Command="{Binding LoadedTurnOnLogin}"
+                                                     CommandParameter="{Binding ElementName=Main}">
                                             <Grid>
                                                 <TextBlock Text= "Log out" 
-                                                           TextAlignment="Center"
-                                                           />
+                                                           TextAlignment="Center"/>
                                                 <iconPacks:PackIconMaterial Kind="Logout" 
                                                                             Foreground="Black" 
                                                                             Margin="15 0 0 0"
@@ -301,36 +292,39 @@
                                     Background="Transparent"/>
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <!--<ColumnDefinition Width="61*"/>-->
                                     <ColumnDefinition Width="1000"/>
                                 </Grid.ColumnDefinitions>
                                 <Frame x:Name="FrameView"
                                        Height="auto"
                                        Width="1000"
                                        MinHeight="750"
-                                       NavigationUIVisibility="Hidden" Grid.ColumnSpan="2"
-                               />
+                                       NavigationUIVisibility="Hidden"
+                                       Grid.ColumnSpan="2"/>
                             </Grid>
                         </Grid>
                     </Grid>
                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn}">
-                        <Grid x:Name="PlayerBar" Margin="0,0,0,0" Visibility="Hidden">
-                            <Rectangle  Fill="AliceBlue"
-                                        Margin="0,0,0,0"
-                                        Height="100" Width="auto">
+                        <Grid x:Name="PlayerBar" 
+                              Margin="0,0,0,0" 
+                              Visibility="Hidden">
+                            <Border Background="AliceBlue"
+                                    Margin="0,0,0,0"
+                                    Height="100" 
+                                    Width="auto"
+                                    CornerRadius="0,0,20,20">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
                                         <i:InvokeCommandAction Command="{Binding  Source={StaticResource SongVM},Path= ShowTopOrCD}"
                                                                CommandParameter="{Binding ElementName=Main}"/>
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
-                            </Rectangle>
+                            </Border>
                             <iconPacks:PackIconMaterial Kind="Music" 
-                                                                            Panel.ZIndex="1"
-                                                                            Margin="0,0,0,0"
-                                                                            RenderTransformOrigin="0.763,1.3" 
-                                                                            Height="16" 
-                                                                            Width="25">
+                                                        Panel.ZIndex="1"
+                                                        Margin="0,0,0,0"
+                                                        RenderTransformOrigin="0.763,1.3" 
+                                                        Height="16" 
+                                                        Width="25">
                                 <iconPacks:PackIconMaterial.Foreground>
                                     <LinearGradientBrush>
                                         <GradientStop Color="#98FB91" Offset="0.35"></GradientStop>
@@ -363,21 +357,28 @@
                                            FontSize="16"/>
                             </StackPanel>
                             <StackPanel 
-                                    Margin="200,10,0,0"
-                                    Width="auto">
+                                        Margin="200,10,0,0"
+                                        Width="auto">
                                 <StatusBarItem HorizontalContentAlignment="Stretch"
-                                           Width="600">
+                                               Width="600">
                                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn}">
                                         <Slider Name="sliProgress" 
                                                 Foreground="#0099FF"
                                                 Width="400"
                                                 IsEnabled="False"
-                                                Margin="-60,0,0,0"
-                                     >
+                                                Margin="-60,0,0,0">
                                             <i:Interaction.Triggers>
                                                 <i:EventTrigger EventName="ValueChanged">
                                                     <i:InvokeCommandAction Command="{Binding Source={StaticResource SongVM},Path=ChangeTime}"
                                                                            CommandParameter="{Binding ElementName=Main}"/>
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="MouseEnter">
+                                                    <i:InvokeCommandAction Command="{Binding EnterProgress}"
+                                                                           CommandParameter="{Binding ElementName=sliProgress}"/>
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="MouseLeave">
+                                                    <i:InvokeCommandAction Command="{Binding LeaveProgress}"
+                                                                           CommandParameter="{Binding ElementName=ButtonToMakeProgressLostFocus}"/>
                                                 </i:EventTrigger>
                                             </i:Interaction.Triggers>
 
@@ -387,80 +388,88 @@
                                 <StackPanel Orientation="Horizontal"
                                             Margin="-100,0,0,0">
                                     <Label
-                                        Height="25"
-                                        x:Name="InTime"
-                                        Foreground="#333333"
-                                        Margin="320,-20,0,0"></Label>
+                                            Height="25"
+                                            x:Name="InTime"
+                                            Foreground="#333333"
+                                            Margin="320,-20,0,0"></Label>
                                     <Label
-                                        Height="25"
-                                        x:Name="TotalTime"
-                                        Foreground="#333333"
-                                        Margin="450,-20,0,0"></Label>
+                                            Height="25"
+                                            x:Name="TotalTime"
+                                            Foreground="#333333"
+                                            Margin="450,-20,0,0"></Label>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal"
-                                        Margin="800,0,0,0">
+                                            Margin="800,0,0,0">
                                     <Button
-                                          x:Name="SpeakerHigh"
-                                          Width="50"
-                                          Background="Transparent"
-                                          Foreground="#333333"
-                                          BorderThickness="0"
-                                          Command="{Binding Source={StaticResource SongVM},Path= Mute}"
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Content="{materialDesign:PackIcon VolumeHigh}">
+                                              x:Name="SpeakerHigh"
+                                              Width="50"
+                                              Background="Transparent"
+                                              Foreground="#333333"
+                                              BorderThickness="0"
+                                              Command="{Binding Source={StaticResource SongVM},Path= Mute}"
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Content="{materialDesign:PackIcon VolumeHigh}">
                                     </Button>
                                     <Button
-                                          x:Name="SpeakerMedium"
-                                          Width="50"
-                                          Margin="-50,0,0,0"
-                                          Visibility="Hidden"
-                                          Background="Transparent"
-                                          Foreground="#333333"
-                                          BorderThickness="0"
-                                          Command="{Binding Source={StaticResource SongVM},Path=Mute}"
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Content="{materialDesign:PackIcon VolumeMedium}">
+                                              x:Name="SpeakerMedium"
+                                              Width="50"
+                                              Margin="-50,0,0,0"
+                                              Visibility="Hidden"
+                                              Background="Transparent"
+                                              Foreground="#333333"
+                                              BorderThickness="0"
+                                              Command="{Binding Source={StaticResource SongVM},Path=Mute}"
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Content="{materialDesign:PackIcon VolumeMedium}">
                                     </Button>
                                     <Button
-                                          x:Name="SpeakerLow"
-                                          Width="50"
-                                          Margin="-50,0,0,0"
-                                          Visibility="Hidden"
-                                          Background="Transparent"
-                                          Foreground="#333333"
-                                          BorderThickness="0"
-                                          Command="{Binding Source={StaticResource SongVM},Path= Mute}"
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Content="{materialDesign:PackIcon VolumeLow}">
+                                              x:Name="SpeakerLow"
+                                              Width="50"
+                                              Margin="-50,0,0,0"
+                                              Visibility="Hidden"
+                                              Background="Transparent"
+                                              Foreground="#333333"
+                                              BorderThickness="0"
+                                              Command="{Binding Source={StaticResource SongVM},Path= Mute}"
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Content="{materialDesign:PackIcon VolumeLow}">
                                     </Button>
                                     <Button
-                                          x:Name="SpeakerOff"
-                                          Width="50"
-                                          Margin="-50,0,0,0"
-                                          Visibility="Hidden"
-                                          Background="Transparent"
-                                          Foreground="#333333"
-                                          BorderThickness="0"
-                                          Command="{Binding Source={StaticResource SongVM},Path=NonMute}"
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Content="{materialDesign:PackIcon VolumeOff}">
+                                              x:Name="SpeakerOff"
+                                              Width="50"
+                                              Margin="-50,0,0,0"
+                                              Visibility="Hidden"
+                                              Background="Transparent"
+                                              Foreground="#333333"
+                                              BorderThickness="0"
+                                              Command="{Binding Source={StaticResource SongVM},Path=NonMute}"
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Content="{materialDesign:PackIcon VolumeOff}">
                                     </Button>
 
                                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromLeft}">
                                         <Slider 
-                                             x:Name="Volume" 
-                                             Width="100" 
-                                             Height="30" 
-                                             Maximum="1"
-                                             Value="1"
-                                             Foreground="#0099FF"
-                                             Visibility="Visible"
-                                             VerticalAlignment="Bottom"
-                                             HorizontalAlignment="Center">
+                                                 x:Name="Volume" 
+                                                 Width="100" 
+                                                 Height="30" 
+                                                 Maximum="1"
+                                                 Value="1"
+                                                 Foreground="#0099FF"
+                                                 Visibility="Visible"
+                                                 VerticalAlignment="Bottom"
+                                                 HorizontalAlignment="Center">
                                             <i:Interaction.Triggers>
                                                 <i:EventTrigger EventName="ValueChanged">
                                                     <i:InvokeCommandAction Command="{Binding Source={StaticResource SongVM},Path= ChangeVolumn}"
-                                                                       CommandParameter="{Binding ElementName=Main}"/>
+                                                                           CommandParameter="{Binding ElementName=Main}"/>
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="MouseEnter">
+                                                    <i:InvokeCommandAction Command="{Binding EnterProgress}"
+                                                                           CommandParameter="{Binding ElementName=Volume}"/>
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="LeaveEnter">
+                                                    <i:InvokeCommandAction Command="{Binding LeaveProgress}"
+                                                                           CommandParameter="{Binding ElementName=ButtonToMakeProgressLostFocus}"/>
                                                 </i:EventTrigger>
                                             </i:Interaction.Triggers>
                                         </Slider>
@@ -470,25 +479,25 @@
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal"
-                                    Margin="380,0,0,0" 
-                                    Width="652"
-                                    Panel.ZIndex="2">
+                                        Margin="380,0,0,0" 
+                                        Width="652"
+                                        Panel.ZIndex="2">
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.4}">
 
                                     <Button
-                                      Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
-                                      Height="35"
-                                      Width="35"
-                                      Margin="50,0,0,0"
-                                      Foreground="#444444"
-                                      Background="Transparent"
-                                      BorderBrush="Transparent"
-                                      Command="{Binding Source={StaticResource SongVM},Path=OpenSleepTimer}"
-                                      CommandParameter="{Binding ElementName=Main}">
+                                              Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                              Height="35"
+                                              Width="35"
+                                              Margin="50,0,0,0"
+                                              Foreground="#444444"
+                                              Background="Transparent"
+                                              BorderBrush="Transparent"
+                                              Command="{Binding Source={StaticResource SongVM},Path=OpenSleepTimer}"
+                                              CommandParameter="{Binding ElementName=Main}">
                                         <materialDesign:PackIcon
-                                                            Kind="Alarm"
-                                                            Height="24"
-                                                            Width="24" />
+                                                                Kind="Alarm"
+                                                                Height="24"
+                                                                Width="24" />
                                     </Button>
                                 </materialDesign:TransitioningContent>
 
@@ -499,8 +508,7 @@
                                             Margin="10,0,5,0"
                                             Background="#0099FF"
                                             Command="{Binding Source={StaticResource SongVM},Path=ShuffleVariant}"
-                                            CommandParameter="{Binding ElementName=Main}"
-                                                >
+                                            CommandParameter="{Binding ElementName=Main}">
                                     <materialDesign:PackIcon
                                                 Kind="ShuffleVariant"
                                                 Height="21"
@@ -509,102 +517,106 @@
                                 </ToggleButton>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.5}">
                                     <Button
-                                      x:Name="SkipPreviousbtn"
-                                      Command="{Binding Source={StaticResource SongVM}, Path=SkipPrevious}"
-                                      CommandParameter="{Binding ElementName=Main}"
-                                      Margin="0,0,5,0"
-                                      Content="{materialDesign:PackIcon SkipPrevious}"
-                                      Background="Transparent"
-                                      Foreground="#444444"
-                                      IsEnabled="False"
-                                      BorderBrush="Transparent"/>
+                                              x:Name="SkipPreviousbtn"
+                                              Command="{Binding Source={StaticResource SongVM}, Path=SkipPrevious}"
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Margin="0,0,5,0"
+                                              Content="{materialDesign:PackIcon SkipPrevious}"
+                                              Background="Transparent"
+                                              Foreground="#444444"
+                                              IsEnabled="False"
+                                              BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.6}">
                                     <ToggleButton
-                                          x:Name="Play"
-                                          Command="{Binding Source={StaticResource SongVM},Path= Play}"  
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Margin="0,0,0,0"
-                                          Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                          Content="{materialDesign:PackIcon Play}"
-                                          Background="Transparent"
-                                          Foreground="#444444"
-                                          BorderBrush="Transparent"
-                                          IsEnabled="False"/>
+                                                  x:Name="Play"
+                                                  Command="{Binding Source={StaticResource SongVM},Path= Play}"  
+                                                  CommandParameter="{Binding ElementName=Main}"
+                                                  Margin="0,0,0,0"
+                                                  Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                                  Content="{materialDesign:PackIcon Play}"
+                                                  Background="Transparent"
+                                                  Foreground="#444444"
+                                                  BorderBrush="Transparent"
+                                                  IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.7}">
                                     <ToggleButton
-                                          x:Name="Pause"
-                                          Command="{Binding Source={StaticResource SongVM},Path= Pause}"
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Margin="-40,0,0,0"
-                                          Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                          Content="{materialDesign:PackIcon Pause}"
-                                          Visibility="Hidden"
-                                          Background="Transparent"
-                                          Foreground="#444444"
-                                          BorderBrush="Transparent"
-                                          IsEnabled="False"/>
+                                                  x:Name="Pause"
+                                                  Command="{Binding Source={StaticResource SongVM},Path= Pause}"
+                                                  CommandParameter="{Binding ElementName=Main}"
+                                                  Margin="-40,0,0,0"
+                                                  Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                                  Content="{materialDesign:PackIcon Pause}"
+                                                  Visibility="Hidden"
+                                                  Background="Transparent"
+                                                  Foreground="#444444"
+                                                  BorderBrush="Transparent"
+                                                  IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.8}">
                                     <Button
-                                      x:Name="SkipNextbtn"     
-                                      Command="{Binding Source={StaticResource SongVM},Path= SkipNext}"
-                                      Margin="0,0,5,0"
-                                      Content="{materialDesign:PackIcon SkipNext}"
-                                      Background="Transparent"
-                                      IsEnabled="False"
-                                      Foreground="#444444"
-                                      BorderBrush="Transparent"/>
+                                              x:Name="SkipNextbtn"     
+                                              Command="{Binding Source={StaticResource SongVM},Path= SkipNext}"
+                                              Margin="0,0,5,0"
+                                              Content="{materialDesign:PackIcon SkipNext}"
+                                              Background="Transparent"
+                                              IsEnabled="False"
+                                              Foreground="#444444"
+                                              BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.9}">
                                     <ToggleButton
-                                            x:Name="SequencecyLoop"
-                                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                            IsChecked="True"
-                                            Margin="0,0,5,0"
-                                            Command="{Binding Source={StaticResource SongVM},Path=ShuffleDisabled}"
-                                            CommandParameter="{Binding ElementName=Main}"
-                                            Foreground="#444444"
-                                            Background="#0099FF"
-                                                >
-                                        <materialDesign:PackIcon
+                                                x:Name="SequencecyLoop"
+                                                Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                                IsChecked="True"
+                                                Margin="0,0,5,0"
+                                                Command="{Binding Source={StaticResource SongVM},Path=ShuffleDisabled}"
+                                                CommandParameter="{Binding ElementName=Main}"
                                                 Foreground="#444444"
-                                                Kind="ShuffleDisabled"
-                                                Height="21"
-                                                Width="21" />
+                                                Background="#0099FF">
+                                        <materialDesign:PackIcon
+                                                                Foreground="#444444"
+                                                                Kind="ShuffleDisabled"
+                                                                Height="21"
+                                                                Width="21" />
                                     </ToggleButton>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:1}">
 
                                     <ToggleButton
-                                            x:Name="OneLoop"
-                                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                            IsChecked="False"
-                                            Margin="0,0,5,0"
-                                            Command="{Binding Source={StaticResource SongVM},Path= Loop}"
-                                            CommandParameter="{Binding ElementName=Main}"
-                                            Foreground="#444444"
-                                            Background="#0099FF">
+                                                    x:Name="OneLoop"
+                                                    Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                                    IsChecked="False"
+                                                    Margin="0,0,5,0"
+                                                    Command="{Binding Source={StaticResource SongVM},Path= Loop}"
+                                                    CommandParameter="{Binding ElementName=Main}"
+                                                    Foreground="#444444"
+                                                    Background="#0099FF">
                                         <materialDesign:PackIcon
-                                                Kind="Loop"
-                                                Height="21"
-                                                Width="21" />
+                                                                Kind="Loop"
+                                                                Height="21"
+                                                                Width="21" />
                                     </ToggleButton>
                                 </materialDesign:TransitioningContent>
                             </StackPanel>
                         </Grid>
                     </materialDesign:TransitioningContent>
                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn}">
-                        <Grid x:Name="PlayerBarPlaylist" Margin="0,-100,0,0" Visibility="Hidden">
-                            <Rectangle  Fill="AliceBlue"
-                                        Margin="0,0,0,0"
-                                        Height="100" Width="auto">
-                            </Rectangle>
+                        <Grid x:Name="PlayerBarPlaylist" 
+                              Margin="0,-100,0,0" 
+                              Visibility="Hidden">
+                            <Border  Background="AliceBlue"
+                                     Margin="0,0,0,0"
+                                     Height="100" 
+                                     CornerRadius="0,0,20,20"
+                                     Width="auto">
+                            </Border>
                             <iconPacks:PackIconMaterial Kind="Heart" 
-                                                                            Panel.ZIndex="1"                             
-                                                                            Height="16" Width="28" 
-                                                                            Margin="0 0 0 0">
+                                                        Panel.ZIndex="1"                             
+                                                        Height="16" 
+                                                        Width="28" 
+                                                        Margin="0 0 0 0">
                                 <iconPacks:PackIconMaterial.Foreground>
                                     <LinearGradientBrush>
                                         <GradientStop Color="#FFD3DE" Offset="0.18"></GradientStop>
@@ -637,21 +649,28 @@
                                            FontSize="16"/>
                             </StackPanel>
                             <StackPanel 
-                                    Margin="200,10,0,0"
-                                    Width="auto">
+                                        Margin="200,10,0,0"
+                                        Width="auto">
                                 <StatusBarItem HorizontalContentAlignment="Stretch"
-                                           Width="600">
+                                               Width="600">
                                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn}">
                                         <Slider Name="sliProgress1" 
                                                 Foreground="#0099FF"
                                                 Width="400"
                                                 IsEnabled="False"
-                                                Margin="-60,0,0,0"
-                                     >
+                                                Margin="-60,0,0,0">
                                             <i:Interaction.Triggers>
                                                 <i:EventTrigger EventName="ValueChanged">
                                                     <i:InvokeCommandAction Command="{Binding Source={StaticResource PlayList_InsideVM},Path=ChangeTime}"
                                                                            CommandParameter="{Binding ElementName=Main}"/>
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="MouseEnter">
+                                                    <i:InvokeCommandAction Command="{Binding EnterProgress}"
+                                                                           CommandParameter="{Binding ElementName=sliProgress1}"/>
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="MouseLeave">
+                                                    <i:InvokeCommandAction Command="{Binding LeaveProgress}"
+                                                                           CommandParameter="{Binding ElementName=ButtonToMakeProgressLostFocus}"/>
                                                 </i:EventTrigger>
                                             </i:Interaction.Triggers>
 
@@ -661,80 +680,88 @@
                                 <StackPanel Orientation="Horizontal"
                                             Margin="-100,0,0,0">
                                     <Label
-                                        Height="25"
-                                        x:Name="InTime1"
-                                        Foreground="#333333"
-                                        Margin="320,-20,0,0"></Label>
+                                            Height="25"
+                                            x:Name="InTime1"
+                                            Foreground="#333333"
+                                            Margin="320,-20,0,0"></Label>
                                     <Label
-                                        Height="25"
-                                        x:Name="TotalTime1"
-                                        Foreground="#333333"
-                                        Margin="450,-20,0,0"></Label>
+                                            Height="25"
+                                            x:Name="TotalTime1"
+                                            Foreground="#333333"
+                                            Margin="450,-20,0,0"></Label>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal"
-                                        Margin="800,0,0,0">
+                                            Margin="800,0,0,0">
                                     <Button
-                                          x:Name="SpeakerHigh1"
-                                          Width="50"
-                                          Background="Transparent"
-                                          Foreground="#333333"
-                                          BorderThickness="0"
-                                          Command="{Binding Source={StaticResource PlayList_InsideVM},Path= Mute}"
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Content="{materialDesign:PackIcon VolumeHigh}">
+                                              x:Name="SpeakerHigh1"
+                                              Width="50"
+                                              Background="Transparent"
+                                              Foreground="#333333"
+                                              BorderThickness="0"
+                                              Command="{Binding Source={StaticResource PlayList_InsideVM},Path= Mute}"
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Content="{materialDesign:PackIcon VolumeHigh}">
                                     </Button>
                                     <Button
-                                          x:Name="SpeakerMedium1"
-                                          Width="50"
-                                          Margin="-50,0,0,0"
-                                          Visibility="Hidden"
-                                          Background="Transparent"
-                                          Foreground="#333333"
-                                          BorderThickness="0"
-                                          Command="{Binding Source={StaticResource PlayList_InsideVM},Path=Mute}"
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Content="{materialDesign:PackIcon VolumeMedium}">
+                                              x:Name="SpeakerMedium1"
+                                              Width="50"
+                                              Margin="-50,0,0,0"
+                                              Visibility="Hidden"
+                                              Background="Transparent"
+                                              Foreground="#333333"
+                                              BorderThickness="0"
+                                              Command="{Binding Source={StaticResource PlayList_InsideVM},Path=Mute}"
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Content="{materialDesign:PackIcon VolumeMedium}">
                                     </Button>
                                     <Button
-                                          x:Name="SpeakerLow1"
-                                          Width="50"
-                                          Margin="-50,0,0,0"
-                                          Visibility="Hidden"
-                                          Background="Transparent"
-                                          Foreground="#333333"
-                                          BorderThickness="0"
-                                          Command="{Binding Source={StaticResource PlayList_InsideVM},Path= Mute}"
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Content="{materialDesign:PackIcon VolumeLow}">
+                                              x:Name="SpeakerLow1"
+                                              Width="50"
+                                              Margin="-50,0,0,0"
+                                              Visibility="Hidden"
+                                              Background="Transparent"
+                                              Foreground="#333333"
+                                              BorderThickness="0"
+                                              Command="{Binding Source={StaticResource PlayList_InsideVM},Path= Mute}"
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Content="{materialDesign:PackIcon VolumeLow}">
                                     </Button>
                                     <Button
-                                          x:Name="SpeakerOff1"
-                                          Width="50"
-                                          Margin="-50,0,0,0"
-                                          Visibility="Hidden"
-                                          Background="Transparent"
-                                          Foreground="#333333"
-                                          BorderThickness="0"
-                                          Command="{Binding Source={StaticResource PlayList_InsideVM},Path=NonMute}"
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Content="{materialDesign:PackIcon VolumeOff}">
+                                              x:Name="SpeakerOff1"
+                                              Width="50"
+                                              Margin="-50,0,0,0"
+                                              Visibility="Hidden"
+                                              Background="Transparent"
+                                              Foreground="#333333"
+                                              BorderThickness="0"
+                                              Command="{Binding Source={StaticResource PlayList_InsideVM},Path=NonMute}"
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Content="{materialDesign:PackIcon VolumeOff}">
                                     </Button>
 
                                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromLeft}">
                                         <Slider 
-                                             x:Name="Volume1" 
-                                             Width="100" 
-                                             Height="30" 
-                                             Maximum="1"
-                                             Value="1"
-                                             Foreground="#0099FF"
-                                             Visibility="Visible"
-                                             VerticalAlignment="Bottom"
-                                             HorizontalAlignment="Center">
+                                                 x:Name="Volume1" 
+                                                 Width="100" 
+                                                 Height="30" 
+                                                 Maximum="1"
+                                                 Value="1"
+                                                 Foreground="#0099FF"
+                                                 Visibility="Visible"
+                                                 VerticalAlignment="Bottom"
+                                                 HorizontalAlignment="Center">
                                             <i:Interaction.Triggers>
                                                 <i:EventTrigger EventName="ValueChanged">
                                                     <i:InvokeCommandAction Command="{Binding Source={StaticResource PlayList_InsideVM},Path= ChangeVolumn}"
                                                                        CommandParameter="{Binding ElementName=Main}"/>
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="MouseEnter">
+                                                    <i:InvokeCommandAction Command="{Binding EnterProgress}"
+                                                                           CommandParameter="{Binding ElementName=Volume1}"/>
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="MouseLeave">
+                                                    <i:InvokeCommandAction Command="{Binding LeaveProgress}"
+                                                                           CommandParameter="{Binding ElementName=ButtonToMakeProgressLostFocus}"/>
                                                 </i:EventTrigger>
                                             </i:Interaction.Triggers>
                                         </Slider>
@@ -744,25 +771,25 @@
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal"
-                                    Margin="380,0,0,0" 
-                                    Width="652"
-                                    Panel.ZIndex="2">
+                                        Margin="380,0,0,0" 
+                                        Width="652"
+                                        Panel.ZIndex="2">
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.4}">
 
                                     <Button
-                                      Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
-                                      Height="35"
-                                      Width="35"
-                                      Margin="50,0,0,0"
-                                      Foreground="#444444"
-                                      Background="Transparent"
-                                      BorderBrush="Transparent"
-                                      Command="{Binding Source={StaticResource PlayList_InsideVM},Path=OpenSleepTimer}"
-                                      CommandParameter="{Binding ElementName=Main}">
+                                              Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                              Height="35"
+                                              Width="35"
+                                              Margin="50,0,0,0"
+                                              Foreground="#444444"
+                                              Background="Transparent"
+                                              BorderBrush="Transparent"
+                                              Command="{Binding Source={StaticResource PlayList_InsideVM},Path=OpenSleepTimer}"
+                                              CommandParameter="{Binding ElementName=Main}">
                                         <materialDesign:PackIcon
-                                                            Kind="Alarm"
-                                                            Height="24"
-                                                            Width="24" />
+                                                                    Kind="Alarm"
+                                                                    Height="24"
+                                                                    Width="24" />
                                     </Button>
                                 </materialDesign:TransitioningContent>
 
@@ -773,63 +800,62 @@
                                             Margin="10,0,5,0"
                                             Background="#0099FF"
                                             Command="{Binding Source={StaticResource PlayList_InsideVM},Path=ShuffleVariant}"
-                                            CommandParameter="{Binding ElementName=Main}"
-                                                >
+                                            CommandParameter="{Binding ElementName=Main}">
                                     <materialDesign:PackIcon
-                                                Kind="ShuffleVariant"
-                                                Height="21"
-                                                Width="21"
-                                                Foreground="#444444"/>
+                                                        Kind="ShuffleVariant"
+                                                        Height="21"
+                                                        Width="21"
+                                                        Foreground="#444444"/>
                                 </ToggleButton>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.5}">
                                     <Button
-                                      x:Name="SkipPreviousbtn1"
-                                      Command="{Binding Source={StaticResource PlayList_InsideVM}, Path=SkipPrevious}"
-                                      CommandParameter="{Binding ElementName=Main}"
-                                      Margin="0,0,5,0"
-                                      Content="{materialDesign:PackIcon SkipPrevious}"
-                                      Background="Transparent"
-                                      Foreground="#444444"
-                                      IsEnabled="False"
-                                      BorderBrush="Transparent"/>
+                                              x:Name="SkipPreviousbtn1"
+                                              Command="{Binding Source={StaticResource PlayList_InsideVM}, Path=SkipPrevious}"
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Margin="0,0,5,0"
+                                              Content="{materialDesign:PackIcon SkipPrevious}"
+                                              Background="Transparent"
+                                              Foreground="#444444"
+                                              IsEnabled="False"
+                                              BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.6}">
                                     <ToggleButton
-                                          x:Name="Play1"
-                                          Command="{Binding Source={StaticResource PlayList_InsideVM},Path= Play}"  
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Margin="0,0,0,0"
-                                          Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                          Content="{materialDesign:PackIcon Play}"
-                                          Background="Transparent"
-                                          Foreground="#444444"
-                                          BorderBrush="Transparent"
-                                          IsEnabled="False"/>
+                                                  x:Name="Play1"
+                                                  Command="{Binding Source={StaticResource PlayList_InsideVM},Path= Play}"  
+                                                  CommandParameter="{Binding ElementName=Main}"
+                                                  Margin="0,0,0,0"
+                                                  Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                                  Content="{materialDesign:PackIcon Play}"
+                                                  Background="Transparent"
+                                                  Foreground="#444444"
+                                                  BorderBrush="Transparent"
+                                                  IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.7}">
                                     <ToggleButton
-                                          x:Name="Pause1"
-                                          Command="{Binding Source={StaticResource PlayList_InsideVM},Path= Pause}"
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Margin="-40,0,0,0"
-                                          Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                          Content="{materialDesign:PackIcon Pause}"
-                                          Visibility="Hidden"
-                                          Background="Transparent"
-                                          Foreground="#444444"
-                                          BorderBrush="Transparent"
-                                          IsEnabled="False"/>
+                                                  x:Name="Pause1"
+                                                  Command="{Binding Source={StaticResource PlayList_InsideVM},Path= Pause}"
+                                                  CommandParameter="{Binding ElementName=Main}"
+                                                  Margin="-40,0,0,0"
+                                                  Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                                  Content="{materialDesign:PackIcon Pause}"
+                                                  Visibility="Hidden"
+                                                  Background="Transparent"
+                                                  Foreground="#444444"
+                                                  BorderBrush="Transparent"
+                                                  IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.8}">
                                     <Button
-                                      x:Name="SkipNextbtn1"     
-                                      Command="{Binding Source={StaticResource PlayList_InsideVM},Path= SkipNext}"
-                                      Margin="0,0,5,0"
-                                      Content="{materialDesign:PackIcon SkipNext}"
-                                      Background="Transparent"
-                                      IsEnabled="False"
-                                      Foreground="#444444"
-                                      BorderBrush="Transparent"/>
+                                              x:Name="SkipNextbtn1"     
+                                              Command="{Binding Source={StaticResource PlayList_InsideVM},Path= SkipNext}"
+                                              Margin="0,0,5,0"
+                                              Content="{materialDesign:PackIcon SkipNext}"
+                                              Background="Transparent"
+                                              IsEnabled="False"
+                                              Foreground="#444444"
+                                              BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.9}">
                                     <ToggleButton
@@ -843,41 +869,45 @@
                                             Background="#0099FF"
                                                 >
                                         <materialDesign:PackIcon
-                                                Kind="ShuffleDisabled"
-                                                Height="21"
-                                                Width="21" />
+                                                                Kind="ShuffleDisabled"
+                                                                Height="21"
+                                                                Width="21" />
                                     </ToggleButton>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:1}">
 
                                     <ToggleButton
-                                            x:Name="OneLoop1"
-                                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                            IsChecked="False"
-                                            Margin="0,0,5,0"
-                                            Command="{Binding Source={StaticResource PlayList_InsideVM},Path= Loop}"
-                                            CommandParameter="{Binding ElementName=Main}"
-                                            Foreground="#444444"
-                                            Background="#0099FF">
+                                                    x:Name="OneLoop1"
+                                                    Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                                    IsChecked="False"
+                                                    Margin="0,0,5,0"
+                                                    Command="{Binding Source={StaticResource PlayList_InsideVM},Path= Loop}"
+                                                    CommandParameter="{Binding ElementName=Main}"
+                                                    Foreground="#444444"
+                                                    Background="#0099FF">
                                         <materialDesign:PackIcon
-                                                Kind="Loop"
-                                                Height="21"
-                                                Width="21" />
+                                                                Kind="Loop"
+                                                                Height="21"
+                                                                Width="21" />
                                     </ToggleButton>
                                 </materialDesign:TransitioningContent>
                             </StackPanel>
                         </Grid>
                     </materialDesign:TransitioningContent>
                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn}">
-                        <Grid x:Name="PlayerBarArtist" Margin="0,-100,0,0" Visibility="Hidden">
-                            <Rectangle  Fill="AliceBlue"
-                                        Margin="0,0,0,0"
-                                        Height="100" Width="auto">
-                            </Rectangle>
+                        <Grid x:Name="PlayerBarArtist" 
+                              Margin="0,-100,0,0" 
+                              Visibility="Hidden">
+                            <Border  Background="AliceBlue"
+                                     Margin="0,0,0,0"
+                                     Height="100" 
+                                     Width="auto"
+                                     CornerRadius="0,0,20,20">
+                            </Border>
                             <iconPacks:PackIconMaterial Kind="Account" 
-                                                                            Panel.ZIndex="1"                                                   
-                                                                            Height="16" Width="28" 
-                                                                            Margin="0 0 0 0">
+                                                        Panel.ZIndex="1"                                                   
+                                                        Height="16" Width="28" 
+                                                        Margin="0 0 0 0">
                                 <iconPacks:PackIconMaterial.Foreground>
                                     <LinearGradientBrush>
                                         <GradientStop Color="#F2F5D0" Offset="0.15"></GradientStop>
@@ -913,101 +943,115 @@
                                     Margin="200,10,0,0"
                                     Width="auto">
                                 <StatusBarItem HorizontalContentAlignment="Stretch"
-                                           Width="600">
+                                               Width="600">
                                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn}">
                                         <Slider Name="sliProgress2" 
                                                 Foreground="#0099FF"
                                                 Width="400"
                                                 IsEnabled="False"
-                                                Margin="-60,0,0,0"
-                                     >
+                                                Margin="-60,0,0,0">
                                             <i:Interaction.Triggers>
                                                 <i:EventTrigger EventName="ValueChanged">
                                                     <i:InvokeCommandAction Command="{Binding Source={StaticResource ArtistSongVM},Path=ChangeTime}"
                                                                            CommandParameter="{Binding ElementName=Main}"/>
                                                 </i:EventTrigger>
+                                                <i:EventTrigger EventName="MouseEnter">
+                                                    <i:InvokeCommandAction Command="{Binding EnterProgress}"
+                                                                           CommandParameter="{Binding ElementName=sliProgress2}"/>
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="MouseLeave">
+                                                    <i:InvokeCommandAction Command="{Binding LeaveProgress}"
+                                                                           CommandParameter="{Binding ElementName=ButtonToMakeProgressLostFocus}"/>
+                                                </i:EventTrigger>
                                             </i:Interaction.Triggers>
-
                                         </Slider>
                                     </materialDesign:TransitioningContent>
                                 </StatusBarItem>
                                 <StackPanel Orientation="Horizontal"
                                             Margin="-100,0,0,0">
                                     <Label
-                                        Height="25"
-                                        x:Name="InTime2"
-                                        Foreground="#333333"
-                                        Margin="320,-20,0,0"></Label>
+                                            Height="25"
+                                            x:Name="InTime2"
+                                            Foreground="#333333"
+                                            Margin="320,-20,0,0"></Label>
                                     <Label
-                                        Height="25"
-                                        x:Name="TotalTime2"
-                                        Foreground="#333333"
-                                        Margin="450,-20,0,0"></Label>
+                                            Height="25"
+                                            x:Name="TotalTime2"
+                                            Foreground="#333333"
+                                            Margin="450,-20,0,0"></Label>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal"
-                                        Margin="800,0,0,0">
+                                            Margin="800,0,0,0">
                                     <Button
-                                          x:Name="SpeakerHigh2"
-                                          Width="50"
-                                          Background="Transparent"
-                                          Foreground="#333333"
-                                          BorderThickness="0"
-                                          Command="{Binding Source={StaticResource ArtistSongVM},Path= Mute}"
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Content="{materialDesign:PackIcon VolumeHigh}">
+                                              x:Name="SpeakerHigh2"
+                                              Width="50"
+                                              Background="Transparent"
+                                              Foreground="#333333"
+                                              BorderThickness="0"
+                                              Command="{Binding Source={StaticResource ArtistSongVM},Path= Mute}"
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Content="{materialDesign:PackIcon VolumeHigh}">
                                     </Button>
                                     <Button
-                                          x:Name="SpeakerMedium2"
-                                          Width="50"
-                                          Margin="-50,0,0,0"
-                                          Visibility="Hidden"
-                                          Background="Transparent"
-                                          Foreground="#333333"
-                                          BorderThickness="0"
-                                          Command="{Binding Source={StaticResource ArtistSongVM},Path=Mute}"
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Content="{materialDesign:PackIcon VolumeMedium}">
+                                              x:Name="SpeakerMedium2"
+                                              Width="50"
+                                              Margin="-50,0,0,0"
+                                              Visibility="Hidden"
+                                              Background="Transparent"
+                                              Foreground="#333333"
+                                              BorderThickness="0"
+                                              Command="{Binding Source={StaticResource ArtistSongVM},Path=Mute}"
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Content="{materialDesign:PackIcon VolumeMedium}">
                                     </Button>
                                     <Button
-                                          x:Name="SpeakerLow2"
-                                          Width="50"
-                                          Margin="-50,0,0,0"
-                                          Visibility="Hidden"
-                                          Background="Transparent"
-                                          Foreground="#333333"
-                                          BorderThickness="0"
-                                          Command="{Binding Source={StaticResource ArtistSongVM},Path= Mute}"
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Content="{materialDesign:PackIcon VolumeLow}">
+                                              x:Name="SpeakerLow2"
+                                              Width="50"
+                                              Margin="-50,0,0,0"
+                                              Visibility="Hidden"
+                                              Background="Transparent"
+                                              Foreground="#333333"
+                                              BorderThickness="0"
+                                              Command="{Binding Source={StaticResource ArtistSongVM},Path= Mute}"
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Content="{materialDesign:PackIcon VolumeLow}">
                                     </Button>
                                     <Button
-                                          x:Name="SpeakerOff2"
-                                          Width="50"
-                                          Margin="-50,0,0,0"
-                                          Visibility="Hidden"
-                                          Background="Transparent"
-                                          Foreground="#333333"
-                                          BorderThickness="0"
-                                          Command="{Binding Source={StaticResource ArtistSongVM},Path=NonMute}"
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Content="{materialDesign:PackIcon VolumeOff}">
+                                              x:Name="SpeakerOff2"
+                                              Width="50"
+                                              Margin="-50,0,0,0"
+                                              Visibility="Hidden"
+                                              Background="Transparent"
+                                              Foreground="#333333"
+                                              BorderThickness="0"
+                                              Command="{Binding Source={StaticResource ArtistSongVM},Path=NonMute}"
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Content="{materialDesign:PackIcon VolumeOff}">
                                     </Button>
 
                                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromLeft}">
                                         <Slider 
-                                             x:Name="Volume2" 
-                                             Width="100" 
-                                             Height="30" 
-                                             Maximum="1"
-                                             Value="1"
-                                             Foreground="#0099FF"
-                                             Visibility="Visible"
-                                             VerticalAlignment="Bottom"
-                                             HorizontalAlignment="Center">
+                                                 x:Name="Volume2" 
+                                                 Width="100" 
+                                                 Height="30" 
+                                                 Maximum="1"
+                                                 Value="1"
+                                                 Foreground="#0099FF"
+                                                 Visibility="Visible"
+                                                 VerticalAlignment="Bottom"
+                                                 HorizontalAlignment="Center">
                                             <i:Interaction.Triggers>
                                                 <i:EventTrigger EventName="ValueChanged">
                                                     <i:InvokeCommandAction Command="{Binding Source={StaticResource ArtistSongVM},Path= ChangeVolumn}"
                                                                        CommandParameter="{Binding ElementName=Main}"/>
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="MouseEnter">
+                                                    <i:InvokeCommandAction Command="{Binding EnterProgress}"
+                                                                           CommandParameter="{Binding ElementName=Volume2}"/>
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="MouseLeave">
+                                                    <i:InvokeCommandAction Command="{Binding LeaveProgress}"
+                                                                           CommandParameter="{Binding ElementName=ButtonToMakeProgressLostFocus}"/>
                                                 </i:EventTrigger>
                                             </i:Interaction.Triggers>
                                         </Slider>
@@ -1017,21 +1061,21 @@
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal"
-                                    Margin="380,0,0,0" 
-                                    Width="652"
-                                    Panel.ZIndex="2">
+                                        Margin="380,0,0,0" 
+                                        Width="652"
+                                        Panel.ZIndex="2">
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.4}">
 
                                     <Button
-                                      Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
-                                      Height="35"
-                                      Width="35"
-                                      Margin="50,0,0,0"
-                                      Foreground="#444444"
-                                      Background="Transparent"
-                                      BorderBrush="Transparent"
-                                      Command="{Binding Source={StaticResource ArtistSongVM},Path=OpenSleepTimer}"
-                                      CommandParameter="{Binding ElementName=Main}">
+                                          Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                          Height="35"
+                                          Width="35"
+                                          Margin="50,0,0,0"
+                                          Foreground="#444444"
+                                          Background="Transparent"
+                                          BorderBrush="Transparent"
+                                          Command="{Binding Source={StaticResource ArtistSongVM},Path=OpenSleepTimer}"
+                                          CommandParameter="{Binding ElementName=Main}">
                                         <materialDesign:PackIcon
                                                             Kind="Alarm"
                                                             Height="24"
@@ -1046,111 +1090,113 @@
                                             Margin="10,0,5,0"
                                             Background="#0099FF"
                                             Command="{Binding Source={StaticResource ArtistSongVM},Path=ShuffleVariant}"
-                                            CommandParameter="{Binding ElementName=Main}"
-                                                >
+                                            CommandParameter="{Binding ElementName=Main}">
                                     <materialDesign:PackIcon
-                                                Kind="ShuffleVariant"
-                                                Height="21"
-                                                Width="21"
-                                                Foreground="#444444"/>
+                                                            Kind="ShuffleVariant"
+                                                            Height="21"
+                                                            Width="21"
+                                                            Foreground="#444444"/>
                                 </ToggleButton>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.5}">
                                     <Button
-                                      x:Name="SkipPreviousbtn2"
-                                      Command="{Binding Source={StaticResource ArtistSongVM}, Path=SkipPrevious}"
-                                      CommandParameter="{Binding ElementName=Main}"
-                                      Margin="0,0,5,0"
-                                      Content="{materialDesign:PackIcon SkipPrevious}"
-                                      Background="Transparent"
-                                      Foreground="#444444"
-                                      IsEnabled="False"
-                                      BorderBrush="Transparent"/>
+                                              x:Name="SkipPreviousbtn2"
+                                              Command="{Binding Source={StaticResource ArtistSongVM}, Path=SkipPrevious}"
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Margin="0,0,5,0"
+                                              Content="{materialDesign:PackIcon SkipPrevious}"
+                                              Background="Transparent"
+                                              Foreground="#444444"
+                                              IsEnabled="False"
+                                              BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.6}">
                                     <ToggleButton
-                                          x:Name="Play2"
-                                          Command="{Binding Source={StaticResource ArtistSongVM},Path= Play}"  
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Margin="0,0,0,0"
-                                          Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                          Content="{materialDesign:PackIcon Play}"
-                                          Background="Transparent"
-                                          Foreground="#444444"
-                                          BorderBrush="Transparent"
-                                          IsEnabled="False"/>
+                                                  x:Name="Play2"
+                                                  Command="{Binding Source={StaticResource ArtistSongVM},Path= Play}"  
+                                                  CommandParameter="{Binding ElementName=Main}"
+                                                  Margin="0,0,0,0"
+                                                  Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                                  Content="{materialDesign:PackIcon Play}"
+                                                  Background="Transparent"
+                                                  Foreground="#444444"
+                                                  BorderBrush="Transparent"
+                                                  IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.7}">
                                     <ToggleButton
-                                          x:Name="Pause2"
-                                          Command="{Binding Source={StaticResource ArtistSongVM},Path= Pause}"
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Margin="-40,0,0,0"
-                                          Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                          Content="{materialDesign:PackIcon Pause}"
-                                          Visibility="Hidden"
-                                          Background="Transparent"
-                                          Foreground="#444444"
-                                          BorderBrush="Transparent"
-                                          IsEnabled="False"/>
+                                                  x:Name="Pause2"
+                                                  Command="{Binding Source={StaticResource ArtistSongVM},Path= Pause}"
+                                                  CommandParameter="{Binding ElementName=Main}"
+                                                  Margin="-40,0,0,0"
+                                                  Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                                  Content="{materialDesign:PackIcon Pause}"
+                                                  Visibility="Hidden"
+                                                  Background="Transparent"
+                                                  Foreground="#444444"
+                                                  BorderBrush="Transparent"
+                                                  IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.8}">
                                     <Button
-                                      x:Name="SkipNextbtn2"     
-                                      Command="{Binding Source={StaticResource ArtistSongVM},Path= SkipNext}"
-                                      Margin="0,0,5,0"
-                                      Content="{materialDesign:PackIcon SkipNext}"
-                                      Background="Transparent"
-                                      IsEnabled="False"
-                                      Foreground="#444444"
-                                      BorderBrush="Transparent"/>
+                                              x:Name="SkipNextbtn2"     
+                                              Command="{Binding Source={StaticResource ArtistSongVM},Path= SkipNext}"
+                                              Margin="0,0,5,0"
+                                              Content="{materialDesign:PackIcon SkipNext}"
+                                              Background="Transparent"
+                                              IsEnabled="False"
+                                              Foreground="#444444"
+                                              BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.9}">
                                     <ToggleButton
-                                            x:Name="SequencecyLoop2"
-                                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                            IsChecked="True"
-                                            Margin="0,0,5,0"
-                                            Command="{Binding Source={StaticResource ArtistSongVM},Path=ShuffleDisabled}"
-                                            CommandParameter="{Binding ElementName=Main}"
-                                            Foreground="#444444"
-                                            Background="#0099FF"
-                                                >
+                                                    x:Name="SequencecyLoop2"
+                                                    Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                                    IsChecked="True"
+                                                    Margin="0,0,5,0"
+                                                    Command="{Binding Source={StaticResource ArtistSongVM},Path=ShuffleDisabled}"
+                                                    CommandParameter="{Binding ElementName=Main}"
+                                                    Foreground="#444444"
+                                                    Background="#0099FF">
                                         <materialDesign:PackIcon
-                                                Kind="ShuffleDisabled"
-                                                Height="21"
-                                                Width="21" />
+                                                                Kind="ShuffleDisabled"
+                                                                Height="21"
+                                                                Width="21" />
                                     </ToggleButton>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:1}">
 
                                     <ToggleButton
-                                            x:Name="OneLoop2"
-                                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                            IsChecked="False"
-                                            Margin="0,0,5,0"
-                                            Command="{Binding Source={StaticResource ArtistSongVM},Path= Loop}"
-                                            CommandParameter="{Binding ElementName=Main}"
-                                            Foreground="#444444"
-                                            Background="#0099FF">
+                                                    x:Name="OneLoop2"
+                                                    Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                                    IsChecked="False"
+                                                    Margin="0,0,5,0"
+                                                    Command="{Binding Source={StaticResource ArtistSongVM},Path= Loop}"
+                                                    CommandParameter="{Binding ElementName=Main}"
+                                                    Foreground="#444444"
+                                                    Background="#0099FF">
                                         <materialDesign:PackIcon
-                                                Kind="Loop"
-                                                Height="21"
-                                                Width="21" />
+                                                                Kind="Loop"
+                                                                Height="21"
+                                                                Width="21" />
                                     </ToggleButton>
                                 </materialDesign:TransitioningContent>
                             </StackPanel>
                         </Grid>
                     </materialDesign:TransitioningContent>
                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn}">
-                        <Grid x:Name="PlayerBarAlbum" Margin="0,-100,0,0" Visibility="Hidden">
-                            <Rectangle  Fill="AliceBlue"
-                                        Margin="0,0,0,0"
-                                        Height="100" Width="auto">
-                            </Rectangle>
+                        <Grid x:Name="PlayerBarAlbum" 
+                              Margin="0,-100,0,0" 
+                              Visibility="Hidden">
+                            <Border  Background="AliceBlue"
+                                     Margin="0,0,0,0"
+                                     Height="100" 
+                                     Width="auto"
+                                     CornerRadius="0,0,20,20">
+                            </Border>
                             <iconPacks:PackIconMaterial Kind="Library" 
-                                                                            Panel.ZIndex="1"                                      
-                                                                            Height="16" Width="28" 
-                                                                            Margin="0 0 0 0">
+                                                        Panel.ZIndex="1"                                      
+                                                        Height="16" Width="28" 
+                                                        Margin="0 0 0 0">
                                 <iconPacks:PackIconMaterial.Foreground>
                                     <LinearGradientBrush>
                                         <GradientStop Color="#FDF5A6" Offset="0.15"></GradientStop>
@@ -1183,8 +1229,8 @@
                                            FontSize="16"/>
                             </StackPanel>
                             <StackPanel 
-                                    Margin="200,10,0,0"
-                                    Width="auto">
+                                        Margin="200,10,0,0"
+                                        Width="auto">
                                 <StatusBarItem HorizontalContentAlignment="Stretch"
                                            Width="600">
                                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn}">
@@ -1192,12 +1238,19 @@
                                                 Foreground="#0099FF"
                                                 Width="400"
                                                 IsEnabled="False"
-                                                Margin="-60,0,0,0"
-                                     >
+                                                Margin="-60,0,0,0">
                                             <i:Interaction.Triggers>
                                                 <i:EventTrigger EventName="ValueChanged">
                                                     <i:InvokeCommandAction Command="{Binding Source={StaticResource AlbumSongVM},Path=ChangeTime}"
                                                                            CommandParameter="{Binding ElementName=Main}"/>
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="MouseEnter">
+                                                    <i:InvokeCommandAction Command="{Binding EnterProgress}"
+                                                                           CommandParameter="{Binding ElementName=sliProgress3}"/>
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="MouseLeave">
+                                                    <i:InvokeCommandAction Command="{Binding LeaveProgress}"
+                                                                           CommandParameter="{Binding ElementName=ButtonToMakeProgressLostFocus}"/>
                                                 </i:EventTrigger>
                                             </i:Interaction.Triggers>
 
@@ -1207,80 +1260,88 @@
                                 <StackPanel Orientation="Horizontal"
                                             Margin="-100,0,0,0">
                                     <Label
-                                        Height="25"
-                                        x:Name="InTime3"
-                                        Foreground="#333333"
-                                        Margin="320,-20,0,0"></Label>
+                                            Height="25"
+                                            x:Name="InTime3"
+                                            Foreground="#333333"
+                                            Margin="320,-20,0,0"></Label>
                                     <Label
-                                        Height="25"
-                                        x:Name="TotalTime3"
-                                        Foreground="#333333"
-                                        Margin="450,-20,0,0"></Label>
+                                            Height="25"
+                                            x:Name="TotalTime3"
+                                            Foreground="#333333"
+                                            Margin="450,-20,0,0"></Label>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal"
                                         Margin="800,0,0,0">
                                     <Button
-                                          x:Name="SpeakerHigh3"
-                                          Width="50"
-                                          Background="Transparent"
-                                          Foreground="#333333"
-                                          BorderThickness="0"
-                                          Command="{Binding Source={StaticResource AlbumSongVM},Path= Mute}"
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Content="{materialDesign:PackIcon VolumeHigh}">
+                                              x:Name="SpeakerHigh3"
+                                              Width="50"
+                                              Background="Transparent"
+                                              Foreground="#333333"
+                                              BorderThickness="0"
+                                              Command="{Binding Source={StaticResource AlbumSongVM},Path= Mute}"
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Content="{materialDesign:PackIcon VolumeHigh}">
                                     </Button>
                                     <Button
-                                          x:Name="SpeakerMedium3"
-                                          Width="50"
-                                          Margin="-50,0,0,0"
-                                          Visibility="Hidden"
-                                          Background="Transparent"
-                                          Foreground="#333333"
-                                          BorderThickness="0"
-                                          Command="{Binding Source={StaticResource AlbumSongVM},Path=Mute}"
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Content="{materialDesign:PackIcon VolumeMedium}">
+                                              x:Name="SpeakerMedium3"
+                                              Width="50"
+                                              Margin="-50,0,0,0"
+                                              Visibility="Hidden"
+                                              Background="Transparent"
+                                              Foreground="#333333"
+                                              BorderThickness="0"
+                                              Command="{Binding Source={StaticResource AlbumSongVM},Path=Mute}"
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Content="{materialDesign:PackIcon VolumeMedium}">
                                     </Button>
                                     <Button
-                                          x:Name="SpeakerLow3"
-                                          Width="50"
-                                          Margin="-50,0,0,0"
-                                          Visibility="Hidden"
-                                          Background="Transparent"
-                                          Foreground="#333333"
-                                          BorderThickness="0"
-                                          Command="{Binding Source={StaticResource AlbumSongVM},Path= Mute}"
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Content="{materialDesign:PackIcon VolumeLow}">
+                                              x:Name="SpeakerLow3"
+                                              Width="50"
+                                              Margin="-50,0,0,0"
+                                              Visibility="Hidden"
+                                              Background="Transparent"
+                                              Foreground="#333333"
+                                              BorderThickness="0"
+                                              Command="{Binding Source={StaticResource AlbumSongVM},Path= Mute}"
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Content="{materialDesign:PackIcon VolumeLow}">
                                     </Button>
                                     <Button
-                                          x:Name="SpeakerOff3"
-                                          Width="50"
-                                          Margin="-50,0,0,0"
-                                          Visibility="Hidden"
-                                          Background="Transparent"
-                                          Foreground="#333333"
-                                          BorderThickness="0"
-                                          Command="{Binding Source={StaticResource AlbumSongVM},Path=NonMute}"
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Content="{materialDesign:PackIcon VolumeOff}">
+                                              x:Name="SpeakerOff3"
+                                              Width="50"
+                                              Margin="-50,0,0,0"
+                                              Visibility="Hidden"
+                                              Background="Transparent"
+                                              Foreground="#333333"
+                                              BorderThickness="0"
+                                              Command="{Binding Source={StaticResource AlbumSongVM},Path=NonMute}"
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Content="{materialDesign:PackIcon VolumeOff}">
                                     </Button>
 
                                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromLeft}">
                                         <Slider 
-                                             x:Name="Volume3" 
-                                             Width="100" 
-                                             Height="30" 
-                                             Maximum="1"
-                                             Value="1"
-                                             Foreground="#0099FF"
-                                             Visibility="Visible"
-                                             VerticalAlignment="Bottom"
-                                             HorizontalAlignment="Center">
+                                                 x:Name="Volume3" 
+                                                 Width="100" 
+                                                 Height="30" 
+                                                 Maximum="1"
+                                                 Value="1"
+                                                 Foreground="#0099FF"
+                                                 Visibility="Visible"
+                                                 VerticalAlignment="Bottom"
+                                                 HorizontalAlignment="Center">
                                             <i:Interaction.Triggers>
                                                 <i:EventTrigger EventName="ValueChanged">
                                                     <i:InvokeCommandAction Command="{Binding Source={StaticResource AlbumSongVM},Path= ChangeVolumn}"
                                                                        CommandParameter="{Binding ElementName=Main}"/>
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="MouseEnter">
+                                                    <i:InvokeCommandAction Command="{Binding EnterProgress}"
+                                                                           CommandParameter="{Binding ElementName=Volume3}"/>
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="MouseLeave">
+                                                    <i:InvokeCommandAction Command="{Binding LeaveProgress}"
+                                                                           CommandParameter="{Binding ElementName=ButtonToMakeProgressLostFocus}"/>
                                                 </i:EventTrigger>
                                             </i:Interaction.Triggers>
                                         </Slider>
@@ -1290,37 +1351,36 @@
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal"
-                                    Margin="380,0,0,0" 
-                                    Width="652"
-                                    Panel.ZIndex="2">
+                                        Margin="380,0,0,0" 
+                                        Width="652"
+                                        Panel.ZIndex="2">
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.4}">
 
                                     <Button
-                                      Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
-                                      Height="35"
-                                      Width="35"
-                                      Margin="50,0,0,0"
-                                      Foreground="#444444"
-                                      Background="Transparent"
-                                      BorderBrush="Transparent"
-                                      Command="{Binding Source={StaticResource AlbumSongVM},Path=OpenSleepTimer}"
-                                      CommandParameter="{Binding ElementName=Main}">
+                                              Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                              Height="35"
+                                              Width="35"
+                                              Margin="50,0,0,0"
+                                              Foreground="#444444"
+                                              Background="Transparent"
+                                              BorderBrush="Transparent"
+                                              Command="{Binding Source={StaticResource AlbumSongVM},Path=OpenSleepTimer}"
+                                              CommandParameter="{Binding ElementName=Main}">
                                         <materialDesign:PackIcon
-                                                            Kind="Alarm"
-                                                            Height="24"
-                                                            Width="24" />
+                                                                Kind="Alarm"
+                                                                Height="24"
+                                                                Width="24" />
                                     </Button>
                                 </materialDesign:TransitioningContent>
 
                                 <ToggleButton
-                                            x:Name="RandomLoop3"
-                                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                            IsChecked="False"
-                                            Margin="10,0,5,0"
-                                            Background="#0099FF"
-                                            Command="{Binding Source={StaticResource AlbumSongVM},Path=ShuffleVariant}"
-                                            CommandParameter="{Binding ElementName=Main}"
-                                                >
+                                                x:Name="RandomLoop3"
+                                                Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                                IsChecked="False"
+                                                Margin="10,0,5,0"
+                                                Background="#0099FF"
+                                                Command="{Binding Source={StaticResource AlbumSongVM},Path=ShuffleVariant}"
+                                                CommandParameter="{Binding ElementName=Main}">
                                     <materialDesign:PackIcon
                                                 Kind="ShuffleVariant"
                                                 Height="21"
@@ -1329,65 +1389,64 @@
                                 </ToggleButton>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.5}">
                                     <Button
-                                      x:Name="SkipPreviousbtn3"
-                                      Command="{Binding Source={StaticResource AlbumSongVM}, Path=SkipPrevious}"
-                                      CommandParameter="{Binding ElementName=Main}"
-                                      Margin="0,0,5,0"
-                                      Content="{materialDesign:PackIcon SkipPrevious}"
-                                      Background="Transparent"
-                                      Foreground="#444444"
-                                      IsEnabled="False"
-                                      BorderBrush="Transparent"/>
+                                              x:Name="SkipPreviousbtn3"
+                                              Command="{Binding Source={StaticResource AlbumSongVM}, Path=SkipPrevious}"
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Margin="0,0,5,0"
+                                              Content="{materialDesign:PackIcon SkipPrevious}"
+                                              Background="Transparent"
+                                              Foreground="#444444"
+                                              IsEnabled="False"
+                                              BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.6}">
                                     <ToggleButton
-                                          x:Name="Play3"
-                                          Command="{Binding Source={StaticResource AlbumSongVM},Path= Play}"  
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Margin="0,0,0,0"
-                                          Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                          Content="{materialDesign:PackIcon Play}"
-                                          Background="Transparent"
-                                          Foreground="#444444"
-                                          BorderBrush="Transparent"
-                                          IsEnabled="False"/>
+                                              x:Name="Play3"
+                                              Command="{Binding Source={StaticResource AlbumSongVM},Path= Play}"  
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Margin="0,0,0,0"
+                                              Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                              Content="{materialDesign:PackIcon Play}"
+                                              Background="Transparent"
+                                              Foreground="#444444"
+                                              BorderBrush="Transparent"
+                                              IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.7}">
                                     <ToggleButton
-                                          x:Name="Pause3"
-                                          Command="{Binding Source={StaticResource AlbumSongVM},Path= Pause}"
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Margin="-40,0,0,0"
-                                          Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                          Content="{materialDesign:PackIcon Pause}"
-                                          Visibility="Hidden"
-                                          Background="Transparent"
-                                          Foreground="#444444"
-                                          BorderBrush="Transparent"
-                                          IsEnabled="False"/>
+                                              x:Name="Pause3"
+                                              Command="{Binding Source={StaticResource AlbumSongVM},Path= Pause}"
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Margin="-40,0,0,0"
+                                              Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                              Content="{materialDesign:PackIcon Pause}"
+                                              Visibility="Hidden"
+                                              Background="Transparent"
+                                              Foreground="#444444"
+                                              BorderBrush="Transparent"
+                                              IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.8}">
                                     <Button
-                                      x:Name="SkipNextbtn3"     
-                                      Command="{Binding Source={StaticResource AlbumSongVM},Path= SkipNext}"
-                                      Margin="0,0,5,0"
-                                      Content="{materialDesign:PackIcon SkipNext}"
-                                      Background="Transparent"
-                                      IsEnabled="False"
-                                      Foreground="#444444"
-                                      BorderBrush="Transparent"/>
+                                              x:Name="SkipNextbtn3"     
+                                              Command="{Binding Source={StaticResource AlbumSongVM},Path= SkipNext}"
+                                              Margin="0,0,5,0"
+                                              Content="{materialDesign:PackIcon SkipNext}"
+                                              Background="Transparent"
+                                              IsEnabled="False"
+                                              Foreground="#444444"
+                                              BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.9}">
                                     <ToggleButton
-                                            x:Name="SequencecyLoop3"
-                                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                            IsChecked="True"
-                                            Margin="0,0,5,0"
-                                            Command="{Binding Source={StaticResource AlbumSongVM},Path=ShuffleDisabled}"
-                                            CommandParameter="{Binding ElementName=Main}"
-                                            Foreground="#444444"
-                                            Background="#0099FF"
-                                                >
+                                                    x:Name="SequencecyLoop3"
+                                                    Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                                    IsChecked="True"
+                                                    Margin="0,0,5,0"
+                                                    Command="{Binding Source={StaticResource AlbumSongVM},Path=ShuffleDisabled}"
+                                                    CommandParameter="{Binding ElementName=Main}"
+                                                    Foreground="#444444"
+                                                    Background="#0099FF">
                                         <materialDesign:PackIcon
                                                 Kind="ShuffleDisabled"
                                                 Height="21"
@@ -1397,33 +1456,37 @@
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:1}">
 
                                     <ToggleButton
-                                            x:Name="OneLoop3"
-                                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                            IsChecked="False"
-                                            Margin="0,0,5,0"
-                                            Command="{Binding Source={StaticResource AlbumSongVM},Path= Loop}"
-                                            CommandParameter="{Binding ElementName=Main}"
-                                            Foreground="#444444"
-                                            Background="#0099FF">
+                                                    x:Name="OneLoop3"
+                                                    Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                                    IsChecked="False"
+                                                    Margin="0,0,5,0"
+                                                    Command="{Binding Source={StaticResource AlbumSongVM},Path= Loop}"
+                                                    CommandParameter="{Binding ElementName=Main}"
+                                                    Foreground="#444444"
+                                                    Background="#0099FF">
                                         <materialDesign:PackIcon
-                                                Kind="Loop"
-                                                Height="21"
-                                                Width="21" />
+                                                                Kind="Loop"
+                                                                Height="21"
+                                                                Width="21" />
                                     </ToggleButton>
                                 </materialDesign:TransitioningContent>
                             </StackPanel>
                         </Grid>
                     </materialDesign:TransitioningContent>
                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn}">
-                        <Grid x:Name="PlayerBarGenre" Margin="0,-100,0,0" Visibility="Hidden">
-                            <Rectangle  Fill="AliceBlue"
-                                        Margin="0,0,0,0"
-                                        Height="100" Width="auto">
-                            </Rectangle>
+                        <Grid x:Name="PlayerBarGenre" 
+                              Margin="0,-100,0,0" 
+                              Visibility="Hidden">
+                            <Border  Background="AliceBlue"
+                                     Margin="0,0,0,0"
+                                     Height="100" 
+                                     Width="auto"
+                                     CornerRadius="0,0,20,20">
+                            </Border>
                             <iconPacks:PackIconMaterial Kind="MusicBox" 
-                                                                            Panel.ZIndex="1"                                                
-                                                                            Height="16" Width="28" 
-                                                                            Margin="0 0 0 0">
+                                                        Panel.ZIndex="1"                                                
+                                                        Height="16" Width="28" 
+                                                        Margin="0 0 0 0">
                                 <iconPacks:PackIconMaterial.Foreground>
                                     <LinearGradientBrush>
                                         <GradientStop Color="#D380FA" Offset="0.25"></GradientStop>
@@ -1456,8 +1519,8 @@
                                            FontSize="16"/>
                             </StackPanel>
                             <StackPanel 
-                                    Margin="200,10,0,0"
-                                    Width="auto">
+                                        Margin="200,10,0,0"
+                                        Width="auto">
                                 <StatusBarItem HorizontalContentAlignment="Stretch"
                                            Width="600">
                                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn}">
@@ -1465,12 +1528,19 @@
                                                 Foreground="#0099FF"
                                                 Width="400"
                                                 IsEnabled="False"
-                                                Margin="-60,0,0,0"
-                                     >
+                                                Margin="-60,0,0,0">
                                             <i:Interaction.Triggers>
                                                 <i:EventTrigger EventName="ValueChanged">
                                                     <i:InvokeCommandAction Command="{Binding Source={StaticResource GenreSongVM},Path=ChangeTime}"
                                                                            CommandParameter="{Binding ElementName=Main}"/>
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="MouseEnter">
+                                                    <i:InvokeCommandAction Command="{Binding EnterProgress}"
+                                                                           CommandParameter="{Binding ElementName=sliProgress4}"/>
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="MouseLeave">
+                                                    <i:InvokeCommandAction Command="{Binding LeaveProgress}"
+                                                                           CommandParameter="{Binding ElementName=ButtonToMakeProgressLostFocus}"/>
                                                 </i:EventTrigger>
                                             </i:Interaction.Triggers>
 
@@ -1480,80 +1550,88 @@
                                 <StackPanel Orientation="Horizontal"
                                             Margin="-100,0,0,0">
                                     <Label
-                                        Height="25"
-                                        x:Name="InTime4"
-                                        Foreground="#333333"
-                                        Margin="320,-20,0,0"></Label>
+                                            Height="25"
+                                            x:Name="InTime4"
+                                            Foreground="#333333"
+                                            Margin="320,-20,0,0"></Label>
                                     <Label
-                                        Height="25"
-                                        x:Name="TotalTime4"
-                                        Foreground="#333333"
-                                        Margin="450,-20,0,0"></Label>
+                                            Height="25"
+                                            x:Name="TotalTime4"
+                                            Foreground="#333333"
+                                            Margin="450,-20,0,0"></Label>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal"
-                                        Margin="800,0,0,0">
+                                            Margin="800,0,0,0">
                                     <Button
-                                          x:Name="SpeakerHigh4"
-                                          Width="50"
-                                          Background="Transparent"
-                                          Foreground="#333333"
-                                          BorderThickness="0"
-                                          Command="{Binding Source={StaticResource GenreSongVM},Path= Mute}"
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Content="{materialDesign:PackIcon VolumeHigh}">
+                                              x:Name="SpeakerHigh4"
+                                              Width="50"
+                                              Background="Transparent"
+                                              Foreground="#333333"
+                                              BorderThickness="0"
+                                              Command="{Binding Source={StaticResource GenreSongVM},Path= Mute}"
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Content="{materialDesign:PackIcon VolumeHigh}">
                                     </Button>
                                     <Button
-                                          x:Name="SpeakerMedium4"
-                                          Width="50"
-                                          Margin="-50,0,0,0"
-                                          Visibility="Hidden"
-                                          Background="Transparent"
-                                          Foreground="#333333"
-                                          BorderThickness="0"
-                                          Command="{Binding Source={StaticResource GenreSongVM},Path=Mute}"
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Content="{materialDesign:PackIcon VolumeMedium}">
+                                              x:Name="SpeakerMedium4"
+                                              Width="50"
+                                              Margin="-50,0,0,0"
+                                              Visibility="Hidden"
+                                              Background="Transparent"
+                                              Foreground="#333333"
+                                              BorderThickness="0"
+                                              Command="{Binding Source={StaticResource GenreSongVM},Path=Mute}"
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Content="{materialDesign:PackIcon VolumeMedium}">
                                     </Button>
                                     <Button
-                                          x:Name="SpeakerLow4"
-                                          Width="50"
-                                          Margin="-50,0,0,0"
-                                          Visibility="Hidden"
-                                          Background="Transparent"
-                                          Foreground="#333333"
-                                          BorderThickness="0"
-                                          Command="{Binding Source={StaticResource GenreSongVM},Path= Mute}"
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Content="{materialDesign:PackIcon VolumeLow}">
+                                              x:Name="SpeakerLow4"
+                                              Width="50"
+                                              Margin="-50,0,0,0"
+                                              Visibility="Hidden"
+                                              Background="Transparent"
+                                              Foreground="#333333"
+                                              BorderThickness="0"
+                                              Command="{Binding Source={StaticResource GenreSongVM},Path= Mute}"
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Content="{materialDesign:PackIcon VolumeLow}">
                                     </Button>
                                     <Button
-                                          x:Name="SpeakerOff4"
-                                          Width="50"
-                                          Margin="-50,0,0,0"
-                                          Visibility="Hidden"
-                                          Background="Transparent"
-                                          Foreground="#333333"
-                                          BorderThickness="0"
-                                          Command="{Binding Source={StaticResource GenreSongVM},Path=NonMute}"
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Content="{materialDesign:PackIcon VolumeOff}">
+                                              x:Name="SpeakerOff4"
+                                              Width="50"
+                                              Margin="-50,0,0,0"
+                                              Visibility="Hidden"
+                                              Background="Transparent"
+                                              Foreground="#333333"
+                                              BorderThickness="0"
+                                              Command="{Binding Source={StaticResource GenreSongVM},Path=NonMute}"
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Content="{materialDesign:PackIcon VolumeOff}">
                                     </Button>
 
                                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromLeft}">
                                         <Slider 
-                                             x:Name="Volume4" 
-                                             Width="100" 
-                                             Height="30" 
-                                             Maximum="1"
-                                             Value="1"
-                                             Foreground="#0099FF"
-                                             Visibility="Visible"
-                                             VerticalAlignment="Bottom"
-                                             HorizontalAlignment="Center">
+                                                 x:Name="Volume4" 
+                                                 Width="100" 
+                                                 Height="30" 
+                                                 Maximum="1"
+                                                 Value="1"
+                                                 Foreground="#0099FF"
+                                                 Visibility="Visible"
+                                                 VerticalAlignment="Bottom"
+                                                 HorizontalAlignment="Center">
                                             <i:Interaction.Triggers>
                                                 <i:EventTrigger EventName="ValueChanged">
                                                     <i:InvokeCommandAction Command="{Binding Source={StaticResource GenreSongVM},Path= ChangeVolumn}"
-                                                                       CommandParameter="{Binding ElementName=Main}"/>
+                                                                           CommandParameter="{Binding ElementName=Main}"/>
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="MouseEnter">
+                                                    <i:InvokeCommandAction Command="{Binding EnterProgress}"
+                                                                           CommandParameter="{Binding ElementName=Volume4}"/>
+                                                </i:EventTrigger>
+                                                <i:EventTrigger EventName="MouseLeave">
+                                                    <i:InvokeCommandAction Command="{Binding LeaveProgress}"
+                                                                           CommandParameter="{Binding ElementName=ButtonToMakeProgressLostFocus}"/>
                                                 </i:EventTrigger>
                                             </i:Interaction.Triggers>
                                         </Slider>
@@ -1563,125 +1641,123 @@
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal"
-                                    Margin="380,0,0,0" 
-                                    Width="652"
-                                    Panel.ZIndex="2">
+                                        Margin="380,0,0,0" 
+                                        Width="652"
+                                        Panel.ZIndex="2">
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.4}">
 
                                     <Button
-                                      Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
-                                      Height="35"
-                                      Width="35"
-                                      Margin="50,0,0,0"
-                                      Foreground="#444444"
-                                      Background="Transparent"
-                                      BorderBrush="Transparent"
-                                      Command="{Binding Source={StaticResource GenreSongVM},Path=OpenSleepTimer}"
-                                      CommandParameter="{Binding ElementName=Main}">
+                                              Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                              Height="35"
+                                              Width="35"
+                                              Margin="50,0,0,0"
+                                              Foreground="#444444"
+                                              Background="Transparent"
+                                              BorderBrush="Transparent"
+                                              Command="{Binding Source={StaticResource GenreSongVM},Path=OpenSleepTimer}"
+                                              CommandParameter="{Binding ElementName=Main}">
                                         <materialDesign:PackIcon
-                                                            Kind="Alarm"
-                                                            Height="24"
-                                                            Width="24" />
+                                                                    Kind="Alarm"
+                                                                    Height="24"
+                                                                    Width="24" />
                                     </Button>
                                 </materialDesign:TransitioningContent>
 
                                 <ToggleButton
-                                            x:Name="RandomLoop4"
-                                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                            IsChecked="False"
-                                            Margin="10,0,5,0"
-                                            Background="#0099FF"
-                                            Command="{Binding Source={StaticResource GenreSongVM},Path=ShuffleVariant}"
-                                            CommandParameter="{Binding ElementName=Main}"
-                                                >
+                                                x:Name="RandomLoop4"
+                                                Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                                IsChecked="False"
+                                                Margin="10,0,5,0"
+                                                Background="#0099FF"
+                                                Command="{Binding Source={StaticResource GenreSongVM},Path=ShuffleVariant}"
+                                                CommandParameter="{Binding ElementName=Main}">
                                     <materialDesign:PackIcon
-                                                Kind="ShuffleVariant"
-                                                Height="21"
-                                                Width="21"
-                                                Foreground="#444444"/>
+                                                            Kind="ShuffleVariant"
+                                                            Height="21"
+                                                            Width="21"
+                                                            Foreground="#444444"/>
                                 </ToggleButton>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.5}">
                                     <Button
-                                      x:Name="SkipPreviousbtn4"
-                                      Command="{Binding Source={StaticResource GenreSongVM}, Path=SkipPrevious}"
-                                      CommandParameter="{Binding ElementName=Main}"
-                                      Margin="0,0,5,0"
-                                      Content="{materialDesign:PackIcon SkipPrevious}"
-                                      Background="Transparent"
-                                      Foreground="#444444"
-                                      IsEnabled="False"
-                                      BorderBrush="Transparent"/>
+                                              x:Name="SkipPreviousbtn4"
+                                              Command="{Binding Source={StaticResource GenreSongVM}, Path=SkipPrevious}"
+                                              CommandParameter="{Binding ElementName=Main}"
+                                              Margin="0,0,5,0"
+                                              Content="{materialDesign:PackIcon SkipPrevious}"
+                                              Background="Transparent"
+                                              Foreground="#444444"
+                                              IsEnabled="False"
+                                              BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.6}">
                                     <ToggleButton
-                                          x:Name="Play4"
-                                          Command="{Binding Source={StaticResource GenreSongVM},Path= Play}"  
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Margin="0,0,0,0"
-                                          Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                          Content="{materialDesign:PackIcon Play}"
-                                          Background="Transparent"
-                                          Foreground="#444444"
-                                          BorderBrush="Transparent"
-                                          IsEnabled="False"/>
+                                                  x:Name="Play4"
+                                                  Command="{Binding Source={StaticResource GenreSongVM},Path= Play}"  
+                                                  CommandParameter="{Binding ElementName=Main}"
+                                                  Margin="0,0,0,0"
+                                                  Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                                  Content="{materialDesign:PackIcon Play}"
+                                                  Background="Transparent"
+                                                  Foreground="#444444"
+                                                  BorderBrush="Transparent"
+                                                  IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.7}">
                                     <ToggleButton
-                                          x:Name="Pause4"
-                                          Command="{Binding Source={StaticResource GenreSongVM},Path= Pause}"
-                                          CommandParameter="{Binding ElementName=Main}"
-                                          Margin="-40,0,0,0"
-                                          Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                          Content="{materialDesign:PackIcon Pause}"
-                                          Visibility="Hidden"
-                                          Background="Transparent"
-                                          Foreground="#444444"
-                                          BorderBrush="Transparent"
-                                          IsEnabled="False"/>
+                                                  x:Name="Pause4"
+                                                  Command="{Binding Source={StaticResource GenreSongVM},Path= Pause}"
+                                                  CommandParameter="{Binding ElementName=Main}"
+                                                  Margin="-40,0,0,0"
+                                                  Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                                  Content="{materialDesign:PackIcon Pause}"
+                                                  Visibility="Hidden"
+                                                  Background="Transparent"
+                                                  Foreground="#444444"
+                                                  BorderBrush="Transparent"
+                                                  IsEnabled="False"/>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.8}">
                                     <Button
-                                      x:Name="SkipNextbtn4"     
-                                      Command="{Binding Source={StaticResource GenreSongVM},Path= SkipNext}"
-                                      Margin="0,0,5,0"
-                                      Content="{materialDesign:PackIcon SkipNext}"
-                                      Background="Transparent"
-                                      IsEnabled="False"
-                                      Foreground="#444444"
-                                      BorderBrush="Transparent"/>
+                                              x:Name="SkipNextbtn4"     
+                                              Command="{Binding Source={StaticResource GenreSongVM},Path= SkipNext}"
+                                              Margin="0,0,5,0"
+                                              Content="{materialDesign:PackIcon SkipNext}"
+                                              Background="Transparent"
+                                              IsEnabled="False"
+                                              Foreground="#444444"
+                                              BorderBrush="Transparent"/>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:0.9}">
                                     <ToggleButton
-                                            x:Name="SequencecyLoop4"
-                                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                            IsChecked="True"
-                                            Margin="0,0,5,0"
-                                            Command="{Binding Source={StaticResource GenreSongVM},Path=ShuffleDisabled}"
-                                            CommandParameter="{Binding ElementName=Main}"
-                                            Foreground="#444444"
-                                            Background="#0099FF"
-                                                >
+                                                    x:Name="SequencecyLoop4"
+                                                    Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                                    IsChecked="True"
+                                                    Margin="0,0,5,0"
+                                                    Command="{Binding Source={StaticResource GenreSongVM},Path=ShuffleDisabled}"
+                                                    CommandParameter="{Binding ElementName=Main}"
+                                                    Foreground="#444444"
+                                                    Background="#0099FF">
                                         <materialDesign:PackIcon
-                                                Kind="ShuffleDisabled"
-                                                Height="21"
-                                                Width="21" />
+                                                                Kind="ShuffleDisabled"
+                                                                Height="21"
+                                                                Width="21" />
                                     </ToggleButton>
                                 </materialDesign:TransitioningContent>
                                 <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromBottom,Duration=0:0:1}">
 
                                     <ToggleButton
-                                            x:Name="OneLoop4"
-                                            Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
-                                            IsChecked="False"
-                                            Margin="0,0,5,0"
-                                            Command="{Binding Source={StaticResource GenreSongVM},Path= Loop}"
-                                            CommandParameter="{Binding ElementName=Main}"
-                                            Foreground="#444444"
-                                            Background="#0099FF">
+                                                    x:Name="OneLoop4"
+                                                    Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
+                                                    IsChecked="False"
+                                                    Margin="0,0,5,0"
+                                                    Command="{Binding Source={StaticResource GenreSongVM},Path= Loop}"
+                                                    CommandParameter="{Binding ElementName=Main}"
+                                                    Foreground="#444444"
+                                                    Background="#0099FF">
                                         <materialDesign:PackIcon
-                                                Kind="Loop"
-                                                Height="21"
-                                                Width="21" />
+                                                                    Kind="Loop"
+                                                                    Height="21"
+                                                                    Width="21" />
                                     </ToggleButton>
                                 </materialDesign:TransitioningContent>
                             </StackPanel>
