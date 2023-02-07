@@ -84,13 +84,14 @@
                 <StackPanel Orientation="Horizontal"
                             Margin="50 20 0 0">
                     <Button Margin="75 0 0 0"
-                                Style="{StaticResource ButtonInAddPLWD}"
-                                Width="100"
-                                Height="40"
-                                x:Name="btnAdd"
-                                Command="{Binding Add}"
-                                ToolTip="Add" Background="#2af598"
-                               Foreground="#FFFFFF">
+                            Style="{StaticResource ButtonInAddPLWD}"
+                            Width="100"
+                            Height="40"
+                            x:Name="btnAdd"
+                            Command="{Binding Add}"
+                            ToolTip="Add" 
+                            Background="#2af598"
+                            Foreground="#FFFFFF">
                         <materialDesign:PackIcon Kind="Check"
                                                  Width="25"
                                                  Height="25">

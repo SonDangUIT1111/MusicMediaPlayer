@@ -53,6 +53,7 @@
                             Width="120"
                             Height="30"
                             Content="Save"
+                            IsDefault="True"
                             Background="#2af598"
                             Foreground="#000000"
                             Command="{Binding Luu}"

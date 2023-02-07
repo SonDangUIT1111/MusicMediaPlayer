@@ -179,6 +179,7 @@
                                 Command="{Binding Add}"
                                 CommandParameter="{Binding ElementName=AddPL}"
                                 ToolTip="Add" 
+                                IsDefault="True"
                                 Background="#2af598"
                                 Foreground="#FFFFFF">
                             <materialDesign:PackIcon Kind="Check"

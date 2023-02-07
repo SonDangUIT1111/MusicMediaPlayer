@@ -109,6 +109,7 @@
                         Width="100"
                         Height="40"
                         x:Name="btnAdd"
+                        IsDefault="True"
                         Command="{Binding Change}"
                         CommandParameter="{Binding ElementName=ChangePlayListPictureWD}"
                         ToolTip="Add" 

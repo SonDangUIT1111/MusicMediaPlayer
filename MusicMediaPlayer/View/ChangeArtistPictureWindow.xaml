@@ -127,6 +127,7 @@
                           Height="40"
                           Width="100"
                           Padding="0"
+                          IsDefault="True"
                           BorderThickness="1"
                           Foreground="White"
                           Background="#2af598"
