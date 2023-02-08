@@ -39,6 +39,11 @@
                             </ImageBrush>
                         </Border.Background>
                     </Border>
+                    <TextBlock Text="Notification"
+                               FontSize="20"
+                               Margin="10,10,0,0" 
+                               FontFamily="Arial Rounded MT Bold" 
+                               Foreground="#FF2AC2F5"/>
                 </StackPanel>
                 <TextBlock Text="{Binding Content}"
                            VerticalAlignment="Center"

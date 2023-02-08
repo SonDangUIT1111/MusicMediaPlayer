@@ -30,7 +30,7 @@
             <TextBlock x:Name="WelcomeText"
                        FontSize="80"
                        Width="600"
-                       Height="100"
+                       Height="120"
                        FontStyle="Normal"
                        FontWeight="DemiBold"
                        Foreground="#009efd"
@@ -43,7 +43,7 @@
                     <DropShadowEffect
                                       ShadowDepth="4"
                                       Direction="330"
-                                      Color="#FFFFFF"
+                                      Color="#000000"
                                       Opacity="1"
                                       BlurRadius="2"/>
                 </TextBlock.Effect>
@@ -62,9 +62,9 @@
                        Grid.Column="1">
                 <TextBlock.Effect>
                     <DropShadowEffect
-                                      ShadowDepth="3"
+                                      ShadowDepth="2"
                                       Direction="330"
-                                      Color="#FFFFFF"
+                                      Color="#000000"
                                       Opacity="1"
                                       BlurRadius="0"/>
                 </TextBlock.Effect>

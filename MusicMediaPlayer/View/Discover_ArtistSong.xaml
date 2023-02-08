@@ -147,10 +147,10 @@
                                 Panel.ZIndex="2"
                                 Margin="0,0,0,50">
                         <TextBlock x:Name="NameArtist"
-                                   Height="50"
-                                   Text="ten artist"
+                                   Height="30"
+                                   Text="Olivia Rodrigo"
                                    Width="250"
-                                   FontSize="36"
+                                   FontSize="24"
                                    FontWeight="Medium"
                                    Foreground="#333333"
                                    TextAlignment="Center" 
@@ -510,7 +510,7 @@
                              Margin="0,-50,0,0">
                     <DataGrid 
                               x:Name="CompositionList"
-                              Height="350"
+                              Height="320"
                               Width="950"
                               Margin="0,0,0,0"
                               ItemsSource="{Binding ListSong}"

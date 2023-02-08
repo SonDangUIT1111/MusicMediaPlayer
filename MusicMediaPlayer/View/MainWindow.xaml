@@ -80,7 +80,8 @@
 
                                     </Border>
                                     <StackPanel>
-                                        <RadioButton Style="{StaticResource MainButton}" 
+                                        <RadioButton x:Name="HomeButton"
+                                                     Style="{StaticResource MainButton}" 
                                                      Width="140" 
                                                      Command="{Binding SwitchHome}" 
                                                      CommandParameter="{Binding ElementName=FrameView}"
@@ -611,7 +612,7 @@
                                               Command="{Binding Source={StaticResource MVApp},Path=BackBegin}"
                                               CommandParameter="{Binding ElementName=Main}">
                                         <materialDesign:PackIcon
-                                                                Kind="AppleMobileme"
+                                                                Kind="Broom"
                                                                 Height="24"
                                                                 Width="24" />
                                     </Button>
@@ -921,7 +922,7 @@
                                               Command="{Binding Source={StaticResource MVApp},Path=BackBegin}"
                                               CommandParameter="{Binding ElementName=Main}">
                                         <materialDesign:PackIcon
-                                                                Kind="AppleMobileme"
+                                                                Kind="Broom"
                                                                 Height="24"
                                                                 Width="24" />
                                     </Button>
@@ -1228,7 +1229,7 @@
                                               Command="{Binding Source={StaticResource MVApp},Path=BackBegin}"
                                               CommandParameter="{Binding ElementName=Main}">
                                         <materialDesign:PackIcon
-                                                                Kind="AppleMobileme"
+                                                                Kind="Broom"
                                                                 Height="24"
                                                                 Width="24" />
                                     </Button>
@@ -1536,7 +1537,7 @@
                                               Command="{Binding Source={StaticResource MVApp},Path=BackBegin}"
                                               CommandParameter="{Binding ElementName=Main}">
                                         <materialDesign:PackIcon
-                                                                Kind="AppleMobileme"
+                                                                Kind="Broom"
                                                                 Height="24"
                                                                 Width="24" />
                                     </Button>
@@ -1844,7 +1845,7 @@
                                               Command="{Binding Source={StaticResource MVApp},Path=BackBegin}"
                                               CommandParameter="{Binding ElementName=Main}">
                                         <materialDesign:PackIcon
-                                                                Kind="AppleMobileme"
+                                                                Kind="Broom"
                                                                 Height="24"
                                                                 Width="24" />
                                     </Button>

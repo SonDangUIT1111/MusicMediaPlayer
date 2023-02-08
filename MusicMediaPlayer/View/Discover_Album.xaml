@@ -112,13 +112,13 @@
                        Margin="0,0,0,0"
                        materialDesign:ShadowAssist.ShadowEdges="Bottom"></Separator>
             <StackPanel Orientation="Horizontal"
-                        Height="620"
+                        Height="580"
                         Width="980">
                 <ScrollViewer HorizontalScrollBarVisibility="Disabled"
                               VerticalScrollBarVisibility="Auto">
                     <ListBox x:Name="ListAlbum"
                              ItemsSource="{Binding List}"
-                             Height="580"
+                             Height="550"
                              Width="950"
                              Margin="10,20,10,10">
                         <ListBox.ItemsPanel>

@@ -241,13 +241,13 @@
                        Margin="0,0,0,0"
                        materialDesign:ShadowAssist.ShadowEdges="Bottom"></Separator>
             <StackPanel Orientation="Horizontal"
-                        Height="600"
+                        Height="550"
                         Width="980">
                 <ScrollViewer HorizontalScrollBarVisibility="Disabled"
                               VerticalScrollBarVisibility="Auto">
                     <DataGrid 
                               x:Name="ListSong"
-                              Height="580"
+                              Height="520"
                               Width="520"
                               Margin="10,10,0,0"
                               ItemsSource="{Binding List}"

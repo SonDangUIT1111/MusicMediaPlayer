@@ -80,6 +80,7 @@ namespace MusicMediaPlayer.ViewModel
             LoadedTurnOnLogin = new RelayCommand<MainWindow>((p) => { return true; }, (p) =>
             {
                 mainWindow = p;
+                p.HomeButton.IsChecked = true;
                 IsLoaded = true;
                 if (p == null)
                     return;

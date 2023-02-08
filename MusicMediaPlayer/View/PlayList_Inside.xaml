@@ -7,7 +7,7 @@
       xmlns:gif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
-      d:DesignHeight="1000" d:DesignWidth="1000"
+      d:DesignHeight="750" d:DesignWidth="1000"
       Title="PlayList_Inside"
       Name="PlayList_Inside_Page"
       DataContext="{StaticResource PlayList_InsideVM}"
@@ -19,7 +19,8 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Border 
-            Height="1000" Width="1000"
+            Height="750" 
+            Width="1000"
             CornerRadius="20">
         <Border.Background>
             <ImageBrush ImageSource="/Image/Sky.jpg" 
@@ -110,117 +111,120 @@
                                                 Width="21" />
                 </ToggleButton>
             </StackPanel>
-            <Grid 
-              Background="Transparent">
-                <StackPanel Orientation="Horizontal"
-                            Height="820"
-                            Width="980" 
-                            Margin="10,10,10,170">
-                    <DataGrid 
-                              x:Name="listview"
-                              Height="1000"
-                              Width="520"
-                              Margin="10,10,0,0"
-                              ItemsSource="{Binding List}"
-                              SelectedItem="{Binding SelectedItem}"
-                              Style="{StaticResource DataGridStyle1}"  
-                              CellStyle="{StaticResource DataGridCellStyle1}" 
-                              RowStyle="{StaticResource DataGridRowStyle1}">
-                        <DataGrid.Columns>
-                            <DataGridTemplateColumn Width="500">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <Button Style="{StaticResource Visualizer}"
-                                                    Background="#0099FF"
-                                                    BorderBrush="Transparent"
-                                                    Margin="0,0,10,0"
-                                                    Padding="0"
-                                                    Opacity="0.8"
-                                                    Panel.ZIndex="1">
-                                                <Image gif:AnimationBehavior.SourceUri="\Image\visualizer.gif"
-                                                   Height="20"
-                                                   Width="20"/>
-                                            </Button>
-                                            <Button Style="{StaticResource ButtonInMySong}"
-                                                    Background="Transparent"
-                                                    BorderBrush="Transparent"
-                                                    Margin="-30,0,10,0"
-                                                    Padding="0"
-                                                    Opacity="0.8">
-                                                <materialDesign:PackIcon Kind="Play"
-                                                                         Foreground="#FFFFFF"
-                                                                         Height="20"
-                                                                         Width="20"></materialDesign:PackIcon>
-                                            </Button>
-                                            <Border CornerRadius="5"
-                                                    BorderThickness="1"
-                                                    BorderBrush="White"
-                                                    Height="45"
-                                                    HorizontalAlignment="Center">
-                                                <Grid>
-                                                    <Border CornerRadius="5"
-                                                            Width="40"
-                                                            Height="50"
-                                                            x:Name="mask">
-                                                        <Border.Background>
-                                                            <ImageBrush Stretch="UniformToFill"
-                                                                        ImageSource="{Binding ImageSongBinary, Converter={StaticResource ByteToImageConverter}}">
-                                                            </ImageBrush>
-                                                        </Border.Background>
-                                                    </Border>
-                                                </Grid>
-                                            </Border>
-                                            <TextBlock  Text="{Binding SongTitle}"
-                                                        Width="150"
-                                                        FontSize="14"
-                                                        FontWeight="Bold"
-                                                        FontFamily="Segoe UI Semibold"
-                                                        Margin="20,0,0,0"
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center"
-                                                        TextTrimming="WordEllipsis">
-                                            </TextBlock>
-                                            <TextBlock Text="{Binding Artist}"
-                                                        Width="150"
-                                                        FontSize="12"
-                                                        Margin="0,5,0,0"
-                                                        FontWeight="Medium"
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Center"
-                                                        TextTrimming="WordEllipsis"></TextBlock>
-                                            <TextBlock  Text="{Binding HowLong}"
-                                                        Width="50"
-                                                        FontSize="12"
-                                                        Margin="20,8,0,0"
-                                                        HorizontalAlignment="Center"
-                                                        VerticalAlignment="Center"
-                                                        FontWeight="Medium"></TextBlock>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
+            <Grid>
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                              VerticalScrollBarVisibility="Auto">
                     <StackPanel Orientation="Horizontal"
-                                Margin="20 0 0 0">
-                        <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"
-                                   Background="Gray"
-                                   Opacity="0.4"
-                                   Width="1"
-                                   Height="820"/>
+                                Height="560"
+                                Width="auto"
+                                Margin="10,10,10,170">
+                        <DataGrid 
+                                  x:Name="listview"
+                                  Height="580"
+                                  VerticalAlignment="Top"
+                                  Width="550"
+                                  Margin="10,0,0,0"
+                                  ItemsSource="{Binding List}"
+                                  SelectedItem="{Binding SelectedItem}"
+                                  Style="{StaticResource DataGridStyle1}"  
+                                  CellStyle="{StaticResource DataGridCellStyle1}" 
+                                  RowStyle="{StaticResource DataGridRowStyle1}">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Width="500">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Button Style="{StaticResource Visualizer}"
+                                                        Background="#0099FF"
+                                                        BorderBrush="Transparent"
+                                                        Margin="0,0,10,0"
+                                                        Padding="0"
+                                                        Opacity="0.8"
+                                                        Panel.ZIndex="1">
+                                                    <Image gif:AnimationBehavior.SourceUri="\Image\visualizer.gif"
+                                                           Height="20"
+                                                           Width="20"/>
+                                                </Button>
+                                                <Button Style="{StaticResource ButtonInMySong}"
+                                                        Background="Transparent"
+                                                        BorderBrush="Transparent"
+                                                        Margin="-30,0,10,0"
+                                                        Padding="0"
+                                                        Opacity="0.8">
+                                                    <materialDesign:PackIcon Kind="Play"
+                                                                             Foreground="#FFFFFF"
+                                                                             Height="20"
+                                                                             Width="20"></materialDesign:PackIcon>
+                                                </Button>
+                                                <Border CornerRadius="5"
+                                                        BorderThickness="1"
+                                                        BorderBrush="White"
+                                                        Height="45"
+                                                        HorizontalAlignment="Center">
+                                                    <Grid>
+                                                        <Border CornerRadius="5"
+                                                                Width="40"
+                                                                Height="50"
+                                                                x:Name="mask">
+                                                            <Border.Background>
+                                                                <ImageBrush Stretch="UniformToFill"
+                                                                            ImageSource="{Binding ImageSongBinary, Converter={StaticResource ByteToImageConverter}}">
+                                                                </ImageBrush>
+                                                            </Border.Background>
+                                                        </Border>
+                                                    </Grid>
+                                                </Border>
+                                                <TextBlock  Text="{Binding SongTitle}"
+                                                            Width="150"
+                                                            FontSize="14"
+                                                            FontWeight="Bold"
+                                                            FontFamily="Segoe UI Semibold"
+                                                            Margin="20,0,0,0"
+                                                            VerticalAlignment="Center"
+                                                            HorizontalAlignment="Center"
+                                                            TextTrimming="WordEllipsis">
+                                                </TextBlock>
+                                                <TextBlock Text="{Binding Artist}"
+                                                           Width="150"
+                                                           FontSize="12"
+                                                           Margin="0,5,0,0"
+                                                           FontWeight="Medium"
+                                                           VerticalAlignment="Center"
+                                                           HorizontalAlignment="Center"
+                                                           TextTrimming="WordEllipsis"></TextBlock>
+                                                <TextBlock  Text="{Binding HowLong}"
+                                                            Width="50"
+                                                            FontSize="12"
+                                                            Margin="20,8,0,0"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            FontWeight="Medium"></TextBlock>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
                     </StackPanel>
+                </ScrollViewer>
+                <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"
+                           Background="Gray"
+                           Opacity="0.4"
+                           Width="1"
+                           Height="auto"
+                           Margin="200,0,0,0"/>
                     <StackPanel Height="620"
                                 Width="420"
-                                Margin="0,100,0,0">
-                        <Expander Background="Transparent"
-                                  Foreground="Transparent"
-                                  Margin="0,-50,0,0"
-                                  Height="620"
-                                  Width="420"
-                                  ExpandDirection="Up"
-                                  IsExpanded="True"
-                                  x:Name="CDCircle">
+                                Margin="600,100,0,0"
+                                Panel.ZIndex="1">
+                            <Expander Background="Transparent"
+                                      Foreground="Transparent"
+                                      Margin="0,0,0,0"
+                                      Height="620"
+                                      Width="420"
+                                      ExpandDirection="Up"
+                                      IsExpanded="True"
+                                      x:Name="CDCircle">
                             <StackPanel Height="620">
                                 <Border  Width="300"
                                          Height="300"
@@ -230,7 +234,7 @@
                                          x:Name="CD"
                                          RenderTransformOrigin="0.5,0.5">
                                     <Border.Background>
-                                        <ImageBrush ImageSource="{Binding ImageBinaryAdd, Converter={StaticResource ByteToImageConverter}}" 
+                                    <ImageBrush ImageSource="{Binding ImageBinaryAdd, Converter={StaticResource ByteToImageConverter}}" 
                                                     Stretch="UniformToFill"></ImageBrush>
                                     </Border.Background>
                                     <Border.RenderTransform>
@@ -326,7 +330,7 @@
                                 </Border>
 
                                 <StackPanel Height="auto"
-                                            Margin="0,20,0,0">
+                                            Margin="0,20,20,0">
                                     <StackPanel Orientation="Horizontal"
                                                 HorizontalAlignment="Center">
                                         <TextBlock 
@@ -396,11 +400,11 @@
                                                     ToolTipService.Placement="Bottom"
                                                     Command="{Binding RemoveSong}">
                                                 <materialDesign:PackIcon
-                                                            Foreground="#222222"
-                                                            Kind="PlaylistRemove"
-                                                            Opacity="0.8"
-                                                            Height="25"
-                                                            Width="25" />
+                                                                            Foreground="#222222"
+                                                                            Kind="PlaylistRemove"
+                                                                            Opacity="0.8"
+                                                                            Height="25"
+                                                                            Width="25" />
                                             </Button>
 
                                             <Button
@@ -408,11 +412,11 @@
                                                     ToolTipService.Placement="Bottom"
                                                     Command="{Binding AddSong}">
                                                 <materialDesign:PackIcon
-                                                            Foreground="#222222"
-                                                            Kind="PlaylistPlus"
-                                                            Opacity="0.8"
-                                                            Height="25"
-                                                            Width="25" />
+                                                                        Foreground="#222222"
+                                                                        Kind="PlaylistPlus"
+                                                                        Opacity="0.8"
+                                                                        Height="25"
+                                                                        Width="25" />
                                             </Button>
                                         </StackPanel>
                                     </materialDesign:PopupBox>
@@ -421,7 +425,6 @@
                             </StackPanel>
                         </Expander>
                     </StackPanel>
-                </StackPanel>
             </Grid>
         </Grid>
     </Border>
