@@ -475,7 +475,7 @@ namespace MusicMediaPlayer.ViewModel
                         //Sync with album
                         if (DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == albumid).Count() == 0)
                         {
-                            ObservableCollection<Album> albumDelete = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == albumid));
+                            ObservableCollection<Album> albumDelete = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == albumid ));
                             DataProvider.Ins.DB.Albums.Remove(albumDelete[0]);
                         }
                         //Sync with genre
@@ -503,135 +503,224 @@ namespace MusicMediaPlayer.ViewModel
             Changing = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
                 EditSongInApp wd = p as EditSongInApp;
-                if (DataProvider.Ins.DB.Songs.Where(o => o.SongTitle == TitleToChange && o.UserId == CurrentUser.Id).Count() > 0)
+                TitleToChange = wd.ChangeTitleSong.Text;
+                ArtistToChange = wd.ChangeArtistSong.Text;
+                GenreToChange = wd.ChangeGenreSong.Text;
+                AlbumToChange = wd.ChangeAlbumtSong.Text;
+                int artistid = (int)SongChanging.ArtistId;
+                int albumid = (int)SongChanging.AlbumId;
+                int genreid = (int)SongChanging.GenreId;
+                byte[] imagechanging = SongChanging.ImageSongBinary;
+                //Case rename both artist and album
+                //case change to artist exists amd album not exitst
+                if (DataProvider.Ins.DB.Artists.Where(x => x.UserId == CurrentUser.Id && x.ArtistName == ArtistToChange).Count() > 0 &&
+                    DataProvider.Ins.DB.Albums.Where(x => x.UserId == CurrentUser.Id && x.AlbumName == AlbumToChange).Count() == 0)
                 {
-                    MessageBoxOK mb = new MessageBoxOK();
-                    var data = mb.DataContext as MessageBoxOKViewModel;
-                    data.Content = "This title already exists, please try another title";
-                    mb.ShowDialog();
-                    return;
-                }
-                else
-                {
-                    TitleToChange = wd.ChangeTitleSong.Text;
-                    ArtistToChange = wd.ChangeArtistSong.Text;
-                    GenreToChange = wd.ChangeGenreSong.Text;
-                    AlbumToChange = wd.ChangeAlbumtSong.Text;
-                    int artistid = (int)SongChanging.ArtistId;
-                    int albumid = (int)SongChanging.AlbumId;
-                    int genreid = (int)SongChanging.GenreId;
-                    byte[] imagechanging = SongChanging.ImageSongBinary;
-                    //Sync with artist
-                    if (ArtistToChange != SongChanging.Artist)
-                    {
-                        ObservableCollection<Artist> artistlist = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x=>x.UserId == CurrentUser.Id && x.ArtistName == ArtistToChange));
-                        //Case rename to the name that exists
-                        if (artistlist.Count > 0)
-                        {
-                            SongChanging.ArtistId = artistlist[0].ArtistId;
-                            DataProvider.Ins.DB.SaveChanges();
-                            if (DataProvider.Ins.DB.Songs.Where(x=>x.UserId == CurrentUser.Id && x.ArtistId == artistid).Count() == 0)
-                            {
-                                ObservableCollection<Artist> artistDelete = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.ArtistId == artistid && x.UserId == CurrentUser.Id));
-                                DataProvider.Ins.DB.Artists.Remove(artistDelete[0]);
-                            }
-                        }
-                        //case rename to the name that does not exists
-                        else
-                        {
-                            Artist newArtist = new Artist();
-                            newArtist.ArtistName = ArtistToChange;
-                            newArtist.UserId = CurrentUser.Id;
-                            newArtist.Streams = 0;
-                            newArtist.ImageArtistBinary = imagechanging;
-                            DataProvider.Ins.DB.Artists.Add(newArtist);
-                            DataProvider.Ins.DB.SaveChanges();
-                            artistlist = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.ArtistName == ArtistToChange && x.UserId == CurrentUser.Id));
-                            SongChanging.ArtistId = artistlist[0].ArtistId;
-                        }
-                    }
-                    //sync with album
-                    if (AlbumToChange != SongChanging.Album)
-                    {
-                        ObservableCollection<Album> albumlist = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.UserId == CurrentUser.Id && x.AlbumName == AlbumToChange));
-                        //case rename to the name that exists
-                        if (albumlist.Count > 0)
-                        {
-                            SongChanging.AlbumId = albumlist[0].AlbumId;
-                            DataProvider.Ins.DB.SaveChanges();
-                            if (DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == albumid).Count() == 0)
-                            {
-                                ObservableCollection<Album> albumDelete = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.AlbumId == albumid && x.UserId == CurrentUser.Id));
-                                DataProvider.Ins.DB.Albums.Remove(albumDelete[0]);
-                            }
-                        }
-                        //case rename to the name that does not exists
-                        else
-                        {
-                            Album newAlbum = new Album();
-                            newAlbum.AlbumName = AlbumToChange;
-                            newAlbum.UserId = CurrentUser.Id;
-                            newAlbum.Composer = ArtistToChange;
-                            newAlbum.ImageAlbumBinary = imagechanging;
-                            DataProvider.Ins.DB.Albums.Add(newAlbum);
-                            DataProvider.Ins.DB.SaveChanges();
-                            albumlist = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.AlbumName == AlbumToChange && x.UserId == CurrentUser.Id));
-                            SongChanging.AlbumId = albumlist[0].AlbumId;
-                        }
-                    }
-                    //sync with genre
-                    if (GenreToChange != SongChanging.Genre)
-                    {
-                        ObservableCollection<Genre> genrelist = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genres.Where(x => x.UserId == CurrentUser.Id && x.GenreName == GenreToChange));
-                        //case rename to the name that exists
-                        if (genrelist.Count > 0)
-                        {
-                            SongChanging.GenreId = genrelist[0].GenreId;
-                            DataProvider.Ins.DB.SaveChanges();
-                            if (DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.GenreId == genreid).Count() == 0)
-                            {
-                                ObservableCollection<Genre> genreDelete = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genres.Where(x => x.GenreId == genreid && x.UserId == CurrentUser.Id));
-                                DataProvider.Ins.DB.Genres.Remove(genreDelete[0]);
-                            }
-                        }
-                        //case rename to the name that does not exist
-                        else
-                        {
-                            Genre newGenre = new Genre();
-                            newGenre.GenreName = GenreToChange;
-                            newGenre.UserId = CurrentUser.Id;
-                            newGenre.ImageGenreBinary = imagechanging;
-                            DataProvider.Ins.DB.Genres.Add(newGenre);
-                            DataProvider.Ins.DB.SaveChanges();
-                            genrelist = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genres.Where(x => x.GenreName == GenreToChange && x.UserId == CurrentUser.Id));
-                            SongChanging.GenreId = genrelist[0].GenreId;
-                        }
-                    }
-                    //change
-                    SongChanging.SongTitle = TitleToChange;
-                    SongChanging.Artist = ArtistToChange;
-                    SongChanging.Album = AlbumToChange;
-                    SongChanging.Genre = GenreToChange;
-                    if (ImagePathToChange != null)
-                    {
-                        Converter.ByteArrayToBitmapImageConverter converter = new MusicMediaPlayer.Converter.ByteArrayToBitmapImageConverter();
-                        byte[] BinaryImage = converter.ImageToBinary(ImagePathToChange);
-                        SongChanging.ImageSongBinary = BinaryImage;
-                    }
+                    Album newAlbum = new Album();
+                    newAlbum.AlbumName = AlbumToChange;
+                    newAlbum.UserId = CurrentUser.Id;
+                    newAlbum.Composer = ArtistToChange;
+                    newAlbum.ImageAlbumBinary = imagechanging;
+                    DataProvider.Ins.DB.Albums.Add(newAlbum);
                     DataProvider.Ins.DB.SaveChanges();
-                    LoadCommon();
-                    LoadEditPage();
-                    TitleToChange = null;
-                    ArtistToChange = null;
-                    AlbumToChange = null;
-                    GenreToChange = null;
-                    ImagePathToChange = null;
-                    MySongWindow.CDCircle.IsExpanded = false;
-                    MySongWindow.CDCircle.IsExpanded = true;
-                    MessageBoxSuccessful ms = new MessageBoxSuccessful();
-                    ms.Show();
-                    wd.Close();
+
+                    ObservableCollection<Artist> artistlist = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.UserId == CurrentUser.Id && x.ArtistName == ArtistToChange));
+                    ObservableCollection<Album> albumlist = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.UserId == CurrentUser.Id && x.AlbumName == AlbumToChange && x.Composer == ArtistToChange));
+                    SongChanging.ArtistId = artistlist[0].ArtistId;
+                    SongChanging.AlbumId = albumlist[0].AlbumId;
+                    DataProvider.Ins.DB.SaveChanges();
+                    if (DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.ArtistId == artistid).Count() == 0)
+                    {
+                        ObservableCollection<Artist> artistDelete = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.ArtistId == artistid && x.UserId == CurrentUser.Id));
+                        DataProvider.Ins.DB.Artists.Remove(artistDelete[0]);
+                    }
+                    if (DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == albumid ).Count() == 0)
+                    {
+                        ObservableCollection<Album> albumDelete = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.AlbumId == albumid && x.UserId == CurrentUser.Id));
+                        DataProvider.Ins.DB.Albums.Remove(albumDelete[0]);
+                    }
                 }
+                //case change to album exists and artist not exists
+                if (DataProvider.Ins.DB.Artists.Where(x => x.UserId == CurrentUser.Id && x.ArtistName == ArtistToChange).Count() == 0 &&
+                    DataProvider.Ins.DB.Albums.Where(x => x.UserId == CurrentUser.Id && x.AlbumName == AlbumToChange).Count() > 0)
+                {
+                    Artist newArtist = new Artist();
+                    newArtist.ArtistName = ArtistToChange;
+                    newArtist.UserId = CurrentUser.Id;
+                    newArtist.Streams = 0;
+                    newArtist.ImageArtistBinary = imagechanging;
+                    DataProvider.Ins.DB.Artists.Add(newArtist);
+
+                    Album newAlbum = new Album();
+                    newAlbum.AlbumName = AlbumToChange;
+                    newAlbum.UserId = CurrentUser.Id;
+                    newAlbum.Composer = ArtistToChange;
+                    newAlbum.ImageAlbumBinary = imagechanging;
+                    DataProvider.Ins.DB.Albums.Add(newAlbum);
+                    DataProvider.Ins.DB.SaveChanges();
+
+                    ObservableCollection<Artist> artistlist = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.UserId == CurrentUser.Id && x.ArtistName == ArtistToChange));
+                    ObservableCollection<Album> albumlist = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.UserId == CurrentUser.Id && x.AlbumName == AlbumToChange && x.Composer == ArtistToChange));
+                    SongChanging.ArtistId = artistlist[0].ArtistId;
+                    SongChanging.AlbumId = albumlist[0].AlbumId;
+                    DataProvider.Ins.DB.SaveChanges();
+                    if (DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.ArtistId == artistid).Count() == 0)
+                    {
+                        ObservableCollection<Artist> artistDelete = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.ArtistId == artistid && x.UserId == CurrentUser.Id));
+                        DataProvider.Ins.DB.Artists.Remove(artistDelete[0]);
+                    }
+                    if (DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == albumid).Count() == 0)
+                    {
+                        ObservableCollection<Album> albumDelete = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.AlbumId == albumid && x.UserId == CurrentUser.Id));
+                        DataProvider.Ins.DB.Albums.Remove(albumDelete[0]);
+                    }
+                }
+                //Case change to artist exists and album exists is of artist
+                if (DataProvider.Ins.DB.Artists.Where(x => x.UserId == CurrentUser.Id && x.ArtistName == ArtistToChange).Count() > 0 &&
+                    DataProvider.Ins.DB.Albums.Where(x => x.UserId == CurrentUser.Id && x.AlbumName == AlbumToChange && x.Composer ==ArtistToChange).Count() > 0)
+                {
+                    ObservableCollection<Artist> artistlist = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.UserId == CurrentUser.Id && x.ArtistName == ArtistToChange));
+                    ObservableCollection<Album> albumlist = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.UserId == CurrentUser.Id && x.AlbumName == AlbumToChange && x.Composer == ArtistToChange));
+                    SongChanging.ArtistId = artistlist[0].ArtistId;
+                    SongChanging.AlbumId = albumlist[0].AlbumId;
+                    DataProvider.Ins.DB.SaveChanges();
+                    try
+                    {
+                        if (DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.ArtistId == artistid).Count() == 0)
+                        {
+                            ObservableCollection<Artist> artistDelete = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.ArtistId == artistid && x.UserId == CurrentUser.Id));
+                            DataProvider.Ins.DB.Artists.Remove(artistDelete[0]);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                    }
+                    try
+                    {
+                        if (DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == albumid).Count() == 0)
+                        {
+                            ObservableCollection<Album> albumDelete = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.AlbumId == albumid && x.UserId == CurrentUser.Id));
+                            DataProvider.Ins.DB.Albums.Remove(albumDelete[0]);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                    }
+                }
+                //case change to artist exists and album exists is not of artist
+                if (DataProvider.Ins.DB.Artists.Where(x => x.UserId == CurrentUser.Id && x.ArtistName == ArtistToChange).Count() > 0 &&
+                    DataProvider.Ins.DB.Albums.Where(x => x.UserId == CurrentUser.Id && x.AlbumName == AlbumToChange && x.Composer == ArtistToChange).Count() == 0)
+                {
+                    ObservableCollection<Artist> artistlist = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.UserId == CurrentUser.Id && x.ArtistName == ArtistToChange));
+                    Album newAlbum = new Album();
+                    newAlbum.AlbumName = AlbumToChange;
+                    newAlbum.UserId = CurrentUser.Id;
+                    newAlbum.Composer = ArtistToChange;
+                    newAlbum.ImageAlbumBinary = imagechanging;
+                    DataProvider.Ins.DB.Albums.Add(newAlbum);
+                    DataProvider.Ins.DB.SaveChanges();
+                    ObservableCollection<Album> albumlist = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.UserId == CurrentUser.Id && x.AlbumName == AlbumToChange && x.Composer == ArtistToChange));
+                    SongChanging.ArtistId = artistlist[0].ArtistId;
+                    SongChanging.AlbumId = albumlist[0].AlbumId;
+                    DataProvider.Ins.DB.SaveChanges();
+                    if (DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.ArtistId == artistid).Count() == 0)
+                    {
+                        ObservableCollection<Artist> artistDelete = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.ArtistId == artistid && x.UserId == CurrentUser.Id));
+                        DataProvider.Ins.DB.Artists.Remove(artistDelete[0]);
+                    }
+                    if (DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == albumid ).Count() == 0)
+                    {
+                        ObservableCollection<Album> albumDelete = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.AlbumId == albumid && x.UserId == CurrentUser.Id));
+                        DataProvider.Ins.DB.Albums.Remove(albumDelete[0]);
+                    }
+                }
+                //case both is not exists
+                if (DataProvider.Ins.DB.Artists.Where(x => x.UserId == CurrentUser.Id && x.ArtistName == ArtistToChange).Count() == 0 &&
+                    DataProvider.Ins.DB.Albums.Where(x => x.UserId == CurrentUser.Id && x.AlbumName == AlbumToChange).Count() == 0)
+                {
+                    Artist newArtist = new Artist();
+                    newArtist.ArtistName = ArtistToChange;
+                    newArtist.UserId = CurrentUser.Id;
+                    newArtist.Streams = 0;
+                    newArtist.ImageArtistBinary = imagechanging;
+                    DataProvider.Ins.DB.Artists.Add(newArtist);
+
+                    Album newAlbum = new Album();
+                    newAlbum.AlbumName = AlbumToChange;
+                    newAlbum.UserId = CurrentUser.Id;
+                    newAlbum.Composer = ArtistToChange;
+                    newAlbum.ImageAlbumBinary = imagechanging;
+                    DataProvider.Ins.DB.Albums.Add(newAlbum);
+                    DataProvider.Ins.DB.SaveChanges();
+
+                    ObservableCollection<Artist> artistlist = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.UserId == CurrentUser.Id && x.ArtistName == ArtistToChange));
+                    ObservableCollection<Album> albumlist = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.UserId == CurrentUser.Id && x.AlbumName == AlbumToChange && x.Composer == ArtistToChange));
+                    SongChanging.ArtistId = artistlist[0].ArtistId;
+                    SongChanging.AlbumId = albumlist[0].AlbumId;
+                    DataProvider.Ins.DB.SaveChanges();
+                    if (DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.ArtistId == artistid).Count() == 0)
+                    {
+                        ObservableCollection<Artist> artistDelete = new ObservableCollection<Artist>(DataProvider.Ins.DB.Artists.Where(x => x.ArtistId == artistid && x.UserId == CurrentUser.Id));
+                        DataProvider.Ins.DB.Artists.Remove(artistDelete[0]);
+                    }
+                    if (DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == albumid).Count() == 0)
+                    {
+                        ObservableCollection<Album> albumDelete = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.AlbumId == albumid && x.UserId == CurrentUser.Id));
+                        DataProvider.Ins.DB.Albums.Remove(albumDelete[0]);
+                    }
+                }
+                if (GenreToChange != SongChanging.Genre)
+                {
+                    ObservableCollection<Genre> genrelist = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genres.Where(x => x.UserId == CurrentUser.Id && x.GenreName == GenreToChange));
+                    //case rename to the name that exists
+                    if (genrelist.Count > 0)
+                    {
+                        SongChanging.GenreId = genrelist[0].GenreId;
+                        DataProvider.Ins.DB.SaveChanges();
+                    }
+                    //case rename to the name that does not exist
+                    else
+                    {
+                        Genre newGenre = new Genre();
+                        newGenre.GenreName = GenreToChange;
+                        newGenre.UserId = CurrentUser.Id;
+                        newGenre.ImageGenreBinary = imagechanging;
+                        DataProvider.Ins.DB.Genres.Add(newGenre);
+                        DataProvider.Ins.DB.SaveChanges();
+                        genrelist = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genres.Where(x => x.GenreName == GenreToChange && x.UserId == CurrentUser.Id));
+                        SongChanging.GenreId = genrelist[0].GenreId;
+                    }
+                    if (DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.GenreId == genreid).Count() == 0)
+                    {
+                        ObservableCollection<Genre> genreDelete = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genres.Where(x => x.GenreId == genreid && x.UserId == CurrentUser.Id));
+                        DataProvider.Ins.DB.Genres.Remove(genreDelete[0]);
+                    }
+                }
+                //change
+                SongChanging.SongTitle = TitleToChange;
+                SongChanging.Artist = ArtistToChange;
+                SongChanging.Album = AlbumToChange;
+                SongChanging.Genre = GenreToChange;
+                if (ImagePathToChange != null)
+                {
+                    Converter.ByteArrayToBitmapImageConverter converter = new MusicMediaPlayer.Converter.ByteArrayToBitmapImageConverter();
+                    byte[] BinaryImage = converter.ImageToBinary(ImagePathToChange);
+                    SongChanging.ImageSongBinary = BinaryImage;
+                }
+                DataProvider.Ins.DB.SaveChanges();
+                LoadCommon();
+                LoadEditPage();
+                TitleToChange = null;
+                ArtistToChange = null;
+                AlbumToChange = null;
+                GenreToChange = null;
+                ImagePathToChange = null;
+                MySongWindow.CDCircle.IsExpanded = false;
+                MySongWindow.CDCircle.IsExpanded = true;
+                MessageBoxSuccessful ms = new MessageBoxSuccessful();
+                ms.Show();
+                wd.Close();
+                
             });
             ChangeInfoSong = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
@@ -820,7 +909,7 @@ namespace MusicMediaPlayer.ViewModel
                     newSongItem.ArtistId = artistlist[0].ArtistId;
                     //
                     //filter song to album filter
-                    ObservableCollection<Album> albumlist = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.AlbumName == albumNewSong && x.UserId == CurrentUser.Id));
+                    ObservableCollection<Album> albumlist = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.AlbumName == albumNewSong && x.Composer == artistNewSong && x.UserId == CurrentUser.Id));
                     if (albumlist.Count == 0)
                     {
                         Album newAlbum = new Album();
@@ -831,7 +920,7 @@ namespace MusicMediaPlayer.ViewModel
                         DataProvider.Ins.DB.Albums.Add(newAlbum);
                         DataProvider.Ins.DB.SaveChanges();
                     }
-                    albumlist = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.AlbumName == albumNewSong && x.UserId == CurrentUser.Id));
+                    albumlist = new ObservableCollection<Album>(DataProvider.Ins.DB.Albums.Where(x => x.AlbumName == albumNewSong && x.Composer == artistNewSong && x.UserId == CurrentUser.Id));
                     newSongItem.AlbumId = albumlist[0].AlbumId;
                     //filter song to genre filter
                     ObservableCollection<Genre> genrelist = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genres.Where(x => x.GenreName == genreNewSong && x.UserId == CurrentUser.Id));
@@ -851,11 +940,10 @@ namespace MusicMediaPlayer.ViewModel
                     DataProvider.Ins.DB.SaveChanges();
                     LoadCommon();
 
+                    MySongWindow.Close();
                     MessageBoxSuccessful MB = new MessageBoxSuccessful();
                     MB.ShowDialog();
 
-
-                    MySongWindow.Close();
                     TitleToAdd = null;
                     ArtistToAdd = null;
                     AlbumToAdd = null;
