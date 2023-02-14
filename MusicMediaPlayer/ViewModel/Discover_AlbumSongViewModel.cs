@@ -234,7 +234,7 @@ namespace MusicMediaPlayer.ViewModel
             CurrentUser = new CurrentUserAccountModel();
             CurrentAlbum = new Album();
             ListSong = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == CurrentAlbum.AlbumId));
-            ListPopular = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == CurrentAlbum.AlbumId).OrderBy(x => x.Times));
+            ListPopular = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == CurrentAlbum.AlbumId).OrderByDescending(x => x.Times));
             ListPopular.Add(new Song());
             ListPopular.Add(new Song());
             ListPopular.Add(new Song());
@@ -247,7 +247,7 @@ namespace MusicMediaPlayer.ViewModel
             {
                 AlbumSongWindow = p as Discover_AlbumSong;
                 ListSong = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == CurrentAlbum.AlbumId));
-                ListPopular = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == CurrentAlbum.AlbumId).OrderBy(x => x.Times));
+                ListPopular = new ObservableCollection<Song>(DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.AlbumId == CurrentAlbum.AlbumId).OrderByDescending(x => x.Times));
                 ListPopular.Add(new Song());
                 ListPopular.Add(new Song());
                 ListPopular.Add(new Song());

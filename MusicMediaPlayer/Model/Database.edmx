@@ -95,19 +95,7 @@
           <Property Name="UserImage" Type="varbinary(max)" />
           <Property Name="NickName" Type="nvarchar" MaxLength="100" />
         </EntityType>
-        <Association Name="FK__PlayList__OwnerI__40F9A68C">
-          <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />
-          <End Role="PlayList" Type="Self.PlayList" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UserAccount">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="PlayList">
-              <PropertyRef Name="OwnerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PlayList__OwnerI__5DCAEF64">
+        <Association Name="FK__PlayList__OwnerI__440B1D61">
           <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />
           <End Role="PlayList" Type="Self.PlayList" Multiplicity="*" />
           <ReferentialConstraint>
@@ -200,11 +188,7 @@
           <EntitySet Name="Song" EntityType="Self.Song" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserAccount" EntityType="Self.UserAccount" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__PlayList__OwnerI__40F9A68C" Association="Self.FK__PlayList__OwnerI__40F9A68C">
-            <End Role="UserAccount" EntitySet="UserAccount" />
-            <End Role="PlayList" EntitySet="PlayList" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PlayList__OwnerI__5DCAEF64" Association="Self.FK__PlayList__OwnerI__5DCAEF64">
+          <AssociationSet Name="FK__PlayList__OwnerI__440B1D61" Association="Self.FK__PlayList__OwnerI__440B1D61">
             <End Role="UserAccount" EntitySet="UserAccount" />
             <End Role="PlayList" EntitySet="PlayList" />
           </AssociationSet>
@@ -281,8 +265,7 @@
           <Property Name="OwnerId" Type="Int32" Nullable="false" />
           <Property Name="ImagePlaylistBinary" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="TimeCreate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="UserAccount" Relationship="Self.FK__PlayList__OwnerI__40F9A68C" FromRole="PlayList" ToRole="UserAccount" />
-          <NavigationProperty Name="UserAccount1" Relationship="Self.FK__PlayList__OwnerI__5DCAEF64" FromRole="PlayList" ToRole="UserAccount" />
+          <NavigationProperty Name="UserAccount" Relationship="Self.FK__PlayList__OwnerI__440B1D61" FromRole="PlayList" ToRole="UserAccount" />
           <NavigationProperty Name="Songs" Relationship="Self.Has" FromRole="PlayList" ToRole="Song" />
         </EntityType>
         <EntityType Name="Song">
@@ -330,8 +313,7 @@
           <Property Name="UserEmail" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="UserImage" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="NickName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="PlayLists" Relationship="Self.FK__PlayList__OwnerI__40F9A68C" FromRole="UserAccount" ToRole="PlayList" />
-          <NavigationProperty Name="PlayLists1" Relationship="Self.FK__PlayList__OwnerI__5DCAEF64" FromRole="UserAccount" ToRole="PlayList" />
+          <NavigationProperty Name="PlayLists" Relationship="Self.FK__PlayList__OwnerI__440B1D61" FromRole="UserAccount" ToRole="PlayList" />
           <NavigationProperty Name="Songs" Relationship="Self.FK_Song_User" FromRole="UserAccount" ToRole="Song" />
         </EntityType>
         <Association Name="FK_Song_Album">
@@ -370,19 +352,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PlayList__OwnerI__40F9A68C">
-          <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />
-          <End Role="PlayList" Type="Self.PlayList" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UserAccount">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="PlayList">
-              <PropertyRef Name="OwnerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PlayList__OwnerI__5DCAEF64">
+        <Association Name="FK__PlayList__OwnerI__440B1D61">
           <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />
           <End Role="PlayList" Type="Self.PlayList" Multiplicity="*" />
           <ReferentialConstraint>
@@ -430,11 +400,7 @@
             <End Role="Genre" EntitySet="Genres" />
             <End Role="Song" EntitySet="Songs" />
           </AssociationSet>
-          <AssociationSet Name="FK__PlayList__OwnerI__40F9A68C" Association="Self.FK__PlayList__OwnerI__40F9A68C">
-            <End Role="UserAccount" EntitySet="UserAccounts" />
-            <End Role="PlayList" EntitySet="PlayLists" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PlayList__OwnerI__5DCAEF64" Association="Self.FK__PlayList__OwnerI__5DCAEF64">
+          <AssociationSet Name="FK__PlayList__OwnerI__440B1D61" Association="Self.FK__PlayList__OwnerI__440B1D61">
             <End Role="UserAccount" EntitySet="UserAccounts" />
             <End Role="PlayList" EntitySet="PlayLists" />
           </AssociationSet>

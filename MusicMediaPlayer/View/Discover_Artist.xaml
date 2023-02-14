@@ -104,9 +104,10 @@
                                 x:Name="all"
                                 CommandParameter="{Binding ElementName=ArtistWD}">All Artist</RadioButton>
                 <RadioButton    Style="{StaticResource TabButtonMySong}" 
+                                Padding="0"
                                 Opacity="0.5"
                                 Command="{Binding PopularArtist}" 
-                                CommandParameter="{Binding ElementName=ArtistWD}">Favourite Artist</RadioButton>
+                                CommandParameter="{Binding ElementName=ArtistWD}">Favourite</RadioButton>
             </StackPanel>
             <Separator Background="Gray"
                        Opacity="0.4"

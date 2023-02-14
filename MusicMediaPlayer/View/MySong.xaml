@@ -229,7 +229,7 @@
                 <RadioButton    Style="{StaticResource TabButtonMySong}" 
                                 Opacity="0.5"
                                 Command="{Binding RecentSong}" 
-                                CommandParameter="{Binding ElementName=SongWD}">New Play</RadioButton>
+                                CommandParameter="{Binding ElementName=SongWD}">Recent</RadioButton>
                 <RadioButton    Style="{StaticResource TabButtonMySong}" 
                                 Opacity="0.5"
                                 Command="{Binding FavouriteSong}" 

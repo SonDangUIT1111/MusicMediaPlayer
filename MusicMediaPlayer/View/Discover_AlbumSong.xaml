@@ -48,6 +48,36 @@
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
+        <Polygon Fill="#FF99CC"
+                 Height="40"
+                 Width="40"
+                 Margin="634,162,326,548"
+                 Points="0, 0 -20,0,0 -20"/>
+        <Polygon Fill="#FF99CC"
+                 Height="40"
+                 Width="40"
+                 Margin="634,227,326,483"
+                 Points="0, 0 -20,0,0 -20"/>
+        <Polygon Fill="#FF99CC"
+                 Height="40"
+                 Width="40"
+                 Margin="634,292,326,418"
+                 Points="0, 0 -20,0,0 -20"/>
+        <Polygon Fill="#FF99CC"
+                 Height="40"
+                 Width="40"
+                 Margin="978,292,-18,418"
+                 Points="0, 0 -20,0,0 -20"/>
+        <Polygon Fill="#FF99CC"
+                 Height="40"
+                 Width="40"
+                 Margin="978,228,-18,482"
+                 Points="0, 0 -20,0,0 -20"/>
+        <Polygon Fill="#FF99CC"
+                 Height="40"
+                 Width="40"
+                 Margin="978,163,-18,547"
+                 Points="0, 0 -20,0,0 -20"/>
         <StackPanel Orientation="Horizontal"
                     Margin="160,570,0,0" 
                     Width="652"
@@ -179,9 +209,10 @@
                     <ColumnDefinition Width="390"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="0"
-                            Width="300"
+                            Width="340"
                             Margin="0,0,0,0">
                     <StackPanel Orientation="Horizontal"
+                                Width="340"
                                 materialDesign:ColorZoneAssist.Background="#333333">
                         <Image Source="{Binding ListPopular[0].ImageSongBinary, Converter={StaticResource ByteToImageConverter}}"
                                Height="60"
@@ -226,12 +257,6 @@
                                        FontFamily="Segoe UI Semibold"></TextBlock>
                         </StackPanel>
                     </StackPanel>
-                    <Polygon Fill="#FF99CC"
-                             Height="40"
-                             Width="40"
-                             Margin="260,0,0,-45"
-                             Points="0,0 -20,0 0,-20">
-                    </Polygon>
                     <Separator Background="#0099FF"
                                Width="auto"></Separator>
                     <StackPanel Orientation="Horizontal"
@@ -279,12 +304,6 @@
                                         FontFamily="Segoe UI Semibold"></TextBlock>
                         </StackPanel>
                     </StackPanel>
-                    <Polygon Fill="#FF99CC"
-                             Height="40"
-                             Width="40"
-                             Points="0,0 -20,0 0,-20"
-                             Margin="260,0,0,-45">
-                    </Polygon>
                     <Separator Background="#0099FF"
                                Width="auto"></Separator>
                     <StackPanel Orientation="Horizontal"
@@ -332,12 +351,6 @@
                                         FontFamily="Segoe UI Semibold"></TextBlock>
                         </StackPanel>
                     </StackPanel>
-                    <Polygon Fill="#FF99CC"
-                             Height="40"
-                             Width="40"
-                             Margin="260,0,0,-45"
-                             Points="0,0 -20,0 0,-20">
-                    </Polygon>
                     <Separator Background="#0099FF"
                                Width="auto"></Separator>
                 </StackPanel>
@@ -388,12 +401,6 @@
                                        FontFamily="Segoe UI Semibold"></TextBlock>
                         </StackPanel>
                     </StackPanel>
-                    <Polygon Fill="#FF99CC"
-                             Height="40"
-                             Width="40"
-                             Margin="260,0,0,-45"
-                             Points="0,0 -20,0 0,-20">
-                    </Polygon>
                     <Separator Background="#0099FF"
                                Width="auto"></Separator>
                     <StackPanel Orientation="Horizontal"
@@ -441,12 +448,6 @@
                                        FontFamily="Segoe UI Semibold"></TextBlock>
                         </StackPanel>
                     </StackPanel>
-                    <Polygon Fill="#FF99CC"
-                             Height="40"
-                             Width="40"
-                             Margin="260,0,0,-45"
-                             Points="0,0 -20,0 0,-20">
-                    </Polygon>
                     <Separator Background="#0099FF"
                                Width="auto"></Separator>
                     <StackPanel Orientation="Horizontal"
@@ -494,12 +495,6 @@
                                         FontFamily="Segoe UI Semibold"></TextBlock>
                         </StackPanel>
                     </StackPanel>
-                    <Polygon Fill="#FF99CC"
-                             Height="40"
-                             Width="40"
-                             Margin="260,0,0,-45"
-                             Points="0,0 -20,0 0,-20">
-                    </Polygon>
                     <Separator Background="#0099FF"
                                Width="auto"></Separator>
                 </StackPanel>
