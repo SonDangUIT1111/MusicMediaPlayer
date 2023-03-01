@@ -350,6 +350,8 @@
                                 <TextBlock Text="{Binding Source={StaticResource SongVM}, Path=SelectedItem.SongTitle}"
                                            Foreground="#333333"
                                            FontSize="28"
+                                           Width="300"
+                                           TextTrimming="WordEllipsis"
                                            FontWeight="Medium"/>
                                 <TextBlock Text="{Binding Source={StaticResource SongVM}, Path=SelectedItem.Artist}"
                                            Foreground="#333333"
@@ -660,6 +662,8 @@
                                 <TextBlock Text="{Binding Source={StaticResource PlayList_InsideVM}, Path=SelectedItem.SongTitle}"
                                            Foreground="#333333"
                                            FontSize="28"
+                                           Width="300"
+                                           TextTrimming="WordEllipsis"
                                            FontWeight="Medium"/>
                                 <TextBlock Text="{Binding Source={StaticResource PlayList_InsideVM}, Path=SelectedItem.Artist}"
                                            Foreground="#333333"
@@ -969,6 +973,8 @@
                                 <TextBlock Text="{Binding Source={StaticResource ArtistSongVM}, Path=SelectedItem.SongTitle}"
                                            Foreground="#333333"
                                            FontSize="28"
+                                           Width="300"
+                                           TextTrimming="WordEllipsis"
                                            FontWeight="Medium"/>
                                 <TextBlock Text="{Binding Source={StaticResource ArtistSongVM}, Path=SelectedItem.Artist}"
                                            Foreground="#333333"
@@ -1276,6 +1282,8 @@
                                 <TextBlock Text="{Binding Source={StaticResource AlbumSongVM}, Path=SelectedItem.SongTitle}"
                                            Foreground="#333333"
                                            FontSize="28"
+                                           Width="300"
+                                           TextTrimming="WordEllipsis"
                                            FontWeight="Medium"/>
                                 <TextBlock Text="{Binding Source={StaticResource AlbumSongVM}, Path=SelectedItem.Artist}"
                                            Foreground="#333333"
@@ -1584,6 +1592,8 @@
                                 <TextBlock Text="{Binding Source={StaticResource GenreSongVM}, Path=SelectedItem.SongTitle}"
                                            Foreground="#333333"
                                            FontSize="28"
+                                           Width="300"
+                                           TextTrimming="WordEllipsis"
                                            FontWeight="Medium"/>
                                 <TextBlock Text="{Binding Source={StaticResource GenreSongVM}, Path=SelectedItem.Artist}"
                                            Foreground="#333333"

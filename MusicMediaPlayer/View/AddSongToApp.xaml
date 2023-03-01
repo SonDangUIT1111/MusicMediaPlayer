@@ -166,6 +166,7 @@
                                     Margin="50,-1,0,0"></Border>
                         </StackPanel>
                         <Button Command="{Binding AddFile}"
+                                CommandParameter="{Binding ElementName=AddSongApp}"
                                 ToolTip="Add"
                                 Background="#E8E9EB"
                                 Width="30"

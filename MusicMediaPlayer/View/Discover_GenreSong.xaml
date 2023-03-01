@@ -27,6 +27,42 @@
     <Grid Background="Transparent"
           Width="1000"
           Height="750">
+        <Polygon Fill="#FF99CC"
+                 Height="40"
+                 Width="40"
+                 Panel.ZIndex="2"
+                 Points="0, 0 -20,0,0 -20" 
+                 Margin="630,162,330,548"/>
+        <Polygon Fill="#FF99CC"
+                 Height="40"
+                 Width="40"
+                 Panel.ZIndex="2"
+                 Points="0, 0 -20,0,0 -20" 
+                 Margin="630,228,330,482"/>
+        <Polygon Fill="#FF99CC"
+                 Height="40"
+                 Width="40"
+                 Panel.ZIndex="2"
+                 Points="0, 0 -20,0,0 -20" 
+                 Margin="630,292,330,418"/>
+        <Polygon Fill="#FF99CC"
+                 Height="40"
+                 Width="40"
+                 Panel.ZIndex="2"
+                 Points="0, 0 -20,0,0 -20" 
+                 Margin="976,162,-16,548"/>
+        <Polygon Fill="#FF99CC"
+                 Height="40"
+                 Width="40"
+                 Panel.ZIndex="2"
+                 Points="0, 0 -20,0,0 -20" 
+                 Margin="976,228,-16,482"/>
+        <Polygon Fill="#FF99CC"
+                 Height="40"
+                 Width="40"
+                 Panel.ZIndex="2"
+                 Points="0, 0 -20,0,0 -20" 
+                 Margin="976,292,-16,418"/>
         <Border x:Name="OutsideBackground"
                 CornerRadius="20" 
                 BorderBrush="#1ED760"
@@ -220,12 +256,6 @@
                                         FontFamily="Segoe UI Semibold"></TextBlock>
                         </StackPanel>
                     </StackPanel>
-                    <Polygon Fill="#FF99CC"
-                             Height="40"
-                             Width="40"
-                             Margin="260,0,0,-50"
-                             Points="0,0 -20,0 0,-20">
-                    </Polygon>
                     <Separator Background="#0099FF"
                                Width="auto"></Separator>
                     <StackPanel Orientation="Horizontal"
@@ -273,12 +303,6 @@
                                        FontFamily="Segoe UI Semibold"></TextBlock>
                         </StackPanel>
                     </StackPanel>
-                    <Polygon Fill="#FF99CC"
-                             Height="40"
-                             Width="40"
-                             Points="0,0 -20,0 0,-20"
-                             Margin="260,0,0,-50">
-                    </Polygon>
                     <Separator Background="#0099FF"
                                Width="auto"></Separator>
                     <StackPanel Orientation="Horizontal"
@@ -326,12 +350,6 @@
                                        FontFamily="Segoe UI Semibold"></TextBlock>
                         </StackPanel>
                     </StackPanel>
-                    <Polygon Fill="#FF99CC"
-                             Height="40"
-                             Width="40"
-                             Margin="260,0,0,-50"
-                             Points="0,0 -20,0 0,-20">
-                    </Polygon>
                     <Separator Background="#0099FF"
                                Width="auto"></Separator>
                 </StackPanel>
@@ -382,12 +400,6 @@
                                        FontFamily="Segoe UI Semibold"></TextBlock>
                         </StackPanel>
                     </StackPanel>
-                    <Polygon Fill="#FF99CC"
-                             Height="40"
-                             Width="40"
-                             Margin="260,0,0,-50"
-                             Points="0,0 -20,0 0,-20">
-                    </Polygon>
                     <Separator Background="#0099FF"
                                Width="auto"></Separator>
                     <StackPanel Orientation="Horizontal"
@@ -409,18 +421,6 @@
                         <StackPanel Orientation="Vertical"
                                     Width="240"
                                     Margin="10,0,0,0">
-                            <TextBlock Text="{Binding ListPopular[3].SongTitle}"
-                                       Width="240" 
-                                       Height="30"
-                                       Margin="0,0,0,0"
-                                       TextAlignment="Left"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Foreground="#222222"
-                                       FontSize="22"
-                                       FontWeight="Bold"
-                                       TextTrimming="WordEllipsis" 
-                                       FontFamily="Arial Rounded MT Bold"/>
                             <TextBlock Width="240" 
                                        Height="20"
                                        Margin="0,0,0,0"
@@ -435,12 +435,6 @@
                                        FontFamily="Segoe UI Semibold"></TextBlock>
                         </StackPanel>
                     </StackPanel>
-                    <Polygon Fill="#FF99CC"
-                             Height="40"
-                             Width="40"
-                             Margin="260,0,0,-50"
-                             Points="0,0 -20,0 0,-20">
-                    </Polygon>
                     <Separator Background="#0099FF"
                                Width="auto"></Separator>
                     <StackPanel Orientation="Horizontal"
@@ -488,12 +482,6 @@
                                        FontFamily="Segoe UI Semibold"></TextBlock>
                         </StackPanel>
                     </StackPanel>
-                    <Polygon Fill="#FF99CC"
-                             Height="40"
-                             Width="40"
-                             Margin="260,0,0,-50"
-                             Points="0,0 -20,0 0,-20">
-                    </Polygon>
                     <Separator Background="#0099FF"
                                Width="auto"></Separator>
                 </StackPanel>

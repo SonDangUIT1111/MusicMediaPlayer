@@ -701,6 +701,7 @@ namespace MusicMediaPlayer.ViewModel
                 SongChanging.Artist = ArtistToChange;
                 SongChanging.Album = AlbumToChange;
                 SongChanging.Genre = GenreToChange;
+
                 if (ImagePathToChange != null)
                 {
                     Converter.ByteArrayToBitmapImageConverter converter = new MusicMediaPlayer.Converter.ByteArrayToBitmapImageConverter();
@@ -755,6 +756,33 @@ namespace MusicMediaPlayer.ViewModel
                 if (openFileDialog.ShowDialog() == true)
                 {
                     FilePathToAdd = openFileDialog.FileName;
+                    var tfile = TagLib.File.Create(FilePathToAdd);
+                    AddSongToApp window = p as AddSongToApp;
+                    window.TitleSong.Text = tfile.Tag.Title;
+                    if (tfile.Tag.FirstArtist != null)
+                        window.ArtistSong.Text = tfile.Tag.FirstArtist;
+                    if (tfile.Tag.Album != null)
+                        window.AlbumSong.Text = tfile.Tag.Album;
+                    if (tfile.Tag.FirstGenre != null)
+                        window.GenreSong.Text = tfile.Tag.FirstGenre;
+                    if (tfile.Tag.Pictures[0].Data.Data != null)
+                    {
+                        MemoryStream ms = new MemoryStream(tfile.Tag.Pictures[0].Data.Data);
+                        ImageBrush imageBrush = new ImageBrush();
+                        BitmapImage bitmap = new BitmapImage();
+                        bitmap.BeginInit();
+                        bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                        bitmap.StreamSource = ms;
+                        bitmap.EndInit();
+                        imageBrush.ImageSource = bitmap;
+                        window.grdSelectImg.Background = imageBrush;
+                        if (window.grdSelectImg.Children.Count > 1)
+                        {
+                            window.grdSelectImg.Children.Remove(window.grdSelectImg.Children[0]);
+                            window.grdSelectImg.Children.Remove(window.grdSelectImg.Children[1]);
+                        }
+                        ImageBinaryAdd = tfile.Tag.Pictures[0].Data.Data;
+                    }
                 }
             });
             AddImage = new RelayCommand<Grid>((p) => { return true; }, (p) =>
@@ -875,9 +903,11 @@ namespace MusicMediaPlayer.ViewModel
                     {
                         timetoadd = String.Format("{0}", med.NaturalDuration.TimeSpan.ToString(@"mm\:ss"));
                     }
-                    Converter.ByteArrayToBitmapImageConverter converter = new MusicMediaPlayer.Converter.ByteArrayToBitmapImageConverter();
-                    ImageBinaryAdd = converter.ImageToBinary(uriImage);
-
+                    if (ImageBinaryAdd == null)
+                    {
+                        Converter.ByteArrayToBitmapImageConverter converter = new MusicMediaPlayer.Converter.ByteArrayToBitmapImageConverter();
+                        ImageBinaryAdd = converter.ImageToBinary(uriImage);
+                    }
                     //add song into database
                     Song newSongItem = new Song();
                     newSongItem.Artist = artistNewSong;
@@ -986,9 +1016,12 @@ namespace MusicMediaPlayer.ViewModel
                 }
                 if (sliProgress.IsFocused == true)
                 {
-                    mediaPlayer.Stop();
+                    mediaPlayer.Pause();
                     mediaPlayer.Position = TimeSpan.FromSeconds(sliProgress.Value);
-                    mediaPlayer.Play();
+                    if ((bool)(MySongWindow.Play.IsChecked == true))
+                    {
+                        mediaPlayer.Play();
+                    }
                     MySongWindow.Focus();
                 }
                 if (sliProgress.Value == sliProgress.Maximum)
@@ -1183,6 +1216,8 @@ namespace MusicMediaPlayer.ViewModel
             });
             FavouriteSong = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
+                MySongWindow.TopTrendExpander.IsExpanded = true;
+                MySongWindow.CDCircle.IsExpanded = false;
                 IsPickMySong = false;
                 IsPickRecent = false;
                 IsPickFavourite = true;

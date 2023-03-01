@@ -27,6 +27,42 @@
     <Grid Background="Transparent"
           Width="1000"
           Height="750">
+        <Polygon Fill="#FF99CC"
+                 Height="40"
+                 Width="40"
+                 Panel.ZIndex="2"
+                 Points="0, 0 -20,0,0 -20" 
+                 Margin="630,162,330,548"/>
+        <Polygon Fill="#FF99CC"
+                 Height="40"
+                 Width="40"
+                 Panel.ZIndex="2"
+                 Points="0, 0 -20,0,0 -20" 
+                 Margin="630,228,330,482"/>
+        <Polygon Fill="#FF99CC"
+                 Height="40"
+                 Width="40"
+                 Panel.ZIndex="2"
+                 Points="0, 0 -20,0,0 -20" 
+                 Margin="630,292,330,418"/>
+        <Polygon Fill="#FF99CC"
+                 Height="40"
+                 Width="40"
+                 Panel.ZIndex="2"
+                 Points="0, 0 -20,0,0 -20" 
+                 Margin="976,162,-16,548"/>
+        <Polygon Fill="#FF99CC"
+                 Height="40"
+                 Width="40"
+                 Panel.ZIndex="2"
+                 Points="0, 0 -20,0,0 -20" 
+                 Margin="976,228,-16,482"/>
+        <Polygon Fill="#FF99CC"
+                 Height="40"
+                 Width="40"
+                 Panel.ZIndex="2"
+                 Points="0, 0 -20,0,0 -20" 
+                 Margin="976,292,-16,418"/>
         <Border x:Name="OutsideBackground"
                 CornerRadius="20" 
                 BorderBrush="#1ED760"
@@ -229,12 +265,6 @@
                                        FontFamily="Segoe UI Semibold"></TextBlock>
                         </StackPanel>
                     </StackPanel>
-                    <Polygon Fill="#FF99CC"
-                             Height="40"
-                             Width="40"
-                             Margin="260,0,0,-45"
-                             Points="0,0 -20,0 0,-20">
-                    </Polygon>
                     <Separator Background="#0099FF"
                                Width="auto"></Separator>
                     <StackPanel Orientation="Horizontal"
@@ -281,12 +311,6 @@
                                        FontFamily="Segoe UI Semibold"></TextBlock>
                         </StackPanel>
                     </StackPanel>
-                    <Polygon Fill="#FF99CC"
-                             Height="40"
-                             Width="40"
-                             Points="0,0 -20,0 0,-20"
-                             Margin="260,0,0,-45">
-                    </Polygon>
                     <Separator Background="#0099FF"
                                Width="auto"></Separator>
                     <StackPanel Orientation="Horizontal"
@@ -332,12 +356,6 @@
                                         Text="{Binding ListPopular[4].Album}" FontFamily="Segoe UI Semibold"></TextBlock>
                         </StackPanel>
                     </StackPanel>
-                    <Polygon Fill="#FF99CC"
-                             Height="40"
-                             Width="40"
-                             Margin="260,0,0,-45"
-                             Points="0,0 -20,0 0,-20">
-                    </Polygon>
                     <Separator Background="#0099FF"
                                Width="auto"></Separator>
                 </StackPanel>
@@ -386,12 +404,6 @@
                                         Text="{Binding ListPopular[1].Album}" FontFamily="Segoe UI Semibold"></TextBlock>
                         </StackPanel>
                     </StackPanel>
-                    <Polygon Fill="#FF99CC"
-                             Height="40"
-                             Width="40"
-                             Margin="260,0,0,-45"
-                             Points="0,0 -20,0 0,-20">
-                    </Polygon>
                     <Separator Background="#0099FF"
                                Width="auto"></Separator>
                     <StackPanel Orientation="Horizontal"
@@ -437,12 +449,6 @@
                                         Text="{Binding ListPopular[3].Album}" FontFamily="Segoe UI Semibold"></TextBlock>
                         </StackPanel>
                     </StackPanel>
-                    <Polygon Fill="#FF99CC"
-                             Height="40"
-                             Width="40"
-                             Margin="260,0,0,-45"
-                             Points="0,0 -20,0 0,-20">
-                    </Polygon>
                     <Separator Background="#0099FF"
                                Width="auto"></Separator>
                     <StackPanel Orientation="Horizontal"
@@ -488,12 +494,6 @@
                                         Text="{Binding ListPopular[5].Album}" FontFamily="Segoe UI Semibold"></TextBlock>
                         </StackPanel>
                     </StackPanel>
-                    <Polygon Fill="#FF99CC"
-                             Height="40"
-                             Width="40"
-                             Margin="260,0,0,-45"
-                             Points="0,0 -20,0 0,-20">
-                    </Polygon>
                     <Separator Background="#0099FF"
                                Width="auto"></Separator>
                 </StackPanel>

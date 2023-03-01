@@ -281,9 +281,12 @@ namespace MusicMediaPlayer.ViewModel
                 }
                 if (sliProgress.IsFocused == true)
                 {
-                    mediaPlayer2.Stop();
+                    mediaPlayer2.Pause();
                     mediaPlayer2.Position = TimeSpan.FromSeconds(sliProgress.Value);
-                    mediaPlayer2.Play();
+                    if (Playbtn2.IsChecked == true)
+                    {
+                        mediaPlayer2.Play();
+                    }
                     ArtistSongWindow.Focus();
                 }
                 if (sliProgress.Value == sliProgress.Maximum)

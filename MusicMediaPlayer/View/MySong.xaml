@@ -341,6 +341,7 @@
                     <Expander Background="Transparent"
                               Foreground="Transparent"
                               Margin="0,0,0,0"
+                              IsEnabled="False"
                               IsExpanded="True"
                               x:Name="TopTrendExpander">
                         <StackPanel>
@@ -611,6 +612,7 @@
                                            FontWeight="Bold"
                                            Foreground="Black"
                                            TextAlignment="Center"
+                                           TextTrimming="WordEllipsis"
                                            Text="{Binding SelectedItem.SongTitle}"></TextBlock>
                                 <TextBlock Width="400"
                                            Height="30"
@@ -618,6 +620,7 @@
                                            FontWeight="Medium"
                                            Foreground="#767676"
                                            TextAlignment="Center"
+                                           TextTrimming="WordEllipsis"
                                            Text="{Binding SelectedItem.Artist}"></TextBlock>
                                 <StackPanel Orientation="Horizontal" 
                                             Width="auto"

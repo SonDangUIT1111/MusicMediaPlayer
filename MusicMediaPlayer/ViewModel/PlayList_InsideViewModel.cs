@@ -435,9 +435,12 @@ namespace MusicMediaPlayer.ViewModel
                 }
                 if (sliProgress.IsFocused == true)
                 {
-                    mediaPlayer1.Stop();
+                    mediaPlayer1.Pause();
                     mediaPlayer1.Position = TimeSpan.FromSeconds(sliProgress.Value);
-                    mediaPlayer1.Play();
+                    if (thispage.Play.IsChecked == true)
+                    {
+                        mediaPlayer1.Play();
+                    }
                     thispage.Focus();
                 }
                 if (sliProgress.Value == sliProgress.Maximum)

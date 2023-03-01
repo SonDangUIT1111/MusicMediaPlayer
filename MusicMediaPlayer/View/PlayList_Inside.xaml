@@ -340,6 +340,7 @@
                                                     Foreground="Black"
                                                     FontFamily="Arial Rounded MT Bold"
                                                     Opacity="0.7"
+                                                    TextTrimming="WordEllipsis"
                                                     TextAlignment="Center"
                                                     Text="{Binding PLName}"
                                                     TextWrapping="Wrap">
