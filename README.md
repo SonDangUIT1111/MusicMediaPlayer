@@ -2,6 +2,7 @@
 ## Music Universe 
 
 Music Universe is a new music media player created by Dang Thai Son, Pham Tuan Kiet and Le Vo Duy Khiem.
+![alt text](https://github.com/SonDangUIT1111/MusicMediaPlayer/blob/main/AppView1.png?raw=true)
 ## 📦Installation 
 
 - Use this link to clone project: [(https://github.com/SonDangUIT1111/MusicMediaPlayer.git)
