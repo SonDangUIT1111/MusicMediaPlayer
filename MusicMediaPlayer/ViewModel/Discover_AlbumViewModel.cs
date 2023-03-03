@@ -151,18 +151,28 @@ namespace MusicMediaPlayer.ViewModel
                 if (op.ShowDialog() == true)
                 {
                     ImagePathToChange = op.FileName;
-                    ImageBrush imageBrush = new ImageBrush();
-                    BitmapImage bitmap = new BitmapImage();
-                    bitmap.BeginInit();
-                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
-                    bitmap.UriSource = new Uri(ImagePathToChange);
-                    bitmap.EndInit();
-                    imageBrush.ImageSource = bitmap;
-                    p.Background = imageBrush;
-                    if (p.Children.Count > 1)
+                    try
                     {
-                        p.Children.Remove(p.Children[0]);
-                        p.Children.Remove(p.Children[1]);
+                        ImageBrush imageBrush = new ImageBrush();
+                        BitmapImage bitmap = new BitmapImage();
+                        bitmap.BeginInit();
+                        bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                        bitmap.UriSource = new Uri(ImagePathToChange);
+                        bitmap.EndInit();
+                        imageBrush.ImageSource = bitmap;
+                        p.Background = imageBrush;
+                        if (p.Children.Count > 1)
+                        {
+                            p.Children.Remove(p.Children[0]);
+                            p.Children.Remove(p.Children[1]);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBoxOK ms = new MessageBoxOK();
+                        var data = ms.DataContext as MessageBoxOKViewModel;
+                        data.Content = "Image file is invalid";
+                        ms.ShowDialog();
                     }
                 }
             });

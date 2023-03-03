@@ -13,6 +13,7 @@ using MusicMediaPlayer.ViewModel;
 using System.IO;
 using System.Windows.Media.Imaging;
 using System.Windows.Media;
+using MusicMediaPlayer.View;
 
 namespace MusicMediaPlayer.ViewModel
 {
@@ -133,17 +134,27 @@ namespace MusicMediaPlayer.ViewModel
                 if (op.ShowDialog() == true)
                 {
                     ImagePathToAdd = op.FileName;
-                    ImageBrush imageBrush = new ImageBrush();
-                    BitmapImage bitmap = new BitmapImage();
-                    bitmap.BeginInit();
-                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
-                    bitmap.UriSource = new Uri(ImagePathToAdd);
-                    bitmap.EndInit();
-                    imageBrush.ImageSource = bitmap;
-                    p.Background = imageBrush;
-                    if (p.Children.Count > 1)
+                    try
                     {
-                        p.Children.Clear();
+                        ImageBrush imageBrush = new ImageBrush();
+                        BitmapImage bitmap = new BitmapImage();
+                        bitmap.BeginInit();
+                        bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                        bitmap.UriSource = new Uri(ImagePathToAdd);
+                        bitmap.EndInit();
+                        imageBrush.ImageSource = bitmap;
+                        p.Background = imageBrush;
+                        if (p.Children.Count > 1)
+                        {
+                            p.Children.Clear();
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBoxOK ms = new MessageBoxOK();
+                        var data = ms.DataContext as MessageBoxOKViewModel;
+                        data.Content = "Image file is invalid";
+                        ms.ShowDialog();
                     }
                 }
             });

@@ -731,15 +731,25 @@ namespace MusicMediaPlayer.ViewModel
                 editWD.ChangeArtistSong.Text = SongChanging.Artist;
                 editWD.ChangeAlbumtSong.Text = SongChanging.Album;
                 editWD.ChangeGenreSong.Text = SongChanging.Genre;
-                ImageBrush imageBrush = new ImageBrush();
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.CacheOption = BitmapCacheOption.OnLoad;
-                var imagestream = new MemoryStream(SongChanging.ImageSongBinary);
-                bitmap.StreamSource = imagestream;
-                bitmap.EndInit();
-                imageBrush.ImageSource = bitmap;
-                editWD.ChangegrdSelectImg.Background = imageBrush;
+                try
+                {
+                    ImageBrush imageBrush = new ImageBrush();
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                    var imagestream = new MemoryStream(SongChanging.ImageSongBinary);
+                    bitmap.StreamSource = imagestream;
+                    bitmap.EndInit();
+                    imageBrush.ImageSource = bitmap;
+                    editWD.ChangegrdSelectImg.Background = imageBrush;
+                }
+                catch (Exception)
+                {
+                    MessageBoxOK ms = new MessageBoxOK();
+                    var data = ms.DataContext as MessageBoxOKViewModel;
+                    data.Content = "Image file is invalid";
+                    ms.ShowDialog();
+                }
                 editWD.ShowDialog();
             });
 
@@ -759,29 +769,45 @@ namespace MusicMediaPlayer.ViewModel
                     var tfile = TagLib.File.Create(FilePathToAdd);
                     AddSongToApp window = p as AddSongToApp;
                     window.TitleSong.Text = tfile.Tag.Title;
-                    if (tfile.Tag.FirstArtist != null)
-                        window.ArtistSong.Text = tfile.Tag.FirstArtist;
-                    if (tfile.Tag.Album != null)
-                        window.AlbumSong.Text = tfile.Tag.Album;
-                    if (tfile.Tag.FirstGenre != null)
-                        window.GenreSong.Text = tfile.Tag.FirstGenre;
-                    if (tfile.Tag.Pictures[0].Data.Data != null)
+                    try
                     {
-                        MemoryStream ms = new MemoryStream(tfile.Tag.Pictures[0].Data.Data);
-                        ImageBrush imageBrush = new ImageBrush();
-                        BitmapImage bitmap = new BitmapImage();
-                        bitmap.BeginInit();
-                        bitmap.CacheOption = BitmapCacheOption.OnLoad;
-                        bitmap.StreamSource = ms;
-                        bitmap.EndInit();
-                        imageBrush.ImageSource = bitmap;
-                        window.grdSelectImg.Background = imageBrush;
-                        if (window.grdSelectImg.Children.Count > 1)
+                        if (tfile.Tag.FirstArtist != null)
+                            window.ArtistSong.Text = tfile.Tag.FirstArtist;
+                        else
+                            window.ArtistSong.Text = null;
+                        if (tfile.Tag.Album != null)
+                            window.AlbumSong.Text = tfile.Tag.Album;
+                        else
+                            window.AlbumSong.Text = null;
+                        if (tfile.Tag.FirstGenre != null)
+                            window.GenreSong.Text = tfile.Tag.FirstGenre;
+                        else
+                            window.GenreSong.Text = null;
+                        if (tfile.Tag.Pictures[0].Data.Data != null)
                         {
-                            window.grdSelectImg.Children.Remove(window.grdSelectImg.Children[0]);
-                            window.grdSelectImg.Children.Remove(window.grdSelectImg.Children[1]);
+                            MemoryStream ms = new MemoryStream(tfile.Tag.Pictures[0].Data.Data);
+                            ImageBrush imageBrush = new ImageBrush();
+                            BitmapImage bitmap = new BitmapImage();
+                            bitmap.BeginInit();
+                            bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                            bitmap.StreamSource = ms;
+                            bitmap.EndInit();
+                            imageBrush.ImageSource = bitmap;
+                            window.grdSelectImg.Background = imageBrush;
+                            if (window.grdSelectImg.Children.Count > 1)
+                            {
+                                window.grdSelectImg.Children.Remove(window.grdSelectImg.Children[0]);
+                                window.grdSelectImg.Children.Remove(window.grdSelectImg.Children[1]);
+                            }
+                            ImageBinaryAdd = tfile.Tag.Pictures[0].Data.Data;
                         }
-                        ImageBinaryAdd = tfile.Tag.Pictures[0].Data.Data;
+                        else
+                            ImageBinaryAdd = null;
+                    }
+                    catch (Exception)
+                    {
+                        MessageBoxFail ms = new MessageBoxFail();
+                        ms.ShowDialog();
                     }
                 }
             });
@@ -793,18 +819,28 @@ namespace MusicMediaPlayer.ViewModel
                 if (op.ShowDialog() == true)
                 {
                     ImagePathToAdd = op.FileName;
-                    ImageBrush imageBrush = new ImageBrush();
-                    BitmapImage bitmap = new BitmapImage();
-                    bitmap.BeginInit();
-                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
-                    bitmap.UriSource = new Uri(ImagePathToAdd);
-                    bitmap.EndInit();
-                    imageBrush.ImageSource = bitmap;
-                    p.Background = imageBrush;
-                    if (p.Children.Count > 1)
+                    try
                     {
-                        p.Children.Remove(p.Children[0]);
-                        p.Children.Remove(p.Children[1]);
+                        ImageBrush imageBrush = new ImageBrush();
+                        BitmapImage bitmap = new BitmapImage();
+                        bitmap.BeginInit();
+                        bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                        bitmap.UriSource = new Uri(ImagePathToAdd);
+                        bitmap.EndInit();
+                        imageBrush.ImageSource = bitmap;
+                        p.Background = imageBrush;
+                        if (p.Children.Count > 1)
+                        {
+                            p.Children.Remove(p.Children[0]);
+                            p.Children.Remove(p.Children[1]);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBoxOK ms = new MessageBoxOK();
+                        var data = ms.DataContext as MessageBoxOKViewModel;
+                        data.Content = "Image file is invalid";
+                        ms.ShowDialog();
                     }
                 }
             });
@@ -816,18 +852,28 @@ namespace MusicMediaPlayer.ViewModel
                 if (op.ShowDialog() == true)
                 {
                     ImagePathToChange = op.FileName;
-                    ImageBrush imageBrush = new ImageBrush();
-                    BitmapImage bitmap = new BitmapImage();
-                    bitmap.BeginInit();
-                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
-                    bitmap.UriSource = new Uri(ImagePathToChange);
-                    bitmap.EndInit();
-                    imageBrush.ImageSource = bitmap;
-                    p.Background = imageBrush;
-                    if (p.Children.Count > 1)
+                    try
                     {
-                        p.Children.Remove(p.Children[0]);
-                        p.Children.Remove(p.Children[1]);
+                        ImageBrush imageBrush = new ImageBrush();
+                        BitmapImage bitmap = new BitmapImage();
+                        bitmap.BeginInit();
+                        bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                        bitmap.UriSource = new Uri(ImagePathToChange);
+                        bitmap.EndInit();
+                        imageBrush.ImageSource = bitmap;
+                        p.Background = imageBrush;
+                        if (p.Children.Count > 1)
+                        {
+                            p.Children.Remove(p.Children[0]);
+                            p.Children.Remove(p.Children[1]);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBoxOK ms = new MessageBoxOK();
+                        var data = ms.DataContext as MessageBoxOKViewModel;
+                        data.Content = "Image file is invalid";
+                        ms.ShowDialog();
                     }
                 }
             });
@@ -903,7 +949,7 @@ namespace MusicMediaPlayer.ViewModel
                     {
                         timetoadd = String.Format("{0}", med.NaturalDuration.TimeSpan.ToString(@"mm\:ss"));
                     }
-                    if (ImageBinaryAdd == null)
+                    if (ImagePathToAdd != null || (ImagePathToAdd == null && ImageBinaryAdd == null))
                     {
                         Converter.ByteArrayToBitmapImageConverter converter = new MusicMediaPlayer.Converter.ByteArrayToBitmapImageConverter();
                         ImageBinaryAdd = converter.ImageToBinary(uriImage);
