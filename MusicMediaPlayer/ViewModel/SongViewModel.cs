@@ -689,6 +689,7 @@ namespace MusicMediaPlayer.ViewModel
                         DataProvider.Ins.DB.SaveChanges();
                         genrelist = new ObservableCollection<Genre>(DataProvider.Ins.DB.Genres.Where(x => x.GenreName == GenreToChange && x.UserId == CurrentUser.Id));
                         SongChanging.GenreId = genrelist[0].GenreId;
+                        DataProvider.Ins.DB.SaveChanges();
                     }
                     if (DataProvider.Ins.DB.Songs.Where(x => x.UserId == CurrentUser.Id && x.GenreId == genreid).Count() == 0)
                     {
