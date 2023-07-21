@@ -3,10 +3,10 @@
 ![alt text](https://camo.githubusercontent.com/ecfca3d1db3a386b4247c9590a5a0091d8886a6f098d96ef29cd06f16e036a45/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2e4e45542532304672616d65776f726b2d362e302d626c75653f7374796c653d666c61742d737175617265)
 ![alt text](https://camo.githubusercontent.com/c9395d315cef6c15a6086304bd22a377a2cd63c9e0f6c29e824843086f003cfe/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4d6174657269616c44657369676e2d76322d627269676874677265656e3f7374796c653d666c61742d737175617265)
 
-Music Universe là ứng dụng nghe nhạc trực quan sinh động với người dùng với đầy đủ tính năng thực tế và thiết thực.
-
 ![alt text](https://camo.githubusercontent.com/28fcd4c311e67d9050d4bedc471c99af93ac05759bfbd1c72bca3626e83cbf10/68747470733a2f2f666f7274686562616467652e636f6d2f696d616765732f6261646765732f6d6164652d776974682d632d73686172702e737667)
 ![alt text](https://camo.githubusercontent.com/74c68997445423bb43aecd572d760067203b0a53e29f548413a2c4b495cde7b0/68747470733a2f2f666f7274686562616467652e636f6d2f696d616765732f6261646765732f6275696c742d62792d646576656c6f706572732e737667)
+
+Music Universe là ứng dụng nghe nhạc trực quan sinh động với người dùng với đầy đủ tính năng thực tế và thiết thực.
 
 ## 📚 Giới thiệu
 ![alt text](https://github.com/SonDangUIT1111/MusicMediaPlayer/blob/main/AppView1.png?raw=true)
