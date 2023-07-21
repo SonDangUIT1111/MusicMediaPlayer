@@ -15,7 +15,7 @@ Music Universe là ứng dụng nghe nhạc cho phép tạo nhiều tài khoản
 Đây là một đoạn video giới thiệu về toàn bộ tính năng của chương trình, có một số đoạn hơi giật lag mong mọi người thông cảm:
 https://www.youtube.com/watch?v=6YXuLine46A&t=359s
 
-Ứng dụng cho phép tạo nhiều tài khoản khác nhau, tùy thuộc vào sở thích của người dùng, việc quản lí mật khẩu cũng được mã hóa một cách cẩn thận đảm bảo tính bảo mật, việc lấy lại mật khẩu khi quên cũng được đáp ứng. Dưới đây là tổng quan ứng dụng của chúng em.
+Ứng dụng cho phép tạo nhiều tài khoản khác nhau, tùy thuộc vào sở thích của người dùng, việc quản lí mật khẩu cũng được mã hóa một cách cẩn thận đảm bảo tính bảo mật, việc lấy lại mật khẩu khi quên cũng được đáp ứng. Dưới đây là tổng quan ứng dụng của chúng mình.
 
 ## 🏘️ Home
 
@@ -55,7 +55,7 @@ Tùy vào dữ liệu các bài hát mà người dùng thêm vào cơ sở dữ
 Vì là đồ án và cũng là ứng dụng đầu tiên nên còn nhiều thiếu sót, mong mọi người sẽ thông cảm và đóng góp cho nhóm để nhóm có thể cải tiến chương trình tối ưu, hoàn chỉnh hơn. Cảm ơn mọi người đã dành thời gian xem qua đồ án của chúng mình.
 
 Cảm ơn các thành viên trong nhóm đã chung tay đóng góp và xây dựng nên ứng dụng hoàn chỉnh này. 
-
-[![](https://avatars.githubusercontent.com/u/116157535?size=100)](https://github.com/SonDangUIT1111)
-[![](https://avatars.githubusercontent.com/u/103875393?size=100)](https://github.com/phamtuankietuit)
-[![](https://avatars.githubusercontent.com/u/100778307?size=100)](https://github.com/DKhiem017)
+|  Leader  |  Member | Member 
+| ------------- | ------------- | --------------------------|
+|[![](https://avatars.githubusercontent.com/u/116157535?size=160)](https://github.com/SonDangUIT1111)|[![](https://avatars.githubusercontent.com/u/103875393?size=160)](https://github.com/phamtuankietuit)|[![](https://avatars.githubusercontent.com/u/100778307?size=160)](https://github.com/DKhiem017)|
+[Đặng Thái Sơn](https://github.com/SonDangUIT1111)|[Phạm Tuấn Kiệt](https://github.com/phamtuankietuit)|[Lê Võ Duy Khiêm](https://github.com/DKhiem017)|
